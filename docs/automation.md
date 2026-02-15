@@ -16,6 +16,8 @@
 | `site/src/data/overrides.json` | **Human-curated** | Hand-edited; automation may append drafts |
 | `site/src/data/collections.json` | **Human-curated** | Hand-edited only |
 | `site/src/data/automation.ignore.json` | **Human-curated** | Hand-edited only |
+| `site/src/data/registry/registry.json` | **Generated** | `scripts/fetch-registry.mjs` from mcp-tool-registry |
+| `site/src/data/registry/registry.index.json` | **Generated** | same fetch script |
 
 ### Draft override rule
 
