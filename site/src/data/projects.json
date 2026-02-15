@@ -13,6 +13,7 @@
     "updatedAt": "2026-02-15T02:56:07Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false,
     "ecosystem": "codeteam",
     "category": "mcp-core",
     "stability": "stable",
@@ -29,8 +30,7 @@
       "Replacing manual security review for production systems"
     ],
     "screenshot": "/screenshots/brain-dev.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "Comfy Headless",
@@ -46,6 +46,7 @@
     "updatedAt": "2026-02-15T03:05:04Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false,
     "category": "ml",
     "stability": "beta",
     "kind": "cli",
@@ -61,8 +62,7 @@
       "Real-time interactive editing"
     ],
     "screenshot": "/screenshots/comfy-headless.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "File Compass",
@@ -79,6 +79,7 @@
     "updatedAt": "2026-02-15T03:05:10Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false,
     "category": "mcp-core",
     "stability": "stable",
     "kind": "mcp-server",
@@ -94,8 +95,7 @@
       "Full-text grep replacement (use ripgrep for exact matches)"
     ],
     "screenshot": "/screenshots/file-compass.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "Soundboard Plugin",
@@ -112,6 +112,7 @@
     "updatedAt": "2026-02-13T10:44:01Z",
     "registered": false,
     "unlisted": true,
+    "deprecated": false,
     "category": "voice",
     "stability": "stable",
     "kind": "plugin",
@@ -127,8 +128,7 @@
       "Voice cloning or custom voice training"
     ],
     "screenshot": "/screenshots/soundboard-plugin.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "Tool Compass",
@@ -144,6 +144,7 @@
     "updatedAt": "2026-02-15T02:41:05Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false,
     "category": "mcp-core",
     "stability": "stable",
     "kind": "mcp-server",
@@ -159,8 +160,42 @@
       "Non-MCP tool discovery"
     ],
     "screenshot": "/screenshots/tool-compass.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
+  },
+  {
+    "name": "Zip Meta Map",
+    "repo": "zip-meta-map",
+    "description": "",
+    "tags": [
+      "metadata",
+      "ci",
+      "llm",
+      "schema"
+    ],
+    "featured": true,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T10:41:29Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pipx install zip-meta-map",
+    "tagline": "Make repos and ZIPs self-describing for LLMs with CI-grade diffs.",
+    "goodFor": [
+      "CI pipelines that need deterministic repo summaries",
+      "LLM/agent workflows that must respect token budgets",
+      "Drift detection via diff --exit-code gating",
+      "Packaging repos as portable, self-describing artifacts"
+    ],
+    "notFor": [
+      "Replacing code search or embeddings (it complements them)",
+      "Runtime vulnerability scanning (heuristics, not CVEs)"
+    ],
+    "screenshot": "/screenshots/zip-meta-map.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Attestia",
@@ -177,13 +212,13 @@
     "updatedAt": "2026-02-12T13:39:48Z",
     "registered": false,
     "unlisted": true,
+    "deprecated": false,
     "category": "infrastructure",
     "stability": "beta",
     "kind": "library",
     "tagline": "Financial truth infrastructure for decentralized systems.",
     "screenshot": "/screenshots/Attestia.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "Backpropagate",
@@ -200,14 +235,14 @@
     "updatedAt": "2026-02-15T03:06:06Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false,
     "category": "ml",
     "stability": "beta",
     "kind": "library",
     "install": "pip install backpropagate",
     "tagline": "Headless LLM fine-tuning with smart defaults.",
     "screenshot": "/screenshots/backpropagate.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "LeaseGate Lite",
@@ -232,9 +267,9 @@
     "updatedAt": "2026-02-13T02:34:03Z",
     "registered": false,
     "unlisted": true,
+    "deprecated": false,
     "screenshot": "/screenshots/LeaseGate-Lite.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "ScalarScope Desktop",
@@ -256,9 +291,9 @@
     "updatedAt": "2026-02-15T02:41:14Z",
     "registered": false,
     "unlisted": true,
+    "deprecated": false,
     "screenshot": "/screenshots/ScalarScope-Desktop.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "Accessibility Suite",
@@ -276,10 +311,10 @@
     "updatedAt": "2026-02-15T03:09:43Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false,
     "ecosystem": "accessibility",
     "screenshot": "/screenshots/accessibility-suite.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "Ally Demo Python",
@@ -296,8 +331,8 @@
     "updatedAt": "2026-02-15T03:13:23Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "accessibility",
-    "deprecated": false
+    "deprecated": false,
+    "ecosystem": "accessibility"
   },
   {
     "name": "Aspire AI",
@@ -314,13 +349,13 @@
     "updatedAt": "2026-02-15T02:05:05Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false,
     "category": "ml",
     "stability": "experimental",
     "kind": "library",
     "tagline": "Adversarial student-professor training engine.",
     "screenshot": "/screenshots/aspire-ai.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "Attestia Desktop",
@@ -397,8 +432,8 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "ledger",
-    "deprecated": false
+    "deprecated": true,
+    "ecosystem": "ledger"
   },
   {
     "name": "Claude Collaborate",
@@ -453,8 +488,8 @@
     "updatedAt": "2026-02-15T02:41:48Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "codeteam",
-    "deprecated": false
+    "deprecated": false,
+    "ecosystem": "codeteam"
   },
   {
     "name": "CodeClone Desktop",
@@ -484,8 +519,8 @@
     "updatedAt": "2026-02-02T01:41:49Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "codeteam",
-    "deprecated": false
+    "deprecated": false,
+    "ecosystem": "codeteam"
   },
   {
     "name": "CodeComfy VS Code",
@@ -502,8 +537,8 @@
     "updatedAt": "2026-02-15T02:41:37Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "codeteam",
-    "deprecated": false
+    "deprecated": false,
+    "ecosystem": "codeteam"
   },
   {
     "name": "CodeTeam",
@@ -520,8 +555,8 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "codeteam",
-    "deprecated": false
+    "deprecated": true,
+    "ecosystem": "codeteam"
   },
   {
     "name": "CodeTeam Suite",
@@ -538,8 +573,8 @@
     "updatedAt": "2026-02-14T10:59:15Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "codeteam",
-    "deprecated": false
+    "deprecated": false,
+    "ecosystem": "codeteam"
   },
   {
     "name": "ConsensusOS",
@@ -612,8 +647,8 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "ledger",
-    "deprecated": false
+    "deprecated": true,
+    "ecosystem": "ledger"
   },
   {
     "name": "CursorAssist",
@@ -776,7 +811,7 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": true
   },
   {
     "name": "LeaseGate",
@@ -816,8 +851,8 @@
     "updatedAt": "2026-02-15T02:41:40Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "ledger",
-    "deprecated": false
+    "deprecated": false,
+    "ecosystem": "ledger"
   },
   {
     "name": "Linux Dev Typer",
@@ -903,13 +938,13 @@
     "updatedAt": "2026-02-15T02:05:11Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false,
     "category": "security",
     "stability": "beta",
     "kind": "cli",
     "tagline": "Red team toolkit for MCP security scanners.",
     "screenshot": "/screenshots/mcp-stress-test.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "Mcp Voice Engine",
@@ -926,13 +961,13 @@
     "updatedAt": "2026-02-15T02:41:39Z",
     "registered": false,
     "unlisted": true,
+    "deprecated": false,
     "category": "voice",
     "stability": "beta",
     "kind": "library",
     "tagline": "Streaming TTS inference backend.",
     "screenshot": "/screenshots/mcp-voice-engine.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "Mcp Voice Soundboard",
@@ -949,14 +984,14 @@
     "updatedAt": "2026-02-15T02:55:09Z",
     "registered": false,
     "unlisted": true,
+    "deprecated": false,
     "category": "voice",
     "stability": "stable",
     "kind": "mcp-server",
     "install": "pip install mcp-voice-soundboard",
     "tagline": "TTS MCP server with 12 voices and SSML-lite.",
     "screenshot": "/screenshots/mcp-voice-soundboard.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "MCPT",
@@ -970,17 +1005,17 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T02:55:16Z",
+    "updatedAt": "2026-02-15T08:32:12Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false,
     "category": "mcp-core",
     "stability": "stable",
     "kind": "cli",
     "install": "pip install mcpt",
     "tagline": "CLI for discovering and running MCP tools.",
     "screenshot": "/screenshots/mcpt.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "Meta Content System",
@@ -1074,8 +1109,8 @@
     "updatedAt": "2026-02-02T01:34:10Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "nexus",
-    "deprecated": false
+    "deprecated": false,
+    "ecosystem": "nexus"
   },
   {
     "name": "Pathway",
@@ -1278,9 +1313,9 @@
     "updatedAt": "2026-02-02T01:41:54Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false,
     "screenshot": "/screenshots/stresskit-mcp.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "Synthesis",
@@ -1360,14 +1395,14 @@
     "updatedAt": "2026-02-15T03:04:53Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false,
     "category": "security",
     "stability": "stable",
     "kind": "cli",
     "install": "pip install tool-scan",
     "tagline": "Security scanner for MCP tools.",
     "screenshot": "/screenshots/tool-scan.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "Trace",
@@ -1445,13 +1480,13 @@
     "updatedAt": "2026-02-15T02:55:10Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false,
     "category": "voice",
     "stability": "beta",
     "kind": "library",
     "tagline": "TTS library with compiler/graph/engine architecture.",
     "screenshot": "/screenshots/voice-soundboard.png",
-    "screenshotType": "placeholder",
-    "deprecated": false
+    "screenshotType": "placeholder"
   },
   {
     "name": "WebSketch CLI",
@@ -1468,8 +1503,8 @@
     "updatedAt": "2026-02-15T02:41:34Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "websketch",
-    "deprecated": false
+    "deprecated": false,
+    "ecosystem": "websketch"
   },
   {
     "name": "WebSketch Demo",
@@ -1486,8 +1521,8 @@
     "updatedAt": "2026-02-15T01:21:41Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "websketch",
-    "deprecated": false
+    "deprecated": false,
+    "ecosystem": "websketch"
   },
   {
     "name": "WebSketch Extension",
@@ -1504,8 +1539,8 @@
     "updatedAt": "2026-02-15T02:41:31Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "websketch",
-    "deprecated": false
+    "deprecated": false,
+    "ecosystem": "websketch"
   },
   {
     "name": "WebSketch IR",
@@ -1522,8 +1557,8 @@
     "updatedAt": "2026-02-15T02:41:33Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "websketch",
-    "deprecated": false
+    "deprecated": false,
+    "ecosystem": "websketch"
   },
   {
     "name": "WebSketch MCP",
@@ -1540,8 +1575,8 @@
     "updatedAt": "2026-02-15T02:41:32Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "websketch",
-    "deprecated": false
+    "deprecated": false,
+    "ecosystem": "websketch"
   },
   {
     "name": "Winget Packages",
@@ -1558,7 +1593,7 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": true
   },
   {
     "name": "Witness",
@@ -1575,10 +1610,10 @@
     "updatedAt": "2026-02-12T05:35:44Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false,
     "category": "infrastructure",
     "stability": "beta",
     "kind": "library",
-    "tagline": "Append-only event journal with cryptographic verification.",
-    "deprecated": false
+    "tagline": "Append-only event journal with cryptographic verification."
   }
 ]

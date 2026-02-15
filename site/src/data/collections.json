@@ -22,5 +22,11 @@
     "title": "ML & Training",
     "description": "Local model training, fine-tuning, and image generation.",
     "repos": ["backpropagate", "comfy-headless", "aspire-ai"]
+  },
+  {
+    "id": "infrastructure",
+    "title": "Infrastructure",
+    "description": "Deterministic building blocks for CI, packaging, and agent reliability.",
+    "repos": ["zip-meta-map", "witness", "Attestia"]
   }
 ]

@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-02-15T07:16:30.940Z",
+  "generatedAt": "2026-02-15T10:53:30.286Z",
   "archived": [
     {
       "registryId": "claim-ledger",
       "repoName": "ClaimLedger",
-      "repo": "https://github.com/mcp-tool-shop-org/claim-ledger",
+      "repo": "https://github.com/mcp-tool-shop-org/ClaimLedger",
       "action": "remove or mark deprecated in registry"
     },
     {
@@ -16,7 +16,7 @@
     {
       "registryId": "creator-ledger",
       "repoName": "CreatorLedger",
-      "repo": "https://github.com/mcp-tool-shop-org/creator-ledger",
+      "repo": "https://github.com/mcp-tool-shop-org/CreatorLedger",
       "action": "remove or mark deprecated in registry"
     },
     {

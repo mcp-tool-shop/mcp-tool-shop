@@ -282,6 +282,34 @@
     "category": "infrastructure",
     "stability": "beta",
     "kind": "library",
-    "tagline": "Append-only event journal with cryptographic verification."
+    "tagline": "Append-only event journal with cryptographic verification.",
+    "screenshot": "/screenshots/witness.png",
+    "screenshotType": "placeholder"
+  },
+  "zip-meta-map": {
+    "featured": true,
+    "tags": [
+      "metadata",
+      "ci",
+      "llm",
+      "schema"
+    ],
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pipx install zip-meta-map",
+    "tagline": "Make repos and ZIPs self-describing for LLMs with CI-grade diffs.",
+    "goodFor": [
+      "CI pipelines that need deterministic repo summaries",
+      "LLM/agent workflows that must respect token budgets",
+      "Drift detection via diff --exit-code gating",
+      "Packaging repos as portable, self-describing artifacts"
+    ],
+    "notFor": [
+      "Replacing code search or embeddings (it complements them)",
+      "Runtime vulnerability scanning (heuristics, not CVEs)"
+    ],
+    "screenshot": "/screenshots/zip-meta-map.png",
+    "screenshotType": "placeholder"
   }
 }
