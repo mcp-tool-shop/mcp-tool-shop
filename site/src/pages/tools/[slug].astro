@@ -15,6 +15,7 @@ const orgUrl = `https://github.com/mcp-tool-shop-org/${project.repo}`;
 
 // Registry status
 const isRegistered = project.registered === true;
+const isDeprecated = project.deprecated === true;
 
 // Install command resolution: override > registry-computed > none
 const installCmd = project.install || null;
@@ -48,6 +49,9 @@ const related = (projects as any[])
         ) : (
           <span class="badge badge-orgonly" title="Available in the org but not yet listed in the registry">Org-only</span>
         )}
+        {isDeprecated && (
+          <span class="badge badge-deprecated" title="This tool has been archived or deprecated">Deprecated</span>
+        )}
         {project.stability && (
           <span class={`badge badge-${project.stability}`}>{project.stability}</span>
         )}
@@ -59,6 +63,13 @@ const related = (projects as any[])
         )}
       </div>
     </div>
+
+    {isDeprecated && (
+      <div class="deprecated-notice">
+        This tool has been deprecated or its repository has been archived.
+        It may no longer be maintained or receive updates.
+      </div>
+    )}
 
     <p class="tool-description">{project.tagline || project.description}</p>
 
@@ -270,6 +281,23 @@ const related = (projects as any[])
     color: var(--color-text-muted);
     background: rgba(139, 148, 158, 0.06);
     border: 1px dashed rgba(139, 148, 158, 0.2);
+  }
+
+  .badge-deprecated {
+    color: #f85149;
+    background: rgba(248, 81, 73, 0.1);
+    border: 1px solid rgba(248, 81, 73, 0.2);
+  }
+
+  .deprecated-notice {
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.8125rem;
+    color: #f85149;
+    background: rgba(248, 81, 73, 0.06);
+    border: 1px solid rgba(248, 81, 73, 0.15);
+    border-radius: var(--radius);
+    line-height: 1.5;
   }
 
   .tool-description {

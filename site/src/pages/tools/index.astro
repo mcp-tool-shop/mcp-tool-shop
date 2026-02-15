@@ -65,7 +65,7 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
   <div class="project-grid" id="project-grid">
     {(projects as any[]).map((project: any) => (
       <div
-        class="project-card"
+        class={`project-card${project.deprecated ? ' card-deprecated' : ''}`}
         data-name={project.name.toLowerCase()}
         data-desc={project.description.toLowerCase()}
         data-repo={project.repo}
@@ -77,6 +77,7 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
         data-updated={project.updatedAt || ''}
         data-tags={(project.tags || []).join(' ').toLowerCase()}
         data-registered={project.registered ? '1' : '0'}
+        data-deprecated={project.deprecated ? '1' : '0'}
       >
         <div class="card-header">
           <h3>
@@ -85,7 +86,10 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
             </a>
           </h3>
           <div class="card-badges">
-            {project.registered && (
+            {project.deprecated && (
+              <span class="badge badge-deprecated">Deprecated</span>
+            )}
+            {project.registered && !project.deprecated && (
               <span class="badge badge-registered">Registry</span>
             )}
             {project.stability && (
@@ -249,6 +253,20 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
     background: rgba(88, 166, 255, 0.1);
   }
 
+  .badge-deprecated {
+    color: #f85149;
+    background: rgba(248, 81, 73, 0.1);
+  }
+
+  .card-deprecated {
+    opacity: 0.55;
+    border-style: dashed;
+  }
+
+  .card-deprecated:hover {
+    opacity: 0.8;
+  }
+
   .toggle-label {
     display: flex;
     align-items: center;
@@ -332,8 +350,10 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
       const matchKind = !kind || card.dataset.kind === kind;
       const matchStability = !stability || card.dataset.stability === stability;
       const matchRegistered = includeOrgOnly || card.dataset.registered === '1';
+      // Deprecated tools hidden unless org-only toggle is on or search matches
+      const matchDeprecated = card.dataset.deprecated !== '1' || includeOrgOnly || Boolean(q);
 
-      const show = matchSearch && matchLang && matchKind && matchStability && matchRegistered;
+      const show = matchSearch && matchLang && matchKind && matchStability && matchRegistered && matchDeprecated;
       card.hidden = !show;
       if (show) visible++;
     }
