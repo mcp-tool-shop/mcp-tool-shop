@@ -11,12 +11,12 @@
     "JavaScript"
   ],
   "recentReleases": 50,
-  "updatedAt": "2026-02-15T06:42:55.267Z",
+  "updatedAt": "2026-02-15T07:16:30.940Z",
   "registryHealth": {
     "registryToolCount": 48,
     "registeredInProjects": 45,
     "orgOnlyRepos": 35,
-    "registryNoRepo": 6,
+    "registryNoRepo": 1,
     "ignoredRepos": 6,
     "warnings": 6
   }

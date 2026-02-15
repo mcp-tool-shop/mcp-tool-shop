@@ -1,8 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import stats from '../data/org-stats.json';
+import cleanup from '../data/registry/cleanup.json';
 
 const health = (stats as any).registryHealth || {};
+const cleanupData = cleanup as any;
 ---
 
 <Base
@@ -65,6 +67,68 @@ const health = (stats as any).registryHealth || {};
         <span class="health-label">Archived/missing</span>
       </div>
     </div>
+
+    {cleanupData.totalIssues > 0 && (
+      <>
+        <h2>Upstream cleanup queue</h2>
+        <p>
+          These registry entries need attention in the upstream
+          <a href="https://github.com/mcp-tool-shop-org/mcp-tool-registry" rel="noopener">mcp-tool-registry</a>.
+          {cleanupData.totalIssues} issue{cleanupData.totalIssues !== 1 ? 's' : ''} detected.
+        </p>
+      </>
+    )}
+
+    {cleanupData.archived.length > 0 && (
+      <>
+        <h3>Archived repos ({cleanupData.archived.length})</h3>
+        <p class="cleanup-hint">These registry tools point to repos that have been archived on GitHub.</p>
+        <ul class="cleanup-list">
+          {cleanupData.archived.map((item: any) => (
+            <li>
+              <code>{item.registryId}</code>
+              <span class="cleanup-arrow">&rarr;</span>
+              <span class="cleanup-repo">{item.repoName}</span>
+              <span class="cleanup-action">{item.action}</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+
+    {cleanupData.missing.length > 0 && (
+      <>
+        <h3>Missing repos ({cleanupData.missing.length})</h3>
+        <p class="cleanup-hint">These registry tools have no matching repo in the org (not archived, just absent).</p>
+        <ul class="cleanup-list">
+          {cleanupData.missing.map((item: any) => (
+            <li>
+              <code>{item.registryId}</code>
+              <span class="cleanup-arrow">&rarr;</span>
+              <span class="cleanup-repo">{item.repoName}</span>
+              <span class="cleanup-action">{item.action}</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+
+    {cleanupData.aliases.length > 0 && (
+      <>
+        <h3>Active aliases ({cleanupData.aliases.length})</h3>
+        <p class="cleanup-hint">Workarounds for registry ID / repo name mismatches. Fix upstream to retire these.</p>
+        <ul class="cleanup-list">
+          {cleanupData.aliases.map((item: any) => (
+            <li>
+              <code>{item.registryId}</code>
+              <span class="cleanup-arrow">&rarr;</span>
+              <span class="cleanup-repo">{item.repoName}</span>
+              <span class="cleanup-reason">{item.reason}</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
 
     <h2>Data sources</h2>
     <p>
@@ -133,5 +197,56 @@ const health = (stats as any).registryHealth || {};
     font-size: 0.75rem;
     color: var(--color-text-muted);
     text-align: center;
+  }
+
+  .cleanup-hint {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .cleanup-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .cleanup-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    margin-bottom: 0.375rem;
+    flex-wrap: wrap;
+  }
+
+  .cleanup-list code {
+    font-size: 0.75rem;
+    background: rgba(88, 166, 255, 0.08);
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+  }
+
+  .cleanup-arrow {
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+  }
+
+  .cleanup-repo {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .cleanup-action,
+  .cleanup-reason {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    margin-left: auto;
+    font-style: italic;
   }
 </style>

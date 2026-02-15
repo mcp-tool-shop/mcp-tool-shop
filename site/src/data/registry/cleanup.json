@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-02-15T07:16:30.940Z",
+  "archived": [
+    {
+      "registryId": "claim-ledger",
+      "repoName": "ClaimLedger",
+      "repo": "https://github.com/mcp-tool-shop-org/claim-ledger",
+      "action": "remove or mark deprecated in registry"
+    },
+    {
+      "registryId": "codeteam",
+      "repoName": "codeteam",
+      "repo": "https://github.com/mcp-tool-shop-org/codeteam",
+      "action": "remove or mark deprecated in registry"
+    },
+    {
+      "registryId": "creator-ledger",
+      "repoName": "CreatorLedger",
+      "repo": "https://github.com/mcp-tool-shop-org/creator-ledger",
+      "action": "remove or mark deprecated in registry"
+    },
+    {
+      "registryId": "integradio",
+      "repoName": "integradio",
+      "repo": "https://github.com/mcp-tool-shop-org/integradio",
+      "action": "remove or mark deprecated in registry"
+    },
+    {
+      "registryId": "winget-pkgs",
+      "repoName": "winget-pkgs",
+      "repo": "https://github.com/mcp-tool-shop-org/winget-pkgs",
+      "action": "remove or mark deprecated in registry"
+    }
+  ],
+  "missing": [
+    {
+      "registryId": "next-gallery",
+      "repoName": "next-gallery",
+      "repo": "https://github.com/mcp-tool-shop-org/next-gallery",
+      "action": "verify repo exists or remove from registry"
+    }
+  ],
+  "aliases": [
+    {
+      "registryId": "claim-ledger",
+      "repoName": "ClaimLedger",
+      "reason": "case-mismatch or rename"
+    },
+    {
+      "registryId": "creator-ledger",
+      "repoName": "CreatorLedger",
+      "reason": "case-mismatch or rename"
+    }
+  ],
+  "totalIssues": 6
+}

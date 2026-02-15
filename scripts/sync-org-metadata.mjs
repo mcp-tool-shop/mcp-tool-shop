@@ -30,6 +30,7 @@ const OVERRIDES_PATH = path.join(DATA_DIR, "overrides.json");
 const IGNORE_PATH = path.join(DATA_DIR, "automation.ignore.json");
 const REGISTRY_PATH = path.join(DATA_DIR, "registry", "registry.json");
 const ALIASES_PATH = path.join(DATA_DIR, "registry", "aliases.json");
+const CLEANUP_PATH = path.join(DATA_DIR, "registry", "cleanup.json");
 
 function readJson(p) {
   if (!fs.existsSync(p)) return null;
@@ -294,6 +295,20 @@ async function main() {
   const projects = [];
   const warnings = [];
 
+  // Structured cleanup data for upstream hygiene
+  const cleanupArchived = [];
+  const cleanupMissing = [];
+  const cleanupAliases = [];
+
+  // Collect alias entries for cleanup
+  for (const [registryId, repoName] of aliases) {
+    cleanupAliases.push({
+      registryId,
+      repoName,
+      reason: "case-mismatch or rename",
+    });
+  }
+
   // --- Phase 1: Registry tools (registered: true) ---
   for (const [id, tool] of registry) {
     const repoName = registryRepoName(tool, aliases);
@@ -305,8 +320,20 @@ async function main() {
     if (!ghRepo) {
       if (archivedRepos.has(repoName)) {
         warnings.push(`Registry tool "${id}" → repo "${repoName}" is archived`);
+        cleanupArchived.push({
+          registryId: id,
+          repoName,
+          repo: tool.repo || "",
+          action: "remove or mark deprecated in registry",
+        });
       } else {
         warnings.push(`Registry tool "${id}" has no matching org repo "${repoName}"`);
+        cleanupMissing.push({
+          registryId: id,
+          repoName,
+          repo: tool.repo || "",
+          action: "verify repo exists or remove from registry",
+        });
       }
     } else {
       claimedRepos.add(repoName);
@@ -407,6 +434,21 @@ async function main() {
 
   writeJson(STATS_PATH, stats);
   console.log(`Wrote org stats to ${STATS_PATH}`);
+
+  // --- Cleanup artifact ---
+  const cleanup = {
+    generatedAt: new Date().toISOString(),
+    archived: cleanupArchived,
+    missing: cleanupMissing,
+    aliases: cleanupAliases,
+    totalIssues: cleanupArchived.length + cleanupMissing.length,
+  };
+
+  writeJson(CLEANUP_PATH, cleanup);
+  console.log(
+    `Wrote cleanup queue to ${CLEANUP_PATH} ` +
+    `(${cleanupArchived.length} archived, ${cleanupMissing.length} missing, ${cleanupAliases.length} aliases)`
+  );
 
   // --- Registry health report ---
   console.log("\n--- Registry Health Report ---");

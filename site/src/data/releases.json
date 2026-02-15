@@ -124,33 +124,6 @@
     "prerelease": false
   },
   {
-    "repo": "soundboard-plugin",
-    "toolName": "Soundboard Plugin",
-    "tag": "v1.0.0",
-    "name": "v1.0.0 — Security Hardening & Release Ready",
-    "body": [
-      "The soundboard plugin hits **v1.0.0** — fully hardened, documented, and ready for production use.",
-      "| Tag | Phase | Highlights |",
-      "|-----|-------|------------|",
-      "| v0.1.0 | Core speech pipeline | SSML-lite, smart chunking, multi-chunk synthesis |",
-      "| v0.2.0 | Multi-speaker dialogue | Script parser, auto-casting, stage directions |",
-      "| v0.3.0 | Emotion & ambient | 8 emotions, SFX tags, inner monologue |"
-    ],
-    "publishedAt": "2026-02-13T09:48:45Z",
-    "url": "https://github.com/mcp-tool-shop-org/soundboard-plugin/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "LeaseGate",
-    "toolName": "LeaseGate",
-    "tag": "policy-bundle-8d936a536fd2795ed2703bfb2889d877a5708cdb",
-    "name": "policy-bundle-8d936a536fd2795ed2703bfb2889d877a5708cdb",
-    "body": [],
-    "publishedAt": "2026-02-12T18:10:57Z",
-    "url": "https://github.com/mcp-tool-shop-org/LeaseGate/releases/tag/policy-bundle-8d936a536fd2795ed2703bfb2889d877a5708cdb",
-    "prerelease": false
-  },
-  {
     "repo": "ThrottleAI",
     "toolName": "ThrottleAI",
     "tag": "v0.1.0",
@@ -236,23 +209,6 @@
     "prerelease": false
   },
   {
-    "repo": "LeaseGate",
-    "toolName": "LeaseGate",
-    "tag": "v0.1.0",
-    "name": "v0.1.0 — Security Hardening & Reliability",
-    "body": [
-      "LeaseGate v0.1.0 delivers defense-in-depth security hardening and reliability improvements across the full governance stack. All 5 implementation phases are complete, tested, and production-ready.",
-      "Command injection prevention** — Shell metacharacter blocklist and direct process execution (no `cmd.exe /c` indirection) in tool isolation",
-      "Service account token hashing** — SHA-256 hash comparison by default with plaintext backward compatibility",
-      "Payload size limits** — 16 MB cap on named pipe message framing",
-      "Path traversal protection** — All file export endpoints reject `..` traversal and constrain to temp/app data directories",
-      "CSV formula injection prevention** — Report exports escape formula injection characters (`=`, `+`, `-`, `@`)"
-    ],
-    "publishedAt": "2026-02-12T15:15:40Z",
-    "url": "https://github.com/mcp-tool-shop-org/LeaseGate/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
     "repo": "InControl-Desktop",
     "toolName": "InControl Desktop",
     "tag": "v1.2.0",
@@ -284,23 +240,6 @@
     ],
     "publishedAt": "2026-02-12T10:58:59Z",
     "url": "https://github.com/mcp-tool-shop-org/InControl-Desktop/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "soundboard-maui",
-    "toolName": "Soundboard Maui",
-    "tag": "v1.1.0",
-    "name": "Soundboard.Client v1.1.0",
-    "body": [
-      "Multi-target:** net8.0, net9.0, net10.0",
-      "Fix:** EngineInfo deserializes snake_case JSON from real engines (JsonPropertyName)",
-      "Fix:** WsUri uses UriBuilder — https→wss works correctly",
-      "Fix:** SpeakRequest.ResolvedRequestId stable per instance (lazy)",
-      "Fix:** SpeakAsync gracefully closes WebSocket in finally block",
-      "Perf:** ConfigureAwait(false) on all internal awaits"
-    ],
-    "publishedAt": "2026-02-12T10:06:47Z",
-    "url": "https://github.com/mcp-tool-shop-org/soundboard-maui/releases/tag/v1.1.0",
     "prerelease": false
   },
   {
@@ -355,108 +294,6 @@
     "prerelease": false
   },
   {
-    "repo": "soundboard-maui",
-    "toolName": "Soundboard Maui",
-    "tag": "v1.0.0",
-    "name": "Soundboard SDK v1.0.0",
-    "body": [
-      "The first stable release of the Soundboard SDK: a standalone .NET 8 library for streaming TTS from any engine implementing the Soundboard API contract.",
-      "`ISoundboardClient` interface: health, presets, voices, speak, stop",
-      "Streaming audio via `IProgress<AudioChunk>` over WebSocket",
-      "`CancellationToken` on every async method",
-      "`SoundboardClientOptions` with `SOUNDBOARD_BASE_URL` env var support",
-      "Runtime API version check with warning on mismatch"
-    ],
-    "publishedAt": "2026-02-05T22:52:01Z",
-    "url": "https://github.com/mcp-tool-shop-org/soundboard-maui/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "soundboard-maui",
-    "toolName": "Soundboard Maui",
-    "tag": "v0.1-demo",
-    "name": "v0.1-demo — Phase 5 Demo MVP",
-    "body": [
-      "First-time, non-technical user launches the app and hears impressive audio in under 30 seconds, without reading docs.",
-      "Service Client (v1.0 locked)**",
-      "Pure C# HTTP + WebSocket client, no MAUI dependencies",
-      "`ISoundboardClient` interface with health, presets, voices, speak, stop",
-      "Configurable base URL, timeouts, structured logging",
-      "Partial WebSocket frame handling, cancellation on every async path"
-    ],
-    "publishedAt": "2026-02-05T22:13:08Z",
-    "url": "https://github.com/mcp-tool-shop-org/soundboard-maui/releases/tag/v0.1-demo",
-    "prerelease": false
-  },
-  {
-    "repo": "Registrum",
-    "toolName": "Registrum",
-    "tag": "v0.1.0",
-    "name": "v0.1.0 — Packaging Integrity Release",
-    "body": [
-      "This release establishes Registrum as **externally consumable with confidence**.",
-      "Unlike feature-driven releases, this update addresses packaging ambiguity—mismatched versions, unclear hash semantics, undocumented tooling assumptions, and incomplete licensing—without altering system semantics or behavior.",
-      "All externally visible version references now derive from `src/version.ts`, ensuring attestations, artifacts, and documentation remain provably consistent.",
-      "Standard MIT license file included, aligning legal metadata with automated compliance requirements.",
-      "`computeSnapshotChecksum32` — Non-cryptographic (djb2) for integrity checking",
-      "`computeSnapshotHashForAttestation` — Cryptographic (SHA-256) for attestation"
-    ],
-    "publishedAt": "2026-02-05T19:36:19Z",
-    "url": "https://github.com/mcp-tool-shop-org/Registrum/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "VectorCaliper",
-    "toolName": "VectorCaliper",
-    "tag": "v1.0.0",
-    "name": "VectorCaliper v1.0.0",
-    "body": [
-      "A geometrical debugger for learning dynamics.**",
-      "1. **Deterministic visualization** — Same input produces same output, byte-for-byte",
-      "2. **Faithful representation** — Every visual element traces to a measured variable",
-      "3. **No interpretation** — VectorCaliper shows what happened, never tells you what it means",
-      "4. **Truthful degradation** — At scale, shows exact subsets with explicit completeness indicators",
-      "5. **Explicit limits** — Budget violations cause rejection, not silent degradation"
-    ],
-    "publishedAt": "2026-02-05T13:39:51Z",
-    "url": "https://github.com/mcp-tool-shop-org/VectorCaliper/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "runforge-desktop",
-    "toolName": "Runforge Desktop",
-    "tag": "v0.5.0",
-    "name": "v0.5.0: Theme Support & MultiRun Sweeps",
-    "body": [
-      "Release Date**: 2026-02-02",
-      "Theme**: User Experience & Customization",
-      "v0.5.0 focuses on user experience improvements: theme customization (dark/light/system), enhanced error messaging with actionable guidance, expanded settings, and hyperparameter sweeps via MultiRun.",
-      "Dark mode** (default) - Optimized for extended use",
-      "Light mode** - Clean, bright interface",
-      "System mode** - Follows Windows theme preference"
-    ],
-    "publishedAt": "2026-02-02T09:52:16Z",
-    "url": "https://github.com/mcp-tool-shop-org/runforge-desktop/releases/tag/v0.5.0",
-    "prerelease": false
-  },
-  {
-    "repo": "codeteam-suite",
-    "toolName": "Codeteam Suite",
-    "tag": "v0.2.0",
-    "name": "v0.2.0 - Package Verification CLI",
-    "body": [
-      "Deterministic package signature verification** as a protocol.",
-      "CLI engine for package verification",
-      "Ed25519 cryptographic signatures",
-      "Strict stdout purity (JSON only in --json mode)",
-      "Contract-first development with frozen schemas",
-      "`codeteam-cli` - Python CLI engine"
-    ],
-    "publishedAt": "2026-02-02T03:38:33Z",
-    "url": "https://github.com/mcp-tool-shop-org/codeteam-suite/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
     "repo": "synthesis",
     "toolName": "Synthesis",
     "tag": "v0.1.0",
@@ -471,23 +308,6 @@
     ],
     "publishedAt": "2026-02-02T02:04:40Z",
     "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "prov-engine-js",
-    "toolName": "Prov Engine Js",
-    "tag": "v0.2.0",
-    "name": "prov-engine-js v0.2.0",
-    "body": [
-      "Zero-dependency Node.js provenance engine implementing prov-spec.",
-      "W3C PROV-O compatible provenance tracking",
-      "Zero external dependencies",
-      "TypeScript definitions included",
-      "Immutable provenance records",
-      "Cryptographic hashing support"
-    ],
-    "publishedAt": "2026-02-02T02:04:02Z",
-    "url": "https://github.com/mcp-tool-shop-org/prov-engine-js/releases/tag/v0.2.0",
     "prerelease": false
   },
   {
@@ -576,40 +396,6 @@
     "prerelease": false
   },
   {
-    "repo": "runforge-desktop",
-    "toolName": "Runforge Desktop",
-    "tag": "v0.2.0",
-    "name": "v0.2.0 - V1 Contract + Request Panel",
-    "body": [
-      "Release Date:** 2026-02-01",
-      "v0.2.0 introduces the **V1 Contract** for RunRequest, enabling interoperability between RunForge Desktop and the VS Code extension. This release focuses on displaying, viewing, and exporting run request data.",
-      "Shared Schema**: Both Desktop and VS Code now use the same `request.json` schema (v1)",
-      "Forward Compatibility**: Unknown fields from newer versions are preserved on load/save",
-      "Atomic Writes**: File operations use temp file + rename pattern for crash safety",
-      "The Run Detail page now displays the full run request:"
-    ],
-    "publishedAt": "2026-02-01T22:16:59Z",
-    "url": "https://github.com/mcp-tool-shop-org/runforge-desktop/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "runforge-desktop",
-    "toolName": "Runforge Desktop",
-    "tag": "v0.1.1",
-    "name": "v0.1.1",
-    "body": [
-      "Release Date:** February 2026",
-      "Tag:** [v0.1.1](https://github.com/mcp-tool-shop-org/runforge-desktop/releases/tag/v0.1.1)",
-      "v0.1.1 is a polish release focused on improving the first-run experience, artifact availability messaging, and overall UI responsiveness. No breaking changes from v0.1.0.",
-      "Welcome screen** when no workspace is configured - guides new users to Settings",
-      "Empty run list messaging** when workspace has no runs - clear \"No runs found\" with helpful context",
-      "Filter-aware empty states** - distinguishes between \"no runs exist\" and \"no runs match your filter\""
-    ],
-    "publishedAt": "2026-02-01T21:38:15Z",
-    "url": "https://github.com/mcp-tool-shop-org/runforge-desktop/releases/tag/v0.1.1",
-    "prerelease": false
-  },
-  {
     "repo": "codecomfy-vscode",
     "toolName": "Codecomfy Vscode",
     "tag": "v0.4.0",
@@ -663,23 +449,6 @@
     ],
     "publishedAt": "2026-01-31T02:53:28Z",
     "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/tool-compass-vscode-v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "witness",
-    "toolName": "Witness",
-    "tag": "v0.1.0",
-    "name": "v0.1.0",
-    "body": [
-      "Local-first, append-only event journal",
-      "Offline verification",
-      "Canonical JSON + SHA-256 + Ed25519",
-      "See:",
-      "CONTRACT.md",
-      "IMPLEMENTATION_NOTES.md"
-    ],
-    "publishedAt": "2026-01-30T19:58:11Z",
-    "url": "https://github.com/mcp-tool-shop-org/witness/releases/tag/v0.1.0",
     "prerelease": false
   },
   {
@@ -782,6 +551,239 @@
     ],
     "publishedAt": "2026-01-28T19:30:52Z",
     "url": "https://github.com/mcp-tool-shop-org/ally-demo-python/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcpt",
+    "toolName": "Mcpt",
+    "tag": "v0.1.0",
+    "name": "Release 0.1.0",
+    "body": [
+      "Initial release"
+    ],
+    "publishedAt": "2026-01-28T19:30:27Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcpt/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "flexiflow",
+    "toolName": "Flexiflow",
+    "tag": "v0.3.1",
+    "name": "v0.3.1 - Polish & Guardrails",
+    "body": [
+      "Pure ergonomics release. No new features, no API changes—just making FlexiFlow more pleasant to use.",
+      "Before:",
+      "```python",
+      "from flexiflow.engine import FlexiFlowEngine",
+      "from flexiflow.component import AsyncComponent",
+      "from flexiflow.state_machine import StateMachine, State"
+    ],
+    "publishedAt": "2026-01-28T07:19:08Z",
+    "url": "https://github.com/mcp-tool-shop-org/flexiflow/releases/tag/v0.3.1",
+    "prerelease": false
+  },
+  {
+    "repo": "flexiflow",
+    "toolName": "Flexiflow",
+    "tag": "v0.3.0",
+    "name": "v0.3.0 - Composition & Ergonomics",
+    "body": [
+      "This release improves embedding, configuration composition, and production persistence—without breaking existing configs.",
+      "State Packs**: Register multiple custom states via `states:` mapping in config",
+      "SQLite Persistence**: Production-ready adapter with history + retention (`prune_snapshots_sqlite`)",
+      "Namespaced tables**: `flexiflow_snapshots` avoids collisions in shared databases",
+      "Complete embedded app example in `examples/embedded_app/`",
+      "Cookbook section with embedded usage pattern"
+    ],
+    "publishedAt": "2026-01-28T06:56:51Z",
+    "url": "https://github.com/mcp-tool-shop-org/flexiflow/releases/tag/v0.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "flexiflow",
+    "toolName": "Flexiflow",
+    "tag": "v0.2.0",
+    "name": "v0.2.0",
+    "body": [
+      "Custom state loading via dotted paths** (`pkg.mod:ClassName`)",
+      "Auto-registration and normalization to class name",
+      "No core edits required for custom states",
+      "Observability hooks** via structured events",
+      "`component.message.received` - fires when message is handled",
+      "`state.changed` - fires on state transition with from/to states"
+    ],
+    "publishedAt": "2026-01-28T06:24:21Z",
+    "url": "https://github.com/mcp-tool-shop-org/flexiflow/releases/tag/v0.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "pathway",
+    "toolName": "Pathway",
+    "tag": "v0.1.0",
+    "name": "Pathway Core v0.1.0",
+    "body": [
+      "An append-only journey engine where undo never erases learning.**",
+      "14 event types** covering the full journey lifecycle",
+      "SQLite event store** with thread-safe concurrent writes and atomic seq assignment",
+      "Three derived views**: Journey, Learned, Artifacts",
+      "FastAPI endpoints** with security baseline",
+      "CLI tools** including `doctor` command for health checks"
+    ],
+    "publishedAt": "2026-01-26T09:23:28Z",
+    "url": "https://github.com/mcp-tool-shop-org/pathway/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "tool-scan",
+    "toolName": "Tool Scan",
+    "tag": "v1.0.0",
+    "name": "Tool-Scan v1.0.0",
+    "body": [
+      "The first dedicated security scanner for MCP (Model Context Protocol) tool definitions.",
+      "Security Threat Detection**: Prompt injection, tool poisoning, command injection, SQL injection, XSS, SSRF, data exfiltration",
+      "MCP Compliance**: Full validation against MCP specification 2025-11-25",
+      "Unified Scoring**: 1-100 score with letter grades (A+ to F)",
+      "Actionable Remarks**: Specific recommendations for improving tool security",
+      "CI/CD Ready**: Exit codes and JSON output for automation"
+    ],
+    "publishedAt": "2026-01-24T08:14:01Z",
+    "url": "https://github.com/mcp-tool-shop-org/tool-scan/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "headless-wheel-builder",
+    "toolName": "Headless Wheel Builder",
+    "tag": "v0.2.0",
+    "name": "v0.2.0 - Headless GitHub Operations",
+    "body": [
+      "This release adds a comprehensive GitHub module for fully scriptable CI/CD operations. Manage releases, PRs, issues, and workflows without ever touching the web UI.",
+      "```bash",
+      "hwb github release v1.0.0 --repo owner/repo --files dist/*.whl",
+      "hwb github workflow run build.yml --repo owner/repo --ref main",
+      "hwb github pr create --repo owner/repo --head feature --base main \\",
+      "title \"Add new feature\" --body \"Description here\""
+    ],
+    "publishedAt": "2026-01-24T06:10:31Z",
+    "url": "https://github.com/mcp-tool-shop-org/headless-wheel-builder/releases/tag/v0.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "old_voice-soundboard",
+    "toolName": "Old_voice Soundboard",
+    "tag": "v1.2.0",
+    "name": "Voice Soundboard v1.2.0 - Voice Science Edition",
+    "body": [
+      "This release brings **research-backed voice science controls** to Voice Studio, enabling unprecedented control over natural humanization based on acoustic research and neuroscience findings.",
+      "A/B Voice Comparison** - Compare two preset configurations side-by-side",
+      "Waveform Seek** - Click-to-seek audio navigation",
+      "Export Options** - Download as WAV, MP3, or OGG",
+      "Preset Folders & Tags** - Organize custom presets",
+      "Voice science parameters for natural humanization:"
+    ],
+    "publishedAt": "2026-01-24T03:09:47Z",
+    "url": "https://github.com/mcp-tool-shop-org/old_voice-soundboard/releases/tag/v1.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "context-window-manager",
+    "toolName": "Context Window Manager",
+    "tag": "v0.6.2",
+    "name": "v0.6.2 - Beta Release: Lossless Context Restoration",
+    "body": [
+      "> **Never lose your LLM context again.**",
+      "We're excited to announce the first beta release of Context Window Manager - an MCP server that provides **true, lossless context restoration** for LLM sessions.",
+      "Every LLM developer knows the pain: you're deep in a complex conversation, the context is rich with understanding, and then... you hit the token limit. Traditional solutions summarize or truncate, **losing valuable information forever**.",
+      "Context Window Manager takes a different approach: we capture and persist the actual KV cache tensors, allowing you to **freeze** your context and **thaw** it later with zero information loss.",
+      "Freeze & Thaw**: Save context snapshots and restore them exactly as they were",
+      "Clone & Branch**: Fork contexts for parallel exploration without losing the original"
+    ],
+    "publishedAt": "2026-01-23T14:22:02Z",
+    "url": "https://github.com/mcp-tool-shop-org/context-window-manager/releases/tag/v0.6.2",
+    "prerelease": false
+  },
+  {
+    "repo": "headless-wheel-builder",
+    "toolName": "Headless Wheel Builder",
+    "tag": "v0.1.0",
+    "name": "v0.1.0 - Initial Release",
+    "body": [
+      "A universal, headless Python wheel builder for local paths, git repos, and CI/CD pipelines.",
+      "Build from Anywhere** - Local directories, GitHub/GitLab/Bitbucket repos, archive URLs, monorepos",
+      "PEP 517/518/621 Compliant** - Works with setuptools, hatchling, flit, poetry, maturin, and more",
+      "Build Isolation** - Choose between fast venv isolation or Docker containers for manylinux/musllinux wheels",
+      "Multi-Registry Publishing** - PyPI, TestPyPI, private registries, or S3-compatible storage",
+      "Automated Versioning** - Semantic versioning with Conventional Commits integration"
+    ],
+    "publishedAt": "2026-01-23T13:23:32Z",
+    "url": "https://github.com/mcp-tool-shop-org/headless-wheel-builder/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "old_voice-soundboard",
+    "toolName": "Old_voice Soundboard",
+    "tag": "v1.1.0",
+    "name": "Voice Soundboard v1.1.0 - Multilingual Voice Cloning",
+    "body": [
+      "Release Date:** January 23, 2026",
+      "This release adds **F5-TTS** for superior voice cloning and expands **Chatterbox** from English-only to **23 languages**. Users with older hardware can continue using v1.0.0.",
+      "Clone any voice from a short audio sample using state-of-the-art DiT architecture:",
+      "```python",
+      "from voice_soundboard.engines import F5TTSEngine",
+      "engine = F5TTSEngine()"
+    ],
+    "publishedAt": "2026-01-23T07:38:41Z",
+    "url": "https://github.com/mcp-tool-shop-org/old_voice-soundboard/releases/tag/v1.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "old_voice-soundboard",
+    "toolName": "Old_voice Soundboard",
+    "tag": "v1.0.0",
+    "name": "Voice Soundboard v1.0.0 - 2027 Edition",
+    "body": [
+      "Production-ready TTS library and MCP server for AI assistants.",
+      "54+ voices** with Kokoro and Chatterbox TTS engines",
+      "40+ MCP tools** for seamless AI assistant integration",
+      "Real-time streaming** with <100ms latency",
+      "Multi-speaker dialogue** synthesis with auto voice assignment",
+      "Voice cloning** with ethical consent tracking"
+    ],
+    "publishedAt": "2026-01-23T05:33:47Z",
+    "url": "https://github.com/mcp-tool-shop-org/old_voice-soundboard/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "old_voice-soundboard",
+    "toolName": "Old_voice Soundboard",
+    "tag": "v0.1.0",
+    "name": "Voice Soundboard v0.1.0 - Initial Release",
+    "body": [
+      "The first public release of Voice Soundboard** - a production-ready text-to-speech library and MCP server designed for AI assistants.",
+      "50+ High-Quality Voices** - Powered by Kokoro ONNX with diverse accents and styles",
+      "Real-Time Streaming** - Instant playback as audio generates, no waiting",
+      "SSML Support** - Fine-grained control with pauses, emphasis, and prosody",
+      "Emotional Speech** - 8 emotional tones: happy, sad, angry, surprised, and more",
+      "Sound Effects** - 13 built-in effects: chimes, alerts, ambient sounds"
+    ],
+    "publishedAt": "2026-01-22T16:49:13Z",
+    "url": "https://github.com/mcp-tool-shop-org/old_voice-soundboard/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "file-compass",
+    "toolName": "File Compass",
+    "tag": "v0.1.0",
+    "name": "v0.1.0 - Initial Release",
+    "body": [
+      "Semantic file search for AI workstations using HNSW vector indexing and local embeddings.",
+      "Semantic Search**: Find files by describing what you're looking for",
+      "Quick Search**: Instant filename/symbol search (no embedding required)",
+      "Multi-Language AST**: Tree-sitter support for Python, JS, TS, Rust, Go",
+      "Result Explanations**: Understand why each result matched",
+      "MCP Server**: 7 tools for Claude Code integration"
+    ],
+    "publishedAt": "2026-01-20T03:59:55Z",
+    "url": "https://github.com/mcp-tool-shop-org/file-compass/releases/tag/v0.1.0",
     "prerelease": false
   }
 ]
