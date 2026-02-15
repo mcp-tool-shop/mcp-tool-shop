@@ -3,8 +3,13 @@
 /**
  * Sync mcp-tool-shop-org repo metadata -> site/src/data/
  *
+ * Data sources (in merge order):
+ *   1. Registry  — canonical tool list + curated names/descriptions
+ *   2. GitHub    — live signals (stars, language, updatedAt)
+ *   3. Overrides — editorial polish (tagline, goodFor, screenshots)
+ *
  * Outputs:
- *   projects.json   — all active repos, merged with overrides
+ *   projects.json   — all tools + org repos, merged
  *   org-stats.json  — aggregate numbers for homepage
  *   releases.json   — recent releases across the org (newest first)
  */
@@ -22,6 +27,8 @@ const OUT_PATH = path.join(DATA_DIR, "projects.json");
 const STATS_PATH = path.join(DATA_DIR, "org-stats.json");
 const RELEASES_PATH = path.join(DATA_DIR, "releases.json");
 const OVERRIDES_PATH = path.join(DATA_DIR, "overrides.json");
+const IGNORE_PATH = path.join(DATA_DIR, "automation.ignore.json");
+const REGISTRY_PATH = path.join(DATA_DIR, "registry", "registry.json");
 
 function readJson(p) {
   if (!fs.existsSync(p)) return null;
@@ -95,22 +102,96 @@ async function fetchRepoReleases(fullName) {
   return await res.json();
 }
 
-function toProject(repo, override) {
+// ---------------------------------------------------------------------------
+// Registry loading
+// ---------------------------------------------------------------------------
+
+/**
+ * Load registry tools and return a Map<id, registryTool>.
+ * Returns empty map if registry.json doesn't exist (graceful degradation).
+ */
+function loadRegistry() {
+  const data = readJson(REGISTRY_PATH);
+  if (!data || !Array.isArray(data.tools)) {
+    console.warn("Registry not found or invalid — falling back to GitHub-only mode");
+    return new Map();
+  }
+  const map = new Map();
+  for (const tool of data.tools) {
+    map.set(tool.id, tool);
+  }
+  console.log(`Loaded registry: ${map.size} tools (schema v${data.schema_version})`);
+  return map;
+}
+
+/**
+ * Extract the org repo name from a registry tool.
+ * Registry tools store repo as full URL; we extract the last path segment.
+ */
+function registryRepoName(tool) {
+  if (!tool.repo) return tool.id;
+  try {
+    const url = new URL(tool.repo);
+    const segments = url.pathname.split("/").filter(Boolean);
+    return segments[segments.length - 1] || tool.id;
+  } catch {
+    return tool.id;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Project building
+// ---------------------------------------------------------------------------
+
+/** Build a project entry from registry + GitHub + override sources */
+function buildProject({ registryTool, ghRepo, override, registered }) {
+  // 1. Start with registry data (if registered)
   const base = {
-    name: formatName(repo.name),
-    repo: repo.name,
-    description: repo.description || "",
-    tags: repo.topics || [],
+    name: "",
+    repo: "",
+    description: "",
+    tags: [],
     featured: false,
-    stars: repo.stargazers_count ?? 0,
-    language: repo.language || "",
-    updatedAt: repo.pushed_at || repo.updated_at || "",
+    stars: 0,
+    language: "",
+    updatedAt: "",
+    registered,
+    unlisted: !registered, // unregistered repos default to unlisted
   };
 
+  if (registryTool) {
+    base.name = registryTool.name || formatName(registryTool.id);
+    base.repo = registryRepoName(registryTool);
+    base.description = registryTool.description || "";
+    base.tags = registryTool.tags || [];
+    if (registryTool.ecosystem) base.ecosystem = registryTool.ecosystem;
+  }
+
+  // 2. Overlay GitHub live signals
+  if (ghRepo) {
+    if (!base.repo) base.repo = ghRepo.name;
+    if (!base.name) base.name = formatName(ghRepo.name);
+    // GitHub description fills in only if registry didn't provide one
+    if (!base.description) base.description = ghRepo.description || "";
+    // Tags: registry tags win; if none, fall back to GitHub topics
+    if (base.tags.length === 0) base.tags = ghRepo.topics || [];
+    // Live signals always come from GitHub
+    base.stars = ghRepo.stargazers_count ?? 0;
+    base.language = ghRepo.language || "";
+    base.updatedAt = ghRepo.pushed_at || ghRepo.updated_at || "";
+  }
+
+  // 3. Overlay editorial overrides (overrides always win)
   if (override) {
     for (const [key, value] of Object.entries(override)) {
       if (value !== undefined) base[key] = value;
     }
+  }
+
+  // Ensure unlisted is false if override explicitly set it
+  // (override can force-show an unregistered repo)
+  if (override && override.unlisted === false) {
+    base.unlisted = false;
   }
 
   return base;
@@ -161,27 +242,95 @@ function stableSort(projects) {
   });
 }
 
+// ---------------------------------------------------------------------------
+// Main
+// ---------------------------------------------------------------------------
+
 async function main() {
   const overrides = readJson(OVERRIDES_PATH) || {};
+  const ignoreList = new Set(readJson(IGNORE_PATH) || []);
+  const registry = loadRegistry();
 
+  // Fetch all org repos from GitHub
   console.log(`Fetching repos from ${ORG}...`);
   const repos = await listOrgRepos(ORG);
   const active = repos.filter((r) => !r.archived);
-
   console.log(`Found ${active.length} active public repos (${repos.length} total)`);
 
-  const projects = active.map((repo) => toProject(repo, overrides[repo.name]));
+  // Build repo lookup: name -> GitHub API repo object
+  const repoByName = new Map();
+  for (const repo of active) {
+    repoByName.set(repo.name, repo);
+  }
+
+  // Track which org repos get claimed by registry tools
+  const claimedRepos = new Set();
+  const projects = [];
+  const warnings = [];
+
+  // --- Phase 1: Registry tools (registered: true) ---
+  for (const [id, tool] of registry) {
+    const repoName = registryRepoName(tool);
+
+    // Skip ignored repos
+    if (ignoreList.has(repoName) || ignoreList.has(id)) continue;
+
+    const ghRepo = repoByName.get(repoName);
+    if (!ghRepo) {
+      warnings.push(`Registry tool "${id}" has no matching org repo "${repoName}"`);
+    } else {
+      claimedRepos.add(repoName);
+    }
+
+    projects.push(
+      buildProject({
+        registryTool: tool,
+        ghRepo: ghRepo || null,
+        override: overrides[repoName] || overrides[id] || null,
+        registered: true,
+      })
+    );
+  }
+
+  // --- Phase 2: Orphan org repos (registered: false) ---
+  for (const repo of active) {
+    if (claimedRepos.has(repo.name)) continue;
+    if (ignoreList.has(repo.name)) continue;
+
+    projects.push(
+      buildProject({
+        registryTool: null,
+        ghRepo: repo,
+        override: overrides[repo.name] || null,
+        registered: false,
+      })
+    );
+  }
+
   const sorted = stableSort(projects);
 
+  // Summary counts
+  const registeredCount = sorted.filter((p) => p.registered).length;
+  const unlistedCount = sorted.filter((p) => p.unlisted).length;
+  const orphanCount = sorted.filter((p) => !p.registered).length;
+
   writeJson(OUT_PATH, sorted);
-  console.log(`Wrote ${sorted.length} projects to ${OUT_PATH}`);
+  console.log(
+    `Wrote ${sorted.length} projects to ${OUT_PATH} ` +
+    `(${registeredCount} registered, ${orphanCount} org-only, ${unlistedCount} unlisted)`
+  );
+
+  if (warnings.length > 0) {
+    console.log(`\nRegistry warnings (${warnings.length}):`);
+    for (const w of warnings) console.log(`  ⚠ ${w}`);
+  }
 
   // Fetch releases — only for repos active in the last 90 days
   const cutoff = new Date();
   cutoff.setDate(cutoff.getDate() - 90);
   const recentRepos = active.filter((r) => new Date(r.pushed_at || 0) > cutoff);
 
-  console.log(`Fetching releases for ${recentRepos.length} recently active repos...`);
+  console.log(`\nFetching releases for ${recentRepos.length} recently active repos...`);
   const allReleases = [];
   for (const repo of recentRepos) {
     if (rateLimited) break;
@@ -203,6 +352,7 @@ async function main() {
 
   const stats = {
     repoCount: sorted.length,
+    registeredCount,
     totalStars,
     languages,
     recentReleases: capped.length,
