@@ -239,6 +239,7 @@ jobs:
           let registered = 0;
           let unlisted = 0;
 
+          let deprecated = 0;
           for (const p of projects) {
             if (typeof p.registered !== 'boolean') {
               console.error('ERROR: ' + p.repo + ' missing registered flag');
@@ -248,15 +249,20 @@ jobs:
               console.error('ERROR: ' + p.repo + ' missing unlisted flag');
               errors++;
             }
+            if (typeof p.deprecated !== 'boolean') {
+              console.error('ERROR: ' + p.repo + ' missing deprecated flag');
+              errors++;
+            }
             if (p.registered) registered++;
             if (p.unlisted) unlisted++;
+            if (p.deprecated) deprecated++;
           }
 
           if (errors > 0) {
             console.error('\n' + errors + ' projects.json flag error(s).');
             process.exit(1);
           } else {
-            console.log('projects.json: ' + projects.length + ' projects (' + registered + ' registered, ' + unlisted + ' unlisted), flags valid.');
+            console.log('projects.json: ' + projects.length + ' projects (' + registered + ' registered, ' + unlisted + ' unlisted, ' + deprecated + ' deprecated), flags valid.');
           }
           "
 

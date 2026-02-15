@@ -166,7 +166,7 @@ function registryRepoName(tool, aliases = new Map()) {
 // ---------------------------------------------------------------------------
 
 /** Build a project entry from registry + GitHub + override sources */
-function buildProject({ registryTool, ghRepo, override, registered, aliases }) {
+function buildProject({ registryTool, ghRepo, override, registered, aliases, isArchived }) {
   // 1. Start with registry data (if registered)
   const base = {
     name: "",
@@ -179,6 +179,7 @@ function buildProject({ registryTool, ghRepo, override, registered, aliases }) {
     updatedAt: "",
     registered,
     unlisted: !registered, // unregistered repos default to unlisted
+    deprecated: false,
   };
 
   if (registryTool) {
@@ -187,7 +188,12 @@ function buildProject({ registryTool, ghRepo, override, registered, aliases }) {
     base.description = registryTool.description || "";
     base.tags = registryTool.tags || [];
     if (registryTool.ecosystem) base.ecosystem = registryTool.ecosystem;
+    // Registry deprecated flag
+    if (registryTool.deprecated === true) base.deprecated = true;
   }
+
+  // GitHub archived → deprecated
+  if (isArchived) base.deprecated = true;
 
   // 2. Overlay GitHub live signals
   if (ghRepo) {
@@ -346,6 +352,7 @@ async function main() {
         override: overrides[repoName] || overrides[id] || null,
         registered: true,
         aliases,
+        isArchived: archivedRepos.has(repoName),
       })
     );
   }
@@ -362,6 +369,7 @@ async function main() {
         override: overrides[repo.name] || null,
         registered: false,
         aliases,
+        isArchived: false,
       })
     );
   }

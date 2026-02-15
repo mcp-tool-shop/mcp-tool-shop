@@ -107,12 +107,14 @@ Every entry in `projects.json` carries two computed flags:
 |------|------|---------|---------|
 | `registered` | `boolean` | `false` | Tool exists in `registry.json` |
 | `unlisted` | `boolean` | `false` | Hidden from `/tools/` listing by default |
+| `deprecated` | `boolean` | `false` | Tool is archived or marked deprecated in registry |
 
 **Policy:**
 
 - Registry tools → `registered: true`, `unlisted: false`
 - Org repos **not** in registry and **not** in ignore list → `registered: false`, `unlisted: true`
 - Override can set `unlisted: false` on an unregistered repo to force-show it
+- `deprecated: true` is set when: registry has `deprecated: true`, OR the GitHub repo is archived
 
 ### Field precedence (who wins)
 
@@ -135,6 +137,7 @@ Every entry in `projects.json` carries two computed flags:
 | `notFor` | Override only | Editorial decision |
 | `screenshot` | Override only | Editorial decision |
 | `screenshotType` | Override only | Editorial decision |
+| `deprecated` | Registry → GitHub archived | Auto-computed from registry flag or archived status |
 
 ### Merge order
 

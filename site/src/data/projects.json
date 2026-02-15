@@ -29,7 +29,8 @@
       "Replacing manual security review for production systems"
     ],
     "screenshot": "/screenshots/brain-dev.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "Comfy Headless",
@@ -60,7 +61,8 @@
       "Real-time interactive editing"
     ],
     "screenshot": "/screenshots/comfy-headless.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "File Compass",
@@ -92,7 +94,8 @@
       "Full-text grep replacement (use ripgrep for exact matches)"
     ],
     "screenshot": "/screenshots/file-compass.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "Soundboard Plugin",
@@ -124,7 +127,8 @@
       "Voice cloning or custom voice training"
     ],
     "screenshot": "/screenshots/soundboard-plugin.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "Tool Compass",
@@ -155,7 +159,8 @@
       "Non-MCP tool discovery"
     ],
     "screenshot": "/screenshots/tool-compass.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "Attestia",
@@ -177,7 +182,8 @@
     "kind": "library",
     "tagline": "Financial truth infrastructure for decentralized systems.",
     "screenshot": "/screenshots/Attestia.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "Backpropagate",
@@ -200,7 +206,8 @@
     "install": "pip install backpropagate",
     "tagline": "Headless LLM fine-tuning with smart defaults.",
     "screenshot": "/screenshots/backpropagate.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "LeaseGate Lite",
@@ -226,7 +233,8 @@
     "registered": false,
     "unlisted": true,
     "screenshot": "/screenshots/LeaseGate-Lite.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "ScalarScope Desktop",
@@ -249,7 +257,8 @@
     "registered": false,
     "unlisted": true,
     "screenshot": "/screenshots/ScalarScope-Desktop.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "Accessibility Suite",
@@ -269,7 +278,8 @@
     "unlisted": false,
     "ecosystem": "accessibility",
     "screenshot": "/screenshots/accessibility-suite.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "Ally Demo Python",
@@ -286,7 +296,8 @@
     "updatedAt": "2026-02-15T03:13:23Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "accessibility"
+    "ecosystem": "accessibility",
+    "deprecated": false
   },
   {
     "name": "Aspire AI",
@@ -308,7 +319,8 @@
     "kind": "library",
     "tagline": "Adversarial student-professor training engine.",
     "screenshot": "/screenshots/aspire-ai.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "Attestia Desktop",
@@ -329,7 +341,8 @@
     "language": "C#",
     "updatedAt": "2026-02-14T11:20:29Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Audiobooker",
@@ -345,7 +358,8 @@
     "language": "Python",
     "updatedAt": "2026-02-14T06:42:07Z",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "Build Governor",
@@ -365,7 +379,8 @@
     "language": "C#",
     "updatedAt": "2026-02-12T08:51:08Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "ClaimLedger",
@@ -382,7 +397,8 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "ledger"
+    "ecosystem": "ledger",
+    "deprecated": false
   },
   {
     "name": "Claude Collaborate",
@@ -398,7 +414,8 @@
     "language": "HTML",
     "updatedAt": "2026-02-02T02:04:48Z",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "Code Batch",
@@ -418,7 +435,8 @@
     "language": "Python",
     "updatedAt": "2026-02-15T02:55:15Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Code Covered",
@@ -435,7 +453,8 @@
     "updatedAt": "2026-02-15T02:41:48Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "codeteam"
+    "ecosystem": "codeteam",
+    "deprecated": false
   },
   {
     "name": "CodeClone Desktop",
@@ -447,7 +466,8 @@
     "language": "C#",
     "updatedAt": "2026-02-12T04:33:34Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "CodeClone Suite",
@@ -464,7 +484,8 @@
     "updatedAt": "2026-02-02T01:41:49Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "codeteam"
+    "ecosystem": "codeteam",
+    "deprecated": false
   },
   {
     "name": "CodeComfy VS Code",
@@ -481,7 +502,8 @@
     "updatedAt": "2026-02-15T02:41:37Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "codeteam"
+    "ecosystem": "codeteam",
+    "deprecated": false
   },
   {
     "name": "CodeTeam",
@@ -498,7 +520,8 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "codeteam"
+    "ecosystem": "codeteam",
+    "deprecated": false
   },
   {
     "name": "CodeTeam Suite",
@@ -515,7 +538,8 @@
     "updatedAt": "2026-02-14T10:59:15Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "codeteam"
+    "ecosystem": "codeteam",
+    "deprecated": false
   },
   {
     "name": "ConsensusOS",
@@ -535,7 +559,8 @@
     "language": "TypeScript",
     "updatedAt": "2026-02-14T11:20:53Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Context Window Manager",
@@ -552,7 +577,8 @@
     "language": "Python",
     "updatedAt": "2026-02-15T02:55:18Z",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "Control Room",
@@ -568,7 +594,8 @@
     "language": "C#",
     "updatedAt": "2026-02-15T02:41:27Z",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "CreatorLedger",
@@ -585,7 +612,8 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "ledger"
+    "ecosystem": "ledger",
+    "deprecated": false
   },
   {
     "name": "CursorAssist",
@@ -604,7 +632,8 @@
     "language": "C#",
     "updatedAt": "2026-02-12T03:51:30Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "DeterministicMouseTrainingEngine",
@@ -616,7 +645,8 @@
     "language": "C#",
     "updatedAt": "2026-02-11T00:26:29Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Dev Op Typer",
@@ -628,7 +658,8 @@
     "language": "C#",
     "updatedAt": "2026-02-15T02:41:14Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Feature Reacher",
@@ -648,7 +679,8 @@
     "language": "TypeScript",
     "updatedAt": "2026-02-14T06:54:19Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Flexiflow",
@@ -664,7 +696,8 @@
     "language": "Python",
     "updatedAt": "2026-02-14T11:00:26Z",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "Headless Wheel Builder",
@@ -681,7 +714,8 @@
     "language": "Python",
     "updatedAt": "2026-02-14T08:32:21Z",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "Homebrew Mcp Tools",
@@ -701,7 +735,8 @@
     "language": "Ruby",
     "updatedAt": "2026-02-14T10:58:34Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "InControl Desktop",
@@ -723,7 +758,8 @@
     "language": "C#",
     "updatedAt": "2026-02-15T02:41:13Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Integradio",
@@ -739,7 +775,8 @@
     "language": "",
     "updatedAt": "",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "LeaseGate",
@@ -760,7 +797,8 @@
     "language": "C#",
     "updatedAt": "2026-02-12T18:10:57Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Ledger Suite",
@@ -778,7 +816,8 @@
     "updatedAt": "2026-02-15T02:41:40Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "ledger"
+    "ecosystem": "ledger",
+    "deprecated": false
   },
   {
     "name": "Linux Dev Typer",
@@ -798,7 +837,8 @@
     "language": "C#",
     "updatedAt": "2026-02-14T06:54:49Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "LoKey Typer",
@@ -810,7 +850,8 @@
     "language": "TypeScript",
     "updatedAt": "2026-02-14T14:29:54Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Mcp App Builder",
@@ -822,7 +863,8 @@
     "language": "TypeScript",
     "updatedAt": "2026-02-03T01:24:21Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Mcp File Forge",
@@ -843,7 +885,8 @@
     "language": "TypeScript",
     "updatedAt": "2026-02-12T04:46:49Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "MCP Stress Test",
@@ -865,7 +908,8 @@
     "kind": "cli",
     "tagline": "Red team toolkit for MCP security scanners.",
     "screenshot": "/screenshots/mcp-stress-test.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "Mcp Voice Engine",
@@ -887,7 +931,8 @@
     "kind": "library",
     "tagline": "Streaming TTS inference backend.",
     "screenshot": "/screenshots/mcp-voice-engine.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "Mcp Voice Soundboard",
@@ -910,7 +955,8 @@
     "install": "pip install mcp-voice-soundboard",
     "tagline": "TTS MCP server with 12 voices and SSML-lite.",
     "screenshot": "/screenshots/mcp-voice-soundboard.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "MCPT",
@@ -933,7 +979,8 @@
     "install": "pip install mcpt",
     "tagline": "CLI for discovering and running MCP tools.",
     "screenshot": "/screenshots/mcpt.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "Meta Content System",
@@ -945,7 +992,8 @@
     "language": "C#",
     "updatedAt": "2026-02-15T01:32:20Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "MouseTrainer",
@@ -963,7 +1011,8 @@
     "language": "C#",
     "updatedAt": "2026-02-12T03:51:24Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Next Gallery",
@@ -980,7 +1029,8 @@
     "language": "",
     "updatedAt": "",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "NextGallery Desktop",
@@ -992,7 +1042,8 @@
     "language": "C#",
     "updatedAt": "2026-02-02T12:58:12Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "NextLedger",
@@ -1004,7 +1055,8 @@
     "language": "C#",
     "updatedAt": "2026-02-04T11:43:34Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Nexus Suite",
@@ -1022,7 +1074,8 @@
     "updatedAt": "2026-02-02T01:34:10Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "nexus"
+    "ecosystem": "nexus",
+    "deprecated": false
   },
   {
     "name": "Pathway",
@@ -1038,7 +1091,8 @@
     "language": "Python",
     "updatedAt": "2026-02-14T08:15:15Z",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "Payroll Engine",
@@ -1054,7 +1108,8 @@
     "language": "Python",
     "updatedAt": "2026-02-12T05:37:26Z",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "Prov Engine JS",
@@ -1070,7 +1125,8 @@
     "language": "JavaScript",
     "updatedAt": "2026-02-12T04:20:40Z",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "Registrum",
@@ -1090,7 +1146,8 @@
     "language": "TypeScript",
     "updatedAt": "2026-02-12T06:59:59Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Rippled Windows Debug",
@@ -1110,7 +1167,8 @@
     "language": "C#",
     "updatedAt": "2026-02-12T09:25:38Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "RunForge Desktop",
@@ -1127,7 +1185,8 @@
     "language": "C#",
     "updatedAt": "2026-02-12T04:33:16Z",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "RunForge VS Code",
@@ -1144,7 +1203,8 @@
     "language": "Python",
     "updatedAt": "2026-02-15T02:41:36Z",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "ScalarScope",
@@ -1156,7 +1216,8 @@
     "language": "Python",
     "updatedAt": "2026-02-05T01:17:58Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Siege Kit",
@@ -1177,7 +1238,8 @@
     "language": "TypeScript",
     "updatedAt": "2026-02-12T04:42:41Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Soundboard Maui",
@@ -1198,7 +1260,8 @@
     "language": "C#",
     "updatedAt": "2026-02-12T10:06:47Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "StressKit MCP",
@@ -1216,7 +1279,8 @@
     "registered": true,
     "unlisted": false,
     "screenshot": "/screenshots/stresskit-mcp.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "Synthesis",
@@ -1232,7 +1296,8 @@
     "language": "TypeScript",
     "updatedAt": "2026-02-14T11:00:27Z",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "ThrottleAI",
@@ -1256,7 +1321,8 @@
     "language": "TypeScript",
     "updatedAt": "2026-02-15T02:59:18Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "ThrottleAI Desktop",
@@ -1277,7 +1343,8 @@
     "language": "",
     "updatedAt": "2026-02-13T03:03:47Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Tool Scan",
@@ -1299,7 +1366,8 @@
     "install": "pip install tool-scan",
     "tagline": "Security scanner for MCP tools.",
     "screenshot": "/screenshots/tool-scan.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "Trace",
@@ -1311,7 +1379,8 @@
     "language": "C#",
     "updatedAt": "2026-02-11T02:29:14Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Training Studio",
@@ -1328,7 +1397,8 @@
     "language": "TypeScript",
     "updatedAt": "2026-02-02T13:47:38Z",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "VectorCaliper",
@@ -1340,7 +1410,8 @@
     "language": "TypeScript",
     "updatedAt": "2026-02-05T13:40:03Z",
     "registered": false,
-    "unlisted": true
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Venvkit",
@@ -1356,7 +1427,8 @@
     "language": "TypeScript",
     "updatedAt": "2026-02-14T11:00:28Z",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "Voice Soundboard",
@@ -1378,7 +1450,8 @@
     "kind": "library",
     "tagline": "TTS library with compiler/graph/engine architecture.",
     "screenshot": "/screenshots/voice-soundboard.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "deprecated": false
   },
   {
     "name": "WebSketch CLI",
@@ -1395,7 +1468,8 @@
     "updatedAt": "2026-02-15T02:41:34Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "websketch"
+    "ecosystem": "websketch",
+    "deprecated": false
   },
   {
     "name": "WebSketch Demo",
@@ -1412,7 +1486,8 @@
     "updatedAt": "2026-02-15T01:21:41Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "websketch"
+    "ecosystem": "websketch",
+    "deprecated": false
   },
   {
     "name": "WebSketch Extension",
@@ -1429,7 +1504,8 @@
     "updatedAt": "2026-02-15T02:41:31Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "websketch"
+    "ecosystem": "websketch",
+    "deprecated": false
   },
   {
     "name": "WebSketch IR",
@@ -1446,7 +1522,8 @@
     "updatedAt": "2026-02-15T02:41:33Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "websketch"
+    "ecosystem": "websketch",
+    "deprecated": false
   },
   {
     "name": "WebSketch MCP",
@@ -1463,7 +1540,8 @@
     "updatedAt": "2026-02-15T02:41:32Z",
     "registered": true,
     "unlisted": false,
-    "ecosystem": "websketch"
+    "ecosystem": "websketch",
+    "deprecated": false
   },
   {
     "name": "Winget Packages",
@@ -1479,7 +1557,8 @@
     "language": "",
     "updatedAt": "",
     "registered": true,
-    "unlisted": false
+    "unlisted": false,
+    "deprecated": false
   },
   {
     "name": "Witness",
@@ -1499,6 +1578,7 @@
     "category": "infrastructure",
     "stability": "beta",
     "kind": "library",
-    "tagline": "Append-only event journal with cryptographic verification."
+    "tagline": "Append-only event journal with cryptographic verification.",
+    "deprecated": false
   }
 ]
