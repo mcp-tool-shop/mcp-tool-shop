@@ -13,8 +13,14 @@ export function getStaticPaths() {
 const { project } = Astro.props;
 const orgUrl = `https://github.com/mcp-tool-shop-org/${project.repo}`;
 
+// Registry status
+const isRegistered = project.registered === true;
+
+// Install command resolution: override > registry-computed > none
+const installCmd = project.install || null;
+
 // Trust signals
-const hasInstall = Boolean(project.install);
+const hasInstall = Boolean(installCmd);
 const hasRelease = (releases as any[]).some((r: any) => r.repo === project.repo);
 const hasDescription = Boolean(project.tagline || project.description);
 const latestRelease = (releases as any[]).find((r: any) => r.repo === project.repo);
@@ -37,6 +43,11 @@ const related = (projects as any[])
     <div class="tool-header">
       <h1>{project.name}</h1>
       <div class="tool-badges">
+        {isRegistered ? (
+          <span class="badge badge-registered" title="Listed in the MCP Tool Shop registry — verified metadata and install contract">Registry</span>
+        ) : (
+          <span class="badge badge-orgonly" title="Available in the org but not yet listed in the registry">Org-only</span>
+        )}
         {project.stability && (
           <span class={`badge badge-${project.stability}`}>{project.stability}</span>
         )}
@@ -130,6 +141,9 @@ const related = (projects as any[])
     </div>
 
     <div class="signal-strip">
+      <span class={`signal ${isRegistered ? 'signal-yes' : 'signal-no'}`}>
+        {isRegistered ? 'Registry listed' : 'Not in registry'}
+      </span>
       <span class={`signal ${hasInstall ? 'signal-yes' : 'signal-no'}`}>
         {hasInstall ? 'Install cmd' : 'No install cmd'}
       </span>
@@ -245,6 +259,17 @@ const related = (projects as any[])
   .badge-kind {
     color: var(--color-text-muted);
     background: rgba(139, 148, 158, 0.1);
+  }
+
+  .badge-registered {
+    color: var(--color-accent);
+    background: rgba(88, 166, 255, 0.1);
+  }
+
+  .badge-orgonly {
+    color: var(--color-text-muted);
+    background: rgba(139, 148, 158, 0.06);
+    border: 1px dashed rgba(139, 148, 158, 0.2);
   }
 
   .tool-description {
