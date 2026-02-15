@@ -25,6 +25,7 @@ const SITE = path.join(ROOT, "site");
 const DATA_DIR = path.join(SITE, "src", "data", "marketir");
 const OVERRIDES_PATH = path.join(SITE, "src", "data", "overrides.json");
 const FACTS_DIR = path.join(SITE, "src", "data", "github-facts");
+const LINKS_PATH = path.join(SITE, "src", "data", "links.json");
 const OUTPUT_BASE = path.join(SITE, "public", "presskit");
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -51,6 +52,16 @@ const evidenceMap = new Map();
 if (evidenceManifest?.entries) {
   for (const entry of evidenceManifest.entries) {
     evidenceMap.set(entry.id, entry);
+  }
+}
+
+// Load link registry for tracked links (fail-soft)
+const linksData = readJson(LINKS_PATH);
+const linksBySlug = new Map();
+if (linksData?.links) {
+  for (const link of linksData.links) {
+    if (!linksBySlug.has(link.slug)) linksBySlug.set(link.slug, []);
+    linksBySlug.get(link.slug).push(link);
   }
 }
 
@@ -138,6 +149,11 @@ for (const slug of enabledSlugs) {
           observedAt: facts.fetchedAt,
         }
       : null,
+    trackedLinks: (linksBySlug.get(slug) || []).map((l) => ({
+      id: l.id,
+      url: `https://mcptoolshop.com/go/${l.id}/`,
+      channel: l.channel,
+    })),
     generatedAt,
     sourcelock: lockShort,
   };
@@ -230,6 +246,16 @@ for (const slug of enabledSlugs) {
   readmeLines.push(`- [GitHub](${presskitJson.repo})`);
   readmeLines.push(`- [Tool page](${presskitJson.site})`);
   readmeLines.push("");
+
+  const toolLinks = linksBySlug.get(slug) || [];
+  if (toolLinks.length > 0) {
+    readmeLines.push("## Tracked links");
+    readmeLines.push("");
+    for (const l of toolLinks) {
+      readmeLines.push(`- [${l.id}](https://mcptoolshop.com/go/${l.id}/) (${l.channel})`);
+    }
+    readmeLines.push("");
+  }
   readmeLines.push("---");
   readmeLines.push("");
   readmeLines.push(`_Generated from MarketIR${facts ? " + GitHub facts" : ""} (lock: ${lockShort}) at ${generatedAt}_`);
@@ -381,6 +407,7 @@ for (const slug of enabledSlugs) {
       <a href="presskit.json">Machine-readable</a>
       <a href="README.md">Copy/paste version</a>
     </div>
+    ${(linksBySlug.get(slug) || []).length > 0 ? `<div class="links" style="margin-top:0.5rem">\n      ${(linksBySlug.get(slug) || []).map((l) => `<a href="/go/${htmlEsc(l.id)}/" title="${htmlEsc(l.channel)}">${htmlEsc(l.id)}</a>`).join("\n      ")}\n    </div>` : ""}
 
     <div class="footer">
       Generated from <a href="https://github.com/mcp-tool-shop/mcpt-marketing">MarketIR</a>${facts ? " + GitHub facts snapshot" : ""}

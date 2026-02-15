@@ -24,6 +24,7 @@ const ROOT = path.resolve(__dirname, "..");
 const SITE = path.join(ROOT, "site");
 const DATA_DIR = path.join(SITE, "src", "data", "marketir");
 const FACTS_DIR = path.join(SITE, "src", "data", "github-facts");
+const LINKS_PATH = path.join(SITE, "src", "data", "links.json");
 const OUTPUT_BASE = path.join(SITE, "public", "campaigns");
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -64,6 +65,15 @@ const campaigns = (index.campaigns || [])
 if (campaigns.length === 0) {
   console.log("No campaigns found. Nothing to generate.");
   process.exit(0);
+}
+
+// Load link registry for go-link references (fail-soft)
+const linksData = readJson(LINKS_PATH);
+const linkByMessage = new Map();
+if (linksData?.links) {
+  for (const link of linksData.links) {
+    if (link.messageRef) linkByMessage.set(link.messageRef, link.id);
+  }
 }
 
 console.log(`Generating campaign bundles for: ${campaigns.map((c) => c.id).join(", ")}\n`);
@@ -123,6 +133,7 @@ for (const campaign of campaigns) {
           : { id: cRef, status: "unresolved", statement: null };
       });
 
+      const goId = linkByMessage.get(msg.id);
       return {
         id: msg.id,
         resolved: true,
@@ -130,6 +141,7 @@ for (const campaign of campaigns) {
         tone: msg.tone,
         text: msg.text,
         constraints: msg.constraints || null,
+        goLink: goId ? `/go/${goId}/` : null,
         claims,
       };
     });
@@ -247,12 +259,21 @@ for (const campaign of campaigns) {
       }
 
       const label = CHANNEL_LABELS[msg.channel] || msg.channel;
+      const goId = linkByMessage.get(msg.id);
       lines.push(`#### ${label}`);
       lines.push("");
       lines.push("```");
       lines.push(msg.text);
+      if (goId) {
+        lines.push("");
+        lines.push(`Source: mcptoolshop.com/go/${goId}`);
+      }
       lines.push("```");
       lines.push("");
+      if (goId) {
+        lines.push(`_Tracked link: [mcptoolshop.com/go/${goId}](https://mcptoolshop.com/go/${goId}/)_`);
+        lines.push("");
+      }
 
       // Constraints
       if (msg.constraints) {

@@ -23,6 +23,7 @@ const ROOT = path.resolve(__dirname, "..");
 const SITE = path.join(ROOT, "site");
 const DATA_DIR = path.join(SITE, "src", "data", "marketir");
 const OVERRIDES_PATH = path.join(SITE, "src", "data", "overrides.json");
+const LINKS_PATH = path.join(SITE, "src", "data", "links.json");
 const OUTPUT_DIR = path.join(SITE, "public", "snippets");
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -55,6 +56,15 @@ if (!overrides) {
 
 const snapshot = readJson(path.join(DATA_DIR, "marketir.snapshot.json"));
 const lockShort = snapshot?.lockSha256?.slice(0, 12) || "unknown";
+
+// Load link registry for source markers (fail-soft)
+const linksData = readJson(LINKS_PATH);
+const linkByMessage = new Map();
+if (linksData?.links) {
+  for (const link of linksData.links) {
+    if (link.messageRef) linkByMessage.set(link.messageRef, link.id);
+  }
+}
 
 // ─── Find enabled tools ───────────────────────────────────────────────────────
 
@@ -102,8 +112,13 @@ for (const slug of enabledSlugs) {
     lines.push("");
 
     for (const msg of msgs) {
+      const goId = linkByMessage.get(msg.id);
       lines.push("```");
       lines.push(msg.text);
+      if (goId) {
+        lines.push("");
+        lines.push(`Source: mcptoolshop.com/go/${goId}`);
+      }
       lines.push("```");
       lines.push("");
 

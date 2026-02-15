@@ -30,6 +30,7 @@ const CHECKS = [
 
   // Lab (internal preview, noindex)
   { url: "/lab/marketir/", expect: 200, label: "lab: marketir preview" },
+  { url: "/lab/signals/", expect: 200, label: "lab: signals dashboard" },
 
   // Marketing outputs (generated from MarketIR)
   { url: "/presskit/zip-meta-map/", expect: 200, label: "presskit: zip-meta-map" },
@@ -37,6 +38,11 @@ const CHECKS = [
   { url: "/snippets/zip-meta-map.md", expect: 200, label: "snippets: zip-meta-map" },
   { url: "/campaigns/zip-meta-map-launch/bundle.json", expect: 200, label: "campaign: bundle.json" },
   { url: "/campaigns/zip-meta-map-launch/README.md", expect: 200, label: "campaign: README.md" },
+
+  // Link registry + go-links
+  { url: "/links.json", expect: 200, label: "link registry" },
+  { url: "/go/zmm-hn/", expect: 200, label: "go-link: zmm-hn" },
+  { url: "/go/zmm-github/", expect: 200, label: "go-link: zmm-github" },
 
   // Static assets
   { url: "/favicon.svg", expect: 200, label: "favicon" },
@@ -106,6 +112,48 @@ try {
   failed++;
 }
 
+// ── Link registry content check ───────────────────────────
+try {
+  const linksRes = await fetch(`${BASE}/links.json`);
+  if (linksRes.ok) {
+    const data = await linksRes.json();
+    if (data.links && data.links.length > 0) {
+      console.log(`  ✓ links.json: ${data.links.length} links`);
+      passed++;
+    } else {
+      console.error(`  ✗ links.json is empty`);
+      failed++;
+    }
+  } else {
+    console.error(`  ✗ links.json returned ${linksRes.status}`);
+    failed++;
+  }
+} catch (err) {
+  console.error(`  ✗ links.json check failed: ${err.message}`);
+  failed++;
+}
+
+// ── Snippet source markers check ──────────────────────────
+try {
+  const snippetRes = await fetch(`${BASE}/snippets/zip-meta-map.md`);
+  if (snippetRes.ok) {
+    const text = await snippetRes.text();
+    if (text.includes("mcptoolshop.com/go/")) {
+      console.log(`  ✓ snippet contains go-link source markers`);
+      passed++;
+    } else {
+      console.error(`  ✗ snippet missing go-link source markers`);
+      failed++;
+    }
+  } else {
+    console.error(`  ✗ snippet returned ${snippetRes.status}`);
+    failed++;
+  }
+} catch (err) {
+  console.error(`  ✗ snippet source marker check failed: ${err.message}`);
+  failed++;
+}
+
 // ── Build metadata check ───────────────────────────────────
 try {
   const buildRes = await fetch(`${BASE}/_build.json`);
@@ -133,5 +181,5 @@ try {
   console.warn(`\n  ⚠ _build.json check failed: ${err.message}`);
 }
 
-console.log(`\n${passed} passed, ${failed} failed out of ${CHECKS.length + 3} checks`);
+console.log(`\n${passed} passed, ${failed} failed out of ${CHECKS.length + 5} checks`);
 if (failed > 0) process.exit(1);

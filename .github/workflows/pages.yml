@@ -32,6 +32,10 @@ jobs:
         run: node scripts/fetch-marketir.mjs
       - name: Fetch GitHub facts
         run: node scripts/fetch-github-facts.mjs
+      - name: Generate link registry
+        run: node scripts/gen-links.mjs
+      - name: Generate go-link redirect pages
+        run: node scripts/gen-go-links.mjs
       - name: Generate press kits
         run: node scripts/gen-presskit.mjs
       - name: Generate snippets

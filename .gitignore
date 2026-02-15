@@ -11,6 +11,14 @@ site/public/presskit/
 site/public/snippets/
 site/public/campaigns/
 
+# generated link registry + go-link redirects
+site/src/data/links.json
+site/public/links.json
+site/public/go/
+
+# collected distribution signals
+site/src/data/signals/
+
 # fetched GitHub facts (generated at build time)
 site/src/data/github-facts/
 # generated types
