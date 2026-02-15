@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'site/**'
+      - 'scripts/**'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -27,6 +28,8 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: site/package-lock.json
+      - name: Fetch MarketIR snapshot
+        run: node scripts/fetch-marketir.mjs
       - run: npm ci
         working-directory: site
       - run: npm run build
