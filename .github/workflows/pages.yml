@@ -30,6 +30,10 @@ jobs:
           cache-dependency-path: site/package-lock.json
       - name: Fetch MarketIR snapshot
         run: node scripts/fetch-marketir.mjs
+      - name: Generate press kits
+        run: node scripts/gen-presskit.mjs
+      - name: Generate snippets
+        run: node scripts/gen-snippets.mjs
       - run: npm ci
         working-directory: site
       - run: npm run build

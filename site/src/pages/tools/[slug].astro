@@ -112,6 +112,9 @@ const snapshot = showProof && proofData ? loadSnapshot() : null;
       <a href={orgUrl} class="btn btn-primary" rel="noopener">View on GitHub</a>
       <a href={`${orgUrl}/issues`} class="btn btn-secondary" rel="noopener">Issues</a>
       <a href={`${orgUrl}/releases`} class="btn btn-secondary" rel="noopener">Releases</a>
+      {showProof && (
+        <a href={`/presskit/${project.repo}/`} class="btn btn-secondary">Press Kit</a>
+      )}
     </div>
 
     {(project.goodFor || project.notFor) && (

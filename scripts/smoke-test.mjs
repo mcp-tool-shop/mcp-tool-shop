@@ -31,6 +31,11 @@ const CHECKS = [
   // Lab (internal preview, noindex)
   { url: "/lab/marketir/", expect: 200, label: "lab: marketir preview" },
 
+  // Marketing outputs (generated from MarketIR)
+  { url: "/presskit/zip-meta-map/", expect: 200, label: "presskit: zip-meta-map" },
+  { url: "/presskit/zip-meta-map/presskit.json", expect: 200, label: "presskit: machine-readable" },
+  { url: "/snippets/zip-meta-map.md", expect: 200, label: "snippets: zip-meta-map" },
+
   // Static assets
   { url: "/favicon.svg", expect: 200, label: "favicon" },
   { url: "/screenshots/zip-meta-map.png", expect: 200, label: "zip-meta-map screenshot" },
