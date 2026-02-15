@@ -41,3 +41,10 @@ jobs:
           git add site/src/data/registry/
           git commit -m "chore: sync org metadata"
           git push
+
+      - name: Open/update upstream cleanup issue
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REGISTRY_REPO: mcp-tool-shop-org/mcp-tool-registry
+        run: node scripts/registry-cleanup-issue.mjs || echo "Cleanup issue step failed (non-fatal)"
