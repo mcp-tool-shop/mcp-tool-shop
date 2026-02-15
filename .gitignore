@@ -4,6 +4,7 @@ site/public/_build.json
 
 # fetched vendor snapshots (generated at build time)
 site/src/data/marketir/
+site/public/marketir/
 # generated types
 .astro/
 

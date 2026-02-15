@@ -1,0 +1,637 @@
+---
+import Base from '../../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Load MarketIR snapshot data
+const dataDir = path.join(process.cwd(), 'src/data/marketir');
+
+function loadJson(relPath: string) {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(dataDir, relPath), 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+const snapshot = loadJson('marketir.snapshot.json');
+const index = loadJson('data/marketing.index.json');
+const evidenceManifest = loadJson('manifests/evidence.manifest.json');
+
+// Resolve all refs
+const tools: any[] = [];
+const audiences = new Map<string, any>();
+const campaigns: any[] = [];
+
+if (index) {
+  for (const { ref } of index.audiences || []) {
+    const aud = loadJson(`data/${ref}`);
+    if (aud) audiences.set(aud.id, aud);
+  }
+  for (const { ref } of index.tools || []) {
+    const tool = loadJson(`data/${ref}`);
+    if (tool) tools.push(tool);
+  }
+  for (const { ref } of index.campaigns || []) {
+    const camp = loadJson(`data/${ref}`);
+    if (camp) campaigns.push(camp);
+  }
+}
+
+// Build evidence lookup
+const evidenceMap = new Map<string, any>();
+if (evidenceManifest) {
+  for (const entry of evidenceManifest.entries) {
+    evidenceMap.set(entry.id, entry);
+  }
+}
+
+// Status ordering for claims
+const statusOrder = { proven: 0, aspirational: 1, deprecated: 2 };
+const statusColors: Record<string, string> = {
+  proven: '#3fb950',
+  aspirational: '#d29922',
+  deprecated: '#8b949e',
+};
+const toneColors: Record<string, string> = {
+  technical: '#58a6ff',
+  pragmatic: '#3fb950',
+  playful: '#d29922',
+  executive: '#bc8cff',
+};
+---
+
+<Base
+  title="MarketIR Preview - Internal"
+  description="Internal preview of MarketIR messaging data."
+  currentPath="/lab/marketir/"
+>
+  <head>
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+
+  <div class="mir-page">
+    <div class="internal-badge">Internal Preview</div>
+
+    <h1>MarketIR Preview</h1>
+    <p class="subtitle">Deterministic marketing IR — claims, evidence, and channel messaging.</p>
+
+    {/* Snapshot banner */}
+    {snapshot ? (
+      <div class="snapshot-banner">
+        <div class="snapshot-grid">
+          <div class="snapshot-item">
+            <span class="label">Source</span>
+            <a href={`https://github.com/${snapshot.sourceRepo}`} target="_blank" rel="noopener">
+              {snapshot.sourceRepo}
+            </a>
+          </div>
+          <div class="snapshot-item">
+            <span class="label">Branch</span>
+            <code>{snapshot.sourceBranch}</code>
+          </div>
+          <div class="snapshot-item">
+            <span class="label">Lock SHA256</span>
+            <code class="hash">{snapshot.lockSha256?.slice(0, 16)}...</code>
+          </div>
+          <div class="snapshot-item">
+            <span class="label">Fetched</span>
+            <span>{new Date(snapshot.fetchedAt).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}</span>
+          </div>
+          <div class="snapshot-item">
+            <span class="label">Files</span>
+            <span>{snapshot.fileCount}</span>
+          </div>
+        </div>
+      </div>
+    ) : (
+      <div class="snapshot-banner error">
+        MarketIR snapshot not found. Run <code>node scripts/fetch-marketir.mjs</code> first.
+      </div>
+    )}
+
+    {/* Tools */}
+    {tools.map((tool) => {
+      const sortedClaims = [...tool.claims].sort(
+        (a: any, b: any) => (statusOrder[a.status as keyof typeof statusOrder] ?? 9) - (statusOrder[b.status as keyof typeof statusOrder] ?? 9)
+      );
+      const toolAudiences = tool.audienceRefs?.map((id: string) => audiences.get(id)).filter(Boolean) || [];
+
+      return (
+        <section class="tool-section">
+          <h2>{tool.name}</h2>
+          <p class="one-liner">{tool.positioning?.oneLiner}</p>
+
+          {/* Value Props */}
+          <div class="subsection">
+            <h3>Value Propositions</h3>
+            <ul class="value-props">
+              {tool.positioning?.valueProps?.map((vp: string) => <li>{vp}</li>)}
+            </ul>
+          </div>
+
+          {/* Anti-Claims */}
+          <div class="subsection">
+            <h3>Anti-Claims</h3>
+            <ul class="anti-claims">
+              {tool.antiClaims?.map((ac: any) => <li>{ac.statement}</li>)}
+            </ul>
+          </div>
+
+          {/* Audiences */}
+          {toolAudiences.length > 0 && (
+            <div class="subsection">
+              <h3>Audiences</h3>
+              <div class="audience-grid">
+                {toolAudiences.map((aud: any) => (
+                  <div class="audience-card">
+                    <h4>{aud.name}</h4>
+                    <p>{aud.description}</p>
+                    <div class="pain-points">
+                      <strong>Pain points:</strong>
+                      <ul>
+                        {aud.painPoints?.map((pp: string) => <li>{pp}</li>)}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Claims */}
+          <div class="subsection">
+            <h3>Claims</h3>
+            <div class="claims-list">
+              {sortedClaims.map((claim: any) => (
+                <div class="claim-card">
+                  <div class="claim-header">
+                    <span class="claim-status" style={`color: ${statusColors[claim.status] || '#8b949e'}`}>
+                      {claim.status}
+                    </span>
+                    <code class="claim-id">{claim.id}</code>
+                  </div>
+                  <p class="claim-statement">{claim.statement}</p>
+                  {claim.notes && <p class="claim-notes">{claim.notes}</p>}
+                  {claim.evidenceRefs?.length > 0 && (
+                    <div class="evidence-panel">
+                      <strong>Evidence:</strong>
+                      {claim.evidenceRefs.map((evId: string) => {
+                        const ev = evidenceMap.get(evId);
+                        if (!ev) return <span class="missing">Missing: {evId}</span>;
+                        const isLocal = !!ev.path;
+                        const localSrc = isLocal ? `/marketir/evidence/${ev.path.split('/').pop()}` : null;
+                        return (
+                          <div class="evidence-item">
+                            <div class="ev-meta">
+                              <span class="ev-type">{ev.type}</span>
+                              <code class="ev-id">{ev.id}</code>
+                            </div>
+                            {isLocal && ev.type === 'image' && (
+                              <img src={localSrc} alt={ev.id} class="ev-thumbnail" loading="lazy" />
+                            )}
+                            {ev.url && (
+                              <a href={ev.url} target="_blank" rel="noopener" class="ev-link">{ev.url}</a>
+                            )}
+                            {ev.provenance && (
+                              <div class="ev-provenance">
+                                <span>Generator: {ev.provenance.generator}</span>
+                                <span>Commit: <code>{ev.provenance.sourceCommit}</code></span>
+                                {ev.provenance.notes && <span class="ev-notes">{ev.provenance.notes}</span>}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Messages */}
+          <div class="subsection">
+            <h3>Messages</h3>
+            <div class="messages-grid">
+              {tool.messages?.map((msg: any) => (
+                <div class="message-card">
+                  <div class="msg-header">
+                    <span class="msg-channel">{msg.channel}</span>
+                    <span class="msg-tone" style={`color: ${toneColors[msg.tone] || '#8b949e'}`}>{msg.tone}</span>
+                    <code class="msg-id">{msg.id}</code>
+                  </div>
+                  <div class="msg-text">{msg.text}</div>
+                  {msg.constraints && (
+                    <div class="msg-constraints">
+                      {msg.constraints.maxChars && <span>max {msg.constraints.maxChars} chars</span>}
+                      {msg.constraints.notes && <span>{msg.constraints.notes}</span>}
+                    </div>
+                  )}
+                  <div class="msg-claims">
+                    Claims: {msg.claimRefs?.map((ref: string) => (
+                      <code class="claim-ref">{ref.replace('claim.', '')}</code>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    })}
+
+    {/* Campaigns */}
+    {campaigns.length > 0 && (
+      <section class="campaigns-section">
+        <h2>Campaigns</h2>
+        {campaigns.map((camp: any) => (
+          <div class="campaign-card">
+            <h3>{camp.name}</h3>
+            <div class="camp-meta">
+              <span>Tool: <code>{camp.toolRef}</code></span>
+              <span>Audiences: {camp.audienceRefs?.map((id: string) => <code>{id}</code>)}</span>
+            </div>
+            <div class="phases">
+              {camp.phases?.map((phase: any, i: number) => (
+                <div class="phase">
+                  <h4>Phase {i + 1}: {phase.name}</h4>
+                  <div class="phase-channels">
+                    {phase.channels?.map((ch: string) => <span class="channel-tag">{ch}</span>)}
+                  </div>
+                  {phase.notes && <p class="phase-notes">{phase.notes}</p>}
+                  {phase.messageRefs?.length > 0 && (
+                    <div class="phase-messages">
+                      Messages: {phase.messageRefs.map((ref: string) => <code>{ref}</code>)}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+    )}
+  </div>
+</Base>
+
+<style>
+  .mir-page {
+    padding: 2rem 0;
+  }
+  .internal-badge {
+    display: inline-block;
+    background: #d2992233;
+    color: #d29922;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    margin: 0 0 0.25rem;
+  }
+  .subtitle {
+    color: var(--color-text-muted);
+    margin: 0 0 1.5rem;
+  }
+
+  /* Snapshot banner */
+  .snapshot-banner {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .snapshot-banner.error {
+    border-color: #f85149;
+    color: #f85149;
+  }
+  .snapshot-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .snapshot-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+  }
+  .snapshot-item .label {
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .hash {
+    font-size: 0.8rem;
+  }
+
+  /* Tool sections */
+  .tool-section {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    background: var(--color-surface);
+  }
+  .tool-section h2 {
+    margin: 0 0 0.25rem;
+  }
+  .one-liner {
+    color: var(--color-text-muted);
+    margin: 0 0 1.5rem;
+    font-style: italic;
+  }
+  .subsection {
+    margin-bottom: 1.5rem;
+  }
+  .subsection h3 {
+    font-size: 1rem;
+    margin: 0 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* Value props & anti-claims */
+  .value-props li {
+    margin-bottom: 0.25rem;
+    color: var(--color-text);
+  }
+  .anti-claims li {
+    margin-bottom: 0.25rem;
+    color: var(--color-text-muted);
+  }
+  .anti-claims li::marker {
+    content: '\2717  ';
+    color: #f85149;
+  }
+
+  /* Audiences */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .audience-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+  }
+  .audience-card h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+  }
+  .audience-card p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: 0 0 0.75rem;
+  }
+  .pain-points {
+    font-size: 0.8rem;
+  }
+  .pain-points ul {
+    margin: 0.25rem 0 0;
+    padding-left: 1.25rem;
+  }
+  .pain-points li {
+    margin-bottom: 0.2rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Claims */
+  .claims-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .claim-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+  }
+  .claim-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .claim-status {
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .claim-id {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+  }
+  .claim-statement {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  .claim-notes {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin: 0.5rem 0 0;
+  }
+
+  /* Evidence panel */
+  .evidence-panel {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.8rem;
+  }
+  .evidence-item {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background: var(--color-surface);
+    border-radius: var(--radius);
+  }
+  .ev-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .ev-type {
+    background: #58a6ff22;
+    color: #58a6ff;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+  }
+  .ev-id {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+  }
+  .ev-thumbnail {
+    max-width: 100%;
+    border-radius: var(--radius);
+    margin: 0.5rem 0;
+    border: 1px solid var(--color-border);
+  }
+  .ev-link {
+    display: block;
+    word-break: break-all;
+    font-size: 0.75rem;
+    color: var(--color-accent);
+  }
+  .ev-provenance {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+  }
+  .ev-notes {
+    font-style: italic;
+  }
+  .missing {
+    color: #f85149;
+  }
+
+  /* Messages */
+  .messages-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .message-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+  }
+  .msg-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .msg-channel {
+    background: #238636;
+    color: white;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .msg-tone {
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  .msg-id {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    margin-left: auto;
+  }
+  .msg-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding: 0.75rem;
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+    white-space: pre-wrap;
+  }
+  .msg-constraints {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    display: flex;
+    gap: 1rem;
+  }
+  .msg-claims {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+  .claim-ref {
+    background: var(--color-surface);
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    margin: 0 0.15rem;
+  }
+
+  /* Campaigns */
+  .campaigns-section {
+    margin-top: 2rem;
+  }
+  .campaign-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .campaign-card h3 {
+    margin: 0 0 0.5rem;
+  }
+  .camp-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+  .phases {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .phase {
+    padding: 0.75rem;
+    background: var(--color-bg);
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+  }
+  .phase h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.85rem;
+  }
+  .phase-channels {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .channel-tag {
+    background: #23863622;
+    color: #3fb950;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+  }
+  .phase-notes {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin: 0.5rem 0 0;
+  }
+  .phase-messages {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+  }
+  .phase-messages code {
+    font-size: 0.7rem;
+    margin: 0 0.15rem;
+  }
+
+  code {
+    font-family: var(--font-mono);
+  }
+</style>

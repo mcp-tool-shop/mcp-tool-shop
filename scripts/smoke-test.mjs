@@ -28,9 +28,13 @@ const CHECKS = [
   { url: "/registry.html", expect: 200, label: "legacy: registry.html" },
   { url: "/voice-soundboard.html", expect: 200, label: "legacy: voice-soundboard.html" },
 
+  // Lab (internal preview, noindex)
+  { url: "/lab/marketir/", expect: 200, label: "lab: marketir preview" },
+
   // Static assets
   { url: "/favicon.svg", expect: 200, label: "favicon" },
   { url: "/screenshots/zip-meta-map.png", expect: 200, label: "zip-meta-map screenshot" },
+  { url: "/marketir/evidence/zip-meta-map-dashboard.png", expect: 200, label: "marketir evidence screenshot" },
 ];
 
 let passed = 0;

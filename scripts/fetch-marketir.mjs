@@ -35,6 +35,7 @@ const ROOT = path.resolve(__dirname, "..");
 
 const REPO = process.env.MARKETIR_REPO || "mcp-tool-shop/mcpt-marketing";
 const OUTPUT_DIR = path.join(ROOT, "site", "src", "data", "marketir");
+const EVIDENCE_DIR = path.join(ROOT, "site", "public", "marketir", "evidence");
 const SNAPSHOT_PATH = path.join(OUTPUT_DIR, "marketir.snapshot.json");
 const DRY_RUN = process.argv.includes("--dry-run");
 
@@ -58,8 +59,24 @@ async function fetchRaw(remotePath) {
   return res.text();
 }
 
+async function fetchBinary(remotePath) {
+  const url = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${remotePath}`;
+  const headers = { Accept: "application/octet-stream" };
+  if (TOKEN) headers["Authorization"] = `token ${TOKEN}`;
+
+  const res = await fetch(url, { headers });
+  if (!res.ok) {
+    throw new Error(`Failed to fetch ${remotePath}: ${res.status} ${res.statusText}`);
+  }
+  return Buffer.from(await res.arrayBuffer());
+}
+
 function sha256(text) {
   return createHash("sha256").update(text, "utf8").digest("hex");
+}
+
+function sha256Buf(buf) {
+  return createHash("sha256").update(buf).digest("hex");
 }
 
 // ─── Main ────────────────────────────────────────────────────────────────────
@@ -148,6 +165,33 @@ async function main() {
     fs.writeFileSync(outPath, text, "utf8");
     console.log(`   wrote ${localRel} (${Buffer.byteLength(text)} bytes)`);
   }
+
+  // Step 4b: Fetch local evidence files
+  console.log("\n4b. Fetching evidence artifacts...");
+  const manifestText = fetched.get("marketing/manifests/evidence.manifest.json")?.text;
+  let evidenceCount = 0;
+  if (manifestText) {
+    const manifest = JSON.parse(manifestText);
+    fs.mkdirSync(EVIDENCE_DIR, { recursive: true });
+    for (const entry of manifest.entries) {
+      if (!entry.path) continue; // link-only evidence, skip
+      const remotePath = `marketing/${entry.path}`;
+      console.log(`   fetching ${remotePath}...`);
+      const buf = await fetchBinary(remotePath);
+      const actualHash = sha256Buf(buf);
+      if (actualHash !== entry.sha256) {
+        console.error(`   EVIDENCE HASH MISMATCH: ${entry.id}`);
+        console.error(`     expected: ${entry.sha256}`);
+        console.error(`     got:      ${actualHash}`);
+        process.exit(1);
+      }
+      const outPath = path.join(EVIDENCE_DIR, path.basename(entry.path));
+      fs.writeFileSync(outPath, buf);
+      console.log(`   OK: ${entry.id} (${buf.length} bytes)`);
+      evidenceCount++;
+    }
+  }
+  console.log(`   ${evidenceCount} evidence file(s) fetched.`);
 
   // Step 5: Write ingestion snapshot
   console.log("\n5. Writing snapshot...");
