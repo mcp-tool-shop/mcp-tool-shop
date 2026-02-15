@@ -300,10 +300,10 @@
     "install": "pipx install zip-meta-map",
     "tagline": "Make repos and ZIPs self-describing for LLMs with CI-grade diffs.",
     "goodFor": [
-      "CI pipelines that need deterministic repo summaries",
-      "LLM/agent workflows that must respect token budgets",
-      "Drift detection via diff --exit-code gating",
-      "Packaging repos as portable, self-describing artifacts"
+      "CI gating with diff --exit-code (246 tests, JSON Schema-validated)",
+      "LLM agents that need repo maps under token budgets",
+      "Deterministic builds: same repo = same index, diffable in CI",
+      "GitHub Actions with step summaries and PR comments built in"
     ],
     "notFor": [
       "Replacing code search or embeddings (it complements them)",
