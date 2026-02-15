@@ -25,6 +25,12 @@ jobs:
         with:
           node-version: 22
 
+      - name: Sync org metadata first
+        env:
+          ORG: mcp-tool-shop-org
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/sync-org-metadata.mjs
+
       - name: Install sharp (needed for PNG generation)
         run: cd site && npm install sharp --no-save
 
@@ -52,7 +58,7 @@ jobs:
 
           git add site/public/screenshots/
           git add site/src/data/overrides.json
-          git add site/src/data/projects.json
+          git add site/src/data/projects.json site/src/data/org-stats.json site/src/data/releases.json
 
           git checkout -B "$BRANCH"
           git commit -m "chore(auto): generate placeholder screenshots"

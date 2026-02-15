@@ -294,7 +294,8 @@ async function main() {
     generated++;
   }
 
-  // Write updated overrides
+  // Write updated overrides (only overrides.json — sync-org-metadata.mjs
+  // is the sole writer of projects.json and merges screenshot fields)
   if (overridesChanged && !DRY_RUN) {
     const ordered = stableOverrides(overrides);
     fs.writeFileSync(
@@ -302,22 +303,7 @@ async function main() {
       JSON.stringify(ordered, null, 2) + "\n"
     );
     console.log(`\nUpdated overrides.json with ${generated} screenshot entries.`);
-
-    // Also apply screenshot fields to projects.json so build picks them up
-    // (sync-org-metadata.mjs normally does this merge, but between syncs we
-    // need projects.json to be current for the site build)
-    for (const p of projects) {
-      const o = overrides[p.repo];
-      if (o?.screenshot && !p.screenshot) {
-        p.screenshot = o.screenshot;
-        p.screenshotType = o.screenshotType;
-      }
-    }
-    fs.writeFileSync(
-      path.join(SITE_DATA, "projects.json"),
-      JSON.stringify(projects, null, 2) + "\n"
-    );
-    console.log("Applied screenshot fields to projects.json.");
+    console.log("Run sync-org-metadata.mjs to merge into projects.json.");
   } else if (DRY_RUN) {
     console.log(`\n[dry-run] Would update overrides.json with ${generated} screenshot entries.`);
   }
