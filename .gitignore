@@ -1,5 +1,6 @@
 # build output
 dist/
+site/public/_build.json
 # generated types
 .astro/
 

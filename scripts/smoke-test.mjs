@@ -53,5 +53,32 @@ for (const check of CHECKS) {
   }
 }
 
-console.log(`\n${passed} passed, ${failed} failed out of ${CHECKS.length} checks`);
+// ── Build metadata check ───────────────────────────────────
+try {
+  const buildRes = await fetch(`${BASE}/_build.json`);
+  if (buildRes.ok) {
+    const build = await buildRes.json();
+    console.log(`\n  Build metadata:`);
+    console.log(`    commit:  ${build.commit}`);
+    console.log(`    built:   ${build.builtAt}`);
+    console.log(`    synced:  ${build.syncedAt || "n/a"}`);
+    console.log(`    projects: ${build.projects}`);
+
+    // Warn if build is older than 24 hours
+    const age = Date.now() - new Date(build.builtAt).getTime();
+    const hours = Math.round(age / 3600000);
+    if (hours > 24) {
+      console.warn(`    ⚠ Build is ${hours}h old`);
+    } else {
+      console.log(`    age: ${hours}h`);
+      passed++;
+    }
+  } else {
+    console.warn(`\n  ⚠ _build.json not found (${buildRes.status}) — skipping freshness check`);
+  }
+} catch (err) {
+  console.warn(`\n  ⚠ _build.json check failed: ${err.message}`);
+}
+
+console.log(`\n${passed} passed, ${failed} failed out of ${CHECKS.length + 1} checks`);
 if (failed > 0) process.exit(1);
