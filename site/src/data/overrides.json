@@ -1,7 +1,11 @@
 {
   "file-compass": {
     "featured": true,
-    "tags": ["mcp", "search", "embeddings"],
+    "tags": [
+      "mcp",
+      "search",
+      "embeddings"
+    ],
     "category": "mcp-core",
     "stability": "stable",
     "kind": "mcp-server",
@@ -19,7 +23,10 @@
   },
   "tool-compass": {
     "featured": true,
-    "tags": ["mcp", "discovery"],
+    "tags": [
+      "mcp",
+      "discovery"
+    ],
     "category": "mcp-core",
     "stability": "stable",
     "kind": "mcp-server",
@@ -28,7 +35,7 @@
     "goodFor": [
       "Discovering tools across large MCP ecosystems",
       "Intent-based tool selection (describe the task, get the tool)",
-      "Progressive disclosure — see summaries first, details on demand"
+      "Progressive disclosure \u2014 see summaries first, details on demand"
     ],
     "notFor": [
       "Running tools directly (it finds them, you run them)",
@@ -37,7 +44,11 @@
   },
   "soundboard-plugin": {
     "featured": true,
-    "tags": ["tts", "plugin", "claude-code"],
+    "tags": [
+      "tts",
+      "plugin",
+      "claude-code"
+    ],
     "category": "voice",
     "stability": "stable",
     "kind": "plugin",
@@ -55,7 +66,10 @@
   },
   "brain-dev": {
     "featured": true,
-    "tags": ["mcp", "code-analysis"],
+    "tags": [
+      "mcp",
+      "code-analysis"
+    ],
     "category": "mcp-core",
     "stability": "stable",
     "kind": "mcp-server",
@@ -73,7 +87,10 @@
   },
   "comfy-headless": {
     "featured": true,
-    "tags": ["comfyui", "image-gen"],
+    "tags": [
+      "comfyui",
+      "image-gen"
+    ],
     "category": "ml",
     "stability": "beta",
     "kind": "cli",
@@ -90,7 +107,10 @@
     ]
   },
   "tool-scan": {
-    "tags": ["mcp", "security"],
+    "tags": [
+      "mcp",
+      "security"
+    ],
     "category": "security",
     "stability": "stable",
     "kind": "cli",
@@ -98,14 +118,22 @@
     "tagline": "Security scanner for MCP tools."
   },
   "mcp-stress-test": {
-    "tags": ["mcp", "security", "testing"],
+    "tags": [
+      "mcp",
+      "security",
+      "testing"
+    ],
     "category": "security",
     "stability": "beta",
     "kind": "cli",
     "tagline": "Red team toolkit for MCP security scanners."
   },
   "mcp-voice-soundboard": {
-    "tags": ["tts", "mcp", "voice"],
+    "tags": [
+      "tts",
+      "mcp",
+      "voice"
+    ],
     "category": "voice",
     "stability": "stable",
     "kind": "mcp-server",
@@ -113,21 +141,33 @@
     "tagline": "TTS MCP server with 12 voices and SSML-lite."
   },
   "mcp-voice-engine": {
-    "tags": ["tts", "audio", "voice"],
+    "tags": [
+      "tts",
+      "audio",
+      "voice"
+    ],
     "category": "voice",
     "stability": "beta",
     "kind": "library",
     "tagline": "Streaming TTS inference backend."
   },
   "voice-soundboard": {
-    "tags": ["tts", "audio", "voice"],
+    "tags": [
+      "tts",
+      "audio",
+      "voice"
+    ],
     "category": "voice",
     "stability": "beta",
     "kind": "library",
     "tagline": "TTS library with compiler/graph/engine architecture."
   },
   "backpropagate": {
-    "tags": ["ml", "fine-tuning", "training"],
+    "tags": [
+      "ml",
+      "fine-tuning",
+      "training"
+    ],
     "category": "ml",
     "stability": "beta",
     "kind": "library",
@@ -135,21 +175,33 @@
     "tagline": "Headless LLM fine-tuning with smart defaults."
   },
   "aspire-ai": {
-    "tags": ["ml", "training", "ai-alignment"],
+    "tags": [
+      "ml",
+      "training",
+      "ai-alignment"
+    ],
     "category": "ml",
     "stability": "experimental",
     "kind": "library",
     "tagline": "Adversarial student-professor training engine."
   },
   "Attestia": {
-    "tags": ["blockchain", "governance", "financial"],
+    "tags": [
+      "blockchain",
+      "governance",
+      "financial"
+    ],
     "category": "infrastructure",
     "stability": "beta",
     "kind": "library",
     "tagline": "Financial truth infrastructure for decentralized systems."
   },
   "mcpt": {
-    "tags": ["mcp", "cli", "discovery"],
+    "tags": [
+      "mcp",
+      "cli",
+      "discovery"
+    ],
     "category": "mcp-core",
     "stability": "stable",
     "kind": "cli",
@@ -157,10 +209,35 @@
     "tagline": "CLI for discovering and running MCP tools."
   },
   "witness": {
-    "tags": ["provenance", "cryptography", "append-only"],
+    "tags": [
+      "provenance",
+      "cryptography",
+      "append-only"
+    ],
     "category": "infrastructure",
     "stability": "beta",
     "kind": "library",
     "tagline": "Append-only event journal with cryptographic verification."
+  },
+  "mcp-tool-registry": {
+    "tags": [
+      "mcp",
+      "registry",
+      "metadata"
+    ],
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install @mcptoolshop/mcp-tool-registry",
+    "tagline": "Source-of-truth metadata registry for the MCP Tool Shop ecosystem.",
+    "goodFor": [
+      "Fast tool discovery without cloning repos",
+      "Schema-validated tool metadata for clients and CLIs",
+      "Pinnable versions for reproducible environments"
+    ],
+    "notFor": [
+      "Running tools directly (use mcpt CLI for that)",
+      "Hosting your own MCP tools (submit a PR to the registry instead)"
+    ]
   }
 }
