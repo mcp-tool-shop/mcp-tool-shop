@@ -91,7 +91,68 @@ Values follow this schema:
 
 ---
 
-## 3. Selection Logic (Auto-Enrichment)
+## 3. Registry-Driven Merge Rules
+
+The registry (`registry.json`) is the **canonical tool list**. GitHub API provides
+**enrichment** (stars, language, updatedAt, releases). Overrides provide **editorial**
+polish (tagline, goodFor, screenshots).
+
+### Project flags
+
+Every entry in `projects.json` carries two computed flags:
+
+| Flag | Type | Default | Meaning |
+|------|------|---------|---------|
+| `registered` | `boolean` | `false` | Tool exists in `registry.json` |
+| `unlisted` | `boolean` | `false` | Hidden from `/tools/` listing by default |
+
+**Policy:**
+
+- Registry tools → `registered: true`, `unlisted: false`
+- Org repos **not** in registry and **not** in ignore list → `registered: false`, `unlisted: true`
+- Override can set `unlisted: false` on an unregistered repo to force-show it
+
+### Field precedence (who wins)
+
+| Field | Winner | Rationale |
+|-------|--------|-----------|
+| `name` | Registry → GitHub → slug | Registry curates display names |
+| `description` | Registry → GitHub | Registry descriptions are reviewed |
+| `tags` | Override → Registry → GitHub topics | Editorial tags override all |
+| `install` | Override → (computed) | Override shell commands are more useful than raw `git clone` |
+| `ecosystem` | Registry only | Not present in GitHub or overrides |
+| `stars` | GitHub only | Live signal |
+| `language` | GitHub only | Live signal |
+| `updatedAt` | GitHub only | Live signal |
+| `featured` | Override only | Editorial decision |
+| `category` | Override only | Editorial decision |
+| `stability` | Override only | Editorial decision |
+| `kind` | Override only | Editorial decision |
+| `tagline` | Override only | Editorial decision |
+| `goodFor` | Override only | Editorial decision |
+| `notFor` | Override only | Editorial decision |
+| `screenshot` | Override only | Editorial decision |
+| `screenshotType` | Override only | Editorial decision |
+
+### Merge order
+
+1. **Start** with registry entry (if `registered: true`)
+   — or empty base (if org-only repo)
+2. **Overlay** GitHub API live signals (stars, language, updatedAt, description if missing)
+3. **Overlay** override fields (overrides always win for editorial fields)
+4. **Compute** `registered` and `unlisted` flags
+
+### Registry ID → org repo mapping
+
+Registry tool `id` should match the org repo `name`. When they don't match:
+
+- The sync script logs a warning (registry tool with no matching org repo)
+- The tool is still included with `registered: true` but GitHub enrichment is skipped
+- These mismatches are surfaced in the registry health report
+
+---
+
+## 4. Selection Logic (Auto-Enrichment)
 
 The enrichment script selects **3-5 repos per batch** using this priority:
 
@@ -121,7 +182,7 @@ Repos meeting more criteria rank higher. Ties broken by most recently updated.
 
 ---
 
-## 4. Skip List
+## 5. Skip List
 
 `site/src/data/automation.ignore.json` contains repos that automation must
 never propose overrides for. Reasons include:
@@ -150,7 +211,7 @@ scripts read this file at startup and skip any listed repo.
 
 ---
 
-## 5. Workflow Budget
+## 6. Workflow Budget
 
 All automation runs on the **personal repo** (`mcp-tool-shop/mcp-tool-shop`),
 not the org. This uses personal Actions minutes, not org minutes.
@@ -163,7 +224,7 @@ not the org. This uses personal Actions minutes, not org minutes.
 
 ---
 
-## 6. Review Workflow
+## 7. Review Workflow
 
 1. Automation adds draft entries to `overrides.json` with `needsHumanReview: true`
 2. Automation opens a PR (never pushes directly to `main`)
