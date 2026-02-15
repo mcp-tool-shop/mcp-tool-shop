@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import projects from '../data/projects.json';
+
+const featured = projects.filter((p) => p.featured);
+---
+
+<Base title="mcp-tool-shop" currentPath="/">
+  <section class="hero">
+    <h1>mcp-tool-shop</h1>
+    <p class="tagline">
+      MCP servers, desktop apps, and AI infrastructure that run locally and compose through the Model Context Protocol.
+    </p>
+    <div class="cta-group">
+      <a href="/tools/" class="btn btn-primary">Browse tools</a>
+      <a
+        href="https://github.com/mcp-tool-shop-org"
+        class="btn btn-secondary"
+        rel="noopener"
+      >
+        Org on GitHub
+      </a>
+    </div>
+    <div class="proof-points">
+      <div class="proof-point">
+        <span class="number">99</span>
+        <span class="label">public repos</span>
+      </div>
+      <div class="proof-point">
+        <span class="number">100%</span>
+        <span class="label">local-first</span>
+      </div>
+      <div class="proof-point">
+        <span class="number">MCP</span>
+        <span class="label">native</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-heading">Featured projects</h2>
+    <p class="section-subheading">The tools getting the most attention right now.</p>
+    <div class="project-grid">
+      {featured.map((project) => (
+        <div class="project-card">
+          <h3>
+            <a href={`https://github.com/mcp-tool-shop-org/${project.repo}`} rel="noopener">
+              {project.name}
+            </a>
+          </h3>
+          <p>{project.description}</p>
+          <div class="tags">
+            {project.tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

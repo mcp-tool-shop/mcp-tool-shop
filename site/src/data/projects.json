@@ -1,0 +1,37 @@
+[
+  {
+    "name": "File Compass",
+    "repo": "file-compass",
+    "description": "Semantic file search with HNSW indexing and local Ollama embeddings. Multi-language AST chunking, <100ms queries over 10K+ files.",
+    "tags": ["mcp", "search", "embeddings"],
+    "featured": true
+  },
+  {
+    "name": "Tool Compass",
+    "repo": "tool-compass",
+    "description": "Find MCP tools by describing what you need. 115+ indexed tools, progressive disclosure pattern.",
+    "tags": ["mcp", "discovery"],
+    "featured": true
+  },
+  {
+    "name": "Soundboard Plugin",
+    "repo": "soundboard-plugin",
+    "description": "Give Claude Code a voice. 12 voices, emotion-aware speech, multi-speaker dialogue.",
+    "tags": ["tts", "plugin", "claude-code"],
+    "featured": true
+  },
+  {
+    "name": "Brain-Dev",
+    "repo": "brain-dev",
+    "description": "MCP server for code analysis: test generation, security audits, health scoring.",
+    "tags": ["mcp", "code-analysis"],
+    "featured": true
+  },
+  {
+    "name": "Comfy-Headless",
+    "repo": "comfy-headless",
+    "description": "Headless ComfyUI with prompt intelligence and video generation.",
+    "tags": ["comfyui", "image-gen"],
+    "featured": true
+  }
+]

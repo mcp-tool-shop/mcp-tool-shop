@@ -36,8 +36,10 @@ Everything runs locally. No cloud dependencies for core functionality. Tools com
 
 ---
 
+This repo also hosts the [mcp-tool-shop marketing site](https://mcp-tool-shop.github.io/) via GitHub Pages. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for local development instructions.
+
 <div align="center">
 
-**[mcp-tool-shop-org](https://github.com/mcp-tool-shop-org)** · **[mcptoolshop.com](https://mcptoolshop.com)**
+**[mcp-tool-shop-org](https://github.com/mcp-tool-shop-org)** · **[mcp-tool-shop.github.io](https://mcp-tool-shop.github.io/)**
 
 </div>

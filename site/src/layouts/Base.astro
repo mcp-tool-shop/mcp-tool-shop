@@ -1,0 +1,73 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  currentPath?: string;
+}
+
+const {
+  title,
+  description = 'Building the tools that AI agents use to get real work done.',
+  currentPath = '',
+} = Astro.props;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/tools/', label: 'Tools' },
+  { href: '/about/', label: 'About' },
+  { href: '/support/', label: 'Support' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <nav class="site-nav">
+      <div class="container">
+        <a href="/" class="logo">mcp-tool-shop</a>
+        <ul class="nav-links">
+          {navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                aria-current={currentPath === link.href ? 'page' : undefined}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <div class="container">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <span>&copy; {new Date().getFullYear()} mcp-tool-shop</span>
+        <ul class="footer-links">
+          <li><a href="https://github.com/mcp-tool-shop-org">Org on GitHub</a></li>
+          <li><a href="https://github.com/mcp-tool-shop">Profile</a></li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>
