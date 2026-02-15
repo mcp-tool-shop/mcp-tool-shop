@@ -47,6 +47,8 @@ Values follow this schema:
 | `tagline` | `string` | ≤ **90** chars | no |
 | `goodFor` | `string[]` | max **4** items, each ≤ 120 chars | no |
 | `notFor` | `string[]` | max **3** items, each ≤ 120 chars | no |
+| `screenshot` | `string` | path: `/screenshots/<slug>.png` | no |
+| `screenshotType` | `string` | `real` \| `placeholder` | no |
 | `needsHumanReview` | `boolean` | `true` on auto-generated entries | auto-only |
 
 ### Kind enum

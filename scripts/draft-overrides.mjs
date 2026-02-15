@@ -497,6 +497,8 @@ const FIELD_ORDER = [
   "tagline",
   "goodFor",
   "notFor",
+  "screenshot",
+  "screenshotType",
   "needsHumanReview",
 ];
 
