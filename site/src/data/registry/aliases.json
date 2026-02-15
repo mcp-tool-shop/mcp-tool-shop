@@ -1,0 +1,5 @@
+{
+  "$comment": "Maps registry tool IDs to actual GitHub org repo names when they don't match. Curated file — edit manually.",
+  "claim-ledger": "ClaimLedger",
+  "creator-ledger": "CreatorLedger"
+}

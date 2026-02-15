@@ -18,6 +18,7 @@
 | `site/src/data/automation.ignore.json` | **Human-curated** | Hand-edited only |
 | `site/src/data/registry/registry.json` | **Generated** | `scripts/fetch-registry.mjs` from mcp-tool-registry |
 | `site/src/data/registry/registry.index.json` | **Generated** | same fetch script |
+| `site/src/data/registry/aliases.json` | **Human-curated** | Maps registry IDs to actual org repo names (case mismatches) |
 
 ### Draft override rule
 

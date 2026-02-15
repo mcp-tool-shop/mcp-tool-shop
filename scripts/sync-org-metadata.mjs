@@ -29,6 +29,7 @@ const RELEASES_PATH = path.join(DATA_DIR, "releases.json");
 const OVERRIDES_PATH = path.join(DATA_DIR, "overrides.json");
 const IGNORE_PATH = path.join(DATA_DIR, "automation.ignore.json");
 const REGISTRY_PATH = path.join(DATA_DIR, "registry", "registry.json");
+const ALIASES_PATH = path.join(DATA_DIR, "registry", "aliases.json");
 
 function readJson(p) {
   if (!fs.existsSync(p)) return null;
@@ -125,10 +126,30 @@ function loadRegistry() {
 }
 
 /**
+ * Load aliases.json — maps registry IDs to actual org repo names.
+ * Handles case mismatches (e.g. claim-ledger -> ClaimLedger).
+ */
+function loadAliases() {
+  const data = readJson(ALIASES_PATH);
+  if (!data || typeof data !== "object") return new Map();
+  const map = new Map();
+  for (const [key, value] of Object.entries(data)) {
+    if (key.startsWith("$")) continue; // skip $comment etc.
+    map.set(key, value);
+  }
+  if (map.size > 0) console.log(`Loaded ${map.size} registry aliases`);
+  return map;
+}
+
+/**
  * Extract the org repo name from a registry tool.
  * Registry tools store repo as full URL; we extract the last path segment.
+ * Aliases override the URL-derived name when present.
  */
-function registryRepoName(tool) {
+function registryRepoName(tool, aliases = new Map()) {
+  // Alias wins — explicit human mapping
+  if (aliases.has(tool.id)) return aliases.get(tool.id);
+
   if (!tool.repo) return tool.id;
   try {
     const url = new URL(tool.repo);
@@ -144,7 +165,7 @@ function registryRepoName(tool) {
 // ---------------------------------------------------------------------------
 
 /** Build a project entry from registry + GitHub + override sources */
-function buildProject({ registryTool, ghRepo, override, registered }) {
+function buildProject({ registryTool, ghRepo, override, registered, aliases }) {
   // 1. Start with registry data (if registered)
   const base = {
     name: "",
@@ -161,7 +182,7 @@ function buildProject({ registryTool, ghRepo, override, registered }) {
 
   if (registryTool) {
     base.name = registryTool.name || formatName(registryTool.id);
-    base.repo = registryRepoName(registryTool);
+    base.repo = registryRepoName(registryTool, aliases);
     base.description = registryTool.description || "";
     base.tags = registryTool.tags || [];
     if (registryTool.ecosystem) base.ecosystem = registryTool.ecosystem;
@@ -250,6 +271,7 @@ async function main() {
   const overrides = readJson(OVERRIDES_PATH) || {};
   const ignoreList = new Set(readJson(IGNORE_PATH) || []);
   const registry = loadRegistry();
+  const aliases = loadAliases();
 
   // Fetch all org repos from GitHub
   console.log(`Fetching repos from ${ORG}...`);
@@ -257,10 +279,14 @@ async function main() {
   const active = repos.filter((r) => !r.archived);
   console.log(`Found ${active.length} active public repos (${repos.length} total)`);
 
-  // Build repo lookup: name -> GitHub API repo object
+  // Build repo lookups
   const repoByName = new Map();
+  const archivedRepos = new Set();
   for (const repo of active) {
     repoByName.set(repo.name, repo);
+  }
+  for (const repo of repos) {
+    if (repo.archived) archivedRepos.add(repo.name);
   }
 
   // Track which org repos get claimed by registry tools
@@ -270,14 +296,18 @@ async function main() {
 
   // --- Phase 1: Registry tools (registered: true) ---
   for (const [id, tool] of registry) {
-    const repoName = registryRepoName(tool);
+    const repoName = registryRepoName(tool, aliases);
 
     // Skip ignored repos
     if (ignoreList.has(repoName) || ignoreList.has(id)) continue;
 
     const ghRepo = repoByName.get(repoName);
     if (!ghRepo) {
-      warnings.push(`Registry tool "${id}" has no matching org repo "${repoName}"`);
+      if (archivedRepos.has(repoName)) {
+        warnings.push(`Registry tool "${id}" → repo "${repoName}" is archived`);
+      } else {
+        warnings.push(`Registry tool "${id}" has no matching org repo "${repoName}"`);
+      }
     } else {
       claimedRepos.add(repoName);
     }
@@ -288,6 +318,7 @@ async function main() {
         ghRepo: ghRepo || null,
         override: overrides[repoName] || overrides[id] || null,
         registered: true,
+        aliases,
       })
     );
   }
@@ -303,6 +334,7 @@ async function main() {
         ghRepo: repo,
         override: overrides[repo.name] || null,
         registered: false,
+        aliases,
       })
     );
   }
@@ -350,8 +382,9 @@ async function main() {
   const totalStars = sorted.reduce((sum, p) => sum + p.stars, 0);
   const languages = [...new Set(sorted.map((p) => p.language).filter(Boolean))];
 
-  // Count registry tools that have no matching org repo (after ignore filtering)
-  const registryOnlyCount = warnings.filter((w) => w.includes("has no matching org repo")).length;
+  // Classify warnings
+  const registryArchivedCount = warnings.filter((w) => w.includes("is archived")).length;
+  const registryMissingCount = warnings.filter((w) => w.includes("has no matching org repo")).length;
 
   const stats = {
     repoCount: sorted.length,
@@ -364,8 +397,10 @@ async function main() {
       registryToolCount: registry.size,
       registeredInProjects: registeredCount,
       orgOnlyRepos: orphanCount,
-      registryNoRepo: registryOnlyCount,
+      registryArchived: registryArchivedCount,
+      registryMissing: registryMissingCount,
       ignoredRepos: ignoreList.size,
+      aliasCount: aliases.size,
       warnings: warnings.length,
     },
   };
@@ -378,7 +413,9 @@ async function main() {
   console.log(`  Registry tools:      ${registry.size}`);
   console.log(`  Registered projects: ${registeredCount}`);
   console.log(`  Org-only repos:      ${orphanCount}`);
-  console.log(`  Registry-no-repo:    ${registryOnlyCount}`);
+  console.log(`  Registry→archived:   ${registryArchivedCount}`);
+  console.log(`  Registry→missing:    ${registryMissingCount}`);
+  console.log(`  Aliases applied:     ${aliases.size}`);
   console.log(`  Ignored repos:       ${ignoreList.size}`);
   console.log(`  Total warnings:      ${warnings.length}`);
   console.log(`  Total API calls:     ${apiCalls}`);
