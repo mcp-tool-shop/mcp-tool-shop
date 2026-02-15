@@ -1,6 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
 import releases from '../../data/releases.json';
+import projects from '../../data/projects.json';
+
+const projectRepos = new Set((projects as any[]).map((p: any) => p.repo));
 
 function formatDate(iso: string) {
   if (!iso) return '';
@@ -41,7 +44,11 @@ function relativeDate(iso: string) {
     {(releases as any[]).map((rel: any) => (
       <article class="release-entry">
         <div class="release-header">
-          <a href={`/tools/${rel.repo}/`} class="release-tool">{rel.toolName}</a>
+          {projectRepos.has(rel.repo) ? (
+            <a href={`/tools/${rel.repo}/`} class="release-tool">{rel.toolName}</a>
+          ) : (
+            <span class="release-tool release-tool--orphan">{rel.toolName}</span>
+          )}
           <a href={rel.url} class="release-tag" rel="noopener">
             {rel.tag}
             {rel.prerelease && <span class="badge-pre">pre</span>}
@@ -95,6 +102,10 @@ function relativeDate(iso: string) {
     font-weight: 600;
     font-size: 0.9375rem;
     color: var(--color-accent);
+  }
+
+  .release-tool--orphan {
+    color: var(--color-text-muted);
   }
 
   .release-tag {

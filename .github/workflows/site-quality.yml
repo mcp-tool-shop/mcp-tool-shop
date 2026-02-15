@@ -1,0 +1,230 @@
+name: Site quality checks
+
+on:
+  pull_request:
+    paths:
+      - 'site/**'
+      - 'scripts/**'
+      - '.github/workflows/site-quality.yml'
+  workflow_dispatch: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - run: npm ci
+        working-directory: site
+
+      # ── Build ──────────────────────────────────────────────────
+      - name: Build site
+        run: npm run build
+        working-directory: site
+
+      # ── JSON Schema Validation ─────────────────────────────────
+      - name: Validate overrides.json
+        run: |
+          node -e "
+          const fs = require('fs');
+
+          const VALID_KINDS = ['mcp-server', 'cli', 'library', 'plugin', 'desktop-app', 'vscode-extension', 'homebrew-tap', 'template', 'meta'];
+          const VALID_STABILITY = ['stable', 'beta', 'experimental'];
+          const VALID_CATEGORIES = ['mcp-core', 'voice', 'security', 'ml', 'infrastructure', 'desktop', 'devtools', 'web', 'games'];
+
+          const overrides = JSON.parse(fs.readFileSync('site/src/data/overrides.json', 'utf8'));
+          let errors = 0;
+
+          for (const [repo, entry] of Object.entries(overrides)) {
+            // kind enum
+            if (entry.kind && !VALID_KINDS.includes(entry.kind)) {
+              console.error('ERROR: ' + repo + '.kind = \"' + entry.kind + '\" (invalid)');
+              errors++;
+            }
+
+            // stability enum
+            if (entry.stability && !VALID_STABILITY.includes(entry.stability)) {
+              console.error('ERROR: ' + repo + '.stability = \"' + entry.stability + '\" (invalid)');
+              errors++;
+            }
+
+            // category enum
+            if (entry.category && !VALID_CATEGORIES.includes(entry.category)) {
+              console.error('ERROR: ' + repo + '.category = \"' + entry.category + '\" (invalid)');
+              errors++;
+            }
+
+            // tagline length
+            if (entry.tagline && entry.tagline.length > 90) {
+              console.error('ERROR: ' + repo + '.tagline is ' + entry.tagline.length + ' chars (max 90)');
+              errors++;
+            }
+
+            // tags max 6
+            if (entry.tags && entry.tags.length > 6) {
+              console.error('ERROR: ' + repo + '.tags has ' + entry.tags.length + ' items (max 6)');
+              errors++;
+            }
+
+            // goodFor max 4
+            if (entry.goodFor && entry.goodFor.length > 4) {
+              console.error('ERROR: ' + repo + '.goodFor has ' + entry.goodFor.length + ' items (max 4)');
+              errors++;
+            }
+
+            // notFor max 3
+            if (entry.notFor && entry.notFor.length > 3) {
+              console.error('ERROR: ' + repo + '.notFor has ' + entry.notFor.length + ' items (max 3)');
+              errors++;
+            }
+
+            // screenshotType enum
+            if (entry.screenshotType && !['real', 'placeholder'].includes(entry.screenshotType)) {
+              console.error('ERROR: ' + repo + '.screenshotType = \"' + entry.screenshotType + '\" (must be real|placeholder)');
+              errors++;
+            }
+
+            // screenshot path format
+            if (entry.screenshot && !entry.screenshot.startsWith('/screenshots/')) {
+              console.error('ERROR: ' + repo + '.screenshot must start with /screenshots/');
+              errors++;
+            }
+          }
+
+          if (errors > 0) {
+            console.error('\n' + errors + ' validation error(s) found.');
+            process.exit(1);
+          } else {
+            console.log('overrides.json: ' + Object.keys(overrides).length + ' entries, all valid.');
+          }
+          "
+
+      # ── Collections Validation ─────────────────────────────────
+      - name: Validate collections.json
+        run: |
+          node -e "
+          const fs = require('fs');
+          const collections = JSON.parse(fs.readFileSync('site/src/data/collections.json', 'utf8'));
+          const projects = JSON.parse(fs.readFileSync('site/src/data/projects.json', 'utf8'));
+          const projectRepos = new Set(projects.map(p => p.repo));
+          let errors = 0;
+
+          const ids = new Set();
+          for (const col of collections) {
+            // Unique IDs
+            if (ids.has(col.id)) {
+              console.error('ERROR: Duplicate collection id: ' + col.id);
+              errors++;
+            }
+            ids.add(col.id);
+
+            // Required fields
+            if (!col.title) { console.error('ERROR: ' + col.id + ' missing title'); errors++; }
+            if (!col.description) { console.error('ERROR: ' + col.id + ' missing description'); errors++; }
+            if (!col.repos || col.repos.length === 0) { console.error('ERROR: ' + col.id + ' has no repos'); errors++; }
+
+            // Repos exist in projects.json
+            for (const repo of col.repos || []) {
+              if (!projectRepos.has(repo)) {
+                console.error('WARN: ' + col.id + ' references ' + repo + ' (not in projects.json)');
+              }
+            }
+          }
+
+          if (errors > 0) {
+            console.error('\n' + errors + ' validation error(s) found.');
+            process.exit(1);
+          } else {
+            console.log('collections.json: ' + collections.length + ' collections, all valid.');
+          }
+          "
+
+      # ── Internal Link Check ────────────────────────────────────
+      - name: Check internal links
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+
+          const distDir = 'site/dist';
+          let errors = 0;
+          let checked = 0;
+
+          function walkDir(dir) {
+            const entries = fs.readdirSync(dir, { withFileTypes: true });
+            for (const entry of entries) {
+              const full = path.join(dir, entry.name);
+              if (entry.isDirectory()) {
+                walkDir(full);
+              } else if (entry.name.endsWith('.html')) {
+                checkFile(full);
+              }
+            }
+          }
+
+          function checkFile(file) {
+            const html = fs.readFileSync(file, 'utf8');
+            // Find internal href links
+            const linkRe = /href=\"(\\/[^\"]*?)\"/g;
+            let match;
+            while ((match = linkRe.exec(html)) !== null) {
+              const href = match[1];
+              checked++;
+
+              // Skip anchor-only links, external, and asset links
+              if (href.startsWith('/#') || href.startsWith('/_astro/')) continue;
+
+              // Normalize: /tools/ → /tools/index.html
+              let target = href;
+              if (target.endsWith('/')) target += 'index.html';
+              if (!path.extname(target)) target += '/index.html';
+
+              const fullPath = path.join(distDir, target);
+              if (!fs.existsSync(fullPath)) {
+                const relFile = path.relative(distDir, file);
+                console.error('BROKEN LINK: ' + relFile + ' → ' + href);
+                errors++;
+              }
+            }
+          }
+
+          walkDir(distDir);
+
+          if (errors > 0) {
+            console.error('\n' + errors + ' broken internal link(s) found in ' + checked + ' links checked.');
+            process.exit(1);
+          } else {
+            console.log('Internal links: ' + checked + ' links checked, all valid.');
+          }
+          "
+
+      # ── Ignore List Validation ─────────────────────────────────
+      - name: Validate automation.ignore.json
+        run: |
+          node -e "
+          const fs = require('fs');
+          const ignoreList = JSON.parse(fs.readFileSync('site/src/data/automation.ignore.json', 'utf8'));
+
+          if (!Array.isArray(ignoreList)) {
+            console.error('ERROR: automation.ignore.json must be an array');
+            process.exit(1);
+          }
+
+          const dupes = ignoreList.filter((item, i) => ignoreList.indexOf(item) !== i);
+          if (dupes.length > 0) {
+            console.error('ERROR: Duplicate entries in ignore list: ' + dupes.join(', '));
+            process.exit(1);
+          }
+
+          console.log('automation.ignore.json: ' + ignoreList.length + ' entries, valid.');
+          "
