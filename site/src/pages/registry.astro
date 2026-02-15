@@ -1,0 +1,137 @@
+---
+import Base from '../layouts/Base.astro';
+import stats from '../data/org-stats.json';
+
+const health = (stats as any).registryHealth || {};
+---
+
+<Base
+  title="Registry - mcp-tool-shop"
+  description="The MCP Tool Shop registry: what it is, what listing means, and how to add a tool."
+  currentPath="/registry/"
+>
+  <div class="page-content">
+    <h1>Registry</h1>
+    <p>
+      The <strong>MCP Tool Shop Registry</strong> is the canonical metadata catalog for
+      tools in the ecosystem. It provides verified names, descriptions, install contracts,
+      and capability tags for each listed tool.
+    </p>
+
+    <h2>What "Registry listed" means</h2>
+    <p>
+      When a tool shows the <span class="badge badge-registered">Registry</span> badge,
+      it means:
+    </p>
+    <ul>
+      <li>The tool has been reviewed and added to <code>registry.json</code></li>
+      <li>Its name, description, and tags have been curated</li>
+      <li>It has a stable install contract (how to get the tool)</li>
+      <li>Clients like <a href="/tools/mcpt/">mcpt</a> can discover and install it automatically</li>
+    </ul>
+
+    <h2>Org-only repos</h2>
+    <p>
+      Tools showing <span class="badge badge-orgonly">Org-only</span> exist in the
+      <a href="https://github.com/mcp-tool-shop-org" rel="noopener">mcp-tool-shop-org</a>
+      organization but haven't been formally listed in the registry yet. They may be
+      experimental, in-progress, or simply awaiting review.
+    </p>
+
+    <h2>How to add a tool</h2>
+    <ol>
+      <li>Push your repo to <code>mcp-tool-shop-org</code></li>
+      <li>Open a PR to the <a href="https://github.com/mcp-tool-shop-org/mcp-tool-registry" rel="noopener">mcp-tool-registry</a> adding your tool to <code>registry.json</code></li>
+      <li>Include: <code>id</code>, <code>name</code>, <code>description</code>, <code>repo</code> URL, <code>install</code> object, and <code>tags</code></li>
+      <li>Once merged, the tool appears on this site after the next sync</li>
+    </ol>
+
+    <h2>Registry health</h2>
+    <div class="health-grid">
+      <div class="health-item">
+        <span class="health-value">{health.registryToolCount || 0}</span>
+        <span class="health-label">Registry tools</span>
+      </div>
+      <div class="health-item">
+        <span class="health-value">{health.registeredInProjects || 0}</span>
+        <span class="health-label">Active projects</span>
+      </div>
+      <div class="health-item">
+        <span class="health-value">{health.orgOnlyRepos || 0}</span>
+        <span class="health-label">Org-only repos</span>
+      </div>
+      <div class="health-item">
+        <span class="health-value">{health.registryArchived || health.registryNoRepo || 0}</span>
+        <span class="health-label">Archived/missing</span>
+      </div>
+    </div>
+
+    <h2>Data sources</h2>
+    <p>
+      Each tool page combines data from three sources, in merge order:
+    </p>
+    <ol>
+      <li><strong>Registry</strong> &mdash; canonical names, descriptions, tags, install contracts</li>
+      <li><strong>GitHub API</strong> &mdash; live signals (stars, language, last updated)</li>
+      <li><strong>Overrides</strong> &mdash; editorial polish (taglines, good-for/not-for, screenshots)</li>
+    </ol>
+    <p>
+      This means registry data is the foundation, GitHub keeps it fresh, and human
+      editors add the finishing touches.
+    </p>
+  </div>
+</Base>
+
+<style>
+  .badge {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    padding: 0.125em 0.5em;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  .badge-registered {
+    color: var(--color-accent);
+    background: rgba(88, 166, 255, 0.1);
+  }
+
+  .badge-orgonly {
+    color: var(--color-text-muted);
+    background: rgba(139, 148, 158, 0.06);
+    border: 1px dashed rgba(139, 148, 158, 0.2);
+  }
+
+  .health-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .health-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+
+  .health-value {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .health-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-align: center;
+  }
+</style>
