@@ -1,0 +1,1217 @@
+[
+  {
+    "id": "accessibility-suite",
+    "name": "Accessibility Suite",
+    "description": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+    "keywords": [
+      "accessibility",
+      "and",
+      "compliance",
+      "evidence",
+      "for",
+      "generation",
+      "monorepo",
+      "suite",
+      "testing",
+      "tooling",
+      "unified",
+      "wcag"
+    ],
+    "tags": [
+      "accessibility",
+      "compliance",
+      "monorepo",
+      "wcag"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "ally-demo-python",
+    "name": "Ally Demo Python",
+    "description": "Python demonstration of accessibility framework capabilities",
+    "keywords": [
+      "accessibility",
+      "ally",
+      "capabilities",
+      "demo",
+      "demonstration",
+      "framework",
+      "python"
+    ],
+    "tags": [
+      "accessibility",
+      "demo",
+      "python"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "aspire-ai",
+    "name": "Aspire AI",
+    "description": "Goal-oriented framework for running and evaluating AI workflows over time",
+    "keywords": [
+      "and",
+      "aspire",
+      "evaluating",
+      "evaluation",
+      "experimentation",
+      "for",
+      "framework",
+      "goal",
+      "metrics",
+      "oriented",
+      "over",
+      "running",
+      "time",
+      "workflows"
+    ],
+    "tags": [
+      "evaluation",
+      "experimentation",
+      "metrics"
+    ],
+    "bundle_membership": [
+      "evaluation"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "audiobooker",
+    "name": "Audiobooker",
+    "description": "Audio book generation and management system",
+    "keywords": [
+      "and",
+      "audio",
+      "audiobooker",
+      "book",
+      "ebook",
+      "generation",
+      "management",
+      "system"
+    ],
+    "tags": [
+      "audio",
+      "ebook",
+      "generation"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "backpropagate",
+    "name": "Backpropagate",
+    "description": "Structured feedback loops for improving AI behavior through iteration",
+    "keywords": [
+      "backpropagate",
+      "behavior",
+      "evaluation",
+      "feedback",
+      "for",
+      "improving",
+      "iteration",
+      "loops",
+      "structured",
+      "through"
+    ],
+    "tags": [
+      "evaluation",
+      "feedback",
+      "iteration"
+    ],
+    "bundle_membership": [
+      "evaluation"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "brain-dev",
+    "name": "Brain Dev",
+    "description": "MCP server for AI-powered code analysis — test generation, security audits, refactoring suggestions",
+    "keywords": [
+      "ai",
+      "analysis",
+      "audits",
+      "brain",
+      "code",
+      "code-analysis",
+      "dev",
+      "for",
+      "generation",
+      "mcp",
+      "mcp-server",
+      "powered",
+      "refactoring",
+      "security",
+      "server",
+      "suggestions",
+      "test",
+      "testing"
+    ],
+    "tags": [
+      "ai",
+      "code-analysis",
+      "mcp-server",
+      "testing"
+    ],
+    "bundle_membership": [
+      "evaluation"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "claim-ledger",
+    "name": "ClaimLedger",
+    "description": "Scientific claim provenance and verification ledger",
+    "keywords": [
+      "and",
+      "claim",
+      "claimledger",
+      "cryptography",
+      "dotnet",
+      "ledger",
+      "provenance",
+      "scientific",
+      "verification"
+    ],
+    "tags": [
+      "cryptography",
+      "dotnet",
+      "provenance"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "claude-collaborate",
+    "name": "Claude Collaborate",
+    "description": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows",
+    "keywords": [
+      "agent",
+      "agents",
+      "and",
+      "claude",
+      "collaborate",
+      "collaboration",
+      "for",
+      "human",
+      "loop",
+      "multi",
+      "primitives",
+      "the",
+      "workflows"
+    ],
+    "tags": [
+      "agents",
+      "claude",
+      "collaboration"
+    ],
+    "bundle_membership": [
+      "agents"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "code-covered",
+    "name": "Code Covered",
+    "description": "Coverage visualization and reporting tool",
+    "keywords": [
+      "and",
+      "code",
+      "coverage",
+      "covered",
+      "reporting",
+      "testing",
+      "tool",
+      "visualization"
+    ],
+    "tags": [
+      "coverage",
+      "testing",
+      "visualization"
+    ],
+    "bundle_membership": [
+      "evaluation"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "codeclone-suite",
+    "name": "CodeClone Suite",
+    "description": "Deterministic code coverage analysis as a protocol — CLI engine and editor extensions",
+    "keywords": [
+      "analysis",
+      "and",
+      "cli",
+      "code",
+      "codeclone",
+      "coverage",
+      "deterministic",
+      "editor",
+      "engine",
+      "extensions",
+      "monorepo",
+      "protocol",
+      "suite"
+    ],
+    "tags": [
+      "coverage",
+      "monorepo",
+      "protocol"
+    ],
+    "bundle_membership": [
+      "evaluation"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "codecomfy-vscode",
+    "name": "CodeComfy VS Code",
+    "description": "VS Code extension for code analysis and coverage display",
+    "keywords": [
+      "analysis",
+      "and",
+      "code",
+      "codecomfy",
+      "coverage",
+      "display",
+      "extension",
+      "for",
+      "vscode"
+    ],
+    "tags": [
+      "coverage",
+      "extension",
+      "vscode"
+    ],
+    "bundle_membership": [
+      "evaluation"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "codeteam",
+    "name": "CodeTeam",
+    "description": "Legacy code analysis CLI (see codeteam-suite)",
+    "keywords": [
+      "(see",
+      "analysis",
+      "cli",
+      "code",
+      "code-analysis",
+      "codeteam",
+      "legacy",
+      "suite)"
+    ],
+    "tags": [
+      "cli",
+      "code-analysis",
+      "legacy"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "codeteam-suite",
+    "name": "CodeTeam Suite",
+    "description": "Code analysis protocol and tools — CLI engine with editor extensions",
+    "keywords": [
+      "analysis",
+      "and",
+      "cli",
+      "code",
+      "code-analysis",
+      "codeteam",
+      "editor",
+      "engine",
+      "extensions",
+      "monorepo",
+      "protocol",
+      "suite",
+      "tools",
+      "with"
+    ],
+    "tags": [
+      "code-analysis",
+      "monorepo",
+      "protocol"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "comfy-headless",
+    "name": "Comfy Headless",
+    "description": "Run ComfyUI workflows without the UI — headless execution for automation",
+    "keywords": [
+      "automation",
+      "comfy",
+      "comfyui",
+      "execution",
+      "for",
+      "headless",
+      "image",
+      "run",
+      "the",
+      "without",
+      "workflows"
+    ],
+    "tags": [
+      "automation",
+      "comfyui",
+      "headless",
+      "image"
+    ],
+    "bundle_membership": [
+      "ops"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "context-window-manager",
+    "name": "Context Window Manager",
+    "description": "Deterministic tools for shaping and allocating LLM context windows",
+    "keywords": [
+      "allocating",
+      "and",
+      "context",
+      "deterministic",
+      "for",
+      "llm",
+      "manager",
+      "memory",
+      "rag",
+      "shaping",
+      "tokens",
+      "tools",
+      "window",
+      "windows"
+    ],
+    "tags": [
+      "context",
+      "memory",
+      "rag",
+      "tokens"
+    ],
+    "bundle_membership": [
+      "agents",
+      "core"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "control-room",
+    "name": "Control Room",
+    "description": "Dashboard and monitoring for MCP tool ecosystems",
+    "keywords": [
+      "admin",
+      "and",
+      "control",
+      "dashboard",
+      "ecosystems",
+      "for",
+      "mcp",
+      "monitoring",
+      "room",
+      "tool"
+    ],
+    "tags": [
+      "admin",
+      "dashboard",
+      "monitoring"
+    ],
+    "bundle_membership": [
+      "ops"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "creator-ledger",
+    "name": "CreatorLedger",
+    "description": "Creator attestation proofs and authorship verification",
+    "keywords": [
+      "and",
+      "attestation",
+      "authorship",
+      "creator",
+      "creatorledger",
+      "dotnet",
+      "proofs",
+      "provenance",
+      "verification"
+    ],
+    "tags": [
+      "attestation",
+      "dotnet",
+      "provenance"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "file-compass",
+    "name": "File Compass",
+    "description": "Deterministic file-system navigation and inspection for large repos",
+    "keywords": [
+      "and",
+      "compass",
+      "deterministic",
+      "file",
+      "filesystem",
+      "for",
+      "inspection",
+      "large",
+      "navigation",
+      "repos",
+      "search",
+      "system"
+    ],
+    "tags": [
+      "filesystem",
+      "navigation",
+      "search"
+    ],
+    "bundle_membership": [
+      "agents",
+      "core"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "flexiflow",
+    "name": "Flexiflow",
+    "description": "Flexible workflow automation framework",
+    "keywords": [
+      "automation",
+      "flexible",
+      "flexiflow",
+      "framework",
+      "workflow"
+    ],
+    "tags": [
+      "automation",
+      "framework",
+      "workflow"
+    ],
+    "bundle_membership": [
+      "ops"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "headless-wheel-builder",
+    "name": "Headless Wheel Builder",
+    "description": "CLI-first build/validate/release tooling for Python wheels and sdists",
+    "keywords": [
+      "and",
+      "build/validate/release",
+      "builder",
+      "cli",
+      "first",
+      "for",
+      "headless",
+      "packaging",
+      "python",
+      "release",
+      "sdists",
+      "tooling",
+      "wheel",
+      "wheels"
+    ],
+    "tags": [
+      "packaging",
+      "python",
+      "release",
+      "wheels"
+    ],
+    "bundle_membership": [
+      "ops"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "homebrew-core",
+    "name": "Homebrew Core",
+    "description": "Homebrew formulae for mcp-tool-shop packages",
+    "keywords": [
+      "core",
+      "for",
+      "formulae",
+      "homebrew",
+      "macos",
+      "mcp",
+      "packages",
+      "packaging",
+      "shop",
+      "tool"
+    ],
+    "tags": [
+      "homebrew",
+      "macos",
+      "packaging"
+    ],
+    "bundle_membership": [
+      "ops"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "integradio",
+    "name": "Integradio",
+    "description": "Structure layer for building maintainable Gradio apps (UI + execution separation)",
+    "keywords": [
+      "(ui",
+      "apps",
+      "building",
+      "execution",
+      "for",
+      "framework",
+      "gradio",
+      "integradio",
+      "layer",
+      "maintainable",
+      "separation)",
+      "structure",
+      "ui"
+    ],
+    "tags": [
+      "framework",
+      "gradio",
+      "ui"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "ledger-suite",
+    "name": "Ledger Suite",
+    "description": "Unified monorepo for cryptographic provenance ledgers — ClaimLedger and CreatorLedger",
+    "keywords": [
+      "and",
+      "claimledger",
+      "creatorledger",
+      "cryptographic",
+      "cryptography",
+      "dotnet",
+      "for",
+      "ledger",
+      "ledgers",
+      "monorepo",
+      "provenance",
+      "suite",
+      "unified"
+    ],
+    "tags": [
+      "cryptography",
+      "dotnet",
+      "monorepo",
+      "provenance"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "mcp-docs",
+    "name": "MCP Tool Shop Website",
+    "description": "Official website and documentation for MCP Tool Shop",
+    "keywords": [
+      "and",
+      "documentation",
+      "for",
+      "mcp",
+      "official",
+      "organization",
+      "shop",
+      "tool",
+      "website"
+    ],
+    "tags": [
+      "documentation",
+      "organization",
+      "website"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "mcp-examples",
+    "name": "MCP Examples",
+    "description": "Example workspaces and templates for MCP tools",
+    "keywords": [
+      "and",
+      "example",
+      "examples",
+      "for",
+      "mcp",
+      "templates",
+      "tools",
+      "workspaces"
+    ],
+    "tags": [
+      "examples",
+      "mcp",
+      "templates"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "mcp-stress-test",
+    "name": "MCP Stress Test",
+    "description": "Load and stress testing utilities for MCP servers and tool ecosystems",
+    "keywords": [
+      "and",
+      "concurrency",
+      "ecosystems",
+      "for",
+      "load",
+      "load-testing",
+      "mcp",
+      "performance",
+      "servers",
+      "stress",
+      "test",
+      "testing",
+      "tool",
+      "utilities"
+    ],
+    "tags": [
+      "concurrency",
+      "load-testing",
+      "performance"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "mcpt",
+    "name": "MCPT",
+    "description": "MCP Tool Shop command-line interface and utilities",
+    "keywords": [
+      "and",
+      "cli",
+      "command",
+      "interface",
+      "line",
+      "mcp",
+      "mcpt",
+      "shop",
+      "tool",
+      "tools",
+      "utilities"
+    ],
+    "tags": [
+      "cli",
+      "mcp",
+      "tools"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "next-gallery",
+    "name": "Next Gallery",
+    "description": "Windows desktop image gallery application",
+    "keywords": [
+      "application",
+      "desktop",
+      "gallery",
+      "image",
+      "images",
+      "next",
+      "windows"
+    ],
+    "tags": [
+      "desktop",
+      "gallery",
+      "images",
+      "windows"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "nexus-suite",
+    "name": "Nexus Suite",
+    "description": "Governance, attestation, and routing infrastructure for MCP tool ecosystems",
+    "keywords": [
+      "and",
+      "attestation",
+      "ecosystems",
+      "for",
+      "governance",
+      "infrastructure",
+      "mcp",
+      "monorepo",
+      "nexus",
+      "routing",
+      "suite",
+      "tool"
+    ],
+    "tags": [
+      "attestation",
+      "governance",
+      "monorepo",
+      "routing"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "pathway",
+    "name": "Pathway",
+    "description": "Python journey engine for workflow progression tracking",
+    "keywords": [
+      "engine",
+      "for",
+      "journey",
+      "pathway",
+      "progression",
+      "python",
+      "tracking",
+      "workflow"
+    ],
+    "tags": [
+      "journey",
+      "python",
+      "workflow"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "payroll-engine",
+    "name": "Payroll Engine",
+    "description": "Comprehensive payroll processing and SaaS platform",
+    "keywords": [
+      "and",
+      "comprehensive",
+      "engine",
+      "hr",
+      "payroll",
+      "platform",
+      "processing",
+      "saas"
+    ],
+    "tags": [
+      "hr",
+      "payroll",
+      "saas"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "prov-engine-js",
+    "name": "Prov Engine JS",
+    "description": "JavaScript/TypeScript provenance and traceability engine",
+    "keywords": [
+      "and",
+      "engine",
+      "javascript/typescript",
+      "prov",
+      "provenance",
+      "traceability",
+      "typescript"
+    ],
+    "tags": [
+      "provenance",
+      "traceability",
+      "typescript"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "runforge-desktop",
+    "name": "RunForge Desktop",
+    "description": "Windows desktop application for AI workflow execution",
+    "keywords": [
+      "ai",
+      "application",
+      "desktop",
+      "execution",
+      "for",
+      "runforge",
+      "windows",
+      "workflow"
+    ],
+    "tags": [
+      "ai",
+      "desktop",
+      "windows",
+      "workflow"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "runforge-vscode",
+    "name": "RunForge VS Code",
+    "description": "VS Code extension for AI workflow execution",
+    "keywords": [
+      "ai",
+      "code",
+      "execution",
+      "extension",
+      "for",
+      "runforge",
+      "vscode",
+      "workflow"
+    ],
+    "tags": [
+      "ai",
+      "extension",
+      "vscode",
+      "workflow"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "stresskit-mcp",
+    "name": "StressKit MCP",
+    "description": "MCP stress testing toolkit with configurable load patterns",
+    "keywords": [
+      "configurable",
+      "load",
+      "mcp",
+      "patterns",
+      "stress",
+      "stress-testing",
+      "stresskit",
+      "testing",
+      "toolkit",
+      "with"
+    ],
+    "tags": [
+      "load",
+      "mcp",
+      "stress-testing"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "synthesis",
+    "name": "Synthesis",
+    "description": "Composable tool framework for building complex AI workflows",
+    "keywords": [
+      "building",
+      "complex",
+      "composable",
+      "composition",
+      "for",
+      "framework",
+      "synthesis",
+      "tool",
+      "tools",
+      "workflow",
+      "workflows"
+    ],
+    "tags": [
+      "composition",
+      "tools",
+      "workflow"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "tool-compass",
+    "name": "Tool Compass",
+    "description": "Discovery, classification, and ranking utilities for MCP-compatible tools",
+    "keywords": [
+      "and",
+      "catalog",
+      "classification",
+      "compass",
+      "compatible",
+      "discovery",
+      "for",
+      "mcp",
+      "ranking",
+      "tool",
+      "tools",
+      "utilities"
+    ],
+    "tags": [
+      "catalog",
+      "discovery",
+      "ranking"
+    ],
+    "bundle_membership": [
+      "agents",
+      "core"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "tool-scan",
+    "name": "Tool Scan",
+    "description": "Static inspection utilities for MCP tools and repositories",
+    "keywords": [
+      "and",
+      "for",
+      "inspection",
+      "mcp",
+      "repositories",
+      "scan",
+      "security",
+      "static",
+      "static-analysis",
+      "tool",
+      "tools",
+      "utilities"
+    ],
+    "tags": [
+      "inspection",
+      "security",
+      "static-analysis"
+    ],
+    "bundle_membership": [
+      "core"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "training-studio",
+    "name": "Training Studio",
+    "description": "TensorFlow.js ML bundle validator with security-first design and zero code execution",
+    "keywords": [
+      "and",
+      "bundle",
+      "code",
+      "design",
+      "execution",
+      "first",
+      "ml",
+      "security",
+      "studio",
+      "tensorflow.js",
+      "tensorflowjs",
+      "training",
+      "validation",
+      "validator",
+      "with",
+      "zero"
+    ],
+    "tags": [
+      "ml",
+      "security",
+      "tensorflowjs",
+      "validation"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "venvkit",
+    "name": "Venvkit",
+    "description": "Python virtual environment diagnostics and utilities",
+    "keywords": [
+      "and",
+      "diagnostics",
+      "environment",
+      "python",
+      "utilities",
+      "venv",
+      "venvkit",
+      "virtual"
+    ],
+    "tags": [
+      "diagnostics",
+      "python",
+      "venv"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "voice-soundboard",
+    "name": "Voice Soundboard",
+    "description": "TTS and audio generation with voice cloning support",
+    "keywords": [
+      "and",
+      "audio",
+      "cloning",
+      "generation",
+      "soundboard",
+      "support",
+      "tts",
+      "voice",
+      "with"
+    ],
+    "tags": [
+      "audio",
+      "cloning",
+      "tts",
+      "voice"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "websketch-cli",
+    "name": "WebSketch CLI",
+    "description": "Command-line interface for web component analysis",
+    "keywords": [
+      "analysis",
+      "cli",
+      "command",
+      "component",
+      "for",
+      "interface",
+      "line",
+      "web",
+      "websketch"
+    ],
+    "tags": [
+      "analysis",
+      "cli",
+      "web"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "websketch-demo",
+    "name": "WebSketch Demo",
+    "description": "Interactive demo showcasing WebSketch capabilities",
+    "keywords": [
+      "capabilities",
+      "demo",
+      "interactive",
+      "showcasing",
+      "visualization",
+      "web",
+      "websketch"
+    ],
+    "tags": [
+      "demo",
+      "visualization",
+      "web"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "websketch-extension",
+    "name": "WebSketch Extension",
+    "description": "Browser extension for web page analysis and code generation",
+    "keywords": [
+      "analysis",
+      "and",
+      "browser",
+      "code",
+      "extension",
+      "for",
+      "generation",
+      "page",
+      "web",
+      "websketch"
+    ],
+    "tags": [
+      "analysis",
+      "browser",
+      "extension"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "websketch-ir",
+    "name": "WebSketch IR",
+    "description": "Intermediate representation library for web component analysis",
+    "keywords": [
+      "analysis",
+      "component",
+      "core",
+      "for",
+      "intermediate",
+      "ir",
+      "library",
+      "representation",
+      "web",
+      "websketch"
+    ],
+    "tags": [
+      "core",
+      "ir",
+      "library"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "websketch-mcp",
+    "name": "WebSketch MCP",
+    "description": "MCP server for AI-assisted web analysis",
+    "keywords": [
+      "ai",
+      "analysis",
+      "assisted",
+      "for",
+      "mcp",
+      "mcp-server",
+      "server",
+      "web",
+      "websketch"
+    ],
+    "tags": [
+      "ai",
+      "mcp-server",
+      "web"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  },
+  {
+    "id": "winget-pkgs",
+    "name": "Winget Packages",
+    "description": "Windows Package Manager manifests for mcp-tool-shop packages",
+    "keywords": [
+      "for",
+      "manager",
+      "manifests",
+      "mcp",
+      "package",
+      "packages",
+      "packaging",
+      "shop",
+      "tool",
+      "windows",
+      "winget"
+    ],
+    "tags": [
+      "packaging",
+      "windows",
+      "winget"
+    ],
+    "bundle_membership": [
+      "ops"
+    ],
+    "capabilities": []
+  },
+  {
+    "id": "witness",
+    "name": "Witness",
+    "description": "Attestation witness and verification tooling",
+    "keywords": [
+      "and",
+      "attestation",
+      "security",
+      "tooling",
+      "verification",
+      "witness"
+    ],
+    "tags": [
+      "attestation",
+      "security",
+      "verification"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
+  }
+]

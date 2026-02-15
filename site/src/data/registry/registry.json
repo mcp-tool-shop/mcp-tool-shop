@@ -1,0 +1,1037 @@
+{
+  "schema_version": "0.3",
+  "generated_at": "2026-02-01",
+  "organization": "mcp-tool-shop-org",
+  "tools": [
+    {
+      "id": "accessibility-suite",
+      "name": "Accessibility Suite",
+      "description": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "repo": "https://github.com/mcp-tool-shop-org/accessibility-suite",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/accessibility-suite.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "accessibility",
+      "tags": [
+        "accessibility",
+        "wcag",
+        "compliance",
+        "monorepo"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "ally-demo-python",
+      "name": "Ally Demo Python",
+      "description": "Python demonstration of accessibility framework capabilities",
+      "repo": "https://github.com/mcp-tool-shop-org/ally-demo-python",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/ally-demo-python.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "accessibility",
+      "tags": [
+        "accessibility",
+        "demo",
+        "python"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "aspire-ai",
+      "name": "Aspire AI",
+      "description": "Goal-oriented framework for running and evaluating AI workflows over time",
+      "repo": "https://github.com/mcp-tool-shop-org/aspire-ai",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/aspire-ai.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "evaluation",
+        "experimentation",
+        "metrics"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "audiobooker",
+      "name": "Audiobooker",
+      "description": "Audio book generation and management system",
+      "repo": "https://github.com/mcp-tool-shop-org/audiobooker",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/audiobooker.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "audio",
+        "ebook",
+        "generation"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "backpropagate",
+      "name": "Backpropagate",
+      "description": "Structured feedback loops for improving AI behavior through iteration",
+      "repo": "https://github.com/mcp-tool-shop-org/backpropagate",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/backpropagate.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "evaluation",
+        "feedback",
+        "iteration"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "brain-dev",
+      "name": "Brain Dev",
+      "description": "MCP server for AI-powered code analysis — test generation, security audits, refactoring suggestions",
+      "repo": "https://github.com/mcp-tool-shop-org/brain-dev",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/brain-dev.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "codeteam",
+      "tags": [
+        "mcp-server",
+        "code-analysis",
+        "ai",
+        "testing"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "claim-ledger",
+      "name": "ClaimLedger",
+      "description": "Scientific claim provenance and verification ledger",
+      "repo": "https://github.com/mcp-tool-shop-org/ClaimLedger",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/ClaimLedger.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "ledger",
+      "tags": [
+        "provenance",
+        "cryptography",
+        "dotnet"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "claude-collaborate",
+      "name": "Claude Collaborate",
+      "description": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows",
+      "repo": "https://github.com/mcp-tool-shop-org/claude-collaborate",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/claude-collaborate.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "claude",
+        "agents",
+        "collaboration"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "code-covered",
+      "name": "Code Covered",
+      "description": "Coverage visualization and reporting tool",
+      "repo": "https://github.com/mcp-tool-shop-org/code-covered",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/code-covered.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "codeteam",
+      "tags": [
+        "coverage",
+        "visualization",
+        "testing"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "codeclone-suite",
+      "name": "CodeClone Suite",
+      "description": "Deterministic code coverage analysis as a protocol — CLI engine and editor extensions",
+      "repo": "https://github.com/mcp-tool-shop-org/codeclone-suite",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/codeclone-suite.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "codeteam",
+      "tags": [
+        "coverage",
+        "protocol",
+        "monorepo"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "codecomfy-vscode",
+      "name": "CodeComfy VS Code",
+      "description": "VS Code extension for code analysis and coverage display",
+      "repo": "https://github.com/mcp-tool-shop-org/codecomfy-vscode",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/codecomfy-vscode.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "codeteam",
+      "tags": [
+        "vscode",
+        "extension",
+        "coverage"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "codeteam",
+      "name": "CodeTeam",
+      "description": "Legacy code analysis CLI (see codeteam-suite)",
+      "repo": "https://github.com/mcp-tool-shop-org/codeteam",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/codeteam.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "codeteam",
+      "tags": [
+        "code-analysis",
+        "cli",
+        "legacy"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "codeteam-suite",
+      "name": "CodeTeam Suite",
+      "description": "Code analysis protocol and tools — CLI engine with editor extensions",
+      "repo": "https://github.com/mcp-tool-shop-org/codeteam-suite",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/codeteam-suite.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "codeteam",
+      "tags": [
+        "code-analysis",
+        "protocol",
+        "monorepo"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "comfy-headless",
+      "name": "Comfy Headless",
+      "description": "Run ComfyUI workflows without the UI — headless execution for automation",
+      "repo": "https://github.com/mcp-tool-shop-org/comfy-headless",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/comfy-headless.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "comfyui",
+        "headless",
+        "automation",
+        "image"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "context-window-manager",
+      "name": "Context Window Manager",
+      "description": "Deterministic tools for shaping and allocating LLM context windows",
+      "repo": "https://github.com/mcp-tool-shop-org/context-window-manager",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/context-window-manager.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "context",
+        "tokens",
+        "rag",
+        "memory"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "control-room",
+      "name": "Control Room",
+      "description": "Dashboard and monitoring for MCP tool ecosystems",
+      "repo": "https://github.com/mcp-tool-shop-org/control-room",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/control-room.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "dashboard",
+        "monitoring",
+        "admin"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "creator-ledger",
+      "name": "CreatorLedger",
+      "description": "Creator attestation proofs and authorship verification",
+      "repo": "https://github.com/mcp-tool-shop-org/CreatorLedger",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/CreatorLedger.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "ledger",
+      "tags": [
+        "provenance",
+        "attestation",
+        "dotnet"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "file-compass",
+      "name": "File Compass",
+      "description": "Deterministic file-system navigation and inspection for large repos",
+      "repo": "https://github.com/mcp-tool-shop-org/file-compass",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/file-compass.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "filesystem",
+        "search",
+        "navigation"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "flexiflow",
+      "name": "Flexiflow",
+      "description": "Flexible workflow automation framework",
+      "repo": "https://github.com/mcp-tool-shop-org/flexiflow",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/flexiflow.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "workflow",
+        "automation",
+        "framework"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "headless-wheel-builder",
+      "name": "Headless Wheel Builder",
+      "description": "CLI-first build/validate/release tooling for Python wheels and sdists",
+      "repo": "https://github.com/mcp-tool-shop-org/headless-wheel-builder",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/headless-wheel-builder.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "python",
+        "packaging",
+        "wheels",
+        "release"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "homebrew-core",
+      "name": "Homebrew Core",
+      "description": "Homebrew formulae for mcp-tool-shop packages",
+      "repo": "https://github.com/mcp-tool-shop-org/homebrew-core",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/homebrew-core.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "homebrew",
+        "macos",
+        "packaging"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "integradio",
+      "name": "Integradio",
+      "description": "Structure layer for building maintainable Gradio apps (UI + execution separation)",
+      "repo": "https://github.com/mcp-tool-shop-org/integradio",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/integradio.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "gradio",
+        "ui",
+        "framework"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "ledger-suite",
+      "name": "Ledger Suite",
+      "description": "Unified monorepo for cryptographic provenance ledgers — ClaimLedger and CreatorLedger",
+      "repo": "https://github.com/mcp-tool-shop-org/ledger-suite",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/ledger-suite.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "ledger",
+      "tags": [
+        "provenance",
+        "cryptography",
+        "monorepo",
+        "dotnet"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "mcp-examples",
+      "name": "MCP Examples",
+      "description": "Example workspaces and templates for MCP tools",
+      "repo": "https://github.com/mcp-tool-shop-org/mcp-examples",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/mcp-examples.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "examples",
+        "templates",
+        "mcp"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "mcp-stress-test",
+      "name": "MCP Stress Test",
+      "description": "Load and stress testing utilities for MCP servers and tool ecosystems",
+      "repo": "https://github.com/mcp-tool-shop-org/mcp-stress-test",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/mcp-stress-test.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "performance",
+        "load-testing",
+        "concurrency"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "mcp-docs",
+      "name": "MCP Tool Shop Website",
+      "description": "Official website and documentation for MCP Tool Shop",
+      "repo": "https://github.com/mcp-tool-shop-org/mcp-tool-shop.github.io",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/mcp-tool-shop.github.io.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "website",
+        "documentation",
+        "organization"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "mcpt",
+      "name": "MCPT",
+      "description": "MCP Tool Shop command-line interface and utilities",
+      "repo": "https://github.com/mcp-tool-shop-org/mcpt",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/mcpt.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "cli",
+        "mcp",
+        "tools"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "next-gallery",
+      "name": "Next Gallery",
+      "description": "Windows desktop image gallery application",
+      "repo": "https://github.com/mcp-tool-shop-org/next-gallery",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/next-gallery.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "windows",
+        "desktop",
+        "gallery",
+        "images"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "nexus-suite",
+      "name": "Nexus Suite",
+      "description": "Governance, attestation, and routing infrastructure for MCP tool ecosystems",
+      "repo": "https://github.com/mcp-tool-shop-org/nexus-suite",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/nexus-suite.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "nexus",
+      "tags": [
+        "governance",
+        "attestation",
+        "routing",
+        "monorepo"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "pathway",
+      "name": "Pathway",
+      "description": "Python journey engine for workflow progression tracking",
+      "repo": "https://github.com/mcp-tool-shop-org/pathway",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/pathway.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "workflow",
+        "journey",
+        "python"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "payroll-engine",
+      "name": "Payroll Engine",
+      "description": "Comprehensive payroll processing and SaaS platform",
+      "repo": "https://github.com/mcp-tool-shop-org/payroll-engine",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/payroll-engine.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "payroll",
+        "saas",
+        "hr"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "prov-engine-js",
+      "name": "Prov Engine JS",
+      "description": "JavaScript/TypeScript provenance and traceability engine",
+      "repo": "https://github.com/mcp-tool-shop-org/prov-engine-js",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/prov-engine-js.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "provenance",
+        "traceability",
+        "typescript"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "runforge-desktop",
+      "name": "RunForge Desktop",
+      "description": "Windows desktop application for AI workflow execution",
+      "repo": "https://github.com/mcp-tool-shop-org/runforge-desktop",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/runforge-desktop.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "windows",
+        "desktop",
+        "workflow",
+        "ai"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "runforge-vscode",
+      "name": "RunForge VS Code",
+      "description": "VS Code extension for AI workflow execution",
+      "repo": "https://github.com/mcp-tool-shop-org/runforge-vscode",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/runforge-vscode.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "vscode",
+        "extension",
+        "workflow",
+        "ai"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "stresskit-mcp",
+      "name": "StressKit MCP",
+      "description": "MCP stress testing toolkit with configurable load patterns",
+      "repo": "https://github.com/mcp-tool-shop-org/stresskit-mcp",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/stresskit-mcp.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "stress-testing",
+        "load",
+        "mcp"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "synthesis",
+      "name": "Synthesis",
+      "description": "Composable tool framework for building complex AI workflows",
+      "repo": "https://github.com/mcp-tool-shop-org/synthesis",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/synthesis.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "workflow",
+        "composition",
+        "tools"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "tool-compass",
+      "name": "Tool Compass",
+      "description": "Discovery, classification, and ranking utilities for MCP-compatible tools",
+      "repo": "https://github.com/mcp-tool-shop-org/tool-compass",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/tool-compass.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "discovery",
+        "ranking",
+        "catalog"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "tool-scan",
+      "name": "Tool Scan",
+      "description": "Static inspection utilities for MCP tools and repositories",
+      "repo": "https://github.com/mcp-tool-shop-org/tool-scan",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/tool-scan.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "static-analysis",
+        "security",
+        "inspection"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "training-studio",
+      "name": "Training Studio",
+      "description": "TensorFlow.js ML bundle validator with security-first design and zero code execution",
+      "repo": "https://github.com/mcp-tool-shop-org/training-studio",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/training-studio.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "ml",
+        "tensorflowjs",
+        "validation",
+        "security"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "venvkit",
+      "name": "Venvkit",
+      "description": "Python virtual environment diagnostics and utilities",
+      "repo": "https://github.com/mcp-tool-shop-org/venvkit",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/venvkit.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "python",
+        "venv",
+        "diagnostics"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "voice-soundboard",
+      "name": "Voice Soundboard",
+      "description": "TTS and audio generation with voice cloning support",
+      "repo": "https://github.com/mcp-tool-shop-org/voice-soundboard",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/voice-soundboard.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "tts",
+        "audio",
+        "voice",
+        "cloning"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "websketch-cli",
+      "name": "WebSketch CLI",
+      "description": "Command-line interface for web component analysis",
+      "repo": "https://github.com/mcp-tool-shop-org/websketch-cli",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/websketch-cli.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "websketch",
+      "tags": [
+        "cli",
+        "web",
+        "analysis"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "websketch-demo",
+      "name": "WebSketch Demo",
+      "description": "Interactive demo showcasing WebSketch capabilities",
+      "repo": "https://github.com/mcp-tool-shop-org/websketch-demo",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/websketch-demo.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "websketch",
+      "tags": [
+        "demo",
+        "web",
+        "visualization"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "websketch-extension",
+      "name": "WebSketch Extension",
+      "description": "Browser extension for web page analysis and code generation",
+      "repo": "https://github.com/mcp-tool-shop-org/websketch-extension",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/websketch-extension.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "websketch",
+      "tags": [
+        "browser",
+        "extension",
+        "analysis"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "websketch-ir",
+      "name": "WebSketch IR",
+      "description": "Intermediate representation library for web component analysis",
+      "repo": "https://github.com/mcp-tool-shop-org/websketch-ir",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/websketch-ir.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "websketch",
+      "tags": [
+        "ir",
+        "core",
+        "library"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "websketch-mcp",
+      "name": "WebSketch MCP",
+      "description": "MCP server for AI-assisted web analysis",
+      "repo": "https://github.com/mcp-tool-shop-org/websketch-mcp",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/websketch-mcp.git",
+        "default_ref": "main"
+      },
+      "ecosystem": "websketch",
+      "tags": [
+        "mcp-server",
+        "web",
+        "ai"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "winget-pkgs",
+      "name": "Winget Packages",
+      "description": "Windows Package Manager manifests for mcp-tool-shop packages",
+      "repo": "https://github.com/mcp-tool-shop-org/winget-pkgs",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/winget-pkgs.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "winget",
+        "windows",
+        "packaging"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    },
+    {
+      "id": "witness",
+      "name": "Witness",
+      "description": "Attestation witness and verification tooling",
+      "repo": "https://github.com/mcp-tool-shop-org/witness",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/witness.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "attestation",
+        "verification",
+        "security"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
+    }
+  ],
+  "archived": [
+    {
+      "id": "a11y-assist",
+      "note": "Consolidated into accessibility-suite",
+      "repo": "https://github.com/mcp-tool-shop-org/a11y-assist"
+    },
+    {
+      "id": "a11y-ci",
+      "note": "Consolidated into accessibility-suite",
+      "repo": "https://github.com/mcp-tool-shop-org/a11y-ci"
+    },
+    {
+      "id": "a11y-lint",
+      "note": "Consolidated into accessibility-suite",
+      "repo": "https://github.com/mcp-tool-shop-org/a11y-lint"
+    },
+    {
+      "id": "a11y-evidence-engine",
+      "note": "Consolidated into accessibility-suite",
+      "repo": "https://github.com/mcp-tool-shop-org/a11y-evidence-engine"
+    },
+    {
+      "id": "a11y-mcp-tools",
+      "note": "Consolidated into accessibility-suite",
+      "repo": "https://github.com/mcp-tool-shop-org/a11y-mcp-tools"
+    },
+    {
+      "id": "a11y-demo-site",
+      "note": "Consolidated into accessibility-suite",
+      "repo": "https://github.com/mcp-tool-shop-org/a11y-demo-site"
+    },
+    {
+      "id": "prov-spec",
+      "note": "Consolidated into accessibility-suite/docs",
+      "repo": "https://github.com/mcp-tool-shop-org/prov-spec"
+    },
+    {
+      "id": "nexus-control",
+      "note": "Consolidated into nexus-suite",
+      "repo": "https://github.com/mcp-tool-shop-org/nexus-control"
+    },
+    {
+      "id": "nexus-attest",
+      "note": "Consolidated into nexus-suite",
+      "repo": "https://github.com/mcp-tool-shop-org/nexus-attest"
+    },
+    {
+      "id": "nexus-router",
+      "note": "Consolidated into nexus-suite",
+      "repo": "https://github.com/mcp-tool-shop-org/nexus-router"
+    },
+    {
+      "id": "nexus-router-adapter-http",
+      "note": "Consolidated into nexus-suite",
+      "repo": "https://github.com/mcp-tool-shop-org/nexus-router-adapter-http"
+    },
+    {
+      "id": "nexus-router-adapter-stdout",
+      "note": "Consolidated into nexus-suite",
+      "repo": "https://github.com/mcp-tool-shop-org/nexus-router-adapter-stdout"
+    }
+  ],
+  "ecosystems": {
+    "ledger": {
+      "name": "Ledger Ecosystem",
+      "description": "Cryptographic provenance ledgers",
+      "docs": "https://github.com/mcp-tool-shop-org/ledger-suite#readme"
+    },
+    "nexus": {
+      "name": "Nexus Ecosystem",
+      "description": "Governance, attestation, and routing infrastructure",
+      "docs": "https://github.com/mcp-tool-shop-org/nexus-suite#readme"
+    },
+    "accessibility": {
+      "name": "Accessibility Ecosystem",
+      "description": "WCAG compliance and accessibility testing",
+      "docs": "https://github.com/mcp-tool-shop-org/accessibility-suite#readme"
+    },
+    "websketch": {
+      "name": "WebSketch Ecosystem",
+      "description": "Web component analysis and code generation",
+      "docs": "https://github.com/mcp-tool-shop-org/websketch-ir#readme"
+    },
+    "codeteam": {
+      "name": "CodeTeam Ecosystem",
+      "description": "Code analysis and quality tools",
+      "docs": "https://github.com/mcp-tool-shop-org/codeteam-suite#readme"
+    }
+  }
+}
