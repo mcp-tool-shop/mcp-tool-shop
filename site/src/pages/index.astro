@@ -1,9 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import projects from '../data/projects.json';
+import collections from '../data/collections.json';
 import stats from '../data/org-stats.json';
 
-const featured = projects.filter((p: any) => p.featured);
+const projectsByRepo = new Map((projects as any[]).map((p: any) => [p.repo, p]));
+const featured = (projects as any[]).filter((p: any) => p.featured);
 ---
 
 <Base title="mcp-tool-shop" currentPath="/">
@@ -42,14 +44,22 @@ const featured = projects.filter((p: any) => p.featured);
     <h2 class="section-heading">Featured projects</h2>
     <p class="section-subheading">The tools getting the most attention right now.</p>
     <div class="project-grid">
-      {featured.map((project) => (
+      {featured.map((project: any) => (
         <div class="project-card">
-          <h3>
-            <a href={`https://github.com/mcp-tool-shop-org/${project.repo}`} rel="noopener">
-              {project.name}
-            </a>
-          </h3>
-          <p>{project.description}</p>
+          <div class="card-header-home">
+            <h3>
+              <a href={`/tools/${project.repo}/`}>
+                {project.name}
+              </a>
+            </h3>
+            {project.stability && (
+              <span class={`badge badge-${project.stability}`}>{project.stability}</span>
+            )}
+          </div>
+          <p>{project.tagline || project.description}</p>
+          {project.install && (
+            <code class="install-line">{project.install}</code>
+          )}
           <div class="card-meta">
             {project.stars > 0 && <span class="meta-item">{project.stars} stars</span>}
             {project.language && <span class="meta-item">{project.language}</span>}
@@ -63,4 +73,119 @@ const featured = projects.filter((p: any) => p.featured);
       ))}
     </div>
   </section>
+
+  {(collections as any[]).map((collection: any) => {
+    const items = collection.repos
+      .map((repo: string) => projectsByRepo.get(repo))
+      .filter(Boolean);
+    if (items.length === 0) return null;
+    return (
+      <section class="collection-section">
+        <h2 class="section-heading">{collection.title}</h2>
+        <p class="section-subheading">{collection.description}</p>
+        <div class="collection-grid">
+          {items.map((project: any) => (
+            <a href={`/tools/${project.repo}/`} class="collection-item">
+              <span class="collection-item-name">{project.name}</span>
+              <span class="collection-item-desc">{project.tagline || project.description}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    );
+  })}
 </Base>
+
+<style>
+  .card-header-home {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-header-home h3 {
+    margin: 0;
+  }
+
+  .badge {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    padding: 0.125em 0.5em;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .badge-stable {
+    color: var(--color-success);
+    background: rgba(63, 185, 80, 0.1);
+  }
+
+  .badge-beta {
+    color: #d29922;
+    background: rgba(210, 153, 34, 0.1);
+  }
+
+  .badge-experimental {
+    color: #f85149;
+    background: rgba(248, 81, 73, 0.1);
+  }
+
+  .install-line {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 0.375rem 0.625rem;
+    font-size: 0.75rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .collection-section {
+    margin-top: 3rem;
+  }
+
+  .collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .collection-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.875rem 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+
+  .collection-item:hover {
+    border-color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .collection-item-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  .collection-item-desc {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+</style>

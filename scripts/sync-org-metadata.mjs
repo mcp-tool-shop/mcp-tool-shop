@@ -75,10 +75,9 @@ function toProject(repo, override) {
 
   // Override wins for any key it provides
   if (override) {
-    if (override.tags) base.tags = override.tags;
-    if (override.featured !== undefined) base.featured = override.featured;
-    if (override.description) base.description = override.description;
-    if (override.name) base.name = override.name;
+    for (const [key, value] of Object.entries(override)) {
+      if (value !== undefined) base[key] = value;
+    }
   }
 
   return base;

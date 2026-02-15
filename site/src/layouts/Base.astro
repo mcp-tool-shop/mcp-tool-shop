@@ -3,13 +3,19 @@ interface Props {
   title: string;
   description?: string;
   currentPath?: string;
+  ogImage?: string;
 }
 
 const {
   title,
   description = 'Building the tools that AI agents use to get real work done.',
   currentPath = '',
+  ogImage,
 } = Astro.props;
+
+const siteUrl = 'https://mcp-tool-shop.github.io';
+const canonicalUrl = new URL(currentPath || '/', siteUrl).href;
+const ogImageUrl = ogImage ? new URL(ogImage, siteUrl).href : undefined;
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -25,9 +31,16 @@ const navLinks = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+    <meta name="twitter:card" content={ogImageUrl ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>

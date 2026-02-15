@@ -1,22 +1,166 @@
 {
   "file-compass": {
     "featured": true,
-    "tags": ["mcp", "search", "embeddings"]
+    "tags": ["mcp", "search", "embeddings"],
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "pip install file-compass",
+    "tagline": "Semantic file search with HNSW indexing and local embeddings.",
+    "goodFor": [
+      "Finding files by meaning, not just name",
+      "Multi-language codebases with AST-aware chunking",
+      "Sub-100ms queries over 10K+ files"
+    ],
+    "notFor": [
+      "Cloud-hosted file search",
+      "Full-text grep replacement (use ripgrep for exact matches)"
+    ]
   },
   "tool-compass": {
     "featured": true,
-    "tags": ["mcp", "discovery"]
+    "tags": ["mcp", "discovery"],
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "pip install tool-compass",
+    "tagline": "Find MCP tools by describing what you need.",
+    "goodFor": [
+      "Discovering tools across large MCP ecosystems",
+      "Intent-based tool selection (describe the task, get the tool)",
+      "Progressive disclosure — see summaries first, details on demand"
+    ],
+    "notFor": [
+      "Running tools directly (it finds them, you run them)",
+      "Non-MCP tool discovery"
+    ]
   },
   "soundboard-plugin": {
     "featured": true,
-    "tags": ["tts", "plugin", "claude-code"]
+    "tags": ["tts", "plugin", "claude-code"],
+    "category": "voice",
+    "stability": "stable",
+    "kind": "plugin",
+    "install": "pip install soundboard-plugin",
+    "tagline": "Give Claude Code a voice with emotion-aware TTS.",
+    "goodFor": [
+      "Adding speech to Claude Code sessions",
+      "Multi-speaker dialogue and code narration",
+      "12 distinct voices with emotional range"
+    ],
+    "notFor": [
+      "General-purpose TTS (use mcp-voice-soundboard instead)",
+      "Voice cloning or custom voice training"
+    ]
   },
   "brain-dev": {
     "featured": true,
-    "tags": ["mcp", "code-analysis"]
+    "tags": ["mcp", "code-analysis"],
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "pip install brain-dev",
+    "tagline": "AI-powered code analysis via MCP.",
+    "goodFor": [
+      "Automated test generation from existing code",
+      "Security audit reports",
+      "Codebase health scoring"
+    ],
+    "notFor": [
+      "Runtime code analysis or profiling",
+      "Replacing manual security review for production systems"
+    ]
   },
   "comfy-headless": {
     "featured": true,
-    "tags": ["comfyui", "image-gen"]
+    "tags": ["comfyui", "image-gen"],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "pip install comfy-headless",
+    "tagline": "Headless ComfyUI with prompt intelligence.",
+    "goodFor": [
+      "Batch image generation without the UI",
+      "Video generation workflows",
+      "AI-powered prompt routing and optimization"
+    ],
+    "notFor": [
+      "ComfyUI node development (use the standard UI)",
+      "Real-time interactive editing"
+    ]
+  },
+  "tool-scan": {
+    "tags": ["mcp", "security"],
+    "category": "security",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pip install tool-scan",
+    "tagline": "Security scanner for MCP tools."
+  },
+  "mcp-stress-test": {
+    "tags": ["mcp", "security", "testing"],
+    "category": "security",
+    "stability": "beta",
+    "kind": "cli",
+    "tagline": "Red team toolkit for MCP security scanners."
+  },
+  "mcp-voice-soundboard": {
+    "tags": ["tts", "mcp", "voice"],
+    "category": "voice",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "pip install mcp-voice-soundboard",
+    "tagline": "TTS MCP server with 12 voices and SSML-lite."
+  },
+  "mcp-voice-engine": {
+    "tags": ["tts", "audio", "voice"],
+    "category": "voice",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Streaming TTS inference backend."
+  },
+  "voice-soundboard": {
+    "tags": ["tts", "audio", "voice"],
+    "category": "voice",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "TTS library with compiler/graph/engine architecture."
+  },
+  "backpropagate": {
+    "tags": ["ml", "fine-tuning", "training"],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "library",
+    "install": "pip install backpropagate",
+    "tagline": "Headless LLM fine-tuning with smart defaults."
+  },
+  "aspire-ai": {
+    "tags": ["ml", "training", "ai-alignment"],
+    "category": "ml",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Adversarial student-professor training engine."
+  },
+  "Attestia": {
+    "tags": ["blockchain", "governance", "financial"],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Financial truth infrastructure for decentralized systems."
+  },
+  "mcpt": {
+    "tags": ["mcp", "cli", "discovery"],
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pip install mcpt",
+    "tagline": "CLI for discovering and running MCP tools."
+  },
+  "witness": {
+    "tags": ["provenance", "cryptography", "append-only"],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Append-only event journal with cryptographic verification."
   }
 }

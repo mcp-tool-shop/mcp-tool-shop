@@ -10,7 +10,21 @@
     "featured": true,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T02:56:07Z"
+    "updatedAt": "2026-02-15T02:56:07Z",
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "pip install brain-dev",
+    "tagline": "AI-powered code analysis via MCP.",
+    "goodFor": [
+      "Automated test generation from existing code",
+      "Security audit reports",
+      "Codebase health scoring"
+    ],
+    "notFor": [
+      "Runtime code analysis or profiling",
+      "Replacing manual security review for production systems"
+    ]
   },
   {
     "name": "Comfy Headless",
@@ -23,7 +37,21 @@
     "featured": true,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T03:05:04Z"
+    "updatedAt": "2026-02-15T03:05:04Z",
+    "category": "ml",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "pip install comfy-headless",
+    "tagline": "Headless ComfyUI with prompt intelligence.",
+    "goodFor": [
+      "Batch image generation without the UI",
+      "Video generation workflows",
+      "AI-powered prompt routing and optimization"
+    ],
+    "notFor": [
+      "ComfyUI node development (use the standard UI)",
+      "Real-time interactive editing"
+    ]
   },
   {
     "name": "File Compass",
@@ -37,7 +65,21 @@
     "featured": true,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T03:05:10Z"
+    "updatedAt": "2026-02-15T03:05:10Z",
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "pip install file-compass",
+    "tagline": "Semantic file search with HNSW indexing and local embeddings.",
+    "goodFor": [
+      "Finding files by meaning, not just name",
+      "Multi-language codebases with AST-aware chunking",
+      "Sub-100ms queries over 10K+ files"
+    ],
+    "notFor": [
+      "Cloud-hosted file search",
+      "Full-text grep replacement (use ripgrep for exact matches)"
+    ]
   },
   {
     "name": "Soundboard Plugin",
@@ -51,7 +93,21 @@
     "featured": true,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-13T10:44:01Z"
+    "updatedAt": "2026-02-13T10:44:01Z",
+    "category": "voice",
+    "stability": "stable",
+    "kind": "plugin",
+    "install": "pip install soundboard-plugin",
+    "tagline": "Give Claude Code a voice with emotion-aware TTS.",
+    "goodFor": [
+      "Adding speech to Claude Code sessions",
+      "Multi-speaker dialogue and code narration",
+      "12 distinct voices with emotional range"
+    ],
+    "notFor": [
+      "General-purpose TTS (use mcp-voice-soundboard instead)",
+      "Voice cloning or custom voice training"
+    ]
   },
   {
     "name": "Tool Compass",
@@ -64,59 +120,58 @@
     "featured": true,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T02:41:05Z"
+    "updatedAt": "2026-02-15T02:41:05Z",
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "pip install tool-compass",
+    "tagline": "Find MCP tools by describing what you need.",
+    "goodFor": [
+      "Discovering tools across large MCP ecosystems",
+      "Intent-based tool selection (describe the task, get the tool)",
+      "Progressive disclosure — see summaries first, details on demand"
+    ],
+    "notFor": [
+      "Running tools directly (it finds them, you run them)",
+      "Non-MCP tool discovery"
+    ]
   },
   {
     "name": "Attestia",
     "repo": "Attestia",
     "description": "Financial truth infrastructure for the decentralized world — structural governance, deterministic accounting, and human-approved intent across chains.",
     "tags": [
-      "accounting",
-      "attestation",
       "blockchain",
-      "ethereum",
-      "financial-infrastructure",
       "governance",
-      "monorepo",
-      "typescript",
-      "web3",
-      "xrpl"
+      "financial"
     ],
     "featured": false,
     "stars": 1,
     "language": "TypeScript",
-    "updatedAt": "2026-02-12T13:39:48Z"
+    "updatedAt": "2026-02-12T13:39:48Z",
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Financial truth infrastructure for decentralized systems."
   },
   {
     "name": "Backpropagate",
     "repo": "backpropagate",
     "description": "Headless LLM fine-tuning - Simple Python API with smart defaults, multi-run SLAO training, GGUF export, and full Windows support",
     "tags": [
-      "ai-evaluation",
-      "ai-tools",
-      "deep-learning",
-      "feedback-loops",
+      "ml",
       "fine-tuning",
-      "gguf",
-      "gradio",
-      "huggingface",
-      "llm",
-      "lora",
-      "machine-learning",
-      "model-training",
-      "ollama",
-      "python",
-      "pytorch",
-      "qlora",
-      "training",
-      "transformers",
-      "unsloth",
-      "windows"
+      "training"
     ],
     "featured": false,
     "stars": 1,
     "language": "Python",
-    "updatedAt": "2026-02-15T03:06:06Z"
+    "updatedAt": "2026-02-15T03:06:06Z",
+    "category": "ml",
+    "stability": "beta",
+    "kind": "library",
+    "install": "pip install backpropagate",
+    "tagline": "Headless LLM fine-tuning with smart defaults."
   },
   {
     "name": "LeaseGate Lite",
@@ -209,31 +264,18 @@
     "repo": "aspire-ai",
     "description": "ASPIRE: Adversarial Student-Professor Internalized Reasoning Engine - Teaching AI through internalized mentorship with cognitive empathy, syntropy, and perception",
     "tags": [
-      "adversarial-training",
-      "ai-alignment",
-      "ai-evaluation",
-      "ai-training",
-      "cognitive-empathy",
-      "deep-learning",
-      "fine-tuning",
-      "llm",
-      "llm-training",
-      "machine-learning",
-      "metacognition",
-      "negentropy",
-      "nlp",
-      "perception",
-      "python",
-      "pytorch",
-      "rlhf",
-      "syntropy",
-      "theory-of-mind",
-      "transformer"
+      "ml",
+      "training",
+      "ai-alignment"
     ],
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T02:05:05Z"
+    "updatedAt": "2026-02-15T02:05:05Z",
+    "category": "ml",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Adversarial student-professor training engine."
   },
   {
     "name": "Attestia Desktop",
@@ -720,25 +762,18 @@
     "repo": "mcp-stress-test",
     "description": "Red team toolkit for stress-testing MCP security scanners — find detection gaps before attackers do",
     "tags": [
-      "adversarial-testing",
-      "ai-safety",
-      "fuzzing",
-      "llm",
-      "llm-security",
       "mcp",
-      "mcp-server",
-      "model-context-protocol",
-      "python",
-      "red-team",
       "security",
-      "security-testing",
-      "stress-testing",
-      "testing-framework"
+      "testing"
     ],
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T02:05:11Z"
+    "updatedAt": "2026-02-15T02:05:11Z",
+    "category": "security",
+    "stability": "beta",
+    "kind": "cli",
+    "tagline": "Red team toolkit for MCP security scanners."
   },
   {
     "name": "Mcp Tool Registry",
@@ -774,64 +809,56 @@
     "repo": "mcp-voice-engine",
     "description": "Streaming TTS inference backend — powers mcp-voice-soundboard — Kokoro/Piper synthesis, zero-copy PCM",
     "tags": [
-      "audio-processing",
-      "autotune",
-      "prosody",
-      "real-time",
-      "speech-synthesis",
-      "streaming",
-      "text-to-speech",
-      "typescript",
-      "voice-dsp"
+      "tts",
+      "audio",
+      "voice"
     ],
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-02-15T02:41:39Z"
+    "updatedAt": "2026-02-15T02:41:39Z",
+    "category": "voice",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Streaming TTS inference backend."
   },
   {
     "name": "Mcp Voice Soundboard",
     "repo": "mcp-voice-soundboard",
     "description": "Text-to-speech MCP server for AI agents — 12 voices, emotion spans, SSML-lite, multi-speaker dialogue, SFX tags, guardrails.",
     "tags": [
-      "ai-agent",
-      "ai-agents",
-      "kokoro",
-      "mcp",
-      "mcp-server",
-      "model-context-protocol",
-      "python",
-      "soundboard",
-      "spatial-audio",
-      "speech-synthesis",
-      "text-to-speech",
       "tts",
-      "typescript",
-      "voice",
-      "windows"
+      "mcp",
+      "voice"
     ],
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T02:55:09Z"
+    "updatedAt": "2026-02-15T02:55:09Z",
+    "category": "voice",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "pip install mcp-voice-soundboard",
+    "tagline": "TTS MCP server with 12 voices and SSML-lite."
   },
   {
     "name": "Mcpt",
     "repo": "mcpt",
     "description": "CLI for discovering and running MCP Tool Shop tools",
     "tags": [
-      "cli",
-      "developer-tools",
       "mcp",
-      "mcp-tools",
-      "model-context-protocol",
-      "python",
-      "tool-discovery"
+      "cli",
+      "discovery"
     ],
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T02:55:16Z"
+    "updatedAt": "2026-02-15T02:55:16Z",
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pip install mcpt",
+    "tagline": "CLI for discovering and running MCP tools."
   },
   {
     "name": "Meta Content System",
@@ -1137,20 +1164,17 @@
     "description": "Security scanner for MCP (Model Context Protocol) tools",
     "tags": [
       "mcp",
-      "mcp-security",
-      "mcp-server",
-      "model-context-protocol",
-      "python",
-      "schema-validation",
-      "security-audit",
-      "security-scanner",
-      "tool-analysis",
-      "vulnerability-detection"
+      "security"
     ],
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T03:04:53Z"
+    "updatedAt": "2026-02-15T03:04:53Z",
+    "category": "security",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pip install tool-scan",
+    "tagline": "Security scanner for MCP tools."
   },
   {
     "name": "Trace",
@@ -1213,18 +1237,18 @@
     "repo": "voice-soundboard",
     "description": "TTS library for AI agents — compiler/graph/engine architecture, swappable backends (see mcp-voice-soundboard)",
     "tags": [
-      "ai-agents",
-      "audio",
-      "kokoro",
-      "python",
-      "text-to-speech",
       "tts",
+      "audio",
       "voice"
     ],
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T02:55:10Z"
+    "updatedAt": "2026-02-15T02:55:10Z",
+    "category": "voice",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "TTS library with compiler/graph/engine architecture."
   },
   {
     "name": "Websketch Cli",
@@ -1289,17 +1313,17 @@
     "repo": "witness",
     "description": "Local-first, append-only event journal for human-AI work. Cryptographically verifiable.",
     "tags": [
-      "append-only",
-      "cryptography",
-      "event-journal",
-      "human-ai",
-      "local-first",
       "provenance",
-      "python"
+      "cryptography",
+      "append-only"
     ],
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-12T05:35:44Z"
+    "updatedAt": "2026-02-12T05:35:44Z",
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Append-only event journal with cryptographic verification."
   }
 ]

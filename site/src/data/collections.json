@@ -1,0 +1,26 @@
+[
+  {
+    "id": "mcp-core",
+    "title": "MCP Core Tools",
+    "description": "The essentials for building and discovering MCP tool ecosystems.",
+    "repos": ["file-compass", "tool-compass", "brain-dev", "mcpt", "tool-scan"]
+  },
+  {
+    "id": "voice",
+    "title": "Voice Stack",
+    "description": "Text-to-speech infrastructure from plugin to engine.",
+    "repos": ["soundboard-plugin", "mcp-voice-soundboard", "mcp-voice-engine", "voice-soundboard"]
+  },
+  {
+    "id": "security",
+    "title": "Security & Testing",
+    "description": "Audit, stress-test, and harden your MCP tools.",
+    "repos": ["tool-scan", "mcp-stress-test", "stresskit-mcp"]
+  },
+  {
+    "id": "ml",
+    "title": "ML & Training",
+    "description": "Local model training, fine-tuning, and image generation.",
+    "repos": ["backpropagate", "comfy-headless", "aspire-ai"]
+  }
+]

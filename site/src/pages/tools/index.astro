@@ -1,0 +1,357 @@
+---
+import Base from '../../layouts/Base.astro';
+import projects from '../../data/projects.json';
+
+const languages = [...new Set((projects as any[]).map((p: any) => p.language).filter(Boolean))].sort();
+const categories = [...new Set((projects as any[]).map((p: any) => p.category).filter(Boolean))].sort();
+const stabilities = ['stable', 'beta', 'experimental'];
+const kinds = [...new Set((projects as any[]).map((p: any) => p.kind).filter(Boolean))].sort();
+---
+
+<Base
+  title="Tools - mcp-tool-shop"
+  description="Browse MCP servers, desktop apps, and AI tooling from mcp-tool-shop."
+  currentPath="/tools/"
+>
+  <div class="page-content" style="max-width: none;">
+    <h1>Tools</h1>
+    <p style="max-width: 680px;">
+      {(projects as any[]).length} projects in the
+      <a href="https://github.com/mcp-tool-shop-org" rel="noopener">mcp-tool-shop-org</a>
+      organization. Filter, search, or click through to each tool's detail page.
+    </p>
+  </div>
+
+  <div class="toolbar">
+    <div class="search-wrapper">
+      <input
+        type="text"
+        id="search"
+        class="search-input"
+        placeholder="Search tools..."
+        autocomplete="off"
+      />
+      <button id="search-clear" class="search-clear" aria-label="Clear search" hidden>&times;</button>
+    </div>
+    <div class="filter-group">
+      <select id="filter-lang" class="filter-select">
+        <option value="">All languages</option>
+        {languages.map((lang: string) => <option value={lang}>{lang}</option>)}
+      </select>
+      <select id="filter-kind" class="filter-select">
+        <option value="">All types</option>
+        {kinds.map((k: string) => <option value={k}>{k}</option>)}
+      </select>
+      <select id="filter-stability" class="filter-select">
+        <option value="">All stability</option>
+        {stabilities.map((s: string) => <option value={s}>{s}</option>)}
+      </select>
+      <select id="sort-by" class="filter-select">
+        <option value="featured">Featured first</option>
+        <option value="updated">Recently updated</option>
+        <option value="stars">Most stars</option>
+        <option value="name">Name A-Z</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="results-count" id="results-count"></div>
+
+  <div class="project-grid" id="project-grid">
+    {(projects as any[]).map((project: any) => (
+      <div
+        class="project-card"
+        data-name={project.name.toLowerCase()}
+        data-desc={project.description.toLowerCase()}
+        data-repo={project.repo}
+        data-lang={project.language || ''}
+        data-kind={project.kind || ''}
+        data-stability={project.stability || ''}
+        data-featured={project.featured ? '1' : '0'}
+        data-stars={project.stars || 0}
+        data-updated={project.updatedAt || ''}
+        data-tags={(project.tags || []).join(' ').toLowerCase()}
+      >
+        <div class="card-header">
+          <h3>
+            <a href={`/tools/${project.repo}/`}>
+              {project.name}
+            </a>
+          </h3>
+          <div class="card-badges">
+            {project.stability && (
+              <span class={`badge badge-${project.stability}`}>{project.stability}</span>
+            )}
+            {project.kind && (
+              <span class="badge badge-kind">{project.kind}</span>
+            )}
+          </div>
+        </div>
+        <p>{project.tagline || project.description}</p>
+        {project.install && (
+          <code class="install-line">{project.install}</code>
+        )}
+        <div class="card-meta">
+          {project.stars > 0 && <span class="meta-item">{project.stars} stars</span>}
+          {project.language && <span class="meta-item">{project.language}</span>}
+        </div>
+        <div class="tags">
+          {(project.tags || []).map((tag: string) => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .toolbar {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .search-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 0.5rem 2rem 0.5rem 0.75rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    color: var(--color-text);
+    font-size: 0.875rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .search-input:focus {
+    border-color: var(--color-accent);
+  }
+
+  .search-input::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .search-clear {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0 0.25rem;
+    line-height: 1;
+  }
+
+  .search-clear:hover {
+    color: var(--color-text);
+  }
+
+  .filter-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-select {
+    padding: 0.5rem 0.75rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    color: var(--color-text);
+    font-size: 0.8125rem;
+    font-family: inherit;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .filter-select:focus {
+    border-color: var(--color-accent);
+  }
+
+  .results-count {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-header h3 {
+    margin: 0;
+  }
+
+  .card-badges {
+    display: flex;
+    gap: 0.375rem;
+    flex-shrink: 0;
+  }
+
+  .badge {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    padding: 0.125em 0.5em;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  .badge-stable {
+    color: var(--color-success);
+    background: rgba(63, 185, 80, 0.1);
+  }
+
+  .badge-beta {
+    color: #d29922;
+    background: rgba(210, 153, 34, 0.1);
+  }
+
+  .badge-experimental {
+    color: #f85149;
+    background: rgba(248, 81, 73, 0.1);
+  }
+
+  .badge-kind {
+    color: var(--color-text-muted);
+    background: rgba(139, 148, 158, 0.1);
+  }
+
+  .install-line {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 0.375rem 0.625rem;
+    font-size: 0.75rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .project-card[hidden] {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+    .toolbar {
+      flex-direction: column;
+    }
+
+    .search-wrapper {
+      width: 100%;
+    }
+
+    .filter-group {
+      width: 100%;
+    }
+
+    .filter-select {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+</style>
+
+<script>
+  const grid = document.getElementById('project-grid')!;
+  const cards = Array.from(grid.querySelectorAll('.project-card')) as HTMLElement[];
+  const search = document.getElementById('search') as HTMLInputElement;
+  const clearBtn = document.getElementById('search-clear') as HTMLButtonElement;
+  const langFilter = document.getElementById('filter-lang') as HTMLSelectElement;
+  const kindFilter = document.getElementById('filter-kind') as HTMLSelectElement;
+  const stabilityFilter = document.getElementById('filter-stability') as HTMLSelectElement;
+  const sortBy = document.getElementById('sort-by') as HTMLSelectElement;
+  const resultsCount = document.getElementById('results-count')!;
+
+  function applyFilters() {
+    const q = search.value.toLowerCase().trim();
+    const lang = langFilter.value;
+    const kind = kindFilter.value;
+    const stability = stabilityFilter.value;
+
+    clearBtn.hidden = !q;
+
+    let visible = 0;
+    for (const card of cards) {
+      const matchSearch = !q ||
+        card.dataset.name!.includes(q) ||
+        card.dataset.desc!.includes(q) ||
+        card.dataset.repo!.includes(q) ||
+        card.dataset.tags!.includes(q);
+      const matchLang = !lang || card.dataset.lang === lang;
+      const matchKind = !kind || card.dataset.kind === kind;
+      const matchStability = !stability || card.dataset.stability === stability;
+
+      const show = matchSearch && matchLang && matchKind && matchStability;
+      card.hidden = !show;
+      if (show) visible++;
+    }
+
+    resultsCount.textContent = `${visible} of ${cards.length} tools`;
+    applySort();
+  }
+
+  function applySort() {
+    const mode = sortBy.value;
+    const visibleCards = cards.filter(c => !c.hidden);
+
+    visibleCards.sort((a, b) => {
+      switch (mode) {
+        case 'featured': {
+          const af = a.dataset.featured === '1' ? 1 : 0;
+          const bf = b.dataset.featured === '1' ? 1 : 0;
+          if (af !== bf) return bf - af;
+          return (b.dataset.stars ? +b.dataset.stars : 0) - (a.dataset.stars ? +a.dataset.stars : 0);
+        }
+        case 'updated':
+          return (b.dataset.updated || '').localeCompare(a.dataset.updated || '');
+        case 'stars':
+          return (+(b.dataset.stars || 0)) - (+(a.dataset.stars || 0));
+        case 'name':
+          return (a.dataset.name || '').localeCompare(b.dataset.name || '');
+        default:
+          return 0;
+      }
+    });
+
+    for (const card of visibleCards) {
+      grid.appendChild(card);
+    }
+  }
+
+  search.addEventListener('input', applyFilters);
+  clearBtn.addEventListener('click', () => { search.value = ''; applyFilters(); search.focus(); });
+  langFilter.addEventListener('change', applyFilters);
+  kindFilter.addEventListener('change', applyFilters);
+  stabilityFilter.addEventListener('change', applyFilters);
+  sortBy.addEventListener('change', applyFilters);
+
+  // Keyboard shortcut: / focuses search
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement !== search) {
+      e.preventDefault();
+      search.focus();
+    }
+  });
+
+  applyFilters();
+</script>

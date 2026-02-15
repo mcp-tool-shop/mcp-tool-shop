@@ -1,0 +1,360 @@
+---
+import Base from '../../layouts/Base.astro';
+import projects from '../../data/projects.json';
+
+export function getStaticPaths() {
+  return (projects as any[]).map((project: any) => ({
+    params: { slug: project.repo },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const orgUrl = `https://github.com/mcp-tool-shop-org/${project.repo}`;
+---
+
+<Base
+  title={`${project.name} - mcp-tool-shop`}
+  description={project.tagline || project.description}
+  currentPath={`/tools/${project.repo}/`}
+>
+  <div class="tool-detail">
+    <a href="/tools/" class="back-link">&larr; All tools</a>
+
+    <div class="tool-header">
+      <h1>{project.name}</h1>
+      <div class="tool-badges">
+        {project.stability && (
+          <span class={`badge badge-${project.stability}`}>{project.stability}</span>
+        )}
+        {project.kind && (
+          <span class="badge badge-kind">{project.kind}</span>
+        )}
+        {project.language && (
+          <span class="badge badge-kind">{project.language}</span>
+        )}
+      </div>
+    </div>
+
+    <p class="tool-description">{project.tagline || project.description}</p>
+
+    {project.description && project.tagline && project.tagline !== project.description && (
+      <p class="tool-full-desc">{project.description}</p>
+    )}
+
+    {project.install && (
+      <div class="install-block">
+        <span class="install-label">Install</span>
+        <code id="install-cmd">{project.install}</code>
+        <button class="copy-btn" id="copy-install" aria-label="Copy install command">Copy</button>
+      </div>
+    )}
+
+    <div class="tool-links">
+      <a href={orgUrl} class="btn btn-primary" rel="noopener">View on GitHub</a>
+      <a href={`${orgUrl}/issues`} class="btn btn-secondary" rel="noopener">Issues</a>
+      <a href={`${orgUrl}/releases`} class="btn btn-secondary" rel="noopener">Releases</a>
+    </div>
+
+    {(project.goodFor || project.notFor) && (
+      <div class="fit-section">
+        {project.goodFor && (
+          <div class="fit-col">
+            <h2>Good for</h2>
+            <ul>
+              {project.goodFor.map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {project.notFor && (
+          <div class="fit-col">
+            <h2>Not for</h2>
+            <ul>
+              {project.notFor.map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    )}
+
+    <div class="tool-meta-grid">
+      {project.stars > 0 && (
+        <div class="meta-block">
+          <span class="meta-label">Stars</span>
+          <span class="meta-value">{project.stars}</span>
+        </div>
+      )}
+      {project.language && (
+        <div class="meta-block">
+          <span class="meta-label">Language</span>
+          <span class="meta-value">{project.language}</span>
+        </div>
+      )}
+      {project.updatedAt && (
+        <div class="meta-block">
+          <span class="meta-label">Last updated</span>
+          <span class="meta-value">{new Date(project.updatedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+        </div>
+      )}
+    </div>
+
+    {project.tags && project.tags.length > 0 && (
+      <div class="tool-tags">
+        {project.tags.map((tag: string) => (
+          <span class="tag">{tag}</span>
+        ))}
+      </div>
+    )}
+  </div>
+</Base>
+
+<style>
+  .tool-detail {
+    max-width: 720px;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .back-link:hover {
+    color: var(--color-accent);
+  }
+
+  .tool-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .tool-header h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  .tool-badges {
+    display: flex;
+    gap: 0.375rem;
+    padding-top: 0.5rem;
+  }
+
+  .badge {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    padding: 0.125em 0.5em;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  .badge-stable {
+    color: var(--color-success);
+    background: rgba(63, 185, 80, 0.1);
+  }
+
+  .badge-beta {
+    color: #d29922;
+    background: rgba(210, 153, 34, 0.1);
+  }
+
+  .badge-experimental {
+    color: #f85149;
+    background: rgba(248, 81, 73, 0.1);
+  }
+
+  .badge-kind {
+    color: var(--color-text-muted);
+    background: rgba(139, 148, 158, 0.1);
+  }
+
+  .tool-description {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .tool-full-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .install-block {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.625rem 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .install-label {
+    font-size: 0.6875rem;
+    font-family: var(--font-mono);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .install-block code {
+    flex: 1;
+    background: none;
+    padding: 0;
+    font-size: 0.875rem;
+    color: var(--color-text);
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .copy-btn {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--color-accent);
+    background: var(--color-accent-subtle);
+    border: none;
+    border-radius: 3px;
+    padding: 0.25em 0.625em;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+
+  .copy-btn:hover {
+    background: rgba(88, 166, 255, 0.2);
+  }
+
+  .tool-links {
+    display: flex;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+  }
+
+  .fit-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 1.25rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+
+  .fit-section h2 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .fit-col ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .fit-col li {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+    padding-left: 1em;
+    position: relative;
+  }
+
+  .fit-col:first-child li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    color: var(--color-success);
+    font-weight: 700;
+  }
+
+  .fit-col:last-child li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+    font-weight: 700;
+  }
+
+  .tool-meta-grid {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .meta-label {
+    font-size: 0.6875rem;
+    font-family: var(--font-mono);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .meta-value {
+    font-size: 0.875rem;
+    color: var(--color-text);
+  }
+
+  .tool-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  @media (max-width: 640px) {
+    .fit-section {
+      grid-template-columns: 1fr;
+    }
+
+    .tool-header {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .tool-badges {
+      padding-top: 0;
+    }
+  }
+</style>
+
+<script>
+  const copyBtn = document.getElementById('copy-install');
+  const installCmd = document.getElementById('install-cmd');
+  if (copyBtn && installCmd) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(installCmd.textContent || '');
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1500);
+      } catch {
+        copyBtn.textContent = 'Failed';
+        setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1500);
+      }
+    });
+  }
+</script>
