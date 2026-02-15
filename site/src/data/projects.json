@@ -1,37 +1,1305 @@
 [
   {
-    "name": "File Compass",
-    "repo": "file-compass",
-    "description": "Semantic file search with HNSW indexing and local Ollama embeddings. Multi-language AST chunking, <100ms queries over 10K+ files.",
-    "tags": ["mcp", "search", "embeddings"],
-    "featured": true
+    "name": "Brain Dev",
+    "repo": "brain-dev",
+    "description": "MCP server for AI-powered code analysis — test generation, security audits, refactoring suggestions",
+    "tags": [
+      "mcp",
+      "code-analysis"
+    ],
+    "featured": true,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T02:56:07Z"
   },
   {
-    "name": "Tool Compass",
-    "repo": "tool-compass",
-    "description": "Find MCP tools by describing what you need. 115+ indexed tools, progressive disclosure pattern.",
-    "tags": ["mcp", "discovery"],
-    "featured": true
+    "name": "Comfy Headless",
+    "repo": "comfy-headless",
+    "description": "Production-ready headless client for ComfyUI with AI-powered prompt intelligence, video generation, and modern Gradio UI",
+    "tags": [
+      "comfyui",
+      "image-gen"
+    ],
+    "featured": true,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T03:05:04Z"
+  },
+  {
+    "name": "File Compass",
+    "repo": "file-compass",
+    "description": "Semantic file search for AI workstations using HNSW indexing and local embeddings via Ollama",
+    "tags": [
+      "mcp",
+      "search",
+      "embeddings"
+    ],
+    "featured": true,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T03:05:10Z"
   },
   {
     "name": "Soundboard Plugin",
     "repo": "soundboard-plugin",
-    "description": "Give Claude Code a voice. 12 voices, emotion-aware speech, multi-speaker dialogue.",
-    "tags": ["tts", "plugin", "claude-code"],
-    "featured": true
+    "description": "Give Claude Code a voice. TTS plugin with emotion-aware speech, multi-speaker dialogue, code narration, and workflow notifications.",
+    "tags": [
+      "tts",
+      "plugin",
+      "claude-code"
+    ],
+    "featured": true,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-13T10:44:01Z"
   },
   {
-    "name": "Brain-Dev",
-    "repo": "brain-dev",
-    "description": "MCP server for code analysis: test generation, security audits, health scoring.",
-    "tags": ["mcp", "code-analysis"],
-    "featured": true
+    "name": "Tool Compass",
+    "repo": "tool-compass",
+    "description": "Semantic MCP Tool Discovery - Find the right tool by intent, not memory",
+    "tags": [
+      "mcp",
+      "discovery"
+    ],
+    "featured": true,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T02:41:05Z"
   },
   {
-    "name": "Comfy-Headless",
-    "repo": "comfy-headless",
-    "description": "Headless ComfyUI with prompt intelligence and video generation.",
-    "tags": ["comfyui", "image-gen"],
-    "featured": true
+    "name": "Attestia",
+    "repo": "Attestia",
+    "description": "Financial truth infrastructure for the decentralized world — structural governance, deterministic accounting, and human-approved intent across chains.",
+    "tags": [
+      "accounting",
+      "attestation",
+      "blockchain",
+      "ethereum",
+      "financial-infrastructure",
+      "governance",
+      "monorepo",
+      "typescript",
+      "web3",
+      "xrpl"
+    ],
+    "featured": false,
+    "stars": 1,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-12T13:39:48Z"
+  },
+  {
+    "name": "Backpropagate",
+    "repo": "backpropagate",
+    "description": "Headless LLM fine-tuning - Simple Python API with smart defaults, multi-run SLAO training, GGUF export, and full Windows support",
+    "tags": [
+      "ai-evaluation",
+      "ai-tools",
+      "deep-learning",
+      "feedback-loops",
+      "fine-tuning",
+      "gguf",
+      "gradio",
+      "huggingface",
+      "llm",
+      "lora",
+      "machine-learning",
+      "model-training",
+      "ollama",
+      "python",
+      "pytorch",
+      "qlora",
+      "training",
+      "transformers",
+      "unsloth",
+      "windows"
+    ],
+    "featured": false,
+    "stars": 1,
+    "language": "Python",
+    "updatedAt": "2026-02-15T03:06:06Z"
+  },
+  {
+    "name": "LeaseGate Lite",
+    "repo": "LeaseGate-Lite",
+    "description": "A one-tab MAUI control surface and local daemon for throttling AI workloads on Windows — smoother calls, less stutter, fewer thermal spikes.",
+    "tags": [
+      "ai",
+      "concurrency",
+      "csharp",
+      "daemon",
+      "dotnet",
+      "llm",
+      "maui",
+      "rate-limiting",
+      "system-tray",
+      "throttling",
+      "windows"
+    ],
+    "featured": false,
+    "stars": 1,
+    "language": "C#",
+    "updatedAt": "2026-02-13T02:34:03Z"
+  },
+  {
+    "name": "ScalarScope Desktop",
+    "repo": "ScalarScope-Desktop",
+    "description": "ASPIRE Scalar Vortex Visualizer - .NET MAUI desktop app for visualizing training dynamics",
+    "tags": [
+      "ai",
+      "aspire",
+      "csharp",
+      "desktop-app",
+      "dotnet",
+      "maui",
+      "training-dynamics",
+      "visualization"
+    ],
+    "featured": false,
+    "stars": 1,
+    "language": "C#",
+    "updatedAt": "2026-02-15T02:41:14Z"
+  },
+  {
+    "name": ".github",
+    "repo": ".github",
+    "description": "Organization profile and community health files for MCP Tool Shop",
+    "tags": [
+      "agents",
+      "ai-tools",
+      "cli",
+      "developer-tools",
+      "mcp",
+      "open-source",
+      "python",
+      "tooling"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T02:11:18Z"
+  },
+  {
+    "name": "Accessibility Suite",
+    "repo": "accessibility-suite",
+    "description": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T03:09:43Z"
+  },
+  {
+    "name": "Ally Demo Python",
+    "repo": "ally-demo-python",
+    "description": "Reference integration demonstrating the Ally accessibility toolchain.",
+    "tags": [
+      "a11y",
+      "accessibility",
+      "cli",
+      "examples",
+      "reference-implementation"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T03:13:23Z"
+  },
+  {
+    "name": "Aspire Ai",
+    "repo": "aspire-ai",
+    "description": "ASPIRE: Adversarial Student-Professor Internalized Reasoning Engine - Teaching AI through internalized mentorship with cognitive empathy, syntropy, and perception",
+    "tags": [
+      "adversarial-training",
+      "ai-alignment",
+      "ai-evaluation",
+      "ai-training",
+      "cognitive-empathy",
+      "deep-learning",
+      "fine-tuning",
+      "llm",
+      "llm-training",
+      "machine-learning",
+      "metacognition",
+      "negentropy",
+      "nlp",
+      "perception",
+      "python",
+      "pytorch",
+      "rlhf",
+      "syntropy",
+      "theory-of-mind",
+      "transformer"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T02:05:05Z"
+  },
+  {
+    "name": "Attestia Desktop",
+    "repo": "Attestia-Desktop",
+    "description": "Financial intent verification for Windows — WinUI 3 app and .NET SDK for blockchain attestation and reconciliation",
+    "tags": [
+      "attestation",
+      "blockchain",
+      "csharp",
+      "dotnet",
+      "financial-infrastructure",
+      "windows",
+      "windows-app-sdk",
+      "winui3"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-14T11:20:29Z"
+  },
+  {
+    "name": "Audiobooker",
+    "repo": "audiobooker",
+    "description": "AI Audiobook Generator - Convert EPUB/TXT books into professionally narrated audiobooks using multi-voice synthesis",
+    "tags": [
+      "ai",
+      "audiobook",
+      "epub",
+      "kokoro",
+      "multi-voice",
+      "python",
+      "text-to-speech",
+      "tts"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-14T06:42:07Z"
+  },
+  {
+    "name": "Build Governor",
+    "repo": "build-governor",
+    "description": "Build Reliability Governor - Prevents build system memory exhaustion on Windows",
+    "tags": [
+      "build-tools",
+      "ci",
+      "developer-tools",
+      "memory-management",
+      "python",
+      "resource-management",
+      "windows"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-12T08:51:08Z"
+  },
+  {
+    "name": "Claude Collaborate",
+    "repo": "claude-collaborate",
+    "description": "Where Human Creativity Meets AI Intelligence - A unified sandbox for real-time human-AI collaboration",
+    "tags": [
+      "ai-collaboration",
+      "anthropic",
+      "claude",
+      "collaboration",
+      "mcp",
+      "model-context-protocol",
+      "multi-agent",
+      "orchestration",
+      "python",
+      "sandbox",
+      "testing"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "HTML",
+    "updatedAt": "2026-02-02T02:04:48Z"
+  },
+  {
+    "name": "Code Batch",
+    "repo": "code-batch",
+    "description": "Content-addressed batch execution engine — deterministic sharding, queryable outputs, no database required",
+    "tags": [
+      "batch-execution",
+      "cli",
+      "code-runner",
+      "content-addressed",
+      "deterministic",
+      "python",
+      "sharding"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T02:55:15Z"
+  },
+  {
+    "name": "Code Covered",
+    "repo": "code-covered",
+    "description": "Find coverage gaps and generate the tests you're missing",
+    "tags": [
+      "code-coverage",
+      "coverage-gaps",
+      "developer-tools",
+      "pytest",
+      "python",
+      "test-generation",
+      "testing"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T02:41:48Z"
+  },
+  {
+    "name": "CodeClone Desktop",
+    "repo": "CodeClone-Desktop",
+    "description": "MAUI desktop viewer for CodeClone coverage analysis",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-12T04:33:34Z"
+  },
+  {
+    "name": "Codeclone Suite",
+    "repo": "codeclone-suite",
+    "description": "Deterministic code coverage analysis as a protocol — CLI engine and editor extensions for actionable test coverage insights",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-02T01:41:49Z"
+  },
+  {
+    "name": "Codecomfy Vscode",
+    "repo": "codecomfy-vscode",
+    "description": "Run automated ComfyUI workflows to generate images and videos from VS Code.",
+    "tags": [
+      "ai-workflows",
+      "comfyui",
+      "image-generation",
+      "stable-diffusion",
+      "video-generation",
+      "vscode-extension"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-15T02:41:37Z"
+  },
+  {
+    "name": "Codeteam Suite",
+    "repo": "codeteam-suite",
+    "description": "The authoritative CodeTeam implementation - .NET CLI and library for package verification, approval, and signing",
+    "tags": [
+      "cli",
+      "code-signing",
+      "csharp",
+      "developer-tools",
+      "dotnet",
+      "nuget",
+      "package-verification"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-14T10:59:15Z"
+  },
+  {
+    "name": "ConsensusOS",
+    "repo": "ConsensusOS",
+    "description": "Plugin-based multi-chain consensus control plane — zero deps, fail-closed invariants, deterministic replay",
+    "tags": [
+      "consensus",
+      "deterministic",
+      "distributed-systems",
+      "event-sourcing",
+      "governance",
+      "multi-chain",
+      "python"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-14T11:20:53Z"
+  },
+  {
+    "name": "Context Window Manager",
+    "repo": "context-window-manager",
+    "description": "MCP server for lossless LLM context restoration via KV cache persistence",
+    "tags": [
+      "ai",
+      "claude",
+      "context-management",
+      "context-window",
+      "kv-cache",
+      "llm",
+      "llm-inference",
+      "lmcache",
+      "machine-learning",
+      "mcp",
+      "mcp-server",
+      "memory",
+      "model-context-protocol",
+      "python",
+      "rag",
+      "session-management",
+      "token-management",
+      "vllm"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T02:55:18Z"
+  },
+  {
+    "name": "Control Room",
+    "repo": "control-room",
+    "description": "Local-first desktop app for managing and executing scripts with full observability",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-15T02:41:27Z"
+  },
+  {
+    "name": "CursorAssist",
+    "repo": "CursorAssist",
+    "description": "CursorAssist — A deterministic engine for assistive cursor control, UI accessibility benchmarking, and adaptive motor-skill training.",
+    "tags": [
+      "accessibility",
+      "assistive-technology",
+      "cursor-control",
+      "deterministic",
+      "dotnet",
+      "fitts-law"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-12T03:51:30Z"
+  },
+  {
+    "name": "DeterministicMouseTrainingEngine",
+    "repo": "DeterministicMouseTrainingEngine",
+    "description": "Deterministic 60Hz mouse training engine — fixed timestep, alpha interpolation, virtual coordinate space, pluggable game modes",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-11T00:26:29Z"
+  },
+  {
+    "name": "Dev Op Typer",
+    "repo": "dev-op-typer",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-15T02:41:14Z"
+  },
+  {
+    "name": "Feature Reacher",
+    "repo": "feature-reacher",
+    "description": "Adoption Risk Auditing - surface underutilized features before they become technical debt",
+    "tags": [
+      "adoption",
+      "analytics",
+      "developer-tools",
+      "feature-flags",
+      "nodejs",
+      "technical-debt",
+      "typescript"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-14T06:54:19Z"
+  },
+  {
+    "name": "Flexiflow",
+    "repo": "flexiflow",
+    "description": "A lightweight async component engine with events, state machines, and a minimal CLI",
+    "tags": [
+      "async",
+      "cli",
+      "components",
+      "event-driven",
+      "lightweight",
+      "python",
+      "state-machine"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-14T11:00:26Z"
+  },
+  {
+    "name": "Headless Wheel Builder",
+    "repo": "headless-wheel-builder",
+    "description": "A universal, headless Python wheel builder supporting local paths, git repos, and CI/CD pipelines",
+    "tags": [
+      "build-tool",
+      "build-tools",
+      "ci-cd",
+      "docker",
+      "github-actions",
+      "headless",
+      "manylinux",
+      "packaging",
+      "pep517",
+      "pep518",
+      "pip",
+      "pypi",
+      "python",
+      "python-packaging",
+      "release-automation",
+      "reproducible-builds",
+      "supply-chain",
+      "wheel"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-14T08:32:21Z"
+  },
+  {
+    "name": "Homebrew Core",
+    "repo": "homebrew-core",
+    "description": "🍻 Default formulae for the missing package manager for macOS (or Linux)",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "",
+    "updatedAt": "2026-01-30T04:46:15Z"
+  },
+  {
+    "name": "Homebrew Mcp Tools",
+    "repo": "homebrew-mcp-tools",
+    "description": "Official Homebrew tap for MCP Tool Shop CLI tools",
+    "tags": [
+      "cli",
+      "homebrew",
+      "homebrew-tap",
+      "linux",
+      "macos",
+      "mcp",
+      "package-manager"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Ruby",
+    "updatedAt": "2026-02-14T10:58:34Z"
+  },
+  {
+    "name": "InControl Desktop",
+    "repo": "InControl-Desktop",
+    "description": "Privacy-first local LLM chat for Windows — WinUI 3, RTX-accelerated, multi-backend (Ollama, llama.cpp)",
+    "tags": [
+      "ai",
+      "csharp",
+      "llm",
+      "local-inference",
+      "ollama",
+      "rtx",
+      "windows",
+      "windows-app-sdk",
+      "winui3"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-15T02:41:13Z"
+  },
+  {
+    "name": "LeaseGate",
+    "repo": "LeaseGate",
+    "description": "Local-first AI governance control plane — lease admission, policy enforcement, tamper-evident audit (.NET)",
+    "tags": [
+      "ai",
+      "audit",
+      "csharp",
+      "dotnet",
+      "governance",
+      "lease",
+      "policy-enforcement",
+      "rate-limiting"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-12T18:10:57Z"
+  },
+  {
+    "name": "Ledger Suite",
+    "repo": "ledger-suite",
+    "description": "Unified monorepo for cryptographic provenance ledgers — ClaimLedger and CreatorLedger",
+    "tags": [
+      "append-only",
+      "cryptography",
+      "digital-signatures",
+      "ledger",
+      "monorepo",
+      "provenance",
+      "typescript"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-15T02:41:40Z"
+  },
+  {
+    "name": "Linux Dev Typer",
+    "repo": "linux-dev-typer",
+    "description": "Code-typing practice for developers — Avalonia UI, adaptive difficulty, trend tracking, fatigue detection",
+    "tags": [
+      "adaptive-learning",
+      "avalonia",
+      "cross-platform",
+      "csharp",
+      "developer-tools",
+      "dotnet",
+      "typing-practice"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-14T06:54:49Z"
+  },
+  {
+    "name": "LoKey Typer",
+    "repo": "LoKey-Typer",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-14T14:29:54Z"
+  },
+  {
+    "name": "Mcp App Builder",
+    "repo": "mcp-app-builder",
+    "description": "VS Code extension for building MCP servers with interactive UI components",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-03T01:24:21Z"
+  },
+  {
+    "name": "Mcp Examples",
+    "repo": "mcp-examples",
+    "description": "Example workspaces for MCP Tool Shop",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-02T02:04:56Z"
+  },
+  {
+    "name": "Mcp File Forge",
+    "repo": "mcp-file-forge",
+    "description": "MCP server for file operations and project scaffolding - Windows-first, secure, sandboxed",
+    "tags": [
+      "file-operations",
+      "mcp",
+      "mcp-server",
+      "model-context-protocol",
+      "python",
+      "sandboxed",
+      "scaffolding",
+      "windows"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-12T04:46:49Z"
+  },
+  {
+    "name": "Mcp Stress Test",
+    "repo": "mcp-stress-test",
+    "description": "Red team toolkit for stress-testing MCP security scanners — find detection gaps before attackers do",
+    "tags": [
+      "adversarial-testing",
+      "ai-safety",
+      "fuzzing",
+      "llm",
+      "llm-security",
+      "mcp",
+      "mcp-server",
+      "model-context-protocol",
+      "python",
+      "red-team",
+      "security",
+      "security-testing",
+      "stress-testing",
+      "testing-framework"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T02:05:11Z"
+  },
+  {
+    "name": "Mcp Tool Registry",
+    "repo": "mcp-tool-registry",
+    "description": "Metadata-only registry for MCP Tool Shop tools",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "",
+    "updatedAt": "2026-02-12T04:20:27Z"
+  },
+  {
+    "name": "Mcp Tool Shop.github.io",
+    "repo": "mcp-tool-shop.github.io",
+    "description": "MCP Tool Shop - AI tools for developers",
+    "tags": [
+      "agents",
+      "ai-tools",
+      "developer-tools",
+      "documentation",
+      "github-pages",
+      "mcp",
+      "model-context-protocol",
+      "organization"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "HTML",
+    "updatedAt": "2026-02-14T13:21:57Z"
+  },
+  {
+    "name": "Mcp Voice Engine",
+    "repo": "mcp-voice-engine",
+    "description": "Streaming TTS inference backend — powers mcp-voice-soundboard — Kokoro/Piper synthesis, zero-copy PCM",
+    "tags": [
+      "audio-processing",
+      "autotune",
+      "prosody",
+      "real-time",
+      "speech-synthesis",
+      "streaming",
+      "text-to-speech",
+      "typescript",
+      "voice-dsp"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-15T02:41:39Z"
+  },
+  {
+    "name": "Mcp Voice Soundboard",
+    "repo": "mcp-voice-soundboard",
+    "description": "Text-to-speech MCP server for AI agents — 12 voices, emotion spans, SSML-lite, multi-speaker dialogue, SFX tags, guardrails.",
+    "tags": [
+      "ai-agent",
+      "ai-agents",
+      "kokoro",
+      "mcp",
+      "mcp-server",
+      "model-context-protocol",
+      "python",
+      "soundboard",
+      "spatial-audio",
+      "speech-synthesis",
+      "text-to-speech",
+      "tts",
+      "typescript",
+      "voice",
+      "windows"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T02:55:09Z"
+  },
+  {
+    "name": "Mcpt",
+    "repo": "mcpt",
+    "description": "CLI for discovering and running MCP Tool Shop tools",
+    "tags": [
+      "cli",
+      "developer-tools",
+      "mcp",
+      "mcp-tools",
+      "model-context-protocol",
+      "python",
+      "tool-discovery"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T02:55:16Z"
+  },
+  {
+    "name": "Meta Content System",
+    "repo": "meta-content-system",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-15T01:32:20Z"
+  },
+  {
+    "name": "MouseTrainer",
+    "repo": "MouseTrainer",
+    "description": "Deterministic mouse dexterity trainer — precision, control, and flow. .NET 8 MAUI, fixed-timestep simulation, composable blueprint mutators.",
+    "tags": [
+      "deterministic",
+      "dotnet",
+      "game",
+      "maui",
+      "windows"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-12T03:51:24Z"
+  },
+  {
+    "name": "NextGallery Desktop",
+    "repo": "NextGallery-Desktop",
+    "description": "Standalone Windows desktop gallery for AI-generated images and videos",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-02T12:58:12Z"
+  },
+  {
+    "name": "NextLedger",
+    "repo": "NextLedger",
+    "description": "Personal budgeting app with envelope-style budgeting - Windows-first desktop experience",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-04T11:43:34Z"
+  },
+  {
+    "name": "Nexus Suite",
+    "repo": "nexus-suite",
+    "description": "Governance, attestation, and routing infrastructure for MCP tool ecosystems",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-02T01:34:10Z"
+  },
+  {
+    "name": "Old_voice Soundboard",
+    "repo": "old_voice-soundboard",
+    "description": "Production-ready TTS library and MCP server for AI assistants. Multi-voice synthesis, real-time streaming, SSML support, emotional speech, and sound effects.",
+    "tags": [
+      "23-languages",
+      "ai-assistant",
+      "chatterbox",
+      "claude",
+      "diffusion-transformer",
+      "f5-tts",
+      "kokoro",
+      "mcp",
+      "mcp-server",
+      "multilingual",
+      "onnx",
+      "python",
+      "real-time",
+      "speech-synthesis",
+      "ssml",
+      "streaming",
+      "text-to-speech",
+      "tts",
+      "voice-cloning",
+      "websocket"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T01:31:58Z"
+  },
+  {
+    "name": "Pathway",
+    "repo": "pathway",
+    "description": "Append-only journey engine where undo never erases learning",
+    "tags": [
+      "event-sourcing",
+      "fastapi",
+      "journey",
+      "learning",
+      "python",
+      "sqlite",
+      "undo"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-14T08:15:15Z"
+  },
+  {
+    "name": "Payroll Engine",
+    "repo": "payroll-engine",
+    "description": "Library-first PSP core for payroll and regulated money movement. Append-only ledger, funding gates, domain events, advisory-only AI.",
+    "tags": [
+      "financial-infrastructure",
+      "fintech",
+      "ledger",
+      "payments",
+      "payroll",
+      "psp",
+      "python"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-12T05:37:26Z"
+  },
+  {
+    "name": "Prov Engine Js",
+    "repo": "prov-engine-js",
+    "description": "Zero-dependency Node.js provenance engine implementing prov-spec",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-02-12T04:20:40Z"
+  },
+  {
+    "name": "Registrum",
+    "repo": "Registrum",
+    "description": "Deterministic structural registrar — dual-witness state transitions, fail-closed invariants, replayable history",
+    "tags": [
+      "append-only",
+      "audit",
+      "deterministic",
+      "governance",
+      "python",
+      "state-machine",
+      "structural-integrity"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-12T06:59:59Z"
+  },
+  {
+    "name": "Rippled Windows Debug",
+    "repo": "rippled-windows-debug",
+    "description": "Windows debugging toolkit for rippled (XRPL validator node)",
+    "tags": [
+      "blockchain",
+      "debugging",
+      "developer-tools",
+      "rippled",
+      "validator",
+      "windows",
+      "xrpl"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-12T09:25:38Z"
+  },
+  {
+    "name": "Runforge Desktop",
+    "repo": "runforge-desktop",
+    "description": "Windows desktop app for browsing and inspecting RunForge ML training artifacts (read-only viewer)",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-12T04:33:16Z"
+  },
+  {
+    "name": "Runforge Vscode",
+    "repo": "runforge-vscode",
+    "description": "RunForge VS Code Extension - Push-button ML training with presets",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T02:41:36Z"
+  },
+  {
+    "name": "ScalarScope",
+    "repo": "ScalarScope",
+    "description": "ASPIRE-AI (Adversarial Student-Professor Internalized Reasoning Engine)",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-05T01:17:58Z"
+  },
+  {
+    "name": "Siege Kit",
+    "repo": "siege-kit",
+    "description": "Physics-based backgammon engine — SVG rendering, devtools, and turborepo monorepo (TypeScript)",
+    "tags": [
+      "backgammon",
+      "game",
+      "monorepo",
+      "physics",
+      "pnpm",
+      "svg",
+      "turborepo",
+      "typescript"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-12T04:42:41Z"
+  },
+  {
+    "name": "Soundboard Maui",
+    "repo": "soundboard-maui",
+    "description": "Cross-platform .NET MAUI desktop client for the Sound Board voice engine.",
+    "tags": [
+      "cross-platform",
+      "csharp",
+      "desktop-app",
+      "dotnet",
+      "maui",
+      "text-to-speech",
+      "tts",
+      "voice"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-12T10:06:47Z"
+  },
+  {
+    "name": "Stresskit Mcp",
+    "repo": "stresskit-mcp",
+    "description": "MCP Server Health & Security Testing - trustable evidence for MCP server readiness",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-02T01:41:54Z"
+  },
+  {
+    "name": "Synthesis",
+    "repo": "synthesis",
+    "description": "Synthesis is a deterministic engine that composes behavioral constraints and interaction signals into coherent response strategies. It avoids emotion modeling, focusing on auditable rules like preserving agency, avoiding false reassurance, maintaining presence, and repair after failure—built for CI.",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-14T11:00:27Z"
+  },
+  {
+    "name": "ThrottleAI",
+    "repo": "ThrottleAI",
+    "description": "A token-based lease governor for AI calls — small enough to embed anywhere, strict enough to prevent stampedes.",
+    "tags": [
+      "ai",
+      "concurrency",
+      "express",
+      "governance",
+      "lease",
+      "llm",
+      "nodejs",
+      "openai",
+      "rate-limiting",
+      "throttling",
+      "typescript"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-15T02:59:18Z"
+  },
+  {
+    "name": "ThrottleAI Desktop",
+    "repo": "ThrottleAI-Desktop",
+    "description": "MAUI desktop client for ThrottleAI — visual control surface for AI lease governance and rate limiting",
+    "tags": [
+      "ai",
+      "csharp",
+      "desktop-app",
+      "dotnet",
+      "maui",
+      "rate-limiting",
+      "throttling",
+      "windows"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "",
+    "updatedAt": "2026-02-13T03:03:47Z"
+  },
+  {
+    "name": "Tool Scan",
+    "repo": "tool-scan",
+    "description": "Security scanner for MCP (Model Context Protocol) tools",
+    "tags": [
+      "mcp",
+      "mcp-security",
+      "mcp-server",
+      "model-context-protocol",
+      "python",
+      "schema-validation",
+      "security-audit",
+      "security-scanner",
+      "tool-analysis",
+      "vulnerability-detection"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T03:04:53Z"
+  },
+  {
+    "name": "Trace",
+    "repo": "Trace",
+    "description": "Trace — deterministic cursor discipline game. Navigate chaos through precision, not power.",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-11T02:29:14Z"
+  },
+  {
+    "name": "Training Studio",
+    "repo": "training-studio",
+    "description": "TensorFlow.js ML bundle validator with security-first design and zero code execution",
+    "tags": [
+      "desktop-app",
+      "machine-learning",
+      "maui",
+      "tensorflow",
+      "typescript",
+      "validation",
+      "windows"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-02T13:47:38Z"
+  },
+  {
+    "name": "VectorCaliper",
+    "repo": "VectorCaliper",
+    "description": "Scientific instrument for faithful model-state visualization — turns vector graphics into calibrated representations",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-05T13:40:03Z"
+  },
+  {
+    "name": "Venvkit",
+    "repo": "venvkit",
+    "description": "Python virtual environment diagnostic toolkit for Windows ML workflows",
+    "tags": [
+      "developer-tools",
+      "diagnostics",
+      "gpu",
+      "ml",
+      "python",
+      "virtual-environment",
+      "windows"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-14T11:00:28Z"
+  },
+  {
+    "name": "Voice Soundboard",
+    "repo": "voice-soundboard",
+    "description": "TTS library for AI agents — compiler/graph/engine architecture, swappable backends (see mcp-voice-soundboard)",
+    "tags": [
+      "ai-agents",
+      "audio",
+      "kokoro",
+      "python",
+      "text-to-speech",
+      "tts",
+      "voice"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-15T02:55:10Z"
+  },
+  {
+    "name": "Websketch Cli",
+    "repo": "websketch-cli",
+    "description": "Command-line tool for WebSketch IR - render, fingerprint, and diff UI captures",
+    "tags": [
+      "cli",
+      "developer-tools",
+      "fingerprinting",
+      "python",
+      "rendering",
+      "ui-testing",
+      "visual-diff"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-15T02:41:34Z"
+  },
+  {
+    "name": "Websketch Demo",
+    "repo": "websketch-demo",
+    "description": "Interactive demo site for WebSketch IR - visualize UI grammar",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-15T01:21:41Z"
+  },
+  {
+    "name": "Websketch Extension",
+    "repo": "websketch-extension",
+    "description": "Chrome extension to capture web pages as WebSketch IR",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-15T02:41:31Z"
+  },
+  {
+    "name": "Websketch Ir",
+    "repo": "websketch-ir",
+    "description": "Grammar-based UI representation for LLMs - capture web pages as semantic primitives",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-15T02:41:33Z"
+  },
+  {
+    "name": "Websketch Mcp",
+    "repo": "websketch-mcp",
+    "description": "MCP server exposing WebSketch IR tools for LLM agents",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-02-15T02:41:32Z"
+  },
+  {
+    "name": "Witness",
+    "repo": "witness",
+    "description": "Local-first, append-only event journal for human-AI work. Cryptographically verifiable.",
+    "tags": [
+      "append-only",
+      "cryptography",
+      "event-journal",
+      "human-ai",
+      "local-first",
+      "provenance",
+      "python"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-12T05:35:44Z"
   }
 ]

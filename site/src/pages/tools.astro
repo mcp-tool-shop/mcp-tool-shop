@@ -18,7 +18,7 @@ import projects from '../data/projects.json';
   </div>
 
   <div class="project-grid">
-    {projects.map((project) => (
+    {projects.map((project: any) => (
       <div class="project-card">
         <h3>
           <a href={`https://github.com/mcp-tool-shop-org/${project.repo}`} rel="noopener">
@@ -26,8 +26,12 @@ import projects from '../data/projects.json';
           </a>
         </h3>
         <p>{project.description}</p>
+        <div class="card-meta">
+          {project.stars > 0 && <span class="meta-item">{project.stars} stars</span>}
+          {project.language && <span class="meta-item">{project.language}</span>}
+        </div>
         <div class="tags">
-          {project.tags.map((tag) => (
+          {project.tags.map((tag: string) => (
             <span class="tag">{tag}</span>
           ))}
         </div>

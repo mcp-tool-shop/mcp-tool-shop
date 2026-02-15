@@ -1,0 +1,36 @@
+name: Sync org metadata
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-org-metadata-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Sync org metadata
+        env:
+          ORG: mcp-tool-shop-org
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/sync-org-metadata.mjs
+
+      - name: Commit if changed
+        run: |
+          git diff --quiet && echo "No changes." && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add site/src/data/projects.json site/src/data/org-stats.json
+          git commit -m "chore: sync org metadata"
+          git push

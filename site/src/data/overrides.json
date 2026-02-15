@@ -1,0 +1,22 @@
+{
+  "file-compass": {
+    "featured": true,
+    "tags": ["mcp", "search", "embeddings"]
+  },
+  "tool-compass": {
+    "featured": true,
+    "tags": ["mcp", "discovery"]
+  },
+  "soundboard-plugin": {
+    "featured": true,
+    "tags": ["tts", "plugin", "claude-code"]
+  },
+  "brain-dev": {
+    "featured": true,
+    "tags": ["mcp", "code-analysis"]
+  },
+  "comfy-headless": {
+    "featured": true,
+    "tags": ["comfyui", "image-gen"]
+  }
+}

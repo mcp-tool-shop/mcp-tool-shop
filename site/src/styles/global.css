@@ -271,6 +271,18 @@ main {
   flex: 1;
 }
 
+.card-meta {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.meta-item {
+  font-family: var(--font-mono);
+}
+
 .project-card .tags {
   display: flex;
   gap: 0.5rem;

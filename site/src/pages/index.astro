@@ -1,8 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import projects from '../data/projects.json';
+import stats from '../data/org-stats.json';
 
-const featured = projects.filter((p) => p.featured);
+const featured = projects.filter((p: any) => p.featured);
 ---
 
 <Base title="mcp-tool-shop" currentPath="/">
@@ -23,7 +24,7 @@ const featured = projects.filter((p) => p.featured);
     </div>
     <div class="proof-points">
       <div class="proof-point">
-        <span class="number">99</span>
+        <span class="number">{stats.repoCount}</span>
         <span class="label">public repos</span>
       </div>
       <div class="proof-point">
@@ -49,8 +50,12 @@ const featured = projects.filter((p) => p.featured);
             </a>
           </h3>
           <p>{project.description}</p>
+          <div class="card-meta">
+            {project.stars > 0 && <span class="meta-item">{project.stars} stars</span>}
+            {project.language && <span class="meta-item">{project.language}</span>}
+          </div>
           <div class="tags">
-            {project.tags.map((tag) => (
+            {project.tags.map((tag: string) => (
               <span class="tag">{tag}</span>
             ))}
           </div>
