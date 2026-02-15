@@ -24,7 +24,9 @@
     "notFor": [
       "Runtime code analysis or profiling",
       "Replacing manual security review for production systems"
-    ]
+    ],
+    "screenshot": "/screenshots/brain-dev.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Comfy Headless",
@@ -51,7 +53,9 @@
     "notFor": [
       "ComfyUI node development (use the standard UI)",
       "Real-time interactive editing"
-    ]
+    ],
+    "screenshot": "/screenshots/comfy-headless.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "File Compass",
@@ -79,7 +83,9 @@
     "notFor": [
       "Cloud-hosted file search",
       "Full-text grep replacement (use ripgrep for exact matches)"
-    ]
+    ],
+    "screenshot": "/screenshots/file-compass.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Soundboard Plugin",
@@ -107,7 +113,9 @@
     "notFor": [
       "General-purpose TTS (use mcp-voice-soundboard instead)",
       "Voice cloning or custom voice training"
-    ]
+    ],
+    "screenshot": "/screenshots/soundboard-plugin.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Tool Compass",
@@ -134,7 +142,9 @@
     "notFor": [
       "Running tools directly (it finds them, you run them)",
       "Non-MCP tool discovery"
-    ]
+    ],
+    "screenshot": "/screenshots/tool-compass.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Attestia",
@@ -152,7 +162,9 @@
     "category": "infrastructure",
     "stability": "beta",
     "kind": "library",
-    "tagline": "Financial truth infrastructure for decentralized systems."
+    "tagline": "Financial truth infrastructure for decentralized systems.",
+    "screenshot": "/screenshots/Attestia.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Backpropagate",
@@ -171,7 +183,9 @@
     "stability": "beta",
     "kind": "library",
     "install": "pip install backpropagate",
-    "tagline": "Headless LLM fine-tuning with smart defaults."
+    "tagline": "Headless LLM fine-tuning with smart defaults.",
+    "screenshot": "/screenshots/backpropagate.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "LeaseGate Lite",
@@ -193,7 +207,9 @@
     "featured": false,
     "stars": 1,
     "language": "C#",
-    "updatedAt": "2026-02-13T02:34:03Z"
+    "updatedAt": "2026-02-13T02:34:03Z",
+    "screenshot": "/screenshots/LeaseGate-Lite.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "ScalarScope Desktop",
@@ -212,7 +228,9 @@
     "featured": false,
     "stars": 1,
     "language": "C#",
-    "updatedAt": "2026-02-15T02:41:14Z"
+    "updatedAt": "2026-02-15T02:41:14Z",
+    "screenshot": "/screenshots/ScalarScope-Desktop.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": ".github",
@@ -241,7 +259,9 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T03:09:43Z"
+    "updatedAt": "2026-02-15T03:09:43Z",
+    "screenshot": "/screenshots/accessibility-suite.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Ally Demo Python",
@@ -275,7 +295,9 @@
     "category": "ml",
     "stability": "experimental",
     "kind": "library",
-    "tagline": "Adversarial student-professor training engine."
+    "tagline": "Adversarial student-professor training engine.",
+    "screenshot": "/screenshots/aspire-ai.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Attestia Desktop",
@@ -773,7 +795,9 @@
     "category": "security",
     "stability": "beta",
     "kind": "cli",
-    "tagline": "Red team toolkit for MCP security scanners."
+    "tagline": "Red team toolkit for MCP security scanners.",
+    "screenshot": "/screenshots/mcp-stress-test.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Mcp Tool Registry",
@@ -820,7 +844,9 @@
     "category": "voice",
     "stability": "beta",
     "kind": "library",
-    "tagline": "Streaming TTS inference backend."
+    "tagline": "Streaming TTS inference backend.",
+    "screenshot": "/screenshots/mcp-voice-engine.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Mcp Voice Soundboard",
@@ -839,7 +865,9 @@
     "stability": "stable",
     "kind": "mcp-server",
     "install": "pip install mcp-voice-soundboard",
-    "tagline": "TTS MCP server with 12 voices and SSML-lite."
+    "tagline": "TTS MCP server with 12 voices and SSML-lite.",
+    "screenshot": "/screenshots/mcp-voice-soundboard.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Mcpt",
@@ -858,7 +886,9 @@
     "stability": "stable",
     "kind": "cli",
     "install": "pip install mcpt",
-    "tagline": "CLI for discovering and running MCP tools."
+    "tagline": "CLI for discovering and running MCP tools.",
+    "screenshot": "/screenshots/mcpt.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Meta Content System",
@@ -1105,7 +1135,9 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-02T01:41:54Z"
+    "updatedAt": "2026-02-02T01:41:54Z",
+    "screenshot": "/screenshots/stresskit-mcp.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Synthesis",
@@ -1174,7 +1206,9 @@
     "stability": "stable",
     "kind": "cli",
     "install": "pip install tool-scan",
-    "tagline": "Security scanner for MCP tools."
+    "tagline": "Security scanner for MCP tools.",
+    "screenshot": "/screenshots/tool-scan.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Trace",
@@ -1248,7 +1282,9 @@
     "category": "voice",
     "stability": "beta",
     "kind": "library",
-    "tagline": "TTS library with compiler/graph/engine architecture."
+    "tagline": "TTS library with compiler/graph/engine architecture.",
+    "screenshot": "/screenshots/voice-soundboard.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Websketch Cli",
