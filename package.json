@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "mcp-tool-shop",
+  "type": "module",
+  "scripts": {
+    "fetch:registry": "node scripts/fetch-registry.mjs",
+    "sync": "node scripts/sync-org-metadata.mjs",
+    "enrich": "node scripts/draft-overrides.mjs",
+    "placeholders": "node scripts/gen-placeholders.mjs",
+    "suggest": "node scripts/suggest-collections.mjs"
+  }
+}
