@@ -1,0 +1,115 @@
+name: Weekly override drafts
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    # Every Monday at 08:00 UTC — personal budget safe
+    - cron: '0 8 * * 1'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: overrides-weekly
+  cancel-in-progress: true
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Sync org metadata first
+        env:
+          ORG: mcp-tool-shop-org
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/sync-org-metadata.mjs
+
+      - name: Generate draft overrides
+        run: node scripts/draft-overrides.mjs
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet site/src/data/overrides.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No new draft overrides."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            REPOS=$(git diff site/src/data/overrides.json \
+              | grep '^+  "' | grep -v '^+++' \
+              | sed 's/^+  "//;s/".*//' \
+              | sort -u \
+              | head -20)
+            echo "repos<<EOF" >> "$GITHUB_OUTPUT"
+            echo "$REPOS" >> "$GITHUB_OUTPUT"
+            echo "EOF" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build PR body
+        if: steps.diff.outputs.changed == 'true'
+        id: body
+        run: |
+          REPO_LIST=""
+          while IFS= read -r repo; do
+            [ -z "$repo" ] && continue
+            REPO_LIST="${REPO_LIST}- \`${repo}\`
+          "
+          done <<< "${{ steps.diff.outputs.repos }}"
+
+          {
+            echo "pr_body<<ENDOFBODY"
+            echo "## Draft override enrichment"
+            echo ""
+            echo "The enrichment script selected repos missing or incomplete overrides and inferred \`kind\`, \`stability\`, \`category\`, \`install\`, \`tagline\`, and \`tags\` from GitHub metadata and release history."
+            echo ""
+            echo "All new entries have \`needsHumanReview: true\`."
+            echo ""
+            echo "### Repos in this batch"
+            echo "${REPO_LIST}"
+            echo "### Review checklist"
+            echo "- [ ] Review \`install\` commands — are they correct and published?"
+            echo "- [ ] Review \`tagline\` — clear, accurate, ≤ 90 chars?"
+            echo "- [ ] Review \`kind\` and \`stability\` — match the repo's actual state?"
+            echo "- [ ] Add \`goodFor\` / \`notFor\` for any flagship tools"
+            echo "- [ ] Remove \`needsHumanReview\` from accepted entries"
+            echo "- [ ] Delete any entries that should not appear on the site"
+            echo "ENDOFBODY"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Push branch and open PR
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_BODY: ${{ steps.body.outputs.pr_body }}
+        run: |
+          BRANCH="auto/overrides-weekly"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add site/src/data/projects.json site/src/data/org-stats.json site/src/data/releases.json
+          git add site/src/data/overrides.json
+
+          git checkout -B "$BRANCH"
+          git commit -m "chore(auto): draft override enrichment"
+          git push --force origin "$BRANCH"
+
+          EXISTING=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+
+          if [ -n "$EXISTING" ]; then
+            echo "Updating existing PR #$EXISTING"
+            gh pr edit "$EXISTING" --body "$PR_BODY"
+          else
+            echo "Creating new PR"
+            gh pr create \
+              --title "chore(auto): draft override enrichment" \
+              --body "$PR_BODY" \
+              --base main \
+              --head "$BRANCH"
+          fi
