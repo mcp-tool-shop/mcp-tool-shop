@@ -346,9 +346,12 @@ async function main() {
   writeJson(RELEASES_PATH, capped);
   console.log(`Wrote ${capped.length} releases to ${RELEASES_PATH}`);
 
-  // Aggregate stats
+  // Aggregate stats + registry health
   const totalStars = sorted.reduce((sum, p) => sum + p.stars, 0);
   const languages = [...new Set(sorted.map((p) => p.language).filter(Boolean))];
+
+  // Count registry tools that have no matching org repo (after ignore filtering)
+  const registryOnlyCount = warnings.filter((w) => w.includes("has no matching org repo")).length;
 
   const stats = {
     repoCount: sorted.length,
@@ -357,11 +360,28 @@ async function main() {
     languages,
     recentReleases: capped.length,
     updatedAt: new Date().toISOString(),
+    registryHealth: {
+      registryToolCount: registry.size,
+      registeredInProjects: registeredCount,
+      orgOnlyRepos: orphanCount,
+      registryNoRepo: registryOnlyCount,
+      ignoredRepos: ignoreList.size,
+      warnings: warnings.length,
+    },
   };
 
   writeJson(STATS_PATH, stats);
   console.log(`Wrote org stats to ${STATS_PATH}`);
-  console.log(`Total API calls: ${apiCalls}`);
+
+  // --- Registry health report ---
+  console.log("\n--- Registry Health Report ---");
+  console.log(`  Registry tools:      ${registry.size}`);
+  console.log(`  Registered projects: ${registeredCount}`);
+  console.log(`  Org-only repos:      ${orphanCount}`);
+  console.log(`  Registry-no-repo:    ${registryOnlyCount}`);
+  console.log(`  Ignored repos:       ${ignoreList.size}`);
+  console.log(`  Total warnings:      ${warnings.length}`);
+  console.log(`  Total API calls:     ${apiCalls}`);
 }
 
 main().catch((err) => {

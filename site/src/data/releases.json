@@ -1,5 +1,21 @@
 [
   {
+    "repo": "mcp-tool-registry",
+    "toolName": "Mcp Tool Registry",
+    "tag": "v0.3.1",
+    "name": "v0.3.1",
+    "body": [
+      "Publish to npm with automated workflow.",
+      "Bundles system (core, agents, ops, evaluation)",
+      "Health reports and facets",
+      "Site build pipeline",
+      "Schema validation improvements"
+    ],
+    "publishedAt": "2026-02-15T05:09:01Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-tool-registry/releases/tag/v0.3.1",
+    "prerelease": false
+  },
+  {
     "repo": "runforge-vscode",
     "toolName": "Runforge Vscode",
     "tag": "v0.4.0",
@@ -137,6 +153,23 @@
   {
     "repo": "ThrottleAI",
     "toolName": "ThrottleAI",
+    "tag": "v0.1.0",
+    "name": "v0.1.0",
+    "body": [
+      "A token-based lease governor for AI calls — small enough to embed anywhere, strict enough to prevent stampedes.",
+      "Concurrency control** — weighted slots with interactive reserve",
+      "Rate limiting** — requests/min and tokens/min with rolling windows",
+      "Fairness** — prevent actor monopolization with soft caps",
+      "Adaptive tuning** — auto-adjust concurrency from deny rate and latency",
+      "Leases** — acquire before, release after, auto-expire on timeout"
+    ],
+    "publishedAt": "2026-02-12T17:10:29Z",
+    "url": "https://github.com/mcp-tool-shop-org/ThrottleAI/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ThrottleAI",
+    "toolName": "ThrottleAI",
     "tag": "v0.4.0-alpha.0",
     "name": "v0.4.0-alpha.0 — Optional Adapters",
     "body": [
@@ -166,6 +199,23 @@
     ],
     "publishedAt": "2026-02-12T16:35:24Z",
     "url": "https://github.com/mcp-tool-shop-org/ThrottleAI/releases/tag/v0.3.0-alpha.0",
+    "prerelease": true
+  },
+  {
+    "repo": "ThrottleAI",
+    "toolName": "ThrottleAI",
+    "tag": "v0.2.0-alpha.0",
+    "name": "v0.2.0-alpha.0 — Phase 2: Smarter Decisions",
+    "body": [
+      "5 commits that make the governor's decisions more intelligent without changing the API surface or adding runtime dependencies.",
+      "Better retryAfter** — computed, not heuristic",
+      "Concurrency denial retryAfterMs derived from earliest lease expiry",
+      "Rate denial retryAfterMs computed from rolling window math",
+      "All values clamped to [25ms, 5000ms] via `clampRetry()`",
+      "Weighted concurrency** — `estimate.weight`"
+    ],
+    "publishedAt": "2026-02-12T16:21:44Z",
+    "url": "https://github.com/mcp-tool-shop-org/ThrottleAI/releases/tag/v0.2.0-alpha.0",
     "prerelease": true
   },
   {
@@ -390,23 +440,6 @@
     "prerelease": false
   },
   {
-    "repo": "codeclone-suite",
-    "toolName": "Codeclone Suite",
-    "tag": "v0.1.0",
-    "name": "v0.1.0 - Contract-First Foundation",
-    "body": [
-      "Deterministic code coverage analysis** as a protocol.",
-      "Contract-first foundation with interop harness in place.",
-      "Analyze response schema (additive changes only)",
-      "Version response schema (additive changes only)",
-      "Diagnostic codes (no removals or renames)",
-      "Severity mapping (new codes require mapping)"
-    ],
-    "publishedAt": "2026-02-02T03:38:49Z",
-    "url": "https://github.com/mcp-tool-shop-org/codeclone-suite/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
     "repo": "codeteam-suite",
     "toolName": "Codeteam Suite",
     "tag": "v0.2.0",
@@ -421,40 +454,6 @@
     ],
     "publishedAt": "2026-02-02T03:38:33Z",
     "url": "https://github.com/mcp-tool-shop-org/codeteam-suite/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-examples",
-    "toolName": "Mcp Examples",
-    "tag": "v0.1.0",
-    "name": "mcp-examples v0.1.0",
-    "body": [
-      "Example workspaces and templates for MCP Tool Shop tools.",
-      "Example MCP server configurations",
-      "Sample tool implementations",
-      "Integration patterns",
-      "Best practices documentation",
-      "Basic MCP server setup"
-    ],
-    "publishedAt": "2026-02-02T02:04:56Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-examples/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "claude-collaborate",
-    "toolName": "Claude Collaborate",
-    "tag": "v0.1.0",
-    "name": "claude-collaborate v0.1.0",
-    "body": [
-      "Where Human Creativity Meets AI Intelligence - A unified sandbox for real-time human-AI collaboration.",
-      "Real-time collaboration interface",
-      "Multi-agent workflow support",
-      "Human-in-the-loop primitives",
-      "Shared workspace management",
-      "Session persistence"
-    ],
-    "publishedAt": "2026-02-02T02:04:48Z",
-    "url": "https://github.com/mcp-tool-shop-org/claude-collaborate/releases/tag/v0.1.0",
     "prerelease": false
   },
   {
@@ -611,23 +610,6 @@
     "prerelease": false
   },
   {
-    "repo": "runforge-vscode",
-    "toolName": "Runforge Vscode",
-    "tag": "v0.3.6",
-    "name": "v0.3.6 - Phase 3 Complete (Unified Interpretability Index)",
-    "body": [
-      "This release completes Phase 3 with the **Unified Interpretability Index**.",
-      "Every run now produces `artifacts/interpretability.index.v1.json` that answers: *\"What interpretability outputs exist for this run?\"*",
-      "`RunForge: View Latest Interpretability Index`** shows a formatted summary with available artifacts and quick links.",
-      "| Version | Feature | Artifact |",
-      "|---------|---------|----------|",
-      "| v0.3.1 | Model Selection | `model_family` in run.json |"
-    ],
-    "publishedAt": "2026-02-01T08:49:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/runforge-vscode/releases/tag/untagged-3a8a7af7bd0c392fef18",
-    "prerelease": false
-  },
-  {
     "repo": "codecomfy-vscode",
     "toolName": "Codecomfy Vscode",
     "tag": "v0.4.0",
@@ -657,20 +639,13 @@
     "prerelease": false
   },
   {
-    "repo": "codeteam",
-    "toolName": "Codeteam",
-    "tag": "codeteam-vscode-v0.1.0",
-    "name": "CodeTeam VS Code Extension v0.1.0",
-    "body": [
-      "Private coordination that ships signed packages.**",
-      "An offline-first VS Code extension for creating verifiable packages and collecting approvals/signatures—designed for private coordination and portable evidence bundles.",
-      "Create Package** → computes digests for artifacts/evidence, writes deterministic manifest",
-      "Verify Package** → integrity checks (hash/size/path rules)",
-      "Approve Package** → append-only JSONL approval records with Ed25519 signatures",
-      "Sign Package** → final signature record (requires threshold met)"
-    ],
-    "publishedAt": "2026-01-31T02:54:20Z",
-    "url": "https://github.com/mcp-tool-shop-org/codeteam/releases/tag/codeteam-vscode-v0.1.0",
+    "repo": "codecomfy-vscode",
+    "toolName": "Codecomfy Vscode",
+    "tag": "v0.1.0",
+    "name": "v0.1.0",
+    "body": [],
+    "publishedAt": "2026-01-31T13:09:14Z",
+    "url": "https://github.com/mcp-tool-shop-org/codecomfy-vscode/releases/tag/v0.1.0",
     "prerelease": false
   },
   {
@@ -708,23 +683,6 @@
     "prerelease": false
   },
   {
-    "repo": "nexus-suite",
-    "toolName": "Nexus Suite",
-    "tag": "v0.1.0-monorepo",
-    "name": "v0.1.0 - Monorepo Consolidation",
-    "body": [
-      "Governance, attestation, and routing infrastructure consolidated.",
-      "| Project | Description |",
-      "|---------|-------------|",
-      "| `src/nexus-attest/` | Attestation signing and verification |",
-      "| `src/nexus-control/` | Control plane for governance policies |",
-      "| `src/nexus-router/` | Request routing and dispatch |"
-    ],
-    "publishedAt": "2026-01-30T11:24:42Z",
-    "url": "https://github.com/mcp-tool-shop-org/nexus-suite/releases/tag/v0.1.0-monorepo",
-    "prerelease": false
-  },
-  {
     "repo": "accessibility-suite",
     "toolName": "Accessibility Suite",
     "tag": "v0.1.0-monorepo",
@@ -759,23 +717,6 @@
     "prerelease": false
   },
   {
-    "repo": "CreatorLedger",
-    "toolName": "CreatorLedger",
-    "tag": "v1.1.0",
-    "name": "v1.1.0 - Security Hardening Release",
-    "body": [
-      "This release closes **all critical and high-severity security gaps** identified in our comprehensive audit:",
-      "Path Traversal Protection**: Added validation to prevent directory escapes in key vault file operations",
-      "Cross-Platform Key Storage**: Added secure key storage for Linux (libsecret) and macOS (Keychain) - no longer Windows-only",
-      "Optimistic Concurrency Control**: Eliminated race conditions in ledger appends via row versioning",
-      "RFC 8032 Test Vectors**: Added official Ed25519 test vectors for cryptographic assurance",
-      "Input Validation**: Display names now validate character sets to prevent injection attacks"
-    ],
-    "publishedAt": "2026-01-30T06:56:31Z",
-    "url": "https://github.com/mcp-tool-shop-org/CreatorLedger/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
     "repo": "brain-dev",
     "toolName": "Brain Dev",
     "tag": "v0.2.1",
@@ -802,6 +743,45 @@
     ],
     "publishedAt": "2026-01-30T03:23:15Z",
     "url": "https://github.com/mcp-tool-shop-org/brain-dev/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "control-room",
+    "toolName": "Control Room",
+    "tag": "v0.1.0",
+    "name": "Control Room v0.1.0",
+    "body": [
+      "1. Download `ControlRoom-win-x64.zip`",
+      "2. Extract to a folder",
+      "3. Run `ControlRoom.App.exe`",
+      "See [CHANGELOG.md](https://github.com/mcp-tool-shop/control-room/blob/main/CHANGELOG.md) for details."
+    ],
+    "publishedAt": "2026-01-29T17:40:34Z",
+    "url": "https://github.com/mcp-tool-shop-org/control-room/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "code-covered",
+    "toolName": "Code Covered",
+    "tag": "v0.5.0",
+    "name": "Release 0.5.0",
+    "body": [
+      "Release"
+    ],
+    "publishedAt": "2026-01-28T19:31:06Z",
+    "url": "https://github.com/mcp-tool-shop-org/code-covered/releases/tag/v0.5.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ally-demo-python",
+    "toolName": "Ally Demo Python",
+    "tag": "v0.1.0",
+    "name": "Release 0.1.0",
+    "body": [
+      "Initial release"
+    ],
+    "publishedAt": "2026-01-28T19:30:52Z",
+    "url": "https://github.com/mcp-tool-shop-org/ally-demo-python/releases/tag/v0.1.0",
     "prerelease": false
   }
 ]

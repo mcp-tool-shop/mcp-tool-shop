@@ -1,5 +1,6 @@
 {
   "repoCount": 80,
+  "registeredCount": 45,
   "totalStars": 4,
   "languages": [
     "Python",
@@ -9,5 +10,14 @@
     "Ruby",
     "JavaScript"
   ],
-  "updatedAt": "2026-02-15T03:53:33.421Z"
+  "recentReleases": 50,
+  "updatedAt": "2026-02-15T06:42:55.267Z",
+  "registryHealth": {
+    "registryToolCount": 48,
+    "registeredInProjects": 45,
+    "orgOnlyRepos": 35,
+    "registryNoRepo": 6,
+    "ignoredRepos": 6,
+    "warnings": 6
+  }
 }

@@ -229,6 +229,37 @@ jobs:
           console.log('automation.ignore.json: ' + ignoreList.length + ' entries, valid.');
           "
 
+      # ── Projects Registry Flags ──────────────────────────────
+      - name: Validate projects.json registry flags
+        run: |
+          node -e "
+          const fs = require('fs');
+          const projects = JSON.parse(fs.readFileSync('site/src/data/projects.json', 'utf8'));
+          let errors = 0;
+          let registered = 0;
+          let unlisted = 0;
+
+          for (const p of projects) {
+            if (typeof p.registered !== 'boolean') {
+              console.error('ERROR: ' + p.repo + ' missing registered flag');
+              errors++;
+            }
+            if (typeof p.unlisted !== 'boolean') {
+              console.error('ERROR: ' + p.repo + ' missing unlisted flag');
+              errors++;
+            }
+            if (p.registered) registered++;
+            if (p.unlisted) unlisted++;
+          }
+
+          if (errors > 0) {
+            console.error('\n' + errors + ' projects.json flag error(s).');
+            process.exit(1);
+          } else {
+            console.log('projects.json: ' + projects.length + ' projects (' + registered + ' registered, ' + unlisted + ' unlisted), flags valid.');
+          }
+          "
+
       # ── Registry Data Validation ──────────────────────────────
       - name: Validate registry data
         run: |
