@@ -228,3 +228,51 @@ jobs:
 
           console.log('automation.ignore.json: ' + ignoreList.length + ' entries, valid.');
           "
+
+      # ── Registry Data Validation ──────────────────────────────
+      - name: Validate registry data
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const dir = 'site/src/data/registry';
+          let errors = 0;
+
+          // Check both files exist
+          const files = ['registry.json', 'registry.index.json'];
+          for (const f of files) {
+            const p = path.join(dir, f);
+            if (!fs.existsSync(p)) {
+              console.error('MISSING: ' + p);
+              errors++;
+              continue;
+            }
+
+            // Validate JSON parses
+            let data;
+            try {
+              data = JSON.parse(fs.readFileSync(p, 'utf8'));
+            } catch (e) {
+              console.error('INVALID JSON: ' + f + ' — ' + e.message);
+              errors++;
+              continue;
+            }
+
+            // Shape checks
+            if (f === 'registry.json') {
+              if (!data.schema_version) { console.error('ERROR: registry.json missing schema_version'); errors++; }
+              if (!data.tools || !Array.isArray(data.tools)) { console.error('ERROR: registry.json missing tools array'); errors++; }
+              else { console.log('registry.json: v' + data.schema_version + ', ' + data.tools.length + ' tools'); }
+            }
+
+            if (f === 'registry.index.json') {
+              if (!Array.isArray(data)) { console.error('ERROR: registry.index.json must be an array'); errors++; }
+              else { console.log('registry.index.json: ' + data.length + ' entries'); }
+            }
+          }
+
+          if (errors > 0) {
+            console.error('\n' + errors + ' registry validation error(s).');
+            process.exit(1);
+          }
+          "
