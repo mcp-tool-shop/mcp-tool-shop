@@ -1,0 +1,541 @@
+---
+import Base from '../../layouts/Base.astro';
+import overrides from '../../data/overrides.json';
+import fs from 'node:fs';
+import path from 'node:path';
+import { getToolsWithPress, getProofData, loadSnapshot, loadEvidenceMap } from '../../lib/marketir/loader.mjs';
+
+const ovr = overrides as Record<string, any>;
+
+export function getStaticPaths() {
+  const _ovr = overrides as Record<string, any>;
+  const toolsWithPress = getToolsWithPress();
+  return toolsWithPress
+    .filter(({ slug }) => _ovr[slug]?.publicProof === true)
+    .map(({ slug, tool }) => ({
+      params: { slug },
+      props: { slug, tool },
+    }));
+}
+
+const { slug, tool } = Astro.props;
+const override = ovr[slug] || {};
+const press = tool.press;
+const proofData = getProofData(slug);
+const snapshot = loadSnapshot();
+
+// GitHub facts (fail-soft)
+let facts: any = null;
+try {
+  const factsPath = path.join(process.cwd(), 'src/data/github-facts', `${slug}.json`);
+  facts = JSON.parse(fs.readFileSync(factsPath, 'utf8'));
+} catch {}
+
+const orgUrl = `https://github.com/mcp-tool-shop-org/${slug}`;
+const siteUrl = `https://mcptoolshop.com`;
+---
+
+<Base
+  title={`${tool.name} — Press`}
+  description={press?.boilerplate?.projectDescription || tool.positioning?.oneLiner || ''}
+  currentPath={`/press/${slug}/`}
+>
+  <div class="press-page">
+    <a href="/press/" class="back-link">&larr; All press pages</a>
+
+    {/* Header */}
+    <header class="press-header">
+      <h1>{tool.name}</h1>
+      <p class="one-liner">{tool.positioning?.oneLiner}</p>
+      <div class="badges">
+        {override.stability && <span class={`badge badge-${override.stability}`}>{override.stability}</span>}
+        {override.kind && <span class="badge badge-kind">{override.kind}</span>}
+      </div>
+    </header>
+
+    {/* Expanded description */}
+    {press?.boilerplate?.projectDescription && (
+      <section class="section">
+        <h2>About</h2>
+        <p class="description">{press.boilerplate.projectDescription}</p>
+        {press.boilerplate.founderBio && (
+          <p class="bio">{press.boilerplate.founderBio}</p>
+        )}
+        {press.boilerplate.preferredNouns?.length > 0 && (
+          <p class="nouns">Preferred terms: {press.boilerplate.preferredNouns.join(', ')}</p>
+        )}
+      </section>
+    )}
+
+    {/* Verified claims */}
+    {proofData?.proven && proofData.proven.length > 0 && (
+      <section class="section" data-verified-claims>
+        <h2>Verified Claims</h2>
+        <p class="section-note">Every claim below is backed by evidence. Status: proven.</p>
+        <div class="claims-list">
+          {proofData.proven.map((claim: any) => (
+            <div class="claim">
+              <div class="claim-statement">{claim.statement}</div>
+              {claim.evidence?.length > 0 && (
+                <div class="claim-evidence">
+                  {claim.evidence.map((ev: any) => (
+                    <span class="ev-badge">
+                      {ev.url ? (
+                        <a href={ev.url} target="_blank" rel="noopener">{ev.type}: {ev.id.split('.').pop()}</a>
+                      ) : ev.path ? (
+                        <a href={`/marketir/evidence/${ev.path.split('/').pop()}`} target="_blank" rel="noopener">{ev.type}: {ev.id.split('.').pop()}</a>
+                      ) : (
+                        <span>{ev.type}: {ev.id.split('.').pop()}</span>
+                      )}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {/* GitHub Facts */}
+    {facts && (
+      <section class="section">
+        <h2>GitHub Facts</h2>
+        <div class="facts-grid">
+          {facts.stars != null && (
+            <div class="fact"><span class="fact-value">{facts.stars}</span><span class="fact-label">Stars</span></div>
+          )}
+          {facts.forks != null && (
+            <div class="fact"><span class="fact-value">{facts.forks}</span><span class="fact-label">Forks</span></div>
+          )}
+          {facts.openIssues != null && (
+            <div class="fact"><span class="fact-value">{facts.openIssues}</span><span class="fact-label">Open issues</span></div>
+          )}
+          {facts.releasesLast90d != null && (
+            <div class="fact"><span class="fact-value">{facts.releasesLast90d}</span><span class="fact-label">Releases (90d)</span></div>
+          )}
+          {facts.latestRelease && (
+            <div class="fact"><span class="fact-value">{facts.latestRelease.tag}</span><span class="fact-label">Latest release</span></div>
+          )}
+          {facts.license && (
+            <div class="fact"><span class="fact-value">{facts.license}</span><span class="fact-label">License</span></div>
+          )}
+        </div>
+        <p class="observed">Observed: {new Date(facts.fetchedAt).toLocaleDateString('en-US', { dateStyle: 'medium' })}. Non-authoritative — verify at source.</p>
+      </section>
+    )}
+
+    {/* Approved quotes */}
+    {press?.quotes?.length > 0 && (
+      <section class="section">
+        <h2>Approved Quotes</h2>
+        <div class="quotes-list">
+          {press.quotes.map((q: any) => (
+            <blockquote class="quote">
+              <p>"{q.text}"</p>
+              {q.attribution && (
+                <cite>— {q.attribution}{q.role ? `, ${q.role}` : ''}</cite>
+              )}
+            </blockquote>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {/* Comparables */}
+    {press?.comparables?.length > 0 && (
+      <section class="section">
+        <h2>Comparables</h2>
+        <div class="comparables-list">
+          {press.comparables.map((c: any) => (
+            <div class="comparable">
+              <strong>Similar to {c.target}</strong>
+              <p>{c.distinction}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {/* Partner offers */}
+    {press?.partnerOffers?.length > 0 && (
+      <section class="section">
+        <h2>Partner Offers</h2>
+        <div class="offers-list">
+          {press.partnerOffers.map((o: any) => (
+            <div class="offer">
+              <span class="offer-type">{o.type}</span>
+              <p>{o.description}</p>
+              {o.constraints && <p class="offer-constraints">{o.constraints}</p>}
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {/* Contact */}
+    {press?.contacts?.length > 0 && (
+      <section class="section">
+        <h2>Contact</h2>
+        <div class="contacts-list">
+          {press.contacts.map((c: any) => (
+            <div class="contact">
+              <span class="contact-method">{c.method}</span>
+              {c.value.startsWith('http') ? (
+                <a href={c.value} target="_blank" rel="noopener">{c.label || c.value}</a>
+              ) : (
+                <span>{c.label || c.value}</span>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {/* Downloads */}
+    <section class="section">
+      <h2>Resources</h2>
+      <div class="downloads">
+        <a href={`${siteUrl}/presskit/${slug}/`} class="btn" rel="noopener">Press Kit</a>
+        <a href={`${siteUrl}/presskit/${slug}/presskit.json`} class="btn" rel="noopener">Machine-readable</a>
+        <a href={`${siteUrl}/outreach/${slug}/email-partner.md`} class="btn" rel="noopener">Outreach Pack</a>
+        <a href={`${siteUrl}/partners/${slug}/partner-pack.zip`} class="btn" rel="noopener">Partner Bundle (ZIP)</a>
+        <a href={orgUrl} class="btn" rel="noopener">GitHub</a>
+        <a href={`/tools/${slug}/`} class="btn">Tool Page</a>
+      </div>
+    </section>
+
+    {/* Brand assets */}
+    {override.screenshot && (
+      <section class="section">
+        <h2>Brand Assets</h2>
+        <div class="brand-assets">
+          <div class="asset">
+            <img src={override.screenshot} alt={`${tool.name} screenshot`} loading="lazy" />
+            <span class="asset-label">Screenshot (1280x640)</span>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* Footer */}
+    <footer class="press-footer">
+      {snapshot && (
+        <p>Source: MarketIR (lock: {snapshot.lockSha256?.slice(0, 12)}) | Fetched: {new Date(snapshot.fetchedAt).toLocaleDateString('en-US', { dateStyle: 'medium' })}</p>
+      )}
+      {press?.boilerplate?.forbiddenPhrases?.length > 0 && (
+        <p class="forbidden">Please avoid: {press.boilerplate.forbiddenPhrases.join(', ')}</p>
+      )}
+    </footer>
+  </div>
+</Base>
+
+<style>
+  .press-page {
+    padding: 2rem 0;
+  }
+  .back-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+  .back-link:hover {
+    color: var(--color-accent);
+  }
+
+  .press-header {
+    margin-bottom: 2rem;
+  }
+  .press-header h1 {
+    margin: 0 0 0.25rem;
+  }
+  .one-liner {
+    color: var(--color-text-muted);
+    margin: 0 0 0.75rem;
+    font-style: italic;
+  }
+  .badges {
+    display: flex;
+    gap: 0.35rem;
+  }
+  .badge {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+  .badge-stable { background: #23863622; color: #3fb950; }
+  .badge-beta { background: #d2992222; color: #d29922; }
+  .badge-experimental { background: #f8514922; color: #f85149; }
+  .badge-kind { background: #58a6ff22; color: #58a6ff; }
+
+  /* Sections */
+  .section {
+    margin-bottom: 2rem;
+  }
+  .section h2 {
+    font-size: 1.1rem;
+    margin: 0 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .section-note {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin: 0 0 0.75rem;
+  }
+
+  /* Description */
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0 0 0.75rem;
+  }
+  .bio {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin: 0 0 0.5rem;
+  }
+  .nouns {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* Claims */
+  .claims-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .claim {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+  }
+  .claim-statement {
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+  }
+  .claim-evidence {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .ev-badge {
+    font-size: 0.7rem;
+  }
+  .ev-badge a {
+    background: #58a6ff22;
+    color: #58a6ff;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+  .ev-badge a:hover {
+    background: #58a6ff33;
+  }
+
+  /* Facts grid */
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .fact {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.75rem;
+    text-align: center;
+  }
+  .fact-value {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .fact-label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .observed {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  /* Quotes */
+  .quotes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  blockquote.quote {
+    margin: 0;
+    padding: 1rem 1.25rem;
+    background: var(--color-surface);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius);
+  }
+  .quote p {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .quote cite {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+  }
+
+  /* Comparables */
+  .comparables-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .comparable {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+  }
+  .comparable strong {
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  .comparable p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* Offers */
+  .offers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .offer {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+  }
+  .offer-type {
+    display: inline-block;
+    font-size: 0.7rem;
+    background: #3fb95022;
+    color: #3fb950;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+  .offer p {
+    font-size: 0.9rem;
+    margin: 0.25rem 0 0;
+  }
+  .offer-constraints {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  /* Contact */
+  .contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .contact {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .contact-method {
+    font-size: 0.7rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    min-width: 80px;
+    text-align: center;
+  }
+  .contact a {
+    color: var(--color-accent);
+    font-size: 0.9rem;
+  }
+
+  /* Downloads */
+  .downloads {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.4rem 0.75rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: border-color 0.15s;
+  }
+  .btn:hover {
+    border-color: var(--color-accent);
+  }
+
+  /* Brand assets */
+  .brand-assets {
+    display: flex;
+    gap: 1rem;
+  }
+  .asset {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .asset img {
+    max-width: 100%;
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+  }
+  .asset-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Footer */
+  .press-footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+  .press-footer p {
+    margin: 0.25rem 0;
+  }
+  .forbidden {
+    color: #f85149;
+    font-style: italic;
+  }
+</style>

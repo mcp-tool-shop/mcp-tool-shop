@@ -39,6 +39,18 @@ const CHECKS = [
   { url: "/campaigns/zip-meta-map-launch/bundle.json", expect: 200, label: "campaign: bundle.json" },
   { url: "/campaigns/zip-meta-map-launch/README.md", expect: 200, label: "campaign: README.md" },
 
+  // Press pages (Astro-rendered)
+  { url: "/press/", expect: 200, label: "press index" },
+  { url: "/press/zip-meta-map/", expect: 200, label: "press: zip-meta-map" },
+
+  // Outreach packs (generated)
+  { url: "/outreach/zip-meta-map/email-partner.md", expect: 200, label: "outreach: email-partner" },
+  { url: "/outreach/zip-meta-map/github-readme-snippet.md", expect: 200, label: "outreach: readme-snippet" },
+
+  // Partner packs (generated)
+  { url: "/partners/zip-meta-map/partner-pack.zip", expect: 200, label: "partner: zip bundle" },
+  { url: "/partners/zip-meta-map/manifest.json", expect: 200, label: "partner: manifest" },
+
   // Link registry + go-links
   { url: "/links.json", expect: 200, label: "link registry" },
   { url: "/go/zmm-hn/", expect: 200, label: "go-link: zmm-hn" },
@@ -133,6 +145,48 @@ try {
   failed++;
 }
 
+// ── Press page verified claims check ──────────────────────
+try {
+  const pressRes = await fetch(`${BASE}/press/zip-meta-map/`);
+  if (pressRes.ok) {
+    const html = await pressRes.text();
+    if (html.includes("data-verified-claims")) {
+      console.log(`  ✓ press page contains data-verified-claims`);
+      passed++;
+    } else {
+      console.error(`  ✗ press page missing data-verified-claims`);
+      failed++;
+    }
+  } else {
+    console.error(`  ✗ press page returned ${pressRes.status}`);
+    failed++;
+  }
+} catch (err) {
+  console.error(`  ✗ press page check failed: ${err.message}`);
+  failed++;
+}
+
+// ── Outreach email proof links check ──────────────────────
+try {
+  const outreachRes = await fetch(`${BASE}/outreach/zip-meta-map/email-partner.md`);
+  if (outreachRes.ok) {
+    const text = await outreachRes.text();
+    if (text.includes("proof:") || text.includes("mcptoolshop.com/press/")) {
+      console.log(`  ✓ outreach email contains proof links`);
+      passed++;
+    } else {
+      console.error(`  ✗ outreach email missing proof links`);
+      failed++;
+    }
+  } else {
+    console.error(`  ✗ outreach email returned ${outreachRes.status}`);
+    failed++;
+  }
+} catch (err) {
+  console.error(`  ✗ outreach proof link check failed: ${err.message}`);
+  failed++;
+}
+
 // ── Snippet source markers check ──────────────────────────
 try {
   const snippetRes = await fetch(`${BASE}/snippets/zip-meta-map.md`);
@@ -181,5 +235,5 @@ try {
   console.warn(`\n  ⚠ _build.json check failed: ${err.message}`);
 }
 
-console.log(`\n${passed} passed, ${failed} failed out of ${CHECKS.length + 5} checks`);
+console.log(`\n${passed} passed, ${failed} failed out of ${CHECKS.length + 7} checks`);
 if (failed > 0) process.exit(1);

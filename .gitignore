@@ -10,6 +10,8 @@ site/public/marketir/
 site/public/presskit/
 site/public/snippets/
 site/public/campaigns/
+site/public/outreach/
+site/public/partners/
 
 # generated link registry + go-link redirects
 site/src/data/links.json

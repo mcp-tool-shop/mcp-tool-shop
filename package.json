@@ -8,5 +8,8 @@
     "enrich": "node scripts/draft-overrides.mjs",
     "placeholders": "node scripts/gen-placeholders.mjs",
     "suggest": "node scripts/suggest-collections.mjs"
+  },
+  "dependencies": {
+    "yazl": "^3.3.1"
   }
 }

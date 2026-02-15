@@ -1,0 +1,133 @@
+---
+import Base from '../../layouts/Base.astro';
+import overrides from '../../data/overrides.json';
+import { getToolsWithPress } from '../../lib/marketir/loader.mjs';
+
+const toolsWithPress = getToolsWithPress();
+const ovr = overrides as Record<string, any>;
+
+// Filter to tools that also have publicProof enabled
+const pressTools = toolsWithPress
+  .filter(({ slug }) => ovr[slug]?.publicProof === true)
+  .map(({ slug, tool }) => ({
+    slug,
+    name: tool.name,
+    oneLiner: tool.positioning?.oneLiner || '',
+    stability: ovr[slug]?.stability,
+    kind: ovr[slug]?.kind,
+    quoteCount: tool.press?.quotes?.length || 0,
+    hasOffers: (tool.press?.partnerOffers?.length || 0) > 0,
+  }));
+---
+
+<Base
+  title="Press - mcp-tool-shop"
+  description="Press pages, verified claims, and partner resources for mcp-tool-shop projects."
+  currentPath="/press/"
+>
+  <div class="press-index">
+    <h1>Press</h1>
+    <p class="subtitle">Verified claims, approved quotes, and partner resources — ready to use.</p>
+
+    {pressTools.length === 0 ? (
+      <div class="empty">
+        <p>No tools with press data available yet.</p>
+      </div>
+    ) : (
+      <div class="tools-grid">
+        {pressTools.map((t) => (
+          <a href={`/press/${t.slug}/`} class="tool-card">
+            <div class="card-header">
+              <h2>{t.name}</h2>
+              <div class="badges">
+                {t.stability && <span class={`badge badge-${t.stability}`}>{t.stability}</span>}
+                {t.kind && <span class="badge badge-kind">{t.kind}</span>}
+              </div>
+            </div>
+            <p class="one-liner">{t.oneLiner}</p>
+            <div class="card-meta">
+              {t.quoteCount > 0 && <span>{t.quoteCount} approved quote{t.quoteCount > 1 ? 's' : ''}</span>}
+              {t.hasOffers && <span>Partner offers</span>}
+            </div>
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</Base>
+
+<style>
+  .press-index {
+    padding: 2rem 0;
+  }
+  h1 {
+    margin: 0 0 0.25rem;
+  }
+  .subtitle {
+    color: var(--color-text-muted);
+    margin: 0 0 2rem;
+  }
+  .empty {
+    color: var(--color-text-muted);
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1rem;
+  }
+  .tool-card {
+    display: block;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s;
+  }
+  .tool-card:hover {
+    border-color: var(--color-accent);
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .card-header h2 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  .badges {
+    display: flex;
+    gap: 0.35rem;
+  }
+  .badge {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+  .badge-stable { background: #23863622; color: #3fb950; }
+  .badge-beta { background: #d2992222; color: #d29922; }
+  .badge-experimental { background: #f8514922; color: #f85149; }
+  .badge-kind { background: #58a6ff22; color: #58a6ff; }
+
+  .one-liner {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin: 0 0 0.75rem;
+    line-height: 1.4;
+  }
+  .card-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+</style>

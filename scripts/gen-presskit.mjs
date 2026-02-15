@@ -154,6 +154,15 @@ for (const slug of enabledSlugs) {
       url: `https://mcptoolshop.com/go/${l.id}/`,
       channel: l.channel,
     })),
+    press: tool.press
+      ? {
+          boilerplate: tool.press.boilerplate || null,
+          quotes: tool.press.quotes || [],
+          comparables: tool.press.comparables || [],
+          partnerOffers: tool.press.partnerOffers || [],
+          contacts: tool.press.contacts || [],
+        }
+      : null,
     generatedAt,
     sourcelock: lockShort,
   };
@@ -241,10 +250,59 @@ for (const slug of enabledSlugs) {
     readmeLines.push("");
   }
 
+  // Press data sections
+  if (tool.press) {
+    if (tool.press.quotes?.length > 0) {
+      readmeLines.push("## Approved Quotes");
+      readmeLines.push("");
+      for (const q of tool.press.quotes) {
+        readmeLines.push(`> "${q.text}"`);
+        if (q.attribution) {
+          readmeLines.push(`> — ${q.attribution}${q.role ? `, ${q.role}` : ""}`);
+        }
+        readmeLines.push("");
+      }
+    }
+
+    if (tool.press.comparables?.length > 0) {
+      readmeLines.push("## Comparables");
+      readmeLines.push("");
+      for (const c of tool.press.comparables) {
+        readmeLines.push(`- **Similar to ${c.target}:** ${c.distinction}`);
+      }
+      readmeLines.push("");
+    }
+
+    if (tool.press.partnerOffers?.length > 0) {
+      readmeLines.push("## Partner Offers");
+      readmeLines.push("");
+      for (const o of tool.press.partnerOffers) {
+        readmeLines.push(`- **${o.type}:** ${o.description}`);
+      }
+      readmeLines.push("");
+    }
+
+    if (tool.press.contacts?.length > 0) {
+      readmeLines.push("## Contact");
+      readmeLines.push("");
+      for (const c of tool.press.contacts) {
+        if (c.value.startsWith("http")) {
+          readmeLines.push(`- ${c.method}: [${c.label || c.value}](${c.value})`);
+        } else {
+          readmeLines.push(`- ${c.method}: ${c.label || c.value}`);
+        }
+      }
+      readmeLines.push("");
+    }
+  }
+
   readmeLines.push("## Links");
   readmeLines.push("");
   readmeLines.push(`- [GitHub](${presskitJson.repo})`);
   readmeLines.push(`- [Tool page](${presskitJson.site})`);
+  if (tool.press) {
+    readmeLines.push(`- [Press page](https://mcptoolshop.com/press/${slug}/)`);
+  }
   readmeLines.push("");
 
   const toolLinks = linksBySlug.get(slug) || [];
@@ -401,9 +459,28 @@ for (const slug of enabledSlugs) {
 
     ${antiClaims.length > 0 ? `<h2>Not for</h2>\n    <ul>\n      ${antiClaimsHtml}\n    </ul>` : ""}
 
+    ${tool.press?.quotes?.length > 0 ? `<h2>Approved Quotes</h2>
+    ${tool.press.quotes.map((q) => `<blockquote style="border-left:3px solid var(--accent);padding:0.75rem 1rem;margin:0.5rem 0;background:var(--surface);border-radius:6px"><p style="font-style:italic;margin:0 0 0.25rem">"${htmlEsc(q.text)}"</p>${q.attribution ? `<small style="color:var(--muted)">— ${htmlEsc(q.attribution)}${q.role ? `, ${htmlEsc(q.role)}` : ""}</small>` : ""}</blockquote>`).join("\n    ")}` : ""}
+
+    ${tool.press?.comparables?.length > 0 ? `<h2>Comparables</h2>
+    <ul>
+      ${tool.press.comparables.map((c) => `<li><strong>Similar to ${htmlEsc(c.target)}:</strong> ${htmlEsc(c.distinction)}</li>`).join("\n      ")}
+    </ul>` : ""}
+
+    ${tool.press?.partnerOffers?.length > 0 ? `<h2>Partner Offers</h2>
+    <ul>
+      ${tool.press.partnerOffers.map((o) => `<li><strong>${htmlEsc(o.type)}:</strong> ${htmlEsc(o.description)}</li>`).join("\n      ")}
+    </ul>` : ""}
+
+    ${tool.press?.contacts?.length > 0 ? `<h2>Contact</h2>
+    <ul>
+      ${tool.press.contacts.map((c) => `<li>${htmlEsc(c.method)}: ${c.value.startsWith("http") ? `<a href="${htmlEsc(c.value)}">${htmlEsc(c.label || c.value)}</a>` : htmlEsc(c.label || c.value)}</li>`).join("\n      ")}
+    </ul>` : ""}
+
     <div class="links">
       <a href="${htmlEsc(presskitJson.repo)}">GitHub</a>
-      <a href="${htmlEsc(presskitJson.site)}">Tool page</a>
+      <a href="${htmlEsc(presskitJson.site)}">Tool page</a>${tool.press ? `
+      <a href="/press/${htmlEsc(slug)}/">Press page</a>` : ""}
       <a href="presskit.json">Machine-readable</a>
       <a href="README.md">Copy/paste version</a>
     </div>
@@ -421,6 +498,45 @@ for (const slug of enabledSlugs) {
 
   fs.writeFileSync(path.join(outDir, "index.html"), html, "utf8");
   console.log(`  wrote ${slug}/index.html`);
+
+  // ── release-announcement.md (if latest release exists) ──────────────────
+  if (facts?.latestRelease) {
+    const rel = facts.latestRelease;
+    const raLines = [];
+    raLines.push(`# ${tool.name} ${rel.tag} — Release Announcement`);
+    raLines.push("");
+    raLines.push(`> ${presskitJson.tagline}`);
+    raLines.push("");
+    raLines.push(`**${tool.name} ${rel.tag}** is now available.`);
+    raLines.push("");
+    if (presskitJson.install) {
+      raLines.push("```bash");
+      raLines.push(presskitJson.install);
+      raLines.push("```");
+      raLines.push("");
+    }
+    raLines.push("## Verified capabilities");
+    raLines.push("");
+    for (const claim of resolvedClaims) {
+      raLines.push(`- ${claim.statement}`);
+    }
+    raLines.push("");
+    raLines.push("## Links");
+    raLines.push("");
+    raLines.push(`- [Release notes](${rel.url})`);
+    raLines.push(`- [GitHub](${presskitJson.repo})`);
+    raLines.push(`- [Tool page](${presskitJson.site})`);
+    if (tool.press) {
+      raLines.push(`- [Press page](https://mcptoolshop.com/press/${slug}/)`);
+    }
+    raLines.push("");
+    raLines.push("---");
+    raLines.push("");
+    raLines.push(`_Generated from MarketIR (lock: ${lockShort}) at ${generatedAt}_`);
+    raLines.push("");
+    fs.writeFileSync(path.join(outDir, "release-announcement.md"), raLines.join("\n"), "utf8");
+    console.log(`  wrote ${slug}/release-announcement.md`);
+  }
 }
 
 console.log(`\nDone. ${enabledSlugs.length} press kit(s) generated.`);

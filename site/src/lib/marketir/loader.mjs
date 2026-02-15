@@ -93,3 +93,30 @@ export function getProofData(slug) {
     antiClaims: tool.antiClaims || [],
   };
 }
+
+/**
+ * Get the press block for a tool, or null if it has none.
+ */
+export function getPressData(slug) {
+  const tool = getToolBySlug(slug);
+  return tool?.press || null;
+}
+
+/**
+ * Get all tool slugs that have a press block.
+ * Returns [{ slug, tool }] — callers should filter by publicProof separately.
+ */
+export function getToolsWithPress() {
+  const index = readJson("data/marketing.index.json");
+  if (!index?.tools) return [];
+
+  const results = [];
+  for (const { ref } of index.tools) {
+    const slug = ref.replace("tools/", "").replace(".json", "");
+    const tool = readJson(`data/${ref}`);
+    if (tool?.press) {
+      results.push({ slug, tool });
+    }
+  }
+  return results;
+}

@@ -4,7 +4,7 @@ import PublicProof from '../../components/marketir/PublicProof.astro';
 import projects from '../../data/projects.json';
 import releases from '../../data/releases.json';
 import overrides from '../../data/overrides.json';
-import { getProofData, loadSnapshot } from '../../lib/marketir/loader.mjs';
+import { getProofData, getPressData, loadSnapshot } from '../../lib/marketir/loader.mjs';
 
 export function getStaticPaths() {
   return (projects as any[]).map((project: any) => ({
@@ -40,6 +40,7 @@ const toolOverride = (overrides as any)[project.repo];
 const showProof = toolOverride?.publicProof === true;
 const proofData = showProof ? getProofData(project.repo) : null;
 const snapshot = showProof && proofData ? loadSnapshot() : null;
+const pressData = showProof ? getPressData(project.repo) : null;
 ---
 
 <Base
@@ -114,6 +115,9 @@ const snapshot = showProof && proofData ? loadSnapshot() : null;
       <a href={`${orgUrl}/releases`} class="btn btn-secondary" rel="noopener">Releases</a>
       {showProof && (
         <a href={`/presskit/${project.repo}/`} class="btn btn-secondary">Press Kit</a>
+      )}
+      {showProof && pressData && (
+        <a href={`/press/${project.repo}/`} class="btn btn-secondary">Press Page</a>
       )}
     </div>
 
