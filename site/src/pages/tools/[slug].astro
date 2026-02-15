@@ -1,7 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PublicProof from '../../components/marketir/PublicProof.astro';
 import projects from '../../data/projects.json';
 import releases from '../../data/releases.json';
+import overrides from '../../data/overrides.json';
+import { getProofData, loadSnapshot } from '../../lib/marketir/loader.mjs';
 
 export function getStaticPaths() {
   return (projects as any[]).map((project: any) => ({
@@ -31,6 +34,12 @@ const projectTags = new Set(project.tags || []);
 const related = (projects as any[])
   .filter((p: any) => p.repo !== project.repo && (p.tags || []).some((t: string) => projectTags.has(t)))
   .slice(0, 3);
+
+// Public Proof (opt-in via overrides.json)
+const toolOverride = (overrides as any)[project.repo];
+const showProof = toolOverride?.publicProof === true;
+const proofData = showProof ? getProofData(project.repo) : null;
+const snapshot = showProof && proofData ? loadSnapshot() : null;
 ---
 
 <Base
@@ -189,6 +198,10 @@ const related = (projects as any[])
           <span class="tag">{tag}</span>
         ))}
       </div>
+    )}
+
+    {showProof && proofData && snapshot && (
+      <PublicProof proofData={proofData} snapshot={snapshot} />
     )}
 
     {related.length > 0 && (

@@ -57,6 +57,27 @@ for (const check of CHECKS) {
   }
 }
 
+// ── Public Proof content check ────────────────────────────
+try {
+  const proofRes = await fetch(`${BASE}/tools/zip-meta-map/`);
+  if (proofRes.ok) {
+    const html = await proofRes.text();
+    if (html.includes("data-proof-section")) {
+      console.log(`  ✓ zip-meta-map Public Proof section present`);
+      passed++;
+    } else {
+      console.error(`  ✗ zip-meta-map Public Proof section missing`);
+      failed++;
+    }
+  } else {
+    console.error(`  ✗ zip-meta-map page returned ${proofRes.status}`);
+    failed++;
+  }
+} catch (err) {
+  console.error(`  ✗ Public Proof check failed: ${err.message}`);
+  failed++;
+}
+
 // ── Build metadata check ───────────────────────────────────
 try {
   const buildRes = await fetch(`${BASE}/_build.json`);
@@ -84,5 +105,5 @@ try {
   console.warn(`\n  ⚠ _build.json check failed: ${err.message}`);
 }
 
-console.log(`\n${passed} passed, ${failed} failed out of ${CHECKS.length + 1} checks`);
+console.log(`\n${passed} passed, ${failed} failed out of ${CHECKS.length + 2} checks`);
 if (failed > 0) process.exit(1);

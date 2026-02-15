@@ -1,0 +1,300 @@
+---
+/**
+ * PublicProof — renders verified claims, aspirational claims, and anti-claims
+ * from a MarketIR tool snapshot. Designed to slot into tool detail pages.
+ *
+ * Props:
+ *   proofData  — { proven, aspirational, antiClaims } from getProofData()
+ *   snapshot   — { lockSha256, fetchedAt } from loadSnapshot()
+ */
+
+const { proofData, snapshot } = Astro.props;
+const { proven, aspirational, antiClaims } = proofData;
+
+function evidenceLocalPath(ev) {
+  if (ev.type === "link") return null;
+  if (!ev.path) return null;
+  // evidence/foo.png → /marketir/evidence/foo.png
+  const basename = ev.path.split("/").pop();
+  return `/marketir/evidence/${basename}`;
+}
+
+function evidenceLabel(ev) {
+  return ev.id.replace(/^ev\./, "").replace(/\./g, " ").replace(/\bv\d+$/, "").trim();
+}
+
+const lockShort = snapshot?.lockSha256?.slice(0, 12) || "unknown";
+const fetchedDate = snapshot?.fetchedAt
+  ? new Date(snapshot.fetchedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
+  : null;
+---
+
+<section class="public-proof" data-proof-section>
+  {proven.length > 0 && (
+    <div class="proof-group">
+      <h2 class="proof-heading">Verified claims</h2>
+      <ul class="claim-list">
+        {proven.map((claim) => (
+          <li class="claim-item">
+            <span class="claim-status status-proven" aria-label="Proven">&#x2713;</span>
+            <div class="claim-body">
+              <p class="claim-statement">{claim.statement}</p>
+              {claim.evidence.length > 0 && (
+                <div class="evidence-strip">
+                  {claim.evidence.map((ev) => {
+                    const localPath = evidenceLocalPath(ev);
+                    const label = evidenceLabel(ev);
+                    if (ev.type === "image" && localPath) {
+                      return (
+                        <a href={localPath} class="evidence-link evidence-image" target="_blank" rel="noopener">
+                          <img src={localPath} alt={label} loading="lazy" width="120" height="60" />
+                        </a>
+                      );
+                    }
+                    if (ev.type === "link" && ev.url) {
+                      return (
+                        <a href={ev.url} class="evidence-link evidence-ext" target="_blank" rel="noopener">
+                          {label}
+                        </a>
+                      );
+                    }
+                    return (
+                      <span class="evidence-link evidence-missing">
+                        {label} (unavailable)
+                      </span>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  {aspirational.length > 0 && (
+    <details class="proof-group aspirational-group">
+      <summary class="proof-heading">
+        <h2>Aspirational</h2>
+        <span class="aspiration-count">{aspirational.length}</span>
+      </summary>
+      <ul class="claim-list">
+        {aspirational.map((claim) => (
+          <li class="claim-item">
+            <span class="claim-status status-aspirational" aria-label="Aspirational">&#x25CB;</span>
+            <div class="claim-body">
+              <p class="claim-statement">{claim.statement}</p>
+              {claim.notes && <p class="claim-notes">{claim.notes}</p>}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </details>
+  )}
+
+  {antiClaims.length > 0 && (
+    <div class="proof-group">
+      <h2 class="proof-heading">Not for</h2>
+      <ul class="anticlaim-list">
+        {antiClaims.map((ac) => (
+          <li>{ac.statement}</li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  <div class="proof-source">
+    Source: MarketIR &middot; lock {lockShort}
+    {fetchedDate && <span> &middot; fetched {fetchedDate}</span>}
+  </div>
+</section>
+
+<style>
+  .public-proof {
+    margin: 2.5rem 0 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .proof-heading {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .proof-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .claim-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .claim-item {
+    display: flex;
+    gap: 0.625rem;
+    align-items: flex-start;
+  }
+
+  .claim-status {
+    flex-shrink: 0;
+    width: 1.25rem;
+    text-align: center;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+
+  .status-proven {
+    color: var(--color-success);
+    font-weight: 700;
+  }
+
+  .status-aspirational {
+    color: var(--color-text-muted);
+  }
+
+  .claim-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .claim-statement {
+    font-size: 0.8125rem;
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  .claim-notes {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+    font-style: italic;
+  }
+
+  .evidence-strip {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.375rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .evidence-link {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    padding: 0.15em 0.5em;
+    border-radius: 3px;
+    background: var(--color-accent-subtle);
+    transition: background 0.15s;
+  }
+
+  .evidence-link:hover {
+    background: rgba(88, 166, 255, 0.2);
+    text-decoration: none;
+  }
+
+  .evidence-image {
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  .evidence-image img {
+    display: block;
+    width: 120px;
+    height: 60px;
+    object-fit: cover;
+  }
+
+  .evidence-missing {
+    color: var(--color-text-muted);
+    background: rgba(139, 148, 158, 0.08);
+  }
+
+  /* Aspirational: collapsed by default */
+  .aspirational-group summary {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    user-select: none;
+  }
+
+  .aspirational-group summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .aspirational-group summary::before {
+    content: "\25B6";
+    font-size: 0.5rem;
+    color: var(--color-text-muted);
+    transition: transform 0.15s;
+  }
+
+  .aspirational-group[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  .aspirational-group summary h2 {
+    display: inline;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .aspiration-count {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    color: var(--color-text-muted);
+    background: rgba(139, 148, 158, 0.1);
+    padding: 0.1em 0.4em;
+    border-radius: 3px;
+  }
+
+  .aspirational-group .claim-list {
+    margin-top: 0.75rem;
+  }
+
+  /* Anti-claims */
+  .anticlaim-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .anticlaim-list li {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    padding-left: 1.25rem;
+    margin-bottom: 0.375rem;
+    position: relative;
+  }
+
+  .anticlaim-list li::before {
+    content: "\2212";
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+    font-weight: 700;
+  }
+
+  /* Source footer */
+  .proof-source {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    color: var(--color-text-muted);
+    opacity: 0.6;
+    margin-top: 0.5rem;
+  }
+</style>
