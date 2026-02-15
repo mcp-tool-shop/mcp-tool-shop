@@ -35,6 +35,8 @@ const CHECKS = [
   { url: "/presskit/zip-meta-map/", expect: 200, label: "presskit: zip-meta-map" },
   { url: "/presskit/zip-meta-map/presskit.json", expect: 200, label: "presskit: machine-readable" },
   { url: "/snippets/zip-meta-map.md", expect: 200, label: "snippets: zip-meta-map" },
+  { url: "/campaigns/zip-meta-map-launch/bundle.json", expect: 200, label: "campaign: bundle.json" },
+  { url: "/campaigns/zip-meta-map-launch/README.md", expect: 200, label: "campaign: README.md" },
 
   // Static assets
   { url: "/favicon.svg", expect: 200, label: "favicon" },
@@ -83,6 +85,27 @@ try {
   failed++;
 }
 
+// ── Press kit GitHub Facts content check ──────────────────
+try {
+  const pkRes = await fetch(`${BASE}/presskit/zip-meta-map/presskit.json`);
+  if (pkRes.ok) {
+    const pk = await pkRes.json();
+    if (pk.githubFacts && pk.githubFacts.observedAt) {
+      console.log(`  ✓ presskit.json contains githubFacts`);
+      passed++;
+    } else {
+      console.error(`  ✗ presskit.json missing githubFacts`);
+      failed++;
+    }
+  } else {
+    console.error(`  ✗ presskit.json returned ${pkRes.status}`);
+    failed++;
+  }
+} catch (err) {
+  console.error(`  ✗ presskit githubFacts check failed: ${err.message}`);
+  failed++;
+}
+
 // ── Build metadata check ───────────────────────────────────
 try {
   const buildRes = await fetch(`${BASE}/_build.json`);
@@ -110,5 +133,5 @@ try {
   console.warn(`\n  ⚠ _build.json check failed: ${err.message}`);
 }
 
-console.log(`\n${passed} passed, ${failed} failed out of ${CHECKS.length + 2} checks`);
+console.log(`\n${passed} passed, ${failed} failed out of ${CHECKS.length + 3} checks`);
 if (failed > 0) process.exit(1);

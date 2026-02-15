@@ -17,7 +17,6 @@
 
 import fs from "node:fs";
 import path from "node:path";
-import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -25,6 +24,7 @@ const ROOT = path.resolve(__dirname, "..");
 const SITE = path.join(ROOT, "site");
 const DATA_DIR = path.join(SITE, "src", "data", "marketir");
 const OVERRIDES_PATH = path.join(SITE, "src", "data", "overrides.json");
+const FACTS_DIR = path.join(SITE, "src", "data", "github-facts");
 const OUTPUT_BASE = path.join(SITE, "public", "presskit");
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -35,10 +35,6 @@ function readJson(filePath) {
   } catch {
     return null;
   }
-}
-
-function sha256(text) {
-  return createHash("sha256").update(text, "utf8").digest("hex");
 }
 
 // ─── Load data ────────────────────────────────────────────────────────────────
@@ -81,6 +77,7 @@ for (const slug of enabledSlugs) {
   }
 
   const override = overrides[slug];
+  const facts = readJson(path.join(FACTS_DIR, `${slug}.json`));
   const outDir = path.join(OUTPUT_BASE, slug);
   fs.mkdirSync(outDir, { recursive: true });
 
@@ -127,6 +124,20 @@ for (const slug of enabledSlugs) {
       notes: c.notes || null,
     })),
     antiClaims: antiClaims.map((c) => c.statement),
+    githubFacts: facts
+      ? {
+          stars: facts.stars,
+          forks: facts.forks,
+          watchers: facts.watchers,
+          openIssues: facts.openIssues,
+          openPRs: facts.openPRs,
+          license: facts.license,
+          latestRelease: facts.latestRelease || null,
+          communityHealth: facts.communityHealth || null,
+          releasesLast90d: facts.releasesLast90d,
+          observedAt: facts.fetchedAt,
+        }
+      : null,
     generatedAt,
     sourcelock: lockShort,
   };
@@ -149,6 +160,28 @@ for (const slug of enabledSlugs) {
     readmeLines.push("```bash");
     readmeLines.push(presskitJson.install);
     readmeLines.push("```");
+    readmeLines.push("");
+  }
+
+  if (facts) {
+    readmeLines.push("## GitHub Facts");
+    readmeLines.push("");
+    if (facts.latestRelease) {
+      readmeLines.push(`- **Latest release:** ${facts.latestRelease.tag} (${facts.latestRelease.publishedAt?.split("T")[0] || "n/a"})`);
+    }
+    readmeLines.push(`- **Stars:** ${facts.stars} | **Forks:** ${facts.forks} | **Watchers:** ${facts.watchers}`);
+    readmeLines.push(`- **Open issues:** ${facts.openIssues} | **Open PRs:** ${facts.openPRs}`);
+    readmeLines.push(`- **License:** ${facts.license || "unknown"}`);
+    readmeLines.push(`- **Releases (last 90d):** ${facts.releasesLast90d}`);
+    if (facts.communityHealth) {
+      const files = facts.communityHealth.files;
+      const present = Object.entries(files).filter(([, v]) => v).map(([k]) => k);
+      const missing = Object.entries(files).filter(([, v]) => !v).map(([k]) => k);
+      readmeLines.push(`- **Community health:** ${facts.communityHealth.score}/100`);
+      if (present.length) readmeLines.push(`  - Present: ${present.join(", ")}`);
+      if (missing.length) readmeLines.push(`  - Missing: ${missing.join(", ")}`);
+    }
+    readmeLines.push(`- _Observed at: ${facts.fetchedAt}_`);
     readmeLines.push("");
   }
 
@@ -199,7 +232,11 @@ for (const slug of enabledSlugs) {
   readmeLines.push("");
   readmeLines.push("---");
   readmeLines.push("");
-  readmeLines.push(`_Generated from MarketIR (lock: ${lockShort}) at ${generatedAt}_`);
+  readmeLines.push(`_Generated from MarketIR${facts ? " + GitHub facts" : ""} (lock: ${lockShort}) at ${generatedAt}_`);
+  if (facts) {
+    readmeLines.push("");
+    readmeLines.push("_GitHub data is non-authoritative and time-stamped. Verify at source._");
+  }
   readmeLines.push("");
 
   const readmeText = readmeLines.join("\n");
@@ -238,6 +275,32 @@ for (const slug of enabledSlugs) {
     .map((v) => `<li>${htmlEsc(v)}</li>`)
     .join("\n          ");
 
+  function buildFactsHtml(f, esc) {
+    const rel = f.latestRelease;
+    const ch = f.communityHealth;
+    let out = `<h2>GitHub Facts</h2>\n    <div class="facts-grid">`;
+    if (rel) {
+      out += `\n      <div class="fact"><div class="fact-label">Latest release</div><div class="fact-value">${esc(rel.tag)}</div></div>`;
+    }
+    out += `\n      <div class="fact"><div class="fact-label">Stars</div><div class="fact-value">${f.stars}</div></div>`;
+    out += `\n      <div class="fact"><div class="fact-label">Forks</div><div class="fact-value">${f.forks}</div></div>`;
+    out += `\n      <div class="fact"><div class="fact-label">Open issues</div><div class="fact-value">${f.openIssues}</div></div>`;
+    out += `\n      <div class="fact"><div class="fact-label">Open PRs</div><div class="fact-value">${f.openPRs}</div></div>`;
+    out += `\n      <div class="fact"><div class="fact-label">License</div><div class="fact-value">${esc(f.license || "n/a")}</div></div>`;
+    out += `\n      <div class="fact"><div class="fact-label">Releases (90d)</div><div class="fact-value">${f.releasesLast90d}</div></div>`;
+    out += `\n    </div>`;
+    if (ch) {
+      const files = ch.files;
+      const items = Object.entries(files)
+        .map(([k, v]) => `<li class="${v ? "present" : "missing"}">${esc(k)}</li>`)
+        .join("");
+      out += `\n    <div style="margin-bottom:0.5rem"><small style="color:var(--muted)">Community health: ${ch.score}/100</small></div>`;
+      out += `\n    <ul class="health-list">${items}</ul>`;
+    }
+    out += `\n    <p class="observed">Observed at: ${esc(f.fetchedAt)}</p>`;
+    return out;
+  }
+
   const html = `<!doctype html>
 <html lang="en">
   <head>
@@ -274,6 +337,15 @@ for (const slug of enabledSlugs) {
       .links { margin-top: 2rem; display: flex; gap: 0.75rem; }
       .links a { font-family: var(--mono); font-size: 0.8125rem; color: var(--accent); text-decoration: none; padding: 0.375rem 0.75rem; border: 1px solid var(--border); border-radius: 6px; }
       .links a:hover { border-color: var(--accent); }
+      .facts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.5rem; margin-bottom: 0.75rem; }
+      .fact { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 0.5rem 0.75rem; }
+      .fact-label { font-size: 0.625rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+      .fact-value { font-family: var(--mono); font-size: 0.875rem; margin-top: 0.125rem; }
+      .health-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.375rem; }
+      .health-list li { font-family: var(--mono); font-size: 0.6875rem; padding: 0.125rem 0.5rem; border-radius: 3px; background: var(--surface); border: 1px solid var(--border); }
+      .health-list .present { color: var(--success); }
+      .health-list .missing { color: var(--muted); text-decoration: line-through; }
+      .observed { font-family: var(--mono); font-size: 0.625rem; color: var(--muted); margin-top: 0.5rem; }
       .footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.625rem; color: var(--muted); }
       .footer a { color: var(--accent); text-decoration: none; }
     </style>
@@ -286,6 +358,8 @@ for (const slug of enabledSlugs) {
       ${presskitJson.stability ? `<span class="badge-stable">${htmlEsc(presskitJson.stability)}</span>` : ""}
       ${presskitJson.kind ? `<span class="badge-kind">${htmlEsc(presskitJson.kind)}</span>` : ""}
     </div>
+
+    ${facts ? buildFactsHtml(facts, htmlEsc) : ""}
 
     <h2>Key capabilities</h2>
     <ul>
@@ -309,9 +383,10 @@ for (const slug of enabledSlugs) {
     </div>
 
     <div class="footer">
-      Generated from <a href="https://github.com/mcp-tool-shop/mcpt-marketing">MarketIR</a>
+      Generated from <a href="https://github.com/mcp-tool-shop/mcpt-marketing">MarketIR</a>${facts ? " + GitHub facts snapshot" : ""}
       &middot; lock: ${htmlEsc(lockShort)}
       &middot; ${htmlEsc(generatedAt)}
+      ${facts ? "<br>GitHub data is non-authoritative and time-stamped. Verify at source." : ""}
     </div>
   </body>
 </html>

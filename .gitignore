@@ -9,6 +9,10 @@ site/public/marketir/
 # generated marketing outputs (built from MarketIR snapshot)
 site/public/presskit/
 site/public/snippets/
+site/public/campaigns/
+
+# fetched GitHub facts (generated at build time)
+site/src/data/github-facts/
 # generated types
 .astro/
 

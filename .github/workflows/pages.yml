@@ -30,10 +30,14 @@ jobs:
           cache-dependency-path: site/package-lock.json
       - name: Fetch MarketIR snapshot
         run: node scripts/fetch-marketir.mjs
+      - name: Fetch GitHub facts
+        run: node scripts/fetch-github-facts.mjs
       - name: Generate press kits
         run: node scripts/gen-presskit.mjs
       - name: Generate snippets
         run: node scripts/gen-snippets.mjs
+      - name: Generate campaign bundles
+        run: node scripts/gen-campaign-bundles.mjs
       - run: npm ci
         working-directory: site
       - run: npm run build
