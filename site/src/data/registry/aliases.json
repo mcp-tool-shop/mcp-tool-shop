@@ -1,5 +1,5 @@
 {
-  "$comment": "Maps registry tool IDs to actual GitHub org repo names when they don't match. Curated file — edit manually.",
+  "$comment": "TEMPORARY band-aid: maps registry IDs to actual org repo names when they differ. Each entry here is a known mismatch awaiting an upstream fix in mcp-tool-registry. Goal: zero entries. Remove alias after upstream PR merges.",
   "claim-ledger": "ClaimLedger",
   "creator-ledger": "CreatorLedger"
 }

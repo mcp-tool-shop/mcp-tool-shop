@@ -116,7 +116,11 @@ const cleanupData = cleanup as any;
     {cleanupData.aliases.length > 0 && (
       <>
         <h3>Active aliases ({cleanupData.aliases.length})</h3>
-        <p class="cleanup-hint">Workarounds for registry ID / repo name mismatches. Fix upstream to retire these.</p>
+        <p class="cleanup-hint">
+          Temporary workarounds for registry ID / repo name mismatches.
+          These are band-aids &mdash; fix the upstream <code>registry.json</code> to retire them.
+          Goal: zero aliases.
+        </p>
         <ul class="cleanup-list">
           {cleanupData.aliases.map((item: any) => (
             <li>

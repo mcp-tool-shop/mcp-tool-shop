@@ -155,6 +155,40 @@ Registry tool `id` should match the org repo `name`. When they don't match:
 - The tool is still included with `registered: true` but GitHub enrichment is skipped
 - These mismatches are surfaced in the registry health report
 
+### Aliases (temporary workaround)
+
+`site/src/data/registry/aliases.json` maps registry IDs to actual org repo names
+when they differ (case mismatch, rename, etc.). This is a **band-aid**, not a
+permanent solution.
+
+**Lifecycle:**
+
+1. Sync detects a registry tool with no matching org repo
+2. Human investigates and adds an alias if the repo exists under a different name
+3. Alias is used during sync to resolve the mismatch
+4. Upstream fix: PR to `mcp-tool-registry` correcting the `id` or `repo` URL
+5. Once merged upstream, the alias is removed from `aliases.json`
+
+**Rules:**
+
+- Aliases are human-curated — automation never writes to this file
+- Each alias should have a corresponding entry in `cleanup.json` tracking it
+- Aliases for archived repos should be retired (remove from registry instead)
+- Goal: **zero aliases** — every alias is a known mismatch awaiting upstream fix
+
+### Cleanup queue
+
+`site/src/data/registry/cleanup.json` is a generated artifact produced by the
+sync script. It captures structured data about registry hygiene issues:
+
+- `archived[]` — registry tools pointing to archived GitHub repos
+- `missing[]` — registry tools with no matching repo (not archived, just absent)
+- `aliases[]` — active alias workarounds
+
+The cleanup queue feeds into:
+- The `/registry/` page (visible to visitors)
+- The `registry-cleanup-issue.mjs` script (creates/updates a GitHub issue upstream)
+
 ---
 
 ## 4. Selection Logic (Auto-Enrichment)
