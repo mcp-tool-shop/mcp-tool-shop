@@ -31,6 +31,6 @@ jobs:
           git diff --quiet && echo "No changes." && exit 0
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add site/src/data/projects.json site/src/data/org-stats.json
+          git add site/src/data/projects.json site/src/data/org-stats.json site/src/data/releases.json
           git commit -m "chore: sync org metadata"
           git push

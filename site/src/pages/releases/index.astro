@@ -1,0 +1,163 @@
+---
+import Base from '../../layouts/Base.astro';
+import releases from '../../data/releases.json';
+
+function formatDate(iso: string) {
+  if (!iso) return '';
+  return new Date(iso).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+}
+
+function relativeDate(iso: string) {
+  if (!iso) return '';
+  const diff = Date.now() - new Date(iso).getTime();
+  const days = Math.floor(diff / 86400000);
+  if (days === 0) return 'today';
+  if (days === 1) return 'yesterday';
+  if (days < 30) return `${days}d ago`;
+  const months = Math.floor(days / 30);
+  return months === 1 ? '1mo ago' : `${months}mo ago`;
+}
+---
+
+<Base
+  title="Releases - mcp-tool-shop"
+  description="Recent releases across the mcp-tool-shop organization."
+  currentPath="/releases/"
+>
+  <div class="page-content" style="max-width: none;">
+    <h1>Releases</h1>
+    <p style="max-width: 680px;">
+      Recent releases across the
+      <a href="https://github.com/mcp-tool-shop-org" rel="noopener">mcp-tool-shop-org</a>
+      organization. Updated when the sync workflow runs.
+    </p>
+  </div>
+
+  <div class="release-feed">
+    {(releases as any[]).map((rel: any) => (
+      <article class="release-entry">
+        <div class="release-header">
+          <a href={`/tools/${rel.repo}/`} class="release-tool">{rel.toolName}</a>
+          <a href={rel.url} class="release-tag" rel="noopener">
+            {rel.tag}
+            {rel.prerelease && <span class="badge-pre">pre</span>}
+          </a>
+          <time class="release-date" datetime={rel.publishedAt} title={formatDate(rel.publishedAt)}>
+            {relativeDate(rel.publishedAt)}
+          </time>
+        </div>
+        {rel.name && rel.name !== rel.tag && (
+          <p class="release-name">{rel.name}</p>
+        )}
+        {rel.body && rel.body.length > 0 && (
+          <ul class="release-bullets">
+            {rel.body.map((bullet: string) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        )}
+      </article>
+    ))}
+  </div>
+
+  {(releases as any[]).length === 0 && (
+    <p class="empty-state">No releases yet. Run the sync workflow to populate this page.</p>
+  )}
+</Base>
+
+<style>
+  .release-feed {
+    margin-top: 2rem;
+    max-width: 720px;
+  }
+
+  .release-entry {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .release-entry:first-child {
+    padding-top: 0;
+  }
+
+  .release-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .release-tool {
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--color-accent);
+  }
+
+  .release-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text);
+    background: var(--color-surface);
+    padding: 0.125em 0.5em;
+    border-radius: 3px;
+    border: 1px solid var(--color-border);
+  }
+
+  .release-tag:hover {
+    border-color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .badge-pre {
+    font-size: 0.5625rem;
+    color: #d29922;
+    background: rgba(210, 153, 34, 0.15);
+    padding: 0.1em 0.4em;
+    border-radius: 2px;
+    margin-left: 0.375rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+
+  .release-date {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+  }
+
+  .release-name {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin-top: 0.375rem;
+  }
+
+  .release-bullets {
+    margin-top: 0.5rem;
+    padding-left: 1.25rem;
+    list-style: disc;
+  }
+
+  .release-bullets li {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .empty-state {
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 640px) {
+    .release-date {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+</style>

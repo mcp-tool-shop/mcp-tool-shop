@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 
 /**
- * Sync mcp-tool-shop-org repo metadata -> site/src/data/projects.json
+ * Sync mcp-tool-shop-org repo metadata -> site/src/data/
  *
- * - Pulls all public repos from the org via GitHub API
- * - Merges with site/src/data/overrides.json for hand-curated fields
- *   (featured, tags, custom descriptions)
- * - Writes a stable, sorted JSON so diffs stay clean
- * - Also writes site/src/data/org-stats.json with aggregate numbers
+ * Outputs:
+ *   projects.json   — all active repos, merged with overrides
+ *   org-stats.json  — aggregate numbers for homepage
+ *   releases.json   — recent releases across the org (newest first)
  */
 
 import fs from "node:fs";
@@ -15,11 +14,13 @@ import path from "node:path";
 
 const ORG = process.env.ORG || "mcp-tool-shop-org";
 const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
+const MAX_RELEASES = 50;
 
 const REPO_ROOT = process.cwd();
 const DATA_DIR = path.join(REPO_ROOT, "site", "src", "data");
 const OUT_PATH = path.join(DATA_DIR, "projects.json");
 const STATS_PATH = path.join(DATA_DIR, "org-stats.json");
+const RELEASES_PATH = path.join(DATA_DIR, "releases.json");
 const OVERRIDES_PATH = path.join(DATA_DIR, "overrides.json");
 
 function readJson(p) {
@@ -32,7 +33,11 @@ function writeJson(p, obj) {
   fs.writeFileSync(p, JSON.stringify(obj, null, 2) + "\n", "utf8");
 }
 
+let apiCalls = 0;
+let rateLimited = false;
+
 async function ghFetch(url) {
+  apiCalls++;
   const headers = {
     Accept: "application/vnd.github+json",
     "User-Agent": "mcp-tool-shop-sync",
@@ -40,6 +45,28 @@ async function ghFetch(url) {
   if (TOKEN) headers["Authorization"] = `Bearer ${TOKEN}`;
 
   const res = await fetch(url, { headers });
+  if (!res.ok) {
+    const body = await res.text().catch(() => "");
+    throw new Error(`GitHub API ${res.status} for ${url}\n${body}`);
+  }
+  return res;
+}
+
+async function ghFetchOptional(url) {
+  apiCalls++;
+  const headers = {
+    Accept: "application/vnd.github+json",
+    "User-Agent": "mcp-tool-shop-sync",
+  };
+  if (TOKEN) headers["Authorization"] = `Bearer ${TOKEN}`;
+
+  const res = await fetch(url, { headers });
+  if (res.status === 404) return null;
+  if (res.status === 403) {
+    rateLimited = true;
+    console.warn(`Rate limited at ${apiCalls} API calls, skipping remaining release fetches`);
+    return null;
+  }
   if (!res.ok) {
     const body = await res.text().catch(() => "");
     throw new Error(`GitHub API ${res.status} for ${url}\n${body}`);
@@ -61,6 +88,13 @@ async function listOrgRepos(org) {
   return all;
 }
 
+async function fetchRepoReleases(fullName) {
+  const url = `https://api.github.com/repos/${fullName}/releases?per_page=5`;
+  const res = await ghFetchOptional(url);
+  if (!res) return [];
+  return await res.json();
+}
+
 function toProject(repo, override) {
   const base = {
     name: formatName(repo.name),
@@ -73,7 +107,6 @@ function toProject(repo, override) {
     updatedAt: repo.pushed_at || repo.updated_at || "",
   };
 
-  // Override wins for any key it provides
   if (override) {
     for (const [key, value] of Object.entries(override)) {
       if (value !== undefined) base[key] = value;
@@ -83,7 +116,6 @@ function toProject(repo, override) {
   return base;
 }
 
-/** "file-compass" -> "File Compass" */
 function formatName(slug) {
   return slug
     .split("-")
@@ -91,13 +123,40 @@ function formatName(slug) {
     .join(" ");
 }
 
+function toRelease(release, repoName) {
+  return {
+    repo: repoName,
+    toolName: formatName(repoName),
+    tag: release.tag_name || "",
+    name: release.name || release.tag_name || "",
+    body: summarizeBody(release.body || ""),
+    publishedAt: release.published_at || "",
+    url: release.html_url || "",
+    prerelease: release.prerelease || false,
+  };
+}
+
+/** Extract first ~6 bullet points from a release body */
+function summarizeBody(body) {
+  if (!body) return [];
+  const lines = body.split("\n");
+  const bullets = [];
+  for (const line of lines) {
+    const trimmed = line.replace(/^[\s*\-•]+/, "").trim();
+    if (!trimmed) continue;
+    if (trimmed.startsWith("#")) continue;
+    if (trimmed.toLowerCase().includes("full changelog")) continue;
+    if (/^\[.*\]\(.*\)$/.test(trimmed)) continue;
+    bullets.push(trimmed);
+    if (bullets.length >= 6) break;
+  }
+  return bullets;
+}
+
 function stableSort(projects) {
   return projects.sort((a, b) => {
-    // Featured first
     if (a.featured !== b.featured) return a.featured ? -1 : 1;
-    // Then by stars descending
     if (a.stars !== b.stars) return b.stars - a.stars;
-    // Then alphabetical
     return a.name.localeCompare(b.name);
   });
 }
@@ -117,7 +176,28 @@ async function main() {
   writeJson(OUT_PATH, sorted);
   console.log(`Wrote ${sorted.length} projects to ${OUT_PATH}`);
 
-  // Aggregate stats for the homepage
+  // Fetch releases — only for repos active in the last 90 days
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - 90);
+  const recentRepos = active.filter((r) => new Date(r.pushed_at || 0) > cutoff);
+
+  console.log(`Fetching releases for ${recentRepos.length} recently active repos...`);
+  const allReleases = [];
+  for (const repo of recentRepos) {
+    if (rateLimited) break;
+    const releases = await fetchRepoReleases(repo.full_name);
+    for (const rel of releases) {
+      allReleases.push(toRelease(rel, repo.name));
+    }
+  }
+
+  allReleases.sort((a, b) => (b.publishedAt || "").localeCompare(a.publishedAt || ""));
+  const capped = allReleases.slice(0, MAX_RELEASES);
+
+  writeJson(RELEASES_PATH, capped);
+  console.log(`Wrote ${capped.length} releases to ${RELEASES_PATH}`);
+
+  // Aggregate stats
   const totalStars = sorted.reduce((sum, p) => sum + p.stars, 0);
   const languages = [...new Set(sorted.map((p) => p.language).filter(Boolean))];
 
@@ -125,11 +205,13 @@ async function main() {
     repoCount: sorted.length,
     totalStars,
     languages,
+    recentReleases: capped.length,
     updatedAt: new Date().toISOString(),
   };
 
   writeJson(STATS_PATH, stats);
   console.log(`Wrote org stats to ${STATS_PATH}`);
+  console.log(`Total API calls: ${apiCalls}`);
 }
 
 main().catch((err) => {
