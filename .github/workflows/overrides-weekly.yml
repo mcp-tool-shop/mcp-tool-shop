@@ -104,12 +104,13 @@ jobs:
 
           if [ -n "$EXISTING" ]; then
             echo "Updating existing PR #$EXISTING"
-            gh pr edit "$EXISTING" --body "$PR_BODY"
+            gh pr edit "$EXISTING" --body "$PR_BODY" || echo "::warning::Could not update PR body. Edit manually."
           else
             echo "Creating new PR"
             gh pr create \
               --title "chore(auto): draft override enrichment" \
               --body "$PR_BODY" \
               --base main \
-              --head "$BRANCH"
+              --head "$BRANCH" \
+            || echo "::warning::Could not create PR automatically. Create one manually: https://github.com/${{ github.repository }}/compare/main...$BRANCH"
           fi
