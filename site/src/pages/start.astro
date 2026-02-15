@@ -1,0 +1,180 @@
+---
+import Base from '../layouts/Base.astro';
+
+const stacks = [
+  {
+    question: "I want to find and use MCP tools",
+    tools: [
+      { name: "Tool Compass", repo: "tool-compass", why: "Find tools by describing what you need" },
+      { name: "mcpt", repo: "mcpt", why: "CLI for discovering and running MCP tools" },
+      { name: "File Compass", repo: "file-compass", why: "Semantic search across your codebase" },
+    ],
+  },
+  {
+    question: "I want to build MCP tools",
+    tools: [
+      { name: "Brain-Dev", repo: "brain-dev", why: "Code analysis patterns to learn from" },
+      { name: "MCP Examples", repo: "mcp-examples", why: "Reference implementations" },
+      { name: "Tool Scan", repo: "tool-scan", why: "Security-test your tool before shipping" },
+    ],
+  },
+  {
+    question: "I want to add voice to Claude Code",
+    tools: [
+      { name: "Soundboard Plugin", repo: "soundboard-plugin", why: "Drop-in TTS for Claude Code" },
+      { name: "MCP Voice Soundboard", repo: "mcp-voice-soundboard", why: "MCP-native voice server" },
+      { name: "Voice Soundboard", repo: "voice-soundboard", why: "Underlying TTS library" },
+    ],
+  },
+  {
+    question: "I want to train or fine-tune models locally",
+    tools: [
+      { name: "Backpropagate", repo: "backpropagate", why: "Headless fine-tuning with smart defaults" },
+      { name: "Comfy-Headless", repo: "comfy-headless", why: "Batch image generation without the UI" },
+      { name: "Aspire AI", repo: "aspire-ai", why: "Adversarial training engine" },
+    ],
+  },
+  {
+    question: "I want to audit MCP security",
+    tools: [
+      { name: "Tool Scan", repo: "tool-scan", why: "Security scanner for MCP tools" },
+      { name: "MCP Stress Test", repo: "mcp-stress-test", why: "Red team toolkit" },
+      { name: "Stresskit MCP", repo: "stresskit-mcp", why: "Load testing for MCP servers" },
+    ],
+  },
+];
+---
+
+<Base
+  title="Get Started - mcp-tool-shop"
+  description="Find the right tools for what you're trying to do."
+  currentPath="/start/"
+>
+  <div class="start-page">
+    <h1>Get started</h1>
+    <p class="start-intro">Pick what you're trying to do. Each stack is a curated set of tools that work well together.</p>
+
+    <div class="stack-list">
+      {stacks.map((stack) => (
+        <details class="stack-card">
+          <summary class="stack-question">{stack.question}</summary>
+          <div class="stack-tools">
+            {stack.tools.map((tool) => (
+              <a href={`/tools/${tool.repo}/`} class="stack-tool">
+                <span class="stack-tool-name">{tool.name}</span>
+                <span class="stack-tool-why">{tool.why}</span>
+              </a>
+            ))}
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <div class="start-fallback">
+      <p>Don't see what you need? <a href="/tools/">Browse all {80} tools</a> or <a href="https://github.com/orgs/mcp-tool-shop-org/discussions" rel="noopener">ask in Discussions</a>.</p>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .start-page {
+    max-width: 680px;
+  }
+
+  .start-page h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .start-intro {
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .stack-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .stack-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .stack-card[open] {
+    border-color: var(--color-accent);
+  }
+
+  .stack-question {
+    padding: 1rem 1.25rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .stack-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .stack-question::after {
+    content: '+';
+    font-family: var(--font-mono);
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    transition: transform 0.15s;
+  }
+
+  .stack-card[open] .stack-question::after {
+    content: '-';
+  }
+
+  .stack-tools {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1.25rem 1rem;
+  }
+
+  .stack-tool {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    padding: 0.625rem 0.875rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+
+  .stack-tool:hover {
+    border-color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .stack-tool-name {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  .stack-tool-why {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .start-fallback {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+</style>

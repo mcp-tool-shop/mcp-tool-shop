@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import projects from '../data/projects.json';
+
+const popular = (projects as any[])
+  .filter((p: any) => p.featured)
+  .slice(0, 5);
+---
+
+<Base title="Page not found - mcp-tool-shop" currentPath="">
+  <div class="not-found">
+    <h1>404</h1>
+    <p>This page doesn't exist. It may have been moved or removed.</p>
+    <div class="not-found-actions">
+      <a href="/" class="btn btn-primary">Go home</a>
+      <a href="/tools/" class="btn btn-secondary">Browse tools</a>
+    </div>
+
+    {popular.length > 0 && (
+      <div class="popular-tools">
+        <h2>Popular tools</h2>
+        <ul>
+          {popular.map((p: any) => (
+            <li>
+              <a href={`/tools/${p.repo}/`}>{p.name}</a>
+              <span class="popular-desc">{p.tagline || p.description}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+</Base>
+
+<style>
+  .not-found {
+    text-align: center;
+    padding: 4rem 0 2rem;
+  }
+
+  .not-found h1 {
+    font-family: var(--font-mono);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .not-found > p {
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .not-found-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .popular-tools {
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .popular-tools h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .popular-tools ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .popular-tools li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .popular-tools a {
+    font-weight: 500;
+  }
+
+  .popular-desc {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: 0.125rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+</style>

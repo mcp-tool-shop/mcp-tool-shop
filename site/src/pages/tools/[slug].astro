@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import projects from '../../data/projects.json';
+import releases from '../../data/releases.json';
 
 export function getStaticPaths() {
   return (projects as any[]).map((project: any) => ({
@@ -11,6 +12,18 @@ export function getStaticPaths() {
 
 const { project } = Astro.props;
 const orgUrl = `https://github.com/mcp-tool-shop-org/${project.repo}`;
+
+// Trust signals
+const hasInstall = Boolean(project.install);
+const hasRelease = (releases as any[]).some((r: any) => r.repo === project.repo);
+const hasDescription = Boolean(project.tagline || project.description);
+const latestRelease = (releases as any[]).find((r: any) => r.repo === project.repo);
+
+// Related tools: share at least one tag, exclude self
+const projectTags = new Set(project.tags || []);
+const related = (projects as any[])
+  .filter((p: any) => p.repo !== project.repo && (p.tags || []).some((t: string) => projectTags.has(t)))
+  .slice(0, 3);
 ---
 
 <Base
@@ -102,11 +115,54 @@ const orgUrl = `https://github.com/mcp-tool-shop-org/${project.repo}`;
       )}
     </div>
 
+    <div class="signal-strip">
+      <span class={`signal ${hasInstall ? 'signal-yes' : 'signal-no'}`}>
+        {hasInstall ? 'Install cmd' : 'No install cmd'}
+      </span>
+      <span class={`signal ${hasRelease ? 'signal-yes' : 'signal-no'}`}>
+        {hasRelease ? 'Has releases' : 'No releases'}
+      </span>
+      <span class={`signal ${hasDescription ? 'signal-yes' : 'signal-no'}`}>
+        {hasDescription ? 'Documented' : 'No description'}
+      </span>
+    </div>
+
+    {latestRelease && (
+      <div class="latest-release">
+        <span class="meta-label">Latest release</span>
+        <a href={latestRelease.url} rel="noopener">
+          {latestRelease.tag}
+          {latestRelease.name && latestRelease.name !== latestRelease.tag && (
+            <span class="release-name-inline"> — {latestRelease.name}</span>
+          )}
+        </a>
+        {latestRelease.publishedAt && (
+          <span class="release-date-inline">
+            {new Date(latestRelease.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+          </span>
+        )}
+      </div>
+    )}
+
     {project.tags && project.tags.length > 0 && (
       <div class="tool-tags">
         {project.tags.map((tag: string) => (
           <span class="tag">{tag}</span>
         ))}
+      </div>
+    )}
+
+    {related.length > 0 && (
+      <div class="related-section">
+        <h2>Related tools</h2>
+        <div class="related-grid">
+          {related.map((p: any) => (
+            <a href={`/tools/${p.repo}/`} class="related-item">
+              <span class="related-name">{p.name}</span>
+              <span class="related-desc">{p.tagline || p.description}</span>
+            </a>
+          ))}
+        </div>
       </div>
     )}
   </div>
@@ -324,6 +380,104 @@ const orgUrl = `https://github.com/mcp-tool-shop-org/${project.repo}`;
     margin-top: 1rem;
     padding-top: 1rem;
     border-top: 1px solid var(--color-border);
+  }
+
+  .signal-strip {
+    display: flex;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+  }
+
+  .signal {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    padding: 0.2em 0.625em;
+    border-radius: 3px;
+  }
+
+  .signal-yes {
+    color: var(--color-success);
+    background: rgba(63, 185, 80, 0.08);
+  }
+
+  .signal-no {
+    color: var(--color-text-muted);
+    background: rgba(139, 148, 158, 0.08);
+  }
+
+  .latest-release {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .latest-release a {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+  }
+
+  .release-name-inline {
+    font-family: var(--font-sans);
+    color: var(--color-text-muted);
+    font-size: 0.8125rem;
+  }
+
+  .release-date-inline {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+  }
+
+  .related-section {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .related-section h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .related-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.75rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+
+  .related-item:hover {
+    border-color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .related-name {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  .related-desc {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   @media (max-width: 640px) {
