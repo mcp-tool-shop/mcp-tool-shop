@@ -1,4 +1,6 @@
 ---
+import registryMeta from '../data/registry/meta.json';
+
 interface Props {
   title: string;
   description?: string;
@@ -24,6 +26,13 @@ const navLinks = [
   { href: '/about/', label: 'About' },
   { href: '/support/', label: 'Support' },
 ];
+
+// Registry meta for footer
+const meta = registryMeta as any;
+const schemaLabel = meta.schemaVersion ? `v${meta.schemaVersion}` : null;
+const refLabel = meta.registryTag || meta.registryRef || null;
+const syncDate = meta.lastSyncAt ? new Date(meta.lastSyncAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : null;
+const cleanupUrl = meta.cleanupIssueUrl || null;
 ---
 
 <!doctype html>
@@ -72,11 +81,19 @@ const navLinks = [
 
     <footer class="site-footer">
       <div class="container">
-        <span>&copy; {new Date().getFullYear()} mcp-tool-shop</span>
-        <ul class="footer-links">
-          <li><a href="https://github.com/mcp-tool-shop-org">Org on GitHub</a></li>
-          <li><a href="https://github.com/mcp-tool-shop">Profile</a></li>
-        </ul>
+        <div class="footer-top">
+          <span>&copy; {new Date().getFullYear()} mcp-tool-shop</span>
+          <ul class="footer-links">
+            <li><a href="https://github.com/mcp-tool-shop-org">Org on GitHub</a></li>
+            <li><a href="https://github.com/mcp-tool-shop">Profile</a></li>
+          </ul>
+        </div>
+        <div class="footer-meta">
+          {schemaLabel && <span>Registry schema {schemaLabel}</span>}
+          {refLabel && <span>ref: {refLabel}</span>}
+          {syncDate && <span>Last sync: {syncDate}</span>}
+          {cleanupUrl && <a href={cleanupUrl} rel="noopener">Cleanup issue</a>}
+        </div>
       </div>
     </footer>
   </body>

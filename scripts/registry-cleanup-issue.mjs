@@ -17,14 +17,9 @@ import fs from "node:fs";
 import path from "node:path";
 
 const REPO_ROOT = process.cwd();
-const CLEANUP_PATH = path.join(
-  REPO_ROOT,
-  "site",
-  "src",
-  "data",
-  "registry",
-  "cleanup.json"
-);
+const REGISTRY_DATA_DIR = path.join(REPO_ROOT, "site", "src", "data", "registry");
+const CLEANUP_PATH = path.join(REGISTRY_DATA_DIR, "cleanup.json");
+const META_PATH = path.join(REGISTRY_DATA_DIR, "meta.json");
 
 const TOKEN = process.env.GITHUB_TOKEN || "";
 const REGISTRY_REPO =
@@ -36,6 +31,20 @@ const ISSUE_LABEL = "hygiene";
 function readJson(p) {
   if (!fs.existsSync(p)) return null;
   return JSON.parse(fs.readFileSync(p, "utf8"));
+}
+
+function writeJson(p, obj) {
+  fs.mkdirSync(path.dirname(p), { recursive: true });
+  fs.writeFileSync(p, JSON.stringify(obj, null, 2) + "\n", "utf8");
+}
+
+/** Write cleanup issue number + URL back into meta.json so the footer can link to it */
+function updateMeta(issueNumber, issueUrl) {
+  const meta = readJson(META_PATH) || {};
+  meta.cleanupIssueNumber = issueNumber;
+  meta.cleanupIssueUrl = issueUrl;
+  writeJson(META_PATH, meta);
+  console.log(`Updated meta.json with cleanup issue #${issueNumber}`);
 }
 
 const ISSUE_MARKER = "<!-- REGISTRY_CLEANUP_ISSUE -->";
@@ -197,6 +206,7 @@ async function main() {
     console.log(
       `Updated existing issue #${existing.number}: ${existing.html_url}`
     );
+    updateMeta(existing.number, existing.html_url);
   } else {
     // Create new issue
     const issue = await ghApi("POST", `/repos/${REGISTRY_REPO}/issues`, {
@@ -205,6 +215,7 @@ async function main() {
       labels: [ISSUE_LABEL],
     });
     console.log(`Created issue #${issue.number}: ${issue.html_url}`);
+    updateMeta(issue.number, issue.html_url);
   }
 }
 

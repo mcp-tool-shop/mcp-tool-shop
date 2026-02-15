@@ -31,6 +31,7 @@ const IGNORE_PATH = path.join(DATA_DIR, "automation.ignore.json");
 const REGISTRY_PATH = path.join(DATA_DIR, "registry", "registry.json");
 const ALIASES_PATH = path.join(DATA_DIR, "registry", "aliases.json");
 const CLEANUP_PATH = path.join(DATA_DIR, "registry", "cleanup.json");
+const META_PATH = path.join(DATA_DIR, "registry", "meta.json");
 
 function readJson(p) {
   if (!fs.existsSync(p)) return null;
@@ -109,21 +110,22 @@ async function fetchRepoReleases(fullName) {
 // ---------------------------------------------------------------------------
 
 /**
- * Load registry tools and return a Map<id, registryTool>.
- * Returns empty map if registry.json doesn't exist (graceful degradation).
+ * Load registry tools and return { tools: Map<id, registryTool>, schemaVersion: string }.
+ * Returns empty tools map if registry.json doesn't exist (graceful degradation).
  */
 function loadRegistry() {
   const data = readJson(REGISTRY_PATH);
   if (!data || !Array.isArray(data.tools)) {
     console.warn("Registry not found or invalid — falling back to GitHub-only mode");
-    return new Map();
+    return { tools: new Map(), schemaVersion: null };
   }
   const map = new Map();
   for (const tool of data.tools) {
     map.set(tool.id, tool);
   }
-  console.log(`Loaded registry: ${map.size} tools (schema v${data.schema_version})`);
-  return map;
+  const schemaVersion = data.schema_version || null;
+  console.log(`Loaded registry: ${map.size} tools (schema v${schemaVersion})`);
+  return { tools: map, schemaVersion };
 }
 
 /**
@@ -288,7 +290,7 @@ function stableSort(projects) {
 async function main() {
   const overrides = readJson(OVERRIDES_PATH) || {};
   const ignoreList = new Set(readJson(IGNORE_PATH) || []);
-  const registry = loadRegistry();
+  const { tools: registry, schemaVersion: registrySchemaVersion } = loadRegistry();
   const aliases = loadAliases();
 
   // Fetch all org repos from GitHub
@@ -468,6 +470,21 @@ async function main() {
     `Wrote cleanup queue to ${CLEANUP_PATH} ` +
     `(${cleanupArchived.length} archived, ${cleanupMissing.length} missing, ${cleanupAliases.length} aliases)`
   );
+
+  // --- Registry meta (footer nutrition facts) ---
+  const previousMeta = readJson(META_PATH) || {};
+  const meta = {
+    schemaVersion: registrySchemaVersion || previousMeta.schemaVersion || null,
+    registryRef: "main",
+    registryTag: null,
+    lastSyncAt: new Date().toISOString(),
+    // Preserve cleanup issue URL from previous run (updated by cleanup-issue script)
+    cleanupIssueNumber: previousMeta.cleanupIssueNumber || null,
+    cleanupIssueUrl: previousMeta.cleanupIssueUrl || null,
+  };
+
+  writeJson(META_PATH, meta);
+  console.log(`Wrote registry meta to ${META_PATH}`);
 
   // --- Registry health report ---
   console.log("\n--- Registry Health Report ---");

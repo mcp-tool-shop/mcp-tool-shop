@@ -20,6 +20,7 @@
 | `site/src/data/registry/registry.index.json` | **Generated** | same fetch script |
 | `site/src/data/registry/aliases.json` | **Human-curated** | Maps registry IDs to actual org repo names (case mismatches) |
 | `site/src/data/registry/cleanup.json` | **Generated** | Upstream cleanup queue: archived, missing, aliases (from sync) |
+| `site/src/data/registry/meta.json` | **Generated** | Footer nutrition facts: schema version, registry ref, sync timestamp, cleanup issue URL |
 
 ### Draft override rule
 

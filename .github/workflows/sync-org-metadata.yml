@@ -48,3 +48,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REGISTRY_REPO: mcp-tool-shop-org/mcp-tool-registry
         run: node scripts/registry-cleanup-issue.mjs || echo "Cleanup issue step failed (non-fatal)"
+
+      - name: Commit meta updates
+        if: always()
+        run: |
+          git diff --quiet site/src/data/registry/meta.json && exit 0
+          git add site/src/data/registry/meta.json
+          git commit -m "chore: update registry meta (cleanup issue URL)"
+          git push
