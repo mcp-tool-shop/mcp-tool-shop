@@ -150,12 +150,15 @@ jobs:
           "
 
       # ── Internal Link Check ────────────────────────────────────
+      # Already scoped by PR paths filter. If this step exceeds ~5s,
+      # consider caching results by dist hash or narrowing to changed pages.
       - name: Check internal links
         run: |
           node -e "
           const fs = require('fs');
           const path = require('path');
 
+          const start = Date.now();
           const distDir = 'site/dist';
           let errors = 0;
           let checked = 0;
@@ -200,11 +203,12 @@ jobs:
 
           walkDir(distDir);
 
+          const elapsed = Date.now() - start;
           if (errors > 0) {
-            console.error('\n' + errors + ' broken internal link(s) found in ' + checked + ' links checked.');
+            console.error('\n' + errors + ' broken internal link(s) found in ' + checked + ' links checked (' + elapsed + 'ms).');
             process.exit(1);
           } else {
-            console.log('Internal links: ' + checked + ' links checked, all valid.');
+            console.log('Internal links: ' + checked + ' links checked, all valid (' + elapsed + 'ms).');
           }
           "
 

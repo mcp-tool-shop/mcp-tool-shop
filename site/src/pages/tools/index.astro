@@ -340,6 +340,7 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
     clearBtn.hidden = !q;
 
     let visible = 0;
+    let hiddenDeprecated = 0;
     for (const card of cards) {
       const matchSearch = !q ||
         card.dataset.name!.includes(q) ||
@@ -351,14 +352,23 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
       const matchStability = !stability || card.dataset.stability === stability;
       const matchRegistered = includeOrgOnly || card.dataset.registered === '1';
       // Deprecated tools hidden unless org-only toggle is on or search matches
-      const matchDeprecated = card.dataset.deprecated !== '1' || includeOrgOnly || Boolean(q);
+      const isDeprecated = card.dataset.deprecated === '1';
+      const matchDeprecated = !isDeprecated || includeOrgOnly || Boolean(q);
 
       const show = matchSearch && matchLang && matchKind && matchStability && matchRegistered && matchDeprecated;
       card.hidden = !show;
       if (show) visible++;
+      // Count deprecated tools that passed all filters except the deprecated filter
+      if (!show && isDeprecated && matchSearch && matchLang && matchKind && matchStability) {
+        hiddenDeprecated++;
+      }
     }
 
-    resultsCount.textContent = `${visible} of ${cards.length} tools`;
+    let countText = `${visible} of ${cards.length} tools`;
+    if (hiddenDeprecated > 0 && !includeOrgOnly) {
+      countText += ` · ${hiddenDeprecated} deprecated hidden`;
+    }
+    resultsCount.textContent = countText;
     applySort();
   }
 

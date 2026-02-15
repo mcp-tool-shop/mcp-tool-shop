@@ -209,10 +209,15 @@ function buildProject({ registryTool, ghRepo, override, registered, aliases, isA
     base.updatedAt = ghRepo.pushed_at || ghRepo.updated_at || "";
   }
 
-  // 3. Overlay editorial overrides (overrides always win)
+  // 3. Overlay editorial overrides (overrides always win — except computed flags)
   if (override) {
     for (const [key, value] of Object.entries(override)) {
-      if (value !== undefined) base[key] = value;
+      if (value === undefined) continue;
+      // deprecated is computed, not editorial — never allow overrides to clear it
+      if (key === "deprecated") continue;
+      // registered is computed from registry presence — never override
+      if (key === "registered") continue;
+      base[key] = value;
     }
   }
 
@@ -220,6 +225,12 @@ function buildProject({ registryTool, ghRepo, override, registered, aliases, isA
   // (override can force-show an unregistered repo)
   if (override && override.unlisted === false) {
     base.unlisted = false;
+  }
+
+  // Re-assert computed deprecated after overrides
+  // (archived repos and registry-deprecated tools stay deprecated regardless)
+  if (isArchived || (registryTool && registryTool.deprecated === true)) {
+    base.deprecated = true;
   }
 
   return base;

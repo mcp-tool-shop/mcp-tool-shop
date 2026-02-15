@@ -38,10 +38,14 @@ function readJson(p) {
   return JSON.parse(fs.readFileSync(p, "utf8"));
 }
 
+const ISSUE_MARKER = "<!-- REGISTRY_CLEANUP_ISSUE -->";
+
 function buildIssueBody(cleanup) {
   const lines = [];
 
   lines.push(
+    ISSUE_MARKER,
+    "",
     "## Registry Cleanup Report",
     "",
     `Generated at: \`${cleanup.generatedAt}\``,
@@ -139,11 +143,17 @@ async function ghApi(method, endpoint, body = null) {
 }
 
 async function findExistingIssue() {
-  // Search for open issues with our title
+  // Search for open issues — match by stable HTML marker first, then title
   const issues = await ghApi(
     "GET",
-    `/repos/${REGISTRY_REPO}/issues?state=open&labels=${ISSUE_LABEL}&per_page=10`
+    `/repos/${REGISTRY_REPO}/issues?state=open&labels=${ISSUE_LABEL}&per_page=20`
   );
+  // Primary: find by marker (survives title renames)
+  const byMarker = issues.find(
+    (i) => i.body && i.body.includes(ISSUE_MARKER)
+  );
+  if (byMarker) return byMarker;
+  // Fallback: match by title
   return issues.find((i) => i.title === ISSUE_TITLE) || null;
 }
 
