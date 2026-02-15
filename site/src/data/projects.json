@@ -195,7 +195,7 @@
       "Runtime vulnerability scanning (heuristics, not CVEs)"
     ],
     "screenshot": "/screenshots/zip-meta-map.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "real"
   },
   {
     "name": "Attestia",
