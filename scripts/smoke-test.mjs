@@ -31,6 +31,7 @@ const CHECKS = [
   // Lab (internal preview, noindex)
   { url: "/lab/marketir/", expect: 200, label: "lab: marketir preview" },
   { url: "/lab/signals/", expect: 200, label: "lab: signals dashboard" },
+  { url: "/lab/targets/", expect: 200, label: "lab: targets viewer" },
 
   // Marketing outputs (generated from MarketIR)
   { url: "/presskit/zip-meta-map/", expect: 200, label: "presskit: zip-meta-map" },
@@ -208,6 +209,25 @@ try {
   failed++;
 }
 
+// ── Target list checks (warning-only, never fail build) ─────
+try {
+  const targetsRes = await fetch(`${BASE}/targets/zip-meta-map/targets.json`);
+  if (targetsRes.ok) {
+    const data = await targetsRes.json();
+    if (data.candidates && data.candidates.length > 0) {
+      console.log(`  ✓ targets.json: ${data.candidates.length} candidates (scoring v${data.scoringVersion})`);
+    } else {
+      console.warn(`  ⚠ targets.json exists but has no candidates`);
+    }
+  } else if (targetsRes.status === 404) {
+    console.warn(`  ⚠ targets.json not generated yet (404) — run gen-targets.mjs`);
+  } else {
+    console.warn(`  ⚠ targets.json returned ${targetsRes.status}`);
+  }
+} catch (err) {
+  console.warn(`  ⚠ targets check skipped: ${err.message}`);
+}
+
 // ── Build metadata check ───────────────────────────────────
 try {
   const buildRes = await fetch(`${BASE}/_build.json`);
@@ -235,5 +255,5 @@ try {
   console.warn(`\n  ⚠ _build.json check failed: ${err.message}`);
 }
 
-console.log(`\n${passed} passed, ${failed} failed out of ${CHECKS.length + 7} checks`);
+console.log(`\n${passed} passed, ${failed} failed out of ${CHECKS.length + 7} checks (+ target warnings above)`);
 if (failed > 0) process.exit(1);

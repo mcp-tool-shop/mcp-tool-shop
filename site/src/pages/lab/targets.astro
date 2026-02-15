@@ -1,0 +1,475 @@
+---
+import Base from '../../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+function loadJson(filePath: string) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+// Load all target files from public/targets/
+const targetsBaseDir = path.join(process.cwd(), 'public/targets');
+const allTargets: { slug: string; data: any }[] = [];
+
+try {
+  const slugDirs = fs.readdirSync(targetsBaseDir).filter((f: string) => {
+    try {
+      return fs.statSync(path.join(targetsBaseDir, f)).isDirectory();
+    } catch { return false; }
+  });
+
+  for (const slug of slugDirs) {
+    const data = loadJson(path.join(targetsBaseDir, slug, 'targets.json'));
+    if (data) {
+      allTargets.push({ slug, data });
+    }
+  }
+} catch {
+  // targets dir doesn't exist yet — that's fine
+}
+
+// Aggregate stats
+const totalCandidates = allTargets.reduce((sum, t) => sum + (t.data.candidateCount || 0), 0);
+const totalErrors = allTargets.reduce((sum, t) => sum + (t.data.errors?.length || 0), 0);
+const scoringVersion = allTargets[0]?.data.scoringVersion || '—';
+const generatedAt = allTargets[0]?.data.generatedAt || null;
+---
+
+<Base
+  title="Target Lists - Internal"
+  description="Internal dashboard for partner/integrator target discovery."
+  currentPath="/lab/targets/"
+>
+  <head>
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+
+  <div class="targets-page">
+    <div class="internal-badge">Internal Preview</div>
+
+    <h1>Target Lists</h1>
+    <p class="subtitle">Partner/integrator discovery — scored, ranked, and draft-ready.</p>
+
+    {allTargets.length > 0 ? (
+      <div class="summary-banner">
+        <div class="summary-grid">
+          <div class="summary-item">
+            <span class="value">{allTargets.length}</span>
+            <span class="label">Tools</span>
+          </div>
+          <div class="summary-item">
+            <span class="value">{totalCandidates}</span>
+            <span class="label">Candidates</span>
+          </div>
+          <div class="summary-item">
+            <span class="value">v{scoringVersion}</span>
+            <span class="label">Scoring</span>
+          </div>
+          {totalErrors > 0 && (
+            <div class="summary-item">
+              <span class="value error-count">{totalErrors}</span>
+              <span class="label">Errors</span>
+            </div>
+          )}
+        </div>
+        {generatedAt && (
+          <div class="snapshot-meta">
+            Generated: {new Date(generatedAt).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}
+          </div>
+        )}
+      </div>
+    ) : (
+      <div class="summary-banner empty">
+        <p>No targets generated yet.</p>
+        <p>Run <code>GITHUB_TOKEN=... node scripts/gen-targets.mjs</code> to discover targets.</p>
+      </div>
+    )}
+
+    {allTargets.map(({ slug, data }) => {
+      const candidates = data.candidates || [];
+      const stats = data.discoveryStats || {};
+      const weights = data.scoringWeights || {};
+
+      return (
+        <section class="section">
+          <h2>{slug}</h2>
+          <div class="discovery-stats">
+            <span>Topics: {stats.topicSearches || 0}</span>
+            <span>Keywords: {stats.keywordSearches || 0}</span>
+            <span>Comparables: {stats.comparableSearches || 0}</span>
+            <span>Seeds: {stats.seedExpansions || 0}</span>
+            <span>Signals: {stats.signalExpansions || 0}</span>
+            <span>Raw: {stats.rawCandidates || 0}</span>
+            <span>Deduped: {stats.afterDedup || 0}</span>
+            <span>Final: {stats.afterScoring || 0}</span>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Repo</th>
+                  <th>Stars</th>
+                  <th>Score</th>
+                  <th>Lang</th>
+                  <th>Type</th>
+                  <th>Why Matched</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                {candidates.map((c: any, i: number) => (
+                  <tr class={`score-row ${c.score >= 80 ? 'high-score' : c.score >= 60 ? 'mid-score' : ''}`} data-idx={i}>
+                    <td class="num">{i + 1}</td>
+                    <td>
+                      <a href={c.htmlUrl} class="repo-link" target="_blank" rel="noopener">{c.fullName}</a>
+                      {c.description && (
+                        <div class="repo-desc">{c.description.slice(0, 100)}{c.description.length > 100 ? '...' : ''}</div>
+                      )}
+                    </td>
+                    <td class="num">{c.stars?.toLocaleString()}</td>
+                    <td class="num score-cell">{c.score}</td>
+                    <td>{c.language || '—'}</td>
+                    <td>
+                      <span class={`type-tag ${c.ownerType}`}>{c.ownerType}</span>
+                    </td>
+                    <td class="why-cell">
+                      {[...new Set(c.whyMatched || [])].slice(0, 3).map((w: string) => (
+                        <span class="why-tag">{w}</span>
+                      ))}
+                    </td>
+                    <td>
+                      <button class="expand-btn" data-target={`detail-${slug}-${i}`} aria-label="Toggle details">+</button>
+                    </td>
+                  </tr>
+                  <tr class="detail-row" id={`detail-${slug}-${i}`} style="display:none">
+                    <td colspan="8">
+                      <div class="detail-content">
+                        <div class="breakdown">
+                          <h4>Score Breakdown</h4>
+                          {c.scoreBreakdown && Object.entries(c.scoreBreakdown).map(([key, val]: [string, any]) => (
+                            <div class="breakdown-item">
+                              <span class="breakdown-label">{key}</span>
+                              <span class="breakdown-value">{val}</span>
+                            </div>
+                          ))}
+                        </div>
+                        <div class="meta-info">
+                          <p>Pushed: {c.pushedAt?.slice(0, 10) || '—'}</p>
+                          <p>Topics: {(c.topics || []).join(', ') || '—'}</p>
+                          {i < 25 && (
+                            <p><a href={`/targets/${slug}/drafts/${c.owner}--${c.repo}.md`}>Draft outreach</a></p>
+                          )}
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div class="export-links">
+            <a href={`/targets/${slug}/targets.json`}>JSON</a>
+            <a href={`/targets/${slug}/targets.csv`}>CSV</a>
+            <a href={`/targets/${slug}/README.md`}>README</a>
+          </div>
+        </section>
+      );
+    })}
+
+    {/* Provenance */}
+    <section class="section provenance">
+      <h2>Data Sources</h2>
+      <ul>
+        <li>MarketIR targeting spec: keywords, topics, languages, seed repos</li>
+        <li>GitHub Search API: topic + keyword + comparable expansion</li>
+        <li>Distribution signals: go-link mentions in external repos (optional)</li>
+        <li>Scoring: v{scoringVersion} — deterministic, versioned weights</li>
+        <li>Generator: <code>gen-targets.mjs</code> (manual/scheduled, NOT every deploy)</li>
+      </ul>
+    </section>
+  </div>
+</Base>
+
+<script>
+  // Expandable detail rows
+  document.querySelectorAll('.expand-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      if (!targetId) return;
+      const row = document.getElementById(targetId);
+      if (!row) return;
+      const isVisible = row.style.display !== 'none';
+      row.style.display = isVisible ? 'none' : 'table-row';
+      btn.textContent = isVisible ? '+' : '−';
+    });
+  });
+</script>
+
+<style>
+  .targets-page {
+    padding: 2rem 0;
+  }
+  .internal-badge {
+    display: inline-block;
+    background: #d2992233;
+    color: #d29922;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    margin: 0 0 0.25rem;
+  }
+  .subtitle {
+    color: var(--color-text-muted);
+    margin: 0 0 1.5rem;
+  }
+
+  /* Summary banner */
+  .summary-banner {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .summary-banner.empty {
+    color: var(--color-text-muted);
+    text-align: center;
+    padding: 2rem;
+  }
+  .summary-banner.empty p {
+    margin: 0.25rem 0;
+  }
+  .summary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .summary-item .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+  .summary-item .label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .snapshot-meta {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+  .error-count {
+    color: #f85149;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 2rem;
+  }
+  .section h2 {
+    font-size: 1.1rem;
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* Discovery stats */
+  .discovery-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+
+  /* Table */
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-border);
+  }
+  td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+  }
+  .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .score-cell {
+    font-weight: 700;
+  }
+  tr.high-score {
+    background: #3fb95008;
+  }
+  tr.mid-score {
+    background: #d2992208;
+  }
+
+  /* Repo link & desc */
+  .repo-link {
+    font-weight: 500;
+    color: var(--color-link);
+    text-decoration: none;
+  }
+  .repo-link:hover {
+    text-decoration: underline;
+  }
+  .repo-desc {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: 0.15rem;
+    max-width: 300px;
+  }
+
+  /* Type tags */
+  .type-tag {
+    display: inline-block;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .type-tag.organization {
+    background: #58a6ff22;
+    color: #58a6ff;
+  }
+  .type-tag.user {
+    background: #8b949e22;
+    color: #8b949e;
+  }
+
+  /* Why tags */
+  .why-cell {
+    max-width: 250px;
+  }
+  .why-tag {
+    display: inline-block;
+    background: var(--color-surface);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    margin: 0.1rem;
+  }
+
+  /* Expand button */
+  .expand-btn {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .expand-btn:hover {
+    background: var(--color-border);
+  }
+
+  /* Detail rows */
+  .detail-row td {
+    background: var(--color-surface);
+    padding: 1rem;
+  }
+  .detail-content {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .breakdown h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.85rem;
+  }
+  .breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.8rem;
+    padding: 0.15rem 0;
+  }
+  .breakdown-label {
+    color: var(--color-text-muted);
+  }
+  .breakdown-value {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+  .meta-info {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+  .meta-info p {
+    margin: 0.25rem 0;
+  }
+
+  /* Export links */
+  .export-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+  }
+  .export-links a {
+    font-size: 0.8rem;
+    color: var(--color-link);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+  .export-links a:hover {
+    background: var(--color-surface);
+  }
+
+  /* Provenance */
+  .provenance ul {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    padding-left: 1.25rem;
+  }
+  .provenance li {
+    margin-bottom: 0.35rem;
+  }
+
+  code {
+    font-family: var(--font-mono);
+  }
+</style>

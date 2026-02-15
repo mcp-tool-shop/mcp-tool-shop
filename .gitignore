@@ -13,6 +13,10 @@ site/public/campaigns/
 site/public/outreach/
 site/public/partners/
 
+# generated target lists (built by gen-targets.mjs, not on every deploy)
+site/public/targets/
+site/src/data/target-cache/
+
 # generated link registry + go-link redirects
 site/src/data/links.json
 site/public/links.json

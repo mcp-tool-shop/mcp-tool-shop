@@ -1,0 +1,121 @@
+name: Weekly target discovery
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    # Every Friday at 08:00 UTC — staggered from Mon overrides, Wed screenshots
+    - cron: '0 8 * * 5'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: targets-weekly
+  cancel-in-progress: true
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Fetch MarketIR snapshot
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/fetch-marketir.mjs
+
+      - name: Fetch GitHub facts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/fetch-github-facts.mjs
+
+      - name: Fetch distribution signals
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/fetch-distribution-signals.mjs
+
+      - name: Generate target lists
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/gen-targets.mjs --top 100 --drafts 25
+
+      - name: Check for output
+        id: diff
+        run: |
+          if [ -d "site/public/targets" ] && [ -n "$(ls -A site/public/targets/ 2>/dev/null)" ]; then
+            echo "has_targets=true" >> "$GITHUB_OUTPUT"
+
+            # Count candidates across all target files
+            TOTAL=$(find site/public/targets -name targets.json -exec jq '.candidateCount' {} + | paste -sd+ | bc 2>/dev/null || echo "?")
+            SLUGS=$(find site/public/targets -maxdepth 1 -mindepth 1 -type d -printf '%f\n' | paste -sd, || echo "unknown")
+            echo "total=$TOTAL" >> "$GITHUB_OUTPUT"
+            echo "slugs=$SLUGS" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_targets=false" >> "$GITHUB_OUTPUT"
+            echo "No targets generated."
+          fi
+
+      - name: Push branch and open PR
+        if: steps.diff.outputs.has_targets == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="auto/targets-weekly"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Force-add normally-gitignored target output
+          git add -f site/public/targets/
+
+          git checkout -B "$BRANCH"
+          git commit -m "chore(auto): weekly target discovery"
+
+          git push --force origin "$BRANCH"
+
+          TOTAL="${{ steps.diff.outputs.total }}"
+          SLUGS="${{ steps.diff.outputs.slugs }}"
+
+          PR_BODY="## Weekly target discovery
+
+          Generated target lists for: \`${SLUGS}\`
+          Total candidates: **${TOTAL}**
+
+          ### What's included
+          - \`targets.json\` — full scored list with metadata
+          - \`targets.csv\` — Sheets-importable export
+          - \`README.md\` — top 25 table with outreach template links
+          - \`drafts/\` — per-target outreach drafts for top candidates
+
+          ### Review checklist
+          - [ ] Review top candidates — are they relevant partners/integrators?
+          - [ ] Check scoring looks reasonable (no obviously wrong rankings)
+          - [ ] Spot-check a few draft outreach files
+          - [ ] Verify exclusions are working (no self-org repos)
+          - [ ] Merge to make targets available on the lab viewer"
+
+          EXISTING=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+
+          if [ -n "$EXISTING" ]; then
+            echo "Updating existing PR #$EXISTING"
+            gh pr edit "$EXISTING" --body "$PR_BODY" || echo "::warning::Could not update PR body."
+          else
+            echo "Creating new PR"
+            gh pr create \
+              --title "chore(auto): weekly target discovery" \
+              --body "$PR_BODY" \
+              --base main \
+              --head "$BRANCH" \
+            || echo "::warning::Could not create PR automatically."
+          fi
