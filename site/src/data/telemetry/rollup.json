@@ -1,5 +1,5 @@
 {
-  "generatedAt": null,
+  "generatedAt": "2026-02-16T23:57:24.311Z",
   "totalEvents": 0,
   "byType": {},
   "bySlug": {},
@@ -11,5 +11,9 @@
     "submissionClicks": 0,
     "trustInteractionScoreByWeek": {}
   },
-  "guardrails": {}
+  "guardrails": {
+    "totalEventsProcessed": 0,
+    "eventsCapped": 0,
+    "suspiciousDays": []
+  }
 }

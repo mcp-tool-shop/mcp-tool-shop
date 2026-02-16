@@ -1,7 +1,11 @@
 {
-  "generatedAt": "2026-02-16T00:00:00Z",
+  "generatedAt": "2026-02-16T23:56:43.671Z",
   "runCount": 0,
-  "period": { "start": null, "end": null, "cadence": "weekly" },
+  "period": {
+    "start": null,
+    "end": null,
+    "cadence": "weekly"
+  },
   "avgRuntimeMs": 0,
   "p95RuntimeMs": 0,
   "stddevRuntimeMs": 0,
@@ -11,19 +15,51 @@
   "failureRate": 0,
   "adapterStats": {},
   "schedulePresets": {
-    "conservative": { "cadence": "biweekly", "monthlyRuns": 2, "estimatedMinutes": 0, "estimatedCost": 0 },
-    "standard": { "cadence": "weekly", "monthlyRuns": 4, "estimatedMinutes": 0, "estimatedCost": 0 },
-    "aggressive": { "cadence": "2x-weekly", "monthlyRuns": 8, "estimatedMinutes": 0, "estimatedCost": 0 }
+    "conservative": {
+      "cadence": "biweekly",
+      "monthlyRuns": 2,
+      "estimatedMinutes": 0,
+      "estimatedCost": 0
+    },
+    "standard": {
+      "cadence": "weekly",
+      "monthlyRuns": 4,
+      "estimatedMinutes": 0,
+      "estimatedCost": 0
+    },
+    "aggressive": {
+      "cadence": "2x-weekly",
+      "monthlyRuns": 8,
+      "estimatedMinutes": 0,
+      "estimatedCost": 0
+    }
   },
   "projection": {
     "monthlyRunCount": 4,
     "estimatedMinutes": 0,
     "estimatedCost": 0,
-    "riskItems": []
+    "riskItems": [
+      "No run data available — baseline cannot be computed"
+    ]
   },
   "minuteBudgets": {
-    "200": { "maxRunsPerMonth": 0, "recommendedPreset": "aggressive", "headroom": 200, "whatStops": [] },
-    "500": { "maxRunsPerMonth": 0, "recommendedPreset": "aggressive", "headroom": 500, "whatStops": [] },
-    "1000": { "maxRunsPerMonth": 0, "recommendedPreset": "aggressive", "headroom": 1000, "whatStops": [] }
+    "200": {
+      "maxRunsPerMonth": 0,
+      "recommendedPreset": "aggressive",
+      "headroom": 200,
+      "whatStops": []
+    },
+    "500": {
+      "maxRunsPerMonth": 0,
+      "recommendedPreset": "aggressive",
+      "headroom": 500,
+      "whatStops": []
+    },
+    "1000": {
+      "maxRunsPerMonth": 0,
+      "recommendedPreset": "aggressive",
+      "headroom": 1000,
+      "whatStops": []
+    }
   }
 }
