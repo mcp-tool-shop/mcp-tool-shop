@@ -176,6 +176,21 @@ KIT_CONFIG=examples/pilot-org/kit.config.json npx promo-kit selftest
 
 ---
 
+## Why trust this kit?
+
+555 tests (449 unit + 106 invariant) · portable selftest included · invariants enforced in CI
+
+- **Zero runtime deps** — nothing to audit, nothing to break
+- **Local-only data** — no external services, no tracking, no network calls
+- **Deterministic outputs** — same inputs produce the same outputs, every time
+- **Receipt-backed** — every artifact is SHA-256 hashed with a commit SHA
+- **PR-only automation** — proposes changes; humans merge
+- **Freeze modes** — pause automation for human review at any time
+
+Example outputs: [trust receipt](https://github.com/mcp-tool-shop/mcp-tool-shop/blob/main/docs/examples/trust-receipt.json) · [drift report](https://github.com/mcp-tool-shop/mcp-tool-shop/blob/main/docs/examples/decision-drift.json) · [recommendations](https://github.com/mcp-tool-shop/mcp-tool-shop/blob/main/docs/examples/recommendations.json)
+
+---
+
 ## Requirements
 
 - Node.js >= 22

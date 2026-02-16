@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-02-16T22:38:02.146Z",
+  "commit": "3387766",
+  "marketirLockHash": null,
+  "coeVersion": "unknown",
+  "provenClaims": 0,
+  "worthyStats": {
+    "total": 0,
+    "worthy": 0,
+    "notWorthy": 0
+  },
+  "artifactManifest": {
+    "overrides.json": "sha256:ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "worthy.json": "sha256:184194b588aa3700874d6300f3f5fbbf02569d7a8b89cea5d65ddab4d4ba6192",
+    "baseline.json": "sha256:8a1d8af73996303871ecd6ba4e8504d886cb2903c2ddd3b5d197866fdaefe204",
+    "ops-history.json": "sha256:9ce4119de9e208ec209d702f9f7df2cb4498443bf0d1f9b27a6158a077db54a5",
+    "promo-decisions.json": "sha256:8e16730d1c7fbec16e42413d2f10b3fecd3ced5772842d60c192b4c54631acb6",
+    "experiment-decisions.json": "sha256:8e16730d1c7fbec16e42413d2f10b3fecd3ced5772842d60c192b4c54631acb6"
+  }
+}

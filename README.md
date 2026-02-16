@@ -43,13 +43,16 @@ To add a tool: push a repo to [mcp-tool-shop-org](https://github.com/mcp-tool-sh
 
 Every promotion is backed by receipts, not promises.
 
-- **548 tests** (442 unit + 106 invariant), all passing
+- **555 tests** (449 unit + 106 invariant), all passing
+- **Zero runtime deps** -- nothing to audit, nothing to break
 - **Receipt-verified promotions** -- every promo week has hashed inputs and a commit SHA ([browse receipts](https://mcp-tool-shop.github.io/receipts/))
 - **Freeze modes** -- automation pauses when frozen; humans must intervene ([Trust Center](https://mcp-tool-shop.github.io/trust/))
 - **Decision drift detection** -- week-over-week changes are flagged automatically
 - **Proven claims** -- MarketIR claims are evidence-backed and independently verifiable ([view proofs](https://mcp-tool-shop.github.io/proof/))
 
 Verify any week yourself: visit a [promo page](https://mcp-tool-shop.github.io/receipts/), copy the commit SHA, checkout that commit, and compare `sha256sum` on each input file.
+
+Example outputs: [trust receipt](docs/examples/trust-receipt.json) · [drift report](docs/examples/decision-drift.json) · [recommendations](docs/examples/recommendations.json)
 
 ## Stack
 

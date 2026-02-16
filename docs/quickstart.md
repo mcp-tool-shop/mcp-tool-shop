@@ -165,9 +165,20 @@ npx promo-kit --print-config   # resolved config after defaults
 npx promo-kit migrate          # apply schema upgrades
 ```
 
+## Why trust this kit?
+
+- **Zero runtime deps** — nothing to audit, nothing to break
+- **Local-only data** — no external services, no tracking, no network calls
+- **Deterministic outputs** — same inputs produce the same outputs, every time
+- **Receipt-backed** — every artifact is SHA-256 hashed with a commit SHA
+- **PR-only automation** — proposes changes; humans merge
+- **Freeze modes** — pause automation for human review at any time
+
 ## Links
 
 - [npm package](https://www.npmjs.com/package/@mcptoolshop/promo-kit)
 - [Portable Core docs](https://github.com/mcp-tool-shop/mcp-tool-shop/blob/main/docs/portable-core.md) — full contract and field reference
 - [Presskit Handbook](https://github.com/mcp-tool-shop/mcp-tool-shop/blob/main/docs/presskit-handbook.md) — brand assets and verification walkthrough
 - [Trust Center](https://mcp-tool-shop.github.io/trust/) — live verification example
+- [Example outputs](https://github.com/mcp-tool-shop/mcp-tool-shop/tree/main/docs/examples) — real trust receipt, drift report, recommendations
+- [Security policy](https://github.com/mcp-tool-shop/mcp-tool-shop/blob/main/SECURITY.md)

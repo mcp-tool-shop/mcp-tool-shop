@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-02-16T22:38:07.407Z",
+  "signals": {
+    "trustByWeek": {},
+    "proofEngagementBySlug": {},
+    "submissionFrictionBySlug": {}
+  },
+  "recommendations": [],
+  "guardrails": {
+    "dailyEventCaps": {
+      "max": 500
+    },
+    "suspiciousSources": [],
+    "multiEventCorroboration": true
+  },
+  "lintInsights": {
+    "warningsToElevate": [],
+    "docsToRewrite": []
+  }
+}
