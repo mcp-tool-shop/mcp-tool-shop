@@ -9,6 +9,12 @@
   Receipt-backed promotions · freeze modes · drift detection · <b>zero dependencies</b>
 </p>
 
+<p align="center">
+  <a href="https://www.npmjs.com/package/@mcptoolshop/promo-kit"><img src="https://img.shields.io/npm/v/@mcptoolshop/promo-kit?style=flat-square&color=cb3837" alt="npm version" /></a>
+  <a href="https://github.com/mcp-tool-shop/mcp-tool-shop/releases"><img src="https://img.shields.io/github/v/release/mcp-tool-shop/mcp-tool-shop?style=flat-square&label=release" alt="GitHub release" /></a>
+  <a href="https://github.com/mcp-tool-shop/mcp-tool-shop/blob/main/packages/promo-kit/LICENSE"><img src="https://img.shields.io/npm/l/@mcptoolshop/promo-kit?style=flat-square" alt="license" /></a>
+</p>
+
 ---
 
 ## What it does
