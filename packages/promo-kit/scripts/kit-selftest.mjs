@@ -70,25 +70,84 @@ check("kit.config.json exists", () => {
 
 let config;
 check("kit.config.json is valid JSON with required fields", () => {
+  const configPath = join(DATA_ROOT, "kit.config.json");
   config = loadKitConfig(DATA_ROOT);
-  assert(config.kitVersion, "kitVersion missing");
-  assert(config.org?.name || config.org?.account, "org name or account missing");
-  assert(config.site?.title, "site.title missing");
-  assert(config.paths?.dataDir, "paths.dataDir missing");
-  assert(config.paths?.publicDir, "paths.publicDir missing");
+
+  const required = [
+    ["kitVersion", config.kitVersion],
+    ["org.name or org.account", config.org?.name || config.org?.account],
+    ["site.title", config.site?.title],
+    ["contact.email", config.contact?.email],
+    ["paths.dataDir", config.paths?.dataDir],
+    ["paths.publicDir", config.paths?.publicDir],
+  ];
+
+  const missing = required.filter(([, value]) => !value).map(([field]) => field);
+  if (missing.length > 0) {
+    const checklist = missing.map((f) => `  □ ${f}`).join("\n");
+    throw new Error(
+      `Missing required fields in ${configPath}:\n${checklist}\n  Fix: edit kit.config.json — see https://github.com/mcp-tool-shop/mcp-tool-shop/blob/main/docs/quickstart.md#configure`
+    );
+  }
 });
 
-// Warn about unknown keys in paths (common misconfiguration)
-check("no unknown keys in paths", () => {
-  const knownPathKeys = new Set(["dataDir", "publicDir"]);
-  const unknownKeys = Object.keys(config.paths || {}).filter((k) => !knownPathKeys.has(k));
-  if (unknownKeys.length > 0) {
-    const hints = unknownKeys.map((k) => {
-      if (k === "data") return `"paths.data" → did you mean "paths.dataDir"?`;
-      if (k === "public") return `"paths.public" → did you mean "paths.publicDir"?`;
-      return `"paths.${k}" is not a recognized field`;
-    });
-    throw new Error(`Unknown paths keys: ${hints.join("; ")}`);
+// Warn about unknown/typo keys (common misconfiguration)
+check("no unknown config keys", () => {
+  const typoMap = {
+    // paths typos
+    "paths.data": "paths.dataDir",
+    "paths.public": "paths.publicDir",
+    "paths.dataDirr": "paths.dataDir",
+    "paths.publicdir": "paths.publicDir",
+    "paths.datadir": "paths.dataDir",
+    // org typos
+    "org.handle": "org.account",
+    "org.username": "org.account",
+    "org.github": "org.account",
+    "org.orgName": "org.name",
+    // contact typos
+    "contact.mail": "contact.email",
+  };
+
+  const knownKeys = {
+    _top: new Set(["kitVersion", "org", "site", "repo", "contact", "paths", "guardrails"]),
+    paths: new Set(["dataDir", "publicDir"]),
+    org: new Set(["name", "account", "url"]),
+    site: new Set(["title", "url", "description"]),
+    repo: new Set(["marketing"]),
+    contact: new Set(["email"]),
+    guardrails: new Set(["maxDataPatchesPerRun", "dailyTelemetryCapPerType", "spikeThreshold", "maxRecommendations"]),
+  };
+
+  const issues = [];
+
+  // Check top-level keys
+  for (const key of Object.keys(config)) {
+    if (!knownKeys._top.has(key)) {
+      issues.push(`"${key}" is not a recognized top-level field`);
+    }
+  }
+
+  // Check sub-keys in each known section
+  for (const [section, allowed] of Object.entries(knownKeys)) {
+    if (section === "_top") continue;
+    const obj = config[section];
+    if (!obj || typeof obj !== "object") continue;
+    for (const key of Object.keys(obj)) {
+      if (!allowed.has(key)) {
+        const fullKey = `${section}.${key}`;
+        const suggestion = typoMap[fullKey];
+        if (suggestion) {
+          issues.push(`"${fullKey}" → did you mean "${suggestion}"?`);
+        } else {
+          issues.push(`"${fullKey}" is not a recognized field`);
+        }
+      }
+    }
+  }
+
+  if (issues.length > 0) {
+    throw new Error(`Config issues: ${issues.join("; ")}`);
   }
 });
 
@@ -99,6 +158,30 @@ check("kitVersion in supported range", () => {
     `kitVersion ${v} not in [${KIT_VERSION_SUPPORTED.join(", ")}]`
   );
 });
+
+// 1b. Path existence
+check("data directory exists", () => {
+  const dataDir = resolve(DATA_ROOT, config.paths.dataDir);
+  assert(
+    existsSync(dataDir),
+    `Data directory not found: ${dataDir}\n  Fix: run "promo-kit init" to create it, or check paths.dataDir in kit.config.json`
+  );
+});
+
+// 1c. Git repo check (warn, don't fail)
+{
+  let hasGit = false;
+  try {
+    execSync("git rev-parse --short HEAD", { cwd: DATA_ROOT, stdio: "pipe", encoding: "utf8" });
+    hasGit = true;
+  } catch { /* not a git repo or no commits */ }
+  check("git repo detected (for trust receipts)", () => {
+    if (!hasGit) {
+      console.log(`  ⚠ Not a git repo or no commits — trust receipts will have commit: null`);
+      console.log(`    Fix: git init && git add -A && git commit -m "initial"`);
+    }
+  });
+}
 
 // 2. Seed files
 console.log("\n[Seed Files]");

@@ -66,11 +66,15 @@ function hashFile(filePath) {
 export function buildTrustReceipt(opts = {}) {
   const { dataDir = DATA_DIR, root = ROOT } = opts;
 
-  // 1. Git SHA
-  let commit = "unknown";
+  // 1. Git SHA (graceful degradation: still hashes everything, just marks commit as null)
+  let commit = null;
+  let gitWarning = null;
   try {
     commit = execSync("git rev-parse --short HEAD", { cwd: root, encoding: "utf8" }).trim();
-  } catch { /* fail soft */ }
+  } catch {
+    gitWarning = "commit SHA unavailable (not a git repo or no commits)";
+    console.log(`  ⚠ ${gitWarning} — receipt will have commit: null`);
+  }
 
   // 2. MarketIR lock hash
   const snapshot = safeParseJson(join(dataDir, "marketir", "marketir.snapshot.json"), {});
@@ -131,7 +135,7 @@ export function buildTrustReceipt(opts = {}) {
     }
   }
 
-  return {
+  const receipt = {
     generatedAt: new Date().toISOString(),
     commit,
     marketirLockHash,
@@ -140,6 +144,8 @@ export function buildTrustReceipt(opts = {}) {
     worthyStats,
     artifactManifest,
   };
+  if (gitWarning) receipt.warning = gitWarning;
+  return receipt;
 }
 
 /**

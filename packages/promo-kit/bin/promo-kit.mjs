@@ -14,6 +14,15 @@
  *   promo-kit --help
  */
 
+// ── Node version gate (must be first) ──────────────────────
+const [major] = process.versions.node.split(".").map(Number);
+if (major < 22) {
+  console.error(`promo-kit requires Node.js >= 22 (detected: ${process.version})`);
+  console.error(`  Fix: nvm install 22 && nvm use 22`);
+  console.error(`  Or:  volta install node@22`);
+  process.exit(1);
+}
+
 import { existsSync, copyFileSync, readFileSync } from "node:fs";
 import { resolve, join, dirname } from "node:path";
 import { fork } from "node:child_process";
