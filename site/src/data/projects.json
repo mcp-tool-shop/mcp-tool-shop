@@ -175,7 +175,7 @@
     "featured": true,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T10:41:29Z",
+    "updatedAt": "2026-02-15T12:00:22Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -195,7 +195,8 @@
       "Runtime vulnerability scanning (heuristics, not CVEs)"
     ],
     "screenshot": "/screenshots/zip-meta-map.png",
-    "screenshotType": "real"
+    "screenshotType": "real",
+    "publicProof": true
   },
   {
     "name": "Attestia",
@@ -450,6 +451,19 @@
     "updatedAt": "2026-02-02T02:04:48Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false
+  },
+  {
+    "name": "Clearance Opinion Engine",
+    "repo": "clearance-opinion-engine",
+    "description": "Deterministic name-availability and clearance-opinion engine",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-02-16T08:22:19Z",
+    "registered": false,
+    "unlisted": true,
     "deprecated": false
   },
   {
@@ -1005,7 +1019,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T08:32:12Z",
+    "updatedAt": "2026-02-15T12:24:12Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -1045,6 +1059,19 @@
     "stars": 0,
     "language": "C#",
     "updatedAt": "2026-02-12T03:51:24Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
+    "name": "Nameops",
+    "repo": "nameops",
+    "description": "Name clearance orchestrator — batch runs, publish, and PR automation for the clearance-opinion-engine",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-02-16T08:21:49Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
