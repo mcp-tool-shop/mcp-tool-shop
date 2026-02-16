@@ -71,6 +71,7 @@ Everything runs locally. No cloud dependencies for core functionality. Tools com
 
 | Doc | Purpose |
 |-----|---------|
+| [Quickstart](docs/quickstart.md) | Zero to trust receipt in 5 minutes (npm package) |
 | [Handbook](docs/HANDBOOK.md) | How the site works, common tasks, glossary |
 | [Presskit Handbook](docs/presskit-handbook.md) | Brand assets, blurbs, verification examples for press |
 | [Automation contract](docs/automation.md) | Data ownership, override schema, merge rules |

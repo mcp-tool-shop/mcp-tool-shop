@@ -51,6 +51,7 @@ Edit `kit.config.json` (minimum):
 - `org.account`
 - `site.title`
 - `contact.email`
+- `paths.dataDir` / `paths.publicDir` — override if your data lives somewhere other than `site/src/data`
 
 Validate the installation:
 
@@ -182,6 +183,7 @@ KIT_CONFIG=examples/pilot-org/kit.config.json npx promo-kit selftest
 
 ## Links
 
+- [Quickstart](https://github.com/mcp-tool-shop/mcp-tool-shop/blob/main/docs/quickstart.md) — zero to trust receipt in 5 minutes
 - [Portable Core docs](https://github.com/mcp-tool-shop/mcp-tool-shop/blob/main/docs/portable-core.md) — contract + field reference
 - [Presskit Handbook](https://github.com/mcp-tool-shop/mcp-tool-shop/blob/main/docs/presskit-handbook.md) — assets + verification walkthrough
 - [Trust Center](https://mcp-tool-shop.github.io/trust/) — live example of the verification UX
