@@ -1,0 +1,83 @@
+name: Weekly clearance freshness
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 10 * * 4'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: clearance-weekly
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install clearance engine
+        run: npm install -g @mcptoolshop/clearance-opinion-engine
+
+      - name: Refresh stale reports
+        id: refresh
+        run: |
+          CLEARANCE_DIR="site/public/lab/clearance"
+          REFRESHED=0
+
+          for dir in "$CLEARANCE_DIR"/*/; do
+            [ ! -f "${dir}run.json" ] && continue
+            REFRESH_DIR="${dir%/}-refresh"
+            if coe refresh "${dir}" --max-age-hours 168; then
+              if [ -d "$REFRESH_DIR" ]; then
+                coe publish "$REFRESH_DIR" "${dir}" --index "$CLEARANCE_DIR/runs.json"
+                rm -rf "$REFRESH_DIR"
+                REFRESHED=$((REFRESHED + 1))
+              fi
+            fi
+          done
+
+          echo "refreshed=$REFRESHED" >> "$GITHUB_OUTPUT"
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet site/public/lab/clearance/; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open PR if changed
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="auto/clearance-weekly"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add site/public/lab/clearance/
+          git checkout -B "$BRANCH"
+          git commit -m "chore(auto): refresh stale clearance reports"
+          git push --force origin "$BRANCH"
+
+          EXISTING=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+
+          if [ -n "$EXISTING" ]; then
+            gh pr edit "$EXISTING" --body "Refreshed stale clearance reports (auto)"
+          else
+            gh pr create \
+              --title "chore(auto): refresh stale clearance reports" \
+              --body "Weekly freshness check refreshed stale clearance reports." \
+              --base main \
+              --head "$BRANCH"
+          fi

@@ -1,0 +1,173 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  title="Name Clearance Engine - mcp-tool-shop"
+  description="Check namespace availability across npm, PyPI, GitHub, crates.io, Docker Hub, and domain registries before committing to a name."
+  currentPath="/clearance/"
+>
+  <div class="page-content clearance-page">
+    <h1>Name Clearance Engine</h1>
+    <p class="subtitle">
+      Check namespace availability across package registries, code hosts, and domain registries
+      before committing to a name. Get a deterministic GREEN / YELLOW / RED opinion in seconds.
+    </p>
+
+    <div class="two-col">
+      <section>
+        <h2>What it does</h2>
+        <ul>
+          <li>Checks namespace availability across npm, PyPI, GitHub, crates.io, Docker Hub, Hugging Face, and domains</li>
+          <li>Generates phonetic, homoglyph, and fuzzy variants to detect near-conflicts</li>
+          <li>Produces a deterministic GREEN / YELLOW / RED tier opinion with explainable scoring</li>
+          <li>Builds reservation links so you can claim handles immediately</li>
+          <li>Runs entirely locally &mdash; no API keys needed for core checks</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>What it does NOT do</h2>
+        <ul>
+          <li>Search trademark databases (USPTO, EUIPO, WIPO)</li>
+          <li>Provide legal advice or a legal opinion</li>
+          <li>Auto-register or auto-claim any namespaces</li>
+          <li>Replace professional trademark counsel</li>
+        </ul>
+      </section>
+    </div>
+
+    <h2>Quickstart</h2>
+    <p>Run a one-off check without installing anything:</p>
+    <pre><code>npx @mcptoolshop/clearance-opinion-engine check my-tool-name</code></pre>
+    <p>Or install globally for repeated use:</p>
+    <pre><code>npm install -g @mcptoolshop/clearance-opinion-engine</code></pre>
+    <pre><code>coe check my-tool-name --radar --suggest</code></pre>
+
+    <h2>How Tiers Work</h2>
+    <div class="tiers">
+      <div class="tier tier-green">
+        <span class="tier-badge green">GREEN</span>
+        <p>All namespaces available. No conflicts detected. Safe to claim.</p>
+      </div>
+      <div class="tier tier-yellow">
+        <span class="tier-badge yellow">YELLOW</span>
+        <p>Some concerns found. Review near-conflicts before proceeding.</p>
+      </div>
+      <div class="tier tier-red">
+        <span class="tier-badge red">RED</span>
+        <p>Direct conflicts detected. Name change recommended.</p>
+      </div>
+    </div>
+
+    <h2>Links</h2>
+    <ul>
+      <li>
+        <a href="https://github.com/mcp-tool-shop-org/clearance-opinion-engine" rel="noopener">GitHub repository</a>
+      </li>
+      <li>
+        <a href="https://www.npmjs.com/package/@mcptoolshop/clearance-opinion-engine" rel="noopener">npm package</a>
+      </li>
+    </ul>
+  </div>
+</Base>
+
+<style>
+  .clearance-page {
+    max-width: 800px;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text-muted, #8b949e);
+    margin-bottom: 2rem;
+  }
+
+  /* Two-column grid for does / does-not */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 640px) {
+    .two-col {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  }
+
+  .two-col h2 {
+    margin-top: 0;
+  }
+
+  /* Code blocks */
+  pre {
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 6px;
+    padding: 0.875rem 1rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+
+  code {
+    font-family: 'SF Mono', 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
+    font-size: 0.875rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  /* Tier cards */
+  .tiers {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tier {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+  }
+
+  .tier p {
+    margin: 0;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .tier-badge {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .tier-badge.green {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+  }
+
+  .tier-badge.yellow {
+    background: rgba(234, 179, 8, 0.15);
+    color: #eab308;
+    border: 1px solid rgba(234, 179, 8, 0.3);
+  }
+
+  .tier-badge.red {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+  }
+</style>
