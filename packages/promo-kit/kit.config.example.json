@@ -15,5 +15,9 @@
   },
   "contact": {
     "email": "team@example.com"
+  },
+  "paths": {
+    "dataDir": "site/src/data",
+    "publicDir": "site/public"
   }
 }

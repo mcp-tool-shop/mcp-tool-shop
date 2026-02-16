@@ -74,6 +74,20 @@ check("kit.config.json is valid JSON with required fields", () => {
   assert(config.paths?.publicDir, "paths.publicDir missing");
 });
 
+// Warn about unknown keys in paths (common misconfiguration)
+check("no unknown keys in paths", () => {
+  const knownPathKeys = new Set(["dataDir", "publicDir"]);
+  const unknownKeys = Object.keys(config.paths || {}).filter((k) => !knownPathKeys.has(k));
+  if (unknownKeys.length > 0) {
+    const hints = unknownKeys.map((k) => {
+      if (k === "data") return `"paths.data" → did you mean "paths.dataDir"?`;
+      if (k === "public") return `"paths.public" → did you mean "paths.publicDir"?`;
+      return `"paths.${k}" is not a recognized field`;
+    });
+    throw new Error(`Unknown paths keys: ${hints.join("; ")}`);
+  }
+});
+
 check("kitVersion in supported range", () => {
   const v = config.kitVersion;
   assert(

@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.3 — 2026-02-16
+
+### Fixed
+
+- Config template now includes `paths.dataDir` and `paths.publicDir` so path overrides are discoverable
+- Selftest detects unknown keys in `paths` (e.g. `paths.data` → "did you mean `paths.dataDir`?")
+
+### Added
+
+- Dogfood pilot: trust receipt generated against own catalog repo (commit + SHA-256 hashes)
+
 ## 0.1.2 — 2026-02-16
 
 ### Changed
