@@ -1,0 +1,370 @@
+---
+import Base from "../../../layouts/Base.astro";
+import fs from "node:fs";
+import path from "node:path";
+
+export function getStaticPaths() {
+  const baseDir = path.join(process.cwd(), "public/lab/clearance");
+  const paths: { params: { slug: string } }[] = [];
+
+  try {
+    if (fs.existsSync(baseDir)) {
+      const entries = fs.readdirSync(baseDir, { withFileTypes: true });
+      for (const entry of entries) {
+        if (entry.isDirectory()) {
+          const reportPath = path.join(baseDir, entry.name, "report.html");
+          if (fs.existsSync(reportPath)) {
+            paths.push({ params: { slug: entry.name } });
+          }
+        }
+      }
+    }
+  } catch {
+    // No directories available
+  }
+
+  return paths;
+}
+
+const { slug } = Astro.params;
+
+// Load clearance index metadata
+let meta: any = null;
+const indexPath = path.join(process.cwd(), "public/lab/clearance", slug!, "clearance-index.json");
+try {
+  if (fs.existsSync(indexPath)) {
+    meta = JSON.parse(fs.readFileSync(indexPath, "utf8"));
+  }
+} catch {
+  // No index available
+}
+
+// Load the report HTML
+let reportHtml = "";
+const reportPath = path.join(process.cwd(), "public/lab/clearance", slug!, "report.html");
+try {
+  if (fs.existsSync(reportPath)) {
+    reportHtml = fs.readFileSync(reportPath, "utf8");
+  }
+} catch {
+  // No report available
+}
+
+const candidateName = meta?.name || slug || "Unknown";
+const tier = meta?.tier || null;
+const score = meta?.score ?? null;
+const date = meta?.date || null;
+
+const title = `Clearance: ${candidateName}`;
+const description = `Name clearance report for "${candidateName}"`;
+
+// Tier color helper
+function tierColor(t: string | null) {
+  if (!t) return "#8b949e";
+  const colors: Record<string, string> = {
+    GREEN: "#22c55e",
+    YELLOW: "#eab308",
+    RED: "#ef4444",
+  };
+  return colors[t.toUpperCase()] || "#8b949e";
+}
+
+function tierBg(t: string | null) {
+  if (!t) return "rgba(110, 118, 129, 0.15)";
+  const colors: Record<string, string> = {
+    GREEN: "rgba(34, 197, 94, 0.15)",
+    YELLOW: "rgba(234, 179, 8, 0.15)",
+    RED: "rgba(239, 68, 68, 0.15)",
+  };
+  return colors[t.toUpperCase()] || "rgba(110, 118, 129, 0.15)";
+}
+
+function formatDate(dateStr: string | null) {
+  if (!dateStr) return null;
+  try {
+    return new Date(dateStr).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+  } catch {
+    return dateStr;
+  }
+}
+---
+
+<Base
+  title={title}
+  description={description}
+  currentPath={`/lab/clearance/${slug}/`}
+>
+  <head>
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+
+  <div class="report-page">
+    <span class="internal-badge">Internal</span>
+
+    <a href="/lab/clearance/" class="back-link">&larr; All reports</a>
+
+    <div class="report-header">
+      <h1>
+        <span class="candidate-name">{candidateName}</span>
+        {tier && (
+          <span
+            class="tier-badge"
+            style={`background: ${tierBg(tier)}; color: ${tierColor(tier)};`}
+          >
+            {tier.toUpperCase()}
+          </span>
+        )}
+      </h1>
+
+      <div class="meta-grid">
+        {score !== null && (
+          <div class="meta-item">
+            <span class="meta-label">Coverage Score</span>
+            <span class="meta-value">{score}</span>
+          </div>
+        )}
+        {date && (
+          <div class="meta-item">
+            <span class="meta-label">Generated</span>
+            <span class="meta-value">{formatDate(date)}</span>
+          </div>
+        )}
+        <div class="meta-item">
+          <span class="meta-label">Slug</span>
+          <span class="meta-value mono">{slug}</span>
+        </div>
+      </div>
+    </div>
+
+    {reportHtml ? (
+      <div class="iframe-container">
+        <iframe
+          srcdoc={reportHtml}
+          title={`Clearance report for ${candidateName}`}
+          sandbox="allow-same-origin"
+        />
+      </div>
+    ) : (
+      <div class="empty-state">
+        <p>Report HTML not found for this entry.</p>
+      </div>
+    )}
+
+    <div class="report-actions">
+      <a
+        href={`/lab/clearance/${slug}/report.html`}
+        download={`${slug}-clearance-report.html`}
+        class="action-link"
+      >
+        Download full report (HTML)
+      </a>
+      <a href="/lab/clearance/" class="action-link secondary">&larr; All reports</a>
+    </div>
+
+    <div class="provenance">
+      <h3>Data Sources</h3>
+      <ul>
+        <li>Report: <code>public/lab/clearance/{slug}/report.html</code></li>
+        <li>Index: <code>public/lab/clearance/{slug}/clearance-index.json</code></li>
+        <li>Generator: <code>coe check {candidateName}</code></li>
+      </ul>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .report-page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .internal-badge {
+    display: inline-block;
+    background: #d29922;
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--color-link, #58a6ff);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  .report-header {
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    margin: 0 0 1rem;
+    font-size: 1.75rem;
+    color: var(--color-text, #e6edf3);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .candidate-name {
+    font-family: monospace;
+  }
+
+  .tier-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .meta-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted, #8b949e);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  .meta-value {
+    font-size: 0.95rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .meta-value.mono {
+    font-family: monospace;
+    font-size: 0.85rem;
+  }
+
+  .iframe-container {
+    margin-bottom: 1.5rem;
+  }
+
+  iframe {
+    width: 100%;
+    min-height: 800px;
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+    background: #1a1a2e;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--color-text-muted, #8b949e);
+    font-size: 1.1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .report-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .action-link {
+    font-size: 0.85rem;
+    color: var(--color-link, #58a6ff);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 4px;
+  }
+
+  .action-link:hover {
+    background: rgba(56, 139, 253, 0.1);
+  }
+
+  .action-link.secondary {
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .action-link.secondary:hover {
+    color: var(--color-text, #e6edf3);
+    background: rgba(110, 118, 129, 0.1);
+  }
+
+  /* Provenance */
+  .provenance {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, #30363d);
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.8rem;
+  }
+
+  .provenance h3 {
+    font-size: 0.85rem;
+    margin: 0 0 0.5rem;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .provenance ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .provenance li {
+    margin: 0.3rem 0;
+  }
+
+  .provenance code {
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 1.3rem;
+    }
+
+    .meta-grid {
+      grid-template-columns: 1fr;
+    }
+
+    iframe {
+      min-height: 500px;
+    }
+  }
+</style>
