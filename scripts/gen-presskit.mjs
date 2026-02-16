@@ -19,6 +19,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { htmlEsc } from "./lib/sanitize.mjs";
+import { fail, warn } from "./lib/errors.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -43,8 +44,10 @@ function readJson(filePath) {
 
 const overrides = readJson(OVERRIDES_PATH);
 if (!overrides) {
-  console.error("Failed to load overrides.json");
-  process.exit(1);
+  fail("MKT.DATA.MISSING", "overrides.json not found or invalid JSON", {
+    fix: "Run `node scripts/sync-org-metadata.mjs` to generate it.",
+    path: OVERRIDES_PATH,
+  });
 }
 
 const snapshot = readJson(path.join(DATA_DIR, "marketir.snapshot.json"));
@@ -84,7 +87,10 @@ console.log(`Generating press kits for: ${enabledSlugs.join(", ")}\n`);
 for (const slug of enabledSlugs) {
   const tool = readJson(path.join(DATA_DIR, "data", "tools", `${slug}.json`));
   if (!tool) {
-    console.warn(`  ⚠ No MarketIR data for ${slug}, skipping.`);
+    warn("MKT.DATA.MISSING", `No MarketIR data for "${slug}", skipping press kit`, {
+      fix: "Run `node scripts/fetch-marketir.mjs` to pull upstream data.",
+      path: path.join(DATA_DIR, "data", "tools", `${slug}.json`),
+    });
     continue;
   }
 

@@ -19,6 +19,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { fail } from "./lib/errors.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -65,8 +66,10 @@ async function ghApiSafe(endpoint, label) {
 
 const overrides = readJson(OVERRIDES_PATH);
 if (!overrides) {
-  console.error("Failed to load overrides.json");
-  process.exit(1);
+  fail("MKT.DATA.MISSING", "overrides.json not found or invalid JSON", {
+    fix: "Run `node scripts/sync-org-metadata.mjs` to generate it.",
+    path: OVERRIDES_PATH,
+  });
 }
 
 const enabledSlugs = Object.entries(overrides)

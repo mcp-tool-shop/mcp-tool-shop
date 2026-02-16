@@ -27,6 +27,7 @@ import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { fail } from "./lib/errors.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -147,8 +148,10 @@ async function main() {
   }
 
   if (hashErrors > 0) {
-    console.error(`\n${hashErrors} hash verification error(s). Aborting.`);
-    process.exit(1);
+    fail("MKT.HASH.MISMATCH", `${hashErrors} file(s) failed hash verification`, {
+      fix: "Re-run the script. If it persists, the upstream lockfile may be stale.",
+      nerd: `Source: ${REPO}@${BRANCH}`,
+    });
   }
   console.log("   All hashes verified.");
 
@@ -180,10 +183,10 @@ async function main() {
       const buf = await fetchBinary(remotePath);
       const actualHash = sha256Buf(buf);
       if (actualHash !== entry.sha256) {
-        console.error(`   EVIDENCE HASH MISMATCH: ${entry.id}`);
-        console.error(`     expected: ${entry.sha256}`);
-        console.error(`     got:      ${actualHash}`);
-        process.exit(1);
+        fail("MKT.HASH.MISMATCH", `Evidence artifact "${entry.id}" failed hash verification`, {
+          fix: "Re-run the script. The upstream evidence file may have changed without a lockfile update.",
+          nerd: `expected ${entry.sha256}, got ${actualHash}`,
+        });
       }
       const outPath = path.join(EVIDENCE_DIR, path.basename(entry.path));
       fs.writeFileSync(outPath, buf);
@@ -220,6 +223,8 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error(`MarketIR fetch failed: ${err.message}`);
-  process.exit(1);
+  fail("MKT.FETCH.NETWORK", `MarketIR fetch failed: ${err.message}`, {
+    fix: "Check your network connection and GITHUB_TOKEN. Run with --dry-run to test.",
+    nerd: `Source: ${REPO}@${BRANCH}`,
+  });
 });

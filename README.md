@@ -36,7 +36,15 @@ Everything runs locally. No cloud dependencies for core functionality. Tools com
 
 ---
 
-This repo also hosts the [mcp-tool-shop marketing site](https://mcp-tool-shop.github.io/) via GitHub Pages. See [`CONTRIBUTING.md`](CONTRIBUTING.md) for local development instructions.
+### Marketing Wing
+
+This repo also hosts the [mcp-tool-shop marketing site](https://mcp-tool-shop.github.io/) via GitHub Pages. The pipeline fetches tool data, verifies integrity, generates press kits and outreach materials, and deploys automatically.
+
+- **[Handbook](docs/HANDBOOK.md)** — how the site works, common tasks, glossary
+- **[Automation contract](docs/automation.md)** — data ownership, override schema, merge rules
+- **[Security model](docs/SECURITY-MODEL.md)** — threat model, sanitization, CI controls
+- **[Internal recap](docs/INTERNAL-MARKETING-WING.md)** — architecture, script inventory, error codes
+- **[Contributing](CONTRIBUTING.md)** — local dev setup
 
 <div align="center">
 
