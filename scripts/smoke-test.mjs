@@ -32,6 +32,7 @@ const CHECKS = [
   { url: "/lab/marketir/", expect: 200, label: "lab: marketir preview" },
   { url: "/lab/signals/", expect: 200, label: "lab: signals dashboard" },
   { url: "/lab/targets/", expect: 200, label: "lab: targets viewer" },
+  { url: "/lab/clearance/", expect: 200, label: "lab: clearance index" },
 
   // Marketing outputs (generated from MarketIR)
   { url: "/presskit/zip-meta-map/", expect: 200, label: "presskit: zip-meta-map" },
@@ -207,6 +208,26 @@ try {
 } catch (err) {
   console.error(`  ✗ snippet source marker check failed: ${err.message}`);
   failed++;
+}
+
+// ── Clearance runs.json check (warning-only) ────────────────
+try {
+  const clearanceRes = await fetch(`${BASE}/lab/clearance/runs.json`);
+  if (clearanceRes.ok) {
+    const data = await clearanceRes.json();
+    if (Array.isArray(data)) {
+      console.log(`  ✓ clearance runs.json: ${data.length} entries`);
+      if (data.length > 0) passed++;
+    } else {
+      console.warn(`  ⚠ clearance runs.json is not an array`);
+    }
+  } else if (clearanceRes.status === 404) {
+    console.warn(`  ⚠ clearance runs.json not populated yet (404)`);
+  } else {
+    console.warn(`  ⚠ clearance runs.json returned ${clearanceRes.status}`);
+  }
+} catch (err) {
+  console.warn(`  ⚠ clearance check skipped: ${err.message}`);
 }
 
 // ── Target list checks (warning-only, never fail build) ─────

@@ -1,0 +1,100 @@
+name: NameOps scheduled clearance
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 6 * * 2'   # Tuesday 06:00 UTC
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: nameops-scheduled
+  cancel-in-progress: true
+
+jobs:
+  clearance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout marketing repo
+        uses: actions/checkout@v4
+
+      - name: Checkout nameops repo
+        uses: actions/checkout@v4
+        with:
+          repository: mcp-tool-shop-org/nameops
+          path: _nameops
+          token: ${{ secrets.NAMEOPS_PAT || secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Restore COE cache
+        uses: actions/cache@v4
+        with:
+          path: .coe-cache
+          key: coe-nameops-${{ hashFiles('_nameops/data/names.txt') }}-${{ github.run_number }}
+          restore-keys: |
+            coe-nameops-${{ hashFiles('_nameops/data/names.txt') }}-
+            coe-nameops-
+
+      - name: Install clearance engine
+        run: npm install -g @mcptoolshop/clearance-opinion-engine
+
+      - name: Run NameOps pipeline
+        run: |
+          node _nameops/src/run.mjs \
+            --out /tmp/nameops-output \
+            --profile _nameops/data/profile.json \
+            --names _nameops/data/names.txt
+
+      - name: Ingest artifacts
+        run: node scripts/ingest-clearance.mjs /tmp/nameops-output/published
+
+      - name: Build PR body
+        id: pr_body
+        run: |
+          node _nameops/src/build-pr-body.mjs /tmp/nameops-output
+          echo "body_path=/tmp/nameops-output/pr-body.md" >> "$GITHUB_OUTPUT"
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet site/public/lab/clearance/; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open PR if changed
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          BRANCH="auto/nameops-clearance-${DATE}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add site/public/lab/clearance/
+          git checkout -B "$BRANCH"
+          git commit -m "chore(auto): nameops clearance run ${DATE}"
+          git push --force origin "$BRANCH"
+
+          BODY=$(cat "${{ steps.pr_body.outputs.body_path }}" 2>/dev/null || echo "NameOps clearance run ${DATE}")
+
+          EXISTING=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+
+          if [ -n "$EXISTING" ]; then
+            gh pr edit "$EXISTING" --body "$BODY"
+          else
+            gh pr create \
+              --title "chore(auto): nameops clearance run ${DATE}" \
+              --body "$BODY" \
+              --base main \
+              --head "$BRANCH"
+          fi
