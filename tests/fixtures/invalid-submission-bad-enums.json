@@ -1,0 +1,21 @@
+{
+  "tool": {
+    "name": "Bad Enums Tool",
+    "slug": "bad-enums-tool",
+    "repo": "https://github.com/org/bad-enums"
+  },
+  "category": "social",
+  "kind": "webapp",
+  "pitch": "A tool that uses invalid enum values for testing validation.",
+  "goodFor": ["Testing enum validation"],
+  "proof": [
+    {
+      "label": "Tests",
+      "url": "https://github.com/org/bad-enums/actions",
+      "whatItProves": "Tests pass"
+    }
+  ],
+  "maintainer": {
+    "handle": "@enum-tester"
+  }
+}

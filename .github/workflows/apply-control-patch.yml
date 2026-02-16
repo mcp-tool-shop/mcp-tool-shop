@@ -1,0 +1,89 @@
+name: Apply control patch
+
+on:
+  workflow_dispatch:
+    inputs:
+      patch_json:
+        description: 'Patch JSON (e.g., {"governance.json":{"decisionsFrozen":true}})'
+        required: true
+        type: string
+      reason:
+        description: 'Reason for this change'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: apply-control-patch
+  cancel-in-progress: false
+
+jobs:
+  apply-patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate and apply patch
+        run: node scripts/apply-control-patch.mjs '${{ inputs.patch_json }}'
+
+      - name: Run invariant tests
+        run: node --test tests/invariants/*.test.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet site/src/data/; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open PR
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="control-patch/$(date +%Y%m%d-%H%M%S)"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add site/src/data/governance.json site/src/data/promo.json site/src/data/promo-queue.json site/src/data/experiments.json
+          git commit -m "chore(control): apply control patch
+
+          Reason: ${{ inputs.reason }}"
+          git push origin "$BRANCH"
+          RISK_NOTES=$(cat /tmp/patch-risk-notes.txt 2>/dev/null || echo 'No risk notes')
+          DIFF_SUMMARY=$(git diff HEAD~1 --stat site/src/data/ | head -20)
+          gh pr create \
+            --title "chore(control): apply control patch" \
+            --body "$(cat <<'EOF'
+          ## Control Patch
+
+          **Reason:** ${{ inputs.reason }}
+
+          ### Patch Applied
+          \`\`\`json
+          ${{ inputs.patch_json }}
+          \`\`\`
+
+          ### Diff Summary
+          \`\`\`
+          '"${DIFF_SUMMARY}"'
+          \`\`\`
+
+          ### Risk Notes
+          '"${RISK_NOTES}"'
+          EOF
+          )" \
+            --base main --head "$BRANCH"

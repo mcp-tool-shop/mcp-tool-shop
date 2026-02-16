@@ -1,0 +1,320 @@
+---
+import Base from "../layouts/Base.astro";
+import fs from "node:fs";
+import path from "node:path";
+
+const title = "Experiments";
+const description = "How we test and improve marketing copy — experiment transparency.";
+
+// Load experiments.json
+let experiments: any = { experiments: [] };
+try {
+  const p = path.join(process.cwd(), "src/data/experiments.json");
+  if (fs.existsSync(p)) {
+    experiments = JSON.parse(fs.readFileSync(p, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+// Load experiment-decisions.json (for concluded winner labels)
+let expDecisions: any = { evaluations: [] };
+try {
+  const p = path.join(process.cwd(), "src/data/experiment-decisions.json");
+  if (fs.existsSync(p)) {
+    expDecisions = JSON.parse(fs.readFileSync(p, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+// Load governance.json for threshold info
+let governance: any = {};
+try {
+  const p = path.join(process.cwd(), "src/data/governance.json");
+  if (fs.existsSync(p)) {
+    governance = JSON.parse(fs.readFileSync(p, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+const allExperiments = experiments.experiments || [];
+const evaluations = expDecisions.evaluations || [];
+const threshold = governance.minExperimentDataThreshold || 10;
+
+// Build evaluation lookup
+const evalLookup: Record<string, any> = {};
+for (const ev of evaluations) {
+  evalLookup[ev.experimentId] = ev;
+}
+
+// Split experiments by status
+const active = allExperiments.filter((e: any) => e.status === "active");
+const concluded = allExperiments.filter((e: any) => e.status === "concluded");
+const draft = allExperiments.filter((e: any) => e.status === "draft");
+
+const hasAny = allExperiments.length > 0;
+
+// Dimension badge color mapping
+function dimensionColor(dim: string): string {
+  switch (dim) {
+    case "tagline": return "dim-blue";
+    case "snippet": return "dim-green";
+    case "cta": return "dim-amber";
+    default: return "dim-default";
+  }
+}
+---
+
+<Base
+  title={title}
+  description={description}
+  currentPath="/experiments/"
+>
+  <div class="experiments-page">
+    <h1>Experiments</h1>
+    <p class="subtitle">How we test and improve.</p>
+
+    <div class="how-it-works">
+      <h2>How it works</h2>
+      <p>
+        When we want to improve how a tool is presented &mdash; its tagline, snippet, or call-to-action &mdash;
+        we run a controlled experiment. Each experiment compares a control (current copy) against a variant
+        (proposed improvement). After collecting {threshold}+ data points per arm, the system evaluates
+        whether there's a clear winner. Winners get adopted; losers get dropped.
+      </p>
+    </div>
+
+    {!hasAny ? (
+      <div class="empty-state">
+        <p>No experiments running yet.</p>
+        <p>When we test marketing copy variations, they'll appear here.</p>
+      </div>
+    ) : (
+      <>
+        {/* Active experiments */}
+        {active.length > 0 && (
+          <>
+            <h2>Active Experiments</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Dimension</th>
+                    <th>What's Being Tested</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {active.map((exp: any) => (
+                    <tr>
+                      <td>{exp.name}</td>
+                      <td>
+                        <span class={`dim-badge ${dimensionColor(exp.dimension)}`}>
+                          {exp.dimension || "unknown"}
+                        </span>
+                      </td>
+                      <td class="test-desc">
+                        <code>{exp.control?.key || "control"}</code> vs <code>{exp.variant?.key || "variant"}</code>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+
+        {/* Concluded experiments */}
+        {concluded.length > 0 && (
+          <>
+            <h2>Concluded</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Dimension</th>
+                    <th>Winner</th>
+                    <th>Recommendation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {concluded.map((exp: any) => {
+                    const ev = evalLookup[exp.id];
+                    const winnerKey = ev?.winnerKey || "\u2014";
+                    const recommendation = ev?.recommendation || "No evaluation data";
+                    return (
+                      <tr>
+                        <td>{exp.name}</td>
+                        <td>
+                          <span class={`dim-badge ${dimensionColor(exp.dimension)}`}>
+                            {exp.dimension || "unknown"}
+                          </span>
+                        </td>
+                        <td class="mono">{winnerKey}</td>
+                        <td class="rec-text">{recommendation}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+
+        {/* Draft experiments */}
+        {draft.length > 0 && (
+          <>
+            <h2>Planned</h2>
+            <ul class="draft-list">
+              {draft.map((exp: any) => (
+                <li>
+                  <span class="draft-name">{exp.name}</span>
+                  {exp.dimension && (
+                    <span class={`dim-badge dim-small ${dimensionColor(exp.dimension)}`}>
+                      {exp.dimension}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </>
+    )}
+  </div>
+</Base>
+
+<style>
+  .experiments-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    margin: 0 0 0.25rem;
+    font-size: 2rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    color: var(--color-text, #e6edf3);
+    margin: 2rem 0 0.75rem;
+  }
+
+  .subtitle {
+    color: var(--color-text-muted, #8b949e);
+    margin: 0 0 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .how-it-works {
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .how-it-works h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+  }
+
+  .how-it-works p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #8b949e);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--color-text-muted, #8b949e);
+    font-size: 1.1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+  }
+
+  .table-wrap { overflow-x: auto; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  th {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 2px solid var(--color-border, #30363d);
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  td {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--color-border, #30363d);
+    color: var(--color-text, #e6edf3);
+  }
+
+  .mono {
+    font-family: monospace;
+    font-size: 0.8rem;
+  }
+
+  .test-desc code {
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
+
+  .rec-text {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .dim-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .dim-small {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.4rem;
+    margin-left: 0.5rem;
+  }
+
+  .dim-blue { background: rgba(56, 139, 253, 0.15); color: #388bfd; }
+  .dim-green { background: rgba(63, 185, 80, 0.15); color: #3fb950; }
+  .dim-amber { background: rgba(210, 153, 34, 0.15); color: #d29922; }
+  .dim-default { background: rgba(110, 118, 129, 0.15); color: #8b949e; }
+
+  .draft-list {
+    padding-left: 1.2rem;
+    margin: 0;
+  }
+
+  .draft-list li {
+    margin: 0.4rem 0;
+    font-size: 0.9rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .draft-name {
+    margin-right: 0.25rem;
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 1.5rem; }
+    table { font-size: 0.8rem; }
+  }
+</style>

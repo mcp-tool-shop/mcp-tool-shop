@@ -1,0 +1,36 @@
+{
+  "tool": {
+    "name": "Example MCP Tool",
+    "slug": "example-mcp-tool",
+    "repo": "https://github.com/mcp-tool-shop-org/example-mcp-tool"
+  },
+  "category": "mcp-core",
+  "kind": "mcp-server",
+  "pitch": "A demonstration MCP server that showcases best practices for tool registration and discovery.",
+  "goodFor": [
+    "Learning MCP server patterns",
+    "Rapid prototyping of new tools",
+    "Integration testing"
+  ],
+  "notFor": [
+    "Production use without customization"
+  ],
+  "proof": [
+    {
+      "label": "CI passing on main",
+      "url": "https://github.com/mcp-tool-shop-org/example-mcp-tool/actions",
+      "whatItProves": "All tests pass on every push"
+    },
+    {
+      "label": "Integration demo",
+      "url": "https://github.com/mcp-tool-shop-org/example-mcp-tool/blob/main/docs/demo.md",
+      "whatItProves": "Tool works end-to-end with Claude Desktop"
+    }
+  ],
+  "install": "npm install -g @mcp-tool-shop/example-mcp-tool",
+  "quickstart": "npx @mcp-tool-shop/example-mcp-tool init",
+  "maintainer": {
+    "handle": "@example-dev",
+    "contact": "dev@example.com"
+  }
+}

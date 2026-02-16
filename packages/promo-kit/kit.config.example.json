@@ -1,0 +1,19 @@
+{
+  "kitVersion": 1,
+  "org": {
+    "name": "your-org",
+    "account": "your-github-account",
+    "url": "https://github.com/your-org"
+  },
+  "site": {
+    "title": "Your Tool Catalog",
+    "url": "https://your-org.github.io",
+    "description": "Your catalog description."
+  },
+  "repo": {
+    "marketing": "your-account/your-repo"
+  },
+  "contact": {
+    "email": "team@example.com"
+  }
+}

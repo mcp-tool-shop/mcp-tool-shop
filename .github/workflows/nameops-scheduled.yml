@@ -117,6 +117,7 @@ jobs:
             site/src/data/feedback.jsonl \
             site/src/data/governance.json \
             site/src/data/experiments.json \
+            site/src/data/decision-drift-snapshot.json \
             2>/dev/null | sha256sum | cut -d' ' -f1)
           echo "hash=$HASH" >> "$GITHUB_OUTPUT"
 
@@ -163,6 +164,10 @@ jobs:
         if: steps.gen_cache.outputs.cache-hit != 'true'
         run: node scripts/gen-experiment-decisions.mjs
 
+      - name: Generate decision drift
+        if: steps.gen_cache.outputs.cache-hit != 'true'
+        run: node scripts/gen-decision-drift.mjs
+
       - name: Generate operator brief
         if: steps.gen_cache.outputs.cache-hit != 'true'
         run: node scripts/gen-operator-brief.mjs
@@ -200,7 +205,7 @@ jobs:
       - name: Check for changes
         id: diff
         run: |
-          if git diff --quiet site/public/lab/clearance/ site/src/data/ops-history.json site/src/data/ops-actions.json site/src/data/baseline.json site/src/data/promo-calendar.json site/src/data/promo-suggestions.json site/public/lab/fixit/ site/public/presskit/ site/public/snippets/ site/public/campaigns/ site/public/promo-bundles/ site/public/lab/worthy/ site/public/lab/baseline/ site/src/data/overrides.json site/public/outreach-run/ site/src/data/feedback-summary.json site/src/data/promo-decisions.json site/src/data/experiment-decisions.json site/public/lab/decisions/; then
+          if git diff --quiet site/public/lab/clearance/ site/src/data/ops-history.json site/src/data/ops-actions.json site/src/data/baseline.json site/src/data/promo-calendar.json site/src/data/promo-suggestions.json site/public/lab/fixit/ site/public/presskit/ site/public/snippets/ site/public/campaigns/ site/public/promo-bundles/ site/public/lab/worthy/ site/public/lab/baseline/ site/src/data/overrides.json site/public/outreach-run/ site/src/data/feedback-summary.json site/src/data/promo-decisions.json site/src/data/experiment-decisions.json site/public/lab/decisions/ site/src/data/decision-drift.json site/src/data/decision-drift-snapshot.json; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -226,7 +231,8 @@ jobs:
             site/src/data/overrides.json \
             site/public/outreach-run/ site/src/data/feedback-summary.json \
             site/src/data/promo-decisions.json site/src/data/experiment-decisions.json \
-            site/public/lab/decisions/
+            site/public/lab/decisions/ \
+            site/src/data/decision-drift.json site/src/data/decision-drift-snapshot.json
           git checkout -B "$BRANCH"
           git commit -m "chore(auto): nameops clearance run ${DATE}"
           git push --force origin "$BRANCH"

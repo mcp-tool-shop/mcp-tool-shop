@@ -23,6 +23,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve, join } from "node:path";
+import { buildPromoWeekReceipt } from "./gen-promo-week-receipt.mjs";
 
 const ROOT = resolve(import.meta.dirname, "..");
 const DATA_DIR = join(ROOT, "site", "src", "data");
@@ -394,6 +395,23 @@ export function generateOutreachRun(opts = {}) {
     const md = renderMarkdown(result);
     writeFileSync(join(dateDir, "outreach-run.md"), md, "utf8");
     console.log(`  Wrote ${join(dateDir, "outreach-run.md")}`);
+
+    // Generate promo-week receipt
+    try {
+      const receipt = buildPromoWeekReceipt({
+        dataDir: DATA_DIR,
+        publicDir: join(ROOT, "site", "public"),
+        week: dateStr,
+      });
+      writeFileSync(
+        join(dateDir, "promo-week-receipt.json"),
+        JSON.stringify(receipt, null, 2) + "\n",
+        "utf8"
+      );
+      console.log(`  Wrote ${join(dateDir, "promo-week-receipt.json")}`);
+    } catch (err) {
+      console.warn(`  [warn] Receipt generation failed: ${err.message}`);
+    }
   }
 
   // Log warnings

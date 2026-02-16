@@ -46,14 +46,14 @@ const fetchedDate = snapshot?.fetchedAt
                     const label = evidenceLabel(ev);
                     if (ev.type === "image" && localPath) {
                       return (
-                        <a href={localPath} class="evidence-link evidence-image" target="_blank" rel="noopener">
+                        <a href={localPath} class="evidence-link evidence-image" data-evidence-type="image" target="_blank" rel="noopener">
                           <img src={localPath} alt={label} loading="lazy" width="120" height="60" />
                         </a>
                       );
                     }
                     if (ev.type === "link" && ev.url) {
                       return (
-                        <a href={ev.url} class="evidence-link evidence-ext" target="_blank" rel="noopener">
+                        <a href={ev.url} class="evidence-link evidence-ext" data-evidence-type="link" target="_blank" rel="noopener">
                           {label}
                         </a>
                       );
@@ -298,3 +298,15 @@ const fetchedDate = snapshot?.fetchedAt
     margin-top: 0.5rem;
   }
 </style>
+
+<script>
+  import { trackEvent } from '../../lib/tracker';
+
+  document.querySelectorAll('.evidence-link[data-evidence-type]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const evidenceType = (link as HTMLElement).dataset.evidenceType || 'link';
+      const slug = window.location.pathname.split('/tools/')[1]?.replace(/\/$/, '') || '';
+      trackEvent('click_evidence_link', { slug, evidenceType });
+    });
+  });
+</script>

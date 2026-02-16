@@ -1,6 +1,9 @@
-import { describe, it } from "node:test";
+import { describe, it, beforeEach, afterEach } from "node:test";
 import assert from "node:assert/strict";
-import { buildDecisions } from "../../scripts/gen-promo-decisions.mjs";
+import { mkdirSync, writeFileSync, rmSync } from "node:fs";
+import { join } from "node:path";
+import { tmpdir } from "node:os";
+import { buildDecisions, generatePromoDecisions } from "../../scripts/gen-promo-decisions.mjs";
 
 function makeInputs(overrides = {}) {
   return {
@@ -246,5 +249,48 @@ describe("buildDecisions", () => {
     assert.ok(good, "good-tool decision should exist");
     assert.equal(deferred.action, "defer", "deferred-tool should be deferred");
     assert.equal(good.action, "promote", "good-tool should be promoted (defer doesn't consume budget)");
+  });
+});
+
+describe("generatePromoDecisions — freeze enforcement", () => {
+  let tempDir;
+
+  beforeEach(() => {
+    tempDir = join(tmpdir(), `promo-freeze-${Date.now()}-${Math.random().toString(36).slice(2)}`);
+    mkdirSync(tempDir, { recursive: true });
+
+    // Seed minimal data files
+    writeFileSync(join(tempDir, "promo-queue.json"), JSON.stringify({ week: "2026-02-17", slugs: ["tool-a"], promotionType: "own" }));
+    writeFileSync(join(tempDir, "promo.json"), JSON.stringify({ enabled: true }));
+    writeFileSync(join(tempDir, "overrides.json"), JSON.stringify({}));
+    writeFileSync(join(tempDir, "worthy.json"), JSON.stringify({ repos: {} }));
+    writeFileSync(join(tempDir, "feedback-summary.json"), JSON.stringify({ perSlug: {}, perExperiment: {} }));
+    writeFileSync(join(tempDir, "ops-history.json"), JSON.stringify([]));
+    writeFileSync(join(tempDir, "baseline.json"), JSON.stringify({ avgMinutesPerRun: 0, minuteBudgets: { "200": { headroom: 200 } } }));
+    writeFileSync(join(tempDir, "experiments.json"), JSON.stringify({ experiments: [] }));
+
+    // Seed existing promo-decisions.json (frozen state should preserve this)
+    writeFileSync(join(tempDir, "promo-decisions.json"), JSON.stringify({
+      generatedAt: "2026-02-15T00:00:00.000Z",
+      decisions: [{ slug: "frozen-tool", action: "promote", score: 80, explanation: ["frozen"] }],
+      budget: { tier: 200, headroom: 200, itemsAllowed: 3 },
+      warnings: [],
+    }));
+  });
+
+  afterEach(() => {
+    try { rmSync(tempDir, { recursive: true, force: true }); } catch {}
+  });
+
+  it("returns frozen flag and preserves existing decisions when decisionsFrozen=true", () => {
+    writeFileSync(join(tempDir, "governance.json"), JSON.stringify({
+      schemaVersion: 2, decisionsFrozen: true, experimentsFrozen: false,
+      maxPromosPerWeek: 3, cooldownDaysPerSlug: 14, cooldownDaysPerPartner: 14,
+      minCoverageScore: 80, minExperimentDataThreshold: 10, hardRules: [],
+    }));
+
+    const result = generatePromoDecisions({ dataDir: tempDir, decisionsDir: tempDir, dryRun: true });
+    assert.equal(result.frozen, true, "should return frozen: true");
+    assert.equal(result.decisionCount, 1, "should preserve existing decision count");
   });
 });

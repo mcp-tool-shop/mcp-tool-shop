@@ -1,0 +1,15 @@
+{
+  "generatedAt": null,
+  "totalEvents": 0,
+  "byType": {},
+  "bySlug": {},
+  "byWeek": {},
+  "metrics": {
+    "verificationRate": 0,
+    "totalVerifyActions": 0,
+    "totalProofActions": 0,
+    "submissionClicks": 0,
+    "trustInteractionScoreByWeek": {}
+  },
+  "guardrails": {}
+}

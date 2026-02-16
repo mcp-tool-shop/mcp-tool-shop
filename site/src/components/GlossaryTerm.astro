@@ -1,0 +1,45 @@
+---
+interface Props {
+  term: string;
+  definition: string;
+}
+
+const { term, definition } = Astro.props;
+---
+
+<span class="glossary-term" data-definition={definition}>
+  {term}
+  <span class="glossary-tooltip">{definition}</span>
+</span>
+
+<style>
+  .glossary-term {
+    position: relative;
+    border-bottom: 1px dotted var(--color-text-muted, #8b949e);
+    cursor: help;
+  }
+
+  .glossary-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1c2128;
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.78rem;
+    color: var(--color-text, #e6edf3);
+    white-space: normal;
+    width: max-content;
+    max-width: 260px;
+    line-height: 1.4;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .glossary-term:hover .glossary-tooltip {
+    display: block;
+  }
+</style>

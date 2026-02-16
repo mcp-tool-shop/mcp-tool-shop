@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "description": "Privacy-respecting telemetry event schema. No cookies, no user IDs, no IP storage, no fingerprinting. Only slugs and enums.",
+  "eventTypes": {
+    "copy_proof_link": {
+      "description": "User copied a proof link from promo week page",
+      "payload": {
+        "week": { "type": "string", "pattern": "^\\d{4}-W\\d{2}$" },
+        "slug": { "type": "string", "maxLength": 80 }
+      }
+    },
+    "copy_bundle": {
+      "description": "User copied verification bundle JSON",
+      "payload": {
+        "week": { "type": "string", "pattern": "^\\d{4}-W\\d{2}$" }
+      }
+    },
+    "copy_verify_cmd": {
+      "description": "User copied verification shell command",
+      "payload": {
+        "week": { "type": "string", "pattern": "^\\d{4}-W\\d{2}$" }
+      }
+    },
+    "copy_install": {
+      "description": "User copied install command from tool page",
+      "payload": {
+        "slug": { "type": "string", "maxLength": 80 }
+      }
+    },
+    "copy_proof_bullets": {
+      "description": "User copied proof bullets from proof page",
+      "payload": {
+        "slug": { "type": "string", "maxLength": 80 }
+      }
+    },
+    "copy_claim": {
+      "description": "User copied individual claim text",
+      "payload": {
+        "slug": { "type": "string", "maxLength": 80 },
+        "claimIndex": { "type": "number", "minimum": 0, "maximum": 50 }
+      }
+    },
+    "click_evidence_link": {
+      "description": "User clicked evidence link on tool detail page",
+      "payload": {
+        "slug": { "type": "string", "maxLength": 80 },
+        "evidenceType": { "type": "string", "enum": ["image", "link", "file"] }
+      }
+    },
+    "click_receipt_link": {
+      "description": "User clicked a receipt link",
+      "payload": {
+        "week": { "type": "string", "pattern": "^\\d{4}-W\\d{2}$" }
+      }
+    },
+    "click_submit_link": {
+      "description": "User clicked fork or template link on submit page",
+      "payload": {
+        "linkType": { "type": "string", "enum": ["fork", "queue", "trust"] }
+      }
+    }
+  },
+  "privacy": {
+    "cookies": false,
+    "userIds": false,
+    "ipStorage": false,
+    "fingerprinting": false,
+    "externalServices": false,
+    "storage": "localStorage",
+    "exportMethod": "manual"
+  },
+  "constraints": {
+    "maxBufferSize": 1000,
+    "dedupeWindowMs": 2000,
+    "allowedPayloadTypes": ["string", "number"]
+  }
+}

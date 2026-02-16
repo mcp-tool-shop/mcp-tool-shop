@@ -1,0 +1,13 @@
+{
+  "rubric": {
+    "criteria": [
+      "README exists with purpose, install, quickstart",
+      "Has at least one release or tag",
+      "Tests exist and pass in CI",
+      "License file present",
+      "No critical security issues"
+    ],
+    "minimumScore": 3
+  },
+  "scores": {}
+}

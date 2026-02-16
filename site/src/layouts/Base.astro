@@ -1,5 +1,6 @@
 ---
 import registryMeta from '../data/registry/meta.json';
+import { kit } from '../lib/kit';
 
 interface Props {
   title: string;
@@ -10,12 +11,12 @@ interface Props {
 
 const {
   title,
-  description = 'Building the tools that AI agents use to get real work done.',
+  description = kit.site.description || 'Building the tools that AI agents use to get real work done.',
   currentPath = '',
   ogImage,
 } = Astro.props;
 
-const siteUrl = 'https://mcptoolshop.com';
+const siteUrl = kit.site.url || 'https://mcptoolshop.com';
 const canonicalUrl = new URL(currentPath || '/', siteUrl).href;
 const ogImageUrl = ogImage ? new URL(ogImage, siteUrl).href : undefined;
 
@@ -57,7 +58,7 @@ const cleanupUrl = meta.cleanupIssueUrl || null;
   <body>
     <nav class="site-nav">
       <div class="container">
-        <a href="/" class="logo">mcp-tool-shop</a>
+        <a href="/" class="logo">{kit.site.title || 'mcp-tool-shop'}</a>
         <ul class="nav-links">
           {navLinks.map((link) => (
             <li>
@@ -82,10 +83,10 @@ const cleanupUrl = meta.cleanupIssueUrl || null;
     <footer class="site-footer">
       <div class="container">
         <div class="footer-top">
-          <span>&copy; {new Date().getFullYear()} mcp-tool-shop</span>
+          <span>&copy; {new Date().getFullYear()} {kit.site.title || 'mcp-tool-shop'}</span>
           <ul class="footer-links">
-            <li><a href="https://github.com/mcp-tool-shop-org">Org on GitHub</a></li>
-            <li><a href="https://github.com/mcp-tool-shop">Profile</a></li>
+            <li><a href={kit.org.url || 'https://github.com/mcp-tool-shop-org'}>Org on GitHub</a></li>
+            <li><a href={`https://github.com/${kit.org.account || 'mcp-tool-shop'}`}>Profile</a></li>
           </ul>
         </div>
         <div class="footer-meta">

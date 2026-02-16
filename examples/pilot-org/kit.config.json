@@ -1,0 +1,23 @@
+{
+  "kitVersion": 1,
+  "org": {
+    "name": "acme-tools",
+    "account": "acme-tools",
+    "url": "https://github.com/acme-tools"
+  },
+  "site": {
+    "title": "Acme Tool Catalog",
+    "url": "https://acme-tools.github.io",
+    "description": "Example pilot org for demonstrating portable kit adoption."
+  },
+  "repo": {
+    "marketing": "acme-tools/acme-tools"
+  },
+  "contact": {
+    "email": "team@acme-tools.example.com"
+  },
+  "paths": {
+    "dataDir": "data",
+    "publicDir": "public"
+  }
+}

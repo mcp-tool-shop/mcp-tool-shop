@@ -52,3 +52,10 @@ pnpm-debug.log*
 
 # generator cache (CI only)
 .gen-cache/
+
+# test artifacts (kit-config-env tests create these at repo root)
+/data/
+/custom/
+
+# npm pack output
+*.tgz

@@ -1,0 +1,83 @@
+name: Apply submission status
+
+on:
+  workflow_dispatch:
+    inputs:
+      patch_json:
+        description: 'Status patch (e.g., {"slug":"my-tool","status":"needs-info","reviewNotes":"Please add a demo link"})'
+        required: true
+        type: string
+      reason:
+        description: 'Reason for this status change'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: apply-submission-status
+  cancel-in-progress: false
+
+jobs:
+  apply-status:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate and apply status
+        run: node scripts/apply-submission-status.mjs '${{ inputs.patch_json }}'
+
+      - name: Run invariant tests
+        run: node --test tests/invariants/*.test.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet site/src/data/submissions.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open PR
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="submission-status/$(date +%Y%m%d-%H%M%S)"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add site/src/data/submissions.json
+          git commit -m "chore(submissions): update submission status
+
+          Reason: ${{ inputs.reason }}"
+          git push origin "$BRANCH"
+          RISK_NOTES=$(cat /tmp/submission-status-risk-notes.txt 2>/dev/null || echo 'No risk notes')
+          gh pr create \
+            --title "chore(submissions): update submission status" \
+            --body "$(cat <<'EOF'
+          ## Submission Status Update
+
+          **Reason:** ${{ inputs.reason }}
+
+          ### Patch Applied
+          ```json
+          ${{ inputs.patch_json }}
+          ```
+
+          ### Risk Notes
+          '"${RISK_NOTES}"'
+          EOF
+          )" \
+            --base main --head "$BRANCH"

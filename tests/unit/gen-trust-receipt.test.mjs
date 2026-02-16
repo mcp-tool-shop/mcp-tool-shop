@@ -46,6 +46,21 @@ function seedDataDir(dir) {
   // ops-history.json
   writeFileSync(join(dir, "ops-history.json"), JSON.stringify([]));
 
+  // promo-decisions.json
+  writeFileSync(join(dir, "promo-decisions.json"), JSON.stringify({
+    generatedAt: "2026-02-16T00:00:00.000Z",
+    decisions: [],
+    budget: { tier: 200, headroom: 200, itemsAllowed: 3 },
+    warnings: [],
+  }));
+
+  // experiment-decisions.json
+  writeFileSync(join(dir, "experiment-decisions.json"), JSON.stringify({
+    generatedAt: "2026-02-16T00:00:00.000Z",
+    evaluations: [],
+    warnings: [],
+  }));
+
   // MarketIR snapshot
   writeFileSync(join(dir, "marketir", "marketir.snapshot.json"), JSON.stringify({
     lockSha256: "abc123def456",
@@ -116,6 +131,8 @@ describe("buildTrustReceipt", () => {
     assert.ok(manifest["promo.json"], "promo.json should be hashed");
     assert.ok(manifest["baseline.json"], "baseline.json should be hashed");
     assert.ok(manifest["ops-history.json"], "ops-history.json should be hashed");
+    assert.ok(manifest["promo-decisions.json"], "promo-decisions.json should be hashed");
+    assert.ok(manifest["experiment-decisions.json"], "experiment-decisions.json should be hashed");
 
     // All hashes should start with "sha256:"
     for (const [, hash] of Object.entries(manifest)) {

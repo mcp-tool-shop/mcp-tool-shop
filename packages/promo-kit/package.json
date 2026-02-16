@@ -1,0 +1,45 @@
+{
+  "name": "@mcptoolshop/promo-kit",
+  "version": "0.1.0",
+  "description": "Portable promotion engine for tool catalogs. Receipt-backed promotions, freeze modes, drift detection.",
+  "type": "module",
+  "main": "./index.mjs",
+  "exports": {
+    ".": "./index.mjs",
+    "./config": "./scripts/lib/config.mjs"
+  },
+  "bin": {
+    "promo-kit": "./bin/promo-kit.mjs"
+  },
+  "files": [
+    "bin/",
+    "scripts/",
+    "index.mjs",
+    "kit.config.example.json",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcp-tool-shop/mcp-tool-shop.git",
+    "directory": "packages/promo-kit"
+  },
+  "homepage": "https://github.com/mcp-tool-shop/mcp-tool-shop/tree/main/packages/promo-kit",
+  "bugs": {
+    "url": "https://github.com/mcp-tool-shop/mcp-tool-shop/issues"
+  },
+  "keywords": [
+    "mcp",
+    "tools",
+    "promotion",
+    "catalog",
+    "receipts",
+    "verification"
+  ],
+  "author": "mcp-tool-shop <64996768+mcp-tool-shop@users.noreply.github.com>",
+  "license": "MIT"
+}

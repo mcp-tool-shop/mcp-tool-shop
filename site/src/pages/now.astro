@@ -1,0 +1,280 @@
+---
+import Base from "../layouts/Base.astro";
+import { kit } from '../lib/kit';
+import fs from "node:fs";
+import path from "node:path";
+
+const title = "This Week's Focus";
+const description = "Featured tools being promoted this week, with proof and evidence.";
+
+// Load promo-decisions.json
+let promoDecisions: any = { decisions: [], generatedAt: null };
+try {
+  const p = path.join(process.cwd(), "src/data/promo-decisions.json");
+  if (fs.existsSync(p)) {
+    promoDecisions = JSON.parse(fs.readFileSync(p, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+// Load overrides.json
+let overrides: any = {};
+try {
+  const p = path.join(process.cwd(), "src/data/overrides.json");
+  if (fs.existsSync(p)) {
+    overrides = JSON.parse(fs.readFileSync(p, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+// Load trust.json
+let trust: any = null;
+try {
+  const p = path.join(process.cwd(), "public/trust.json");
+  if (fs.existsSync(p)) {
+    trust = JSON.parse(fs.readFileSync(p, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+// Filter to promote decisions with publicProof, limit 3
+const promoted = (promoDecisions.decisions || [])
+  .filter((d: any) => d.action === "promote")
+  .filter((d: any) => overrides[d.slug]?.publicProof === true)
+  .slice(0, 3);
+
+// Load proof data per slug from MarketIR tool files
+function loadProofBullets(slug: string): string[] {
+  try {
+    const toolPath = path.join(process.cwd(), "src/data/marketir/data/tools", `${slug}.json`);
+    if (!fs.existsSync(toolPath)) return [];
+    const tool = JSON.parse(fs.readFileSync(toolPath, "utf8"));
+    return (tool.claims || [])
+      .filter((c: any) => c.status === "proven")
+      .slice(0, 3)
+      .map((c: any) => c.text || c.claim || "");
+  } catch { return []; }
+}
+
+// Build featured tools
+const featuredTools = promoted.map((d: any) => {
+  const ov = overrides[d.slug] || {};
+  return {
+    slug: d.slug,
+    tagline: ov.tagline || "",
+    stability: ov.stability || null,
+    kind: ov.kind || null,
+    proofBullets: loadProofBullets(d.slug),
+  };
+});
+
+const generatedAt = promoDecisions.generatedAt
+  ? new Date(promoDecisions.generatedAt).toISOString().slice(0, 10)
+  : null;
+---
+
+<Base
+  title={title}
+  description={description}
+  currentPath="/now/"
+>
+  <div class="now-page">
+    <h1>This Week's Focus</h1>
+    <p class="subtitle">Featured tools from the {kit.site.title || 'mcp-tool-shop'} ecosystem &mdash; selected by evidence, not hype.</p>
+
+    {featuredTools.length === 0 ? (
+      <div class="empty-state">
+        <p>No featured tools this week.</p>
+        <p>Check back soon, or browse the <a href="/tools/">full catalog</a>.</p>
+      </div>
+    ) : (
+      <div class="tool-cards">
+        {featuredTools.map((tool: any) => (
+          <div class="tool-card">
+            <div class="tool-header">
+              <h2><a href={`/tools/${tool.slug}/`}>{tool.slug}</a></h2>
+              <div class="badges">
+                {tool.stability && (
+                  <span class={`badge badge-${tool.stability}`}>{tool.stability}</span>
+                )}
+                {tool.kind && (
+                  <span class="badge badge-kind">{tool.kind}</span>
+                )}
+              </div>
+            </div>
+            {tool.tagline && <p class="tagline">{tool.tagline}</p>}
+            {tool.proofBullets.length > 0 && (
+              <ul class="proof-bullets">
+                {tool.proofBullets.map((bullet: string) => (
+                  <li>{bullet}</li>
+                ))}
+              </ul>
+            )}
+            <div class="tool-links">
+              <a href={`/proof/${tool.slug}/`} class="link-proof">View proof</a>
+              <a href={`/presskit/${tool.slug}/`} class="link-presskit">Presskit</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+
+    {generatedAt && (
+      <p class="timestamp">Last updated: {generatedAt}</p>
+    )}
+
+    {trust && (
+      <p class="trust-link">
+        <a href="/trust/">Verified build inputs &rarr;</a>
+      </p>
+    )}
+  </div>
+</Base>
+
+<style>
+  .now-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    margin: 0 0 0.25rem;
+    font-size: 2rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .subtitle {
+    color: var(--color-text-muted, #8b949e);
+    margin: 0 0 2rem;
+    font-size: 0.95rem;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--color-text-muted, #8b949e);
+    font-size: 1.1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+  }
+
+  .empty-state a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .empty-state a:hover { text-decoration: underline; }
+
+  .tool-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .tool-card {
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+
+  .tool-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .tool-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  .tool-header h2 a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .tool-header h2 a:hover { text-decoration: underline; }
+
+  .badges {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .badge-stable { background: #238636; color: #fff; }
+  .badge-beta { background: #d29922; color: #000; }
+  .badge-experimental { background: #f85149; color: #fff; }
+  .badge-kind { background: rgba(56, 139, 253, 0.15); color: #388bfd; }
+
+  .tagline {
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .proof-bullets {
+    padding-left: 1.2rem;
+    margin: 0.75rem 0;
+  }
+
+  .proof-bullets li {
+    font-size: 0.85rem;
+    color: var(--color-text, #e6edf3);
+    margin: 0.3rem 0;
+    line-height: 1.4;
+  }
+
+  .proof-bullets li::marker {
+    color: #3fb950;
+  }
+
+  .tool-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+  }
+
+  .tool-links a {
+    font-size: 0.8rem;
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .tool-links a:hover { text-decoration: underline; }
+
+  .timestamp {
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .trust-link {
+    margin-top: 0.5rem;
+  }
+
+  .trust-link a {
+    font-size: 0.75rem;
+    color: var(--color-text-muted, #8b949e);
+    text-decoration: none;
+  }
+
+  .trust-link a:hover {
+    color: #388bfd;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 1.5rem; }
+    .tool-card { padding: 1rem; }
+  }
+</style>

@@ -1,0 +1,29 @@
+{
+  "kitVersion": 1,
+  "org": {
+    "name": "mcp-tool-shop-org",
+    "account": "mcp-tool-shop",
+    "url": "https://github.com/mcp-tool-shop-org"
+  },
+  "site": {
+    "title": "mcp-tool-shop",
+    "url": "https://mcptoolshop.com",
+    "description": "Building the tools that AI agents use to get real work done."
+  },
+  "repo": {
+    "marketing": "mcp-tool-shop/mcp-tool-shop"
+  },
+  "contact": {
+    "email": "64996768+mcp-tool-shop@users.noreply.github.com"
+  },
+  "paths": {
+    "dataDir": "site/src/data",
+    "publicDir": "site/public"
+  },
+  "guardrails": {
+    "maxDataPatchesPerRun": 5,
+    "dailyTelemetryCapPerType": 50,
+    "spikeThreshold": 300,
+    "maxRecommendations": 20
+  }
+}

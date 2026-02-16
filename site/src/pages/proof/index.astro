@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { kit } from '../../lib/kit';
 import overrides from '../../data/overrides.json';
 import { getToolsWithPress, getProofData } from '../../lib/marketir/loader.mjs';
 
@@ -25,8 +26,8 @@ const proofTools = toolsWithPress
 ---
 
 <Base
-  title="Proof - mcp-tool-shop"
-  description="Verified claims, evidence chains, and transparency data for mcp-tool-shop projects."
+  title={`Proof - ${kit.site.title || 'mcp-tool-shop'}`}
+  description={`Verified claims, evidence chains, and transparency data for ${kit.site.title || 'mcp-tool-shop'} projects.`}
   currentPath="/proof/"
 >
   <div class="proof-index">

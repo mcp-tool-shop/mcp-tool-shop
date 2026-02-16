@@ -1,0 +1,38 @@
+---
+interface Props {
+  href: string;
+  label?: string;
+}
+
+const { href, label = "View receipt" } = Astro.props;
+
+// Extract week from href if it contains a promo week pattern
+const weekMatch = href.match(/(\d{4}-W\d{2})/);
+const week = weekMatch ? weekMatch[1] : "";
+---
+
+<a class="receipt-link" href={href} data-receipt-week={week}>{label} &rarr;</a>
+
+<script>
+  import { trackEvent } from '../lib/tracker';
+
+  document.querySelectorAll('.receipt-link[data-receipt-week]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const week = (link as HTMLAnchorElement).dataset.receiptWeek || '';
+      trackEvent('click_receipt_link', { week });
+    });
+  });
+</script>
+
+<style>
+  .receipt-link {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .receipt-link:hover {
+    text-decoration: underline;
+  }
+</style>

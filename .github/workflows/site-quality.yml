@@ -6,11 +6,14 @@ on:
       - 'site/**'
       - 'scripts/**'
       - 'tests/**'
+      - 'submissions/**'
+      - 'examples/**'
       - '.github/workflows/site-quality.yml'
   workflow_dispatch: {}
 
 permissions:
   contents: read
+  pull-requests: write
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -247,6 +250,27 @@ jobs:
           console.log('automation.ignore.json: ' + ignoreList.length + ' entries, valid.');
           "
 
+      # ── Submission Validation ─────────────────────────────────
+      - name: Validate submissions
+        run: node scripts/validate-submissions.mjs
+
+      # ── Submission Lint + PR Comment ────────────────────────────
+      - name: Lint submission PRs
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD -- 'submissions/*.json' 2>/dev/null || true)
+          if [ -z "$CHANGED" ]; then
+            echo "No submission files changed — skipping lint"
+            exit 0
+          fi
+          echo "Linting changed submissions: $CHANGED"
+          node scripts/lint-submission.mjs --ci --files $CHANGED
+          if [ -f lint-report.md ]; then
+            gh pr comment "${{ github.event.pull_request.number }}" --body-file lint-report.md
+          fi
+
       # ── Projects Registry Flags ──────────────────────────────
       - name: Validate projects.json registry flags
         run: |
@@ -394,3 +418,34 @@ jobs:
           if (found > 0) { console.error(found + ' dangerous URL(s) found.'); process.exit(1); }
           else { console.log('Security scan: clean (no dangerous protocols in dist/).'); }
           "
+
+  # ── Kit Pilot Org Validation ──────────────────────────────────
+  kit-pilot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Bootstrap pilot org
+        env:
+          KIT_CONFIG: ${{ github.workspace }}/examples/pilot-org/kit.config.json
+        run: node scripts/kit-bootstrap.mjs
+
+      - name: Self-test pilot org
+        env:
+          KIT_CONFIG: ${{ github.workspace }}/examples/pilot-org/kit.config.json
+        run: node scripts/kit-selftest.mjs --skip-build --skip-invariants
+
+      - name: Verify no org-specific strings leaked
+        run: |
+          if grep -r "mcp-tool-shop" examples/pilot-org/data/ 2>/dev/null; then
+            echo "ERROR: org-specific strings found in pilot org data"
+            exit 1
+          fi
+          echo "No org-specific string leaks detected."

@@ -11,6 +11,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { validateUrl } from "../../scripts/lib/sanitize.mjs";
+import { KIT_VERSION_SUPPORTED } from "../../scripts/lib/config.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DATA = path.resolve(__dirname, "../../site/src/data");
@@ -501,5 +502,590 @@ describe("experiment-decisions.json", () => {
         `${e.experimentId}: status must be needs-more-data|winner-found|no-decision, got: ${e.status}`
       );
     }
+  });
+});
+
+// ── Phase 17 — Public Growth Surface invariants ──────────────
+
+describe("trust.json - Phase 17 artifacts", () => {
+  it("artifactManifest includes promo-decisions.json when trust.json exists", () => {
+    const PUBLIC = path.resolve(__dirname, "../../site/public");
+    let trust = null;
+    try {
+      trust = JSON.parse(fs.readFileSync(path.join(PUBLIC, "trust.json"), "utf8"));
+    } catch { /* optional file */ }
+    if (!trust) return;
+    assert.ok(
+      "promo-decisions.json" in trust.artifactManifest,
+      "artifactManifest must include promo-decisions.json"
+    );
+  });
+
+  it("artifactManifest includes experiment-decisions.json when trust.json exists", () => {
+    const PUBLIC = path.resolve(__dirname, "../../site/public");
+    let trust = null;
+    try {
+      trust = JSON.parse(fs.readFileSync(path.join(PUBLIC, "trust.json"), "utf8"));
+    } catch { /* optional file */ }
+    if (!trust) return;
+    assert.ok(
+      "experiment-decisions.json" in trust.artifactManifest,
+      "artifactManifest must include experiment-decisions.json"
+    );
+  });
+});
+
+describe("now page data contract", () => {
+  it("every promoted slug has publicProof in overrides", () => {
+    if (!promoDecisions || !overrides) return;
+    const promoted = (promoDecisions.decisions || []).filter((d) => d.action === "promote");
+    for (const d of promoted) {
+      const ov = overrides[d.slug];
+      assert.ok(
+        ov && ov.publicProof === true,
+        `promoted slug "${d.slug}" must have publicProof: true in overrides`
+      );
+    }
+  });
+
+  it("promo-decisions generatedAt is valid ISO date", () => {
+    if (!promoDecisions || !promoDecisions.generatedAt) return;
+    const parsed = new Date(promoDecisions.generatedAt);
+    assert.ok(!isNaN(parsed.getTime()), "generatedAt must be valid ISO date");
+  });
+
+  it("promo-decisions budget has required fields when present", () => {
+    if (!promoDecisions || !promoDecisions.budget) return;
+    const budget = promoDecisions.budget;
+    assert.ok(typeof budget.tier === "number", "budget.tier must be number");
+    assert.ok(typeof budget.headroom === "number", "budget.headroom must be number");
+    assert.ok(typeof budget.itemsAllowed === "number", "budget.itemsAllowed must be number");
+  });
+});
+
+describe("experiments page data contract", () => {
+  it("every concluded experiment has a matching evaluation", () => {
+    if (!experiments || !experimentDecisions) return;
+    const evalIds = new Set((experimentDecisions.evaluations || []).map((e) => e.experimentId));
+    const concluded = (experiments.experiments || []).filter((e) => e.status === "concluded");
+    for (const exp of concluded) {
+      assert.ok(
+        evalIds.has(exp.id),
+        `concluded experiment "${exp.id}" must have a matching evaluation`
+      );
+    }
+  });
+
+  it("experiment-decisions winnerKey matches control or variant key when winner-found", () => {
+    if (!experiments || !experimentDecisions) return;
+    const expLookup = {};
+    for (const e of experiments.experiments || []) { expLookup[e.id] = e; }
+    for (const ev of experimentDecisions.evaluations || []) {
+      if (ev.status !== "winner-found") continue;
+      const exp = expLookup[ev.experimentId];
+      if (!exp) continue;
+      const validKeys = [exp.control?.key, exp.variant?.key];
+      assert.ok(
+        validKeys.includes(ev.winnerKey),
+        `${ev.experimentId}: winnerKey "${ev.winnerKey}" must be control or variant key`
+      );
+    }
+  });
+
+  it("experiment dimensions are limited to known set", () => {
+    if (!experiments) return;
+    const VALID = ["tagline", "snippet", "cta"];
+    for (const exp of experiments.experiments || []) {
+      assert.ok(
+        VALID.includes(exp.dimension),
+        `${exp.id}: dimension must be tagline|snippet|cta, got: ${exp.dimension}`
+      );
+    }
+  });
+});
+
+describe("control panel data contract", () => {
+  it("governance + promo + promo-queue all exist together", () => {
+    // If any one exists, all should exist
+    const exists = [governance, promo, promoQueue].filter(Boolean).length;
+    assert.ok(
+      exists === 0 || exists === 3,
+      "governance, promo, and promo-queue must all exist or all be absent"
+    );
+  });
+
+  it("governance maxPromosPerWeek >= promo-queue slugs length", () => {
+    if (!governance || !promoQueue) return;
+    const queueLen = (promoQueue.slugs || []).length;
+    assert.ok(
+      governance.maxPromosPerWeek >= queueLen,
+      `maxPromosPerWeek (${governance.maxPromosPerWeek}) < queue length (${queueLen})`
+    );
+  });
+});
+
+// ── Phase 18 — Govern the Governors invariants ───────────────
+
+describe("decision-drift.json", () => {
+  it("has valid schema when present (entrants, exits, scoreDeltas are arrays)", () => {
+    const drift = loadJson("decision-drift.json");
+    if (!drift) return; // optional — absent on first run
+    assert.ok(Array.isArray(drift.entrants), "entrants must be array");
+    assert.ok(Array.isArray(drift.exits), "exits must be array");
+    assert.ok(Array.isArray(drift.scoreDeltas), "scoreDeltas must be array");
+    assert.ok(Array.isArray(drift.reasonChanges), "reasonChanges must be array");
+    assert.ok(drift.summary && typeof drift.summary === "object", "summary must be object");
+  });
+
+  it("scoreDeltas have required fields (slug, prevScore, currScore, delta)", () => {
+    const drift = loadJson("decision-drift.json");
+    if (!drift || !drift.scoreDeltas || drift.scoreDeltas.length === 0) return;
+    for (const d of drift.scoreDeltas) {
+      assert.ok(d.slug, "scoreDelta must have slug");
+      assert.ok(typeof d.prevScore === "number", `${d.slug}: prevScore must be number`);
+      assert.ok(typeof d.currScore === "number", `${d.slug}: currScore must be number`);
+      assert.ok(typeof d.delta === "number", `${d.slug}: delta must be number`);
+    }
+  });
+});
+
+describe("governance freeze consistency", () => {
+  it("freeze fields are boolean when present", () => {
+    if (!governance) return;
+    if ("decisionsFrozen" in governance) {
+      assert.ok(typeof governance.decisionsFrozen === "boolean", "decisionsFrozen must be boolean");
+    }
+    if ("experimentsFrozen" in governance) {
+      assert.ok(typeof governance.experimentsFrozen === "boolean", "experimentsFrozen must be boolean");
+    }
+  });
+
+  it("schemaVersion >= 2 when freeze fields are present", () => {
+    if (!governance) return;
+    if ("decisionsFrozen" in governance || "experimentsFrozen" in governance) {
+      assert.ok(governance.schemaVersion >= 2, "schemaVersion must be >= 2 when freeze fields present");
+    }
+  });
+});
+
+describe("apply-control-patch contract", () => {
+  it("governance.json hardRules cannot be empty", () => {
+    if (!governance) return;
+    assert.ok(Array.isArray(governance.hardRules), "hardRules must be array");
+    assert.ok(governance.hardRules.length > 0, "hardRules must not be empty");
+  });
+
+  it("governance.json schemaVersion must be >= 1", () => {
+    if (!governance) return;
+    assert.ok(typeof governance.schemaVersion === "number", "schemaVersion must be number");
+    assert.ok(governance.schemaVersion >= 1, "schemaVersion must be >= 1");
+  });
+});
+
+describe("cross-page consistency", () => {
+  it("no experiment in decisions references unknown experiment", () => {
+    if (!experiments || !experimentDecisions) return;
+    const knownIds = new Set((experiments.experiments || []).map((e) => e.id));
+    for (const ev of experimentDecisions.evaluations || []) {
+      assert.ok(
+        knownIds.has(ev.experimentId),
+        `evaluation references unknown experiment: ${ev.experimentId}`
+      );
+    }
+  });
+
+  it("promo-decisions and promo-calendar generatedAt within 7 days", () => {
+    if (!promoDecisions || !promoDecisions.generatedAt) return;
+    // Load promo-calendar if it exists
+    const calPath = path.join(DATA, "promo-calendar.json");
+    let promoCal = null;
+    try { promoCal = JSON.parse(fs.readFileSync(calPath, "utf8")); } catch { /* optional */ }
+    if (!promoCal || !promoCal.generatedAt) return;
+
+    const d1 = new Date(promoDecisions.generatedAt).getTime();
+    const d2 = new Date(promoCal.generatedAt).getTime();
+    const diffDays = Math.abs(d1 - d2) / (1000 * 60 * 60 * 24);
+    assert.ok(
+      diffDays <= 7,
+      `promo-decisions and promo-calendar are ${Math.round(diffDays)} days apart (max 7)`
+    );
+  });
+});
+
+// ── Phase 19: Receipts + Trust Page Contract ────────────────
+
+describe("promo-week receipts contract", () => {
+  const outreachDir = path.resolve(__dirname, "../../site/public/outreach-run");
+  let receiptFiles = [];
+  try {
+    if (fs.existsSync(outreachDir)) {
+      const dirs = fs.readdirSync(outreachDir, { withFileTypes: true })
+        .filter((e) => e.isDirectory() && /^\d{4}-\d{2}-\d{2}$/.test(e.name));
+      for (const d of dirs) {
+        const rp = path.join(outreachDir, d.name, "promo-week-receipt.json");
+        if (fs.existsSync(rp)) {
+          receiptFiles.push({ path: rp, week: d.name, data: JSON.parse(fs.readFileSync(rp, "utf8")) });
+        }
+      }
+    }
+  } catch { /* fail soft */ }
+
+  it("every receipt has required fields (week, generatedAt, inputs)", () => {
+    for (const rf of receiptFiles) {
+      assert.ok(rf.data.week, `receipt ${rf.week} missing week`);
+      assert.ok(rf.data.generatedAt, `receipt ${rf.week} missing generatedAt`);
+      assert.ok(rf.data.inputs, `receipt ${rf.week} missing inputs`);
+    }
+  });
+
+  it("receipt input hashes use sha256: prefix when present", () => {
+    for (const rf of receiptFiles) {
+      const inputs = rf.data.inputs || {};
+      for (const [key, value] of Object.entries(inputs)) {
+        if (typeof value === "string" && value.length > 10) {
+          assert.ok(
+            value.startsWith("sha256:"),
+            `receipt ${rf.week} input ${key} missing sha256: prefix`
+          );
+        }
+      }
+    }
+  });
+
+  it("receipt week format matches YYYY-MM-DD", () => {
+    for (const rf of receiptFiles) {
+      assert.match(rf.data.week, /^\d{4}-\d{2}-\d{2}$/, `receipt ${rf.week} has invalid week format`);
+    }
+  });
+});
+
+describe("trust page contract", () => {
+  it("governance.json freeze fields exist and are boolean", () => {
+    if (!governance) return;
+    assert.ok("decisionsFrozen" in governance, "governance missing decisionsFrozen");
+    assert.ok("experimentsFrozen" in governance, "governance missing experimentsFrozen");
+    assert.equal(typeof governance.decisionsFrozen, "boolean");
+    assert.equal(typeof governance.experimentsFrozen, "boolean");
+  });
+
+  it("trust.json commit field is non-empty string when present", () => {
+    const trustPath = path.resolve(__dirname, "../../site/public/trust.json");
+    if (!fs.existsSync(trustPath)) return;
+    const trust = JSON.parse(fs.readFileSync(trustPath, "utf8"));
+    if (trust.commit) {
+      assert.equal(typeof trust.commit, "string");
+      assert.ok(trust.commit.length > 0, "trust.json commit must not be empty");
+    }
+  });
+});
+
+// ── Phase 20: Submissions Contract ──────────────────────────
+
+const telemetrySchema = loadJson("telemetry-schema.json");
+const telemetryRollup = loadJson("telemetry/rollup.json");
+const queueHealthData = loadJson("queue-health.json");
+const submissionsData = loadJson("submissions.json");
+
+describe("submissions.json", () => {
+  it("exists and has submissions array", () => {
+    assert.ok(submissionsData, "submissions.json must exist");
+    assert.ok(Array.isArray(submissionsData.submissions), "submissions must be an array");
+  });
+
+  it("every submission has required fields (slug, status, lane, submittedAt)", () => {
+    for (const s of submissionsData?.submissions || []) {
+      assert.ok(s.slug, `submission missing slug`);
+      assert.ok(s.status, `${s.slug}: missing status`);
+      assert.ok(s.lane, `${s.slug}: missing lane`);
+      assert.ok(s.submittedAt, `${s.slug}: missing submittedAt`);
+    }
+  });
+
+  it("status is valid enum (pending, accepted, rejected, withdrawn, needs-info)", () => {
+    const VALID = ["pending", "accepted", "rejected", "withdrawn", "needs-info"];
+    for (const s of submissionsData?.submissions || []) {
+      assert.ok(VALID.includes(s.status), `${s.slug}: invalid status "${s.status}"`);
+    }
+  });
+
+  it("lane is valid enum (promo, experiment)", () => {
+    const VALID = ["promo", "experiment"];
+    for (const s of submissionsData?.submissions || []) {
+      assert.ok(VALID.includes(s.lane), `${s.slug}: invalid lane "${s.lane}"`);
+    }
+  });
+
+  it("no duplicate slugs", () => {
+    const slugs = new Set();
+    for (const s of submissionsData?.submissions || []) {
+      assert.ok(!slugs.has(s.slug), `duplicate submission slug: ${s.slug}`);
+      slugs.add(s.slug);
+    }
+  });
+
+  it("submittedAt is valid ISO date", () => {
+    for (const s of submissionsData?.submissions || []) {
+      assert.ok(
+        /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/.test(s.submittedAt),
+        `${s.slug}: invalid submittedAt format`
+      );
+    }
+  });
+
+  it("updatedAt is valid ISO date when present", () => {
+    for (const s of submissionsData?.submissions || []) {
+      if (s.updatedAt) {
+        assert.ok(
+          /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/.test(s.updatedAt),
+          `${s.slug}: invalid updatedAt format`
+        );
+      }
+    }
+  });
+
+  it("category and kind use valid enums when present", () => {
+    const KINDS = ["mcp-server", "cli", "library", "plugin", "desktop-app", "vscode-extension", "homebrew-tap", "template", "meta"];
+    const CATS = ["mcp-core", "voice", "security", "ml", "infrastructure", "desktop", "devtools", "web", "games"];
+    for (const s of submissionsData?.submissions || []) {
+      if (s.kind) assert.ok(KINDS.includes(s.kind), `${s.slug}: invalid kind "${s.kind}"`);
+      if (s.category) assert.ok(CATS.includes(s.category), `${s.slug}: invalid category "${s.category}"`);
+    }
+  });
+
+  it("needs-info submissions have reviewNotes string when present", () => {
+    for (const s of submissionsData?.submissions || []) {
+      if (s.status === "needs-info" && s.reviewNotes !== undefined) {
+        assert.equal(typeof s.reviewNotes, "string", `${s.slug}: reviewNotes must be a string`);
+      }
+    }
+  });
+
+  it("lastReviewedAt is valid ISO date when present", () => {
+    for (const s of submissionsData?.submissions || []) {
+      if (s.lastReviewedAt) {
+        assert.ok(
+          /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/.test(s.lastReviewedAt),
+          `${s.slug}: invalid lastReviewedAt format`
+        );
+      }
+    }
+  });
+
+  it("sourcePr is valid https URL when present", () => {
+    for (const s of submissionsData?.submissions || []) {
+      if (s.sourcePr) {
+        assert.ok(
+          validateUrl(s.sourcePr),
+          `${s.slug}: sourcePr must be a valid https URL`
+        );
+      }
+    }
+  });
+});
+
+// ── Phase 22: Telemetry + Queue Health Contract ──────────────
+
+describe("telemetry-schema.json", () => {
+  it("exists and has eventTypes object", () => {
+    assert.ok(telemetrySchema, "telemetry-schema.json must exist");
+    assert.ok(
+      telemetrySchema.eventTypes && typeof telemetrySchema.eventTypes === "object",
+      "must have eventTypes object"
+    );
+  });
+
+  it("every event type has description and payload", () => {
+    for (const [name, def] of Object.entries(telemetrySchema.eventTypes)) {
+      assert.ok(def.description, `${name}: must have description`);
+      assert.ok(def.payload && typeof def.payload === "object", `${name}: must have payload object`);
+    }
+  });
+
+  it("payload fields are only allowed types (string, number)", () => {
+    const ALLOWED = ["string", "number"];
+    for (const [name, def] of Object.entries(telemetrySchema.eventTypes)) {
+      for (const [field, fieldDef] of Object.entries(def.payload)) {
+        assert.ok(
+          fieldDef && ALLOWED.includes(fieldDef.type),
+          `${name}.${field}: type must be string|number, got: ${fieldDef?.type}`
+        );
+      }
+    }
+  });
+
+  it("no PII field names (email, ip, userId, userAgent, cookie)", () => {
+    const PII_FIELDS = ["email", "ip", "userId", "userAgent", "cookie", "password", "token"];
+    for (const [name, def] of Object.entries(telemetrySchema.eventTypes)) {
+      for (const field of Object.keys(def.payload)) {
+        assert.ok(
+          !PII_FIELDS.includes(field),
+          `${name}: PII field "${field}" not allowed in telemetry`
+        );
+      }
+    }
+  });
+});
+
+describe("telemetry rollup.json", () => {
+  it("exists and has expected shape (totalEvents, byType, metrics)", () => {
+    assert.ok(telemetryRollup, "telemetry/rollup.json must exist");
+    assert.ok("totalEvents" in telemetryRollup, "must have totalEvents");
+    assert.ok("byType" in telemetryRollup, "must have byType");
+    assert.ok("metrics" in telemetryRollup, "must have metrics");
+  });
+
+  it("byType keys are valid event type names from schema", () => {
+    if (!telemetrySchema || !telemetryRollup) return;
+    const validTypes = new Set(Object.keys(telemetrySchema.eventTypes));
+    for (const key of Object.keys(telemetryRollup.byType)) {
+      assert.ok(validTypes.has(key), `byType key "${key}" not in telemetry schema`);
+    }
+  });
+});
+
+describe("queue-health.json", () => {
+  it("exists and has expected shape (byStatus, stuckCount, topLintFailures)", () => {
+    assert.ok(queueHealthData, "queue-health.json must exist");
+    assert.ok("byStatus" in queueHealthData, "must have byStatus");
+    assert.ok("stuckCount" in queueHealthData, "must have stuckCount");
+    assert.ok("topLintFailures" in queueHealthData, "must have topLintFailures");
+  });
+
+  it("byStatus keys are valid submission statuses", () => {
+    const VALID = ["pending", "accepted", "rejected", "withdrawn", "needs-info"];
+    for (const key of Object.keys(queueHealthData.byStatus)) {
+      assert.ok(VALID.includes(key), `byStatus key "${key}" not a valid submission status`);
+    }
+  });
+});
+
+// ── Phase 23: Recommendations Contract ───────────────────────
+
+const recommendationsData = loadJson("recommendations.json");
+
+describe("recommendations.json", () => {
+  it("exists and has expected shape (recommendations array, signals, guardrails)", () => {
+    assert.ok(recommendationsData, "recommendations.json must exist");
+    assert.ok(Array.isArray(recommendationsData.recommendations), "recommendations must be an array");
+    assert.ok(
+      recommendationsData.signals && typeof recommendationsData.signals === "object",
+      "must have signals object"
+    );
+    assert.ok(
+      recommendationsData.guardrails && typeof recommendationsData.guardrails === "object",
+      "must have guardrails object"
+    );
+  });
+
+  it("every recommendation has required fields (priority, category, slug, title, insight, action, evidence)", () => {
+    const REQUIRED = ["priority", "category", "slug", "title", "insight", "action", "evidence"];
+    for (const rec of recommendationsData?.recommendations || []) {
+      for (const field of REQUIRED) {
+        assert.ok(
+          field in rec,
+          `recommendation ${rec.slug || "unknown"}: missing required field "${field}"`
+        );
+      }
+    }
+  });
+
+  it("priority values are valid enum (high, medium, low)", () => {
+    const VALID = ["high", "medium", "low"];
+    for (const rec of recommendationsData?.recommendations || []) {
+      assert.ok(
+        VALID.includes(rec.priority),
+        `recommendation ${rec.slug}: invalid priority "${rec.priority}"`
+      );
+    }
+  });
+
+  it("category values are valid enum (re-feature, improve-proof, stuck-submission, experiment-graduation, lint-promotion)", () => {
+    const VALID = ["re-feature", "improve-proof", "stuck-submission", "experiment-graduation", "lint-promotion"];
+    for (const rec of recommendationsData?.recommendations || []) {
+      assert.ok(
+        VALID.includes(rec.category),
+        `recommendation ${rec.slug}: invalid category "${rec.category}"`
+      );
+    }
+  });
+
+  it("lintInsights has expected arrays (warningsToElevate, docsToRewrite)", () => {
+    const lint = recommendationsData?.lintInsights;
+    assert.ok(lint, "must have lintInsights");
+    assert.ok(Array.isArray(lint.warningsToElevate), "warningsToElevate must be an array");
+    assert.ok(Array.isArray(lint.docsToRewrite), "docsToRewrite must be an array");
+  });
+
+  it("signals has expected keys (trustByWeek, proofEngagementBySlug, submissionFrictionBySlug)", () => {
+    const signals = recommendationsData?.signals;
+    assert.ok(signals, "must have signals");
+    assert.ok("trustByWeek" in signals, "signals must have trustByWeek");
+    assert.ok("proofEngagementBySlug" in signals, "signals must have proofEngagementBySlug");
+    assert.ok("submissionFrictionBySlug" in signals, "signals must have submissionFrictionBySlug");
+  });
+});
+
+// ── Phase 24: Recommendation Patch Contract ──────────────────
+
+const recommendationPatch = loadJson("recommendation-patch.json");
+
+describe("recommendation-patch.json", () => {
+  it("has valid schema when present (patches, advisoryNotes, riskNotes, frozenActions arrays)", () => {
+    if (!recommendationPatch) return; // optional — absent before first run
+    assert.ok(Array.isArray(recommendationPatch.patches), "patches must be array");
+    assert.ok(Array.isArray(recommendationPatch.advisoryNotes), "advisoryNotes must be array");
+    assert.ok(Array.isArray(recommendationPatch.riskNotes), "riskNotes must be array");
+    assert.ok(Array.isArray(recommendationPatch.frozenActions), "frozenActions must be array");
+  });
+
+  it("every patch has required fields (category, slug, targetFile, description)", () => {
+    if (!recommendationPatch) return;
+    for (const p of recommendationPatch.patches) {
+      assert.ok(p.category, "patch must have category");
+      assert.ok(p.slug, "patch must have slug");
+      assert.ok(p.targetFile, "patch must have targetFile");
+      assert.ok(p.description, "patch must have description");
+    }
+  });
+
+  it("patch targetFile is in allowed set (promo-queue.json, experiments.json)", () => {
+    if (!recommendationPatch) return;
+    const ALLOWED = ["promo-queue.json", "experiments.json"];
+    for (const p of recommendationPatch.patches) {
+      assert.ok(ALLOWED.includes(p.targetFile), `patch targetFile "${p.targetFile}" not allowed`);
+    }
+  });
+
+  it("patch count does not exceed max cap (5)", () => {
+    if (!recommendationPatch) return;
+    assert.ok(recommendationPatch.patches.length <= 5, `too many patches: ${recommendationPatch.patches.length}`);
+  });
+
+  it("every advisory note has category, slug, and note", () => {
+    if (!recommendationPatch) return;
+    for (const n of recommendationPatch.advisoryNotes) {
+      assert.ok(n.category, "advisory note must have category");
+      assert.ok(n.slug, "advisory note must have slug");
+      assert.ok(n.note, "advisory note must have note");
+    }
+  });
+});
+
+// ── kit.config.json ──────────────────────────────────────────
+
+describe("kit.config.json", () => {
+  const kitConfigPath = path.resolve(__dirname, "../../kit.config.json");
+
+  it("kit.config.json exists", () => {
+    assert.ok(fs.existsSync(kitConfigPath), "kit.config.json must exist in repo root");
+  });
+
+  it("kitVersion is present and in supported range", () => {
+    const raw = JSON.parse(fs.readFileSync(kitConfigPath, "utf8"));
+    assert.ok(raw.kitVersion != null, "kitVersion must be present");
+    assert.ok(
+      raw.kitVersion >= KIT_VERSION_SUPPORTED[0] && raw.kitVersion <= KIT_VERSION_SUPPORTED[1],
+      `kitVersion ${raw.kitVersion} not in [${KIT_VERSION_SUPPORTED.join(", ")}]`
+    );
   });
 });

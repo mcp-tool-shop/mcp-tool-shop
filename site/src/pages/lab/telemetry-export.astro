@@ -1,0 +1,280 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  title="Telemetry Export - Internal"
+  description="Export buffered telemetry events for analysis."
+  currentPath="/lab/telemetry-export/"
+>
+  <head>
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+
+  <div class="export-page">
+    <div class="internal-badge">Internal Preview</div>
+
+    <h1>Telemetry Export</h1>
+    <p class="subtitle">Download buffered events from this browser's localStorage.</p>
+
+    {/* Controls */}
+    <div class="controls">
+      <div class="count-badge">
+        <span id="event-count">0</span> events buffered
+      </div>
+      <div class="actions">
+        <button id="download-btn" class="btn btn-primary">Download JSONL</button>
+        <button id="clear-btn" class="btn btn-danger">Clear Buffer</button>
+      </div>
+    </div>
+
+    {/* Instructions */}
+    <section class="section instructions">
+      <h2>How to use</h2>
+      <ol>
+        <li>Click <strong>Download JSONL</strong> to save buffered events.</li>
+        <li>Commit the file to <code>site/src/data/telemetry/events/</code></li>
+        <li>Run <code>node scripts/gen-telemetry-aggregate.mjs</code></li>
+        <li>View results on the <a href="/lab/metrics/">Metrics Dashboard</a>.</li>
+      </ol>
+    </section>
+
+    {/* Preview */}
+    <section class="section">
+      <h2>Recent Events (last 20)</h2>
+      <div class="table-wrap">
+        <table id="preview-table">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Timestamp</th>
+              <th>Payload</th>
+            </tr>
+          </thead>
+          <tbody id="preview-body">
+            <tr>
+              <td colspan="3" class="empty-state">No events yet.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    {/* Privacy note */}
+    <section class="section provenance">
+      <h2>Privacy</h2>
+      <ul>
+        <li>Events are stored only in this browser's localStorage.</li>
+        <li>No cookies, no user IDs, no IP addresses, no external services.</li>
+        <li>Payloads contain only tool slugs, week identifiers, and enum values.</li>
+        <li>Data never leaves the browser until you manually download it.</li>
+      </ul>
+    </section>
+  </div>
+</Base>
+
+<script>
+  import { getEvents, clearEvents, exportEventsJsonl } from '../../lib/tracker';
+
+  function updateUI() {
+    const events = getEvents();
+    const countEl = document.getElementById('event-count');
+    if (countEl) countEl.textContent = String(events.length);
+
+    const tbody = document.getElementById('preview-body');
+    if (!tbody) return;
+
+    if (events.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="3" class="empty-state">No events yet.</td></tr>';
+      return;
+    }
+
+    const recent = events.slice(-20).reverse();
+    tbody.innerHTML = recent
+      .map(
+        (e) =>
+          `<tr>
+            <td><code>${e.type}</code></td>
+            <td>${new Date(e.timestamp).toLocaleString()}</td>
+            <td><code>${JSON.stringify(e.payload)}</code></td>
+          </tr>`
+      )
+      .join('');
+  }
+
+  // Download handler
+  document.getElementById('download-btn')?.addEventListener('click', () => {
+    const jsonl = exportEventsJsonl();
+    if (!jsonl.trim()) {
+      alert('No events to download.');
+      return;
+    }
+    const blob = new Blob([jsonl], { type: 'application/x-ndjson' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const date = new Date().toISOString().slice(0, 10);
+    a.href = url;
+    a.download = `telemetry-${date}.jsonl`;
+    a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  // Clear handler
+  document.getElementById('clear-btn')?.addEventListener('click', () => {
+    if (!confirm('Clear all buffered events? This cannot be undone.')) return;
+    clearEvents();
+    updateUI();
+  });
+
+  // Init
+  updateUI();
+</script>
+
+<style>
+  .export-page {
+    padding: 2rem 0;
+  }
+  .internal-badge {
+    display: inline-block;
+    background: #d2992233;
+    color: #d29922;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    margin: 0 0 0.25rem;
+  }
+  .subtitle {
+    color: var(--color-text-muted);
+    margin: 0 0 1.5rem;
+  }
+
+  /* Controls */
+  .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    margin-bottom: 2rem;
+  }
+  .count-badge {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .count-badge span {
+    font-size: 1.5rem;
+    color: #58a6ff;
+  }
+  .actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+  .btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    background: var(--color-surface);
+    color: var(--color-text);
+  }
+  .btn:hover {
+    border-color: #58a6ff;
+  }
+  .btn-primary {
+    background: #238636;
+    border-color: #238636;
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: #2ea043;
+    border-color: #2ea043;
+  }
+  .btn-danger {
+    color: #f85149;
+    border-color: #f8514966;
+  }
+  .btn-danger:hover {
+    background: #f8514922;
+    border-color: #f85149;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 2rem;
+  }
+  .section h2 {
+    font-size: 1.1rem;
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* Instructions */
+  .instructions ol {
+    padding-left: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .instructions a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+  .instructions a:hover {
+    text-decoration: underline;
+  }
+
+  /* Table */
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-border);
+  }
+  td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .empty-state {
+    text-align: center;
+    color: var(--color-text-muted);
+    padding: 2rem;
+  }
+
+  /* Provenance */
+  .provenance ul {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    padding-left: 1.25rem;
+  }
+  .provenance li {
+    margin-bottom: 0.35rem;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+  }
+</style>

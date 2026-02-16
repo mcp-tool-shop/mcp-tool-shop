@@ -1,0 +1,808 @@
+---
+import Base from "../../../layouts/Base.astro";
+import fs from "node:fs";
+import path from "node:path";
+
+const title = "Control Panel";
+const description = "Operator control surface for governance, promotion, and queue management.";
+
+// Load governance.json
+let governance: any = {};
+try {
+  const p = path.join(process.cwd(), "src/data/governance.json");
+  if (fs.existsSync(p)) {
+    governance = JSON.parse(fs.readFileSync(p, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+// Load promo.json
+let promo: any = {};
+try {
+  const p = path.join(process.cwd(), "src/data/promo.json");
+  if (fs.existsSync(p)) {
+    promo = JSON.parse(fs.readFileSync(p, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+// Load promo-queue.json
+let promoQueue: any = {};
+try {
+  const p = path.join(process.cwd(), "src/data/promo-queue.json");
+  if (fs.existsSync(p)) {
+    promoQueue = JSON.parse(fs.readFileSync(p, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+const hardRules = governance.hardRules || [];
+const queueSlugs = promoQueue.slugs || [];
+
+// Load recommendations.json
+let recommendations: any = {};
+try {
+  const p = path.join(process.cwd(), "src/data/recommendations.json");
+  if (fs.existsSync(p)) {
+    recommendations = JSON.parse(fs.readFileSync(p, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+const recs: any[] = recommendations.recommendations || [];
+const highPriorityRecs = recs.filter((r: any) => r.priority === "high");
+const mediumPriorityRecs = recs.filter((r: any) => r.priority === "medium");
+const lowPriorityRecs = recs.filter((r: any) => r.priority === "low");
+---
+
+<Base
+  title={title}
+  description={description}
+  currentPath="/lab/control/"
+>
+  <head>
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+
+  <div class="control-page">
+    <span class="internal-badge">Internal</span>
+
+    <h1>Control Panel</h1>
+    <p class="subtitle">Governance rules, promotion config, and queue management.</p>
+
+    {/* Summary banner */}
+    <div class="summary-banner">
+      <div class="stat">
+        <span class={`stat-value ${promo.enabled ? 'green' : 'red'}`}>
+          {promo.enabled ? "ON" : "OFF"}
+        </span>
+        <span class="stat-label">Promo</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">{governance.maxPromosPerWeek || 0}</span>
+        <span class="stat-label">Max / Week</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">{governance.cooldownDaysPerSlug || 0}d</span>
+        <span class="stat-label">Slug Cooldown</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value">{promo.learningMode || "off"}</span>
+        <span class="stat-label">Learning Mode</span>
+      </div>
+      <div class="stat">
+        <span class={`stat-value ${governance.decisionsFrozen ? 'freeze-frozen' : 'freeze-active'}`}>
+          {governance.decisionsFrozen ? "FROZEN" : "Live"}
+        </span>
+        <span class="stat-label">Decisions</span>
+      </div>
+      <div class="stat">
+        <span class={`stat-value ${governance.experimentsFrozen ? 'freeze-frozen' : 'freeze-active'}`}>
+          {governance.experimentsFrozen ? "FROZEN" : "Live"}
+        </span>
+        <span class="stat-label">Experiments</span>
+      </div>
+    </div>
+
+    {/* Governance rules */}
+    <h2>Governance Rules</h2>
+
+    {hardRules.length > 0 && (
+      <>
+        <h3>Hard Rules <span class="section-note">(non-negotiable)</span></h3>
+        <ul class="hard-rules">
+          {hardRules.map((rule: string) => (
+            <li>{rule}</li>
+          ))}
+        </ul>
+      </>
+    )}
+
+    <h3>Numeric Thresholds</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Setting</th>
+            <th class="num-header">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Max promos per week</td>
+            <td class="num">{governance.maxPromosPerWeek ?? "\u2014"}</td>
+          </tr>
+          <tr>
+            <td>Slug cooldown (days)</td>
+            <td class="num">{governance.cooldownDaysPerSlug ?? "\u2014"}</td>
+          </tr>
+          <tr>
+            <td>Partner cooldown (days)</td>
+            <td class="num">{governance.cooldownDaysPerPartner ?? "\u2014"}</td>
+          </tr>
+          <tr>
+            <td>Min coverage score</td>
+            <td class="num">{governance.minCoverageScore ?? "\u2014"}</td>
+          </tr>
+          <tr>
+            <td>Min experiment data threshold</td>
+            <td class="num">{governance.minExperimentDataThreshold ?? "\u2014"}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    {/* Promo config */}
+    <h2>Promotion Config</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Setting</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Enabled</td>
+            <td><span class={promo.enabled ? 'green' : 'red'}>{promo.enabled ? "true" : "false"}</span></td>
+          </tr>
+          <tr>
+            <td>Max names per run</td>
+            <td>{promo.caps?.maxNamesPerRun ?? "\u2014"}</td>
+          </tr>
+          <tr>
+            <td>Fail mode</td>
+            <td><code>{promo.caps?.failMode ?? "\u2014"}</code></td>
+          </tr>
+          <tr>
+            <td>Learning mode</td>
+            <td>{promo.learningMode || "off"}</td>
+          </tr>
+          <tr>
+            <td>Last modified</td>
+            <td class="date-cell">{promo.lastModified || "\u2014"}</td>
+          </tr>
+          <tr>
+            <td>Modified by</td>
+            <td>{promo.modifiedBy || "\u2014"}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    {/* Current queue */}
+    <h2>Current Queue</h2>
+    {queueSlugs.length === 0 ? (
+      <div class="empty-state">
+        <p>Queue is empty. Add slugs to <code>promo-queue.json</code> to schedule promotions.</p>
+      </div>
+    ) : (
+      <div class="queue-info">
+        <p><strong>Week:</strong> {promoQueue.week || "\u2014"}</p>
+        <p><strong>Type:</strong> {promoQueue.promotionType || "\u2014"}</p>
+        <ul class="slug-list">
+          {queueSlugs.map((s: any) => (
+            <li class="mono">{typeof s === "string" ? s : s.slug}</li>
+          ))}
+        </ul>
+        {promoQueue.notes && <p class="queue-notes"><strong>Notes:</strong> {promoQueue.notes}</p>}
+      </div>
+    )}
+
+    {/* Recommendations (Advisory) */}
+    <h2>Recommendations (Advisory)</h2>
+    {recs.length === 0 ? (
+      <div class="empty-state">
+        <p>No recommendations available. Run <code>node scripts/gen-recommendations.mjs</code> to generate.</p>
+      </div>
+    ) : (
+      <div class="rec-sections">
+        {highPriorityRecs.length > 0 && (
+          <>
+            <h3>High Priority</h3>
+            <div class="recommendations">
+              {highPriorityRecs.map((rec: any) => (
+                <div class="rec-card high">
+                  <div class="rec-header">
+                    <span class="rec-badge">{rec.category}</span>
+                    <code class="rec-slug">{rec.slug}</code>
+                  </div>
+                  <p class="rec-title">{rec.title}</p>
+                  <p class="rec-insight">{rec.insight}</p>
+                  <p class="rec-action"><strong>Action:</strong> {rec.action}</p>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+        {mediumPriorityRecs.length > 0 && (
+          <>
+            <h3>Medium Priority</h3>
+            <div class="recommendations">
+              {mediumPriorityRecs.map((rec: any) => (
+                <div class="rec-card medium">
+                  <div class="rec-header">
+                    <span class="rec-badge">{rec.category}</span>
+                    <code class="rec-slug">{rec.slug}</code>
+                  </div>
+                  <p class="rec-title">{rec.title}</p>
+                  <p class="rec-insight">{rec.insight}</p>
+                  <p class="rec-action"><strong>Action:</strong> {rec.action}</p>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+        {lowPriorityRecs.length > 0 && (
+          <>
+            <h3>Low Priority</h3>
+            <div class="recommendations">
+              {lowPriorityRecs.map((rec: any) => (
+                <div class="rec-card low">
+                  <div class="rec-header">
+                    <span class="rec-badge">{rec.category}</span>
+                    <code class="rec-slug">{rec.slug}</code>
+                  </div>
+                  <p class="rec-title">{rec.title}</p>
+                  <p class="rec-insight">{rec.insight}</p>
+                  <p class="rec-action"><strong>Action:</strong> {rec.action}</p>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    )}
+
+    {/* JSON Patch Generator */}
+    <h2>JSON Patch Generator</h2>
+    <p class="section-desc">Change settings below and generate a JSON patch to open as a PR.</p>
+
+    <div class="patch-form" id="patch-form">
+      <div class="form-group">
+        <label for="patch-enabled">Promo enabled</label>
+        <select id="patch-enabled">
+          <option value="" selected>No change</option>
+          <option value="true">true</option>
+          <option value="false">false</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="patch-max-promos">Max promos per week</label>
+        <input type="number" id="patch-max-promos" placeholder={String(governance.maxPromosPerWeek || 3)} min="0" max="20" />
+      </div>
+      <div class="form-group">
+        <label for="patch-slug-cooldown">Slug cooldown (days)</label>
+        <input type="number" id="patch-slug-cooldown" placeholder={String(governance.cooldownDaysPerSlug || 14)} min="0" max="90" />
+      </div>
+      <div class="form-group">
+        <label for="patch-partner-cooldown">Partner cooldown (days)</label>
+        <input type="number" id="patch-partner-cooldown" placeholder={String(governance.cooldownDaysPerPartner || 14)} min="0" max="90" />
+      </div>
+      <div class="form-group">
+        <label for="patch-learning">Learning mode</label>
+        <select id="patch-learning">
+          <option value="" selected>No change</option>
+          <option value="off">off</option>
+          <option value="shadow">shadow</option>
+          <option value="active">active</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="patch-decisions-frozen">Freeze decisions</label>
+        <select id="patch-decisions-frozen">
+          <option value="" selected>No change</option>
+          <option value="true">true (frozen)</option>
+          <option value="false">false (live)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="patch-experiments-frozen">Freeze experiments</label>
+        <select id="patch-experiments-frozen">
+          <option value="" selected>No change</option>
+          <option value="true">true (frozen)</option>
+          <option value="false">false (live)</option>
+        </select>
+      </div>
+      <button type="button" id="generate-patch">Generate Patch</button>
+    </div>
+
+    <div class="patch-output" id="patch-output" style="display:none;">
+      <h3>Generated Patch</h3>
+      <pre id="patch-json"></pre>
+      <button type="button" id="copy-patch">Copy to Clipboard</button>
+    </div>
+
+    {/* Provenance */}
+    <div class="provenance">
+      <h3>Data Sources</h3>
+      <ul>
+        <li>Governance: <code>site/src/data/governance.json</code></li>
+        <li>Promo config: <code>site/src/data/promo.json</code></li>
+        <li>Queue: <code>site/src/data/promo-queue.json</code></li>
+        <li>Decision engine: <code>scripts/gen-promo-decisions.mjs</code></li>
+        <li>Recommendations: <code>site/src/data/recommendations.json</code> (generated by <code>scripts/gen-recommendations.mjs</code>)</li>
+      </ul>
+    </div>
+  </div>
+</Base>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("generate-patch");
+    const copyBtn = document.getElementById("copy-patch");
+    const outputDiv = document.getElementById("patch-output");
+    const jsonPre = document.getElementById("patch-json");
+
+    if (!btn || !outputDiv || !jsonPre || !copyBtn) return;
+
+    btn.addEventListener("click", () => {
+      const patches: Record<string, Record<string, unknown>> = {};
+
+      // promo.json changes
+      const enabledVal = (document.getElementById("patch-enabled") as HTMLSelectElement).value;
+      const learningVal = (document.getElementById("patch-learning") as HTMLSelectElement).value;
+
+      if (enabledVal) patches["promo.json"] = { ...patches["promo.json"], enabled: enabledVal === "true" };
+      if (learningVal) patches["promo.json"] = { ...patches["promo.json"], learningMode: learningVal };
+
+      // governance.json changes
+      const maxPromos = (document.getElementById("patch-max-promos") as HTMLInputElement).value;
+      const slugCooldown = (document.getElementById("patch-slug-cooldown") as HTMLInputElement).value;
+      const partnerCooldown = (document.getElementById("patch-partner-cooldown") as HTMLInputElement).value;
+
+      if (maxPromos) patches["governance.json"] = { ...patches["governance.json"], maxPromosPerWeek: Number(maxPromos) };
+      if (slugCooldown) patches["governance.json"] = { ...patches["governance.json"], cooldownDaysPerSlug: Number(slugCooldown) };
+      if (partnerCooldown) patches["governance.json"] = { ...patches["governance.json"], cooldownDaysPerPartner: Number(partnerCooldown) };
+
+      // Freeze toggles
+      const decisionsFrozen = (document.getElementById("patch-decisions-frozen") as HTMLSelectElement).value;
+      const experimentsFrozen = (document.getElementById("patch-experiments-frozen") as HTMLSelectElement).value;
+      if (decisionsFrozen) patches["governance.json"] = { ...patches["governance.json"], decisionsFrozen: decisionsFrozen === "true" };
+      if (experimentsFrozen) patches["governance.json"] = { ...patches["governance.json"], experimentsFrozen: experimentsFrozen === "true" };
+
+      if (Object.keys(patches).length === 0) {
+        jsonPre.textContent = "// No changes specified";
+        outputDiv.style.display = "block";
+        return;
+      }
+
+      jsonPre.textContent = JSON.stringify(patches, null, 2);
+      outputDiv.style.display = "block";
+    });
+
+    copyBtn.addEventListener("click", async () => {
+      if (!jsonPre.textContent) return;
+      try {
+        await navigator.clipboard.writeText(jsonPre.textContent);
+        copyBtn.textContent = "Copied!";
+        setTimeout(() => { copyBtn.textContent = "Copy to Clipboard"; }, 2000);
+      } catch {
+        // Fallback
+        const range = document.createRange();
+        range.selectNodeContents(jsonPre);
+        window.getSelection()?.removeAllRanges();
+        window.getSelection()?.addRange(range);
+      }
+    });
+  });
+</script>
+
+<style>
+  .control-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .internal-badge {
+    display: inline-block;
+    background: #d29922;
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  h1 {
+    margin: 0 0 0.25rem;
+    font-size: 2rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    color: var(--color-text, #e6edf3);
+    margin: 2rem 0 0.75rem;
+  }
+
+  h3 {
+    font-size: 0.95rem;
+    color: var(--color-text, #e6edf3);
+    margin: 1rem 0 0.5rem;
+  }
+
+  .subtitle {
+    color: var(--color-text-muted, #8b949e);
+    margin: 0 0 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .section-note {
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .section-desc {
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.85rem;
+    margin: 0 0 1rem;
+  }
+
+  .summary-banner {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  .stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-text, #e6edf3);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted, #8b949e);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+  }
+
+  .green { color: #3fb950; }
+  .red { color: #f85149; }
+  .freeze-active { color: #3fb950; }
+  .freeze-frozen { color: #f85149; }
+
+  .hard-rules {
+    padding-left: 1.2rem;
+    margin: 0;
+  }
+
+  .hard-rules li {
+    margin: 0.3rem 0;
+    font-size: 0.85rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .hard-rules li::marker {
+    content: "\2713\00a0";
+    color: #3fb950;
+  }
+
+  .table-wrap { overflow-x: auto; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  th {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 2px solid var(--color-border, #30363d);
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .num-header { text-align: right; }
+
+  td {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--color-border, #30363d);
+    color: var(--color-text, #e6edf3);
+  }
+
+  .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .mono {
+    font-family: monospace;
+    font-size: 0.8rem;
+  }
+
+  .date-cell {
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.8rem;
+  }
+
+  td code {
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.9rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+  }
+
+  .empty-state code {
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
+
+  .queue-info {
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .queue-info p {
+    margin: 0.25rem 0;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .slug-list {
+    padding-left: 1.2rem;
+    margin: 0.5rem 0;
+  }
+
+  .slug-list li {
+    margin: 0.2rem 0;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .queue-notes {
+    color: var(--color-text-muted, #8b949e) !important;
+    font-size: 0.8rem;
+    margin-top: 0.5rem !important;
+  }
+
+  /* Patch form */
+  .patch-form {
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .form-group label {
+    min-width: 180px;
+    font-size: 0.85rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .form-group select,
+  .form-group input {
+    background: var(--color-bg, #0d1117);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 4px;
+    color: var(--color-text, #e6edf3);
+    padding: 0.35rem 0.5rem;
+    font-size: 0.85rem;
+    min-width: 140px;
+  }
+
+  .form-group input::placeholder {
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  #generate-patch,
+  #copy-patch {
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: #238636;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  #generate-patch:hover,
+  #copy-patch:hover {
+    background: #2ea043;
+  }
+
+  .patch-output {
+    margin-top: 1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .patch-output h3 {
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .patch-output pre {
+    background: var(--color-bg, #0d1117);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 4px;
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--color-text, #e6edf3);
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .provenance {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, #30363d);
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.8rem;
+  }
+
+  .provenance h3 {
+    font-size: 0.85rem;
+    margin: 0 0 0.5rem;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .provenance ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .provenance li { margin: 0.3rem 0; }
+
+  .provenance code {
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
+
+  /* Recommendations */
+  .recommendations {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .rec-card {
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-left: 4px solid var(--color-border, #30363d);
+    border-radius: 6px;
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .rec-card.high { border-left-color: #f85149; }
+  .rec-card.medium { border-left-color: #d29922; }
+  .rec-card.low { border-left-color: #8b949e; }
+
+  .rec-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .rec-badge {
+    background: rgba(110, 118, 129, 0.3);
+    color: var(--color-text-muted, #8b949e);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .rec-slug {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .rec-title {
+    font-weight: 600;
+    color: var(--color-text, #e6edf3);
+    margin: 0.25rem 0;
+  }
+
+  .rec-insight {
+    color: var(--color-text-muted, #8b949e);
+    margin: 0.25rem 0;
+    font-size: 0.8rem;
+  }
+
+  .rec-action {
+    color: var(--color-text, #e6edf3);
+    margin: 0.5rem 0 0;
+    font-size: 0.8rem;
+  }
+
+  .rec-action strong {
+    color: #3fb950;
+  }
+
+  @media (max-width: 600px) {
+    .summary-banner {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .stat {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .stat-value { font-size: 1.3rem; }
+
+    .form-group {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+
+    .form-group label { min-width: auto; }
+    .form-group select, .form-group input { width: 100%; }
+    table { font-size: 0.8rem; }
+  }
+</style>

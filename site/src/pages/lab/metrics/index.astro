@@ -1,0 +1,514 @@
+---
+import Base from '../../../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+function loadJson(filePath: string): any {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+const rollup: any = loadJson(path.join(process.cwd(), 'src/data/telemetry/rollup.json'));
+const queueHealth: any = loadJson(path.join(process.cwd(), 'src/data/queue-health.json'));
+const recoData: any = loadJson(path.join(process.cwd(), 'src/data/recommendations.json'));
+
+const hasData = rollup && rollup.totalEvents > 0;
+
+// Verification funnel by week — pre-compute rows
+const weekKeys: string[] = hasData ? Object.keys(rollup.byWeek).sort().reverse() : [];
+const weekRows = weekKeys.map((week: string) => {
+  const w = rollup.byWeek[week] || {};
+  const proofLink = w.copy_proof_link || 0;
+  const bundle = w.copy_bundle || 0;
+  const verifyCmd = w.copy_verify_cmd || 0;
+  const total = proofLink + bundle + verifyCmd;
+  const rate = total > 0 ? ((bundle / total) * 100).toFixed(1) : '—';
+  return { week, proofLink, bundle, verifyCmd, rate };
+});
+
+// Top tools by proof engagement
+const proofEngagement = hasData
+  ? Object.entries(rollup.bySlug)
+      .map(([slug, counts]: [string, any]) => ({
+        slug,
+        total: (counts.copy_proof_bullets || 0) + (counts.copy_claim || 0) + (counts.click_evidence_link || 0),
+        bullets: counts.copy_proof_bullets || 0,
+        claims: counts.copy_claim || 0,
+        evidence: counts.click_evidence_link || 0,
+      }))
+      .filter((e: any) => e.total > 0)
+      .sort((a: any, b: any) => b.total - a.total)
+      .slice(0, 10)
+  : [];
+
+// Submission funnel — queue status entries
+const statusEntries: Array<{status: string; count: number}> = queueHealth
+  ? Object.entries(queueHealth.byStatus).map(([status, count]: [string, any]) => ({ status, count }))
+  : [];
+
+// Stuck submissions + lint failures
+const stuckSlugs: Array<{slug: string; status: string; daysPending: number}> = queueHealth?.stuckSlugs || [];
+const topLintFailures: Array<{reason: string; count: number}> = queueHealth?.topLintFailures || [];
+
+// Trust Interaction Score by week — pre-sort
+const tisByWeek: Record<string, number> = hasData
+  ? rollup.metrics?.trustInteractionScoreByWeek || {}
+  : {};
+const tisEntries = Object.entries(tisByWeek).sort((a, b) => b[0].localeCompare(a[0]));
+
+// Derived trust signals from recommendations.json
+const recoSignals = recoData?.signals || {};
+const proofEngagementEntries: Array<{slug: string; score: number}> = Object.entries(recoSignals.proofEngagementBySlug || {})
+  .map(([slug, score]: [string, any]) => ({ slug, score }))
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 10);
+const frictionEntries: Array<{slug: string; score: number}> = Object.entries(recoSignals.submissionFrictionBySlug || {})
+  .map(([slug, score]: [string, any]) => ({ slug, score }))
+  .filter((e) => e.score > 0)
+  .sort((a, b) => b.score - a.score)
+  .slice(0, 10);
+---
+
+<Base
+  title="Metrics Dashboard - Internal"
+  description="Internal telemetry metrics and queue health dashboard."
+  currentPath="/lab/metrics/"
+>
+  <head>
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+
+  <div class="metrics-page">
+    <div class="internal-badge">Internal Preview</div>
+
+    <h1>Metrics Dashboard</h1>
+    <p class="subtitle">Privacy-respecting telemetry aggregates and queue health.</p>
+
+    {hasData ? (
+      <>
+        {/* Summary Banner */}
+        <div class="summary-banner">
+          <div class="summary-grid">
+            <div class="summary-item">
+              <span class="value">{((rollup.metrics?.verificationRate || 0) * 100).toFixed(1)}%</span>
+              <span class="label">Verification Rate</span>
+            </div>
+            <div class="summary-item">
+              <span class="value">{rollup.metrics?.totalProofActions || 0}</span>
+              <span class="label">Proof Actions</span>
+            </div>
+            <div class="summary-item">
+              <span class="value">{rollup.metrics?.submissionClicks || 0}</span>
+              <span class="label">Submission Clicks</span>
+            </div>
+            <div class="summary-item">
+              <span class="value">{queueHealth?.stuckCount ?? '—'}</span>
+              <span class="label">Stuck Submissions</span>
+            </div>
+          </div>
+          <div class="snapshot-meta">
+            Telemetry: {rollup.totalEvents} events | Generated: {rollup.generatedAt ? new Date(rollup.generatedAt).toLocaleDateString('en-US', { dateStyle: 'medium' }) : '—'}
+          </div>
+        </div>
+
+        {/* Verification Funnel */}
+        <section class="section">
+          <h2>Verification Funnel</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Week</th>
+                  <th>copy_proof_link</th>
+                  <th>copy_bundle</th>
+                  <th>copy_verify_cmd</th>
+                  <th>Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                {weekRows.map((r) => (
+                    <tr>
+                      <td><code>{r.week}</code></td>
+                      <td class="num">{r.proofLink}</td>
+                      <td class="num">{r.bundle}</td>
+                      <td class="num">{r.verifyCmd}</td>
+                      <td class="num">{r.rate}{r.rate !== '—' ? '%' : ''}</td>
+                    </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* Proof Engagement */}
+        {proofEngagement.length > 0 && (
+          <section class="section">
+            <h2>Proof Engagement (Top 10)</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Tool</th>
+                    <th>Bullets</th>
+                    <th>Claims</th>
+                    <th>Evidence</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {proofEngagement.map((e) => (
+                    <tr>
+                      <td><code>{e.slug}</code></td>
+                      <td class="num">{e.bullets}</td>
+                      <td class="num">{e.claims}</td>
+                      <td class="num">{e.evidence}</td>
+                      <td class="num total">{e.total}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+
+        {/* Submission Funnel */}
+        <section class="section">
+          <h2>Submission Funnel</h2>
+          <div class="kv-grid">
+            <div class="kv-item">
+              <span class="kv-label">Submit link clicks</span>
+              <span class="kv-value">{rollup.byType?.click_submit_link || 0}</span>
+            </div>
+            {statusEntries.map((e) => (
+              <div class="kv-item">
+                <span class="kv-label">Queue: {e.status}</span>
+                <span class="kv-value">{e.count}</span>
+              </div>
+            ))}
+            <div class="kv-item">
+              <span class="kv-label">Throughput (30d)</span>
+              <span class="kv-value">{queueHealth?.throughput ?? '—'}</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Queue Health */}
+        {queueHealth && (
+          <section class="section">
+            <h2>Queue Health</h2>
+            <div class="kv-grid">
+              <div class="kv-item">
+                <span class="kv-label">Median days pending</span>
+                <span class="kv-value">{queueHealth.medianDaysPending ?? '—'}</span>
+              </div>
+              <div class="kv-item">
+                <span class="kv-label">Stuck submissions</span>
+                <span class="kv-value">{queueHealth.stuckCount}</span>
+              </div>
+            </div>
+            {stuckSlugs.length > 0 && (
+              <div class="stuck-list">
+                <h3>Stuck Items</h3>
+                <ul>
+                  {stuckSlugs.map((s) => (
+                    <li><code>{s.slug}</code> — {s.status}, {s.daysPending} days</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {topLintFailures.length > 0 && (
+              <div class="lint-failures">
+                <h3>Top Lint Failures</h3>
+                <ul>
+                  {topLintFailures.map((f) => (
+                    <li>{f.reason} <span class="count">({f.count})</span></li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </section>
+        )}
+
+        {/* Trust Interaction Score */}
+        {Object.keys(tisByWeek).length > 0 && (
+          <section class="section">
+            <h2>Trust Interaction Score</h2>
+            <p class="section-desc">copy_bundle + copy_verify_cmd + click_receipt_link per week.</p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Week</th>
+                    <th>Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tisEntries.map(([week, score]) => (
+                    <tr>
+                      <td><code>{week}</code></td>
+                      <td class="num">{score}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+
+        {/* Derived Trust Signals */}
+        {proofEngagementEntries.length > 0 && (
+          <section class="section">
+            <h2>Proof Engagement by Tool</h2>
+            <p class="section-desc">click_evidence_link + copy_proof_bullets per tool.</p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Tool</th>
+                    <th>Engagement Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {proofEngagementEntries.map((e) => (
+                    <tr>
+                      <td><code>{e.slug}</code></td>
+                      <td class="num">{e.score}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+
+        {frictionEntries.length > 0 && (
+          <section class="section">
+            <h2>Submission Friction by Tool</h2>
+            <p class="section-desc">Lint warnings + needs-info penalty + stuck penalty per submission.</p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Submission</th>
+                    <th>Friction Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {frictionEntries.map((e) => (
+                    <tr>
+                      <td><code>{e.slug}</code></td>
+                      <td class="num">{e.score}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        )}
+      </>
+    ) : (
+      <div class="summary-banner empty">
+        <p>No telemetry data yet.</p>
+        <p>Events are buffered in visitors' browsers. Use the <a href="/lab/telemetry-export/">export page</a> to download and commit event data.</p>
+        <p>Then run: <code>node scripts/gen-telemetry-aggregate.mjs</code></p>
+      </div>
+    )}
+
+    {/* Provenance */}
+    <section class="section provenance">
+      <h2>Data Sources</h2>
+      <ul>
+        <li>Telemetry rollup: <code>telemetry/rollup.json</code> (generated by <code>gen-telemetry-aggregate.mjs</code>)</li>
+        <li>Queue health: <code>queue-health.json</code> (generated by <code>gen-queue-health.mjs</code>)</li>
+        <li>Events: localStorage buffer → manual JSONL export → <code>telemetry/events/</code></li>
+        <li>Privacy: no cookies, no user IDs, no IP storage, no external services</li>
+      </ul>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .metrics-page {
+    padding: 2rem 0;
+  }
+  .internal-badge {
+    display: inline-block;
+    background: #d2992233;
+    color: #d29922;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    margin: 0 0 0.25rem;
+  }
+  .subtitle {
+    color: var(--color-text-muted);
+    margin: 0 0 1.5rem;
+  }
+
+  /* Summary banner */
+  .summary-banner {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .summary-banner.empty {
+    color: var(--color-text-muted);
+    text-align: center;
+    padding: 2rem;
+  }
+  .summary-banner.empty p {
+    margin: 0.25rem 0;
+  }
+  .summary-banner.empty a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+  .summary-banner.empty a:hover {
+    text-decoration: underline;
+  }
+  .summary-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .summary-item .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+  .summary-item .label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .snapshot-meta {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 2rem;
+  }
+  .section h2 {
+    font-size: 1.1rem;
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .section h3 {
+    font-size: 0.95rem;
+    margin: 0.75rem 0 0.5rem;
+  }
+  .section-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: -0.5rem 0 1rem;
+  }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+  th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-border);
+  }
+  td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .total {
+    font-weight: 600;
+  }
+
+  /* KV grid */
+  .kv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.75rem;
+  }
+  .kv-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+  }
+  .kv-label {
+    color: var(--color-text-muted);
+  }
+  .kv-value {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Stuck / lint failures */
+  .stuck-list, .lint-failures {
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+  .stuck-list ul, .lint-failures ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: 0.85rem;
+  }
+  .stuck-list li, .lint-failures li {
+    margin: 0.3rem 0;
+  }
+  .count {
+    color: var(--color-text-muted);
+  }
+
+  /* Provenance */
+  .provenance ul {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    padding-left: 1.25rem;
+  }
+  .provenance li {
+    margin-bottom: 0.35rem;
+  }
+
+  code {
+    font-family: var(--font-mono);
+  }
+</style>

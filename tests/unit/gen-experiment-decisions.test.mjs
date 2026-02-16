@@ -1,6 +1,9 @@
-import { describe, it } from "node:test";
+import { describe, it, beforeEach, afterEach } from "node:test";
 import assert from "node:assert/strict";
-import { evaluateExperiments } from "../../scripts/gen-experiment-decisions.mjs";
+import { mkdirSync, writeFileSync, rmSync } from "node:fs";
+import { join } from "node:path";
+import { tmpdir } from "node:os";
+import { evaluateExperiments, generateExperimentDecisions } from "../../scripts/gen-experiment-decisions.mjs";
 
 function makeExp(id, name, { status = "active", controlKey = "control", variantKey = "variant-a" } = {}) {
   return { id, name, status, slug: "test-tool", dimension: "tagline", control: { key: controlKey }, variant: { key: variantKey } };
@@ -200,5 +203,41 @@ describe("evaluateExperiments", () => {
     assert.notEqual(result.evaluations[0].status, "needs-more-data");
     assert.equal(result.evaluations[0].status, "winner-found");
     assert.equal(result.evaluations[0].winnerKey, "variant-a");
+  });
+});
+
+describe("generateExperimentDecisions — freeze enforcement", () => {
+  let tempDir;
+
+  beforeEach(() => {
+    tempDir = join(tmpdir(), `exp-freeze-${Date.now()}-${Math.random().toString(36).slice(2)}`);
+    mkdirSync(tempDir, { recursive: true });
+    mkdirSync(join(tempDir, "..", "public", "lab", "decisions"), { recursive: true });
+
+    writeFileSync(join(tempDir, "experiments.json"), JSON.stringify({ schemaVersion: 1, experiments: [] }));
+    writeFileSync(join(tempDir, "feedback-summary.json"), JSON.stringify({ perExperiment: {} }));
+
+    // Seed existing experiment-decisions.json
+    writeFileSync(join(tempDir, "experiment-decisions.json"), JSON.stringify({
+      generatedAt: "2026-02-15T00:00:00.000Z",
+      evaluations: [{ experimentId: "exp-frozen", status: "needs-more-data", winnerKey: null, recommendation: "frozen" }],
+      warnings: [],
+    }));
+  });
+
+  afterEach(() => {
+    try { rmSync(tempDir, { recursive: true, force: true }); } catch {}
+  });
+
+  it("returns frozen flag and preserves existing evaluations when experimentsFrozen=true", () => {
+    writeFileSync(join(tempDir, "governance.json"), JSON.stringify({
+      schemaVersion: 2, decisionsFrozen: false, experimentsFrozen: true,
+      minExperimentDataThreshold: 10,
+    }));
+
+    const publicDir = join(tempDir, "..", "public", "lab", "decisions");
+    const result = generateExperimentDecisions({ dataDir: tempDir, publicDir, dryRun: true });
+    assert.equal(result.frozen, true, "should return frozen: true");
+    assert.equal(result.evaluationCount, 1, "should preserve existing evaluation count");
   });
 });

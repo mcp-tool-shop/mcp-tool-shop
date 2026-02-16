@@ -1,0 +1,164 @@
+name: Weekly recommendation patches
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    # Every Monday at 09:00 UTC — one hour after overrides-weekly (08:00)
+    - cron: '0 9 * * 1'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: recommendations-weekly
+  cancel-in-progress: true
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Refresh upstream data before generating patches
+      - name: Refresh telemetry rollup
+        run: node scripts/gen-telemetry-aggregate.mjs
+
+      - name: Refresh queue health
+        run: node scripts/gen-queue-health.mjs
+
+      - name: Refresh recommendations
+        run: node scripts/gen-recommendations.mjs
+
+      # Generate and apply patches
+      - name: Generate recommendation patches
+        id: patch
+        run: |
+          node scripts/gen-recommendation-patch.mjs
+
+          PATCH_COUNT=$(node -e "
+            const p = JSON.parse(require('fs').readFileSync('site/src/data/recommendation-patch.json', 'utf8'));
+            console.log(p.patches.length);
+          ")
+          ADVISORY_COUNT=$(node -e "
+            const p = JSON.parse(require('fs').readFileSync('site/src/data/recommendation-patch.json', 'utf8'));
+            console.log(p.advisoryNotes.length);
+          ")
+          echo "patch_count=${PATCH_COUNT}" >> "$GITHUB_OUTPUT"
+          echo "advisory_count=${ADVISORY_COUNT}" >> "$GITHUB_OUTPUT"
+
+      # Run invariant tests to verify data integrity
+      - name: Run invariant tests
+        run: node --test tests/invariants/*.test.mjs
+
+      # Check for file changes
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet site/src/data/; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No data file changes."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Build PR body from patch artifact
+      - name: Build PR body
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          node -e "
+            const fs = require('fs');
+            const patch = JSON.parse(fs.readFileSync('site/src/data/recommendation-patch.json', 'utf8'));
+            const lines = [];
+            const week = new Date().toISOString().slice(0, 10);
+            lines.push('## Advisory Recommendation Updates — ' + week);
+            lines.push('');
+
+            if (patch.patches.length > 0) {
+              lines.push('### Data Changes');
+              for (const p of patch.patches) {
+                lines.push('- ' + p.description);
+              }
+              lines.push('');
+            }
+
+            if (patch.advisoryNotes.length > 0) {
+              lines.push('### Advisory Notes (No File Changes)');
+              for (const n of patch.advisoryNotes) {
+                lines.push('- **' + n.category + '**: \`' + n.slug + '\` — ' + n.note);
+              }
+              lines.push('');
+            }
+
+            if (patch.riskNotes.length > 0) {
+              lines.push('### Risk Notes');
+              for (const r of patch.riskNotes) {
+                lines.push('- ' + r);
+              }
+              lines.push('');
+            }
+
+            if (patch.frozenActions.length > 0) {
+              lines.push('### Frozen Actions (Skipped)');
+              for (const f of patch.frozenActions) {
+                lines.push('- **' + f.category + '**: \`' + f.slug + '\` — ' + f.note);
+              }
+              lines.push('');
+            } else {
+              lines.push('### Frozen Actions (Skipped)');
+              lines.push('- (none — no freezes active)');
+              lines.push('');
+            }
+
+            lines.push('### Verification');
+            lines.push('- Run \`node scripts/gen-recommendation-patch.mjs --dry-run\` to verify');
+            lines.push('- Invariant tests passed in CI');
+            lines.push('');
+            lines.push('### Rollback');
+            lines.push('Revert this PR commit. No external side effects.');
+            fs.writeFileSync('/tmp/pr-body.md', lines.join('\n'));
+          "
+
+      # Push branch and open PR
+      - name: Push branch and open PR
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="auto/recommendations-weekly"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add site/src/data/promo-queue.json site/src/data/experiments.json
+          git add site/src/data/recommendation-patch.json
+          git add site/src/data/telemetry/ site/src/data/queue-health.json site/src/data/recommendations.json
+
+          git checkout -B "$BRANCH"
+          git commit -m "chore(auto): weekly recommendation patches"
+          git push --force origin "$BRANCH"
+
+          PR_BODY=$(cat /tmp/pr-body.md)
+
+          EXISTING=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+
+          if [ -n "$EXISTING" ]; then
+            echo "Updating existing PR #$EXISTING"
+            gh pr edit "$EXISTING" --body "$PR_BODY" || echo "::warning::Could not update PR body. Edit manually."
+          else
+            echo "Creating new PR"
+            gh pr create \
+              --title "chore(auto): weekly recommendation patches" \
+              --body "$PR_BODY" \
+              --base main \
+              --head "$BRANCH" \
+            || echo "::warning::Could not create PR automatically. Create one manually: https://github.com/${{ github.repository }}/compare/main...$BRANCH"
+          fi

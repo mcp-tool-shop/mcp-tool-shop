@@ -612,12 +612,16 @@ const pressData = showProof ? getPressData(project.repo) : null;
 </style>
 
 <script>
+  import { trackEvent } from '../../lib/tracker';
+
   const copyBtn = document.getElementById('copy-install');
   const installCmd = document.getElementById('install-cmd');
   if (copyBtn && installCmd) {
     copyBtn.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(installCmd.textContent || '');
+        const slug = window.location.pathname.split('/tools/')[1]?.replace(/\/$/, '') || '';
+        trackEvent('copy_install', { slug });
         copyBtn.textContent = 'Copied!';
         setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1500);
       } catch {

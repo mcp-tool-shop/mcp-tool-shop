@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 2,
+  "decisionsFrozen": false,
+  "experimentsFrozen": false,
+  "maxPromosPerWeek": 3,
+  "cooldownDaysPerSlug": 14,
+  "cooldownDaysPerPartner": 14,
+  "minCoverageScore": 80,
+  "minExperimentDataThreshold": 10,
+  "hardRules": [
+    "never push directly to main"
+  ]
+}

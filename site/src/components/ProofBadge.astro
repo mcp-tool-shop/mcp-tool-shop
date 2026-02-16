@@ -1,0 +1,31 @@
+---
+interface Props {
+  type: "receipt" | "hashed" | "frozen";
+}
+
+const { type } = Astro.props;
+
+const labels: Record<string, string> = {
+  receipt: "Receipt-backed",
+  hashed: "Inputs hashed",
+  frozen: "Frozen",
+};
+---
+
+<span class={`proof-badge proof-badge-${type}`}>{labels[type]}</span>
+
+<style>
+  .proof-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .proof-badge-receipt { background: rgba(63, 185, 80, 0.15); color: #3fb950; }
+  .proof-badge-hashed { background: rgba(56, 139, 253, 0.15); color: #388bfd; }
+  .proof-badge-frozen { background: rgba(248, 81, 73, 0.15); color: #f85149; }
+</style>

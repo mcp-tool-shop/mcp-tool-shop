@@ -10,7 +10,10 @@
     "suggest": "node scripts/suggest-collections.mjs",
     "test": "node --test tests/unit/*.test.mjs",
     "test:invariants": "node --test tests/invariants/*.test.mjs",
-    "test:all": "node --test tests/unit/*.test.mjs tests/invariants/*.test.mjs"
+    "test:all": "node --test tests/unit/*.test.mjs tests/invariants/*.test.mjs",
+    "kit:init": "node scripts/kit-bootstrap.mjs",
+    "kit:selftest": "node scripts/kit-selftest.mjs",
+    "kit:migrate": "node scripts/kit-migrate.mjs"
   },
   "dependencies": {
     "yazl": "^3.3.1"

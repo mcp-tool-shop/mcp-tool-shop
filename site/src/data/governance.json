@@ -1,5 +1,7 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
+  "decisionsFrozen": false,
+  "experimentsFrozen": false,
   "maxPromosPerWeek": 3,
   "cooldownDaysPerSlug": 14,
   "cooldownDaysPerPartner": 14,

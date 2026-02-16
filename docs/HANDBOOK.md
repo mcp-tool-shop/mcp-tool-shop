@@ -2,6 +2,15 @@
 
 > How the marketing site works, in plain language.
 
+**One-line promise**: The operator's manual for the mcp-tool-shop marketing site -- from syncing a tool to generating a press kit.
+
+**Who it's for**: Site maintainers, tool authors contributing to the catalog, AI agents resuming work.
+**Not for**: End users of tools (see [tool pages](https://mcp-tool-shop.github.io/tools/)), or journalists (see [Presskit Handbook](presskit-handbook.md)).
+
+**Trust**: [Trust Center](https://mcp-tool-shop.github.io/trust/) · [Receipts](https://mcp-tool-shop.github.io/receipts/)
+
+---
+
 ## What is this?
 
 This repo powers [mcptoolshop.com](https://mcp-tool-shop.github.io/) — the catalog site for tools built under [mcp-tool-shop-org](https://github.com/mcp-tool-shop-org). It lists every tool, shows install commands, and hosts press kits and outreach materials.

@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { kit } from '../../lib/kit';
 import overrides from '../../data/overrides.json';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -45,8 +46,8 @@ try {
   clearance = JSON.parse(fs.readFileSync(clearancePath, 'utf8'));
 } catch {}
 
-const orgUrl = `https://github.com/mcp-tool-shop-org/${slug}`;
-const siteUrl = `https://mcptoolshop.com`;
+const orgUrl = `${kit.org.url || 'https://github.com/mcp-tool-shop-org'}/${slug}`;
+const siteUrl = kit.site.url || 'https://mcptoolshop.com';
 
 // Determine "last updated" dates
 const factsFetchedAt = facts?.fetchedAt ? new Date(facts.fetchedAt).toLocaleDateString('en-US', { dateStyle: 'medium' }) : null;
@@ -260,23 +261,31 @@ function getTierLabel(score: number): string {
   </div>
 
   <script>
+    import { trackEvent } from '../../lib/tracker';
+
+    const slug = window.location.pathname.split('/proof/')[1]?.replace(/\/$/, '') || '';
+
     // Copy all proof bullets
     document.getElementById('copy-proof-bullets')?.addEventListener('click', async function() {
       const items = document.querySelectorAll('#proof-bullets-list li');
       const text = Array.from(items).map(li => `- ${li.textContent}`).join('\n');
       try {
         await navigator.clipboard.writeText(text);
+        trackEvent('copy_proof_bullets', { slug });
         this.textContent = 'Copied!';
         setTimeout(() => { this.textContent = 'Copy All'; }, 1500);
       } catch { this.textContent = 'Failed'; setTimeout(() => { this.textContent = 'Copy All'; }, 1500); }
     });
 
     // Copy individual claims
+    let claimIdx = 0;
     document.querySelectorAll('.claim-copy-btn').forEach(btn => {
+      const idx = claimIdx++;
       btn.addEventListener('click', async function() {
         const text = this.getAttribute('data-claim-text') || '';
         try {
           await navigator.clipboard.writeText(text);
+          trackEvent('copy_claim', { slug, claimIndex: idx });
           this.textContent = 'Copied!';
           setTimeout(() => { this.textContent = 'Copy'; }, 1500);
         } catch { this.textContent = 'Failed'; setTimeout(() => { this.textContent = 'Copy'; }, 1500); }

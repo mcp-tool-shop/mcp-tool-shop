@@ -1,0 +1,428 @@
+---
+import Base from "../../layouts/Base.astro";
+import GlossaryTerm from "../../components/GlossaryTerm.astro";
+import { kit } from '../../lib/kit';
+import fs from "node:fs";
+import path from "node:path";
+
+const title = `Get Featured - ${kit.site.title || 'mcp-tool-shop'}`;
+const description = `Submit your tool for promotion or experimentation on the ${kit.site.title || 'mcp-tool-shop'} catalog.`;
+
+// Load worthy rubric
+let worthyCriteria: string[] = [];
+let worthyMinScore = 0;
+const worthyPath = path.join(process.cwd(), "src/data/worthy.json");
+try {
+  if (fs.existsSync(worthyPath)) {
+    const worthy = JSON.parse(fs.readFileSync(worthyPath, "utf8"));
+    worthyCriteria = worthy.rubric?.criteria || [];
+    worthyMinScore = worthy.rubric?.minimumScore || 0;
+  }
+} catch { /* fail soft */ }
+
+const exampleJson = JSON.stringify({
+  tool: { name: "My Tool", slug: "my-tool", repo: "https://github.com/org/my-tool" },
+  category: "devtools",
+  kind: "cli",
+  pitch: "A short description of what the tool does and why it matters.",
+  goodFor: ["Use case one", "Use case two"],
+  notFor: ["Not intended for this"],
+  proof: [{ label: "CI", url: "https://github.com/org/my-tool/actions", whatItProves: "Tests pass" }],
+  install: "npm install -g my-tool",
+  quickstart: "my-tool init",
+  maintainer: { handle: "@you" },
+}, null, 2);
+---
+
+<Base
+  title={title}
+  description={description}
+  currentPath="/submit/"
+>
+  <div class="submit-page">
+    <h1>Get Featured</h1>
+    <p class="subtitle">
+      Submit your tool for promotion on the {kit.site.title || 'mcp-tool-shop'} catalog.
+      Structured intake, CI validation, human review.
+    </p>
+
+    {/* Section 1: What qualifies */}
+    <section class="submit-section">
+      <h2>What qualifies</h2>
+      <p>
+        Your tool must be installable and runnable by a stranger. It needs a README with
+        what it does, a quickstart, known limits, and a license. You must provide at least
+        one proof link &mdash; a demo, test suite, benchmark, or reproducible command.
+      </p>
+      {worthyCriteria.length > 0 && (
+        <div class="rubric-list">
+          <p class="rubric-heading">
+            Our{" "}
+            <GlossaryTerm term="worthiness rubric" definition="A checklist that scores tools on documentation, tests, releases, and other quality signals." />{" "}
+            (minimum score: {worthyMinScore}/{worthyCriteria.length}):
+          </p>
+          <ul>
+            {worthyCriteria.map((c: string) => (
+              <li>{c}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </section>
+
+    {/* Section 2: What disqualifies */}
+    <section class="submit-section">
+      <h2>What disqualifies</h2>
+      <ul class="disqualify-list">
+        <li>No install path or unclear runtime requirements</li>
+        <li>"Coming soon" repos with no working code</li>
+        <li>No license</li>
+        <li>Claims with no proof ("10x faster" with no benchmark)</li>
+        <li>Tool already in the <a href="/tools/">catalog</a></li>
+      </ul>
+    </section>
+
+    {/* Section 3: How to submit */}
+    <section class="submit-section">
+      <h2>How to submit</h2>
+      <div class="steps-box">
+        <ol>
+          <li>
+            <strong>Fork</strong> the{" "}
+            <a href={`https://github.com/${kit.repo.marketing || 'mcp-tool-shop/mcp-tool-shop'}`} rel="noopener" data-link-type="fork">marketing repo</a>.
+          </li>
+          <li>
+            <strong>Create</strong>{" "}
+            <code>submissions/&lt;your-slug&gt;.json</code> using the schema below.
+          </li>
+          <li>
+            <strong>Open a PR</strong> using the "Submit for Promotion" or "Submit for Experiment"
+            template. GitHub will prompt you to choose.
+          </li>
+          <li>
+            <strong>Wait for CI.</strong> The validation script checks your file automatically.
+            A human reviews weekly and merges or requests changes.
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    {/* Section 4: Submission schema */}
+    <section class="submit-section">
+      <h2>Submission schema</h2>
+      <p>
+        Each submission is a single JSON file. Required fields are marked.
+      </p>
+      <div class="schema-block">
+        <pre><code>{exampleJson}</code></pre>
+      </div>
+      <div class="field-notes">
+        <p>
+          <strong>category</strong>: mcp-core, voice, security, ml, infrastructure, desktop, devtools, web, games
+        </p>
+        <p>
+          <strong>kind</strong>: mcp-server, cli, library, plugin, desktop-app, vscode-extension, homebrew-tap, template, meta
+        </p>
+        <p>
+          <strong>proof</strong>: at least 1 entry with <code>label</code>, <code>url</code> (https), <code>whatItProves</code>
+        </p>
+        <p>
+          <strong>goodFor</strong>: 1&ndash;5 items &middot;
+          <strong>notFor</strong>: 0&ndash;3 items (optional) &middot;
+          <strong>pitch</strong>: 10&ndash;200 characters
+        </p>
+      </div>
+    </section>
+
+    {/* Section 5: Two lanes */}
+    <section class="submit-section">
+      <h2>Two lanes</h2>
+      <div class="lanes-grid">
+        <div class="lane-card">
+          <h3>Promotion</h3>
+          <p>
+            Your tool enters the promotion queue. If it passes the{" "}
+            <GlossaryTerm term="worthiness rubric" definition="A checklist that scores tools on documentation, tests, releases, and other quality signals." />,
+            the pipeline generates a proof page, press kit, and snippets.
+            A human reviews and publishes.
+          </p>
+        </div>
+        <div class="lane-card">
+          <h3>Experiment</h3>
+          <p>
+            Your tool enters the experiment pipeline for structured A/B testing.
+            Useful for early-stage tools that need data before a full promotion.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* Section 6: Review policy */}
+    <section class="submit-section">
+      <h2>Review policy</h2>
+      <ul class="policy-list">
+        <li>Submissions are reviewed on a <strong>weekly cadence</strong>.</li>
+        <li>Submissions may be marked <strong>needs info</strong> if we need clarification. Check the <a href="/submit/queue/">queue</a> for reviewer notes.</li>
+        <li>We may ask for clarification or route early tools to experiments.</li>
+        <li>Rejections include a reason and a checklist of what to fix.</li>
+        <li>Resubmission is welcome after addressing feedback.</li>
+      </ul>
+    </section>
+
+    {/* Footer links */}
+    <div class="submit-footer">
+      <a href="/submit/queue/">View submission queue</a>
+      <span class="sep">&middot;</span>
+      <a href="/trust/">Trust Center</a>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .submit-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    margin: 0 0 0.25rem;
+    font-size: 2rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    color: var(--color-text, #e6edf3);
+    margin: 0 0 0.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    color: var(--color-text, #e6edf3);
+    margin: 0 0 0.4rem;
+  }
+
+  .subtitle {
+    color: var(--color-text-muted, #8b949e);
+    margin: 0 0 2rem;
+    font-size: 0.95rem;
+  }
+
+  .submit-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border, #30363d);
+  }
+
+  .submit-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .submit-section p {
+    color: var(--color-text, #e6edf3);
+    line-height: 1.6;
+    margin: 0 0 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .submit-section a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .submit-section a:hover {
+    text-decoration: underline;
+  }
+
+  /* Rubric */
+  .rubric-list {
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 6px;
+  }
+
+  .rubric-heading {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #8b949e);
+    margin: 0 0 0.5rem;
+  }
+
+  .rubric-list ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .rubric-list li {
+    font-size: 0.85rem;
+    color: var(--color-text, #e6edf3);
+    margin: 0.3rem 0;
+  }
+
+  /* Disqualify list */
+  .disqualify-list {
+    padding-left: 1.25rem;
+    margin: 0;
+  }
+
+  .disqualify-list li {
+    font-size: 0.9rem;
+    color: var(--color-text, #e6edf3);
+    margin: 0.4rem 0;
+    line-height: 1.5;
+  }
+
+  .disqualify-list li::marker {
+    color: #f85149;
+  }
+
+  /* Steps box */
+  .steps-box {
+    padding: 1rem 1rem 1rem 0.5rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 6px;
+  }
+
+  .steps-box ol {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+
+  .steps-box li {
+    font-size: 0.9rem;
+    color: var(--color-text, #e6edf3);
+    margin: 0.5rem 0;
+    line-height: 1.5;
+  }
+
+  .steps-box code {
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
+
+  .steps-box a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .steps-box a:hover {
+    text-decoration: underline;
+  }
+
+  /* Schema block */
+  .schema-block {
+    margin: 0.75rem 0;
+    padding: 1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  .schema-block pre {
+    margin: 0;
+  }
+
+  .schema-block code {
+    font-size: 0.78rem;
+    color: var(--color-text, #e6edf3);
+    line-height: 1.5;
+  }
+
+  .field-notes {
+    margin-top: 0.5rem;
+  }
+
+  .field-notes p {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #8b949e);
+    margin: 0.3rem 0;
+  }
+
+  .field-notes code {
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+  }
+
+  /* Lanes grid */
+  .lanes-grid {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .lane-card {
+    flex: 1;
+    min-width: 250px;
+    padding: 1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 6px;
+  }
+
+  .lane-card p {
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  /* Policy list */
+  .policy-list {
+    padding-left: 1.25rem;
+    margin: 0;
+  }
+
+  .policy-list li {
+    font-size: 0.9rem;
+    color: var(--color-text, #e6edf3);
+    margin: 0.4rem 0;
+    line-height: 1.5;
+  }
+
+  /* Footer */
+  .submit-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, #30363d);
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .submit-footer a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .submit-footer a:hover {
+    text-decoration: underline;
+  }
+
+  .sep {
+    margin: 0 0.5rem;
+    color: var(--color-border, #30363d);
+  }
+
+  @media (max-width: 600px) {
+    .lanes-grid {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<script>
+  import { trackEvent } from '../../lib/tracker';
+
+  document.querySelectorAll('[data-link-type]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const linkType = (link as HTMLElement).dataset.linkType || '';
+      trackEvent('click_submit_link', { linkType });
+    });
+  });
+</script>

@@ -25,6 +25,7 @@
 | `site/src/data/promo.json` | **Human-curated** | Promotion enabled flag + safety caps (`maxNamesPerRun`, `failMode`) |
 | `site/src/data/promo-queue.json` | **Human-curated** | Weekly promotion queue — slugs + channels + type |
 | `site/src/data/worthy.json` | **Human-curated** | Repo worthiness rubric — criteria, scores, assessment |
+| `site/src/data/recommendation-patch.json` | **Generated** | `scripts/gen-recommendation-patch.mjs` — audit artifact for recommendation patches |
 
 ### Draft override rule
 
@@ -265,6 +266,7 @@ not the org. This uses personal Actions minutes, not org minutes.
 | Pages deploy | push to `main` (paths-filtered) | ubuntu-latest | ~30s |
 | Sync org metadata | `workflow_dispatch` (manual) | ubuntu-latest | ~20s |
 | Auto-enrichment | (future) `workflow_dispatch` or weekly cron | ubuntu-latest | ~60s |
+| Recommendations to PR | weekly schedule (Mon 09:00 UTC) or `workflow_dispatch` | ubuntu-latest | ~30s |
 
 ---
 

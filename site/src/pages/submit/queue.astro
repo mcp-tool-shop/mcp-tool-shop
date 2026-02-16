@@ -1,0 +1,452 @@
+---
+import Base from "../../layouts/Base.astro";
+import { kit } from '../../lib/kit';
+import fs from "node:fs";
+import path from "node:path";
+
+const title = `Submission Queue - ${kit.site.title || 'mcp-tool-shop'}`;
+const description = "Track the status of tool submissions — pending, accepted, and rejected.";
+
+// Load submissions
+let submissions: any[] = [];
+const subPath = path.join(process.cwd(), "src/data/submissions.json");
+try {
+  if (fs.existsSync(subPath)) {
+    const data = JSON.parse(fs.readFileSync(subPath, "utf8"));
+    submissions = data.submissions || [];
+  }
+} catch { /* fail soft */ }
+
+const pending = submissions.filter((s: any) => s.status === "pending");
+const needsInfo = submissions.filter((s: any) => s.status === "needs-info");
+const accepted = submissions.filter((s: any) => s.status === "accepted");
+const rejected = submissions.filter((s: any) => s.status === "rejected");
+const withdrawn = submissions.filter((s: any) => s.status === "withdrawn");
+
+function formatDate(iso: string | undefined) {
+  if (!iso) return "";
+  return new Date(iso).toISOString().slice(0, 10);
+}
+---
+
+<Base
+  title={title}
+  description={description}
+  currentPath="/submit/queue/"
+>
+  <div class="queue-page">
+    <a href="/submit/" class="back-link">&larr; Back to Get Featured</a>
+
+    <h1>Submission Queue</h1>
+    <p class="subtitle">
+      Track the status of tool submissions for promotion and experimentation.
+    </p>
+
+    {/* Stats banner */}
+    <div class="stats-banner">
+      <div class="stat">
+        <span class="stat-value pending-color">{pending.length}</span>
+        <span class="stat-label">Pending</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value needs-info-color">{needsInfo.length}</span>
+        <span class="stat-label">Needs Info</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value accepted-color">{accepted.length}</span>
+        <span class="stat-label">Accepted</span>
+      </div>
+      <div class="stat">
+        <span class="stat-value rejected-color">{rejected.length}</span>
+        <span class="stat-label">Rejected</span>
+      </div>
+    </div>
+
+    {submissions.length === 0 ? (
+      <div class="empty-state">
+        <p>No submissions yet.</p>
+        <p>Be the first &mdash; <a href="/submit/">submit your tool</a>.</p>
+      </div>
+    ) : (
+      <>
+        {/* Pending */}
+        {pending.length > 0 && (
+          <>
+            <h2>Pending Review</h2>
+            <div class="submissions-list">
+              {pending.map((s: any) => (
+                <div class="submission-card">
+                  <div class="card-header">
+                    <span class="tool-name">{s.tool?.name || s.slug}</span>
+                    <span class={`lane-badge lane-${s.lane}`}>{s.lane}</span>
+                  </div>
+                  <div class="card-meta">
+                    <span class="mono">{s.slug}</span>
+                    {s.kind && <span class="kind-badge">{s.kind}</span>}
+                    {s.category && <span class="cat-badge">{s.category}</span>}
+                  </div>
+                  {s.pitch && <p class="card-pitch">{s.pitch}</p>}
+                  <div class="card-footer">
+                    <span class="submitted-at">Submitted {formatDate(s.submittedAt)}</span>
+                    {s.pr && <a href={s.pr} rel="noopener">View PR</a>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* Needs Info */}
+        {needsInfo.length > 0 && (
+          <>
+            <h2>Needs Info</h2>
+            <div class="submissions-list">
+              {needsInfo.map((s: any) => (
+                <div class="submission-card needs-info-card">
+                  <div class="card-header">
+                    <span class="tool-name">{s.tool?.name || s.slug}</span>
+                    <span class={`lane-badge lane-${s.lane}`}>{s.lane}</span>
+                  </div>
+                  <div class="card-meta">
+                    <span class="mono">{s.slug}</span>
+                    {s.kind && <span class="kind-badge">{s.kind}</span>}
+                    {s.category && <span class="cat-badge">{s.category}</span>}
+                  </div>
+                  {s.reviewNotes && (
+                    <div class="review-notes">
+                      <span class="review-notes-label">Reviewer notes:</span>
+                      <p class="review-notes-text">{s.reviewNotes}</p>
+                    </div>
+                  )}
+                  <div class="card-footer">
+                    {s.lastReviewedAt && <span class="submitted-at">Reviewed {formatDate(s.lastReviewedAt)}</span>}
+                    {s.sourcePr && <a href={s.sourcePr} rel="noopener">Source PR</a>}
+                    {s.pr && <a href={s.pr} rel="noopener">View PR</a>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* Accepted */}
+        {accepted.length > 0 && (
+          <>
+            <h2>Accepted</h2>
+            <div class="compact-list">
+              {accepted.map((s: any) => (
+                <div class="compact-row">
+                  <span class="mono">{s.slug}</span>
+                  <span class={`lane-badge lane-${s.lane}`}>{s.lane}</span>
+                  <span class="date">{formatDate(s.updatedAt || s.submittedAt)}</span>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* Rejected */}
+        {rejected.length > 0 && (
+          <>
+            <h2>Rejected</h2>
+            <div class="compact-list">
+              {rejected.map((s: any) => (
+                <div class="compact-row">
+                  <span class="mono">{s.slug}</span>
+                  <span class={`lane-badge lane-${s.lane}`}>{s.lane}</span>
+                  <span class="date">{formatDate(s.updatedAt || s.submittedAt)}</span>
+                  {s.reason && <span class="reason">{s.reason}</span>}
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+      </>
+    )}
+
+    <div class="provenance">
+      <p>
+        Submissions are validated by <code>validate-submissions.mjs</code> on every PR.
+        Learn how to submit at <a href="/submit/">Get Featured</a>.
+      </p>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .queue-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: #388bfd;
+    text-decoration: none;
+    margin-bottom: 1rem;
+  }
+
+  .back-link:hover { text-decoration: underline; }
+
+  h1 {
+    margin: 0 0 0.25rem;
+    font-size: 2rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    color: var(--color-text, #e6edf3);
+    margin: 2rem 0 0.75rem;
+  }
+
+  .subtitle {
+    color: var(--color-text-muted, #8b949e);
+    margin: 0 0 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* Stats banner */
+  .stats-banner {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  .stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-text, #e6edf3);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted, #8b949e);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+  }
+
+  .pending-color { color: #d29922; }
+  .needs-info-color { color: #e3b341; }
+  .accepted-color { color: #3fb950; }
+  .rejected-color { color: #f85149; }
+
+  /* Empty state */
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--color-text-muted, #8b949e);
+    font-size: 1.1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+  }
+
+  .empty-state p { margin: 0.5rem 0; }
+
+  .empty-state a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .empty-state a:hover { text-decoration: underline; }
+
+  /* Submission cards */
+  .submissions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .submission-card {
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+  }
+
+  .tool-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .lane-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .lane-promo { background: rgba(56, 139, 253, 0.15); color: #388bfd; }
+  .lane-experiment { background: rgba(210, 153, 34, 0.15); color: #d29922; }
+
+  .card-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .mono {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .kind-badge, .cat-badge {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    background: rgba(110, 118, 129, 0.15);
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .card-pitch {
+    font-size: 0.85rem;
+    color: var(--color-text, #e6edf3);
+    line-height: 1.5;
+    margin: 0 0 0.5rem;
+  }
+
+  .card-footer {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+
+  .submitted-at {
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .card-footer a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .card-footer a:hover { text-decoration: underline; }
+
+  /* Compact list */
+  .compact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .compact-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 6px;
+    font-size: 0.85rem;
+  }
+
+  .date {
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.8rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .reason {
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+
+  /* Needs-info cards */
+  .needs-info-card {
+    border-color: rgba(227, 179, 65, 0.3);
+  }
+
+  .review-notes {
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.75rem;
+    background: rgba(227, 179, 65, 0.08);
+    border-radius: 4px;
+    border-left: 3px solid #e3b341;
+  }
+
+  .review-notes-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #e3b341;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .review-notes-text {
+    font-size: 0.85rem;
+    color: var(--color-text, #e6edf3);
+    margin: 0.25rem 0 0;
+    line-height: 1.5;
+  }
+
+  /* Provenance */
+  .provenance {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, #30363d);
+  }
+
+  .provenance p {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .provenance a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .provenance a:hover { text-decoration: underline; }
+
+  .provenance code {
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 600px) {
+    .stats-banner {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .stat {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .stat-value { font-size: 1.3rem; }
+  }
+</style>

@@ -1,0 +1,21 @@
+{
+  "tool": {
+    "name": "Bad URLs Tool",
+    "slug": "bad-urls-tool",
+    "repo": "ftp://files.example.com/tool.zip"
+  },
+  "category": "devtools",
+  "kind": "cli",
+  "pitch": "A tool with all the wrong URL protocols for testing validation.",
+  "goodFor": ["Testing URL validation"],
+  "proof": [
+    {
+      "label": "Malicious link",
+      "url": "javascript:alert(1)",
+      "whatItProves": "Nothing good"
+    }
+  ],
+  "maintainer": {
+    "handle": "@bad-actor"
+  }
+}

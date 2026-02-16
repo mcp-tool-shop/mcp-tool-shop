@@ -1,0 +1,9 @@
+{
+  "tool": {
+    "repo": "https://github.com/org/repo"
+  },
+  "category": "mcp-core",
+  "kind": "cli",
+  "goodFor": ["Something"],
+  "maintainer": {}
+}
