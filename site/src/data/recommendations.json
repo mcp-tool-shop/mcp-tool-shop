@@ -1,5 +1,5 @@
 {
-  "generatedAt": null,
+  "generatedAt": "2026-02-16T23:57:24.457Z",
   "signals": {
     "trustByWeek": {},
     "proofEngagementBySlug": {},
@@ -7,7 +7,9 @@
   },
   "recommendations": [],
   "guardrails": {
-    "dailyEventCaps": { "max": 500 },
+    "dailyEventCaps": {
+      "max": 500
+    },
     "suspiciousSources": [],
     "multiEventCorroboration": true
   },

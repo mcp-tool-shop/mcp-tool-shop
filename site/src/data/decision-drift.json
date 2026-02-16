@@ -1,14 +1,11 @@
 {
-  "generatedAt": null,
+  "generatedAt": "2026-02-16T23:57:24.601Z",
   "entrants": [],
   "exits": [],
   "scoreDeltas": [],
   "reasonChanges": [],
   "summary": {
     "totalChanged": 0,
-    "newEntrants": 0,
-    "exits": 0,
-    "scoreChanges": 0,
-    "actionOnlyChanges": 0
+    "totalStable": 0
   }
 }
