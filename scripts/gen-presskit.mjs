@@ -18,6 +18,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { htmlEsc } from "./lib/sanitize.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -328,8 +329,6 @@ for (const slug of enabledSlugs) {
   console.log(`  wrote ${slug}/README.md`);
 
   // ── index.html ────────────────────────────────────────────────────────────
-
-  const htmlEsc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
   const claimsHtml = resolvedClaims
     .map((c) => {

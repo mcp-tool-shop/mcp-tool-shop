@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tool.xss-test",
+  "name": "<img onerror=alert(1) src=x>",
+  "positioning": {
+    "oneLiner": "<script>alert('xss')</script>",
+    "valueProps": ["<svg onload=alert(1)>", "Normal prop"]
+  },
+  "audienceRefs": [],
+  "claims": [
+    {
+      "id": "claim.xss-test.injection",
+      "status": "proven",
+      "statement": "<iframe src=\"javascript:alert(1)\"></iframe>",
+      "evidenceRefs": ["ev.xss-test.proof.v1"]
+    }
+  ],
+  "antiClaims": [
+    { "statement": "<script>document.cookie</script>" }
+  ],
+  "messages": [
+    {
+      "id": "msg.xss-test.readme",
+      "channel": "readme",
+      "tone": "pragmatic",
+      "text": "Use <img src=x onerror=alert('xss')> for testing.",
+      "claimRefs": ["claim.xss-test.injection"],
+      "constraints": { "maxChars": 280 }
+    }
+  ],
+  "press": {
+    "boilerplate": {
+      "projectDescription": "<script>alert('xss')</script>",
+      "founderBio": "Built by <b onmouseover=alert(1)>attacker</b>.",
+      "preferredNouns": ["tool"],
+      "forbiddenPhrases": ["safe"]
+    },
+    "contacts": [
+      { "method": "github-issue", "value": "https://github.com/test/test/issues", "label": "<script>alert(1)</script>" }
+    ],
+    "quotes": [
+      { "text": "It's <script>alert('quote-xss')</script> great.", "attribution": "<img src=x onerror=alert(1)>", "claimRefs": [] }
+    ],
+    "comparables": [
+      { "target": "<script>alert(1)</script>", "distinction": "We don't inject <b>HTML</b>" }
+    ],
+    "partnerOffers": [
+      { "type": "integration", "description": "<script>steal(cookies)</script>" }
+    ]
+  }
+}

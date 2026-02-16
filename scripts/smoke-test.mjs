@@ -255,5 +255,31 @@ try {
   console.warn(`\n  ⚠ _build.json check failed: ${err.message}`);
 }
 
-console.log(`\n${passed} passed, ${failed} failed out of ${CHECKS.length + 7} checks (+ target warnings above)`);
+// ── Security scan (warning-only, checks live pages for dangerous URLs) ──
+try {
+  const securityPages = ["/", "/tools/", "/press/zip-meta-map/"];
+  const DANGEROUS = /(?:href|src|action)\s*=\s*["']?\s*(?:javascript|data|vbscript):/gi;
+  let secIssues = 0;
+  for (const page of securityPages) {
+    try {
+      const res = await fetch(`${BASE}${page}`);
+      if (res.ok) {
+        const html = await res.text();
+        DANGEROUS.lastIndex = 0;
+        const matches = html.match(DANGEROUS);
+        if (matches) {
+          console.warn(`  ⚠ ${page}: ${matches.length} dangerous URL(s) found`);
+          secIssues += matches.length;
+        }
+      }
+    } catch { /* skip individual page errors */ }
+  }
+  if (secIssues === 0) {
+    console.log(`  ✓ security scan: no dangerous protocols in ${securityPages.length} sampled pages`);
+  }
+} catch (err) {
+  console.warn(`  ⚠ security scan skipped: ${err.message}`);
+}
+
+console.log(`\n${passed} passed, ${failed} failed out of ${CHECKS.length + 7} checks (+ target/security warnings above)`);
 if (failed > 0) process.exit(1);

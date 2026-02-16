@@ -25,6 +25,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { escapeXml } from "./lib/sanitize.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -93,14 +94,7 @@ function selectFlagships(projects, collections, ignoreList) {
 
 // ─── SVG Generation ──────────────────────────────────────────────────────────
 
-function escapeXml(str) {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&apos;");
-}
+// escapeXml imported from ./lib/sanitize.mjs
 
 function stabilityColor(stability) {
   if (stability === "stable") return SUCCESS;

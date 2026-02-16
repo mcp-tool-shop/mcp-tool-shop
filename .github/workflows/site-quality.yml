@@ -5,8 +5,12 @@ on:
     paths:
       - 'site/**'
       - 'scripts/**'
+      - 'tests/**'
       - '.github/workflows/site-quality.yml'
   workflow_dispatch: {}
+
+permissions:
+  contents: read
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -16,16 +20,26 @@ jobs:
   quality:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: site/package-lock.json
 
+      - name: Install root dependencies
+        run: npm ci
+
       - run: npm ci
         working-directory: site
+
+      # ── Unit + Invariant Tests ────────────────────────────────
+      - name: Run unit tests
+        run: npm test
+
+      - name: Run invariant tests
+        run: npm run test:invariants
 
       # ── Build ──────────────────────────────────────────────────
       - name: Build site
@@ -316,4 +330,67 @@ jobs:
             console.error('\n' + errors + ' registry validation error(s).');
             process.exit(1);
           }
+          "
+
+      # ── Secret Scan ─────────────────────────────────────────────
+      - name: Scan dist for leaked secrets
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+
+          const SECRET_PATTERNS = [
+            { re: /ghp_[A-Za-z0-9_]{36,}/g, label: 'GitHub PAT' },
+            { re: /gho_[A-Za-z0-9_]{36,}/g, label: 'GitHub OAuth' },
+            { re: /github_pat_[A-Za-z0-9_]{22,}/g, label: 'GitHub fine-grained PAT' },
+            { re: /AKIA[0-9A-Z]{16}/g, label: 'AWS Access Key' },
+            { re: /sk-[A-Za-z0-9]{32,}/g, label: 'OpenAI/Stripe key' },
+          ];
+
+          let found = 0;
+          function walk(dir) {
+            for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+              const full = path.join(dir, e.name);
+              if (e.isDirectory()) { walk(full); continue; }
+              if (!e.name.endsWith('.html') && !e.name.endsWith('.json') && !e.name.endsWith('.js')) continue;
+              const content = fs.readFileSync(full, 'utf8');
+              for (const { re, label } of SECRET_PATTERNS) {
+                re.lastIndex = 0;
+                if (re.test(content)) {
+                  console.error('LEAKED SECRET (' + label + '): ' + path.relative('site/dist', full));
+                  found++;
+                }
+              }
+            }
+          }
+          walk('site/dist');
+          if (found > 0) { console.error(found + ' potential secret(s) found in build output.'); process.exit(1); }
+          else { console.log('Secret scan: clean (no leaked tokens in dist/).'); }
+          "
+
+      # ── Security Scan ────────────────────────────────────────────
+      - name: Scan dist for dangerous URLs
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          const DANGEROUS_PROTOS = /(?:href|src|action)\s*=\s*[\"']?\s*(?:javascript|data|vbscript):/gi;
+          let found = 0;
+          function walk(dir) {
+            for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+              const full = path.join(dir, e.name);
+              if (e.isDirectory()) { walk(full); continue; }
+              if (!e.name.endsWith('.html')) continue;
+              const content = fs.readFileSync(full, 'utf8');
+              DANGEROUS_PROTOS.lastIndex = 0;
+              let m;
+              while ((m = DANGEROUS_PROTOS.exec(content)) !== null) {
+                console.error('DANGEROUS URL in ' + path.relative('site/dist', full) + ': ' + m[0]);
+                found++;
+              }
+            }
+          }
+          walk('site/dist');
+          if (found > 0) { console.error(found + ' dangerous URL(s) found.'); process.exit(1); }
+          else { console.log('Security scan: clean (no dangerous protocols in dist/).'); }
           "

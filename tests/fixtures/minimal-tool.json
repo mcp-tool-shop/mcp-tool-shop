@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "tool.test-tool",
+  "name": "Test Tool",
+  "positioning": {
+    "oneLiner": "A test tool for unit tests.",
+    "valueProps": ["Fast", "Reliable"]
+  },
+  "audienceRefs": [],
+  "claims": [
+    {
+      "id": "claim.test-tool.works",
+      "status": "proven",
+      "statement": "It works correctly.",
+      "evidenceRefs": ["ev.test-tool.ci.v1"]
+    }
+  ],
+  "antiClaims": [
+    { "statement": "Does not do magic." }
+  ],
+  "messages": [
+    {
+      "id": "msg.test-tool.readme",
+      "channel": "readme",
+      "tone": "pragmatic",
+      "text": "Test Tool makes things work.",
+      "claimRefs": ["claim.test-tool.works"],
+      "constraints": { "maxChars": 280 }
+    }
+  ],
+  "press": {
+    "boilerplate": {
+      "projectDescription": "A tool for testing.",
+      "founderBio": "Built by tests.",
+      "preferredNouns": ["tool"],
+      "forbiddenPhrases": ["magic"]
+    },
+    "contacts": [
+      { "method": "github-issue", "value": "https://github.com/test/test/issues", "label": "GitHub Issues" }
+    ],
+    "quotes": [
+      { "text": "It just works.", "attribution": "Test User", "claimRefs": ["claim.test-tool.works"] }
+    ],
+    "comparables": [
+      { "target": "manual process", "distinction": "Automated and deterministic" }
+    ],
+    "partnerOffers": [
+      { "type": "integration", "description": "Free integration support" }
+    ]
+  }
+}

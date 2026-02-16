@@ -15,6 +15,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { htmlEsc, validateUrl } from "./lib/sanitize.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -32,16 +33,13 @@ function readJson(filePath) {
 }
 
 function buildTargetUrl(link) {
+  validateUrl(link.target, { label: `go-link "${link.id}"` });
   const url = new URL(link.target);
   url.searchParams.set("utm_source", link.utm.source);
   url.searchParams.set("utm_medium", link.utm.medium);
   url.searchParams.set("utm_campaign", link.utm.campaign);
   url.searchParams.set("utm_content", link.utm.content);
   return url.toString();
-}
-
-function htmlEsc(s) {
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
 // ─── Load links ───────────────────────────────────────────────────────────────
