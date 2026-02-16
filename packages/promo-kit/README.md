@@ -1,6 +1,12 @@
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/mcp-tool-shop/mcp-tool-shop/main/logo.png" alt="MCP Tool Shop" width="200">
+
 # @mcptoolshop/promo-kit
 
-Portable promotion engine for tool catalogs. Receipt-backed promotions, freeze modes, drift detection — zero dependencies.
+**Portable promotion engine for tool catalogs. Receipt-backed promotions, freeze modes, drift detection — zero dependencies.**
+
+</div>
 
 ## What it does
 

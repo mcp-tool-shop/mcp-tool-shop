@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1 — 2026-02-16
+
+### Fixed
+
+- Add logo to npm README (renders on npmjs.com via raw GitHub URL)
+
 ## 0.1.0 — 2026-02-16
 
 Initial release of the portable promotion engine.
