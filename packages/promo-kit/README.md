@@ -1,54 +1,74 @@
-<div align="center">
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mcp-tool-shop/mcp-tool-shop/main/logo.png" width="420" alt="mcp-tool-shop logo" />
+</p>
 
-<img src="https://raw.githubusercontent.com/mcp-tool-shop/mcp-tool-shop/main/logo.png" alt="MCP Tool Shop" width="200">
+<h1 align="center">@mcptoolshop/promo-kit</h1>
 
-# @mcptoolshop/promo-kit
+<p align="center">
+  <b>Portable promotion engine for tool catalogs.</b><br/>
+  Receipt-backed promotions · freeze modes · drift detection · <b>zero dependencies</b>
+</p>
 
-**Portable promotion engine for tool catalogs. Receipt-backed promotions, freeze modes, drift detection — zero dependencies.**
-
-</div>
+---
 
 ## What it does
 
-`promo-kit` gives your tool catalog a complete promotion pipeline:
+`promo-kit` gives your tool catalog a complete, governed promotion pipeline:
 
-- **Bootstrap** 17 zero-state seed files (governance, promo queue, experiments, etc.)
-- **Generate** promotion decisions, baselines, drift reports, and trust receipts
-- **Verify** everything with SHA-256 hashed inputs and commit SHAs
-- **Freeze** automation when you need human review
+- **Bootstraps** a zero-state data model (governance, promo queue, experiments, submissions)
+- **Generates** promotion decisions, baselines, drift reports, and trust receipts
+- **Verifies inputs** with SHA-256 hashes (and ties outputs back to commits)
+- **Supports freeze modes** when you need human review
+- **Keeps data local** (no cloud services, no trackers, no runtime npm deps)
 
-All data stays local. No cloud dependencies. No runtime npm dependencies.
+If your catalog needs "trust you can audit," this is the boring machinery that makes it real.
+
+---
 
 ## Quickstart
 
+Install:
+
 ```bash
-npm install @mcptoolshop/promo-kit
+npm i @mcptoolshop/promo-kit
+```
 
-# Initialize (auto-creates kit.config.json from template)
+Initialize (creates `kit.config.json` from a template if missing, then seeds data):
+
+```bash
 npx promo-kit init
+```
 
-# Edit kit.config.json with your org details:
-#   org.name, org.account, site.title, contact.email
+Edit `kit.config.json` (minimum):
 
-# Validate the installation
+- `org.name`
+- `org.account`
+- `site.title`
+- `contact.email`
+
+Validate the installation:
+
+```bash
 npx promo-kit selftest
 ```
 
-## CLI Commands
+---
+
+## CLI
 
 ### `promo-kit init`
 
-Creates `kit.config.json` (if absent) and bootstraps 17 seed files in your data directory.
+Creates `kit.config.json` (if absent) and bootstraps seed files in your configured data directory.
 
 ```bash
-promo-kit init              # create config + seeds
-promo-kit init --dry-run    # show what would be created
-promo-kit init --force      # overwrite existing kit.config.json
+promo-kit init
+promo-kit init --dry-run
+promo-kit init --force
 ```
 
 ### `promo-kit selftest`
 
-Validates config, seed files, and runs all portable core generators in dry-run mode.
+Validates config + seeds and runs the portable core generators in dry-run mode.
 
 ```bash
 promo-kit selftest
@@ -56,7 +76,7 @@ promo-kit selftest
 
 ### `promo-kit migrate`
 
-Applies schema version upgrades when `kitVersion` changes.
+Applies schema upgrades when `kitVersion` changes.
 
 ```bash
 promo-kit migrate
@@ -65,25 +85,33 @@ promo-kit migrate
 ### Flags
 
 ```bash
-promo-kit --version         # show version
-promo-kit --help            # show usage
-promo-kit --print-config    # show resolved config after defaults
+promo-kit --version
+promo-kit --help
+promo-kit --print-config
 ```
+
+---
 
 ## Programmatic API
 
 ```js
-import { bootstrap, migrate, getConfig, getRoot, loadKitConfig } from "@mcptoolshop/promo-kit";
+import {
+  bootstrap,
+  migrate,
+  getConfig,
+  getRoot,
+  loadKitConfig
+} from "@mcptoolshop/promo-kit";
 
-// Bootstrap seed files in a directory
-const result = bootstrap("/path/to/your/project");
+// Create seed files (idempotent)
+const result = bootstrap("/path/to/project");
 // => { success: true, errors: [], created: [...], skipped: [...] }
 
-// Get resolved config (deep-merged with defaults)
+// Read resolved config (deep-merged with defaults)
 const config = getConfig();
 
-// Run migrations
-const migrationResult = migrate("/path/to/your/project");
+// Apply migrations (if needed)
+const migrationResult = migrate("/path/to/project");
 ```
 
 Config utilities are also available as a separate export:
@@ -92,35 +120,54 @@ Config utilities are also available as a separate export:
 import { getConfig, getRoot } from "@mcptoolshop/promo-kit/config";
 ```
 
+---
+
 ## What it generates
 
-`promo-kit init` creates these seed files in your data directory:
+By default, `promo-kit init` creates a set of seed files in your configured data directory.
+
+**Core seeds:**
 
 | File | Purpose |
 |------|---------|
-| `governance.json` | Freeze modes, promo caps, hard rules |
+| `governance.json` | Freeze modes, caps, hard rules |
 | `promo-queue.json` | Weekly promotion candidates |
-| `experiments.json` | Active A/B experiments |
+| `experiments.json` | Active experiments |
 | `submissions.json` | External tool submissions |
 | `overrides.json` | Per-tool metadata overrides |
 | `ops-history.json` | Workflow run history |
 | `feedback.jsonl` | Append-only feedback log |
 | `worthy.json` | Worthiness rubric and scores |
+
+**Generated artifacts** (produced by the pipeline):
+
+| File | Purpose |
+|------|---------|
 | `promo-decisions.json` | Generated promotion decisions |
 | `experiment-decisions.json` | Generated experiment decisions |
 | `baseline.json` | Computed baseline metrics |
 | `feedback-summary.json` | Aggregated feedback |
 | `queue-health.json` | Queue health metrics |
 | `recommendations.json` | Advisory recommendations |
-| `recommendation-patch.json` | Recommended data patches |
+| `recommendation-patch.json` | Recommended governed data patches |
 | `decision-drift.json` | Week-over-week drift report |
 | `telemetry/rollup.json` | Telemetry aggregates |
+
+---
 
 ## Environment
 
 | Variable | Purpose |
 |----------|---------|
 | `KIT_CONFIG` | Path to an alternate `kit.config.json` (overrides cwd discovery) |
+
+Example:
+
+```bash
+KIT_CONFIG=examples/pilot-org/kit.config.json npx promo-kit selftest
+```
+
+---
 
 ## Requirements
 
@@ -129,9 +176,9 @@ import { getConfig, getRoot } from "@mcptoolshop/promo-kit/config";
 
 ## Links
 
-- [Portable Core docs](https://github.com/mcp-tool-shop/mcp-tool-shop/blob/main/docs/portable-core.md) — full contract and field reference
-- [Presskit Handbook](https://github.com/mcp-tool-shop/mcp-tool-shop/blob/main/docs/presskit-handbook.md) — brand assets and verification walkthrough
-- [Trust Center](https://mcp-tool-shop.github.io/trust/) — live verification infrastructure
+- [Portable Core docs](https://github.com/mcp-tool-shop/mcp-tool-shop/blob/main/docs/portable-core.md) — contract + field reference
+- [Presskit Handbook](https://github.com/mcp-tool-shop/mcp-tool-shop/blob/main/docs/presskit-handbook.md) — assets + verification walkthrough
+- [Trust Center](https://mcp-tool-shop.github.io/trust/) — live example of the verification UX
 
 ## License
 

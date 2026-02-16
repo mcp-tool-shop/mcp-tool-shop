@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.2 — 2026-02-16
+
+### Changed
+
+- Rewrite npm README for scannability (product-page layout, split seed/artifact tables, KIT_CONFIG example)
+- Logo sized to 420px (was 200→300, still too small on npmjs.com)
+
 ## 0.1.1 — 2026-02-16
 
 ### Fixed
