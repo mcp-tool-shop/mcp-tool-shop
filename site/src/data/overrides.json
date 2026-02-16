@@ -20,6 +20,22 @@
     "screenshot": "/screenshots/ScalarScope-Desktop.png",
     "screenshotType": "placeholder"
   },
+  "ThrottleAI": {
+    "tags": [
+      "ai",
+      "concurrency",
+      "express",
+      "governance",
+      "lease",
+      "llm"
+    ],
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install throttleai",
+    "tagline": "A token-based lease governor for AI calls — small enough to embed anywhere, strict...",
+    "needsHumanReview": true
+  },
   "accessibility-suite": {
     "screenshot": "/screenshots/accessibility-suite.png",
     "screenshotType": "placeholder"
@@ -73,6 +89,18 @@
     ],
     "screenshot": "/screenshots/brain-dev.png",
     "screenshotType": "placeholder"
+  },
+  "codecomfy-vscode": {
+    "tags": [
+      "vscode",
+      "extension",
+      "coverage"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "vscode-extension",
+    "tagline": "VS Code extension for code analysis and coverage display.",
+    "needsHumanReview": true
   },
   "comfy-headless": {
     "featured": true,
@@ -196,6 +224,19 @@
     "screenshot": "/screenshots/mcpt.png",
     "screenshotType": "placeholder"
   },
+  "runforge-vscode": {
+    "tags": [
+      "vscode",
+      "extension",
+      "workflow",
+      "ai"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "vscode-extension",
+    "tagline": "VS Code extension for AI workflow execution.",
+    "needsHumanReview": true
+  },
   "soundboard-plugin": {
     "featured": true,
     "tags": [
@@ -272,6 +313,32 @@
     "tagline": "TTS library with compiler/graph/engine architecture.",
     "screenshot": "/screenshots/voice-soundboard.png",
     "screenshotType": "placeholder"
+  },
+  "websketch-cli": {
+    "tags": [
+      "cli",
+      "web",
+      "analysis"
+    ],
+    "category": "web",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "npx websketch-cli",
+    "tagline": "Command-line interface for web component analysis.",
+    "needsHumanReview": true
+  },
+  "websketch-ir": {
+    "tags": [
+      "ir",
+      "core",
+      "library"
+    ],
+    "category": "web",
+    "stability": "beta",
+    "kind": "library",
+    "install": "npm install websketch-ir",
+    "tagline": "Intermediate representation library for web component analysis.",
+    "needsHumanReview": true
   },
   "witness": {
     "tags": [
