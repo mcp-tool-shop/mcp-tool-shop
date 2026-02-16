@@ -1,0 +1,8 @@
+{
+  "generatedAt": "2026-02-16T00:00:00Z",
+  "freezeStatus": { "frozen": true, "since": "2026-02-16", "modifiedBy": "human" },
+  "currentWeek": { "week": "2026-02-17", "slugs": [], "promotionType": "own", "notes": "", "campaign": null },
+  "lastRun": null,
+  "channelPlan": ["presskit", "snippets", "campaigns"],
+  "stats": { "totalRuns": 0, "totalPromoted": 0, "lastPromotionDate": null }
+}

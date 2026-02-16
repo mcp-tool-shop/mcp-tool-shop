@@ -1,7 +1,16 @@
 name: NameOps scheduled clearance
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Run mode: fast (skip non-essential) or full'
+        required: false
+        default: 'fast'
+        type: choice
+        options:
+          - fast
+          - full
   schedule:
     - cron: '0 6 * * 2'   # Tuesday 06:00 UTC
 
@@ -32,6 +41,12 @@ jobs:
         with:
           node-version: 22
 
+      - name: Capture commit SHAs
+        id: shas
+        run: |
+          echo "marketing_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "nameops_sha=$(git -C _nameops rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: Restore COE cache
         uses: actions/cache@v4
         with:
@@ -44,15 +59,129 @@ jobs:
       - name: Install clearance engine
         run: npm install -g @mcptoolshop/clearance-opinion-engine
 
+      - name: Load safety caps
+        id: caps
+        run: |
+          node -e "
+            const fs=require('fs');
+            const p='site/src/data/promo.json';
+            const c=fs.existsSync(p)?JSON.parse(fs.readFileSync(p,'utf8')):{};
+            const out = [];
+            out.push('max_names='+(c.caps?.maxNamesPerRun||50));
+            out.push('fail_mode='+(c.caps?.failMode||'fail-closed'));
+            out.push('promo_enabled='+(c.enabled!==false));
+            for (const line of out) console.log(line);
+          " >> "$GITHUB_OUTPUT"
+
       - name: Run NameOps pipeline
         run: |
           node _nameops/src/run.mjs \
             --out /tmp/nameops-output \
             --profile _nameops/data/profile.json \
-            --names _nameops/data/names.txt
+            --names _nameops/data/names.txt \
+            --max-names "${{ steps.caps.outputs.max_names }}"
+
+      - name: Enforce fail mode
+        if: steps.caps.outputs.fail_mode == 'fail-closed'
+        run: |
+          node -e "
+            const fs=require('fs');
+            const m=JSON.parse(fs.readFileSync('/tmp/nameops-output/metadata.json','utf8'));
+            if(!m.batchOk){console.error('FAIL-CLOSED: batch failed');process.exit(1);}
+            if(m.publishErrors>0){console.error('FAIL-CLOSED: publish errors');process.exit(1);}
+            console.log('Fail-closed check passed: batchOk='+m.batchOk+', publishErrors='+m.publishErrors);
+          "
 
       - name: Ingest artifacts
         run: node scripts/ingest-clearance.mjs /tmp/nameops-output/published
+
+      - name: Ingest ops metrics
+        run: |
+          node scripts/ingest-ops.mjs /tmp/nameops-output \
+            --commit-sha "${{ steps.shas.outputs.marketing_sha }}" \
+            --nameops-sha "${{ steps.shas.outputs.nameops_sha }}"
+
+      - name: Determine run mode
+        id: mode
+        run: echo "value=${{ github.event.inputs.mode || 'fast' }}" >> "$GITHUB_OUTPUT"
+
+      - name: Compute input hash
+        id: input_hash
+        run: |
+          HASH=$(sha256sum \
+            site/src/data/ops-history.json \
+            site/src/data/overrides.json \
+            site/src/data/worthy.json \
+            site/src/data/promo.json \
+            site/src/data/promo-queue.json \
+            site/src/data/feedback.jsonl \
+            site/src/data/governance.json \
+            site/src/data/experiments.json \
+            2>/dev/null | sha256sum | cut -d' ' -f1)
+          echo "hash=$HASH" >> "$GITHUB_OUTPUT"
+
+      - name: Restore generator cache
+        id: gen_cache
+        uses: actions/cache@v4
+        with:
+          path: .gen-cache
+          key: gen-outputs-${{ steps.input_hash.outputs.hash }}
+
+      - name: Generate ops actions
+        if: steps.gen_cache.outputs.cache-hit != 'true'
+        run: node scripts/gen-ops-actions.mjs
+
+      - name: Generate baseline
+        if: steps.gen_cache.outputs.cache-hit != 'true'
+        run: node scripts/gen-baseline.mjs
+
+      - name: Generate worthy scorecards
+        if: steps.gen_cache.outputs.cache-hit != 'true'
+        run: node scripts/gen-worthy-scorecard.mjs
+
+      - name: Generate promo calendar
+        if: steps.gen_cache.outputs.cache-hit != 'true' && steps.mode.outputs.value != 'fast'
+        run: node scripts/gen-promo-calendar.mjs
+
+      - name: Generate fix-it templates
+        if: steps.gen_cache.outputs.cache-hit != 'true' && steps.mode.outputs.value != 'fast'
+        run: node scripts/gen-fixit-prs.mjs
+
+      - name: Generate promo suggestions
+        if: steps.gen_cache.outputs.cache-hit != 'true' && steps.mode.outputs.value != 'fast'
+        run: node scripts/gen-promo-suggest.mjs
+
+      - name: Generate feedback summary
+        if: steps.gen_cache.outputs.cache-hit != 'true'
+        run: node scripts/gen-feedback-summary.mjs
+
+      - name: Generate promo decisions
+        if: steps.gen_cache.outputs.cache-hit != 'true'
+        run: node scripts/gen-promo-decisions.mjs
+
+      - name: Generate experiment decisions
+        if: steps.gen_cache.outputs.cache-hit != 'true'
+        run: node scripts/gen-experiment-decisions.mjs
+
+      - name: Generate operator brief
+        if: steps.gen_cache.outputs.cache-hit != 'true'
+        run: node scripts/gen-operator-brief.mjs
+
+      - name: Generate outreach run
+        if: steps.gen_cache.outputs.cache-hit != 'true' && steps.caps.outputs.promo_enabled == 'true'
+        run: node scripts/gen-outreach-run.mjs
+
+      - name: Generate partner outreach
+        if: steps.gen_cache.outputs.cache-hit != 'true' && steps.caps.outputs.promo_enabled == 'true'
+        run: node scripts/gen-partner-targets.mjs
+
+      - name: Run promotion cycle
+        if: steps.caps.outputs.promo_enabled == 'true'
+        run: node scripts/gen-promo.mjs
+
+      - name: Save generator sentinel
+        if: steps.gen_cache.outputs.cache-hit != 'true'
+        run: mkdir -p .gen-cache && echo "${{ steps.input_hash.outputs.hash }}" > .gen-cache/sentinel
 
       - name: Build PR body
         id: pr_body
@@ -60,10 +189,18 @@ jobs:
           node _nameops/src/build-pr-body.mjs /tmp/nameops-output
           echo "body_path=/tmp/nameops-output/pr-body.md" >> "$GITHUB_OUTPUT"
 
+      - name: Append operator brief to PR body
+        run: |
+          BRIEF="site/public/lab/decisions/operator-brief.md"
+          if [ -f "$BRIEF" ]; then
+            printf "\n---\n## Operator Brief\n" >> "${{ steps.pr_body.outputs.body_path }}"
+            cat "$BRIEF" >> "${{ steps.pr_body.outputs.body_path }}"
+          fi
+
       - name: Check for changes
         id: diff
         run: |
-          if git diff --quiet site/public/lab/clearance/; then
+          if git diff --quiet site/public/lab/clearance/ site/src/data/ops-history.json site/src/data/ops-actions.json site/src/data/baseline.json site/src/data/promo-calendar.json site/src/data/promo-suggestions.json site/public/lab/fixit/ site/public/presskit/ site/public/snippets/ site/public/campaigns/ site/public/promo-bundles/ site/public/lab/worthy/ site/public/lab/baseline/ site/src/data/overrides.json site/public/outreach-run/ site/src/data/feedback-summary.json site/src/data/promo-decisions.json site/src/data/experiment-decisions.json site/public/lab/decisions/; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -80,7 +217,16 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add site/public/lab/clearance/
+          git add site/public/lab/clearance/ site/src/data/ops-history.json \
+            site/src/data/ops-actions.json site/src/data/baseline.json \
+            site/src/data/promo-calendar.json site/src/data/promo-suggestions.json \
+            site/public/lab/fixit/ \
+            site/public/presskit/ site/public/snippets/ site/public/campaigns/ \
+            site/public/promo-bundles/ site/public/lab/worthy/ site/public/lab/baseline/ \
+            site/src/data/overrides.json \
+            site/public/outreach-run/ site/src/data/feedback-summary.json \
+            site/src/data/promo-decisions.json site/src/data/experiment-decisions.json \
+            site/public/lab/decisions/
           git checkout -B "$BRANCH"
           git commit -m "chore(auto): nameops clearance run ${DATE}"
           git push --force origin "$BRANCH"

@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-02-16T10:42:34.059Z",
+  "decisions": [],
+  "budget": {
+    "tier": 200,
+    "headroom": 200,
+    "itemsAllowed": 3
+  },
+  "warnings": [
+    "Promo queue is empty — no candidates to evaluate"
+  ]
+}

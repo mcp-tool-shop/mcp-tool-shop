@@ -49,3 +49,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# generator cache (CI only)
+.gen-cache/

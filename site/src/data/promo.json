@@ -1,0 +1,10 @@
+{
+  "enabled": false,
+  "caps": {
+    "maxNamesPerRun": 50,
+    "failMode": "fail-closed"
+  },
+  "learningMode": "off",
+  "lastModified": "2026-02-16",
+  "modifiedBy": "human"
+}

@@ -1,0 +1,144 @@
+name: Publish Week
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag_release:
+        description: 'Create git tag + release notes after PR merge'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: publish-week
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install root dependencies
+        run: npm ci
+
+      # ── Validation gate ───────────────────────────────
+      - name: Validate preconditions
+        id: validate
+        run: |
+          node -e "
+            const fs = require('fs');
+            const promo = JSON.parse(fs.readFileSync('site/src/data/promo.json', 'utf8'));
+            const queue = JSON.parse(fs.readFileSync('site/src/data/promo-queue.json', 'utf8'));
+            const overrides = JSON.parse(fs.readFileSync('site/src/data/overrides.json', 'utf8'));
+
+            const errors = [];
+
+            if (promo.enabled !== true) {
+              errors.push('promo.json enabled !== true');
+            }
+
+            if (!queue.slugs || queue.slugs.length === 0) {
+              errors.push('promo-queue.json has no slugs');
+            }
+
+            const slugs = (queue.slugs || []).map(s => typeof s === 'string' ? s : s.slug);
+            for (const slug of slugs) {
+              if (!overrides[slug] || !overrides[slug].publicProof) {
+                errors.push(slug + ' missing publicProof in overrides.json');
+              }
+            }
+
+            if (slugs.length > 3) {
+              errors.push('Too many slugs (' + slugs.length + '), max 3 per publish week');
+            }
+
+            if (errors.length > 0) {
+              console.error('Validation failed:');
+              errors.forEach(e => console.error('  - ' + e));
+              process.exit(1);
+            }
+
+            console.log('Validation passed: ' + slugs.length + ' slug(s): ' + slugs.join(', '));
+          "
+
+      # ── Generate artifacts ────────────────────────────
+      - name: Generate feedback summary
+        run: node scripts/gen-feedback-summary.mjs
+
+      - name: Generate outreach run
+        run: node scripts/gen-outreach-run.mjs
+
+      - name: Generate partner outreach
+        run: node scripts/gen-partner-targets.mjs
+
+      # ── Check for changes ─────────────────────────────
+      - name: Check for changes
+        id: diff
+        run: |
+          git add -N site/public/outreach-run/ site/src/data/feedback-summary.json
+          if git diff --quiet site/public/outreach-run/ site/src/data/feedback-summary.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # ── Open PR ───────────────────────────────────────
+      - name: Open PR if changed
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          BRANCH="auto/publish-week-${DATE}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add site/public/outreach-run/ site/src/data/feedback-summary.json
+          git checkout -B "$BRANCH"
+          git commit -m "chore(auto): publish week ${DATE}"
+          git push --force origin "$BRANCH"
+
+          # Build PR body from outreach-run.md
+          BODY_FILE="site/public/outreach-run/${DATE}/outreach-run.md"
+          if [ -f "$BODY_FILE" ]; then
+            BODY=$(cat "$BODY_FILE")
+          else
+            BODY="Publish week ${DATE} — no outreach-run.md generated."
+          fi
+
+          EXISTING=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number // empty')
+
+          if [ -n "$EXISTING" ]; then
+            gh pr edit "$EXISTING" --body "$BODY"
+          else
+            gh pr create \
+              --title "chore(auto): publish week ${DATE}" \
+              --body "$BODY" \
+              --base main \
+              --head "$BRANCH"
+          fi
+
+      # ── Optional: tag release ─────────────────────────
+      - name: Tag release
+        if: inputs.tag_release == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          TAG="publish-week-${DATE}"
+          git tag -a "$TAG" -m "Publish week ${DATE}"
+          git push origin "$TAG"

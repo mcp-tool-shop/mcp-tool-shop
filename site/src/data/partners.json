@@ -1,0 +1,15 @@
+{
+  "partners": [],
+  "schema": {
+    "version": "1.0.0",
+    "fields": [
+      { "name": "name", "type": "string", "required": true },
+      { "name": "type", "type": "enum", "values": ["journalist", "partner", "integrator", "amplifier"], "required": true },
+      { "name": "slug", "type": "string", "required": false },
+      { "name": "preferredChannel", "type": "enum", "values": ["email", "dm", "hn", "linkedin", "github"], "required": false },
+      { "name": "lastContactedAt", "type": "iso-date", "required": false },
+      { "name": "tags", "type": "string[]", "required": false },
+      { "name": "notes", "type": "string", "required": false }
+    ]
+  }
+}

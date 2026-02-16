@@ -68,6 +68,7 @@ function getArg(name, defaultVal) {
   return parseInt(args[idx + 1], 10) || defaultVal;
 }
 const DRY_RUN = args.includes("--dry-run");
+const WORTHY_ONLY = args.includes("--worthy-only");
 const MAX_CANDIDATES = getArg("top", 100);
 const MAX_DRAFTS = getArg("drafts", 25);
 
@@ -159,9 +160,27 @@ const snapshot = readJson(path.join(DATA_DIR, "marketir.snapshot.json"));
 const lockShort = snapshot?.lockSha256?.slice(0, 12) || "unknown";
 
 // Find enabled tools with targeting
-const enabledSlugs = Object.entries(overrides)
+let enabledSlugs = Object.entries(overrides)
   .filter(([, v]) => v.publicProof === true)
   .map(([k]) => k);
+
+// Worthy-only filter: intersect with worthy.json repos where worthy === true
+if (WORTHY_ONLY) {
+  const WORTHY_PATH = path.join(SITE, "src", "data", "worthy.json");
+  const worthy = readJson(WORTHY_PATH);
+  if (worthy?.repos) {
+    const worthySlugs = new Set(
+      Object.entries(worthy.repos)
+        .filter(([, v]) => v.worthy === true)
+        .map(([k]) => k)
+    );
+    const before = enabledSlugs.length;
+    enabledSlugs = enabledSlugs.filter((s) => worthySlugs.has(s));
+    console.log(`  --worthy-only: ${before} → ${enabledSlugs.length} slugs (${before - enabledSlugs.length} filtered out)`);
+  } else {
+    console.warn("  --worthy-only: worthy.json not found, no filtering applied.");
+  }
+}
 
 if (enabledSlugs.length === 0) {
   console.log("No tools with publicProof enabled. Nothing to generate.");
@@ -177,6 +196,7 @@ if (!TOKEN && !DRY_RUN) {
 console.log(`Target List Generator v${SCORING_VERSION}`);
 console.log(`  max candidates: ${MAX_CANDIDATES}`);
 console.log(`  max drafts: ${MAX_DRAFTS}`);
+console.log(`  worthy-only: ${WORTHY_ONLY}`);
 console.log(`  dry-run: ${DRY_RUN}`);
 console.log("");
 

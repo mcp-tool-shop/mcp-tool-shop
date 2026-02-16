@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "rubric": {
+    "criteria": [
+      "License is OSI-approved",
+      "At least 1 release published",
+      "README has install + usage",
+      "Activity within last 90 days",
+      "No known security issues"
+    ],
+    "minimumScore": 3
+  },
+  "repos": {
+    "zip-meta-map": {
+      "worthy": true,
+      "score": 5,
+      "assessedDate": "2026-02-16",
+      "reason": "Flagship tool, full docs, active dev",
+      "missing": []
+    }
+  }
+}

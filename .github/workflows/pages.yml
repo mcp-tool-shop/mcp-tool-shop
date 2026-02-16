@@ -50,6 +50,8 @@ jobs:
         run: node scripts/gen-outreach-packs.mjs
       - name: Generate partner packs
         run: node scripts/gen-partner-packs.mjs
+      - name: Generate trust receipt
+        run: node scripts/gen-trust-receipt.mjs
       - run: npm ci
         working-directory: site
       - run: npm run build

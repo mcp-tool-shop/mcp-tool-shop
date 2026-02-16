@@ -21,6 +21,10 @@
 | `site/src/data/registry/aliases.json` | **Human-curated** | Maps registry IDs to actual org repo names (case mismatches) |
 | `site/src/data/registry/cleanup.json` | **Generated** | Upstream cleanup queue: archived, missing, aliases (from sync) |
 | `site/src/data/registry/meta.json` | **Generated** | Footer nutrition facts: schema version, registry ref, sync timestamp, cleanup issue URL |
+| `site/src/data/ops-history.json` | **Generated** | Rolling ops log from NameOps runs (max 30 entries, `scripts/ingest-ops.mjs`) |
+| `site/src/data/promo.json` | **Human-curated** | Promotion enabled flag + safety caps (`maxNamesPerRun`, `failMode`) |
+| `site/src/data/promo-queue.json` | **Human-curated** | Weekly promotion queue — slugs + channels + type |
+| `site/src/data/worthy.json` | **Human-curated** | Repo worthiness rubric — criteria, scores, assessment |
 
 ### Draft override rule
 

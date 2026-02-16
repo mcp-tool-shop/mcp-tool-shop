@@ -1,0 +1,381 @@
+---
+import Base from '../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const title = "Trust & Transparency - mcp-tool-shop";
+const description = "How mcp-tool-shop earns trust: freshness guarantees, deterministic builds, proof-first claims, and a transparent promotion policy.";
+
+// ── Load build metadata for freshness ─────────────────────
+let buildMeta: any = {};
+const buildPath = path.join(process.cwd(), "public/_build.json");
+try {
+  if (fs.existsSync(buildPath)) {
+    buildMeta = JSON.parse(fs.readFileSync(buildPath, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+const builtAt = buildMeta.builtAt ? new Date(buildMeta.builtAt) : null;
+const syncedAt = buildMeta.syncedAt ? new Date(buildMeta.syncedAt) : null;
+const projectCount = buildMeta.projects || 0;
+
+function hoursAgo(date: Date | null) {
+  if (!date) return "unknown";
+  const hours = Math.round((Date.now() - date.getTime()) / 3600000);
+  if (hours < 1) return "less than 1 hour ago";
+  if (hours === 1) return "1 hour ago";
+  if (hours < 48) return `${hours} hours ago`;
+  return `${Math.round(hours / 24)} days ago`;
+}
+
+// ── Count proven claims from MarketIR ─────────────────────
+let provenClaimCount = 0;
+const toolsDir = path.join(process.cwd(), "src/data/marketir/data/tools");
+try {
+  if (fs.existsSync(toolsDir)) {
+    const files = fs.readdirSync(toolsDir).filter((f: string) => f.endsWith(".json"));
+    for (const file of files) {
+      const tool = JSON.parse(fs.readFileSync(path.join(toolsDir, file), "utf8"));
+      if (tool.claims) {
+        provenClaimCount += tool.claims.filter((c: any) => c.status === "proven").length;
+      }
+    }
+  }
+} catch { /* fail soft */ }
+
+// ── Trust receipt (provenance) ─────────────────────────────
+let trustReceipt: any = {};
+const trustPath = path.join(process.cwd(), "public/trust.json");
+try {
+  if (fs.existsSync(trustPath)) {
+    trustReceipt = JSON.parse(fs.readFileSync(trustPath, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+const commitSha = trustReceipt.commit || null;
+const lockHash = trustReceipt.marketirLockHash || null;
+const coeVersion = trustReceipt.coeVersion || null;
+const artifactCount = trustReceipt.artifactManifest ? Object.keys(trustReceipt.artifactManifest).length : 0;
+
+// ── Worthy rubric criteria ────────────────────────────────
+let worthyCriteria: string[] = [];
+let worthyMinScore = 0;
+const worthyPath = path.join(process.cwd(), "src/data/worthy.json");
+try {
+  if (fs.existsSync(worthyPath)) {
+    const worthy = JSON.parse(fs.readFileSync(worthyPath, "utf8"));
+    worthyCriteria = worthy.rubric?.criteria || [];
+    worthyMinScore = worthy.rubric?.minimumScore || 0;
+  }
+} catch { /* fail soft */ }
+---
+
+<Base
+  title={title}
+  description={description}
+  currentPath="/trust/"
+>
+  <div class="trust-page">
+    <h1>Trust &amp; Transparency</h1>
+    <p class="subtitle">
+      How mcp-tool-shop earns trust through verifiable practices, not promises.
+    </p>
+
+    {/* Freshness */}
+    <section class="trust-section">
+      <h2>Freshness</h2>
+      <p>
+        The catalog stays current through automated syncing and scheduled pipeline runs.
+      </p>
+      <div class="freshness-grid">
+        <div class="freshness-item">
+          <span class="freshness-label">Site last built</span>
+          <span class="freshness-value">{hoursAgo(builtAt)}</span>
+        </div>
+        <div class="freshness-item">
+          <span class="freshness-label">Catalog synced</span>
+          <span class="freshness-value">{hoursAgo(syncedAt)}</span>
+        </div>
+        {projectCount > 0 && (
+          <div class="freshness-item">
+            <span class="freshness-label">Projects tracked</span>
+            <span class="freshness-value">{projectCount}</span>
+          </div>
+        )}
+      </div>
+    </section>
+
+    {/* Determinism */}
+    <section class="trust-section">
+      <h2>Determinism</h2>
+      <p>
+        Every generated artifact includes a SHA-256 manifest.
+        Partner packs are hash-verified bundles &mdash; download, verify, trust.
+        Same input produces the same output, every time.
+      </p>
+    </section>
+
+    {/* Proof-First */}
+    <section class="trust-section">
+      <h2>Proof-First Claims</h2>
+      {provenClaimCount > 0 ? (
+        <p>
+          <strong>{provenClaimCount} claims</strong> are backed by verifiable evidence.
+          Every press page links to receipts &mdash; test results, screenshots, and CI outputs
+          that anyone can inspect.
+        </p>
+      ) : (
+        <p>
+          Marketing claims are backed by verifiable evidence.
+          Every press page links to receipts that anyone can inspect.
+        </p>
+      )}
+      <p>
+        Claims are tracked with explicit statuses: <em>proven</em> (evidence attached),
+        <em>aspirational</em> (not yet verified), or <em>deprecated</em> (no longer accurate).
+        Nothing ships as fact without a receipt.
+      </p>
+    </section>
+
+    {/* Promotion Policy */}
+    <section class="trust-section">
+      <h2>Promotion Policy</h2>
+      <p>
+        New tools pass a {worthyCriteria.length > 0 ? `${worthyCriteria.length}-criteria` : "multi-criteria"} worthiness
+        rubric before promotion. A human-controlled freeze switch prevents automated promotion.
+        All promotion runs through fail-closed safety caps.
+      </p>
+      {worthyCriteria.length > 0 && (
+        <div class="rubric-list">
+          <p class="rubric-heading">
+            Worthiness criteria (minimum score: {worthyMinScore}/{worthyCriteria.length}):
+          </p>
+          <ul>
+            {worthyCriteria.map((c: string) => (
+              <li>{c}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </section>
+
+    {/* Open Source */}
+    <section class="trust-section">
+      <h2>Open Source</h2>
+      <p>
+        All tools are published on GitHub under the{" "}
+        <a href="https://github.com/mcp-tool-shop-org" rel="noopener">mcp-tool-shop-org</a>{" "}
+        organization. Source code, issues, and releases are public.
+        The marketing site itself is{" "}
+        <a href="https://github.com/mcp-tool-shop/mcp-tool-shop" rel="noopener">open source</a>.
+      </p>
+    </section>
+
+    {/* Provenance */}
+    {(commitSha || lockHash || artifactCount > 0) && (
+      <section class="trust-section">
+        <h2>Provenance</h2>
+        <p>
+          Every deploy carries a machine-readable{" "}
+          <a href="/trust.json" rel="noopener">trust receipt</a>{" "}
+          with verifiable build metadata.
+        </p>
+        <div class="provenance-grid">
+          {commitSha && commitSha !== "unknown" && (
+            <div class="provenance-item">
+              <span class="provenance-label">Commit</span>
+              <span class="provenance-value mono">
+                <a href={`https://github.com/mcp-tool-shop/mcp-tool-shop/commit/${commitSha}`} rel="noopener">{commitSha}</a>
+              </span>
+            </div>
+          )}
+          {lockHash && (
+            <div class="provenance-item">
+              <span class="provenance-label">MarketIR Lock</span>
+              <span class="provenance-value mono">{lockHash.slice(0, 12)}&hellip;</span>
+            </div>
+          )}
+          {coeVersion && coeVersion !== "unknown" && (
+            <div class="provenance-item">
+              <span class="provenance-label">COE Version</span>
+              <span class="provenance-value mono">{coeVersion}</span>
+            </div>
+          )}
+          {artifactCount > 0 && (
+            <div class="provenance-item">
+              <span class="provenance-label">Artifacts Verified</span>
+              <span class="provenance-value">{artifactCount} files hashed at build time</span>
+            </div>
+          )}
+        </div>
+      </section>
+    )}
+  </div>
+</Base>
+
+<style>
+  .trust-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    margin: 0 0 0.25rem;
+    font-size: 2rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    color: var(--color-text, #e6edf3);
+    margin: 0 0 0.5rem;
+  }
+
+  .subtitle {
+    color: var(--color-text-muted, #8b949e);
+    margin: 0 0 2rem;
+    font-size: 0.95rem;
+  }
+
+  .trust-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border, #30363d);
+  }
+
+  .trust-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .trust-section p {
+    color: var(--color-text, #e6edf3);
+    line-height: 1.6;
+    margin: 0 0 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .trust-section a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .trust-section a:hover {
+    text-decoration: underline;
+  }
+
+  /* Freshness grid */
+  .freshness-grid {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .freshness-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 6px;
+    min-width: 150px;
+    flex: 1;
+  }
+
+  .freshness-label {
+    font-size: 0.7rem;
+    color: var(--color-text-muted, #8b949e);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+  }
+
+  .freshness-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text, #e6edf3);
+  }
+
+  /* Rubric */
+  .rubric-list {
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 6px;
+  }
+
+  .rubric-heading {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #8b949e);
+    margin: 0 0 0.5rem;
+  }
+
+  .rubric-list ul {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  .rubric-list li {
+    font-size: 0.85rem;
+    color: var(--color-text, #e6edf3);
+    margin: 0.3rem 0;
+  }
+
+  /* Provenance grid */
+  .provenance-grid {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .provenance-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem 1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 6px;
+    min-width: 150px;
+    flex: 1;
+  }
+
+  .provenance-label {
+    font-size: 0.7rem;
+    color: var(--color-text-muted, #8b949e);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+  }
+
+  .provenance-value {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .provenance-value.mono {
+    font-family: monospace;
+    font-size: 0.8rem;
+  }
+
+  .provenance-value a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .provenance-value a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .freshness-grid,
+    .provenance-grid {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  }
+</style>

@@ -68,8 +68,16 @@ if (linksData?.links) {
 
 // ─── Find enabled tools ───────────────────────────────────────────────────────
 
+// Parse --slugs filter (comma-separated)
+const SLUG_FILTER = (() => {
+  const idx = process.argv.indexOf("--slugs");
+  if (idx === -1 || !process.argv[idx + 1]) return null;
+  return new Set(process.argv[idx + 1].split(","));
+})();
+
 const enabledSlugs = Object.entries(overrides)
   .filter(([, v]) => v.publicProof === true)
+  .filter(([k]) => !SLUG_FILTER || SLUG_FILTER.has(k))
   .map(([k]) => k);
 
 if (enabledSlugs.length === 0) {

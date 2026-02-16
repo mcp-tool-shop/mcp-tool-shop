@@ -1,0 +1,160 @@
+---
+import Base from '../../layouts/Base.astro';
+import overrides from '../../data/overrides.json';
+import { getToolsWithPress, getProofData } from '../../lib/marketir/loader.mjs';
+
+const toolsWithPress = getToolsWithPress();
+const ovr = overrides as Record<string, any>;
+
+// Filter to tools that have publicProof enabled
+const proofTools = toolsWithPress
+  .filter(({ slug }) => ovr[slug]?.publicProof === true)
+  .map(({ slug, tool }) => {
+    const proof = getProofData(slug);
+    return {
+      slug,
+      name: tool.name,
+      oneLiner: tool.positioning?.oneLiner || '',
+      stability: ovr[slug]?.stability,
+      kind: ovr[slug]?.kind,
+      provenCount: proof?.proven?.length || 0,
+      aspirationalCount: proof?.aspirational?.length || 0,
+      antiClaimCount: proof?.antiClaims?.length || 0,
+    };
+  });
+---
+
+<Base
+  title="Proof - mcp-tool-shop"
+  description="Verified claims, evidence chains, and transparency data for mcp-tool-shop projects."
+  currentPath="/proof/"
+>
+  <div class="proof-index">
+    <h1>Proof</h1>
+    <p class="subtitle">Every claim backed by evidence. Every limitation disclosed. Verify at source.</p>
+
+    {proofTools.length === 0 ? (
+      <div class="empty">
+        <p>No tools with proof data available yet.</p>
+      </div>
+    ) : (
+      <div class="tools-grid">
+        {proofTools.map((t) => (
+          <a href={`/proof/${t.slug}/`} class="tool-card">
+            <div class="card-header">
+              <h2>{t.name}</h2>
+              <div class="badges">
+                {t.stability && <span class={`badge badge-${t.stability}`}>{t.stability}</span>}
+                {t.kind && <span class="badge badge-kind">{t.kind}</span>}
+              </div>
+            </div>
+            <p class="one-liner">{t.oneLiner}</p>
+            <div class="card-meta">
+              {t.provenCount > 0 && <span>{t.provenCount} proven claim{t.provenCount > 1 ? 's' : ''}</span>}
+              {t.aspirationalCount > 0 && <span>{t.aspirationalCount} aspirational</span>}
+              {t.antiClaimCount > 0 && <span>{t.antiClaimCount} anti-claim{t.antiClaimCount > 1 ? 's' : ''}</span>}
+            </div>
+          </a>
+        ))}
+      </div>
+    )}
+
+    <div class="proof-note">
+      <p>Claims are sourced from <a href="/trust/">MarketIR</a> and verified against evidence artifacts.
+      Anti-claims disclose what each tool does <em>not</em> do. All data is deterministic and reproducible.</p>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .proof-index {
+    padding: 2rem 0;
+  }
+  h1 {
+    margin: 0 0 0.25rem;
+  }
+  .subtitle {
+    color: var(--color-text-muted);
+    margin: 0 0 2rem;
+  }
+  .empty {
+    color: var(--color-text-muted);
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1rem;
+  }
+  .tool-card {
+    display: block;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s;
+  }
+  .tool-card:hover {
+    border-color: var(--color-accent);
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .card-header h2 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  .badges {
+    display: flex;
+    gap: 0.35rem;
+  }
+  .badge {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+  .badge-stable { background: #23863622; color: #3fb950; }
+  .badge-beta { background: #d2992222; color: #d29922; }
+  .badge-experimental { background: #f8514922; color: #f85149; }
+  .badge-kind { background: #58a6ff22; color: #58a6ff; }
+
+  .one-liner {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin: 0 0 0.75rem;
+    line-height: 1.4;
+  }
+  .card-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .proof-note {
+    margin-top: 2rem;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    line-height: 1.5;
+  }
+  .proof-note a {
+    color: var(--color-accent);
+  }
+  .proof-note p {
+    margin: 0;
+  }
+</style>

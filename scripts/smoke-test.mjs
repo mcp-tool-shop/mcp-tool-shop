@@ -20,6 +20,7 @@ const CHECKS = [
   { url: "/tools/zip-meta-map/", expect: 200, label: "zip-meta-map tool page" },
   { url: "/releases/", expect: 200, label: "releases page" },
   { url: "/about/", expect: 200, label: "about page" },
+  { url: "/trust/", expect: 200, label: "trust page" },
   { url: "/support/", expect: 200, label: "support page" },
 
   // Legacy redirects — expect 200 after following the redirect
@@ -33,6 +34,11 @@ const CHECKS = [
   { url: "/lab/signals/", expect: 200, label: "lab: signals dashboard" },
   { url: "/lab/targets/", expect: 200, label: "lab: targets viewer" },
   { url: "/lab/clearance/", expect: 200, label: "lab: clearance index" },
+  { url: "/lab/ops/", expect: 200, label: "lab: ops dashboard" },
+  { url: "/lab/worthy/", expect: 200, label: "lab: worthy scorecards" },
+  { url: "/lab/baseline/", expect: 200, label: "lab: pipeline baseline" },
+  { url: "/trust.json", expect: 200, label: "trust receipt JSON" },
+  { url: "/lab/promo/", expect: 200, label: "lab: promo calendar" },
 
   // Marketing outputs (generated from MarketIR)
   { url: "/presskit/zip-meta-map/", expect: 200, label: "presskit: zip-meta-map" },
@@ -44,6 +50,10 @@ const CHECKS = [
   // Press pages (Astro-rendered)
   { url: "/press/", expect: 200, label: "press index" },
   { url: "/press/zip-meta-map/", expect: 200, label: "press: zip-meta-map" },
+
+  // Proof pages (Astro-rendered)
+  { url: "/proof/", expect: 200, label: "proof index" },
+  { url: "/proof/zip-meta-map/", expect: 200, label: "proof: zip-meta-map" },
 
   // Outreach packs (generated)
   { url: "/outreach/zip-meta-map/email-partner.md", expect: 200, label: "outreach: email-partner" },

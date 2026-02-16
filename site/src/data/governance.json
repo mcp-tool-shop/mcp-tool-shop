@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "maxPromosPerWeek": 3,
+  "cooldownDaysPerSlug": 14,
+  "cooldownDaysPerPartner": 14,
+  "minCoverageScore": 80,
+  "minExperimentDataThreshold": 10,
+  "hardRules": [
+    "never edit human-owned files",
+    "never send outreach automatically",
+    "never push directly to main",
+    "never exceed minutes budget",
+    "never promote without publicProof"
+  ]
+}

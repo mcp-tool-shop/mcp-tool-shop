@@ -1,0 +1,610 @@
+---
+import Base from '../../layouts/Base.astro';
+import overrides from '../../data/overrides.json';
+import fs from 'node:fs';
+import path from 'node:path';
+import { getToolsWithPress, getProofData, loadSnapshot } from '../../lib/marketir/loader.mjs';
+
+const ovr = overrides as Record<string, any>;
+
+export function getStaticPaths() {
+  const _ovr = overrides as Record<string, any>;
+  const toolsWithPress = getToolsWithPress();
+  return toolsWithPress
+    .filter(({ slug }) => _ovr[slug]?.publicProof === true)
+    .map(({ slug, tool }) => ({
+      params: { slug },
+      props: { slug, tool },
+    }));
+}
+
+const { slug, tool } = Astro.props;
+const override = ovr[slug] || {};
+const proofData = getProofData(slug);
+const snapshot = loadSnapshot();
+
+// GitHub facts (fail-soft)
+let facts: any = null;
+try {
+  const factsPath = path.join(process.cwd(), 'src/data/github-facts', `${slug}.json`);
+  facts = JSON.parse(fs.readFileSync(factsPath, 'utf8'));
+} catch {}
+
+// Tracked links (fail-soft)
+let toolLinks: any[] = [];
+try {
+  const linksPath = path.join(process.cwd(), 'src/data/links.json');
+  const linksData = JSON.parse(fs.readFileSync(linksPath, 'utf8'));
+  toolLinks = (linksData.links || []).filter((l: any) => l.slug === slug);
+} catch {}
+
+// Clearance data (fail-soft)
+let clearance: any = null;
+try {
+  const clearancePath = path.join(process.cwd(), '../site/public/lab/clearance', `${slug}.json`);
+  clearance = JSON.parse(fs.readFileSync(clearancePath, 'utf8'));
+} catch {}
+
+const orgUrl = `https://github.com/mcp-tool-shop-org/${slug}`;
+const siteUrl = `https://mcptoolshop.com`;
+
+// Determine "last updated" dates
+const factsFetchedAt = facts?.fetchedAt ? new Date(facts.fetchedAt).toLocaleDateString('en-US', { dateStyle: 'medium' }) : null;
+const snapshotFetchedAt = snapshot?.fetchedAt ? new Date(snapshot.fetchedAt).toLocaleDateString('en-US', { dateStyle: 'medium' }) : null;
+
+// Clearance tier label
+function getTierLabel(score: number): string {
+  if (score >= 80) return 'GREEN';
+  if (score >= 50) return 'YELLOW';
+  return 'RED';
+}
+---
+
+<Base
+  title={`${tool.name} — Proof`}
+  description={`Verified claims, evidence chain, and transparency data for ${tool.name}.`}
+  currentPath={`/proof/${slug}/`}
+>
+  <div class="proof-page">
+    <a href="/proof/" class="back-link">&larr; All proof pages</a>
+
+    {/* Header */}
+    <header class="proof-header">
+      <h1>{tool.name}</h1>
+      <p class="one-liner">{tool.positioning?.oneLiner}</p>
+      <div class="badges">
+        {override.stability && <span class={`badge badge-${override.stability}`}>{override.stability}</span>}
+        {override.kind && <span class="badge badge-kind">{override.kind}</span>}
+      </div>
+    </header>
+
+    {/* Proven Claims */}
+    {proofData?.proven && proofData.proven.length > 0 && (
+      <section class="section" data-verified-claims>
+        <h2>Proven Claims</h2>
+        <p class="section-note">Every claim below is backed by evidence. Status: proven.</p>
+        <div class="claims-list">
+          {proofData.proven.map((claim: any) => (
+            <div class="claim claim-proven">
+              <div class="claim-top-row">
+                <div class="claim-status">PROVEN</div>
+                <button class="claim-copy-btn" data-claim-text={claim.statement} type="button" title="Copy claim">Copy</button>
+              </div>
+              <div class="claim-statement">{claim.statement}</div>
+              {claim.evidence?.length > 0 && (
+                <div class="claim-evidence">
+                  {claim.evidence.map((ev: any) => (
+                    <span class="ev-badge">
+                      {ev.url ? (
+                        <a href={ev.url} target="_blank" rel="noopener">{ev.type}: {ev.id.split('.').pop()}</a>
+                      ) : ev.path ? (
+                        <a href={`/marketir/evidence/${ev.path.split('/').pop()}`} target="_blank" rel="noopener">{ev.type}: {ev.id.split('.').pop()}</a>
+                      ) : (
+                        <span>{ev.type}: {ev.id.split('.').pop()}</span>
+                      )}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {/* Proof Bullets — copy-ready summary of proven claims */}
+    {proofData?.proven && proofData.proven.length > 0 && (
+      <section class="section" id="proof-bullets" data-proof-section>
+        <h2>Proof Bullets</h2>
+        <p class="section-note">Copy-ready summary of proven claims.</p>
+        <div class="bullets-container">
+          <ul id="proof-bullets-list">
+            {proofData.proven.slice(0, 5).map((claim: any) => (
+              <li>{claim.statement}</li>
+            ))}
+          </ul>
+          <button class="copy-btn" id="copy-proof-bullets" type="button">Copy All</button>
+        </div>
+      </section>
+    )}
+
+    {/* Aspirational Claims */}
+    {proofData?.aspirational && proofData.aspirational.length > 0 && (
+      <section class="section">
+        <h2>Aspirational Claims</h2>
+        <p class="section-note">These claims are not yet backed by reproducible evidence.</p>
+        <div class="claims-list">
+          {proofData.aspirational.map((claim: any) => (
+            <div class="claim claim-aspirational">
+              <div class="claim-status aspirational">ASPIRATIONAL</div>
+              <div class="claim-statement">{claim.statement}</div>
+              {claim.notes && (
+                <div class="claim-notes">{claim.notes}</div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {/* Anti-Claims */}
+    {proofData?.antiClaims && proofData.antiClaims.length > 0 && (
+      <section class="section">
+        <h2>Anti-Claims</h2>
+        <p class="section-note">What this tool explicitly does <em>not</em> do.</p>
+        <div class="claims-list">
+          {proofData.antiClaims.map((ac: any) => (
+            <div class="claim claim-anti">
+              <div class="claim-statement">{ac.statement}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {/* GitHub Facts */}
+    {facts && (
+      <section class="section">
+        <h2>GitHub Facts</h2>
+        <div class="facts-grid">
+          {facts.stars != null && (
+            <div class="fact"><span class="fact-value">{facts.stars}</span><span class="fact-label">Stars</span></div>
+          )}
+          {facts.forks != null && (
+            <div class="fact"><span class="fact-value">{facts.forks}</span><span class="fact-label">Forks</span></div>
+          )}
+          {facts.openIssues != null && (
+            <div class="fact"><span class="fact-value">{facts.openIssues}</span><span class="fact-label">Open issues</span></div>
+          )}
+          {facts.releasesLast90d != null && (
+            <div class="fact"><span class="fact-value">{facts.releasesLast90d}</span><span class="fact-label">Releases (90d)</span></div>
+          )}
+          {facts.latestRelease && (
+            <div class="fact"><span class="fact-value">{facts.latestRelease.tag}</span><span class="fact-label">Latest release</span></div>
+          )}
+          {facts.license && (
+            <div class="fact"><span class="fact-value">{facts.license}</span><span class="fact-label">License</span></div>
+          )}
+        </div>
+        <p class="observed">Observed: {factsFetchedAt}. Non-authoritative — <a href={orgUrl} target="_blank" rel="noopener">verify at source</a>.</p>
+      </section>
+    )}
+
+    {/* Clearance Status */}
+    {clearance && clearance.overallScore != null && (
+      <section class="section">
+        <h2>Clearance Status</h2>
+        <div class="clearance-card">
+          <span class={`tier-badge tier-${getTierLabel(clearance.overallScore).toLowerCase()}`}>
+            {getTierLabel(clearance.overallScore)}
+          </span>
+          <span class="clearance-score">Score: {clearance.overallScore}/100</span>
+        </div>
+      </section>
+    )}
+
+    {/* Tracked Links */}
+    {toolLinks.length > 0 && (
+      <section class="section">
+        <h2>Tracked Links</h2>
+        <p class="section-note">Attribution-tracked links for distribution channels.</p>
+        <div class="links-table-wrap">
+          <table class="links-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Channel</th>
+                <th>Target</th>
+                <th>Campaign</th>
+              </tr>
+            </thead>
+            <tbody>
+              {toolLinks.map((link: any) => (
+                <tr>
+                  <td class="mono">{link.id}</td>
+                  <td>{link.channel}</td>
+                  <td><a href={link.target} target="_blank" rel="noopener">{link.target.replace('https://', '').slice(0, 40)}{link.target.length > 48 ? '...' : ''}</a></td>
+                  <td class="mono">{link.utm?.campaign || '--'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
+
+    {/* Cross-links */}
+    <section class="section">
+      <h2>Related</h2>
+      <div class="related-links">
+        <a href={`/press/${slug}/`} class="btn">Press Page</a>
+        <a href={`/presskit/${slug}/`} class="btn">Press Kit</a>
+        <a href={`/tools/${slug}/`} class="btn">Tool Page</a>
+        <a href={orgUrl} class="btn" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+
+    {/* Last Updated */}
+    <footer class="proof-footer">
+      <div class="updated-banner">
+        <span class="updated-label">Last updated</span>
+        <div class="updated-dates">
+          {snapshotFetchedAt && <span>MarketIR snapshot: {snapshotFetchedAt}</span>}
+          {factsFetchedAt && <span>GitHub facts: {factsFetchedAt}</span>}
+        </div>
+      </div>
+      {snapshot && (
+        <p class="lock-hash">MarketIR lock: {snapshot.lockSha256?.slice(0, 12)}</p>
+      )}
+    </footer>
+  </div>
+
+  <script>
+    // Copy all proof bullets
+    document.getElementById('copy-proof-bullets')?.addEventListener('click', async function() {
+      const items = document.querySelectorAll('#proof-bullets-list li');
+      const text = Array.from(items).map(li => `- ${li.textContent}`).join('\n');
+      try {
+        await navigator.clipboard.writeText(text);
+        this.textContent = 'Copied!';
+        setTimeout(() => { this.textContent = 'Copy All'; }, 1500);
+      } catch { this.textContent = 'Failed'; setTimeout(() => { this.textContent = 'Copy All'; }, 1500); }
+    });
+
+    // Copy individual claims
+    document.querySelectorAll('.claim-copy-btn').forEach(btn => {
+      btn.addEventListener('click', async function() {
+        const text = this.getAttribute('data-claim-text') || '';
+        try {
+          await navigator.clipboard.writeText(text);
+          this.textContent = 'Copied!';
+          setTimeout(() => { this.textContent = 'Copy'; }, 1500);
+        } catch { this.textContent = 'Failed'; setTimeout(() => { this.textContent = 'Copy'; }, 1500); }
+      });
+    });
+  </script>
+</Base>
+
+<style>
+  .proof-page {
+    padding: 2rem 0;
+  }
+  .back-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    text-decoration: none;
+  }
+  .back-link:hover {
+    color: var(--color-accent);
+  }
+
+  .proof-header {
+    margin-bottom: 2rem;
+  }
+  .proof-header h1 {
+    margin: 0 0 0.25rem;
+  }
+  .one-liner {
+    color: var(--color-text-muted);
+    margin: 0 0 0.75rem;
+    font-style: italic;
+  }
+  .badges {
+    display: flex;
+    gap: 0.35rem;
+  }
+  .badge {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+  .badge-stable { background: #23863622; color: #3fb950; }
+  .badge-beta { background: #d2992222; color: #d29922; }
+  .badge-experimental { background: #f8514922; color: #f85149; }
+  .badge-kind { background: #58a6ff22; color: #58a6ff; }
+
+  /* Sections */
+  .section {
+    margin-bottom: 2rem;
+  }
+  .section h2 {
+    font-size: 1.1rem;
+    margin: 0 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .section-note {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin: 0 0 0.75rem;
+  }
+
+  /* Claims */
+  .claims-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .claim {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+  }
+  .claim-proven {
+    border-left: 3px solid #3fb950;
+  }
+  .claim-aspirational {
+    border-left: 3px solid #d29922;
+  }
+  .claim-anti {
+    border-left: 3px solid #8b949e;
+  }
+  .claim-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+  }
+  .claim-status {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #3fb950;
+  }
+  .claim-status.aspirational {
+    color: #d29922;
+  }
+  .claim-statement {
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+  }
+  .claim-notes {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+  .claim-evidence {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .ev-badge {
+    font-size: 0.7rem;
+  }
+  .ev-badge a {
+    background: #58a6ff22;
+    color: #58a6ff;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+  .ev-badge a:hover {
+    background: #58a6ff33;
+  }
+
+  /* Facts grid */
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  .fact {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.75rem;
+    text-align: center;
+  }
+  .fact-value {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .fact-label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .observed {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+  .observed a {
+    color: var(--color-accent);
+  }
+
+  /* Clearance */
+  .clearance-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+  }
+  .tier-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .tier-green { background: #3fb95022; color: #3fb950; }
+  .tier-yellow { background: #d2992222; color: #d29922; }
+  .tier-red { background: #f8514922; color: #f85149; }
+  .clearance-score {
+    font-size: 0.9rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Links table */
+  .links-table-wrap {
+    overflow-x: auto;
+  }
+  .links-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .links-table th {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 2px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .links-table td {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .links-table a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .links-table a:hover {
+    text-decoration: underline;
+  }
+  .mono {
+    font-family: monospace;
+    font-size: 0.8rem;
+  }
+
+  /* Related */
+  .related-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.4rem 0.75rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: border-color 0.15s;
+  }
+  .btn:hover {
+    border-color: var(--color-accent);
+  }
+
+  /* Footer */
+  .proof-footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .updated-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .updated-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    padding-top: 0.1rem;
+  }
+  .updated-dates {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+  .lock-hash {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    font-family: monospace;
+    margin: 0.25rem 0 0;
+  }
+
+  /* Copy buttons */
+  .claim-copy-btn {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.4rem;
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .claim-copy-btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  /* Proof bullets */
+  .bullets-container {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    position: relative;
+  }
+  #proof-bullets-list {
+    margin: 0 0 0.75rem;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  #proof-bullets-list li {
+    margin-bottom: 0.25rem;
+  }
+  .copy-btn {
+    display: inline-block;
+    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .copy-btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+</style>

@@ -1,0 +1,540 @@
+---
+import Base from "../../../layouts/Base.astro";
+import fs from "node:fs";
+import path from "node:path";
+
+const title = "Promotion Calendar";
+const description = "NameOps promotion calendar — freeze status, queue, channels, run history";
+
+// Load calendar data
+let calendar: any = null;
+const calendarPath = path.join(process.cwd(), "src/data/promo-calendar.json");
+try {
+  if (fs.existsSync(calendarPath)) {
+    calendar = JSON.parse(fs.readFileSync(calendarPath, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+// Load suggestions data
+let suggestions: any = null;
+const suggestPath = path.join(process.cwd(), "src/data/promo-suggestions.json");
+try {
+  if (fs.existsSync(suggestPath)) {
+    suggestions = JSON.parse(fs.readFileSync(suggestPath, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+function formatDate(dateStr: string | null) {
+  if (!dateStr) return "N/A";
+  return dateStr.slice(0, 10);
+}
+
+function slugLabel(entry: any): string {
+  if (typeof entry === "string") return entry;
+  return entry.slug || "unknown";
+}
+---
+
+<Base
+  title={title}
+  description={description}
+  currentPath="/lab/promo/"
+>
+  <head>
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+
+  <div class="promo-page">
+    <span class="internal-badge">Internal</span>
+
+    <h1>Promotion Calendar</h1>
+    <p class="subtitle">Freeze status, promotion queue, channel plan, and run history.</p>
+
+    {!calendar ? (
+      <div class="empty-state">
+        <p>No calendar data available.</p>
+        <p>Run <code>node scripts/gen-promo-calendar.mjs</code> to generate.</p>
+      </div>
+    ) : (
+      <>
+        {/* Summary banner */}
+        <div class="summary-banner">
+          <div class="stat">
+            <span class={`stat-value ${calendar.freezeStatus?.frozen ? "freeze-frozen" : "freeze-active"}`}>
+              {calendar.freezeStatus?.frozen ? "Frozen" : "Active"}
+            </span>
+            <span class="stat-label">Promo Status</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">{calendar.currentWeek?.week || "N/A"}</span>
+            <span class="stat-label">Current Week</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">{calendar.currentWeek?.slugs?.length || 0}</span>
+            <span class="stat-label">Slugs Queued</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">{formatDate(calendar.lastRun?.date)}</span>
+            <span class="stat-label">Last Run</span>
+          </div>
+        </div>
+
+        {/* Freeze status */}
+        <h2>Freeze Status</h2>
+        <div class={`freeze-card ${calendar.freezeStatus?.frozen ? "freeze-card-frozen" : "freeze-card-active"}`}>
+          <div class="freeze-indicator">
+            <span class={`freeze-dot ${calendar.freezeStatus?.frozen ? "dot-frozen" : "dot-active"}`}></span>
+            <span class="freeze-text">
+              Promotion is <strong>{calendar.freezeStatus?.frozen ? "frozen" : "active"}</strong>
+            </span>
+          </div>
+          <div class="freeze-meta">
+            <span>Since: {formatDate(calendar.freezeStatus?.since)}</span>
+            <span>Modified by: {calendar.freezeStatus?.modifiedBy || "unknown"}</span>
+          </div>
+        </div>
+
+        {/* Current queue */}
+        <h2>Current Queue</h2>
+        <div class="table-wrap">
+          <table>
+            <tbody>
+              <tr>
+                <td>Week</td>
+                <td class="mono">{calendar.currentWeek?.week || "N/A"}</td>
+              </tr>
+              <tr>
+                <td>Promotion type</td>
+                <td class="mono">{calendar.currentWeek?.promotionType || "own"}</td>
+              </tr>
+              <tr>
+                <td>Slugs</td>
+                <td class="mono">
+                  {calendar.currentWeek?.slugs?.length > 0
+                    ? calendar.currentWeek.slugs.map((s: any) => slugLabel(s)).join(", ")
+                    : "(none)"}
+                </td>
+              </tr>
+              <tr>
+                <td>Notes</td>
+                <td>{calendar.currentWeek?.notes || "(none)"}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {calendar.currentWeek?.campaign && (
+          <>
+            <h3>Campaign</h3>
+            <div class="table-wrap">
+              <table>
+                <tbody>
+                  <tr><td>ID</td><td class="mono">{calendar.currentWeek.campaign.id}</td></tr>
+                  <tr><td>Goal</td><td>{calendar.currentWeek.campaign.goal || "N/A"}</td></tr>
+                  {calendar.currentWeek.campaign.period && (
+                    <tr>
+                      <td>Period</td>
+                      <td class="mono">
+                        {calendar.currentWeek.campaign.period.start} &mdash; {calendar.currentWeek.campaign.period.end}
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+
+        {/* Channel plan */}
+        <h2>Channel Plan</h2>
+        <div class="channel-list">
+          {calendar.channelPlan?.map((channel: string) => (
+            <span class="channel-badge">{channel}</span>
+          ))}
+        </div>
+
+        {/* Last run summary */}
+        {calendar.lastRun && (
+          <>
+            <h2>Last Run</h2>
+            <div class="table-wrap">
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Run ID</td>
+                    <td class="mono">{calendar.lastRun.runId}</td>
+                  </tr>
+                  <tr>
+                    <td>Date</td>
+                    <td class="mono">{formatDate(calendar.lastRun.date)}</td>
+                  </tr>
+                  <tr>
+                    <td>Batch OK</td>
+                    <td class={calendar.lastRun.batchOk ? "status-ok" : "status-fail"}>
+                      {calendar.lastRun.batchOk ? "Yes" : "No"}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Slug count</td>
+                    <td class="mono num">{calendar.lastRun.slugCount}</td>
+                  </tr>
+                  <tr>
+                    <td>Cache hit rate</td>
+                    <td class="mono num">{Math.round((calendar.lastRun.cacheHitRate || 0) * 100)}%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+
+        {/* Stats */}
+        <h2>Stats</h2>
+        <div class="table-wrap">
+          <table>
+            <tbody>
+              <tr>
+                <td>Total pipeline runs</td>
+                <td class="mono num">{calendar.stats?.totalRuns || 0}</td>
+              </tr>
+              <tr>
+                <td>Runs with promoted slugs</td>
+                <td class="mono num">{calendar.stats?.totalPromoted || 0}</td>
+              </tr>
+              <tr>
+                <td>Last promotion date</td>
+                <td class="mono">{formatDate(calendar.stats?.lastPromotionDate)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* Suggestions */}
+        {suggestions?.suggestions?.length > 0 && (
+          <>
+            <h2>Promotion Suggestions</h2>
+            <p class="suggest-note">
+              These candidates have GREEN clearance and pass the worthy rubric.
+              Add to <code>promo-queue.json</code> manually to act on them.
+            </p>
+            <div class="suggestions-list">
+              {suggestions.suggestions.map((s: any) => (
+                <div class="suggest-card">
+                  <div class="suggest-header">
+                    <span class="suggest-slug">{s.slug}</span>
+                    <span class="suggest-score">Score: {s.score}</span>
+                    {s.worthy && <span class="worthy-badge">Worthy</span>}
+                  </div>
+                  <div class="suggest-reason">{s.reason}</div>
+                  {s.channels && s.channels.length > 0 && (
+                    <div class="suggest-channels">
+                      {s.channels.map((c: string) => (
+                        <span class="channel-badge-sm">{c}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        <div class="provenance">
+          <h3>Data Sources</h3>
+          <ul>
+            <li>Calendar: <code>site/src/data/promo-calendar.json</code></li>
+            <li>Queue: <code>site/src/data/promo-queue.json</code></li>
+            <li>Config: <code>site/src/data/promo.json</code></li>
+            <li>Suggestions: <code>site/src/data/promo-suggestions.json</code></li>
+            <li>Generator: <code>scripts/gen-promo-calendar.mjs</code></li>
+          </ul>
+        </div>
+      </>
+    )}
+  </div>
+</Base>
+
+<style>
+  .promo-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .internal-badge {
+    display: inline-block;
+    background: #d29922;
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  h1 {
+    margin: 0 0 0.25rem;
+    font-size: 2rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    color: var(--color-text, #e6edf3);
+    margin: 2rem 0 0.75rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    color: var(--color-text, #e6edf3);
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  .subtitle {
+    color: var(--color-text-muted, #8b949e);
+    margin: 0 0 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .summary-banner {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  .stat-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-text, #e6edf3);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted, #8b949e);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+  }
+
+  .freeze-frozen { color: #f85149; }
+  .freeze-active { color: #3fb950; }
+
+  /* Freeze card */
+  .freeze-card {
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border, #30363d);
+    background: var(--color-surface, #161b22);
+  }
+
+  .freeze-card-frozen { border-left: 4px solid #f85149; }
+  .freeze-card-active { border-left: 4px solid #3fb950; }
+
+  .freeze-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .freeze-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .dot-frozen { background: #f85149; }
+  .dot-active { background: #3fb950; }
+
+  .freeze-text {
+    font-size: 0.95rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .freeze-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  /* Tables */
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--color-text-muted, #8b949e);
+    font-size: 1.1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+  }
+
+  .empty-state code {
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.9rem;
+  }
+
+  .table-wrap { overflow-x: auto; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  td {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--color-border, #30363d);
+    color: var(--color-text, #e6edf3);
+  }
+
+  .mono { font-family: monospace; font-size: 0.8rem; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .status-ok { color: #3fb950; font-weight: 600; }
+  .status-fail { color: #f85149; font-weight: 600; }
+
+  /* Channels */
+  .channel-list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .channel-badge {
+    display: inline-block;
+    background: rgba(56, 139, 253, 0.15);
+    color: #388bfd;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    border: 1px solid rgba(56, 139, 253, 0.3);
+  }
+
+  .channel-badge-sm {
+    display: inline-block;
+    background: rgba(56, 139, 253, 0.1);
+    color: #388bfd;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 8px;
+  }
+
+  /* Suggestions */
+  .suggest-note {
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #8b949e);
+    margin: 0 0 0.75rem;
+  }
+
+  .suggest-note code {
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
+
+  .suggestions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .suggest-card {
+    padding: 0.75rem 1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-left: 3px solid #3fb950;
+    border-radius: 6px;
+  }
+
+  .suggest-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .suggest-slug {
+    font-family: monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .suggest-score {
+    font-size: 0.75rem;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .worthy-badge {
+    display: inline-block;
+    background: rgba(63, 185, 80, 0.15);
+    color: #3fb950;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  .suggest-reason {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #8b949e);
+    margin-bottom: 0.25rem;
+  }
+
+  .suggest-channels {
+    display: flex;
+    gap: 0.3rem;
+    margin-top: 0.25rem;
+  }
+
+  /* Provenance */
+  .provenance {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, #30363d);
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.8rem;
+  }
+
+  .provenance h3 {
+    font-size: 0.85rem;
+    margin: 0 0 0.5rem;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .provenance ul { list-style: none; padding: 0; margin: 0; }
+  .provenance li { margin: 0.3rem 0; }
+  .provenance code {
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 600px) {
+    .summary-banner { flex-direction: column; gap: 0.75rem; }
+    .stat { flex-direction: row; justify-content: space-between; }
+    .stat-value { font-size: 1.1rem; }
+    .freeze-meta { flex-direction: column; gap: 0.25rem; }
+  }
+</style>

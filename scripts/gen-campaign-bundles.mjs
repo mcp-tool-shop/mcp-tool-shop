@@ -76,7 +76,18 @@ if (linksData?.links) {
   }
 }
 
-console.log(`Generating campaign bundles for: ${campaigns.map((c) => c.id).join(", ")}\n`);
+// Parse --slugs filter (comma-separated, matches toolRef slug)
+const SLUG_FILTER = (() => {
+  const idx = process.argv.indexOf("--slugs");
+  if (idx === -1 || !process.argv[idx + 1]) return null;
+  return new Set(process.argv[idx + 1].split(","));
+})();
+
+const filteredCampaigns = SLUG_FILTER
+  ? campaigns.filter((c) => SLUG_FILTER.has(c.toolRef?.replace(/^tool\./, "")))
+  : campaigns;
+
+console.log(`Generating campaign bundles for: ${filteredCampaigns.map((c) => c.id).join(", ")}\n`);
 
 // ─── Resolve helpers ─────────────────────────────────────────────────────────
 
@@ -94,7 +105,7 @@ function loadAudience(audRef) {
 
 // ─── Generate ─────────────────────────────────────────────────────────────────
 
-for (const campaign of campaigns) {
+for (const campaign of filteredCampaigns) {
   const { slug, data: tool } = loadTool(campaign.toolRef);
   if (!tool) {
     console.warn(`  ⚠ No tool data for ${campaign.toolRef}, skipping campaign ${campaign.id}.`);
