@@ -1,0 +1,657 @@
+---
+import Base from '../../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+function loadJson(filePath: string) {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+// Load outreach queue from public/queue/
+const queuePath = path.join(process.cwd(), 'public/queue/outreach-queue.json');
+const queue = loadJson(queuePath);
+
+const items = queue?.items || [];
+const suppressed = queue?.suppressed || [];
+const stats = queue?.stats || { queued: 0, suppressed: 0, totalTriggersEvaluated: 0 };
+const generatedAt = queue?.generatedAt || null;
+const policy = queue?.policy || {};
+
+// Group items by slug
+const bySlug = new Map<string, any[]>();
+for (const item of items) {
+  const list = bySlug.get(item.slug) || [];
+  list.push(item);
+  bySlug.set(item.slug, list);
+}
+
+const slugs = [...bySlug.keys()].sort();
+
+// Priority badge helper
+function prioBadge(priority: string) {
+  return priority === 'high' ? 'HIGH' : 'normal';
+}
+
+// Category badge helper
+function catBadge(category: string) {
+  const badges: Record<string, string> = {
+    'claim-change': 'CLAIM',
+    'evidence-added': 'EVIDENCE',
+    'release-published': 'RELEASE',
+    'presskit-material': 'PRESSKIT',
+  };
+  return badges[category] || category.toUpperCase();
+}
+---
+
+<Base
+  title="Outreach Queue - Internal"
+  description="Internal dashboard for outreach queue items pending review."
+  currentPath="/lab/queue/"
+>
+  <head>
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+
+  <div class="queue-page">
+    <div class="internal-badge">Internal Preview</div>
+
+    <h1>Outreach Queue</h1>
+    <p class="subtitle">Drift-triggered micro-campaign packets pending human review. No sending — advisory only.</p>
+
+    {queue ? (
+      <div class="summary-banner">
+        <div class="summary-grid">
+          <div class="summary-item">
+            <span class="value">{stats.queued}</span>
+            <span class="label">Queued</span>
+          </div>
+          <div class="summary-item">
+            <span class="value">{stats.suppressed}</span>
+            <span class="label">Suppressed</span>
+          </div>
+          <div class="summary-item">
+            <span class="value">{stats.totalTriggersEvaluated}</span>
+            <span class="label">Evaluated</span>
+          </div>
+          <div class="summary-item">
+            <span class="value">{slugs.length}</span>
+            <span class="label">Tools</span>
+          </div>
+        </div>
+        {generatedAt && (
+          <div class="snapshot-meta">
+            Generated: {new Date(generatedAt).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })}
+          </div>
+        )}
+        {policy.maxPerToolPerWeek && (
+          <div class="policy-meta">
+            Rate limit: {policy.maxPerToolPerWeek}/tool/week
+            {policy.dedupeWindowDays ? ` | Dedup: ${policy.dedupeWindowDays}d` : ''}
+            {policy.quietHours ? ` | Quiet: ${policy.quietHours.start}–${policy.quietHours.end}` : ''}
+          </div>
+        )}
+      </div>
+    ) : (
+      <div class="summary-banner empty">
+        <p>No outreach queue generated yet.</p>
+        <p>Run <code>node src/index.mjs --dry-run --config sync.config.json</code> in mcpt-link-fresh with outreach enabled.</p>
+      </div>
+    )}
+
+    {items.length === 0 && queue && (
+      <div class="empty-state">
+        <p>Queue is empty. No outreach triggers detected.</p>
+      </div>
+    )}
+
+    {slugs.map((slug) => {
+      const slugItems = bySlug.get(slug) || [];
+
+      return (
+        <section class="section">
+          <h2>{slug}</h2>
+
+          {slugItems.map((item: any, idx: number) => (
+            <div class={`queue-card ${item.priority === 'high' ? 'high-priority' : ''}`}>
+              <div class="card-header">
+                <span class={`cat-badge cat-${item.triggerCategory}`}>{catBadge(item.triggerCategory)}</span>
+                <span class={`prio-badge prio-${item.priority}`}>{prioBadge(item.priority)}</span>
+                <span class="item-id">{item.id}</span>
+              </div>
+
+              <div class="card-body">
+                <div class="trigger-summary">{item.triggerSummary}</div>
+
+                <div class="card-grid">
+                  <div class="card-field">
+                    <span class="field-label">Audience</span>
+                    <span class="field-value">{item.audienceName || 'General'}</span>
+                  </div>
+                  <div class="card-field">
+                    <span class="field-label">Template</span>
+                    <span class="field-value"><code>{item.suggestedTemplate}</code></span>
+                  </div>
+                  {item.goLink && (
+                    <div class="card-field">
+                      <span class="field-label">CTA</span>
+                      <span class="field-value">
+                        <a href={item.goLinkUrl} target="_blank" rel="noopener">{item.goLink}</a>
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {item.suggestedSubjectLines.length > 0 && (
+                  <div class="subject-lines">
+                    <span class="field-label">Subject lines</span>
+                    {item.suggestedSubjectLines.map((s: string) => (
+                      <div class="subject-line">{s}</div>
+                    ))}
+                  </div>
+                )}
+
+                {item.targets.length > 0 && (
+                  <div class="targets-section">
+                    <span class="field-label">Top targets</span>
+                    <div class="table-wrap">
+                      <table class="targets-table">
+                        <thead>
+                          <tr>
+                            <th>Repo</th>
+                            <th>Score</th>
+                            <th>Type</th>
+                            <th>Why</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {item.targets.map((t: any) => (
+                            <tr>
+                              <td>
+                                <a href={`https://github.com/${t.fullName}`} target="_blank" rel="noopener">{t.fullName}</a>
+                              </td>
+                              <td class="num">{t.score}</td>
+                              <td>
+                                <span class={`type-tag ${t.ownerType}`}>{t.ownerType}</span>
+                              </td>
+                              <td class="why-cell">
+                                {(t.whyMatched || []).slice(0, 3).map((w: string) => (
+                                  <span class="why-tag">{w}</span>
+                                ))}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+
+                {item.claimsUsed.length > 0 && (
+                  <div class="claims-section">
+                    <span class="field-label">Claims used</span>
+                    {item.claimsUsed.map((c: any) => (
+                      <div class="claim-item">
+                        <span class="claim-status">{c.status}</span>
+                        {c.statement}
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                <div class="resource-links">
+                  {item.resourceLinks.presskit && (
+                    <a href={item.resourceLinks.presskit} target="_blank" rel="noopener" class="resource-link">Press Kit</a>
+                  )}
+                  {item.resourceLinks.outreachPack && (
+                    <a href={item.resourceLinks.outreachPack} target="_blank" rel="noopener" class="resource-link">Tool Page</a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </section>
+      );
+    })}
+
+    {suppressed.length > 0 && (
+      <section class="section suppressed-section">
+        <h2>Suppressed ({suppressed.length})</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Reason</th>
+                <th>Trigger</th>
+              </tr>
+            </thead>
+            <tbody>
+              {suppressed.map((item: any) => (
+                <tr>
+                  <td><code>{item.id}</code></td>
+                  <td>
+                    <span class={`suppress-reason reason-${item.suppressedReason}`}>{item.suppressedReason}</span>
+                  </td>
+                  <td>{item.triggerSummary}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
+
+    <div class="provenance">
+      <h3>Data Sources</h3>
+      <ul>
+        <li>Queue: <code>public/queue/outreach-queue.json</code></li>
+        <li>Generator: <a href="https://github.com/mcp-tool-shop/mcpt-link-fresh" target="_blank" rel="noopener">mcpt-link-fresh</a></li>
+        <li>Policy: max {policy.maxPerToolPerWeek || '—'}/tool/week, {policy.dedupeWindowDays || '—'}d dedup window</li>
+      </ul>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .queue-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .internal-badge {
+    display: inline-block;
+    background: #d29922;
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  h1 {
+    margin: 0 0 0.25rem;
+    font-size: 2rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .subtitle {
+    color: var(--color-text-muted, #8b949e);
+    margin: 0 0 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    color: var(--color-text, #e6edf3);
+    margin: 2rem 0 1rem;
+    border-bottom: 1px solid var(--color-border, #30363d);
+    padding-bottom: 0.5rem;
+  }
+
+  .summary-banner {
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .summary-banner.empty {
+    text-align: center;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .summary-banner.empty code {
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .summary-item .value {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text, #e6edf3);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .summary-item .label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #8b949e);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .snapshot-meta,
+  .policy-meta {
+    text-align: center;
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--color-text-muted, #8b949e);
+    font-size: 1.1rem;
+  }
+
+  /* Queue cards */
+  .queue-card {
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+
+  .queue-card.high-priority {
+    border-left: 3px solid #f85149;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(110, 118, 129, 0.08);
+    border-bottom: 1px solid var(--color-border, #30363d);
+    flex-wrap: wrap;
+  }
+
+  .cat-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .cat-claim-change { background: #388bfd33; color: #58a6ff; }
+  .cat-evidence-added { background: #3fb95033; color: #3fb950; }
+  .cat-release-published { background: #d2992233; color: #d29922; }
+  .cat-presskit-material { background: #bc8cff33; color: #bc8cff; }
+
+  .prio-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+
+  .prio-high { background: #f8514933; color: #f85149; }
+  .prio-normal { background: rgba(110, 118, 129, 0.2); color: var(--color-text-muted, #8b949e); }
+
+  .item-id {
+    font-size: 0.75rem;
+    color: var(--color-text-muted, #8b949e);
+    font-family: monospace;
+    margin-left: auto;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .trigger-summary {
+    font-size: 1rem;
+    color: var(--color-text, #e6edf3);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .field-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted, #8b949e);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  .field-value {
+    font-size: 0.9rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .field-value code {
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+  }
+
+  .field-value a {
+    color: var(--color-link, #58a6ff);
+    text-decoration: none;
+  }
+
+  .field-value a:hover {
+    text-decoration: underline;
+  }
+
+  .subject-lines {
+    margin-bottom: 1rem;
+  }
+
+  .subject-line {
+    padding: 0.4rem 0.6rem;
+    margin: 0.25rem 0;
+    background: rgba(110, 118, 129, 0.08);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--color-text, #e6edf3);
+    border-left: 2px solid var(--color-border, #30363d);
+  }
+
+  .targets-section,
+  .claims-section {
+    margin-bottom: 1rem;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  th {
+    text-align: left;
+    padding: 0.5rem;
+    border-bottom: 2px solid var(--color-border, #30363d);
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  td {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--color-border, #30363d);
+    color: var(--color-text, #e6edf3);
+  }
+
+  .targets-table td a {
+    color: var(--color-link, #58a6ff);
+    text-decoration: none;
+  }
+
+  .targets-table td a:hover {
+    text-decoration: underline;
+  }
+
+  .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .type-tag {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  .type-tag.Organization { background: #388bfd33; color: #58a6ff; }
+  .type-tag.User { background: #3fb95033; color: #3fb950; }
+
+  .why-cell {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .why-tag {
+    font-size: 0.65rem;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    background: rgba(110, 118, 129, 0.15);
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .claim-item {
+    padding: 0.3rem 0.6rem;
+    margin: 0.25rem 0;
+    font-size: 0.85rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .claim-status {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    background: #3fb95033;
+    color: #3fb950;
+    text-transform: uppercase;
+    margin-right: 0.4rem;
+  }
+
+  .resource-links {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .resource-link {
+    font-size: 0.8rem;
+    color: var(--color-link, #58a6ff);
+    text-decoration: none;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 4px;
+  }
+
+  .resource-link:hover {
+    background: rgba(56, 139, 253, 0.1);
+  }
+
+  /* Suppressed section */
+  .suppressed-section {
+    opacity: 0.7;
+  }
+
+  .suppress-reason {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+
+  .reason-dedup { background: #d2992233; color: #d29922; }
+  .reason-rate-limit { background: #f8514933; color: #f85149; }
+  .reason-quiet-hours { background: #bc8cff33; color: #bc8cff; }
+
+  /* Provenance */
+  .provenance {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, #30363d);
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.8rem;
+  }
+
+  .provenance h3 {
+    font-size: 0.85rem;
+    margin: 0 0 0.5rem;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .provenance ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .provenance li {
+    margin: 0.3rem 0;
+  }
+
+  .provenance code {
+    background: rgba(110, 118, 129, 0.2);
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
+
+  .provenance a {
+    color: var(--color-link, #58a6ff);
+    text-decoration: none;
+  }
+
+  .provenance a:hover {
+    text-decoration: underline;
+  }
+
+  .section {
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    .summary-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
