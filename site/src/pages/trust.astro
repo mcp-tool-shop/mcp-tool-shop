@@ -99,6 +99,22 @@ try {
       Here's what we do. Here's the evidence. Here's how you can check.
     </p>
 
+    <nav class="trust-path" aria-label="Trust verification path">
+      <a href="/press/">Presskit</a>
+      <span class="trust-path-sep">&rarr;</span>
+      <span class="trust-path-current">Trust Center</span>
+      <span class="trust-path-sep">&rarr;</span>
+      <a href="/receipts/">Receipts</a>
+      <span class="trust-path-sep">&rarr;</span>
+      {latestWeek ? (
+        <a href={`/promo/${latestWeek}/`}>Latest Promo Week</a>
+      ) : (
+        <span class="trust-path-muted">Promo Week</span>
+      )}
+      <span class="trust-path-sep">&rarr;</span>
+      <a href="#verify">Verify</a>
+    </nav>
+
     {/* Section 1: What we mean by "trust" */}
     <section class="trust-section">
       <h2>What we mean by "trust"</h2>
@@ -226,7 +242,7 @@ try {
     </section>
 
     {/* Section 5: How to verify a week */}
-    <section class="trust-section">
+    <section class="trust-section" id="verify">
       <h2>How to verify a week</h2>
       <p>
         Anyone can independently verify a promotion week in four steps:
@@ -297,8 +313,44 @@ try {
 
   .subtitle {
     color: var(--color-text-muted, #8b949e);
-    margin: 0 0 2rem;
+    margin: 0 0 1rem;
     font-size: 0.95rem;
+  }
+
+  .trust-path {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 6px;
+    margin-bottom: 2rem;
+    font-size: 0.85rem;
+  }
+
+  .trust-path a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .trust-path a:hover {
+    text-decoration: underline;
+  }
+
+  .trust-path-current {
+    color: var(--color-text, #e6edf3);
+    font-weight: 600;
+  }
+
+  .trust-path-sep {
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.75rem;
+  }
+
+  .trust-path-muted {
+    color: var(--color-text-muted, #8b949e);
   }
 
   .trust-section {

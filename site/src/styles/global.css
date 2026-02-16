@@ -163,6 +163,23 @@ code {
   color: var(--color-accent);
 }
 
+.footer-powered {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+}
+
+.footer-powered a {
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 2px;
+}
+
+.footer-powered a:hover {
+  color: var(--color-accent);
+}
+
 /* Main content */
 main {
   flex: 1;
@@ -417,5 +434,9 @@ main {
 
   .footer-meta {
     justify-content: center;
+  }
+
+  .footer-powered {
+    text-align: center;
   }
 }
