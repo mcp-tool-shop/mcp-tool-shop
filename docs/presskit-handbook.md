@@ -15,6 +15,16 @@ The marketing site at [mcp-tool-shop.github.io](https://mcp-tool-shop.github.io/
 
 The tools use the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) -- a standard that lets AI assistants call tools over a structured API. Everything runs locally. No cloud dependencies for core functionality.
 
+The promotion engine is available as an npm package:
+
+```bash
+npm install @mcptoolshop/promo-kit
+npx promo-kit init
+npx promo-kit selftest
+```
+
+See [@mcptoolshop/promo-kit on npm](https://www.npmjs.com/package/@mcptoolshop/promo-kit) for the full package docs.
+
 ---
 
 ## Boilerplate Blurbs
@@ -172,7 +182,7 @@ The site rebuilds automatically on every push to `main`. Org metadata syncs are 
 
 ### Can I fork the promotion engine?
 
-Yes. See [Portable Core](portable-core.md) for the full contract. Edit `kit.config.json` with your org details, run `npm run kit:init` and `npm run kit:selftest`, and you have a working promotion engine for your own catalog.
+Yes. Install via `npm install @mcptoolshop/promo-kit`, then run `npx promo-kit init` and `npx promo-kit selftest`. See [Portable Core](portable-core.md) for the full contract.
 
 ### How do I request a press kit for a specific tool?
 
