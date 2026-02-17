@@ -5,8 +5,8 @@
 <h1 align="center">@mcptoolshop/promo-kit</h1>
 
 <p align="center">
-  <b>Portable promotion engine for tool catalogs.</b><br/>
-  Receipt-backed promotions · freeze modes · drift detection · <b>zero dependencies</b>
+  <b>The engine behind the Weekly Spotlight.</b><br/>
+  Receipt-backed spotlight picks · freeze modes · drift detection · <b>zero dependencies</b>
 </p>
 
 <p align="center">
@@ -19,7 +19,7 @@
 
 ## What it does
 
-`promo-kit` gives your tool catalog a complete, governed promotion pipeline:
+`promo-kit` is the automation engine behind MCP Tool Shop's Weekly Spotlight. It gives any tool catalog a governed promotion pipeline:
 
 - **Bootstraps** a zero-state data model (governance, promo queue, experiments, submissions)
 - **Generates** promotion decisions, baselines, drift reports, and trust receipts

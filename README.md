@@ -4,9 +4,9 @@
 
 # mcp-tool-shop
 
-**The catalog and promotion engine for tools that AI agents use to get real work done.**
+**Weekly spotlights on MCP tools that actually help.**
 
-[Live Site](https://mcp-tool-shop.github.io/) · [Trust Center](https://mcp-tool-shop.github.io/trust/) · [Browse Tools](https://mcp-tool-shop.github.io/tools/)
+[Live Site](https://mcp-tool-shop.github.io/) · [Trust Center](https://mcp-tool-shop.github.io/trust/) · [Browse Tools](https://mcp-tool-shop.github.io/tools/) · [This Week's Spotlight](https://mcp-tool-shop.github.io/now/)
 
 </div>
 
@@ -14,9 +14,9 @@
 
 ## Who this is for
 
-- **Tool authors** in [mcp-tool-shop-org](https://github.com/mcp-tool-shop-org) who want their project listed, promoted, and verified.
-- **Journalists and reviewers** looking for press kits with receipt-backed claims. See the [Presskit Handbook](docs/presskit-handbook.md).
-- **Other orgs** who want to fork the promotion engine for their own catalog. See [Portable Core](docs/portable-core.md).
+- **Tool authors** in [mcp-tool-shop-org](https://github.com/mcp-tool-shop-org) who want their project listed, spotlighted, and verified.
+- **Journalists and reviewers** looking for press kits with receipt-backed spotlight picks. See the [Presskit Handbook](docs/presskit-handbook.md).
+- **Other orgs** who want to run the spotlight engine for their own catalog. See [Portable Core](docs/portable-core.md).
 
 **Not for**: End users of individual tools -- go to the [tool pages](https://mcp-tool-shop.github.io/tools/) instead.
 
@@ -41,16 +41,16 @@ To add a tool: push a repo to [mcp-tool-shop-org](https://github.com/mcp-tool-sh
 
 ## Proof
 
-Every promotion is backed by receipts, not promises.
+Every spotlight pick is backed by receipts, not promises.
 
 - **555 tests** (449 unit + 106 invariant), all passing
 - **Zero runtime deps** -- nothing to audit, nothing to break
-- **Receipt-verified promotions** -- every promo week has hashed inputs and a commit SHA ([browse receipts](https://mcp-tool-shop.github.io/receipts/))
+- **Receipt-verified spotlight picks** -- every promo week has hashed inputs and a commit SHA ([browse receipts](https://mcp-tool-shop.github.io/receipts/))
 - **Freeze modes** -- automation pauses when frozen; humans must intervene ([Trust Center](https://mcp-tool-shop.github.io/trust/))
 - **Decision drift detection** -- week-over-week changes are flagged automatically
 - **Proven claims** -- MarketIR claims are evidence-backed and independently verifiable ([view proofs](https://mcp-tool-shop.github.io/proof/))
 
-Verify any week yourself: visit a [promo page](https://mcp-tool-shop.github.io/receipts/), copy the commit SHA, checkout that commit, and compare `sha256sum` on each input file.
+Verify any week yourself: visit a [spotlight page](https://mcp-tool-shop.github.io/receipts/), copy the commit SHA, checkout that commit, and compare `sha256sum` on each input file.
 
 Example outputs: [trust receipt](docs/examples/trust-receipt.json) · [drift report](docs/examples/decision-drift.json) · [recommendations](docs/examples/recommendations.json)
 

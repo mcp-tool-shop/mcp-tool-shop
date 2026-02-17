@@ -15,7 +15,7 @@
 
 ### Experiment hypothesis
 
-<!-- What are you testing? What do you expect to learn? Why is this tool a good candidate for experimentation rather than direct promotion? -->
+<!-- What are you testing? What do you expect to learn? Why is this tool a good candidate for experimentation rather than a direct spotlight feature? -->
 
 ### What changed since last submission (if resubmitting)
 

@@ -3,7 +3,7 @@ import Base from "../../../layouts/Base.astro";
 import fs from "node:fs";
 import path from "node:path";
 
-const title = "Promotion Calendar";
+const title = "Spotlight Calendar";
 const description = "NameOps promotion calendar — freeze status, queue, channels, run history";
 
 // Load calendar data
@@ -47,8 +47,8 @@ function slugLabel(entry: any): string {
   <div class="promo-page">
     <span class="internal-badge">Internal</span>
 
-    <h1>Promotion Calendar</h1>
-    <p class="subtitle">Freeze status, promotion queue, channel plan, and run history.</p>
+    <h1>Spotlight Calendar</h1>
+    <p class="subtitle">Freeze status, spotlight queue, channel plan, and run history.</p>
 
     {!calendar ? (
       <div class="empty-state">
@@ -212,7 +212,7 @@ function slugLabel(entry: any): string {
         {/* Suggestions */}
         {suggestions?.suggestions?.length > 0 && (
           <>
-            <h2>Promotion Suggestions</h2>
+            <h2>Spotlight Suggestions</h2>
             <p class="suggest-note">
               These candidates have GREEN clearance and pass the worthy rubric.
               Add to <code>promo-queue.json</code> manually to act on them.

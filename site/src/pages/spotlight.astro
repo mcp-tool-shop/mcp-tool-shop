@@ -1,0 +1,396 @@
+---
+import Base from "../layouts/Base.astro";
+import ProofBadge from "../components/ProofBadge.astro";
+import { kit } from '../lib/kit';
+import fs from "node:fs";
+import path from "node:path";
+
+const title = "Weekly Spotlight";
+const description = "Each week we pick MCP tools worth trying. Here's what's live.";
+
+// ── This week's picks (same pattern as now.astro) ────────────
+let promoDecisions: any = { decisions: [], generatedAt: null };
+try {
+  const p = path.join(process.cwd(), "src/data/promo-decisions.json");
+  if (fs.existsSync(p)) {
+    promoDecisions = JSON.parse(fs.readFileSync(p, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+let overrides: any = {};
+try {
+  const p = path.join(process.cwd(), "src/data/overrides.json");
+  if (fs.existsSync(p)) {
+    overrides = JSON.parse(fs.readFileSync(p, "utf8"));
+  }
+} catch { /* fail soft */ }
+
+const promoted = (promoDecisions.decisions || [])
+  .filter((d: any) => d.action === "promote")
+  .filter((d: any) => overrides[d.slug]?.publicProof === true)
+  .slice(0, 3);
+
+function loadProofBullets(slug: string): string[] {
+  try {
+    const toolPath = path.join(process.cwd(), "src/data/marketir/data/tools", `${slug}.json`);
+    if (!fs.existsSync(toolPath)) return [];
+    const tool = JSON.parse(fs.readFileSync(toolPath, "utf8"));
+    return (tool.claims || [])
+      .filter((c: any) => c.status === "proven")
+      .slice(0, 3)
+      .map((c: any) => c.text || c.claim || "");
+  } catch { return []; }
+}
+
+const featuredTools = promoted.map((d: any) => {
+  const ov = overrides[d.slug] || {};
+  return {
+    slug: d.slug,
+    tagline: ov.tagline || "",
+    stability: ov.stability || null,
+    kind: ov.kind || null,
+    proofBullets: loadProofBullets(d.slug),
+  };
+});
+
+// ── Recent weeks (same pattern as receipts/index.astro) ──────
+interface WeekEntry {
+  week: string;
+  itemCount: number;
+  hasReceipt: boolean;
+}
+
+const recentWeeks: WeekEntry[] = [];
+const outreachDir = path.join(process.cwd(), "public/outreach-run");
+try {
+  if (fs.existsSync(outreachDir)) {
+    const entries = fs.readdirSync(outreachDir, { withFileTypes: true });
+    for (const entry of entries) {
+      if (!entry.isDirectory()) continue;
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(entry.name)) continue;
+
+      const weekDir = path.join(outreachDir, entry.name);
+      let outreachRun: any = null;
+      try {
+        const runPath = path.join(weekDir, "outreach-run.json");
+        if (fs.existsSync(runPath)) {
+          outreachRun = JSON.parse(fs.readFileSync(runPath, "utf8"));
+        }
+      } catch { /* skip */ }
+
+      let hasReceipt = false;
+      try {
+        hasReceipt = fs.existsSync(path.join(weekDir, "promo-week-receipt.json"));
+      } catch { /* skip */ }
+
+      if (!outreachRun) continue;
+
+      recentWeeks.push({
+        week: entry.name,
+        itemCount: outreachRun?.items?.length || 0,
+        hasReceipt,
+      });
+    }
+  }
+} catch { /* fail soft */ }
+
+recentWeeks.sort((a, b) => b.week.localeCompare(a.week));
+const displayWeeks = recentWeeks.slice(0, 4);
+---
+
+<Base
+  title={title}
+  description={description}
+  currentPath="/spotlight/"
+>
+  <div class="spotlight-page">
+    <h1>Weekly Spotlight</h1>
+    <p class="subtitle">Each week we pick MCP tools worth trying. Here's what's live.</p>
+
+    {/* ── This Week ──────────────────────────────────── */}
+    <section class="this-week">
+      <h2>This week</h2>
+      {featuredTools.length === 0 ? (
+        <div class="empty-state">
+          <p>No spotlight picks this week.</p>
+          <p>Check back soon, or browse the <a href="/tools/">full catalog</a>.</p>
+        </div>
+      ) : (
+        <div class="tool-cards">
+          {featuredTools.map((tool: any) => (
+            <div class="tool-card">
+              <div class="tool-header">
+                <h3><a href={`/tools/${tool.slug}/`}>{tool.slug}</a></h3>
+                <div class="badges">
+                  {tool.stability && (
+                    <span class={`badge badge-${tool.stability}`}>{tool.stability}</span>
+                  )}
+                  {tool.kind && (
+                    <span class="badge badge-kind">{tool.kind}</span>
+                  )}
+                </div>
+              </div>
+              {tool.tagline && <p class="tagline">{tool.tagline}</p>}
+              {tool.proofBullets.length > 0 && (
+                <ul class="proof-bullets">
+                  {tool.proofBullets.map((bullet: string) => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              )}
+              <div class="tool-links">
+                <a href={`/proof/${tool.slug}/`}>View proof</a>
+                <a href={`/tools/${tool.slug}/`}>Tool page</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+
+    {/* ── Recent Weeks ───────────────────────────────── */}
+    {displayWeeks.length > 0 && (
+      <section class="recent-weeks">
+        <h2>Recent weeks</h2>
+        <div class="weeks-list">
+          {displayWeeks.map((w) => (
+            <a href={`/promo/${w.week}/`} class="week-row">
+              <span class="week-date">{w.week}</span>
+              <span class="week-count">{w.itemCount} {w.itemCount === 1 ? "tool" : "tools"}</span>
+              {w.hasReceipt && <ProofBadge type="receipt" />}
+            </a>
+          ))}
+        </div>
+        <p class="see-all"><a href="/receipts/">All spotlight weeks &rarr;</a></p>
+      </section>
+    )}
+
+    {/* ── Footer links ───────────────────────────────── */}
+    <div class="spotlight-footer">
+      <a href="/submit/">Submit your tool</a>
+      <span class="sep">&middot;</span>
+      <a href="/trust/">How we verify</a>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .spotlight-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    margin: 0 0 0.25rem;
+    font-size: 2rem;
+    color: var(--color-text, #e6edf3);
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    color: var(--color-text, #e6edf3);
+    margin: 0 0 0.75rem;
+  }
+
+  .subtitle {
+    color: var(--color-text-muted, #8b949e);
+    margin: 0 0 2rem;
+    font-size: 0.95rem;
+  }
+
+  /* This week */
+  .this-week {
+    margin-bottom: 2.5rem;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--color-text-muted, #8b949e);
+    font-size: 1.1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+  }
+
+  .empty-state a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .empty-state a:hover { text-decoration: underline; }
+
+  .tool-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .tool-card {
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+
+  .tool-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .tool-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+
+  .tool-header h3 a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .tool-header h3 a:hover { text-decoration: underline; }
+
+  .badges {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .badge-stable { background: #238636; color: #fff; }
+  .badge-beta { background: #d29922; color: #000; }
+  .badge-experimental { background: #f85149; color: #fff; }
+  .badge-kind { background: rgba(56, 139, 253, 0.15); color: #388bfd; }
+
+  .tagline {
+    color: var(--color-text-muted, #8b949e);
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .proof-bullets {
+    padding-left: 1.2rem;
+    margin: 0.75rem 0;
+  }
+
+  .proof-bullets li {
+    font-size: 0.85rem;
+    color: var(--color-text, #e6edf3);
+    margin: 0.3rem 0;
+    line-height: 1.4;
+  }
+
+  .proof-bullets li::marker {
+    color: #3fb950;
+  }
+
+  .tool-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.75rem;
+  }
+
+  .tool-links a {
+    font-size: 0.8rem;
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .tool-links a:hover { text-decoration: underline; }
+
+  /* Recent weeks */
+  .recent-weeks {
+    margin-bottom: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border, #30363d);
+  }
+
+  .weeks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .week-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--color-surface, #161b22);
+    border: 1px solid var(--color-border, #30363d);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+
+  .week-row:hover {
+    border-color: var(--color-accent, #388bfd);
+    text-decoration: none;
+  }
+
+  .week-date {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text, #e6edf3);
+  }
+
+  .week-count {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .see-all {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .see-all a {
+    color: var(--color-text-muted, #8b949e);
+    text-decoration: none;
+  }
+
+  .see-all a:hover {
+    color: #388bfd;
+    text-decoration: underline;
+  }
+
+  /* Footer */
+  .spotlight-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, #30363d);
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #8b949e);
+  }
+
+  .spotlight-footer a {
+    color: #388bfd;
+    text-decoration: none;
+  }
+
+  .spotlight-footer a:hover {
+    text-decoration: underline;
+  }
+
+  .sep {
+    margin: 0 0.5rem;
+    color: var(--color-border, #30363d);
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 1.5rem; }
+    .tool-card { padding: 1rem; }
+  }
+</style>
