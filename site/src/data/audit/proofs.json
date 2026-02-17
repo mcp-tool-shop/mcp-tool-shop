@@ -1,0 +1,560 @@
+[
+  {
+    "repo": "brain-dev",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "comfy-headless",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "file-compass",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "soundboard-plugin",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "tool-compass",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "zip-meta-map",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "Attestia",
+    "proofs": [
+      "npm",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "backpropagate",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "LeaseGate-Lite",
+    "proofs": [
+      "dotnet"
+    ],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "ScalarScope-Desktop",
+    "proofs": [
+      "dotnet",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "accessibility-suite",
+    "proofs": [
+      "npm",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "ally-demo-python",
+    "proofs": [
+      "python",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "aspire-ai",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "Attestia-Desktop",
+    "proofs": [
+      "dotnet",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "audiobooker",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "build-governor",
+    "proofs": [
+      "dotnet",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "ClaimLedger",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "claude-collaborate",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "clearance-opinion-engine",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "code-batch",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "code-covered",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "CodeClone-Desktop",
+    "proofs": [
+      "dotnet",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "codeclone-suite",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "codecomfy-vscode",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "codeteam",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "codeteam-suite",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "ConsensusOS",
+    "proofs": [
+      "npm"
+    ],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "context-window-manager",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "control-room",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "CreatorLedger",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "CursorAssist",
+    "proofs": [
+      "dotnet",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "DeterministicMouseTrainingEngine",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "dev-op-typer",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "feature-reacher",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "flexiflow",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "headless-wheel-builder",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "homebrew-mcp-tools",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "InControl-Desktop",
+    "proofs": [
+      "dotnet",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "integradio",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "LeaseGate",
+    "proofs": [
+      "dotnet",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "ledger-suite",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "LinuxDevTyper",
+    "proofs": [
+      "dotnet"
+    ],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "LoKey-Typer",
+    "proofs": [
+      "npm",
+      "dotnet",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "mcp-app-builder",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "mcp-file-forge",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "mcp-stress-test",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "mcp-voice-engine",
+    "proofs": [
+      "npm",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "mcp-voice-soundboard",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "mcpt",
+    "proofs": [
+      "python",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "meta-content-system",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "MouseTrainer",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "nameops",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "next-gallery",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "NextGallery-Desktop",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "NextLedger",
+    "proofs": [
+      "dotnet",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "nexus-suite",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "pathway",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "payroll-engine",
+    "proofs": [
+      "python",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "prov-engine-js",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "Registrum",
+    "proofs": [
+      "npm"
+    ],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "runforge-desktop",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "runforge-vscode",
+    "proofs": [
+      "npm",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "ScalarScope",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "siege-kit",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "soundboard-maui",
+    "proofs": [
+      "dotnet",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "stresskit-mcp",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "synthesis",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "ThrottleAI",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "ThrottleAI-Desktop",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "tool-scan",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "training-studio",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "venvkit",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "voice-soundboard",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "websketch-cli",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "websketch-demo",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "websketch-extension",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "websketch-ir",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "websketch-mcp",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "winget-pkgs",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "witness",
+    "proofs": [],
+    "verified": false,
+    "concept": true
+  },
+  {
+    "repo": "Trace",
+    "proofs": [
+      "dotnet",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  },
+  {
+    "repo": "VectorCaliper",
+    "proofs": [
+      "npm",
+      "ci"
+    ],
+    "verified": true,
+    "concept": false
+  }
+]

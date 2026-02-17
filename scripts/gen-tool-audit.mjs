@@ -1,226 +1,182 @@
-/**
- * Audit tool metadata and reality.
- * Generates/Updates: 
- * - site/src/data/audit/metadata-findings.json
- * - site/src/data/audit/reality-findings.json
- * - site/src/data/audit/scoreboard.json
- */
+// mcp-tool-shop/scripts/gen-tool-audit.mjs
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from 'url';
 
-const DATA_DIR = path.join(process.cwd(), "site", "src", "data");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Paths
+// We assume we are in c:\workspace\mcp-tool-shop\scripts
+// REPO_ROOT should be c:\workspace
+const REPO_ROOT = path.resolve(__dirname, "../..");
+const SHOP_ROOT = path.resolve(__dirname, "..");
+const DATA_DIR = path.join(SHOP_ROOT, "site", "src", "data");
 const AUDIT_DIR = path.join(DATA_DIR, "audit");
 const PROJECTS_PATH = path.join(DATA_DIR, "projects.json");
+const TRUTH_MATRIX_PATH = path.join(REPO_ROOT, "audit", "truth-matrix.json");
 
 // Ensure directory exists
-fs.mkdirSync(AUDIT_DIR, { recursive: true });
+if (!fs.existsSync(AUDIT_DIR)) fs.mkdirSync(AUDIT_DIR, { recursive: true });
+if (!fs.existsSync(path.dirname(TRUTH_MATRIX_PATH))) fs.mkdirSync(path.dirname(TRUTH_MATRIX_PATH), { recursive: true });
+
+function globMatch(dir, ext) {
+    if (!fs.existsSync(dir)) return false;
+    try {
+        const files = fs.readdirSync(dir, { recursive: true });
+        for (const file of files) {
+             const fname = typeof file === 'string' ? file : file.name;
+             if (fname.endsWith(ext)) return true;
+        }
+    } catch (e) {
+        return false;
+    }
+    return false;
+}
+
+function checkCI(workspaceRoot, repoName) {
+    const workflowsDir = path.join(workspaceRoot, ".github", "workflows");
+    let found = false;
+
+    // Log for debugging Trace specifically or all
+    if (repoName.toLowerCase().includes("trace")) console.log(`[DEBUG] Checking CI for ${repoName} in ${workflowsDir}`);
+
+    // 1. Check root workflows
+    if (fs.existsSync(workflowsDir)) {
+        try {
+            const files = fs.readdirSync(workflowsDir);
+            if (repoName.toLowerCase().includes("trace")) console.log(`[DEBUG] Found ${files.length} workflows: ${files.join(", ")}`);
+            for (const file of files) {
+                // if (repoName.toLowerCase().includes("trace")) console.log(`[DEBUG] Checking file ${file} for ${repoName}`);
+                const fullPath = path.join(workflowsDir, file);
+                const content = fs.readFileSync(fullPath, "utf8");
+                
+                // Heuristics
+                if (content.includes(`paths:\n      - '${repoName}/**'`) || 
+                    content.includes(`paths:\n      - "${repoName}/**"`) ||
+                    content.includes(`working-directory: ${repoName}`) ||
+                    content.includes(`working-directory: ./${repoName}`) ||
+                    content.includes(`working-directory: '${repoName}'`)) {
+                    found = true;
+                    console.log(`[DEBUG] Found CI via content match in ${file} for ${repoName}`);
+                    break;
+                }
+                
+                // Matches filename like trace.yml for repo Trace
+                if (file.toLowerCase().includes(repoName.toLowerCase()) && !file.includes("audit")) {
+                    found = true;
+                    console.log(`[DEBUG] Found CI via filename match in ${file} for ${repoName}`);
+                    break;
+                }
+            }
+        } catch (e) {
+            if (repoName === "Trace") console.error(`Error reading workflows: ${e}`);
+        }
+    } else {
+        if (repoName === "Trace") console.log(`Workflows dir not found: ${workflowsDir}`);
+    }
+    
+    if (found) return true;
+
+    // 2. Check local workflows
+    const localWorkflows = path.join(workspaceRoot, repoName, ".github", "workflows");
+    if (fs.existsSync(localWorkflows)) {
+        try {
+             if (fs.readdirSync(localWorkflows).length > 0) return true;
+        } catch {}
+    }
+
+    return false;
+}
 
 async function main() {
   const projects = JSON.parse(fs.readFileSync(PROJECTS_PATH, "utf8"));
-  const metadataFindings = [];
-  const realityFindings = [];
-  const scoreboard = [];
+  
+  const matrix = {
+    schemaVersion: "1.0",
+    generatedAt: new Date().toISOString(),
+    projects: []
+  };
 
-  console.log(`Auditing ${projects.length} tools...`);
+  console.log(`Auditing ${projects.length} tools for Truth Maintenance...`);
 
-  const activeProjects = projects.filter(p => !p.archived);
+  for (const p of projects) {
+    // Skip unlisted or non-repo entries if desired, but user wants audit.
+    if (!p.repo) continue;
 
-  for (const p of activeProjects) {
-    // 1. Metadata Lint
-    const metaIssues = lintMetadata(p);
-    if (metaIssues.length > 0) {
-      metadataFindings.push({ repo: p.repo, issues: metaIssues });
-    }
-
-    // 2. Reality Checks (Lightweight - network based)
-    // We already do a fetch in readme-health, here we might need specific files
-    // For now, let's focus on structural reality based on what projects.json already has 
-    // or fast fetches of configuration files.
-    const realityIssues = await checkReality(p);
-    if (realityIssues.length > 0) {
-      realityFindings.push({ repo: p.repo, issues: realityIssues });
-    }
-
-    // 3. Compute Scoreboard
-    const confidenceScore = calculateConfidence(p, metaIssues, realityIssues);
-    const computedLabel = computeLabel(p, confidenceScore, realityIssues);
+    const projectPath = path.join(REPO_ROOT, p.repo);
+    if (p.repo.toLowerCase().includes("trace")) console.log(`[DEBUG] Trace path: ${projectPath}`);
     
-    scoreboard.push({
-      repo: p.repo,
-      score: confidenceScore,
-      label: computedLabel,
-      metaIssuesCount: metaIssues.length,
-      realityIssuesCount: realityIssues.length
+    const audit = {
+      ci: false,
+      build: false,
+      readme: false,
+      license: false,
+      proofs: []
+    };
+
+    // 1. Reality Check: Filesystem
+    const exists = fs.existsSync(projectPath);
+    if (exists) {
+        // License
+        if (fs.existsSync(path.join(projectPath, "LICENSE")) || fs.existsSync(path.join(projectPath, "LICENSE.md"))) {
+            audit.license = true;
+        }
+        
+        // README
+        if (fs.existsSync(path.join(projectPath, "README.md"))) {
+            audit.readme = true;
+        }
+
+        // Build System
+        const hasPackageJson = fs.existsSync(path.join(projectPath, "package.json"));
+        // globMatch is expensive if deep, restrict? No, allow standard depth.
+        const hasCsproj = globMatch(projectPath, ".csproj") || globMatch(projectPath, ".sln");
+        const hasPyProject = fs.existsSync(path.join(projectPath, "pyproject.toml")) || fs.existsSync(path.join(projectPath, "requirements.txt"));
+        const hasPom = fs.existsSync(path.join(projectPath, "pom.xml"));
+        const hasCargo = fs.existsSync(path.join(projectPath, "Cargo.toml"));
+
+        if (hasPackageJson) { audit.build = true; audit.proofs.push("npm"); }
+        if (hasCsproj) { audit.build = true; audit.proofs.push("dotnet"); }
+        if (hasPyProject) { audit.build = true; audit.proofs.push("python"); }
+        if (hasPom) { audit.build = true; audit.proofs.push("maven"); }
+        if (hasCargo) { audit.build = true; audit.proofs.push("cargo"); }
+
+        // CI Check
+        if (checkCI(REPO_ROOT, p.repo)) {
+            audit.ci = true;
+            audit.proofs.push("ci");
+        }
+    }
+
+    matrix.projects.push({
+        name: p.name,
+        path: p.repo,
+        type: p.kind,
+        status: p.stability || "experimental",
+        unlisted: !!p.unlisted,
+        audit: audit
     });
-    
-    // Rate limit
-    await new Promise(r => setTimeout(r, 50));
   }
 
-  // Write artifacts
-  fs.writeFileSync(path.join(AUDIT_DIR, "metadata-findings.json"), JSON.stringify({
-    generatedAt: new Date().toISOString(),
-    findings: metadataFindings
-  }, null, 2));
+  // Write truth matrix
+  fs.writeFileSync(TRUTH_MATRIX_PATH, JSON.stringify(matrix, null, 2));
+  console.log(`Wrote truth matrix to ${TRUTH_MATRIX_PATH}`);
 
-  fs.writeFileSync(path.join(AUDIT_DIR, "reality-findings.json"), JSON.stringify({
-    generatedAt: new Date().toISOString(),
-    findings: realityFindings
-  }, null, 2));
-
-  fs.writeFileSync(path.join(AUDIT_DIR, "scoreboard.json"), JSON.stringify({
-    generatedAt: new Date().toISOString(),
-    results: scoreboard.sort((a, b) => a.score - b.score) // Worst first
-  }, null, 2));
-
-  console.log("Audit complete.");
-}
-
-function lintMetadata(p) {
-  const issues = [];
-  const required = ["description", "tagline", "kind", "stability", "install"];
+  // Write proof pills for UI
+  const proofData = matrix.projects.map(mp => ({
+      repo: mp.path,
+      proofs: mp.audit.proofs,
+      verified: mp.audit.ci && mp.audit.build,
+      // Concept if missing CI workflow (Operationalizing Truth)
+      concept: !mp.audit.ci 
+  }));
   
-  required.forEach(field => {
-    if (!p[field] || (typeof p[field] === "string" && p[field].trim() === "")) {
-       // Allow missing install if it's a library or desktop app (maybe?)
-       if (field === "install" && (p.kind === "desktop-app" || p.kind === "library")) return;
-       issues.push(`Missing required field: ${field}`);
-    }
-  });
-
-  if (p.description && p.description.length < 10) issues.push("Description too short (<10 chars)");
-  if (p.tagline && p.tagline.length > 100) issues.push("Tagline too long (>100 chars)");
-  
-  const validKinds = ["mcp-server", "cli", "library", "desktop-app", "browser-extension"];
-  if (p.kind && !validKinds.includes(p.kind)) issues.push(`Invalid kind: ${p.kind}`);
-
-  const validStability = ["stable", "beta", "experimental", "deprecated"];
-  if (p.stability && !validStability.includes(p.stability)) issues.push(`Invalid stability: ${p.stability}`);
-
-  if (p.deprecated && p.stability !== "deprecated") issues.push("Contradiction: deprecated=true but stability!='deprecated'");
-  
-  // Tag sanity
-  if (!p.tags || p.tags.length === 0) issues.push("No tags");
-
-  return issues;
+  fs.writeFileSync(path.join(AUDIT_DIR, "proofs.json"), JSON.stringify(proofData, null, 2));
+  console.log(`Wrote proofs to ${path.join(AUDIT_DIR, "proofs.json")}`);
 }
 
-async function checkReality(p) {
-  const issues = [];
-  const org = "mcp-tool-shop-org";
-  
-  // Install command validation
-  if (p.install) {
-    const installCmd = p.install.toLowerCase();
-    
-    // Python checks
-    if (installCmd.includes("pip") || installCmd.includes("uv")) {
-        // Should have pyproject.toml
-        const url = `https://raw.githubusercontent.com/${org}/${p.repo}/main/pyproject.toml`;
-        try {
-            const res = await fetch(url, { method: "HEAD" });
-            if (!res.ok) {
-                 const res2 = await fetch(url.replace("/main/", "/master/"));
-                 if (!res2.ok) issues.push("Install instruction implies Python but pyproject.toml missing");
-            }
-        } catch {}
-    }
-
-    // Node checks
-    if (installCmd.includes("npm") || installCmd.includes("npx") || installCmd.includes("yarn")) {
-        const url = `https://raw.githubusercontent.com/${org}/${p.repo}/main/package.json`;
-        try {
-            const res = await fetch(url, { method: "HEAD" });
-             if (!res.ok) {
-                 const res2 = await fetch(url.replace("/main/", "/master/"));
-                 if (!res2.ok) issues.push("Install instruction implies Node but package.json missing");
-            }
-        } catch {}
-    }
-  }
-
-  // Desktop App CI Check
-  if (p.kind === "desktop-app") {
-    // We expect a CI workflow file
-    // Check main branch for .github/workflows/*.yml (heuristic: check for common names or just ensure the dir isn't empty if we could)
-    // Since we can't search via raw fetch, we check for a specific likely workflow name or try to guess.
-    // For Attestia-Desktop, we standardized on the repo name usually.
-    // Let's check for .github/workflows/ci.yml or .github/workflows/build.yml or .github/workflows/<repo>.yml
-    
-    const candidates = ["ci.yml", "build.yml", "test.yml", `${p.repo}.yml`, `${p.repo.toLowerCase()}.yml`];
-    let foundCI = false;
-    
-    for (const c of candidates) {
-        const url = `https://raw.githubusercontent.com/${org}/${p.repo}/main/.github/workflows/${c}`;
-        try {
-             const res = await fetch(url, { method: "HEAD" });
-             if (res.ok) { foundCI = true; break; }
-        } catch {}
-    }
-    
-    if (!foundCI) {
-        // Double check master
-        for (const c of candidates) {
-            const url = `https://raw.githubusercontent.com/${org}/${p.repo}/master/.github/workflows/${c}`;
-            try {
-                 const res = await fetch(url, { method: "HEAD" });
-                 if (res.ok) { foundCI = true; break; }
-            } catch {}
-        }
-    }
-
-    if (!foundCI) {
-        issues.push("Desktop App missing CI workflow (must build in CI)");
-    }
-    
-    // Install Instruction Check for Desktop Apps
-    if (p.install) {
-        const lowerInstall = p.install.toLowerCase();
-        if (!lowerInstall.includes("dotnet run") && 
-            !lowerInstall.includes("dotnet build") && 
-            !lowerInstall.includes("download")) {
-            issues.push("Desktop App install must contain 'dotnet run', 'dotnet build', or 'Download'");
-        }
-    } else {
-        issues.push("Desktop App missing install instruction");
-    }
-  }
-
-  // Kind validation (heuristic)
-  if (p.kind === "mcp-server") {
-     if (p.install && !p.install.includes("mcp")) {
-         // Weak check, but maybe valuable
-     }
-  }
-
-  return issues;
-}
-
-function calculateConfidence(p, metaIssues, realityIssues) {
-    let score = 100;
-    score -= (metaIssues.length * 10);
-    score -= (realityIssues.length * 20);
-    
-    // Penalty for generic descriptions
-    if (p.description === p.tagline) score -= 5;
-    
-    // Bonus for ecosystem integration
-    if (p.registered) score += 5;
-    
-    return Math.max(0, Math.min(100, score));
-}
-
-function computeLabel(p, score, realityIssues = []) {
-    // Audit Specific Labels
-    if (p.kind === "desktop-app" && realityIssues.some(i => i.includes("missing CI"))) return "Concept";
-
-    if (p.deprecated || p.stability === "deprecated") return "Deprecated";
-    if (score < 50) return "Needs Work";
-    if (p.stability === "beta" || p.stability === "experimental") return "Prototype";
-    if (p.stability === "stable") return "Stable";
-    
-    // Default fallback
-    return "Prototype"; 
-}
-
-main().catch(console.error);
+main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+});
