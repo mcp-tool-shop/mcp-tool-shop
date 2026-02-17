@@ -58,7 +58,7 @@ const cleanupUrl = meta.cleanupIssueUrl || null;
   </head>
   <body>
     <nav class="site-nav">
-      <div class="container">
+      <div class="container relative"> {/* Added relative for positioning */}
         <a href="/" class="logo">{kit.site.title || 'mcp-tool-shop'}</a>
         <ul class="nav-links">
           {navLinks.map((link) => (
@@ -71,6 +71,10 @@ const cleanupUrl = meta.cleanupIssueUrl || null;
               </a>
             </li>
           ))}
+          {/* Admin Nav Injection Point */}
+          <li id="admin-nav-item" style="display: none;">
+            <a href="/lab/" style="color: #a78bfa; font-weight: 600;">Lab ⚡</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -80,6 +84,43 @@ const cleanupUrl = meta.cleanupIssueUrl || null;
         <slot />
       </div>
     </main>
+    
+    <script is:inline>
+      (function() {
+        const KEY = "mcptoolshop_admin_nav";
+        
+        // Check for enable command
+        if (typeof window !== "undefined") {
+            const url = new URL(window.location.href);
+            if (url.searchParams.get("admin") === "1") {
+                localStorage.setItem(KEY, "1");
+                url.searchParams.delete("admin");
+                window.history.replaceState({}, "", url.toString());
+            }
+            
+            // Toggle key chord
+            window.addEventListener("keydown", (e) => {
+                if (e.ctrlKey && e.shiftKey && (e.key === "L" || e.key === "l")) {
+                    const current = localStorage.getItem(KEY);
+                    if (current === "1") {
+                        localStorage.removeItem(KEY);
+                        alert("Lab mode disabled");
+                    } else {
+                        localStorage.setItem(KEY, "1");
+                        alert("Lab mode enabled");
+                    }
+                    window.location.reload();
+                }
+            });
+            
+            // Render if enabled
+            if (localStorage.getItem(KEY) === "1") {
+                const el = document.getElementById("admin-nav-item");
+                if (el) el.style.display = "block";
+            }
+        }
+      })();
+    </script>
 
     <footer class="site-footer">
       <div class="container">

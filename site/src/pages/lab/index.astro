@@ -1,95 +1,146 @@
 ---
 import Layout from '../../layouts/Base.astro';
 
-const tools = [
+const LAB_SECTIONS = [
   {
-    category: "Quality & Compliance",
+    id: "quality",
+    title: "Quality & Compliance",
     items: [
-      { name: "Audit Scoreboard", path: "/lab/audit/", desc: "Tool metadata accuracy and validation status", icon: "🛡️" },
-      { name: "README Health", path: "/lab/health/", desc: "Content quality analysis for tool documentation", icon: "❤️" },
-      { name: "Safety Clearance", path: "/lab/clearance/", desc: "Security and safety compliance checks", icon: "🔒" }
-    ]
+      { href: "/lab/audit/", icon: "🧾", title: "Audit Scoreboard", desc: "Tool metadata accuracy and validation status", badge: "Live" },
+      { href: "/lab/health/", icon: "❤️", title: "README Health", desc: "Content quality analysis for tool documentation", badge: "Live" },
+      { href: "/lab/clearance/", icon: "🛡️", title: "Safety Clearance", desc: "Security and safety compliance checks", badge: "Internal" },
+    ],
   },
   {
-    category: "Pipeline Monitoring",
+    id: "pipeline",
+    title: "Pipeline Monitoring",
     items: [
-      { name: "Baseline", path: "/lab/baseline/", desc: "Performance benchmarks and regression testing", icon: "📊" },
-      { name: "Drift Detection", path: "/lab/drift/", desc: "Configuration and infrastructure drift analysis", icon: "🌬️" },
-      { name: "Ops History", path: "/lab/ops/", desc: "Pipeline execution logs and success rates", icon: "⚙️" },
-      { name: "Telemetry", path: "/lab/telemetry-export/", desc: "Raw data retention and export", icon: "📡" }
-    ]
+      { href: "/lab/baseline/", icon: "📈", title: "Baseline Performance", desc: "Benchmarks and regression testing", badge: "Internal" },
+      { href: "/lab/drift/", icon: "🧭", title: "Drift Detection", desc: "Configuration and infrastructure drift analysis", badge: "Internal" },
+      { href: "/lab/ops/", icon: "⚙️", title: "Ops History", desc: "Pipeline execution logs and success rates", badge: "Internal" },
+      { href: "/lab/telemetry-export/", icon: "🧪", title: "Telemetry", desc: "Raw data retention and export", badge: "Internal" },
+    ],
   },
   {
-    category: "Governance & Promotion",
+    id: "governance",
+    title: "Governance & Promotion",
     items: [
-      { name: "Control Surface", path: "/lab/control/", desc: "Operator actions for governance and promotion", icon: "🎛️" },
-      { name: "Promotion Track", path: "/lab/promo/", desc: "Active promotion campaigns and status", icon: "🚀" },
-      { name: "Worthy Candidates", path: "/lab/worthy/", desc: "Tools flagged for potential promotion", icon: "⭐" },
-      { name: "Queue", path: "/lab/queue/", desc: "Pending review and processing queue", icon: "📥" }
-    ]
+      { href: "/lab/control/", icon: "🎛️", title: "Control Surface", desc: "Operator actions for governance and promotion", badge: "Internal" },
+      { href: "/lab/promo/", icon: "📣", title: "Promotion Track", desc: "Active promotion campaigns and status", badge: "Internal" },
+      { href: "/lab/worthy/", icon: "⭐", title: "Worthy Candidates", desc: "Tools flagged for potential promotion", badge: "Internal" },
+      { href: "/lab/queue/", icon: "🧵", title: "Queue", desc: "Pending review and processing queue", badge: "Internal" },
+    ],
   },
   {
-    category: "Market Intelligence",
+    id: "intel",
+    title: "Market Intelligence",
     items: [
-      { name: "Market IR", path: "/lab/marketir/", desc: "Investor relations and market analysis", icon: "📈" },
-      { name: "Growth Metrics", path: "/lab/metrics/", desc: "User adoption and catalog growth stats", icon: "📉" },
-      { name: "Signals", path: "/lab/signals/", desc: "Early warning indicators and trends", icon: "📶" },
-      { name: "Targets", path: "/lab/targets/", desc: "Strategic acquisition and integration targets", icon: "🎯" }
-    ]
-  }
+      { href: "/lab/marketir/", icon: "📊", title: "Market IR", desc: "Investor relations and market analysis", badge: "Internal" },
+      { href: "/lab/metrics/", icon: "🌱", title: "Growth Metrics", desc: "User adoption and catalog growth stats", badge: "Internal" },
+      { href: "/lab/signals/", icon: "📡", title: "Signals", desc: "Early warning indicators and trends", badge: "Internal" },
+      { href: "/lab/targets/", icon: "🎯", title: "Targets", desc: "Strategic acquisition and integration targets", badge: "Internal" },
+    ],
+  },
 ];
 ---
 
 <Layout title="The Lab" description="Experimental tools, dashboards, and internal utilities for managing the MCP Tool Shop.">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="text-center mb-16">
-      <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
-        <span class="block">The Lab</span>
-        <span class="block text-indigo-400 text-2xl mt-2 font-medium">Experimental Tools & Dashboards</span>
-      </h1>
-      <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400">
-        Internal utilities for auditing, monitoring, and growing the ecosystem.
-      </p>
-    </div>
+  <style>
+    .subhead { max-width: 70ch; opacity: 0.85; margin-top: 0.75rem; color: #a1a1aa; font-size: 1.125rem; line-height: 1.75rem; }
+    .section { margin-top: 3rem; }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  
+    .card {
+      display: flex; flex-direction: column; gap: 0.5rem;
+      padding: 1.25rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 0.75rem;
+      text-decoration: none;
+      background: rgba(255,255,255,0.03);
+      transition: all 0.2s ease;
+      min-height: 140px;
+    }
+    .card:hover { 
+      transform: translateY(-2px); 
+      background: rgba(255,255,255,0.06); 
+      border-color: rgba(255,255,255,0.2); 
+    }
+    .row { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.25rem; }
+    .title-group { display: flex; align-items: center; gap: 0.75rem; }
+    .icon { font-size: 1.5rem; }
+    .title { font-weight: 600; color: white; font-size: 1.125rem; }
+    .desc { opacity: 0.7; line-height: 1.5; color: #d4d4d8; font-size: 0.95rem; }
+    .badge {
+      font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 9999px;
+      border: 1px solid rgba(255,255,255,0.15); opacity: 0.8;
+      background: rgba(255,255,255,0.05);
+      white-space: nowrap; color: #e4e4e7; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500;
+    }
+    
+    /* Admin nav helper */
+    #admin-nav-hint { font-size: 0.875rem; margin-top: 4rem; opacity: 0.4; color: #a1a1aa; text-align: center; }
+  </style>
 
-    <div class="space-y-16">
-      {tools.map((section) => (
-        <section>
-          <h2 class="text-2xl font-bold text-white mb-6 border-b border-gray-800 pb-2">
-            {section.category}
-          </h2>
-          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {section.items.map((tool) => (
-              <a 
-                href={tool.path}
-                class="group relative bg-gray-900 rounded-xl p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 hover:bg-gray-800 transition-colors duration-200"
-              >
-                <div class="flex items-start space-x-4">
-                  <div class="flex-shrink-0">
-                    <span class="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-gray-800 group-hover:bg-gray-700 text-2xl">
-                      {tool.icon}
-                    </span>
-                  </div>
-                  <div class="flex-1 min-w-0">
-                    <span class="absolute inset-0" aria-hidden="true" />
-                    <p class="text-lg font-medium text-white group-hover:text-indigo-400 transition-colors">
-                      {tool.name}
-                    </p>
-                    <p class="text-sm text-gray-400 mt-1">
-                      {tool.desc}
-                    </p>
-                  </div>
-                  <div class="self-center flex-shrink-0 text-gray-500 group-hover:text-indigo-400">
-                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                    </svg>
-                  </div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">The Lab</h1>
+    <p class="subhead">Experimental tools & dashboards for auditing, monitoring, and growing the ecosystem.</p>
+  
+    {LAB_SECTIONS.map((sec) => (
+      <section class="section" aria-labelledby={sec.id}>
+        <h2 id={sec.id} class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+            {sec.title}
+        </h2>
+        <div class="grid">
+          {sec.items.map((it) => (
+            <a class="card group" href={it.href}>
+              <div class="row">
+                <div class="title-group">
+                    <span class="icon">{it.icon}</span> 
+                    <span class="title">{it.title}</span>
                 </div>
-              </a>
-            ))}
-          </div>
-        </section>
-      ))}
+                {it.badge ? <span class="badge">{it.badge}</span> : null}
+              </div>
+              <div class="desc">{it.desc}</div>
+              <div class="mt-auto flex justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-indigo-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+    
+    <div id="admin-nav-hint">
+      Tip: append <code>?admin=1</code> to enable the admin nav dropdown.
     </div>
   </div>
+  
+  <script is:inline>
+    (function () {
+      const KEY = "mcptoolshop_admin_nav";
+      
+      if (typeof window !== "undefined") {
+        const url = new URL(window.location.href);
+
+        // Enable via ?admin=1
+        if (url.searchParams.get("admin") === "1") {
+          localStorage.setItem(KEY, "1");
+          url.searchParams.delete("admin");
+          window.history.replaceState({}, "", url.toString());
+          // Optional: visually acknowledge
+        }
+
+        // Enable via Ctrl+Shift+L
+        window.addEventListener("keydown", (e) => {
+          if (e.ctrlKey && e.shiftKey && (e.key === "L" || e.key === "l")) {
+            localStorage.setItem(KEY, "1");
+            alert("Lab mode enabled. Reloading...");
+            window.location.reload();
+          }
+        });
+      }
+    })();
+  </script>
 </Layout>
