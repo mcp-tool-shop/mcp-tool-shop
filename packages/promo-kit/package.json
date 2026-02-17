@@ -1,6 +1,6 @@
 {
   "name": "@mcptoolshop/promo-kit",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "The engine behind the Weekly Spotlight. Governed promotion pipeline with receipts, freeze modes, drift detection.",
   "type": "module",
   "main": "./index.mjs",
@@ -16,6 +16,7 @@
     "scripts/",
     "index.mjs",
     "kit.config.example.json",
+    "logo.png",
     "README.md",
     "LICENSE",
     "CHANGELOG.md"
