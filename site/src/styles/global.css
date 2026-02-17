@@ -145,6 +145,11 @@ code {
   color: var(--color-text);
 }
 
+.footer-subtle {
+  font-size: 0.75em;
+  opacity: 0.6;
+}
+
 .footer-meta {
   display: flex;
   gap: 1.25rem;

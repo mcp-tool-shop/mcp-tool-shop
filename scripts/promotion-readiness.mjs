@@ -135,11 +135,12 @@ if (trustPage) {
   fail("A", "trust page source", "site/src/pages/trust.astro not found");
 }
 
-const receiptsPage = existsSync(join(ROOT, "site", "src", "pages", "receipts.astro"));
+const receiptsPage = existsSync(join(ROOT, "site", "src", "pages", "receipts.astro"))
+  || existsSync(join(ROOT, "site", "src", "pages", "receipts", "index.astro"));
 if (receiptsPage) {
-  pass("A", "receipts.astro page source exists");
+  pass("A", "receipts page source exists");
 } else {
-  warn("A", "receipts page source", "site/src/pages/receipts.astro not found");
+  warn("A", "receipts page source", "site/src/pages/receipts{.astro,/index.astro} not found");
 }
 
 // ── B) Automation readiness ──────────────────────────────────
