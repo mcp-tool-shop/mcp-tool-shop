@@ -43,7 +43,7 @@ async function main() {
 
     // 3. Compute Scoreboard
     const confidenceScore = calculateConfidence(p, metaIssues, realityIssues);
-    const computedLabel = computeLabel(p, confidenceScore);
+    const computedLabel = computeLabel(p, confidenceScore, realityIssues);
     
     scoreboard.push({
       repo: p.repo,
@@ -139,6 +139,41 @@ async function checkReality(p) {
     }
   }
 
+  // Desktop App CI Check
+  if (p.kind === "desktop-app") {
+    // We expect a CI workflow file
+    // Check main branch for .github/workflows/*.yml (heuristic: check for common names or just ensure the dir isn't empty if we could)
+    // Since we can't search via raw fetch, we check for a specific likely workflow name or try to guess.
+    // For Attestia-Desktop, we standardized on the repo name usually.
+    // Let's check for .github/workflows/ci.yml or .github/workflows/build.yml or .github/workflows/<repo>.yml
+    
+    const candidates = ["ci.yml", "build.yml", "test.yml", `${p.repo}.yml`, `${p.repo.toLowerCase()}.yml`];
+    let foundCI = false;
+    
+    for (const c of candidates) {
+        const url = `https://raw.githubusercontent.com/${org}/${p.repo}/main/.github/workflows/${c}`;
+        try {
+             const res = await fetch(url, { method: "HEAD" });
+             if (res.ok) { foundCI = true; break; }
+        } catch {}
+    }
+    
+    if (!foundCI) {
+        // Double check master
+        for (const c of candidates) {
+            const url = `https://raw.githubusercontent.com/${org}/${p.repo}/master/.github/workflows/${c}`;
+            try {
+                 const res = await fetch(url, { method: "HEAD" });
+                 if (res.ok) { foundCI = true; break; }
+            } catch {}
+        }
+    }
+
+    if (!foundCI) {
+        issues.push("Desktop App missing CI workflow (must build in CI)");
+    }
+  }
+
   // Kind validation (heuristic)
   if (p.kind === "mcp-server") {
      if (p.install && !p.install.includes("mcp")) {
@@ -163,7 +198,10 @@ function calculateConfidence(p, metaIssues, realityIssues) {
     return Math.max(0, Math.min(100, score));
 }
 
-function computeLabel(p, score) {
+function computeLabel(p, score, realityIssues = []) {
+    // Audit Specific Labels
+    if (p.kind === "desktop-app" && realityIssues.some(i => i.includes("missing CI"))) return "Concept";
+
     if (p.deprecated || p.stability === "deprecated") return "Deprecated";
     if (score < 50) return "Needs Work";
     if (p.stability === "beta" || p.stability === "experimental") return "Prototype";
