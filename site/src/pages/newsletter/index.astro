@@ -20,7 +20,6 @@ function formatDate(iso: string) {
       <header class="post-header">
         <span class="issue-badge">{post.issue}</span>
         <h2>{post.title}</h2>
-        {post.subtitle && <p class="subtitle">{post.subtitle}</p>}
         {post.lede && <p class="lede">{post.lede}</p>}
         <p class="meta">Last updated {formatDate(post.updatedAt)}</p>
       </header>
