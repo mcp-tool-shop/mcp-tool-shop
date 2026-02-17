@@ -1822,5 +1822,43 @@
     "tagline": "Append-only event journal with cryptographic verification.",
     "screenshot": "/screenshots/witness.png",
     "screenshotType": "placeholder"
+  },
+  {
+    "name": "Trace",
+    "repo": "Trace",
+    "description": "Lightweight C# Game Engine focusing on performance and cross-platform compatibility.",
+    "tags": [ "game-engine", "csharp", "dotnet", "rendering" ],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-02-15T12:00:00Z",
+    "registered": true,
+    "unlisted": false,
+    "deprecated": false,
+    "category": "game-dev",
+    "stability": "alpha",
+    "kind": "desktop-app",
+    "tagline": "Performance-first C# game engine.",
+    "screenshot": "/screenshots/trace.png",
+    "screenshotType": "placeholder"
+  },
+  {
+    "name": "VectorCaliper",
+    "repo": "VectorCaliper",
+    "description": "Prototype CLI for code complexity analysis.",
+    "tags": [ "cli", "typescript", "analysis", "code-quality" ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-15T12:00:00Z",
+    "registered": true,
+    "unlisted": false,
+    "deprecated": false,
+    "category": "dev-tools",
+    "stability": "alpha",
+    "kind": "cli-tool",
+    "tagline": "Analyze code complexity via CLI.",
+    "screenshot": "/screenshots/vectorcaliper.png",
+    "screenshotType": "placeholder"
   }
 ]
