@@ -31,5 +31,6 @@ run('gen-catalog-changelog.mjs');
 run('gen-trending.mjs');
 run('gen-screenshot-gallery.mjs');
 run('gen-newsletter.mjs');
+run('gen-readme-health.mjs');
 
 console.log('\n Daily dynamic content generation complete.');

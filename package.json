@@ -16,7 +16,8 @@
     "kit:migrate": "node scripts/kit-migrate.mjs",
     "readiness": "node scripts/promotion-readiness.mjs",
     "daily:note": "node scripts/gen-daily-note.mjs",
-    "daily:dynamic": "node scripts/gen-daily-dynamic.mjs"
+    "daily:dynamic": "node scripts/gen-daily-dynamic.mjs",
+    "health:readmes": "node scripts/gen-readme-health.mjs"
   },
   "dependencies": {
     "yazl": "^3.3.1"
