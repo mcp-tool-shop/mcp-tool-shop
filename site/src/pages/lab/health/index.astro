@@ -207,15 +207,21 @@ const lastRun = new Date(meta.generatedAt).toLocaleString('en-US', {
 
 <style>
   :root {
+    /* Keeping semantic colors but adjusting UI surfaces for dark mode compatibility */
     --c-success: #10b981;
     --c-warning: #f59e0b;
     --c-critical: #ef4444;
-    --c-neutral: #64748b;
-    --c-bg: #f1f5f9; /* Darker grey background */
-    --c-card: #f8fafc; /* Light grey card background, not stark white */
-    --c-text: #0f172a;
-    --c-text-muted: #64748b;
-    --c-border: #cbd5e1; /* Slightly darker border for better contrast on grey */
+    --c-neutral: #94a3b8;
+    
+    /* Dark mode overrides for "Health Lab" specifically */
+    --c-bg: #0f172a;      /* Matches global dark bg */
+    --c-card: #1e293b;    /* Slate 800 - distinct dark card */
+    --c-text: #f8fafc;    /* Slate 50 text */
+    --c-text-muted: #94a3b8;
+    --c-border: #334155;  /* Slate 700 border */
+    
+    /* Input backgrounds */
+    --c-input-bg: #0f172a;
   }
 
   .dashboard {
@@ -227,6 +233,7 @@ const lastRun = new Date(meta.generatedAt).toLocaleString('en-US', {
   }
 
   /* Header & Stats */
+
   .dashboard-header {
     margin-bottom: 2rem;
     display: flex;
