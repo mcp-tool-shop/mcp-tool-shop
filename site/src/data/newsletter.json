@@ -1,0 +1,29 @@
+{
+  "title": "What are MCP tools, exactly?",
+  "subtitle": "A short, no-fluff newsletter for curious minds",
+  "issue": "February 2026 | Issue 1",
+  "updatedAt": "2026-02-17T17:00:00.000Z",
+  "lede": "AI chatbots used to feel like brilliant librarians locked in a windowless room. They knew a ton, but couldn't touch your calendar, open your files, or actually do anything outside their own head. MCP tools changed that.",
+  "sections": [
+    {
+      "heading": "The simple picture",
+      "body": "MCP stands for Model Context Protocol. Think of it as USB-C for AI: one standard plug that lets any AI (Claude, ChatGPT, whatever comes next) connect cleanly to your stuff—files, databases, apps, APIs—without a pile of custom cables every time. The \"tools\" part is the action side. A tool is just a function the AI can call—like \"send this email,\" \"check my Notion database,\" or \"run this SQL query.\" The AI discovers what's available, decides when to use it, and asks you for a quick thumbs-up before anything actually happens. Safe, but suddenly useful."
+    },
+    {
+      "heading": "Before vs After",
+      "body": "Before MCP: Every AI company had to write its own glue code for every service. Messy. Brittle. Expensive.\n\nAfter MCP: Service owners publish one clean MCP server. Every AI can use it instantly. No more reinventing the wheel."
+    },
+    {
+      "heading": "Where it came from",
+      "body": "November 25, 2024. Anthropic open-sourced the whole thing. Two of their engineers (David Soria Parra and Justin Spahr-Summers) basically said, \"We're tired of fragile integrations—let's make something that feels like the Language Server Protocol did for code editors.\"\n\nThey released it with ready-made servers for Google Drive, Slack, GitHub, Postgres, even a browser controller. Within months OpenAI, Google, Microsoft, and a bunch of IDEs jumped on board. By December 2025 it was formally handed over to the Linux Foundation's Agentic AI Foundation so nobody owns it."
+    },
+    {
+      "heading": "How the pieces actually work",
+      "body": "Here's the flow most people end up staring at:\n\nMCP client = your AI app (Claude Desktop, Cursor, etc.)\nMCP server = the bridge to whatever you want to reach\nTools = actions the model can trigger\nResources = data it can read (files, DB rows, etc.)\nHuman approval sits in the middle so nothing runs wild."
+    },
+    {
+      "heading": "What this actually unlocks",
+      "body": "Right now you can already:\n\nTell Claude to \"organize my messy Notion workspace\" and watch it do it.\nAsk Cursor to \"refactor this repo using the live production DB schema\" and it just… does.\nBuild a personal assistant that actually knows your Google Calendar and your company Slack.\n\nLooking ahead (and this is where it gets quietly huge):\n\nEnterprise agents that hop between your internal tools without 17 different plugins.\nPersonal AI that feels like a second brain because it can see and touch your real life.\nA whole marketplace of tiny MCP servers—someone will probably sell \"MCP for your fridge inventory\" before long.\nFewer security headaches once the permission model matures (right now it's good; it'll get bulletproof).\n\nThe hidden shift? AI stops being a fancy autocomplete and starts being a reliable coworker. The kind that actually gets work off your plate instead of just summarizing it."
+    }
+  ]
+}

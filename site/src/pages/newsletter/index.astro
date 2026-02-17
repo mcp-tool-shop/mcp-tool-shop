@@ -1,0 +1,81 @@
+---
+import Base from "../../layouts/Base.astro";
+import post from "../../data/newsletter.json";
+
+function formatDate(iso: string) {
+  if (!iso) return "";
+  return new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+}
+---
+
+<Base
+  title={`Newsletter — ${post.title}`}
+  description="A living newsletter: one post that stays fresh."
+  currentPath="/newsletter/"
+>
+  <div class="page-content">
+    <h1>Newsletter</h1>
+    <p class="subhead">One post. No comments. No likes. Just fresh context.</p>
+
+    <article class="post">
+      <header class="post-header">
+        <span class="issue-badge">{post.issue}</span>
+        <h2>{post.title}</h2>
+        {post.subtitle && <p class="subtitle">{post.subtitle}</p>}
+        {post.lede && <p class="lede">{post.lede}</p>}
+        <p class="meta">Last updated {formatDate(post.updatedAt)}</p>
+      </header>
+
+      <div class="post-body">
+        {(post.sections ?? []).map((s: any) => (
+          <section class="section">
+            <h3>{s.heading}</h3>
+            <div class="section-content">
+            {s.body.split('\n\n').map((p: string) => (
+              <p>{p}</p>
+            ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </article>
+  </div>
+</Base>
+
+<style>
+  .page-content { max-width: 760px; margin: 0 auto; padding: 2rem 1rem; }
+  .subhead { color: var(--color-text-muted); margin-top: .5rem; font-size: 1.1rem; }
+  
+  .post { margin-top: 3rem; }
+  
+  .post-header { margin-bottom: 2.5rem; }
+  .issue-badge { 
+    display: inline-block; 
+    font-size: 0.8rem; 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em;
+    color: var(--color-primary); 
+    margin-bottom: 0.5rem;
+  }
+  
+  h2 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 0.5rem; }
+  .subtitle { font-size: 1.5rem; color: var(--color-text-muted); margin-bottom: 1.5rem; font-weight: 300; }
+  
+  .lede { 
+    font-size: 1.25rem; 
+    line-height: 1.6; 
+    color: var(--color-text); 
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+  
+  .meta { font-family: var(--font-mono); font-size: .85rem; color: var(--color-text-muted); }
+  
+  .post-body { display: grid; gap: 2.5rem; }
+  .section h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-text); }
+  .section-content p { margin-bottom: 1rem; line-height: 1.7; color: var(--color-text-muted); font-size: 1.05rem; }
+  .section-content p:last-child { margin-bottom: 0; }
+</style>
