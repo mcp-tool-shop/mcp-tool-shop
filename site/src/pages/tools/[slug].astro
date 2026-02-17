@@ -1,7 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PublicProof from '../../components/marketir/PublicProof.astro';
+import RealityPanel from '../../components/RealityPanel.astro';
 import projects from '../../data/projects.json';
+import proofs from '../../data/audit/proofs.json';
 import releases from '../../data/releases.json';
 import overrides from '../../data/overrides.json';
 import { getProofData, getPressData, loadSnapshot } from '../../lib/marketir/loader.mjs';
@@ -15,6 +17,7 @@ export function getStaticPaths() {
 
 const { project } = Astro.props;
 const orgUrl = `https://github.com/mcp-tool-shop-org/${project.repo}`;
+const toolProof = (proofs as any[]).find((p: any) => p.repo === project.repo);
 
 // Registry status
 const isRegistered = project.registered === true;
@@ -73,6 +76,14 @@ const pressData = showProof ? getPressData(project.repo) : null;
         )}
       </div>
     </div>
+
+    {toolProof && (
+      <RealityPanel 
+        verified={toolProof.verified} 
+        concept={toolProof.concept} 
+        proofs={toolProof.proofs} 
+      />
+    )}
 
     {isDeprecated && (
       <div class="deprecated-notice">

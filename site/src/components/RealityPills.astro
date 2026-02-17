@@ -1,0 +1,97 @@
+---
+interface Props {
+  verified: boolean;
+  concept: boolean;
+  proofs: string[];
+}
+
+const { verified, concept, proofs = [] } = Astro.props;
+
+// Determine max pills
+const pills = [];
+
+if (concept) {
+    pills.push({ label: "Concept", type: "concept", icon: "🚧" });
+}
+
+// Show verified signals
+if (proofs.includes("ci")) pills.push({ label: "CI Verified", type: "success", icon: "✅".trim() });
+// Show one build signal
+const build = proofs.find(p => ["npm", "dotnet", "python", "cargo", "maven"].includes(p));
+if (build) {
+    if (build === "npm") pills.push({ label: "NPM Build", type: "neutral", icon: "📦".trim() });
+    if (build === "dotnet") pills.push({ label: ".NET Build", type: "neutral", icon: "🔷" });
+    if (build === "python") pills.push({ label: "PyProject", type: "neutral", icon: "🐍" });
+    if (build === "cargo") pills.push({ label: "Cargo", type: "neutral", icon: "🦀" });
+}
+
+// Slice to max 3 (though logic above yields max 2 usually)
+const displayPills = pills.slice(0, 3);
+---
+
+<div class="proof-pills">
+    {displayPills.map(pill => (
+        <span class={`proof-pill pill-${pill.type}`} title={pill.label}>
+            <span class="pill-icon">{pill.icon}</span>
+            <span class="pill-label">{pill.label}</span>
+        </span>
+    ))}
+</div>
+
+<style>
+.proof-pills {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.proof-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: default;
+    font-weight: 500;
+}
+
+.pill-concept {
+    background: #fff4e5;
+    color: #663c00;
+    border-color: #ffcc80;
+}
+
+.pill-success {
+    background: #e8f5e9;
+    color: #1b5e20;
+    border-color: #a5d6a7;
+}
+
+.pill-neutral {
+    background: #f5f5f5;
+    color: #424242;
+    border-color: #e0e0e0;
+}
+
+/* Dark mode tweaks if needed, assuming generic site styles handle implicit support or we add explicit */
+@media (prefers-color-scheme: dark) {
+    .pill-concept {
+        background: #3e2723;
+        color: #ffcc80;
+        border-color: #5d4037;
+    }
+    .pill-success {
+        background: #1b5e20;
+        color: #a5d6a7;
+        border-color: #2e7d32;
+    }
+    .pill-neutral {
+        background: #424242;
+        color: #e0e0e0;
+        border-color: #616161;
+    }
+}
+</style>

@@ -1,6 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import projects from '../../data/projects.json';
+import RealityPills from '../../components/RealityPills.astro';
+import proofs from '../../data/audit/proofs.json';
 
 const languages = [...new Set((projects as any[]).map((p: any) => p.language).filter(Boolean))].sort();
 const categories = [...new Set((projects as any[]).map((p: any) => p.category).filter(Boolean))].sort();
@@ -99,6 +101,11 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
               <span class="badge badge-kind">{project.kind}</span>
             )}
           </div>
+          <RealityPills
+            verified={proofs.find((p: any) => p.repo === project.repo)?.verified || false}
+            concept={proofs.find((p: any) => p.repo === project.repo)?.concept || false}
+            proofs={proofs.find((p: any) => p.repo === project.repo)?.proofs || []}
+          />
         </div>
         <p>{project.tagline || project.description}</p>
         {project.install && (
