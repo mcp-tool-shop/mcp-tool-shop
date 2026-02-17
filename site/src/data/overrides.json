@@ -204,7 +204,7 @@
     ],
     "category": "voice",
     "stability": "stable",
-    "kind": "plugin",
+    "kind": "library",
     "install": "pip install soundboard-plugin",
     "tagline": "Give Claude Code a voice with emotion-aware TTS.",
     "goodFor": [

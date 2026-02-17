@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-17T18:14:00.513Z",
+  "generatedAt": "2026-02-17T18:54:46.773Z",
   "results": [
     {
       "repo": "dev-op-typer",
@@ -111,27 +111,6 @@
       "score": 55,
       "label": "Deprecated",
       "metaIssuesCount": 5,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "LeaseGate-Lite",
-      "score": 60,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "ScalarScope-Desktop",
-      "score": 60,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "Attestia-Desktop",
-      "score": 60,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
       "realityIssuesCount": 0
     },
     {
@@ -263,27 +242,6 @@
     {
       "repo": "ThrottleAI-Desktop",
       "score": 60,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "accessibility-suite",
-      "score": 65,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "ally-demo-python",
-      "score": 65,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "audiobooker",
-      "score": 65,
       "label": "Prototype",
       "metaIssuesCount": 4,
       "realityIssuesCount": 0
@@ -471,20 +429,6 @@
       "realityIssuesCount": 0
     },
     {
-      "repo": "soundboard-plugin",
-      "score": 90,
-      "label": "Stable",
-      "metaIssuesCount": 1,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "zip-meta-map",
-      "score": 90,
-      "label": "Stable",
-      "metaIssuesCount": 1,
-      "realityIssuesCount": 0
-    },
-    {
       "repo": "mcp-stress-test",
       "score": 95,
       "label": "Prototype",
@@ -513,7 +457,21 @@
       "realityIssuesCount": 0
     },
     {
+      "repo": "soundboard-plugin",
+      "score": 100,
+      "label": "Stable",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
       "repo": "tool-compass",
+      "score": 100,
+      "label": "Stable",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "zip-meta-map",
       "score": 100,
       "label": "Stable",
       "metaIssuesCount": 0,
@@ -534,7 +492,49 @@
       "realityIssuesCount": 0
     },
     {
+      "repo": "LeaseGate-Lite",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "ScalarScope-Desktop",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "accessibility-suite",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "ally-demo-python",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
       "repo": "aspire-ai",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "Attestia-Desktop",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "audiobooker",
       "score": 100,
       "label": "Prototype",
       "metaIssuesCount": 0,

@@ -114,7 +114,7 @@
     "deprecated": false,
     "category": "voice",
     "stability": "stable",
-    "kind": "plugin",
+    "kind": "library",
     "install": "pip install soundboard-plugin",
     "tagline": "Give Claude Code a voice with emotion-aware TTS.",
     "goodFor": [
@@ -164,7 +164,7 @@
   {
     "name": "Zip Meta Map",
     "repo": "zip-meta-map",
-    "description": "",
+    "description": "Make repos and ZIP files self-describing for LLM agents with deterministic map generation and CI-grade diffs.",
     "tags": [
       "metadata",
       "ci",
@@ -216,6 +216,7 @@
     "category": "infrastructure",
     "stability": "beta",
     "kind": "library",
+    "install": "git clone https://github.com/mcp-tool-shop/Attestia",
     "tagline": "Financial truth infrastructure for decentralized systems.",
     "screenshot": "/screenshots/Attestia.png",
     "screenshotType": "placeholder"
@@ -268,6 +269,10 @@
     "registered": false,
     "unlisted": true,
     "deprecated": false,
+    "kind": "desktop-app",
+    "stability": "experimental",
+    "install": "git clone https://github.com/mcp-tool-shop/LeaseGate-Lite",
+    "tagline": "One-tab MAUI control surface for throttling AI workloads.",
     "screenshot": "/screenshots/LeaseGate-Lite.png",
     "screenshotType": "placeholder"
   },
@@ -292,6 +297,10 @@
     "registered": false,
     "unlisted": true,
     "deprecated": false,
+    "kind": "desktop-app",
+    "stability": "experimental",
+    "install": "git clone https://github.com/mcp-tool-shop/ScalarScope-Desktop",
+    "tagline": "Real-time visualization of ASPIRE training dynamics.",
     "screenshot": "/screenshots/ScalarScope-Desktop.png",
     "screenshotType": "placeholder"
   },
@@ -313,6 +322,10 @@
     "unlisted": false,
     "deprecated": false,
     "ecosystem": "accessibility",
+    "kind": "cli",
+    "stability": "beta",
+    "install": "git clone https://github.com/mcp-tool-shop/accessibility-suite",
+    "tagline": "Unified accessibility testing pipeline and evidence engine.",
     "screenshot": "/screenshots/accessibility-suite.png",
     "screenshotType": "placeholder"
   },
@@ -332,7 +345,13 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "accessibility"
+    "ecosystem": "accessibility",
+    "kind": "cli",
+    "stability": "experimental",
+    "install": "git clone https://github.com/mcp-tool-shop/ally-demo-python",
+    "tagline": "Minimal Python reference for the Ally pipeline.",
+    "screenshot": "/screenshots/ally-demo-python.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Aspire AI",
@@ -377,7 +396,13 @@
     "updatedAt": "2026-02-17T10:35:04Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "kind": "desktop-app",
+    "stability": "experimental",
+    "install": "git clone https://github.com/mcp-tool-shop/Attestia-Desktop",
+    "tagline": "Financial intent verification for Windows (WinUI 3).",
+    "screenshot": "/screenshots/Attestia-Desktop.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Audiobooker",
@@ -394,7 +419,13 @@
     "updatedAt": "2026-02-14T06:42:07Z",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "kind": "cli",
+    "stability": "experimental",
+    "install": "git clone https://github.com/mcp-tool-shop/audiobooker",
+    "tagline": "Audio book generation and management system.",
+    "screenshot": "/screenshots/audiobooker.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Build Governor",
