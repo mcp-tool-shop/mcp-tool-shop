@@ -6,8 +6,14 @@ import releases from '../data/releases.json';
 import stats from '../data/org-stats.json';
 
 const projectsByRepo = new Map((projects as any[]).map((p: any) => [p.repo, p]));
-const featured = (projects as any[]).filter((p: any) => p.featured);
+const featuredRaw = (projects as any[]).filter((p: any) => p.featured);
 const recentReleases = (releases as any[]).slice(0, 5);
+
+// Deterministic rotation for spotlight (based on day of year) so it doesn't flicker on refresh but rotates daily
+const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
+const spotlightIndex = dayOfYear % featuredRaw.length;
+const spotlight = featuredRaw[spotlightIndex];
+const gridProjects = featuredRaw.filter((_, i) => i !== spotlightIndex);
 
 function relativeDate(iso: string) {
   if (!iso) return '';
@@ -53,6 +59,32 @@ function relativeDate(iso: string) {
     </div>
   </section>
 
+  {spotlight && (
+    <section class="spotlight-section">
+      <div class="spotlight-card">
+        <div class="spotlight-content">
+          <span class="spotlight-label">Spotlight</span>
+          <h3><a href={`/tools/${spotlight.repo}/`}>{spotlight.name}</a></h3>
+          <p class="spotlight-desc">{spotlight.description || spotlight.tagline}</p>
+          <div class="spotlight-meta">
+             {spotlight.language && <span>{spotlight.language}</span>}
+             {spotlight.stars > 0 && <span>• {spotlight.stars} stars</span>}
+          </div>
+        </div>
+        <div class="spotlight-media">
+           <img 
+             src={`/screenshots/${spotlight.repo}.png`} 
+             alt={`Screenshot of ${spotlight.name}`}
+             width="600"
+             height="300"
+             loading="eager"
+             onerror="this.style.display='none'"
+           />
+        </div>
+      </div>
+    </section>
+  )}
+
   {recentReleases.length > 0 && (
     <section class="recent-releases">
       <div class="recent-header">
@@ -75,7 +107,7 @@ function relativeDate(iso: string) {
     <h2 class="section-heading">Featured projects</h2>
     <p class="section-subheading">The tools getting the most attention right now.</p>
     <div class="project-grid">
-      {featured.map((project: any) => (
+      {gridProjects.map((project: any) => (
         <div class="project-card">
           <div class="card-header-home">
             <h3>
