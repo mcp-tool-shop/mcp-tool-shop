@@ -1,0 +1,586 @@
+{
+  "generatedAt": "2026-02-17T18:14:00.513Z",
+  "results": [
+    {
+      "repo": "dev-op-typer",
+      "score": 40,
+      "label": "Needs Work",
+      "metaIssuesCount": 6,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "LoKey-Typer",
+      "score": 40,
+      "label": "Needs Work",
+      "metaIssuesCount": 6,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "clearance-opinion-engine",
+      "score": 50,
+      "label": "Prototype",
+      "metaIssuesCount": 5,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "DeterministicMouseTrainingEngine",
+      "score": 50,
+      "label": "Prototype",
+      "metaIssuesCount": 5,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "mcp-app-builder",
+      "score": 50,
+      "label": "Prototype",
+      "metaIssuesCount": 5,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "nameops",
+      "score": 50,
+      "label": "Prototype",
+      "metaIssuesCount": 5,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "NextGallery-Desktop",
+      "score": 50,
+      "label": "Prototype",
+      "metaIssuesCount": 5,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "NextLedger",
+      "score": 50,
+      "label": "Prototype",
+      "metaIssuesCount": 5,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "ScalarScope",
+      "score": 50,
+      "label": "Prototype",
+      "metaIssuesCount": 5,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "Trace",
+      "score": 50,
+      "label": "Prototype",
+      "metaIssuesCount": 5,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "VectorCaliper",
+      "score": 50,
+      "label": "Prototype",
+      "metaIssuesCount": 5,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "ClaimLedger",
+      "score": 55,
+      "label": "Deprecated",
+      "metaIssuesCount": 5,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "codeteam",
+      "score": 55,
+      "label": "Deprecated",
+      "metaIssuesCount": 5,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "CreatorLedger",
+      "score": 55,
+      "label": "Deprecated",
+      "metaIssuesCount": 5,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "integradio",
+      "score": 55,
+      "label": "Deprecated",
+      "metaIssuesCount": 5,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "winget-pkgs",
+      "score": 55,
+      "label": "Deprecated",
+      "metaIssuesCount": 5,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "LeaseGate-Lite",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "ScalarScope-Desktop",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "Attestia-Desktop",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "build-governor",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "code-batch",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "CodeClone-Desktop",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "ConsensusOS",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "CursorAssist",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "feature-reacher",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "homebrew-mcp-tools",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "InControl-Desktop",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "LeaseGate",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "linux-dev-typer",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "mcp-file-forge",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "meta-content-system",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "MouseTrainer",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "Registrum",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "rippled-windows-debug",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "siege-kit",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "soundboard-maui",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "ThrottleAI",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "ThrottleAI-Desktop",
+      "score": 60,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "accessibility-suite",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "ally-demo-python",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "audiobooker",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "claude-collaborate",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "code-covered",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "codeclone-suite",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "codecomfy-vscode",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "codeteam-suite",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "context-window-manager",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "control-room",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "flexiflow",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "headless-wheel-builder",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "ledger-suite",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "next-gallery",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "nexus-suite",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "pathway",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "payroll-engine",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "prov-engine-js",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "runforge-desktop",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "runforge-vscode",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "stresskit-mcp",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "synthesis",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "training-studio",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "venvkit",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "websketch-cli",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "websketch-demo",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "websketch-extension",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "websketch-ir",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "websketch-mcp",
+      "score": 65,
+      "label": "Prototype",
+      "metaIssuesCount": 4,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "soundboard-plugin",
+      "score": 90,
+      "label": "Stable",
+      "metaIssuesCount": 1,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "zip-meta-map",
+      "score": 90,
+      "label": "Stable",
+      "metaIssuesCount": 1,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "mcp-stress-test",
+      "score": 95,
+      "label": "Prototype",
+      "metaIssuesCount": 1,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "brain-dev",
+      "score": 100,
+      "label": "Stable",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "comfy-headless",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "file-compass",
+      "score": 100,
+      "label": "Stable",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "tool-compass",
+      "score": 100,
+      "label": "Stable",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "Attestia",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "backpropagate",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "aspire-ai",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "mcp-voice-engine",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "mcp-voice-soundboard",
+      "score": 100,
+      "label": "Stable",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "mcpt",
+      "score": 100,
+      "label": "Stable",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "tool-scan",
+      "score": 100,
+      "label": "Stable",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "voice-soundboard",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "witness",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    }
+  ]
+}

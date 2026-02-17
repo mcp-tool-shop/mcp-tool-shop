@@ -1,0 +1,644 @@
+{
+  "generatedAt": "2026-02-17T18:14:00.512Z",
+  "findings": [
+    {
+      "repo": "soundboard-plugin",
+      "issues": [
+        "Invalid kind: plugin"
+      ]
+    },
+    {
+      "repo": "zip-meta-map",
+      "issues": [
+        "Missing required field: description"
+      ]
+    },
+    {
+      "repo": "LeaseGate-Lite",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "ScalarScope-Desktop",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "accessibility-suite",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "ally-demo-python",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "Attestia-Desktop",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "audiobooker",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "build-governor",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "ClaimLedger",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "Contradiction: deprecated=true but stability!='deprecated'"
+      ]
+    },
+    {
+      "repo": "claude-collaborate",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "clearance-opinion-engine",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "No tags"
+      ]
+    },
+    {
+      "repo": "code-batch",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "code-covered",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "CodeClone-Desktop",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "codeclone-suite",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "codecomfy-vscode",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "codeteam",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "Contradiction: deprecated=true but stability!='deprecated'"
+      ]
+    },
+    {
+      "repo": "codeteam-suite",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "ConsensusOS",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "context-window-manager",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "control-room",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "CreatorLedger",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "Contradiction: deprecated=true but stability!='deprecated'"
+      ]
+    },
+    {
+      "repo": "CursorAssist",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "DeterministicMouseTrainingEngine",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "No tags"
+      ]
+    },
+    {
+      "repo": "dev-op-typer",
+      "issues": [
+        "Missing required field: description",
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "No tags"
+      ]
+    },
+    {
+      "repo": "feature-reacher",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "flexiflow",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "headless-wheel-builder",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "homebrew-mcp-tools",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "InControl-Desktop",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "integradio",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "Contradiction: deprecated=true but stability!='deprecated'"
+      ]
+    },
+    {
+      "repo": "LeaseGate",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "ledger-suite",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "linux-dev-typer",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "LoKey-Typer",
+      "issues": [
+        "Missing required field: description",
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "No tags"
+      ]
+    },
+    {
+      "repo": "mcp-app-builder",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "No tags"
+      ]
+    },
+    {
+      "repo": "mcp-file-forge",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "mcp-stress-test",
+      "issues": [
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "meta-content-system",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "MouseTrainer",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "nameops",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "No tags"
+      ]
+    },
+    {
+      "repo": "next-gallery",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "NextGallery-Desktop",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "No tags"
+      ]
+    },
+    {
+      "repo": "NextLedger",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "No tags"
+      ]
+    },
+    {
+      "repo": "nexus-suite",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "pathway",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "payroll-engine",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "prov-engine-js",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "Registrum",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "rippled-windows-debug",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "runforge-desktop",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "runforge-vscode",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "ScalarScope",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "No tags"
+      ]
+    },
+    {
+      "repo": "siege-kit",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "soundboard-maui",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "stresskit-mcp",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "synthesis",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "ThrottleAI",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "ThrottleAI-Desktop",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "Trace",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "No tags"
+      ]
+    },
+    {
+      "repo": "training-studio",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "VectorCaliper",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "No tags"
+      ]
+    },
+    {
+      "repo": "venvkit",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "websketch-cli",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "websketch-demo",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "websketch-extension",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "websketch-ir",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "websketch-mcp",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install"
+      ]
+    },
+    {
+      "repo": "winget-pkgs",
+      "issues": [
+        "Missing required field: tagline",
+        "Missing required field: kind",
+        "Missing required field: stability",
+        "Missing required field: install",
+        "Contradiction: deprecated=true but stability!='deprecated'"
+      ]
+    }
+  ]
+}

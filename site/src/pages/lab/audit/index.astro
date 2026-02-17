@@ -1,0 +1,274 @@
+---
+import Layout from '../../../layouts/Base.astro';
+import scoreboardData from '../../../data/audit/scoreboard.json';
+import metaFindings from '../../../data/audit/metadata-findings.json';
+import realityFindings from '../../../data/audit/reality-findings.json';
+
+const { results } = scoreboardData;
+
+// Quick lookup maps
+const metaMap = new Map(metaFindings.findings.map(f => [f.repo, f.issues]));
+const realityMap = new Map(realityFindings.findings.map(f => [f.repo, f.issues]));
+
+const stats = {
+  stable: results.filter(r => r.label === 'Stable').length,
+  prototype: results.filter(r => r.label === 'Prototype').length,
+  deprecated: results.filter(r => r.label === 'Deprecated').length,
+  needsWork: results.filter(r => r.label === 'Needs Work').length,
+  total: results.length
+};
+
+const lastRun = new Date(scoreboardData.generatedAt).toLocaleString();
+---
+
+<Layout title="Tool Audit Scoreboard">
+  <main class="dashboard">
+    <header class="dashboard-header">
+      <div class="title-block">
+        <h1>Tool Audit Scoreboard</h1>
+        <p class="meta">Run {lastRun} • {stats.total} tools scanned</p>
+      </div>
+      <div class="stats-strip">
+        <div class="stat-pill success">
+          <span class="label">Stable</span>
+          <span class="value">{stats.stable}</span>
+        </div>
+        <div class="stat-pill neutral">
+          <span class="label">Prototype</span>
+          <span class="value">{stats.prototype}</span>
+        </div>
+        <div class="stat-pill warning">
+          <span class="label">Needs Work</span>
+          <span class="value">{stats.needsWork}</span>
+        </div>
+        <div class="stat-pill critical">
+          <span class="label">Deprecated</span>
+          <span class="value">{stats.deprecated}</span>
+        </div>
+      </div>
+    </header>
+    
+    <div class="controls">
+       <input type="text" id="search" placeholder="Search tools..." class="search-input">
+        <div class="filter-chips">
+            <button class="chip active" data-filter="all">All</button>
+            <button class="chip success" data-filter="Stable">Stable</button>
+            <button class="chip neutral" data-filter="Prototype">Prototype</button>
+            <button class="chip warning" data-filter="Needs Work">Needs Work</button>
+            <button class="chip critical" data-filter="Deprecated">Deprecated</button>
+        </div>
+    </div>
+
+    <div class="audit-table">
+        <div class="table-header">
+            <span>Tool / Repo</span>
+            <span>Label</span>
+            <span>Score</span>
+            <span>Issues</span>
+        </div>
+        <div class="table-body" id="tool-list">
+            {results.map(row => {
+               const metaIssues = metaMap.get(row.repo) || [];
+               const realityIssues = realityMap.get(row.repo) || [];
+               const allIssues = [...metaIssues, ...realityIssues];
+               
+               return (
+                <div class="table-row" data-label={row.label} data-repo={row.repo}>
+                    <div class="col-name">
+                        <strong>{row.repo}</strong>
+                    </div>
+                    <div class="col-label">
+                        <span class={`badge ${row.label.toLowerCase().replace(' ', '-')}`}>{row.label}</span>
+                    </div>
+                    <div class="col-score">
+                        <div class="score-ring" style={`--score: ${row.score}`}>
+                           {row.score}
+                        </div>
+                    </div>
+                    <div class="col-issues">
+                        {allIssues.length === 0 ? (
+                            <span class="text-muted">No issues found</span>
+                        ) : (
+                            <ul class="issue-list">
+                                {allIssues.map(i => <li>{i}</li>)}
+                            </ul>
+                        )}
+                    </div>
+                </div>
+               );
+            })}
+        </div>
+        <div id="empty-state" class="empty-state hidden">
+            <p>No matches found.</p>
+        </div>
+    </div>
+
+  </main>
+</Layout>
+
+<script>
+  const searchInput = document.getElementById('search') as HTMLInputElement;
+  const list = document.getElementById('tool-list');
+  const rows = list?.querySelectorAll('.table-row');
+  const filters = document.querySelectorAll('.chip');
+  const emptyState = document.getElementById('empty-state');
+
+  let currentFilter = 'all';
+  let currentQuery = '';
+
+  function render() {
+    let visibles = 0;
+    rows?.forEach((row: any) => {
+      const label = row.dataset.label;
+      const text = row.dataset.repo.toLowerCase();
+      
+      const matchesFilter = currentFilter === 'all' || label === currentFilter;
+      const matchesSearch = text.includes(currentQuery);
+
+      if (matchesFilter && matchesSearch) {
+        row.style.display = 'grid';
+        visibles++;
+      } else {
+        row.style.display = 'none';
+      }
+    });
+
+    if (visibles === 0) emptyState?.classList.remove('hidden');
+    else emptyState?.classList.add('hidden');
+  }
+
+  filters.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      filters.forEach(b => b.classList.remove('active'));
+      (e.target as HTMLElement).classList.add('active');
+      currentFilter = (e.target as HTMLElement).dataset.filter || 'all';
+      render();
+    });
+  });
+
+  searchInput?.addEventListener('input', (e) => {
+    currentQuery = (e.target as HTMLInputElement).value.toLowerCase();
+    render();
+  });
+</script>
+
+<style>
+  :root {
+    --c-success: #10b981;
+    --c-warning: #f59e0b;
+    --c-critical: #ef4444;
+    --c-neutral: #94a3b8;
+    
+    /* Dark mode palette */
+    --c-bg: #0f172a;
+    --c-card: #1e293b; 
+    --c-text: #f8fafc;
+    --c-text-muted: #94a3b8;
+    --c-border: #334155;
+    --c-input-bg: #0f172a;
+  }
+
+  .dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: var(--c-text);
+  }
+
+  /* Header */
+  .dashboard-header {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  h1 { font-size: 1.8rem; font-weight: 700; margin: 0 0 0.5rem 0; }
+  .meta { color: var(--c-text-muted); font-size: 0.9rem; margin: 0; }
+
+  /* Stats */
+  .stats-strip { display: flex; gap: 1rem; }
+  .stat-pill {
+    display: flex; flex-direction: column; 
+    background: var(--c-card); border: 1px solid var(--c-border);
+    padding: 0.5rem 1rem; border-radius: 8px; min-width: 100px;
+  }
+  .stat-pill .label { font-size: 0.75rem; text-transform: uppercase; font-weight: 600; color: var(--c-text-muted); }
+  .stat-pill .value { font-size: 1.5rem; font-weight: 700; }
+  .stat-pill.success .value { color: var(--c-success); }
+  .stat-pill.warning .value { color: var(--c-warning); }
+  .stat-pill.critical .value { color: var(--c-critical); }
+  .stat-pill.neutral .value { color: var(--c-neutral); }
+
+  /* Controls */
+   .controls { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .search-input {
+    padding: 0.5rem 1rem;
+    background: var(--c-input-bg);
+    border: 1px solid var(--c-border);
+    color: var(--c-text);
+    border-radius: 6px;
+    min-width: 250px;
+  }
+  .filter-chips { display: flex; gap: 0.5rem; }
+  .chip {
+    background: transparent; border: 1px solid var(--c-border);
+    padding: 0.4rem 0.8rem; border-radius: 20px;
+    font-size: 0.85rem; font-weight: 500; cursor: pointer;
+    color: var(--c-text-muted); transition: all 0.2s;
+  }
+  .chip:hover { background: var(--c-border); color: var(--c-text); }
+  .chip.active { background: var(--c-text); color: var(--c-bg); border-color: var(--c-text); }
+  .chip.active[data-filter="Stable"] { background: var(--c-success); border-color: var(--c-success); color: black; }
+  .chip.active[data-filter="Prototype"] { background: var(--c-neutral); border-color: var(--c-neutral); color: white; }
+  .chip.active[data-filter="Needs Work"] { background: var(--c-warning); border-color: var(--c-warning); color: black; }
+  .chip.active[data-filter="Deprecated"] { background: var(--c-critical); border-color: var(--c-critical); color: white; }
+
+  /* Table */
+  .audit-table {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 3fr;
+    padding: 0.75rem 1.5rem;
+    background: rgba(0,0,0,0.2);
+    border-bottom: 1px solid var(--c-border);
+    font-weight: 600;
+    color: var(--c-text-muted);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+  .table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 3fr;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--c-border);
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .table-row:last-child { border-bottom: none; }
+  .table-row:hover { background: rgba(255,255,255,0.03); }
+
+  .col-name strong { color: var(--c-text); font-size: 1rem; }
+  
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 0.75rem; font-weight: 700;
+  }
+  .badge.stable { color: var(--c-success); border: 1px solid var(--c-success); background: rgba(16, 185, 129, 0.1); }
+  .badge.prototype { color: var(--c-neutral); border: 1px solid var(--c-neutral); background: rgba(148, 163, 184, 0.1); }
+  .badge.needs-work { color: var(--c-warning); border: 1px solid var(--c-warning); background: rgba(245, 158, 11, 0.1); }
+  .badge.deprecated { color: var(--c-critical); border: 1px solid var(--c-critical); background: rgba(239, 68, 68, 0.1); }
+
+  .issue-list { margin: 0; padding-left: 1.2rem; font-size: 0.85rem; color: var(--c-text-muted); }
+  .text-muted { color: var(--c-text-muted); font-size: 0.85rem; font-style: italic; }
+  
+  .empty-state { padding: 3rem; text-align: center; color: var(--c-text-muted); }
+  .hidden { display: none; }
+</style>
