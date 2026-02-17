@@ -93,7 +93,7 @@ try {
   description={description}
   currentPath="/trust/"
 >
-  <div class="trust-page">
+  <div class="trust-page page-content">
     <h1>Trust Center</h1>
     <p class="subtitle">
       Here's what we do. Here's the evidence. Here's how you can check.
@@ -294,28 +294,11 @@ try {
 
 <style>
   .trust-page {
-    max-width: 720px;
     margin: 0 auto;
     padding: 2rem 1rem;
   }
-
-  h1 {
-    margin: 0 0 0.25rem;
-    font-size: 2rem;
-    color: var(--color-text, #e6edf3);
-  }
-
-  h2 {
-    font-size: 1.2rem;
-    color: var(--color-text, #e6edf3);
-    margin: 0 0 0.5rem;
-  }
-
-  .subtitle {
-    color: var(--color-text-muted, #8b949e);
-    margin: 0 0 1rem;
-    font-size: 0.95rem;
-  }
+  
+  /* h1, h2, .subtitle handled by global .page-content */
 
   .trust-path {
     display: flex;
@@ -499,14 +482,14 @@ try {
   }
 
   .freeze-item.frozen .freeze-indicator {
-    background: #f85149;
-    box-shadow: 0 0 6px rgba(248, 81, 73, 0.4);
+    background: var(--color-danger-fg);
+    box-shadow: 0 0 6px var(--color-danger-muted);
   }
 
   .freeze-label {
     display: block;
     font-size: 0.7rem;
-    color: var(--color-text-muted, #8b949e);
+    color: var(--color-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
@@ -515,19 +498,19 @@ try {
     display: block;
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--color-text, #e6edf3);
+    color: var(--color-text);
   }
 
   .section-note {
     font-size: 0.85rem;
-    color: var(--color-text-muted, #8b949e);
+    color: var(--color-text-muted);
   }
 
   /* Verify recipe box */
   .verify-recipe {
     padding: 1rem 1rem 1rem 0.5rem;
-    background: var(--color-surface, #161b22);
-    border: 1px solid var(--color-border, #30363d);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
     border-radius: 6px;
     margin: 0.75rem 0;
   }
@@ -539,20 +522,20 @@ try {
 
   .verify-recipe li {
     font-size: 0.88rem;
-    color: var(--color-text, #e6edf3);
+    color: var(--color-text);
     margin: 0.5rem 0;
     line-height: 1.5;
   }
 
   .verify-recipe code {
-    background: rgba(110, 118, 129, 0.2);
+    background: var(--color-surface-hover);
     padding: 0.1rem 0.35rem;
     border-radius: 3px;
     font-size: 0.8rem;
   }
 
   .verify-recipe a {
-    color: #388bfd;
+    color: var(--color-accent-fg);
     text-decoration: none;
   }
 
@@ -564,16 +547,16 @@ try {
   .provenance-footer {
     margin-top: 3rem;
     padding-top: 1.5rem;
-    border-top: 1px solid var(--color-border, #30363d);
+    border-top: 1px solid var(--color-border);
   }
 
   .provenance-footer p {
     font-size: 0.8rem;
-    color: var(--color-text-muted, #8b949e);
+    color: var(--color-text-muted);
   }
 
   .provenance-footer a {
-    color: #388bfd;
+    color: var(--color-accent-fg);
     text-decoration: none;
   }
 
@@ -582,7 +565,7 @@ try {
   }
 
   .provenance-footer code {
-    background: rgba(110, 118, 129, 0.2);
+    background: var(--color-surface-hover);
     padding: 0.1rem 0.35rem;
     border-radius: 3px;
     font-size: 0.8rem;

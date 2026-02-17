@@ -1,14 +1,53 @@
 :root {
-  --color-bg: #0d1117;
-  --color-surface: #161b22;
-  --color-surface-hover: #1c2129;
-  --color-border: #30363d;
-  --color-text: #e6edf3;
-  --color-text-muted: #8b949e;
-  --color-accent: #58a6ff;
-  --color-accent-hover: #79c0ff;
-  --color-accent-subtle: rgba(88, 166, 255, 0.1);
-  --color-success: #3fb950;
+  /* scale-gray */
+  --color-canvas-default: #0d1117;
+  --color-canvas-subtle: #161b22;
+  --color-canvas-overlay: #1c2129;
+  --color-border-default: #30363d;
+  --color-border-muted: #21262d;
+  
+  /* scale-foreground */
+  --color-fg-default: #e6edf3;
+  --color-fg-muted: #8b949e;
+  --color-fg-subtle: #6e7681;
+
+  /* scale-accent (blue) */
+  --color-accent-fg: #58a6ff;
+  --color-accent-emphasis: #1f6feb;
+  --color-accent-muted: rgba(56, 139, 253, 0.4);
+  --color-accent-subtle: rgba(56, 139, 253, 0.15);
+
+  /* scale-success (green) */
+  --color-success-fg: #3fb950;
+  --color-success-emphasis: #238636;
+  --color-success-muted: rgba(46, 160, 67, 0.4);
+  --color-success-subtle: rgba(46, 160, 67, 0.15);
+
+  /* scale-attention (gold) */
+  --color-attention-fg: #d29922;
+  --color-attention-emphasis: #9e6a03;
+  --color-attention-muted: rgba(187, 128, 9, 0.4);
+  --color-attention-subtle: rgba(187, 128, 9, 0.15);
+
+  /* scale-danger (red) */
+  --color-danger-fg: #f85149;
+  --color-danger-emphasis: #da3633;
+  --color-danger-muted: rgba(248, 81, 73, 0.4);
+  --color-danger-subtle: rgba(248, 81, 73, 0.15);
+
+  /* aliases for back-compat (mapped to new system) */
+  --color-bg: var(--color-canvas-default);
+  --color-surface: var(--color-canvas-subtle);
+  --color-surface-hover: var(--color-canvas-overlay);
+  --color-border: var(--color-border-default);
+  --color-text: var(--color-fg-default);
+  --color-text-muted: var(--color-fg-muted);
+  --color-accent: var(--color-accent-fg);
+  --color-accent-hover: #79c0ff; /* slightly lighter than fg */
+  /* --color-accent-subtle is already defined above, but we'll let the alias stand if needed or remove duplicate */
+  --color-success: var(--color-success-fg);
+
+  /* typorgaphy */
   --font-mono: 'SF Mono', 'Cascadia Code', 'Fira Code', 'JetBrains Mono', monospace;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   --max-width: 1200px;
@@ -205,7 +244,7 @@ main {
 .hero {
   text-align: center;
   padding: 6rem 1.5rem 5rem;
-  background: radial-gradient(circle at 60% -20%, #21262d 0%, #0d1117 60%);
+  background: radial-gradient(circle at 60% -20%, var(--color-border-muted) 0%, var(--color-canvas-default) 60%);
   border-bottom: 1px solid var(--color-border);
   margin-bottom: 4rem;
 }
@@ -217,10 +256,10 @@ main {
   font-weight: 800;
   margin-bottom: 1.5rem;
   letter-spacing: -0.04em;
-  background: linear-gradient(135deg, #fff 30%, #a2d2ff 100%);
+  background: linear-gradient(135deg, var(--color-fg-default) 30%, #a2d2ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: #fff;
+  color: var(--color-fg-default);
 }
 
 .hero .tagline {
@@ -254,12 +293,12 @@ main {
 
 .btn-primary {
   background: var(--color-accent);
-  color: #0d1117;
+  color: var(--color-canvas-default);
 }
 
 .btn-primary:hover {
   background: var(--color-accent-hover);
-  color: #0d1117;
+  color: var(--color-canvas-default);
   transform: translateY(-1px);
   text-decoration: none;
 }
@@ -497,51 +536,84 @@ main {
   margin-bottom: 2rem;
 }
 
-/* Page content */
+/* Page content & Micro-layout */
 .page-content {
-  max-width: 680px;
+  max-width: 720px; /* Slightly wider for better readability */
 }
 
-.page-content h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+.page-content h1,
+.page-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  color: var(--color-text);
 }
 
 .page-content h2 {
-  font-size: 1.25rem;
-  margin-top: 2.5rem;
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--color-border);
+  letter-spacing: -0.02em;
+}
+
+.page-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
 }
 
 .page-content p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: var(--color-text-muted);
+  line-height: 1.75;
+  font-size: 1.0625rem; /* 17px equivalent */
 }
 
 .page-content ul,
 .page-content ol {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   padding-left: 1.5rem;
   color: var(--color-text-muted);
 }
 
 .page-content li {
   margin-bottom: 0.5rem;
+  line-height: 1.75;
 }
 
 .page-content strong {
   color: var(--color-text);
+  font-weight: 600;
 }
 
-/* Stack list */
+.page-content code {
+  font-size: 0.9em;
+  color: var(--color-text);
+}
+
+.page-content blockquote {
+  border-left: 4px solid var(--color-border);
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+/* Stack list specific to About page, moved here for consistency */
 .stack-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  list-style: none;
-  padding: 0;
+  list-style: none !important; /* Override default list style */
+  padding: 0 !important;
   margin-top: 1rem;
 }
 

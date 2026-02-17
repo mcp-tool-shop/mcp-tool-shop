@@ -39,7 +39,7 @@ const exampleJson = JSON.stringify({
   description={description}
   currentPath="/submit/"
 >
-  <div class="submit-page">
+  <div class="submit-page page-content">
     <h1>Get Featured</h1>
     <p class="subtitle">
       Submit your tool for promotion on the {kit.site.title || 'mcp-tool-shop'} catalog.
@@ -180,34 +180,12 @@ const exampleJson = JSON.stringify({
 
 <style>
   .submit-page {
-    max-width: 720px;
+    /* padding handled by page-content effectively, but keeping top/bottom */
     margin: 0 auto;
     padding: 2rem 1rem;
   }
-
-  h1 {
-    margin: 0 0 0.25rem;
-    font-size: 2rem;
-    color: var(--color-text, #e6edf3);
-  }
-
-  h2 {
-    font-size: 1.2rem;
-    color: var(--color-text, #e6edf3);
-    margin: 0 0 0.5rem;
-  }
-
-  h3 {
-    font-size: 1rem;
-    color: var(--color-text, #e6edf3);
-    margin: 0 0 0.4rem;
-  }
-
-  .subtitle {
-    color: var(--color-text-muted, #8b949e);
-    margin: 0 0 2rem;
-    font-size: 0.95rem;
-  }
+  
+  /* h1, h2, h3, .subtitle handled by global .page-content */
 
   .submit-section {
     margin-bottom: 2.5rem;
@@ -276,14 +254,14 @@ const exampleJson = JSON.stringify({
   }
 
   .disqualify-list li::marker {
-    color: #f85149;
+    color: var(--color-danger-fg);
   }
 
   /* Steps box */
   .steps-box {
     padding: 1rem 1rem 1rem 0.5rem;
-    background: var(--color-surface, #161b22);
-    border: 1px solid var(--color-border, #30363d);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
     border-radius: 6px;
   }
 
@@ -294,20 +272,20 @@ const exampleJson = JSON.stringify({
 
   .steps-box li {
     font-size: 0.9rem;
-    color: var(--color-text, #e6edf3);
+    color: var(--color-text);
     margin: 0.5rem 0;
     line-height: 1.5;
   }
 
   .steps-box code {
-    background: rgba(110, 118, 129, 0.2);
+    background: var(--color-surface-hover);
     padding: 0.1rem 0.35rem;
     border-radius: 3px;
     font-size: 0.8rem;
   }
 
   .steps-box a {
-    color: #388bfd;
+    color: var(--color-accent-fg);
     text-decoration: none;
   }
 
