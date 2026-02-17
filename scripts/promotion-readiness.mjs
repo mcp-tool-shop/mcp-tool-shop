@@ -359,9 +359,9 @@ if (!jsonOutput) {
   console.log("========================================\n");
 
   if (verdict === "GO") {
-    console.log("✓ GO — ready to promote this week.\n");
+    console.log("✓ GO — ready to publish this week's spotlight.\n");
   } else {
-    console.log(`✗ NO-GO — ${failCount} blocking check(s) failed. Fix before promoting.\n`);
+    console.log(`✗ NO-GO — ${failCount} blocking check(s) failed. Fix before publishing this week's spotlight.\n`);
     for (const b of blocking) {
       console.log(`  → [${b.section}] ${b.check}: ${b.reason}`);
     }

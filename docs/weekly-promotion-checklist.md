@@ -1,6 +1,6 @@
-# Weekly Promotion Readiness Checklist
+# Weekly Spotlight Readiness Checklist
 
-Run every Monday before promoting. All **A + C** must be green, no accidental freezes, and at least one proof link ready.
+Run every Monday before publishing the spotlight. All **A + C** must be green, no accidental freezes, and at least one proof link ready.
 
 ---
 
@@ -60,7 +60,7 @@ Run every Monday before promoting. All **A + C** must be green, no accidental fr
   - [ ] `npx promo-kit init` succeeds in an empty folder
   - [ ] `npx promo-kit selftest` passes
 
-## D) Proof artifacts exist for this week's promotion post (no-vibes rule)
+## D) Proof artifacts exist for this week's spotlight post (no-vibes rule)
 
 - [ ] One public PR link exists for the weekly run (or latest relevant run)
 - [ ] One trust receipt link exists (file path or hosted URL)
@@ -85,4 +85,4 @@ Run every Monday before promoting. All **A + C** must be green, no accidental fr
 2. No intentional freeze is accidentally enabled
 3. You have at least one proof link ready to paste into a post
 
-**If all three are true: Go promote this week.**
+**If all three are true: Go publish the spotlight this week.**

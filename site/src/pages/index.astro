@@ -23,20 +23,20 @@ function relativeDate(iso: string) {
 
 <Base title="mcp-tool-shop" currentPath="/">
   <section class="hero">
-    <h1>mcp-tool-shop</h1>
+    <h1>MCP Tool Shop</h1>
     <p class="tagline">
-      MCP servers, desktop apps, and AI infrastructure that run locally and compose through the Model Context Protocol.
+      Weekly spotlights on MCP tools that actually help.
+    </p>
+    <p class="subhead">
+      Short, honest picks for people building agent workflows &mdash; clear install steps, real tradeoffs, and a link to verify anything we claim.
     </p>
     <div class="cta-group">
       <a href="/tools/" class="btn btn-primary">Browse tools</a>
-      <a
-        href="https://github.com/mcp-tool-shop-org"
-        class="btn btn-secondary"
-        rel="noopener"
-      >
-        Org on GitHub
-      </a>
+      <a href="/now/" class="btn btn-secondary">This Week's Spotlight</a>
     </div>
+    <p class="trust-footnote">
+      Prefer vibes? Cool. Prefer receipts? Also cool. <a href="/trust/">See how verification works &rarr;</a>
+    </p>
     <div class="proof-points">
       <div class="proof-point">
         <span class="number">{stats.repoCount}</span>
@@ -49,6 +49,10 @@ function relativeDate(iso: string) {
       <div class="proof-point">
         <span class="number">MCP</span>
         <span class="label">native</span>
+      </div>
+      <div class="proof-point">
+        <span class="number">Weekly</span>
+        <span class="label">spotlights</span>
       </div>
     </div>
   </section>
@@ -72,8 +76,8 @@ function relativeDate(iso: string) {
   )}
 
   <section>
-    <h2 class="section-heading">Featured projects</h2>
-    <p class="section-subheading">The tools getting the most attention right now.</p>
+    <h2 class="section-heading">In the spotlight</h2>
+    <p class="section-subheading">Tools selected this week.</p>
     <div class="project-grid">
       {featured.map((project: any) => (
         <div class="project-card">
@@ -128,6 +132,30 @@ function relativeDate(iso: string) {
 </Base>
 
 <style>
+  .subhead {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0.25rem 0 0;
+    max-width: 540px;
+  }
+
+  .trust-footnote {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin: 0.75rem 0 0;
+  }
+
+  .trust-footnote a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+  }
+
+  .trust-footnote a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
   .recent-releases {
     margin: 2rem 0 3rem;
   }

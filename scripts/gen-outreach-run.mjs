@@ -288,7 +288,7 @@ export function buildOutreachRun(queue, promo, opts = {}) {
 function renderMarkdown(run) {
   const lines = [];
 
-  lines.push(`# Outreach Run -- ${run.week}`);
+  lines.push(`# Spotlight Run -- ${run.week}`);
   lines.push("");
   lines.push(`**Type:** ${run.promotionType}  `);
   lines.push(`**Items:** ${run.itemCount} / ${run.maxItems} max`);
@@ -339,6 +339,90 @@ function renderMarkdown(run) {
 }
 
 /**
+ * Write a weekly Spotlight Kit bundle to docs/spotlight/<date>/.
+ *
+ * @param {object} run - Output from buildOutreachRun
+ * @param {string} dateStr - YYYY-MM-DD date string
+ * @param {{ root?: string, overrides?: object, siteBase?: string }} opts
+ */
+export function writeSpotlightKit(run, dateStr, opts = {}) {
+  const root = opts.root || ROOT;
+  const siteBase = opts.siteBase || "https://mcptoolshop.com";
+  const overrides = opts.overrides || {};
+  const kitDir = join(root, "docs", "spotlight", dateStr);
+
+  mkdirSync(kitDir, { recursive: true });
+
+  // ── post-x.md ──────────────────────────────────────────
+  const xLines = [`# X Post — Spotlight Week ${dateStr}`, ""];
+  for (const item of run.items) {
+    const ov = overrides[item.slug] || {};
+    const oneLiner = item.channels?.social?.dm?.text || ov.tagline || item.slug;
+    const install = ov.install || "";
+    xLines.push(oneLiner);
+    if (install) xLines.push("", `\`${install}\``);
+    xLines.push("", `${siteBase}/proof/${item.slug}/`);
+    xLines.push("", "#MCP #AITools #WeeklySpotlight", "");
+  }
+  writeFileSync(join(kitDir, "post-x.md"), xLines.join("\n"), "utf8");
+
+  // ── post-linkedin.md ───────────────────────────────────
+  const liLines = [`# LinkedIn Post — Spotlight Week ${dateStr}`, ""];
+  for (const item of run.items) {
+    const ov = overrides[item.slug] || {};
+    const toolName = ov.tagline ? item.slug : item.slug;
+    liLines.push(`## This Week's Spotlight: ${item.slug}`, "");
+    if (ov.tagline) liLines.push(ov.tagline, "");
+    if (ov.goodFor && ov.goodFor.length > 0) {
+      liLines.push("**Best for:**");
+      for (const g of ov.goodFor.slice(0, 2)) liLines.push(`- ${g}`);
+      liLines.push("");
+    }
+    if (ov.notFor && ov.notFor.length > 0) {
+      liLines.push("**Not for:**");
+      for (const n of ov.notFor.slice(0, 1)) liLines.push(`- ${n}`);
+      liLines.push("");
+    }
+    if (ov.install) liLines.push(`Install: \`${ov.install}\``, "");
+    liLines.push(`Verified: ${siteBase}/proof/${item.slug}/`, "");
+  }
+  liLines.push("---", "MCP Tool Shop | Weekly Spotlight", "");
+  writeFileSync(join(kitDir, "post-linkedin.md"), liLines.join("\n"), "utf8");
+
+  // ── post-hn.md ─────────────────────────────────────────
+  const hnLines = [`# HN Post — Spotlight Week ${dateStr}`, ""];
+  for (const item of run.items) {
+    const hnText = item.channels?.social?.hn?.text || "";
+    hnLines.push(hnText || item.slug);
+    hnLines.push("", `${siteBase}/tools/${item.slug}/`, "");
+  }
+  writeFileSync(join(kitDir, "post-hn.md"), hnLines.join("\n"), "utf8");
+
+  // ── changelog.md ───────────────────────────────────────
+  const clLines = [`# Spotlight Changelog — ${dateStr}`, "", "## Tools", ""];
+  for (const item of run.items) {
+    const ov = overrides[item.slug] || {};
+    clLines.push(`- **${item.slug}** — ${ov.tagline || "No tagline"}`);
+  }
+  clLines.push("", "## Links", "");
+  clLines.push(`- [This week's spotlight](${siteBase}/now/)`);
+  clLines.push(`- [Full catalog](${siteBase}/tools/)`);
+  clLines.push("");
+  writeFileSync(join(kitDir, "changelog.md"), clLines.join("\n"), "utf8");
+
+  // ── proof.md ───────────────────────────────────────────
+  const prLines = [`# Verification — ${dateStr}`, ""];
+  prLines.push(`- Trust receipt: ${siteBase}/trust.json`);
+  prLines.push(`- Spotlight page: ${siteBase}/promo/${dateStr}/`);
+  prLines.push(`- Receipts index: ${siteBase}/receipts/`);
+  prLines.push(`- How to verify: ${siteBase}/trust/#verify`);
+  prLines.push("");
+  writeFileSync(join(kitDir, "proof.md"), prLines.join("\n"), "utf8");
+
+  console.log(`  Wrote spotlight kit to ${kitDir}`);
+}
+
+/**
  * Full pipeline: load data, build run, write output files.
  *
  * @param {{ dataDir?: string, outDir?: string, dryRun?: boolean, siteBase?: string, maxItems?: number }} opts
@@ -382,6 +466,7 @@ export function generateOutreachRun(opts = {}) {
     console.log(`  [dry-run] Would create directory: ${dateDir}`);
     console.log(`  [dry-run] Would write: ${join(dateDir, "outreach-run.json")}`);
     console.log(`  [dry-run] Would write: ${join(dateDir, "outreach-run.md")}`);
+    console.log(`  [dry-run] Would write spotlight kit to docs/spotlight/${dateStr}`);
   } else {
     mkdirSync(dateDir, { recursive: true });
 
@@ -411,6 +496,17 @@ export function generateOutreachRun(opts = {}) {
       console.log(`  Wrote ${join(dateDir, "promo-week-receipt.json")}`);
     } catch (err) {
       console.warn(`  [warn] Receipt generation failed: ${err.message}`);
+    }
+
+    // Generate Spotlight Kit
+    try {
+      writeSpotlightKit(result, dateStr, {
+        root: ROOT,
+        overrides: safeParseJson(join(dataDir, "overrides.json"), {}),
+        siteBase: opts.siteBase,
+      });
+    } catch (err) {
+      console.warn(`  [warn] Spotlight kit generation failed: ${err.message}`);
     }
   }
 

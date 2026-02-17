@@ -6,8 +6,8 @@ import { kit } from '../../lib/kit';
 import fs from "node:fs";
 import path from "node:path";
 
-const title = `Promotion Receipts - ${kit.site.title || 'mcp-tool-shop'}`;
-const description = "Browse promotion receipts with hashed inputs and verification data for every promotion week.";
+const title = `Spotlight Receipts - ${kit.site.title || 'mcp-tool-shop'}`;
+const description = "Browse spotlight receipts with hashed inputs and verification data for every spotlight week.";
 
 interface WeekEntry {
   week: string;
@@ -72,14 +72,14 @@ weeks.sort((a, b) => b.week.localeCompare(a.week));
   currentPath="/receipts/"
 >
   <div class="receipts-page">
-    <h1>Promotion Receipts</h1>
+    <h1>Spotlight Receipts</h1>
     <p class="subtitle">
-      Every promotion week generates a receipt with hashed inputs and verification data.
+      Every spotlight week generates a receipt with hashed inputs and verification data.
     </p>
 
     {weeks.length === 0 ? (
       <div class="empty-state">
-        <p>No promotion receipts yet.</p>
+        <p>No spotlight receipts yet.</p>
         <p>Check back after the next scheduled run.</p>
       </div>
     ) : (
@@ -95,7 +95,7 @@ weeks.sort((a, b) => b.week.localeCompare(a.week));
               {w.hasInputHashes && <ProofBadge type="hashed" />}
             </div>
             <div class="week-links">
-              <a href={`/promo/${w.week}/`}>View promo week</a>
+              <a href={`/promo/${w.week}/`}>View spotlight week</a>
               {w.hasReceipt && (
                 <ReceiptLink href={`/outreach-run/${w.week}/promo-week-receipt.json`} />
               )}

@@ -5,8 +5,8 @@ import { kit } from '../../lib/kit';
 import fs from "node:fs";
 import path from "node:path";
 
-const title = `Get Featured - ${kit.site.title || 'mcp-tool-shop'}`;
-const description = `Submit your tool for promotion or experimentation on the ${kit.site.title || 'mcp-tool-shop'} catalog.`;
+const title = `Submit for Spotlight - ${kit.site.title || 'mcp-tool-shop'}`;
+const description = `Submit your tool for a spotlight feature or experimentation on the ${kit.site.title || 'mcp-tool-shop'} catalog.`;
 
 // Load worthy rubric
 let worthyCriteria: string[] = [];
@@ -40,9 +40,9 @@ const exampleJson = JSON.stringify({
   currentPath="/submit/"
 >
   <div class="submit-page">
-    <h1>Get Featured</h1>
+    <h1>Submit for Spotlight</h1>
     <p class="subtitle">
-      Submit your tool for promotion on the {kit.site.title || 'mcp-tool-shop'} catalog.
+      Submit your tool for a spotlight feature on the {kit.site.title || 'mcp-tool-shop'} catalog.
       Structured intake, CI validation, human review.
     </p>
 
@@ -96,7 +96,7 @@ const exampleJson = JSON.stringify({
             <code>submissions/&lt;your-slug&gt;.json</code> using the schema below.
           </li>
           <li>
-            <strong>Open a PR</strong> using the "Submit for Promotion" or "Submit for Experiment"
+            <strong>Open a PR</strong> using the "Submit for Spotlight" or "Submit for Experiment"
             template. GitHub will prompt you to choose.
           </li>
           <li>
@@ -139,9 +139,9 @@ const exampleJson = JSON.stringify({
       <h2>Two lanes</h2>
       <div class="lanes-grid">
         <div class="lane-card">
-          <h3>Promotion</h3>
+          <h3>Spotlight</h3>
           <p>
-            Your tool enters the promotion queue. If it passes the{" "}
+            Your tool enters the spotlight queue. If it passes the{" "}
             <GlossaryTerm term="worthiness rubric" definition="A checklist that scores tools on documentation, tests, releases, and other quality signals." />,
             the pipeline generates a proof page, press kit, and snippets.
             A human reviews and publishes.
