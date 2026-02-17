@@ -25,6 +25,12 @@ function relativeDate(iso: string) {
   const months = Math.floor(days / 30);
   return months === 1 ? '1mo ago' : `${months}mo ago`;
 }
+
+const newestRelease = recentReleases[0];
+const daysSinceRelease = newestRelease 
+  ? Math.floor((Date.now() - new Date(newestRelease.publishedAt).getTime()) / 86400000)
+  : 999;
+const releaseHeading = daysSinceRelease > 14 ? 'Recent releases' : 'Recently shipped';
 ---
 
 <Base title="mcp-tool-shop" currentPath="/">
@@ -88,7 +94,7 @@ function relativeDate(iso: string) {
   {recentReleases.length > 0 && (
     <section class="recent-releases">
       <div class="recent-header">
-        <h2 class="section-heading">Recently shipped</h2>
+        <h2 class="section-heading">{releaseHeading}</h2>
         <a href="/releases/" class="see-all">All releases</a>
       </div>
       <div class="release-strip">
