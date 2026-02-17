@@ -1,0 +1,95 @@
+---
+import Layout from '../../layouts/Base.astro';
+
+const tools = [
+  {
+    category: "Quality & Compliance",
+    items: [
+      { name: "Audit Scoreboard", path: "/lab/audit", desc: "Tool metadata accuracy and validation status", icon: "🛡️" },
+      { name: "README Health", path: "/lab/health", desc: "Content quality analysis for tool documentation", icon: "❤️" },
+      { name: "Safety Clearance", path: "/lab/clearance", desc: "Security and safety compliance checks", icon: "🔒" }
+    ]
+  },
+  {
+    category: "Pipeline Monitoring",
+    items: [
+      { name: "Baseline", path: "/lab/baseline", desc: "Performance benchmarks and regression testing", icon: "📊" },
+      { name: "Drift Detection", path: "/lab/drift", desc: "Configuration and infrastructure drift analysis", icon: "🌬️" },
+      { name: "Ops History", path: "/lab/ops", desc: "Pipeline execution logs and success rates", icon: "⚙️" },
+      { name: "Telemetry", path: "/lab/telemetry-export", desc: "Raw data retention and export", icon: "📡" }
+    ]
+  },
+  {
+    category: "Governance & Promotion",
+    items: [
+      { name: "Control Surface", path: "/lab/control", desc: "Operator actions for governance and promotion", icon: "🎛️" },
+      { name: "Promotion Track", path: "/lab/promo", desc: "Active promotion campaigns and status", icon: "🚀" },
+      { name: "Worthy Candidates", path: "/lab/worthy", desc: "Tools flagged for potential promotion", icon: "⭐" },
+      { name: "Queue", path: "/lab/queue", desc: "Pending review and processing queue", icon: "📥" }
+    ]
+  },
+  {
+    category: "Market Intelligence",
+    items: [
+      { name: "Market IR", path: "/lab/marketir", desc: "Investor relations and market analysis", icon: "📈" },
+      { name: "Growth Metrics", path: "/lab/metrics", desc: "User adoption and catalog growth stats", icon: "📉" },
+      { name: "Signals", path: "/lab/signals", desc: "Early warning indicators and trends", icon: "📶" },
+      { name: "Targets", path: "/lab/targets", desc: "Strategic acquisition and integration targets", icon: "🎯" }
+    ]
+  }
+];
+---
+
+<Layout title="The Lab" description="Experimental tools, dashboards, and internal utilities for managing the MCP Tool Shop.">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="text-center mb-16">
+      <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
+        <span class="block">The Lab</span>
+        <span class="block text-indigo-400 text-2xl mt-2 font-medium">Experimental Tools & Dashboards</span>
+      </h1>
+      <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-400">
+        Internal utilities for auditing, monitoring, and growing the ecosystem.
+      </p>
+    </div>
+
+    <div class="space-y-16">
+      {tools.map((section) => (
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-6 border-b border-gray-800 pb-2">
+            {section.category}
+          </h2>
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {section.items.map((tool) => (
+              <a 
+                href={tool.path}
+                class="group relative bg-gray-900 rounded-xl p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500 hover:bg-gray-800 transition-colors duration-200"
+              >
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0">
+                    <span class="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-gray-800 group-hover:bg-gray-700 text-2xl">
+                      {tool.icon}
+                    </span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <span class="absolute inset-0" aria-hidden="true" />
+                    <p class="text-lg font-medium text-white group-hover:text-indigo-400 transition-colors">
+                      {tool.name}
+                    </p>
+                    <p class="text-sm text-gray-400 mt-1">
+                      {tool.desc}
+                    </p>
+                  </div>
+                  <div class="self-center flex-shrink-0 text-gray-500 group-hover:text-indigo-400">
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </div>
+</Layout>
