@@ -16,16 +16,26 @@ fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true });
 // Load data
 const projects = JSON.parse(fs.readFileSync(PROJECTS_PATH, "utf8"));
 
+const EXCLUDED_REPOS = new Set([
+  "winget-pkgs",
+  "homebrew-tap",
+  ".github",
+  "mcp-tool-shop",
+  "mcp-tool-shop-org" // meta org repo
+]);
+
 // Score projects (simple heuristic)
 // In a real implementation, we'd use release recency, stars, screenshot presence etc.
 // For now, filtering for featured or high stars
 const scored = projects
-  .filter(p => !p.archived && !p.unlisted)
+  .filter(p => !p.archived && !p.unlisted && !EXCLUDED_REPOS.has(p.repo))
   .map(p => ({
     ...p,
-    score: (p.stars || 0) + (p.featured ? 50 : 0) + (Math.random() * 10) // slight jitter
+// Use stable jitter based on repo name chars instead of random
+    score: (p.stars || 0) + (p.featured ? 50 : 0) + (p.repo.length % 10) 
   }))
   .sort((a, b) => b.score - a.score);
+
 
 // Deterministic selection based on date
 const dateStr = new Date().toISOString().split('T')[0];
