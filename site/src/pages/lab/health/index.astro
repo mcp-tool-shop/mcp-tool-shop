@@ -4,81 +4,362 @@ import healthData from '../../../data/readme-health.json';
 
 const { results, meta } = healthData;
 
-const failing = results.filter(r => r.score < 50 && r.checkStatus === 'ok');
-const missingInstall = results.filter(r => r.evidence?.hasInstall === false && r.checkStatus === 'ok');
-const missingUsage = results.filter(r => r.evidence?.hasUsage === false && r.checkStatus === 'ok');
-const unreachable = results.filter(r => r.checkStatus === 'unreachable');
-const missingReadme = results.filter(r => r.checkStatus === 'missing_readme');
+// categorization logic
+const stats = {
+  healthy: 0,
+  needsWork: 0,
+  broken: 0,
+  unreachable: 0,
+  coverage: Math.round((meta.checkedCount / results.length) * 100) || 0 // approximate if total unknown
+};
 
-// Sort by score ascending
-const sorted = [...results].sort((a, b) => a.score - b.score);
-const worst10 = sorted.slice(0, 10);
+const rows = results.map(r => {
+  let status = 'unknown';
+  let severity = 'low';
+  let badge = 'OK';
+  let action = 'None';
+  let actionUrl = `https://github.com/mcp-tool-shop-org/${r.repo}/edit/main/README.md`; 
+
+  if (r.checkStatus === 'unreachable') {
+    status = 'unreachable';
+    severity = 'unknown';
+    badge = 'Unreachable';
+    action = 'Check repo visibility';
+    stats.unreachable++;
+  } else if (r.checkStatus === 'missing_readme') {
+    status = 'broken';
+    severity = 'critical';
+    badge = 'Missing README';
+    action = 'Create README.md';
+    actionUrl = `https://github.com/mcp-tool-shop-org/${r.repo}/new/main`;
+    stats.broken++;
+  } else if (r.capReason) {
+    status = 'broken';
+    severity = 'critical';
+    badge = r.capReason === 'missing_install' ? 'No Install' : 'No Usage';
+    action = r.capReason === 'missing_install' ? 'Add install instructions' : 'Add usage example';
+    stats.broken++;
+  } else if (r.score < 80) {
+    status = 'needs-work';
+    severity = 'warning';
+    badge = `Low Score (${r.score})`;
+    action = 'Improve docs coverage';
+    stats.needsWork++;
+  } else {
+    status = 'healthy';
+    severity = 'success';
+    badge = 'Healthy';
+    action = 'Maintain';
+    stats.healthy++;
+  }
+  
+  return { ...r, ui: { status, severity, badge, action, actionUrl } };
+}).sort((a, b) => {
+    // Custom sort: Broken -> Needs Work -> Healthy -> Unreachable
+    const order = { broken: 0, 'needs-work': 1, healthy: 2, unreachable: 3 };
+    return order[a.ui.status] - order[b.ui.status] || a.score - b.score;
+});
+
+const lastRun = new Date(meta.generatedAt).toLocaleString('en-US', { 
+  month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' 
+});
 ---
 
 <Layout title="Health Dashboard">
-  <main class="container">
-    <h1>Repo Health Lab</h1>
-    <p class="meta">
-      Generated: {new Date(meta.generatedAt).toLocaleString()} • 
-      Version: {meta.version} • 
-      checked: {meta.checkedCount}
-    </p>
+  <main class="dashboard">
+    <header class="dashboard-header">
+      <div class="title-block">
+        <h1>Repo Health Lab</h1>
+        <p class="meta">
+          Run {meta.runId.slice(0, 8)} • {lastRun} • v{meta.version}
+        </p>
+      </div>
+      <div class="stats-strip">
+        <div class="stat-pill success">
+          <span class="label">Healthy</span>
+          <span class="value">{stats.healthy}</span>
+        </div>
+        <div class="stat-pill warning">
+          <span class="label">Needs Work</span>
+          <span class="value">{stats.needsWork}</span>
+        </div>
+        <div class="stat-pill critical">
+          <span class="label">Broken</span>
+          <span class="value">{stats.broken}</span>
+        </div>
+         <div class="stat-pill neutral">
+          <span class="label">Total</span>
+          <span class="value">{results.length}</span>
+        </div>
+      </div>
+    </header>
 
-    <div class="grid">
-      <section class="card">
-        <h2>⚠️ Worst 10 Scores</h2>
-        <ul>
-          {worst10.map(r => (
-            <li>
-              <strong>{r.repo}</strong> (Score: {r.score})
-              <br/>
-              <small>{r.missing?.join(', ') || r.checkStatus}</small>
-            </li>
-          ))}
-        </ul>
-      </section>
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search repos..." class="search-input">
+      <div class="filter-chips">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip critical" data-filter="broken">Broken</button>
+        <button class="chip warning" data-filter="needs-work">Needs Work</button>
+        <button class="chip success" data-filter="healthy">Healthy</button>
+        <button class="chip neutral" data-filter="unreachable">Unreachable</button>
+      </div>
+    </div>
+
+    <div class="fix-queue">
+      <div class="queue-header">
+        <span>Repository</span>
+        <span>Issue</span>
+        <span>Next Step</span>
+        <span>Stats</span> <!-- new column for granular checks -->
+        <span class="actions-head">Action</span>
+      </div>
       
-      <section class="card">
-        <h2>🔌 Unreachable ({unreachable.length})</h2>
-        <p>Network or 5xx errors. Score preserved from last run.</p>
-        <ul>
-           {unreachable.map(r => <li>{r.repo}</li>)}
-        </ul>
-      </section>
+      <div class="queue-body" id="repo-list">
+        {rows.map(row => (
+          <div class={`queue-row ${row.ui.status}`} data-status={row.ui.status} data-repo={row.repo}>
+            <div class="col-repo">
+              <a href={`https://github.com/mcp-tool-shop-org/${row.repo}`} target="_blank" class="repo-link">
+                {row.repo}
+              </a>
+              <span class="score-mini">Score: {row.score}</span>
+            </div>
+            
+            <div class="col-issue">
+              <span class={`badge ${row.ui.severity}`}>{row.ui.badge}</span>
+              {row.missing?.length > 0 && row.ui.status === 'needs-work' && (
+                 <span class="missing-list">{row.missing[0]} + {row.missing.length - 1} more</span>
+              )}
+            </div>
 
-      <section class="card">
-        <h2>📄 Missing Install ({missingInstall.length})</h2>
-        <p>No build/install/setup instructions found.</p>
-        <ul>
-           {missingInstall.map(r => <li>{r.repo}</li>)}
-        </ul>
-      </section>
+            <div class="col-step">
+              <span class="step-text">{row.ui.action}</span>
+            </div>
 
-      <section class="card">
-        <h2>🛠️ Missing Usage ({missingUsage.length})</h2>
-        <p>No usage examples found.</p>
-        <ul>
-           {missingUsage.map(r => <li>{r.repo}</li>)}
-        </ul>
-      </section>
-
-       <section class="card">
-        <h2>❌ Missing README ({missingReadme.length})</h2>
-        <ul>
-           {missingReadme.map(r => <li>{r.repo}</li>)}
-        </ul>
-      </section>
+            <div class="col-stats">
+                 <div class="micro-checks">
+                    <span title="Install" class={row.evidence?.hasInstall ? 'chk yes' : 'chk no'}>I</span>
+                    <span title="Usage" class={row.evidence?.hasUsage ? 'chk yes' : 'chk no'}>U</span>
+                    <span title="Docs" class={row.evidence?.hasDocsLink ? 'chk yes' : 'chk no'}>D</span>
+                    <span title="License" class={row.evidence?.hasLicense ? 'chk yes' : 'chk no'}>L</span>
+                 </div>
+            </div>
+            
+            <div class="col-action">
+              <a href={row.ui.actionUrl} target="_blank" class="btn-action">
+                Fix
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+       <div id="empty-state" class="empty-state hidden">
+        <p>No repos match your filters.</p>
+      </div>
     </div>
   </main>
 </Layout>
 
+<script>
+  const searchInput = document.getElementById('search') as HTMLInputElement;
+  const list = document.getElementById('repo-list');
+  const rows = list?.querySelectorAll('.queue-row');
+  const filters = document.querySelectorAll('.chip');
+  const emptyState = document.getElementById('empty-state');
+
+  let currentFilter = 'all';
+  let currentQuery = '';
+
+  function render() {
+    let visiblesv = 0;
+    rows?.forEach((row: any) => {
+      const status = row.dataset.status;
+      const text = row.dataset.repo.toLowerCase();
+      
+      const matchesFilter = currentFilter === 'all' || status === currentFilter;
+      const matchesSearch = text.includes(currentQuery);
+
+      if (matchesFilter && matchesSearch) {
+        row.style.display = 'grid';
+        visiblesv++;
+      } else {
+        row.style.display = 'none';
+      }
+    });
+    
+    if (visiblesv === 0) emptyState?.classList.remove('hidden');
+    else emptyState?.classList.add('hidden');
+  }
+
+  filters.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      filters.forEach(b => b.classList.remove('active'));
+      (e.target as HTMLElement).classList.add('active');
+      currentFilter = (e.target as HTMLElement).dataset.filter || 'all';
+      render();
+    });
+  });
+
+  searchInput?.addEventListener('input', (e) => {
+    currentQuery = (e.target as HTMLInputElement).value.toLowerCase();
+    render();
+  });
+</script>
+
 <style>
-  .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-  .meta { color: #666; font-size: 0.9rem; margin-bottom: 2rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-  .card { background: #fff; padding: 1.5rem; border: 1px solid #eee; border-radius: 8px; }
-  h2 { font-size: 1.2rem; border-bottom: 2px solid #f0f0f0; padding-bottom: 0.5rem; margin-top: 0; }
-  ul { padding-left: 1.2rem; }
-  li { margin-bottom: 0.5rem; }
-  small { color: #d00; }
+  :root {
+    --c-success: #10b981;
+    --c-warning: #f59e0b;
+    --c-critical: #ef4444;
+    --c-neutral: #64748b;
+    --c-bg: #f8fafc;
+    --c-card: #ffffff;
+    --c-text: #0f172a;
+    --c-text-muted: #64748b;
+    --c-border: #e2e8f0;
+  }
+
+  .dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: var(--c-text);
+  }
+
+  /* Header & Stats */
+  .dashboard-header {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  h1 { font-size: 1.8rem; font-weight: 700; margin: 0 0 0.5rem 0; letter-spacing: -0.02em; }
+  .meta { color: var(--c-text-muted); font-size: 0.9rem; margin: 0; }
+
+  .stats-strip { display: flex; gap: 1rem; }
+  .stat-pill {
+    display: flex; flex-direction: column; 
+    background: var(--c-card); border: 1px solid var(--c-border);
+    padding: 0.5rem 1rem; border-radius: 8px; min-width: 100px;
+  }
+  .stat-pill .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; color: var(--c-text-muted); }
+  .stat-pill .value { font-size: 1.5rem; font-weight: 700; line-height: 1.2; }
+  
+  .stat-pill.success .value { color: var(--c-success); }
+  .stat-pill.warning .value { color: var(--c-warning); }
+  .stat-pill.critical .value { color: var(--c-critical); }
+
+  /* Controls */
+  .controls { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .search-input {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--c-border);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    min-width: 250px;
+  }
+  
+  .filter-chips { display: flex; gap: 0.5rem; }
+  .chip {
+    background: transparent; border: 1px solid var(--c-border);
+    padding: 0.4rem 0.8rem; border-radius: 20px;
+    font-size: 0.85rem; font-weight: 500; cursor: pointer;
+    color: var(--c-text-muted); transition: all 0.2s;
+  }
+  .chip:hover { background: var(--c-bg); }
+  .chip.active { background: var(--c-text); color: white; border-color: var(--c-text); }
+  
+  /* Status specific active states if we wanted colorful filters */
+  .chip.active[data-filter="broken"] { background: var(--c-critical); border-color: var(--c-critical); }
+  .chip.active[data-filter="needs-work"] { background: var(--c-warning); border-color: var(--c-warning); }
+  .chip.active[data-filter="healthy"] { background: var(--c-success); border-color: var(--c-success); }
+
+  /* Fix Queue */
+  .fix-queue {
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .queue-header {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 2fr 1fr 100px;
+    padding: 0.75rem 1.5rem;
+    background: var(--c-bg);
+    border-bottom: 1px solid var(--c-border);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--c-text-muted);
+    text-transform: uppercase;
+  }
+
+  .queue-row {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 2fr 1fr 100px;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--c-border);
+    align-items: center;
+    transition: background 0.1s;
+    gap: 1rem;
+  }
+  .queue-row:last-child { border-bottom: none; }
+  .queue-row:hover { background: #fdfdfd; }
+
+  /* Columns */
+  .col-repo { display: flex; flex-direction: column; }
+  .repo-link { font-weight: 600; color: var(--c-text); text-decoration: none; font-size: 1rem; }
+  .repo-link:hover { text-decoration: underline; color: #3b82f6; }
+  .score-mini { font-size: 0.75rem; color: var(--c-text-muted); margin-top: 2px; }
+
+  .col-issue { display: flex; flex-direction: column; gap: 4px; }
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 0.75rem; font-weight: 700; width: fit-content;
+  }
+  .badge.critical { background: #fef2f2; color: var(--c-critical); border: 1px solid #fca5a5; }
+  .badge.warning { background: #fffbeb; color: var(--c-warning); border: 1px solid #fcd34d; }
+  .badge.success { background: #ecfdf5; color: var(--c-success); border: 1px solid #6ee7b7; border-color: transparent; background: transparent; padding-left: 0; }
+  .badge.unknown { background: #f1f5f9; color: var(--c-neutral); }
+  
+  .missing-list { font-size: 0.75rem; color: var(--c-text-muted); }
+
+  .step-text { font-size: 0.9rem; color: #475569; }
+
+  .btn-action {
+    display: inline-block; padding: 0.4rem 0.8rem;
+    background: white; border: 1px solid var(--c-border);
+    border-radius: 4px; color: var(--c-text);
+    text-decoration: none; font-size: 0.85rem; font-weight: 500;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .btn-action:hover { border-color: #cbd5e1; background: #f8fafc; }
+
+  /* Micro checks */
+  .micro-checks { display: flex; gap: 4px; }
+  .chk { 
+      font-size: 0.7rem; width: 16px; height: 16px; 
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 3px; font-weight: bold; cursor: help;
+  }
+  .chk.yes { background: #ecfdf5; color: var(--c-success); }
+  .chk.no { background: #fef2f2; color: #cbd5e1; } /* Muted failure unless critical context */
+  .critical .chk.no { color: var(--c-critical); }
+  
+  .empty-state { padding: 3rem; text-align: center; color: var(--c-text-muted); }
+  .hidden { display: none; }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .queue-header { display: none; }
+    .queue-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem; }
+    .col-action { margin-top: 1rem; }
+    .controls { flex-direction: column; }
+    .search-input { width: 100%; }
+  }
 </style>
