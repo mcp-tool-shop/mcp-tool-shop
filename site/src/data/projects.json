@@ -271,7 +271,7 @@
     "deprecated": false,
     "kind": "desktop-app",
     "stability": "experimental",
-    "install": "git clone https://github.com/mcp-tool-shop/LeaseGate-Lite",
+    "install": "dotnet run --project src/LeaseGateLite.App -f net10.0-windows10.0.19041.0",
     "tagline": "One-tab MAUI control surface for throttling AI workloads.",
     "screenshot": "/screenshots/LeaseGate-Lite.png",
     "screenshotType": "placeholder"
@@ -299,7 +299,7 @@
     "deprecated": false,
     "kind": "desktop-app",
     "stability": "experimental",
-    "install": "git clone https://github.com/mcp-tool-shop/ScalarScope-Desktop",
+    "install": "dotnet run (prototype - see tool page)",
     "tagline": "Real-time visualization of ASPIRE training dynamics.",
     "screenshot": "/screenshots/ScalarScope-Desktop.png",
     "screenshotType": "placeholder"
@@ -399,7 +399,7 @@
     "deprecated": false,
     "kind": "desktop-app",
     "stability": "experimental",
-    "install": "git clone https://github.com/mcp-tool-shop/Attestia-Desktop",
+    "install": "dotnet run (prototype - see tool page)",
     "tagline": "Financial intent verification for Windows (WinUI 3).",
     "screenshot": "/screenshots/Attestia-Desktop.png",
     "screenshotType": "placeholder"
