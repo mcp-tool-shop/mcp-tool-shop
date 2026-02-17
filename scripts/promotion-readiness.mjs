@@ -7,10 +7,13 @@
  * Run every Monday (or before any promotion post).
  *
  * Usage: node scripts/promotion-readiness.mjs
- *        node scripts/promotion-readiness.mjs --json   (machine-readable output)
+ *        node scripts/promotion-readiness.mjs --json      (machine-readable output)
+ *        node scripts/promotion-readiness.mjs --receipt    (write readiness receipt)
+ *
+ * Exit codes: 0 = GO, 1 = NO-GO (blocking failures exist)
  */
 
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { execSync } from "node:child_process";
 
@@ -19,6 +22,7 @@ const DATA = join(ROOT, "site", "src", "data");
 const PUBLIC = join(ROOT, "site", "public");
 const PKG_DIR = join(ROOT, "packages", "promo-kit");
 const jsonOutput = process.argv.includes("--json");
+const emitReceipt = process.argv.includes("--receipt");
 
 // ── Helpers ──────────────────────────────────────────────────
 
@@ -29,6 +33,29 @@ function loadJson(filePath) {
     return null;
   }
 }
+
+function getCommit() {
+  try {
+    return execSync("git rev-parse --short HEAD", { cwd: ROOT, encoding: "utf8", timeout: 5000 }).trim();
+  } catch {
+    return null;
+  }
+}
+
+function getWeek() {
+  const now = new Date();
+  const jan1 = new Date(now.getFullYear(), 0, 1);
+  const days = Math.floor((now - jan1) / 86400000);
+  const week = Math.ceil((days + jan1.getDay() + 1) / 7);
+  return `${now.getFullYear()}-W${String(week).padStart(2, "0")}`;
+}
+
+// ── Severity classification ──────────────────────────────────
+//
+// FAIL (blocking): missing trust.json, broken npm package, selftest fails,
+//                  missing governance, missing critical data files
+// WARN (non-blocking): missing optional pages, cosmetic README items,
+//                      stale timestamps, missing OG images, freeze enabled
 
 let passCount = 0;
 let failCount = 0;
@@ -43,13 +70,13 @@ function pass(section, check) {
 
 function fail(section, check, reason) {
   failCount++;
-  results.push({ section, check, status: "fail", reason });
+  results.push({ section, check, status: "fail", reason, severity: "blocking" });
   if (!jsonOutput) console.log(`  ✗ ${check} — ${reason}`);
 }
 
 function warn(section, check, reason) {
   warnCount++;
-  results.push({ section, check, status: "warn", reason });
+  results.push({ section, check, status: "warn", reason, severity: "non-blocking" });
   if (!jsonOutput) console.log(`  ⚠ ${check} — ${reason}`);
 }
 
@@ -129,7 +156,7 @@ if (governance) {
     fail("B", "governance schemaVersion", "missing or < 1");
   }
 
-  // Freeze check
+  // Freeze check — warn (non-blocking), not fail
   if (governance.decisionsFrozen === false) {
     pass("B", "decisionsFrozen: false (not frozen)");
   } else if (governance.decisionsFrozen === true) {
@@ -304,27 +331,63 @@ if (existsSync(join(ROOT, "site", "public", "screenshots"))) {
   warn("E", "screenshots directory", "site/public/screenshots/ not found");
 }
 
-// ── Summary ──────────────────────────────────────────────────
+// ── Summary + Receipt ────────────────────────────────────────
+
+const verdict = failCount === 0 ? "GO" : "NO-GO";
+const commit = getCommit();
+const week = getWeek();
+const blocking = results.filter((r) => r.status === "fail");
+const warnings = results.filter((r) => r.status === "warn");
+
+const receipt = {
+  generatedAt: new Date().toISOString(),
+  week,
+  commit,
+  verdict,
+  pass: passCount,
+  fail: failCount,
+  warn: warnCount,
+  blocking: blocking.map((r) => ({ section: r.section, check: r.check, reason: r.reason })),
+  warnings: warnings.map((r) => ({ section: r.section, check: r.check, reason: r.reason })),
+  packageVersion: pkgJson?.version || null,
+};
 
 if (!jsonOutput) {
   console.log("\n========================================");
-  console.log(`Results: ${passCount} passed, ${failCount} failed, ${warnCount} warnings`);
+  console.log(`Results: ${passCount} passed, ${failCount} failed (blocking), ${warnCount} warnings (non-blocking)`);
   console.log("========================================\n");
 
-  if (failCount === 0) {
+  if (verdict === "GO") {
     console.log("✓ GO — ready to promote this week.\n");
   } else {
-    console.log(`✗ NO-GO — ${failCount} check(s) failed. Fix before promoting.\n`);
+    console.log(`✗ NO-GO — ${failCount} blocking check(s) failed. Fix before promoting.\n`);
+    for (const b of blocking) {
+      console.log(`  → [${b.section}] ${b.check}: ${b.reason}`);
+    }
+    console.log();
+  }
+
+  if (warnings.length > 0) {
+    console.log(`Non-blocking warnings (${warnings.length}):`);
+    for (const w of warnings) {
+      console.log(`  ⚠ [${w.section}] ${w.check}: ${w.reason}`);
+    }
+    console.log();
   }
 } else {
-  console.log(JSON.stringify({
-    timestamp: new Date().toISOString(),
-    pass: passCount,
-    fail: failCount,
-    warn: warnCount,
-    verdict: failCount === 0 ? "GO" : "NO-GO",
-    results,
-  }, null, 2));
+  console.log(JSON.stringify(receipt, null, 2));
+}
+
+// ── Emit readiness receipt ───────────────────────────────────
+
+if (emitReceipt) {
+  const receiptDir = join(ROOT, "artifacts", "readiness");
+  mkdirSync(receiptDir, { recursive: true });
+  const receiptPath = join(receiptDir, `${week}.json`);
+  writeFileSync(receiptPath, JSON.stringify(receipt, null, 2) + "\n");
+  if (!jsonOutput) {
+    console.log(`📋 Readiness receipt written → ${receiptPath}`);
+  }
 }
 
 process.exit(failCount > 0 ? 1 : 0);

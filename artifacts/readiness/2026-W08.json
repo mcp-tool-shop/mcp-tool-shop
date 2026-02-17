@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-02-17T00:18:37.878Z",
+  "week": "2026-W08",
+  "commit": "079ec02",
+  "verdict": "GO",
+  "pass": 30,
+  "fail": 0,
+  "warn": 1,
+  "blocking": [],
+  "warnings": [
+    {
+      "section": "A",
+      "check": "receipts page source",
+      "reason": "site/src/pages/receipts.astro not found"
+    }
+  ],
+  "packageVersion": "0.1.3"
+}
