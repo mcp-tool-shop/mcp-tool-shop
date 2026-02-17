@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/mcp-tool-shop/mcp-tool-shop/main/logo.png" width="420" alt="mcp-tool-shop logo" />
+  <img src="https://raw.githubusercontent.com/mcp-tool-shop/mcp-tool-shop/main/packages/promo-kit/logo.png" width="420" alt="promo-kit logo" />
 </p>
 
 <h1 align="center">@mcptoolshop/promo-kit</h1>
