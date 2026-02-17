@@ -29,8 +29,7 @@
       "Runtime code analysis or profiling",
       "Replacing manual security review for production systems"
     ],
-    "screenshot": "/screenshots/brain-dev.png",
-    "screenshotType": "placeholder"
+    "screenshot": "/screenshots/brain-dev.png"
   },
   {
     "name": "Comfy Headless",
@@ -175,7 +174,7 @@
     "featured": true,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T10:41:29Z",
+    "updatedAt": "2026-02-15T12:00:22Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -195,7 +194,8 @@
       "Runtime vulnerability scanning (heuristics, not CVEs)"
     ],
     "screenshot": "/screenshots/zip-meta-map.png",
-    "screenshotType": "real"
+    "screenshotType": "real",
+    "publicProof": true
   },
   {
     "name": "Attestia",
@@ -264,7 +264,7 @@
     "featured": false,
     "stars": 1,
     "language": "C#",
-    "updatedAt": "2026-02-13T02:34:03Z",
+    "updatedAt": "2026-02-16T09:03:54Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -288,7 +288,7 @@
     "featured": false,
     "stars": 1,
     "language": "C#",
-    "updatedAt": "2026-02-15T02:41:14Z",
+    "updatedAt": "2026-02-17T10:35:09Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -308,7 +308,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T03:09:43Z",
+    "updatedAt": "2026-02-17T08:42:58Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -374,7 +374,7 @@
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-14T11:20:29Z",
+    "updatedAt": "2026-02-17T10:35:04Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -412,7 +412,7 @@
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-12T08:51:08Z",
+    "updatedAt": "2026-02-17T10:34:36Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -450,6 +450,19 @@
     "updatedAt": "2026-02-02T02:04:48Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false
+  },
+  {
+    "name": "Clearance Opinion Engine",
+    "repo": "clearance-opinion-engine",
+    "description": "Deterministic name-availability and clearance-opinion engine",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-02-16T08:22:19Z",
+    "registered": false,
+    "unlisted": true,
     "deprecated": false
   },
   {
@@ -495,11 +508,18 @@
     "name": "CodeClone Desktop",
     "repo": "CodeClone-Desktop",
     "description": "MAUI desktop viewer for CodeClone coverage analysis",
-    "tags": [],
+    "tags": [
+      "analysis",
+      "code-coverage",
+      "desktop-app",
+      "dotnet",
+      "maui",
+      "viewer"
+    ],
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-12T04:33:34Z",
+    "updatedAt": "2026-02-17T10:34:45Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -592,7 +612,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-02-14T11:20:53Z",
+    "updatedAt": "2026-02-17T08:43:02Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -665,7 +685,7 @@
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-12T03:51:30Z",
+    "updatedAt": "2026-02-17T10:34:38Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -791,7 +811,7 @@
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-15T02:41:13Z",
+    "updatedAt": "2026-02-17T10:35:01Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -870,7 +890,7 @@
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-14T06:54:49Z",
+    "updatedAt": "2026-02-17T10:35:06Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -918,7 +938,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-02-12T04:46:49Z",
+    "updatedAt": "2026-02-17T10:34:33Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -958,7 +978,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-02-15T02:41:39Z",
+    "updatedAt": "2026-02-17T08:36:51Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -981,7 +1001,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T02:55:09Z",
+    "updatedAt": "2026-02-17T08:40:09Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1005,7 +1025,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-15T08:32:12Z",
+    "updatedAt": "2026-02-17T10:33:04Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -1020,12 +1040,18 @@
   {
     "name": "Meta Content System",
     "repo": "meta-content-system",
-    "description": "",
-    "tags": [],
+    "description": "Shared content system for typing-practice apps — lessons, progression, and adaptive difficulty",
+    "tags": [
+      "content-system",
+      "developer-tools",
+      "dotnet",
+      "lessons",
+      "typing-practice"
+    ],
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-15T01:32:20Z",
+    "updatedAt": "2026-02-17T10:34:48Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -1044,7 +1070,20 @@
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-12T03:51:24Z",
+    "updatedAt": "2026-02-17T10:34:40Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
+    "name": "Nameops",
+    "repo": "nameops",
+    "description": "Name clearance orchestrator — batch runs, publish, and PR automation for the clearance-opinion-engine",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-02-16T08:21:49Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -1124,7 +1163,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-14T08:15:15Z",
+    "updatedAt": "2026-02-17T10:34:54Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false
@@ -1158,7 +1197,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-02-12T04:20:40Z",
+    "updatedAt": "2026-02-17T10:34:59Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false
@@ -1218,7 +1257,7 @@
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-12T04:33:16Z",
+    "updatedAt": "2026-02-17T10:34:42Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false
@@ -1271,7 +1310,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-02-12T04:42:41Z",
+    "updatedAt": "2026-02-17T10:34:26Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -1293,7 +1332,7 @@
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-12T10:06:47Z",
+    "updatedAt": "2026-02-17T08:43:00Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -1329,7 +1368,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-02-14T11:00:27Z",
+    "updatedAt": "2026-02-17T10:34:31Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false
@@ -1354,7 +1393,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-02-15T02:59:18Z",
+    "updatedAt": "2026-02-16T17:10:54Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -1460,7 +1499,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-02-14T11:00:28Z",
+    "updatedAt": "2026-02-17T10:34:57Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false
@@ -1500,7 +1539,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-02-15T02:41:34Z",
+    "updatedAt": "2026-02-17T08:40:03Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -1554,7 +1593,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-02-15T02:41:33Z",
+    "updatedAt": "2026-02-17T08:40:07Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,

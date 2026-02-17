@@ -1,5 +1,212 @@
 [
   {
+    "repo": "soundboard-maui",
+    "toolName": "Soundboard Maui",
+    "tag": "v1.2.0",
+    "name": "Soundboard.Client v1.2.0",
+    "body": [
+      "NuGet icon**: Package now displays the Soundboard icon on nuget.org",
+      "Publishing environment**: Workflow uses NuGet Trusted Publishing with GitHub OIDC",
+      "No API or behavioral changes from v1.1.0"
+    ],
+    "publishedAt": "2026-02-17T07:52:52Z",
+    "url": "https://github.com/mcp-tool-shop-org/soundboard-maui/releases/tag/v1.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "accessibility-suite",
+    "toolName": "Accessibility Suite",
+    "tag": "v0.1.0",
+    "name": "v0.1.0",
+    "body": [
+      "Initial release — accessibility testing monorepo"
+    ],
+    "publishedAt": "2026-02-17T07:38:11Z",
+    "url": "https://github.com/mcp-tool-shop-org/accessibility-suite/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "pathway",
+    "toolName": "Pathway",
+    "tag": "v0.2.2",
+    "name": "v0.2.2",
+    "body": [
+      "Fix: add README to npm tarball"
+    ],
+    "publishedAt": "2026-02-17T07:38:10Z",
+    "url": "https://github.com/mcp-tool-shop-org/pathway/releases/tag/v0.2.2",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-tool-registry",
+    "toolName": "Mcp Tool Registry",
+    "tag": "v1.0.1",
+    "name": "v1.0.1",
+    "body": [
+      "Fix: include logo in npm tarball"
+    ],
+    "publishedAt": "2026-02-17T07:38:09Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-tool-registry/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-voice-soundboard",
+    "toolName": "Mcp Voice Soundboard",
+    "tag": "v0.1.2",
+    "name": "v0.1.2",
+    "body": [
+      "Fix: npm README logo URLs"
+    ],
+    "publishedAt": "2026-02-17T07:38:09Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-voice-soundboard/releases/tag/v0.1.2",
+    "prerelease": false
+  },
+  {
+    "repo": "venvkit",
+    "toolName": "Venvkit",
+    "tag": "v0.2.1",
+    "name": "v0.2.1",
+    "body": [
+      "Scoped package with correct org URLs. Unscoped `venvkit` is now deprecated — use `@mcptoolshop/venvkit` instead."
+    ],
+    "publishedAt": "2026-02-17T07:32:44Z",
+    "url": "https://github.com/mcp-tool-shop-org/venvkit/releases/tag/v0.2.1",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-file-forge",
+    "toolName": "Mcp File Forge",
+    "tag": "v0.1.0",
+    "name": "v0.1.0",
+    "body": [
+      "Initial release — MCP server for file operations and project scaffolding"
+    ],
+    "publishedAt": "2026-02-17T07:14:42Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-file-forge/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "prov-engine-js",
+    "toolName": "Prov Engine Js",
+    "tag": "v0.2.1",
+    "name": "v0.2.1",
+    "body": [
+      "Latest npm release — provenance engine for prov-spec interop"
+    ],
+    "publishedAt": "2026-02-17T07:14:40Z",
+    "url": "https://github.com/mcp-tool-shop-org/prov-engine-js/releases/tag/v0.2.1",
+    "prerelease": false
+  },
+  {
+    "repo": "pathway",
+    "toolName": "Pathway",
+    "tag": "v0.2.1",
+    "name": "v0.2.1",
+    "body": [
+      "Latest npm release — workflow automation tool"
+    ],
+    "publishedAt": "2026-02-17T07:14:38Z",
+    "url": "https://github.com/mcp-tool-shop-org/pathway/releases/tag/v0.2.1",
+    "prerelease": false
+  },
+  {
+    "repo": "websketch-ir",
+    "toolName": "Websketch Ir",
+    "tag": "v0.3.1",
+    "name": "v0.3.1",
+    "body": [
+      "Latest npm release — schema compat helpers and changelog"
+    ],
+    "publishedAt": "2026-02-17T07:14:37Z",
+    "url": "https://github.com/mcp-tool-shop-org/websketch-ir/releases/tag/v0.3.1",
+    "prerelease": false
+  },
+  {
+    "repo": "websketch-cli",
+    "toolName": "Websketch Cli",
+    "tag": "v0.3.0",
+    "name": "v0.3.0",
+    "body": [
+      "Latest npm release — CLI for WebSketch IR"
+    ],
+    "publishedAt": "2026-02-17T07:14:35Z",
+    "url": "https://github.com/mcp-tool-shop-org/websketch-cli/releases/tag/v0.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-tool-registry",
+    "toolName": "Mcp Tool Registry",
+    "tag": "v1.0.0",
+    "name": "v1.0.0",
+    "body": [
+      "Stable release — metadata-only registry for MCP Tool Shop tools"
+    ],
+    "publishedAt": "2026-02-17T07:14:33Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-tool-registry/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "venvkit",
+    "toolName": "Venvkit",
+    "tag": "v0.2.0",
+    "name": "v0.2.0",
+    "body": [
+      "Python virtual environment diagnostic toolkit — @mcptoolshop scope"
+    ],
+    "publishedAt": "2026-02-17T07:14:31Z",
+    "url": "https://github.com/mcp-tool-shop-org/venvkit/releases/tag/v0.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ConsensusOS",
+    "toolName": "ConsensusOS",
+    "tag": "v1.0.0",
+    "name": "v1.0.0",
+    "body": [
+      "Initial release — modular control plane for distributed consensus systems"
+    ],
+    "publishedAt": "2026-02-17T07:14:29Z",
+    "url": "https://github.com/mcp-tool-shop-org/ConsensusOS/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcpt",
+    "toolName": "Mcpt",
+    "tag": "v1.0.3",
+    "name": "v1.0.3",
+    "body": [
+      "Fix PyPI page: absolute logo URL, updated README with mcp-select branding and install instructions."
+    ],
+    "publishedAt": "2026-02-15T12:24:12Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcpt/releases/tag/v1.0.3",
+    "prerelease": false
+  },
+  {
+    "repo": "mcpt",
+    "toolName": "Mcpt",
+    "tag": "v1.0.2",
+    "name": "v1.0.2",
+    "body": [
+      "Rename PyPI package from mcpt-cli to mcp-select (mcpt was taken on PyPI). Fixes version mismatch between pyproject.toml and __init__.py."
+    ],
+    "publishedAt": "2026-02-15T12:22:35Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcpt/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "zip-meta-map",
+    "toolName": "Zip Meta Map",
+    "tag": "v0.2.1",
+    "name": "v0.2.1",
+    "body": [
+      "Patch release — version bump for PyPI publish verification.",
+      "No functional changes from v0.2.0."
+    ],
+    "publishedAt": "2026-02-15T11:56:17Z",
+    "url": "https://github.com/mcp-tool-shop-org/zip-meta-map/releases/tag/v0.2.1",
+    "prerelease": false
+  },
+  {
     "repo": "zip-meta-map",
     "toolName": "Zip Meta Map",
     "tag": "v0.2.0",
@@ -170,33 +377,6 @@
     "prerelease": false
   },
   {
-    "repo": "soundboard-plugin",
-    "toolName": "Soundboard Plugin",
-    "tag": "v1.0.0",
-    "name": "v1.0.0 — Security Hardening & Release Ready",
-    "body": [
-      "The soundboard plugin hits **v1.0.0** — fully hardened, documented, and ready for production use.",
-      "| Tag | Phase | Highlights |",
-      "|-----|-------|------------|",
-      "| v0.1.0 | Core speech pipeline | SSML-lite, smart chunking, multi-chunk synthesis |",
-      "| v0.2.0 | Multi-speaker dialogue | Script parser, auto-casting, stage directions |",
-      "| v0.3.0 | Emotion & ambient | 8 emotions, SFX tags, inner monologue |"
-    ],
-    "publishedAt": "2026-02-13T09:48:45Z",
-    "url": "https://github.com/mcp-tool-shop-org/soundboard-plugin/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "LeaseGate",
-    "toolName": "LeaseGate",
-    "tag": "policy-bundle-8d936a536fd2795ed2703bfb2889d877a5708cdb",
-    "name": "policy-bundle-8d936a536fd2795ed2703bfb2889d877a5708cdb",
-    "body": [],
-    "publishedAt": "2026-02-12T18:10:57Z",
-    "url": "https://github.com/mcp-tool-shop-org/LeaseGate/releases/tag/policy-bundle-8d936a536fd2795ed2703bfb2889d877a5708cdb",
-    "prerelease": false
-  },
-  {
     "repo": "ThrottleAI",
     "toolName": "ThrottleAI",
     "tag": "v0.1.0",
@@ -263,40 +443,6 @@
     "publishedAt": "2026-02-12T16:21:44Z",
     "url": "https://github.com/mcp-tool-shop-org/ThrottleAI/releases/tag/v0.2.0-alpha.0",
     "prerelease": true
-  },
-  {
-    "repo": "LeaseGate-Lite",
-    "toolName": "LeaseGate Lite",
-    "tag": "v0.1.0",
-    "name": "LeaseGate Lite v0.1.0",
-    "body": [
-      "Smooths local AI workload bursts so your PC stays responsive during heavy usage.",
-      "Applies practical throughput controls (concurrency, adaptive throttling, rate limits) with sensible defaults.",
-      "Gives you clear, auditable visibility through live status, event trail, diagnostics export, and in-app audit harness.",
-      "It does **not** upload prompts or call external telemetry services by default.",
-      "It does **not** act as cloud orchestration or multi-host fleet management.",
-      "It does **not** replace your model runtime; it only governs local request pressure and pacing."
-    ],
-    "publishedAt": "2026-02-12T16:12:15Z",
-    "url": "https://github.com/mcp-tool-shop-org/LeaseGate-Lite/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "LeaseGate",
-    "toolName": "LeaseGate",
-    "tag": "v0.1.0",
-    "name": "v0.1.0 — Security Hardening & Reliability",
-    "body": [
-      "LeaseGate v0.1.0 delivers defense-in-depth security hardening and reliability improvements across the full governance stack. All 5 implementation phases are complete, tested, and production-ready.",
-      "Command injection prevention** — Shell metacharacter blocklist and direct process execution (no `cmd.exe /c` indirection) in tool isolation",
-      "Service account token hashing** — SHA-256 hash comparison by default with plaintext backward compatibility",
-      "Payload size limits** — 16 MB cap on named pipe message framing",
-      "Path traversal protection** — All file export endpoints reject `..` traversal and constrain to temp/app data directories",
-      "CSV formula injection prevention** — Report exports escape formula injection characters (`=`, `+`, `-`, `@`)"
-    ],
-    "publishedAt": "2026-02-12T15:15:40Z",
-    "url": "https://github.com/mcp-tool-shop-org/LeaseGate/releases/tag/v0.1.0",
-    "prerelease": false
   },
   {
     "repo": "InControl-Desktop",
@@ -435,37 +581,20 @@
     "prerelease": false
   },
   {
-    "repo": "Registrum",
-    "toolName": "Registrum",
-    "tag": "v0.1.0",
-    "name": "v0.1.0 — Packaging Integrity Release",
+    "repo": "runforge-desktop",
+    "toolName": "Runforge Desktop",
+    "tag": "v0.5.0",
+    "name": "v0.5.0: Theme Support & MultiRun Sweeps",
     "body": [
-      "This release establishes Registrum as **externally consumable with confidence**.",
-      "Unlike feature-driven releases, this update addresses packaging ambiguity—mismatched versions, unclear hash semantics, undocumented tooling assumptions, and incomplete licensing—without altering system semantics or behavior.",
-      "All externally visible version references now derive from `src/version.ts`, ensuring attestations, artifacts, and documentation remain provably consistent.",
-      "Standard MIT license file included, aligning legal metadata with automated compliance requirements.",
-      "`computeSnapshotChecksum32` — Non-cryptographic (djb2) for integrity checking",
-      "`computeSnapshotHashForAttestation` — Cryptographic (SHA-256) for attestation"
+      "Release Date**: 2026-02-02",
+      "Theme**: User Experience & Customization",
+      "v0.5.0 focuses on user experience improvements: theme customization (dark/light/system), enhanced error messaging with actionable guidance, expanded settings, and hyperparameter sweeps via MultiRun.",
+      "Dark mode** (default) - Optimized for extended use",
+      "Light mode** - Clean, bright interface",
+      "System mode** - Follows Windows theme preference"
     ],
-    "publishedAt": "2026-02-05T19:36:19Z",
-    "url": "https://github.com/mcp-tool-shop-org/Registrum/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "codeteam-suite",
-    "toolName": "Codeteam Suite",
-    "tag": "v0.2.0",
-    "name": "v0.2.0 - Package Verification CLI",
-    "body": [
-      "Deterministic package signature verification** as a protocol.",
-      "CLI engine for package verification",
-      "Ed25519 cryptographic signatures",
-      "Strict stdout purity (JSON only in --json mode)",
-      "Contract-first development with frozen schemas",
-      "`codeteam-cli` - Python CLI engine"
-    ],
-    "publishedAt": "2026-02-02T03:38:33Z",
-    "url": "https://github.com/mcp-tool-shop-org/codeteam-suite/releases/tag/v0.2.0",
+    "publishedAt": "2026-02-02T09:52:16Z",
+    "url": "https://github.com/mcp-tool-shop-org/runforge-desktop/releases/tag/v0.5.0",
     "prerelease": false
   },
   {
@@ -483,6 +612,23 @@
     ],
     "publishedAt": "2026-02-02T02:04:40Z",
     "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "prov-engine-js",
+    "toolName": "Prov Engine Js",
+    "tag": "v0.2.0",
+    "name": "prov-engine-js v0.2.0",
+    "body": [
+      "Zero-dependency Node.js provenance engine implementing prov-spec.",
+      "W3C PROV-O compatible provenance tracking",
+      "Zero external dependencies",
+      "TypeScript definitions included",
+      "Immutable provenance records",
+      "Cryptographic hashing support"
+    ],
+    "publishedAt": "2026-02-02T02:04:02Z",
+    "url": "https://github.com/mcp-tool-shop-org/prov-engine-js/releases/tag/v0.2.0",
     "prerelease": false
   },
   {
@@ -571,200 +717,20 @@
     "prerelease": false
   },
   {
-    "repo": "codecomfy-vscode",
-    "toolName": "Codecomfy Vscode",
-    "tag": "v0.4.0",
-    "name": "v0.4.0",
-    "body": [
-      "Adds curated quality presets for image and video generation, automatic GPU-based preset selection with OOM fallback, improved FFmpeg encoding profiles, and new one-click Generate Image / Generate Video commands. Includes contract tests to lock quality and behavior."
-    ],
-    "publishedAt": "2026-02-01T01:35:59Z",
-    "url": "https://github.com/mcp-tool-shop-org/codecomfy-vscode/releases/tag/v0.4.0",
-    "prerelease": false
-  },
-  {
-    "repo": "codecomfy-vscode",
-    "toolName": "Codecomfy Vscode",
-    "tag": "v0.3.0",
-    "name": "v0.3.0 — One-click Image & Video Generation",
-    "body": [
-      "v0.3.0 introduces end-to-end image and video generation from VS Code.",
-      "Generate high-quality images via curated ComfyUI workflows",
-      "Generate high-quality videos via automated frame workflows",
-      "One-command UX with progress and cancellation",
-      "Workspace-scoped outputs with stable indexing",
-      "Seamless viewing in NextGallery"
-    ],
-    "publishedAt": "2026-01-31T23:35:14Z",
-    "url": "https://github.com/mcp-tool-shop-org/codecomfy-vscode/releases/tag/v0.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "codecomfy-vscode",
-    "toolName": "Codecomfy Vscode",
-    "tag": "v0.1.0",
-    "name": "v0.1.0",
-    "body": [],
-    "publishedAt": "2026-01-31T13:09:14Z",
-    "url": "https://github.com/mcp-tool-shop-org/codecomfy-vscode/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "tool-compass",
-    "toolName": "Tool Compass",
-    "tag": "tool-compass-vscode-v0.1.0",
-    "name": "Tool Compass VS Code Extension v0.1.0",
-    "body": [
-      "Release Date: 2025-01-30",
-      "What this is**",
-      "A Visual Studio Code extension for semantic tool search, schema-driven execution, and evidence-grade run capture via MCP (stdio or HTTP).",
-      "Semantic Search** webview with live ranked results",
-      "Tool describe** + JSON Schema display",
-      "Form-based execution** (schema → form) with streaming output"
-    ],
-    "publishedAt": "2026-01-31T02:53:28Z",
-    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/tool-compass-vscode-v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "witness",
-    "toolName": "Witness",
-    "tag": "v0.1.0",
-    "name": "v0.1.0",
-    "body": [
-      "Local-first, append-only event journal",
-      "Offline verification",
-      "Canonical JSON + SHA-256 + Ed25519",
-      "See:",
-      "CONTRACT.md",
-      "IMPLEMENTATION_NOTES.md"
-    ],
-    "publishedAt": "2026-01-30T19:58:11Z",
-    "url": "https://github.com/mcp-tool-shop-org/witness/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "accessibility-suite",
-    "toolName": "Accessibility Suite",
-    "tag": "v0.1.0-monorepo",
-    "name": "v0.1.0 - Monorepo Consolidation",
-    "body": [
-      "This release consolidates all accessibility tooling into a unified monorepo.",
-      "| Project | Description | Tech |",
-      "|---------|-------------|------|",
-      "| `src/a11y-assist/` | Accessibility testing assistant | Python |",
-      "| `src/a11y-ci/` | CI/CD integration | Python |",
-      "| `src/a11y-lint/` | Accessibility linter | Python |"
-    ],
-    "publishedAt": "2026-01-30T11:13:50Z",
-    "url": "https://github.com/mcp-tool-shop-org/accessibility-suite/releases/tag/v0.1.0-monorepo",
-    "prerelease": false
-  },
-  {
-    "repo": "ledger-suite",
-    "toolName": "Ledger Suite",
-    "tag": "v0.1.0",
-    "name": "v0.1.0 - Monorepo Consolidation",
-    "body": [
-      "This release consolidates ClaimLedger and CreatorLedger into a unified monorepo.",
-      "| Project | Tests | Status |",
-      "|---------|-------|--------|",
-      "| ClaimLedger | 371 | Phases 1-12 complete |",
-      "| CreatorLedger | 219 | v1.1.0 feature set |",
-      "| Shared.Crypto | - | Ed25519, SHA-256, Canonical JSON |"
-    ],
-    "publishedAt": "2026-01-30T11:04:28Z",
-    "url": "https://github.com/mcp-tool-shop-org/ledger-suite/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "brain-dev",
-    "toolName": "Brain Dev",
-    "tag": "v0.2.1",
-    "name": "brain-dev v0.2.1",
-    "body": [
-      "MCP server for AI-powered code analysis — test generation, security audits, refactoring suggestions.",
-      "Test generation for uncovered code paths",
-      "Security vulnerability detection",
-      "Refactoring recommendations",
-      "Code explanation tools",
-      "```bash"
-    ],
-    "publishedAt": "2026-01-30T05:34:11Z",
-    "url": "https://github.com/mcp-tool-shop-org/brain-dev/releases/tag/v0.2.1",
-    "prerelease": false
-  },
-  {
-    "repo": "brain-dev",
-    "toolName": "Brain Dev",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
-    "body": [
-      "Brain development toolkit for ML experiments"
-    ],
-    "publishedAt": "2026-01-30T03:23:15Z",
-    "url": "https://github.com/mcp-tool-shop-org/brain-dev/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "control-room",
-    "toolName": "Control Room",
-    "tag": "v0.1.0",
-    "name": "Control Room v0.1.0",
-    "body": [
-      "1. Download `ControlRoom-win-x64.zip`",
-      "2. Extract to a folder",
-      "3. Run `ControlRoom.App.exe`",
-      "See [CHANGELOG.md](https://github.com/mcp-tool-shop/control-room/blob/main/CHANGELOG.md) for details."
-    ],
-    "publishedAt": "2026-01-29T17:40:34Z",
-    "url": "https://github.com/mcp-tool-shop-org/control-room/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "code-covered",
-    "toolName": "Code Covered",
-    "tag": "v0.5.0",
-    "name": "Release 0.5.0",
-    "body": [
-      "Release"
-    ],
-    "publishedAt": "2026-01-28T19:31:06Z",
-    "url": "https://github.com/mcp-tool-shop-org/code-covered/releases/tag/v0.5.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ally-demo-python",
-    "toolName": "Ally Demo Python",
-    "tag": "v0.1.0",
-    "name": "Release 0.1.0",
-    "body": [
-      "Initial release"
-    ],
-    "publishedAt": "2026-01-28T19:30:52Z",
-    "url": "https://github.com/mcp-tool-shop-org/ally-demo-python/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcpt",
-    "toolName": "Mcpt",
-    "tag": "v0.1.0",
-    "name": "Release 0.1.0",
-    "body": [
-      "Initial release"
-    ],
-    "publishedAt": "2026-01-28T19:30:27Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcpt/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "audiobooker",
-    "toolName": "Audiobooker",
+    "repo": "runforge-desktop",
+    "toolName": "Runforge Desktop",
     "tag": "v0.2.0",
-    "name": "Release 0.2.0",
-    "body": [],
-    "publishedAt": "2026-01-28T19:30:03Z",
-    "url": "https://github.com/mcp-tool-shop-org/audiobooker/releases/tag/v0.2.0",
+    "name": "v0.2.0 - V1 Contract + Request Panel",
+    "body": [
+      "Release Date:** 2026-02-01",
+      "v0.2.0 introduces the **V1 Contract** for RunRequest, enabling interoperability between RunForge Desktop and the VS Code extension. This release focuses on displaying, viewing, and exporting run request data.",
+      "Shared Schema**: Both Desktop and VS Code now use the same `request.json` schema (v1)",
+      "Forward Compatibility**: Unknown fields from newer versions are preserved on load/save",
+      "Atomic Writes**: File operations use temp file + rename pattern for crash safety",
+      "The Run Detail page now displays the full run request:"
+    ],
+    "publishedAt": "2026-02-01T22:16:59Z",
+    "url": "https://github.com/mcp-tool-shop-org/runforge-desktop/releases/tag/v0.2.0",
     "prerelease": false
   }
 ]

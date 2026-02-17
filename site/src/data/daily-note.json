@@ -1,0 +1,15 @@
+{
+  "date": "2026-02-17",
+  "title": "Daily Insight",
+  "body": "We are actively refreshing the tool shop. Check back daily for updates.",
+  "links": [
+    {
+      "label": "Browse tools",
+      "href": "/tools/"
+    },
+    {
+      "label": "Trust center",
+      "href": "/trust/"
+    }
+  ]
+}
