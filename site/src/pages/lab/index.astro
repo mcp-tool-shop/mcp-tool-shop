@@ -61,13 +61,31 @@ const LAB_SECTIONS = [
       background: rgba(255,255,255,0.03);
       transition: all 0.2s ease;
       min-height: 140px;
+      position: relative; /* Anchor for absolute arrow */
+      overflow: hidden;   /* Clip the arrow if needed */
     }
     .card:hover { 
       transform: translateY(-2px); 
       background: rgba(255,255,255,0.06); 
       border-color: rgba(255,255,255,0.2); 
     }
-    .row { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.25rem; }
+    /* Arrow style - "Airport Signage" fix */
+    .card-arrow {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      width: 48px;
+      height: 48px;
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: all 0.2s ease;
+      color: white; /* Use white with low opacity for subtle watermark */
+      pointer-events: none;
+    }
+    .card:hover .card-arrow {
+      opacity: 0.18;
+      transform: translateX(0);
+    }
     .title-group { display: flex; align-items: center; gap: 0.75rem; }
     .icon { font-size: 1.5rem; }
     .title { font-weight: 600; color: white; font-size: 1.125rem; }
@@ -103,9 +121,7 @@ const LAB_SECTIONS = [
                 {it.badge ? <span class="badge">{it.badge}</span> : null}
               </div>
               <div class="desc">{it.desc}</div>
-              <div class="mt-auto flex justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-indigo-400">
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-              </div>
+              <svg class="card-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </a>
           ))}
         </div>
