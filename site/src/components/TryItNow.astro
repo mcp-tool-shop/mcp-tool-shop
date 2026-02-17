@@ -1,0 +1,233 @@
+---
+interface Props {
+  project: any;
+  verified: boolean;
+  concept: boolean;
+  proofs: string[];
+}
+
+const { project, verified, concept, proofs = [] } = Astro.props;
+const isCLI = project.kind === 'cli';
+const isMCPServer = project.kind === 'mcp-server';
+const installCmd = project.install;
+const repoUrl = `https://github.com/mcp-tool-shop-org/${project.repo}`;
+
+// Determine context
+const showInstall = verified && (isCLI || isMCPServer) && installCmd;
+const showManual = verified && isMCPServer && !installCmd;
+const showConcept = concept;
+
+---
+
+<div class="try-it-now">
+  {showInstall && (
+    <div class="action-block">
+      <div class="action-header">
+        <h3>⚡ Try it now</h3>
+        <span class="action-hint">Run in terminal</span>
+      </div>
+      <div class="command-box">
+        <code>{installCmd}</code>
+        <button class="copy-btn" data-clipboard-text={installCmd} aria-label="Copy command">
+          <span class="copy-icon">📋</span>
+        </button>
+      </div>
+      {isMCPServer && (
+        <p class="server-note">
+          This starts the MCP server. You may need to pipe this into your client configuration.
+        </p>
+      )}
+    </div>
+  )}
+
+  {showManual && (
+    <div class="action-block">
+      <h3>🔌 Connect Server</h3>
+      <p>This MCP server requires configuration. Check the README for connection details.</p>
+      <a href={`${repoUrl}#readme`} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        View Connection Guide
+      </a>
+    </div>
+  )}
+
+  {showConcept && (
+    <div class="concept-action">
+      <div class="concept-header">
+        <h3>🧪 Concept Prototype</h3>
+        <span class="concept-status">Not packaged yet</span>
+      </div>
+      <p>
+        This tool is in early design. You can explore the source code or contribute to its development.
+      </p>
+      <div class="checklist">
+        <h4>What exists today:</h4>
+        <ul>
+          {proofs.includes('ci') ? <li class="checked">CI Pipeline</li> : <li class="unchecked">CI Pipeline</li>}
+          {proofs.some(p => ['npm', 'python', 'cargo', 'dotnet'].includes(p)) ? <li class="checked">Project Structure</li> : <li class="unchecked">Project Structure</li>}
+          {project.description ? <li class="checked">Design Spec</li> : <li class="unchecked">Design Spec</li>}
+        </ul>
+      </div>
+      <a href={repoUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+        Browse Source Code &rarr;
+      </a>
+    </div>
+  )}
+</div>
+
+<script>
+  // Simple copy script
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const text = btn.getAttribute('data-clipboard-text');
+      if (text) {
+        navigator.clipboard.writeText(text);
+        const original = btn.innerHTML;
+        btn.innerHTML = '<span class="check-icon">✅</span>';
+        setTimeout(() => btn.innerHTML = original, 2000);
+      }
+    });
+  });
+</script>
+
+<style>
+  .try-it-now {
+    margin: 1.5rem 0;
+  }
+
+  .action-block, .concept-action {
+    background: var(--sl-color-gray-6);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+  
+  .action-block {
+    border-left: 4px solid var(--sl-color-accent-high);
+  }
+
+  .concept-action {
+    border-left: 4px solid var(--sl-color-orange-high);
+  }
+
+  .action-header, .concept-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    margin: 0 !important;
+    font-size: 1.1rem;
+    color: var(--sl-color-white);
+  }
+
+  .action-hint, .concept-status {
+    font-size: 0.85rem;
+    color: var(--sl-color-gray-3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .command-box {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: var(--sl-color-black);
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--sl-color-gray-5);
+  }
+
+  code {
+    flex: 1;
+    font-family: monospace;
+    color: var(--sl-color-accent-light);
+    overflow-x: auto;
+    white-space: nowrap;
+    background: transparent;
+    padding: 0;
+  }
+
+  .copy-btn {
+    background: transparent;
+    border: none;
+    color: var(--sl-color-gray-3);
+    cursor: pointer;
+    padding: 0 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .copy-btn:hover {
+    color: var(--sl-color-white);
+  }
+
+  .server-note {
+    font-size: 0.9rem;
+    color: var(--sl-color-gray-3);
+    margin: 0;
+    font-style: italic;
+  }
+
+  .checklist {
+    margin: 1rem 0;
+    background: rgba(0,0,0,0.2);
+    padding: 1rem;
+    border-radius: 6px;
+  }
+
+  .checklist h4 {
+    margin-top: 0;
+    font-size: 0.9rem;
+    color: var(--sl-color-gray-2);
+  }
+
+  .checklist ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .checked::before {
+    content: "✓";
+    color: var(--sl-color-green-400);
+    font-weight: bold;
+  }
+
+  .unchecked::before {
+    content: "○";
+    color: var(--sl-color-gray-4);
+  }
+  
+  .unchecked {
+    color: var(--sl-color-gray-4);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .btn-primary {
+    background: var(--sl-color-accent-high);
+    color: var(--sl-color-black);
+  }
+
+  .btn-secondary {
+    background: var(--sl-color-gray-5);
+    color: var(--sl-color-white);
+    border: 1px solid var(--sl-color-gray-4);
+  }
+</style>
