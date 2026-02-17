@@ -446,12 +446,16 @@
     "updatedAt": "2026-02-17T10:34:36Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "kind": "cli",
+    "stability": "beta",
+    "install": "dotnet run --project src/Gov.Service -c Release",
+    "tagline": "Prevents C++ build systems from freezing your machine due to memory exhaustion."
   },
   {
     "name": "ClaimLedger",
     "repo": "ClaimLedger",
-    "description": "Scientific claim provenance and verification ledger",
+    "description": "Scientific claim provenance and verification ledger (Deprecated - see NextLedger)",
     "tags": [
       "provenance",
       "cryptography",
@@ -462,9 +466,13 @@
     "language": "",
     "updatedAt": "",
     "registered": true,
-    "unlisted": false,
+    "unlisted": true,
     "deprecated": true,
-    "ecosystem": "ledger"
+    "ecosystem": "ledger",
+    "kind": "library",
+    "stability": "deprecated",
+    "install": "N/A",
+    "tagline": "Scientific claim provenance and verification ledger."
   },
   {
     "name": "Claude Collaborate",
@@ -480,21 +488,34 @@
     "language": "HTML",
     "updatedAt": "2026-02-02T02:04:48Z",
     "registered": true,
-    "unlisted": false,
-    "deprecated": false
+    "unlisted": true,
+    "deprecated": true,
+    "kind": "library",
+    "stability": "deprecated",
+    "install": "N/A",
+    "tagline": "Collaboration primitives for Claude workflows."
   },
   {
     "name": "Clearance Opinion Engine",
     "repo": "clearance-opinion-engine",
     "description": "Deterministic name-availability and clearance-opinion engine",
-    "tags": [],
+    "tags": [
+      "naming",
+      "clearance",
+      "npm",
+      "cli"
+    ],
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
     "updatedAt": "2026-02-16T08:22:19Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "kind": "cli",
+    "stability": "beta",
+    "install": "npm install -g @mcptoolshop/clearance-opinion-engine",
+    "tagline": "Deterministic name clearance and availability checker."
   },
   {
     "name": "Code Batch",
@@ -502,12 +523,8 @@
     "description": "Content-addressed batch execution engine — deterministic sharding, queryable outputs, no database required",
     "tags": [
       "batch-execution",
-      "cli",
-      "code-runner",
       "content-addressed",
-      "deterministic",
-      "python",
-      "sharding"
+      "python"
     ],
     "featured": false,
     "stars": 0,
@@ -515,7 +532,11 @@
     "updatedAt": "2026-02-15T02:55:15Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": true,
+    "kind": "cli",
+    "stability": "deprecated",
+    "install": "N/A",
+    "tagline": "Content-addressed batch execution engine."
   },
   {
     "name": "Code Covered",
@@ -533,7 +554,11 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "codeteam"
+    "ecosystem": "codeteam",
+    "kind": "cli",
+    "stability": "experimental",
+    "install": "pip install code-covered",
+    "tagline": "Coverage visualization and reporting tool."
   },
   {
     "name": "CodeClone Desktop",
@@ -553,7 +578,11 @@
     "updatedAt": "2026-02-17T10:34:45Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "kind": "desktop-app",
+    "stability": "experimental",
+    "install": "dotnet run --project src/CodeClone.App",
+    "tagline": "Viewer for CodeClone coverage analysis."
   },
   {
     "name": "CodeClone Suite",
@@ -571,7 +600,11 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "codeteam"
+    "ecosystem": "codeteam",
+    "kind": "tool-suite",
+    "stability": "experimental",
+    "install": "git clone https://github.com/mcp-tool-shop/codeclone-suite",
+    "tagline": "Deterministic code coverage analysis protocol."
   },
   {
     "name": "CodeComfy VS Code",
@@ -589,7 +622,11 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "codeteam"
+    "ecosystem": "codeteam",
+    "kind": "vscode-extension",
+    "stability": "experimental",
+    "install": "git clone https://github.com/mcp-tool-shop/codecomfy-vscode",
+    "tagline": "VS Code extension for code analysis."
   },
   {
     "name": "CodeTeam",
@@ -605,9 +642,13 @@
     "language": "",
     "updatedAt": "",
     "registered": true,
-    "unlisted": false,
+    "unlisted": true,
     "deprecated": true,
-    "ecosystem": "codeteam"
+    "ecosystem": "codeteam",
+    "kind": "cli",
+    "stability": "deprecated",
+    "install": "N/A",
+    "tagline": "Legacy code analysis CLI."
   },
   {
     "name": "CodeTeam Suite",
@@ -625,7 +666,11 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "codeteam"
+    "ecosystem": "codeteam",
+    "kind": "tool-suite",
+    "stability": "experimental",
+    "install": "git clone https://github.com/mcp-tool-shop/codeteam-suite",
+    "tagline": "Code analysis protocol and tools."
   },
   {
     "name": "ConsensusOS",
@@ -686,7 +731,7 @@
   {
     "name": "CreatorLedger",
     "repo": "CreatorLedger",
-    "description": "Creator attestation proofs and authorship verification",
+    "description": "Creator attestation proofs and authorship verification (Deprecated)",
     "tags": [
       "provenance",
       "attestation",
@@ -697,9 +742,13 @@
     "language": "",
     "updatedAt": "",
     "registered": true,
-    "unlisted": false,
+    "unlisted": true,
     "deprecated": true,
-    "ecosystem": "ledger"
+    "ecosystem": "ledger",
+    "kind": "library",
+    "stability": "deprecated",
+    "install": "N/A",
+    "tagline": "Creator attestation proofs."
   },
   {
     "name": "CursorAssist",
@@ -725,19 +774,28 @@
     "name": "DeterministicMouseTrainingEngine",
     "repo": "DeterministicMouseTrainingEngine",
     "description": "Deterministic 60Hz mouse training engine — fixed timestep, alpha interpolation, virtual coordinate space, pluggable game modes",
-    "tags": [],
+    "tags": [
+      "game-loop",
+      "training",
+      "mouse",
+      "dotnet"
+    ],
     "featured": false,
     "stars": 0,
     "language": "C#",
     "updatedAt": "2026-02-11T00:26:29Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "kind": "library",
+    "stability": "experimental",
+    "install": "git clone https://github.com/mcp-tool-shop/DeterministicMouseTrainingEngine",
+    "tagline": "Deterministic 60Hz mouse training engine."
   },
   {
     "name": "Dev Op Typer",
     "repo": "dev-op-typer",
-    "description": "",
+    "description": "Typing practice for DevOps engineers (Deprecated)",
     "tags": [],
     "featured": false,
     "stars": 0,
@@ -745,7 +803,11 @@
     "updatedAt": "2026-02-15T02:41:14Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": true,
+    "kind": "desktop-app",
+    "stability": "deprecated",
+    "install": "N/A",
+    "tagline": "Typing practice for DevOps engineers."
   },
   {
     "name": "Feature Reacher",
@@ -850,7 +912,7 @@
   {
     "name": "Integradio",
     "repo": "integradio",
-    "description": "Structure layer for building maintainable Gradio apps (UI + execution separation)",
+    "description": "Structure layer for building maintainable Gradio apps (Deprecated)",
     "tags": [
       "gradio",
       "ui",
@@ -861,8 +923,12 @@
     "language": "",
     "updatedAt": "",
     "registered": true,
-    "unlisted": false,
-    "deprecated": true
+    "unlisted": true,
+    "deprecated": true,
+    "kind": "library",
+    "stability": "deprecated",
+    "install": "N/A",
+    "tagline": "Structure layer for Gradio apps."
   },
   {
     "name": "LeaseGate",
@@ -929,20 +995,31 @@
   {
     "name": "LoKey Typer",
     "repo": "LoKey-Typer",
-    "description": "",
-    "tags": [],
-    "featured": false,
+    "description": "A calm typing practice app with ambient soundscapes, personalized daily sets, and no accounts required",
+    "tags": [
+      "typing",
+      "pwa",
+      "local-first",
+      "soundscapes",
+      "offline",
+      "productivity"
+    ],
+    "featured": true,
     "stars": 0,
     "language": "TypeScript",
     "updatedAt": "2026-02-14T14:29:54Z",
     "registered": false,
-    "unlisted": true,
-    "deprecated": false
+    "unlisted": false,
+    "deprecated": false,
+    "kind": "desktop-app",
+    "stability": "stable",
+    "install": "start ms-windows-store://pdp/?productid=9NRVWM08HQC4",
+    "tagline": "Calm typing practice app with ambient soundscapes."
   },
   {
     "name": "Mcp App Builder",
     "repo": "mcp-app-builder",
-    "description": "VS Code extension for building MCP servers with interactive UI components",
+    "description": "VS Code extension for building MCP servers with interactive UI components (Deprecated)",
     "tags": [],
     "featured": false,
     "stars": 0,
@@ -950,7 +1027,11 @@
     "updatedAt": "2026-02-03T01:24:21Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": true,
+    "kind": "vscode-extension",
+    "stability": "experimental",
+    "install": "N/A",
+    "tagline": "VS Code extension for building MCP servers."
   },
   {
     "name": "Mcp File Forge",
@@ -1117,12 +1198,16 @@
     "updatedAt": "2026-02-16T08:21:49Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": true,
+    "kind": "cli",
+    "stability": "experimental",
+    "install": "N/A",
+    "tagline": "Name clearance orchestrator."
   },
   {
     "name": "Next Gallery",
     "repo": "next-gallery",
-    "description": "Windows desktop image gallery application",
+    "description": "Windows desktop image gallery application (Deprecated - see NextGallery-Desktop)",
     "tags": [
       "windows",
       "desktop",
@@ -1134,8 +1219,9 @@
     "language": "",
     "updatedAt": "",
     "registered": true,
-    "unlisted": false,
-    "deprecated": false
+    "unlisted": true,
+    "deprecated": true,
+    "install": "N/A"
   },
   {
     "name": "NextGallery Desktop",
@@ -1148,21 +1234,37 @@
     "updatedAt": "2026-02-02T12:58:12Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": true,
+    "kind": "desktop-app",
+    "stability": "experimental",
+    "install": "N/A",
+    "tagline": "Standalone Windows desktop gallery for AI content."
   },
   {
     "name": "NextLedger",
     "repo": "NextLedger",
-    "description": "Personal budgeting app with envelope-style budgeting - Windows-first desktop experience",
-    "tags": [],
+    "description": "Envelope budgeting for Windows — give every dollar a job. A future ledger with explicit human agency.",
+    "tags": [
+      "finance",
+      "budgeting",
+      "windows",
+      "local-first",
+      "privacy",
+      "winui3"
+    ],
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-04T11:43:34Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false
+    "updatedAt": "2026-02-17T10:35:05Z",
+    "registered": true,
+    "unlisted": false,
+    "deprecated": false,
+    "kind": "desktop-app",
+    "stability": "stable",
+    "install": "Download ZIP from Releases, extract, run NextLedger.App.exe",
+    "tagline": "Envelope budgeting for Windows."
   },
+
   {
     "name": "Nexus Suite",
     "repo": "nexus-suite",
@@ -1249,36 +1351,15 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-02-12T06:59:59Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false
-  },
-  {
-    "name": "Rippled Windows Debug",
-    "repo": "rippled-windows-debug",
-    "description": "Windows debugging toolkit for rippled (XRPL validator node)",
-    "tags": [
-      "blockchain",
-      "debugging",
-      "developer-tools",
-      "rippled",
-      "validator",
-      "windows",
-      "xrpl"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "C#",
-    "updatedAt": "2026-02-12T09:25:38Z",
-    "registered": false,
-    "unlisted": true,
+    "updatedAt": "2026-02-14T10:59:15Z",
+    "registered": true,
+    "unlisted": false,
     "deprecated": false
   },
   {
     "name": "RunForge Desktop",
     "repo": "runforge-desktop",
-    "description": "Windows desktop application for AI workflow execution",
+    "description": "Windows desktop application for AI workflow execution (Deprecated)",
     "tags": [
       "windows",
       "desktop",
@@ -1290,39 +1371,58 @@
     "language": "C#",
     "updatedAt": "2026-02-17T10:34:42Z",
     "registered": true,
-    "unlisted": false,
-    "deprecated": false
+    "unlisted": true,
+    "deprecated": true,
+    "kind": "desktop-app",
+    "stability": "deprecated",
+    "install": "N/A",
+    "tagline": "Desktop AI workflow execution."
   },
   {
     "name": "RunForge VS Code",
     "repo": "runforge-vscode",
-    "description": "VS Code extension for AI workflow execution",
+    "description": "Push-button ML training with deterministic behavior. Replaces 'it works on my machine' with forensic certainty.",
     "tags": [
       "vscode",
       "extension",
       "workflow",
-      "ai"
+      "ai",
+      "ml",
+      "training"
     ],
-    "featured": false,
+    "featured": true,
     "stars": 0,
     "language": "Python",
     "updatedAt": "2026-02-15T02:41:36Z",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "kind": "vscode-extension",
+    "stability": "beta",
+    "install": "git clone https://github.com/mcp-tool-shop/runforge-vscode",
+    "tagline": "Push-button ML training with deterministic behavior."
   },
   {
     "name": "ScalarScope",
     "repo": "ScalarScope",
-    "description": "ASPIRE-AI (Adversarial Student-Professor Internalized Reasoning Engine)",
-    "tags": [],
+    "description": "ASPIRE-AI (Adversarial Student-Professor Internalized Reasoning Engine) - Core Logic",
+    "tags": [
+      "aspire-ai",
+      "reasoning-engine",
+      "adversarial",
+      "python"
+    ],
     "featured": false,
     "stars": 0,
     "language": "Python",
     "updatedAt": "2026-02-05T01:17:58Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "kind": "library",
+    "stability": "experimental",
+    "install": "git clone https://github.com/mcp-tool-shop/ScalarScope",
+    "tagline": "Adversarial Student-Professor Internalized Reasoning Engine."
   },
   {
     "name": "Siege Kit",
@@ -1478,14 +1578,23 @@
     "name": "Trace",
     "repo": "Trace",
     "description": "Trace — deterministic cursor discipline game. Navigate chaos through precision, not power.",
-    "tags": [],
+    "tags": [
+      "game",
+      "patience",
+      "cursor-mastery",
+      "deterministic"
+    ],
     "featured": false,
     "stars": 0,
     "language": "C#",
     "updatedAt": "2026-02-11T02:29:14Z",
     "registered": false,
-    "unlisted": true,
-    "deprecated": false
+    "unlisted": false,
+    "deprecated": false,
+    "kind": "desktop-app",
+    "stability": "experimental",
+    "install": "dotnet run --project Trace/Trace.App",
+    "tagline": "Deterministic cursor discipline game."
   },
   {
     "name": "Training Studio",
@@ -1509,14 +1618,23 @@
     "name": "VectorCaliper",
     "repo": "VectorCaliper",
     "description": "Scientific instrument for faithful model-state visualization — turns vector graphics into calibrated representations",
-    "tags": [],
+    "tags": [
+      "visualization",
+      "model-audit",
+      "graphics",
+      "scientific-computing"
+    ],
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
     "updatedAt": "2026-02-05T13:40:03Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "kind": "cli",
+    "stability": "experimental",
+    "install": "git clone https://github.com/mcp-tool-shop/VectorCaliper",
+    "tagline": "Scientific instrument for faithful model-state visualization."
   },
   {
     "name": "Venvkit",

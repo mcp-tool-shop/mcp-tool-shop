@@ -1,137 +1,11 @@
 {
-  "generatedAt": "2026-02-17T18:59:45.133Z",
+  "generatedAt": "2026-02-17T19:24:07.831Z",
   "results": [
-    {
-      "repo": "dev-op-typer",
-      "score": 40,
-      "label": "Needs Work",
-      "metaIssuesCount": 6,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "LoKey-Typer",
-      "score": 40,
-      "label": "Needs Work",
-      "metaIssuesCount": 6,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "clearance-opinion-engine",
-      "score": 50,
-      "label": "Prototype",
-      "metaIssuesCount": 5,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "DeterministicMouseTrainingEngine",
-      "score": 50,
-      "label": "Prototype",
-      "metaIssuesCount": 5,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "mcp-app-builder",
-      "score": 50,
-      "label": "Prototype",
-      "metaIssuesCount": 5,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "nameops",
-      "score": 50,
-      "label": "Prototype",
-      "metaIssuesCount": 5,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "NextGallery-Desktop",
-      "score": 50,
-      "label": "Prototype",
-      "metaIssuesCount": 5,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "NextLedger",
-      "score": 50,
-      "label": "Prototype",
-      "metaIssuesCount": 5,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "ScalarScope",
-      "score": 50,
-      "label": "Prototype",
-      "metaIssuesCount": 5,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "Trace",
-      "score": 50,
-      "label": "Prototype",
-      "metaIssuesCount": 5,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "VectorCaliper",
-      "score": 50,
-      "label": "Prototype",
-      "metaIssuesCount": 5,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "ClaimLedger",
-      "score": 55,
-      "label": "Deprecated",
-      "metaIssuesCount": 5,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "codeteam",
-      "score": 55,
-      "label": "Deprecated",
-      "metaIssuesCount": 5,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "CreatorLedger",
-      "score": 55,
-      "label": "Deprecated",
-      "metaIssuesCount": 5,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "integradio",
-      "score": 55,
-      "label": "Deprecated",
-      "metaIssuesCount": 5,
-      "realityIssuesCount": 0
-    },
     {
       "repo": "winget-pkgs",
       "score": 55,
       "label": "Deprecated",
       "metaIssuesCount": 5,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "build-governor",
-      "score": 60,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "code-batch",
-      "score": 60,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "CodeClone-Desktop",
-      "score": 60,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
       "realityIssuesCount": 0
     },
     {
@@ -205,20 +79,6 @@
       "realityIssuesCount": 0
     },
     {
-      "repo": "Registrum",
-      "score": 60,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "rippled-windows-debug",
-      "score": 60,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
-      "realityIssuesCount": 0
-    },
-    {
       "repo": "siege-kit",
       "score": 60,
       "label": "Prototype",
@@ -242,41 +102,6 @@
     {
       "repo": "ThrottleAI-Desktop",
       "score": 60,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "claude-collaborate",
-      "score": 65,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "code-covered",
-      "score": 65,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "codeclone-suite",
-      "score": 65,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "codecomfy-vscode",
-      "score": 65,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "codeteam-suite",
-      "score": 65,
       "label": "Prototype",
       "metaIssuesCount": 4,
       "realityIssuesCount": 0
@@ -319,7 +144,7 @@
     {
       "repo": "next-gallery",
       "score": 65,
-      "label": "Prototype",
+      "label": "Deprecated",
       "metaIssuesCount": 4,
       "realityIssuesCount": 0
     },
@@ -352,14 +177,7 @@
       "realityIssuesCount": 0
     },
     {
-      "repo": "runforge-desktop",
-      "score": 65,
-      "label": "Prototype",
-      "metaIssuesCount": 4,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "runforge-vscode",
+      "repo": "Registrum",
       "score": 65,
       "label": "Prototype",
       "metaIssuesCount": 4,
@@ -429,7 +247,63 @@
       "realityIssuesCount": 0
     },
     {
+      "repo": "mcp-app-builder",
+      "score": 70,
+      "label": "Deprecated",
+      "metaIssuesCount": 3,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "nameops",
+      "score": 80,
+      "label": "Deprecated",
+      "metaIssuesCount": 2,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "NextGallery-Desktop",
+      "score": 80,
+      "label": "Deprecated",
+      "metaIssuesCount": 2,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "dev-op-typer",
+      "score": 90,
+      "label": "Deprecated",
+      "metaIssuesCount": 1,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "codeclone-suite",
+      "score": 95,
+      "label": "Prototype",
+      "metaIssuesCount": 1,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "codecomfy-vscode",
+      "score": 95,
+      "label": "Prototype",
+      "metaIssuesCount": 1,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "codeteam-suite",
+      "score": 95,
+      "label": "Prototype",
+      "metaIssuesCount": 1,
+      "realityIssuesCount": 0
+    },
+    {
       "repo": "mcp-stress-test",
+      "score": 95,
+      "label": "Prototype",
+      "metaIssuesCount": 1,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "runforge-vscode",
       "score": 95,
       "label": "Prototype",
       "metaIssuesCount": 1,
@@ -541,6 +415,90 @@
       "realityIssuesCount": 0
     },
     {
+      "repo": "build-governor",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "ClaimLedger",
+      "score": 100,
+      "label": "Deprecated",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "claude-collaborate",
+      "score": 100,
+      "label": "Deprecated",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "clearance-opinion-engine",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "code-batch",
+      "score": 100,
+      "label": "Deprecated",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "code-covered",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "CodeClone-Desktop",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "codeteam",
+      "score": 100,
+      "label": "Deprecated",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "CreatorLedger",
+      "score": 100,
+      "label": "Deprecated",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "DeterministicMouseTrainingEngine",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "integradio",
+      "score": 100,
+      "label": "Deprecated",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "LoKey-Typer",
+      "score": 100,
+      "label": "Stable",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
       "repo": "mcp-voice-engine",
       "score": 100,
       "label": "Prototype",
@@ -562,9 +520,44 @@
       "realityIssuesCount": 0
     },
     {
+      "repo": "NextLedger",
+      "score": 100,
+      "label": "Stable",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "runforge-desktop",
+      "score": 100,
+      "label": "Deprecated",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "ScalarScope",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
       "repo": "tool-scan",
       "score": 100,
       "label": "Stable",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "Trace",
+      "score": 100,
+      "label": "Prototype",
+      "metaIssuesCount": 0,
+      "realityIssuesCount": 0
+    },
+    {
+      "repo": "VectorCaliper",
+      "score": 100,
+      "label": "Prototype",
       "metaIssuesCount": 0,
       "realityIssuesCount": 0
     },

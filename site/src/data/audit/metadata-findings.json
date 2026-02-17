@@ -1,106 +1,22 @@
 {
-  "generatedAt": "2026-02-17T18:59:45.132Z",
+  "generatedAt": "2026-02-17T19:24:07.830Z",
   "findings": [
-    {
-      "repo": "build-governor",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install"
-      ]
-    },
-    {
-      "repo": "ClaimLedger",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install",
-        "Contradiction: deprecated=true but stability!='deprecated'"
-      ]
-    },
-    {
-      "repo": "claude-collaborate",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install"
-      ]
-    },
-    {
-      "repo": "clearance-opinion-engine",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install",
-        "No tags"
-      ]
-    },
-    {
-      "repo": "code-batch",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install"
-      ]
-    },
-    {
-      "repo": "code-covered",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install"
-      ]
-    },
-    {
-      "repo": "CodeClone-Desktop",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install"
-      ]
-    },
     {
       "repo": "codeclone-suite",
       "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install"
+        "Invalid kind: tool-suite"
       ]
     },
     {
       "repo": "codecomfy-vscode",
       "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install"
-      ]
-    },
-    {
-      "repo": "codeteam",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install",
-        "Contradiction: deprecated=true but stability!='deprecated'"
+        "Invalid kind: vscode-extension"
       ]
     },
     {
       "repo": "codeteam-suite",
       "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install"
+        "Invalid kind: tool-suite"
       ]
     },
     {
@@ -131,16 +47,6 @@
       ]
     },
     {
-      "repo": "CreatorLedger",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install",
-        "Contradiction: deprecated=true but stability!='deprecated'"
-      ]
-    },
-    {
       "repo": "CursorAssist",
       "issues": [
         "Missing required field: tagline",
@@ -150,23 +56,8 @@
       ]
     },
     {
-      "repo": "DeterministicMouseTrainingEngine",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install",
-        "No tags"
-      ]
-    },
-    {
       "repo": "dev-op-typer",
       "issues": [
-        "Missing required field: description",
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install",
         "No tags"
       ]
     },
@@ -216,16 +107,6 @@
       ]
     },
     {
-      "repo": "integradio",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install",
-        "Contradiction: deprecated=true but stability!='deprecated'"
-      ]
-    },
-    {
       "repo": "LeaseGate",
       "issues": [
         "Missing required field: tagline",
@@ -253,23 +134,10 @@
       ]
     },
     {
-      "repo": "LoKey-Typer",
-      "issues": [
-        "Missing required field: description",
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install",
-        "No tags"
-      ]
-    },
-    {
       "repo": "mcp-app-builder",
       "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install",
+        "Invalid kind: vscode-extension",
+        "Contradiction: deprecated=true but stability!='deprecated'",
         "No tags"
       ]
     },
@@ -309,10 +177,7 @@
     {
       "repo": "nameops",
       "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install",
+        "Contradiction: deprecated=true but stability!='deprecated'",
         "No tags"
       ]
     },
@@ -322,26 +187,13 @@
         "Missing required field: tagline",
         "Missing required field: kind",
         "Missing required field: stability",
-        "Missing required field: install"
+        "Contradiction: deprecated=true but stability!='deprecated'"
       ]
     },
     {
       "repo": "NextGallery-Desktop",
       "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install",
-        "No tags"
-      ]
-    },
-    {
-      "repo": "NextLedger",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install",
+        "Contradiction: deprecated=true but stability!='deprecated'",
         "No tags"
       ]
     },
@@ -391,40 +243,9 @@
       ]
     },
     {
-      "repo": "rippled-windows-debug",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install"
-      ]
-    },
-    {
-      "repo": "runforge-desktop",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install"
-      ]
-    },
-    {
       "repo": "runforge-vscode",
       "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install"
-      ]
-    },
-    {
-      "repo": "ScalarScope",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install",
-        "No tags"
+        "Invalid kind: vscode-extension"
       ]
     },
     {
@@ -482,32 +303,12 @@
       ]
     },
     {
-      "repo": "Trace",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install",
-        "No tags"
-      ]
-    },
-    {
       "repo": "training-studio",
       "issues": [
         "Missing required field: tagline",
         "Missing required field: kind",
         "Missing required field: stability",
         "Missing required field: install"
-      ]
-    },
-    {
-      "repo": "VectorCaliper",
-      "issues": [
-        "Missing required field: tagline",
-        "Missing required field: kind",
-        "Missing required field: stability",
-        "Missing required field: install",
-        "No tags"
       ]
     },
     {
