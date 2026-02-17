@@ -983,7 +983,7 @@
   },
   {
     "name": "Linux Dev Typer",
-    "repo": "linux-dev-typer",
+    "repo": "LinuxDevTyper",
     "description": "Code-typing practice for developers — Avalonia UI, adaptive difficulty, trend tracking, fatigue detection",
     "tags": [
       "adaptive-learning",
@@ -992,15 +992,22 @@
       "csharp",
       "developer-tools",
       "dotnet",
-      "typing-practice"
+      "typing-practice",
+      "desktop-app"
     ],
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-17T10:35:06Z",
+    "updatedAt": "2026-02-17T15:10:00Z",
     "registered": false,
-    "unlisted": true,
-    "deprecated": false
+    "unlisted": false,
+    "deprecated": false,
+    "kind": "desktop-app",
+    "stability": "experimental",
+    "install": "dotnet restore && dotnet run --project LinuxDevTyper/LinuxDevTyper.csproj",
+    "tagline": "Code-typing practice for developers (Avalonia UI).",
+    "screenshot": "/screenshots/LinuxDevTyper.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "LoKey Typer",
