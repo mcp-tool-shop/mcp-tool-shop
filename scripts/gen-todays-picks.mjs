@@ -29,13 +29,28 @@ const scored = projects
 
 // Deterministic selection based on date
 const dateStr = new Date().toISOString().split('T')[0];
-// Simple hash of date string to seed the slice
 const dayHash = dateStr.split('').reduce((a, b) => a + b.charCodeAt(0), 0);
 
-// Rotate the top list
-const topCandidates = scored.slice(0, 20);
-const startIndex = dayHash % (topCandidates.length - 2); 
-const picks = topCandidates.slice(startIndex, startIndex + 3).map(p => ({
+const PIN = "websketch-ir";
+
+// Remove PIN from candidates to avoid duplication
+const candidates = scored.filter(p => p.repo !== PIN).slice(0, 30);
+
+// Deterministically pick 5 items
+const selected = [];
+for (let i = 0; i < 5; i++) {
+  // Use dayHash + index to pick pseudo-randomly but deterministically
+  const index = (dayHash + i * 7) % candidates.length;
+  selected.push(candidates[index]);
+  // Remove picked to avoid duplicates (naive approach for small set)
+  candidates.splice(index, 1);
+}
+
+// Combine PIN + 5 selected
+// Note: We need to find the full object for PIN if it wasn't in candidates
+const pinProject = projects.find(p => p.repo === PIN) || { repo: PIN, description: "Featured Tool" };
+
+const finalSet = [pinProject, ...selected].map(p => ({
   slug: p.repo,
   reason: p.description || "Community favorite",
   signals: p.featured ? ["featured"] : ["popular"]
@@ -43,7 +58,7 @@ const picks = topCandidates.slice(startIndex, startIndex + 3).map(p => ({
 
 const output = {
   date: dateStr,
-  picks
+  picks: finalSet
 };
 
 fs.writeFileSync(OUT_PATH, JSON.stringify(output, null, 2));

@@ -4,6 +4,7 @@ import projects from '../data/projects.json';
 import collections from '../data/collections.json';
 import releases from '../data/releases.json';
 import stats from '../data/org-stats.json';
+import todaysPicks from '../data/todays-picks.json';
 
 const projectsByRepo = new Map((projects as any[]).map((p: any) => [p.repo, p]));
 const featuredRaw = (projects as any[]).filter((p: any) => p.featured);
@@ -13,7 +14,9 @@ const recentReleases = (releases as any[]).slice(0, 5);
 const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
 const spotlightIndex = dayOfYear % featuredRaw.length;
 const spotlight = featuredRaw[spotlightIndex];
-const gridProjects = featuredRaw.filter((_, i) => i !== spotlightIndex);
+
+// Grid is exact 6 items from daily picks generator
+const gridProjects = todaysPicks.picks.map(pick => projectsByRepo.get(pick.slug)).filter(Boolean);
 
 function relativeDate(iso: string) {
   if (!iso) return '';
