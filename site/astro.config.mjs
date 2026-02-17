@@ -13,6 +13,7 @@ try {
 // https://astro.build/config
 export default defineConfig({
   site: kitSiteUrl,
+  trailingSlash: 'always',
   integrations: [sitemap({
     filter: (page) => !page.includes('/lab/'),
   })],

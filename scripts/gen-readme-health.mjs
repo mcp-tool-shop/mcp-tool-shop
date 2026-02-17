@@ -5,6 +5,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 
 const DATA_DIR = path.join(process.cwd(), "site", "src", "data");
 const OUT_PATH = path.join(DATA_DIR, "readme-health.json");
@@ -13,9 +14,51 @@ const PROJECTS_PATH = path.join(DATA_DIR, "projects.json");
 // Define run parameters
 const RECENT_DAYS = 7;
 const RANDOM_SAMPLE_SIZE = 10;
+const VERSION = "2.0";
 
 // Ensure directory exists
 fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true });
+
+// Deterministic PRNG based on date string (YYYY-MM-DD)
+// Simple LCG: X_{n+1} = (aX_n + c) % m
+function createSeededRandom(seedSlug) {
+  let seed = 0;
+  for (let i = 0; i < seedSlug.length; i++) {
+    seed = (seed << 5) - seed + seedSlug.charCodeAt(i);
+  }
+  seed = Math.abs(seed);
+  return () => {
+    seed = (seed * 1664525 + 1013904223) % 4294967296;
+    return seed / 4294967296;
+  };
+}
+
+async function fetchWithRetry(url, retries = 1) {
+  for (let i = 0; i <= retries; i++) {
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
+      
+      const res = await fetch(url, { signal: controller.signal });
+      clearTimeout(timeoutId);
+      
+      if (res.ok) return { ok: true, text: await res.text(), status: res.status };
+      if (res.status >= 500) {
+        if (i < retries) {
+          await new Promise(r => setTimeout(r, 1000)); // wait 1s before retry
+          continue;
+        }
+      }
+      return { ok: false, status: res.status };
+    } catch (e) {
+      if (i < retries) {
+        await new Promise(r => setTimeout(r, 1000));
+        continue;
+      }
+      return { ok: false, error: e.message, status: "network_error" };
+    }
+  }
+}
 
 async function main() {
   const projects = JSON.parse(fs.readFileSync(PROJECTS_PATH, "utf8"));
@@ -39,8 +82,12 @@ async function main() {
   
   // Identify candidates for THIS run
   const now = new Date();
+  const dateStr = now.toISOString().split("T")[0]; // YYYY-MM-DD
   const recentCutoff = new Date(now.getTime() - (RECENT_DAYS * 24 * 60 * 60 * 1000));
   
+  // Deterministic random for today
+  const rng = createSeededRandom(dateStr);
+
   const toCheck = allTargets.filter(p => {
     // 1. Always check recently active repos
     if (p.updatedAt && new Date(p.updatedAt) > recentCutoff) return true;
@@ -54,66 +101,103 @@ async function main() {
   // 4. Add a random sample of older repos to ensure coverage over time
   // Filter out ones we're already checking
   const remaining = allTargets.filter(p => !toCheck.includes(p));
-  // Shuffle and take N
-  const randomSample = remaining.sort(() => 0.5 - Math.random()).slice(0, RANDOM_SAMPLE_SIZE);
   
-  const finalQueue = [...toCheck, ...randomSample];
+  // Stable shuffle using seeded RNG
+  const stableRandomSample = remaining
+    .map(p => ({ p, r: rng() }))
+    .sort((a, b) => a.r - b.r)
+    .slice(0, RANDOM_SAMPLE_SIZE)
+    .map(item => item.p);
   
-  console.log(`Auditing READMEs for ${finalQueue.length} projects (${toCheck.length} priority + ${randomSample.length} random sample)...`);
+  const finalQueue = [...toCheck, ...stableRandomSample];
+  
+  // Deduplicate queue just in case
+  const uniqueQueue = Array.from(new Set(finalQueue.map(p => p.repo)))
+    .map(repo => finalQueue.find(p => p.repo === repo));
+
+  console.log(`Auditing READMEs for ${uniqueQueue.length} projects (${toCheck.length} priority + ${stableRandomSample.length} random sample)...`);
   
   const results = [];
   const errors = [];
-  
-  // We need to build the full result set: new checks + old data for unchecked
   const checkedRepos = new Set();
+  const org = "mcp-tool-shop-org"; 
 
-  for (const p of finalQueue) {
+  let checkCounter = 0;
+
+  for (const p of uniqueQueue) {
     if (!p.repo) continue;
     checkedRepos.add(p.repo);
+    checkCounter++;
     
     // Default to main branch, but could ideally check default_branch from API
-    // org name hardcoded for now or derived
-    const org = "mcp-tool-shop-org"; 
-    const url = `https://raw.githubusercontent.com/${org}/${p.repo}/main/README.md`;
+    let attempts = [`https://raw.githubusercontent.com/${org}/${p.repo}/main/README.md`];
+    // Fallback logic handled inside loop
     
-    try {
-      const res = await fetch(url);
-      let text = "";
+    let analysis = null;
+    let fetchStatus = "unknown";
 
-      if (!res.ok) {
-        // Try master if main fails
-        const res2 = await fetch(url.replace("/main/", "/master/"));
-        if (!res2.ok) {
-          results.push({
-            repo: p.repo,
-            score: 0,
-            status: "missing",
-            missing: ["README file"],
-            checkedAt: now.toISOString()
-          });
-          continue;
+    try {
+        let res = await fetchWithRetry(attempts[0]);
+        
+        if (!res.ok && res.status === 404) {
+             // Try master
+             res = await fetchWithRetry(`https://raw.githubusercontent.com/${org}/${p.repo}/master/README.md`);
         }
-        text = await res2.text();
-      } else {
-        text = await res.text();
-      }
-      
-      const analysis = analyzeReadme(text);
-      results.push({
-        repo: p.repo,
-        ...analysis,
-        checkedAt: now.toISOString()
-      });
-      
+
+        if (res.ok) {
+            analysis = analyzeReadme(res.text);
+            fetchStatus = "success";
+        } else if (res.status === "network_error" || res.status >= 500) {
+            fetchStatus = "unreachable";
+        } else {
+            fetchStatus = "missing";
+        }
+
+        if (fetchStatus === "success") {
+            results.push({
+                repo: p.repo,
+                ...analysis,
+                checkStatus: "ok",
+                checkedAt: now.toISOString(),
+                lastCheckedAt: now.toISOString() // New field
+            });
+        } else if (fetchStatus === "unreachable") {
+            console.warn(`Skipping ${p.repo} due to network error, preserving old score.`);
+            if (previousResults[p.repo]) {
+                results.push(previousResults[p.repo]);
+            } else {
+                results.push({
+                    repo: p.repo,
+                    score: 0,
+                    checkStatus: "unreachable",
+                    missing: ["Repo unreachable"],
+                    evidence: {},
+                    checkedAt: now.toISOString(),
+                    lastCheckedAt: null
+                });
+            }
+        } else {
+            // 404/Missing
+            results.push({
+                repo: p.repo,
+                score: 0,
+                checkStatus: "missing_readme",
+                capReason: "no_readme",
+                missing: ["README file"],
+                evidence: { hasReadme: false },
+                checkedAt: now.toISOString(),
+                lastCheckedAt: now.toISOString()
+            });
+        }
+
     } catch (e) {
       errors.push({ repo: p.repo, error: e.message });
-      // Keep old result if fetch fails, or add error entry
       if (previousResults[p.repo]) {
          results.push(previousResults[p.repo]);
       }
     }
     
-    // rudimentary rate limit protection
+    // rate limit protection
     await new Promise(r => setTimeout(r, 100));
   }
   
@@ -125,76 +209,146 @@ async function main() {
   }
   
   const health = {
-    updatedAt: now.toISOString(),
-    totalChecked: results.length,
-    passedAll: results.filter(r => r.score === 100).length,
+    meta: {
+        generatedAt: now.toISOString(),
+        runId: crypto.randomUUID(),
+        version: VERSION,
+        checkedCount: checkCounter,
+        strategy: {
+            recentDays: RECENT_DAYS,
+            sampleSize: RANDOM_SAMPLE_SIZE,
+            seed: dateStr
+        }
+    },
     results: results.sort((a, b) => a.score - b.score) // lowest score first
   };
   
-  fs.writeFileSync(OUT_PATH, JSON.stringify(health, null, 2));
-  console.log(`Generated README Health Report at ${OUT_PATH}`);
+  // 6. Invariant Test
+  validateSchema(health);
   
-  const failing = results.filter(r => r.score < 50);
+  fs.writeFileSync(OUT_PATH, JSON.stringify(health, null, 2));
+  console.log(`Generated README Health Report at ${OUT_PATH} (Checked: ${checkCounter})`);
+  
+  const failing = results.filter(r => r.score < 50 && r.checkStatus === "ok");
   if (failing.length > 0) {
     console.log(`\n⚠️  ${failing.length} repos have poor READMEs (<50/100):`);
-    // Pick top 3 worst to show
     failing.slice(0, 3).forEach(f => console.log(`  - ${f.repo}: ${f.missing.join(", ")}`));
   }
 }
 
+function validateSchema(data) {
+    const errors = [];
+    if (!data.meta?.generatedAt) errors.push("Missing meta.generatedAt");
+    
+    data.results.forEach((r, i) => {
+        if (!r.repo) errors.push(`Item ${i} missing repo`);
+        if (typeof r.score !== "number" || r.score < 0 || r.score > 100) errors.push(`Item ${r.repo} invalid score: ${r.score}`);
+        if (!r.checkStatus) errors.push(`Item ${r.repo} missing checkStatus`);
+        
+        // CapReason allowlist
+        const validCaps = [null, undefined, "missing_install", "missing_usage", "no_readme"];
+        if (!validCaps.includes(r.capReason)) errors.push(`Item ${r.repo} invalid capReason: ${r.capReason}`);
+        
+        // Evidence check
+        if (r.checkStatus === "ok" && !r.evidence) errors.push(`Item ${r.repo} missing evidence object`);
+    });
+
+    if (errors.length > 0) {
+        throw new Error("Schema Invariant Failed:\n" + errors.join("\n"));
+    }
+    console.log("✅ Schema invariants passed.");
+}
+
 function analyzeReadme(text) {
-  const content = text.toLowerCase();
+  const contentLower = text.toLowerCase();
   const missing = [];
+  const evidence = {}; // New granular evidence block
   
   // Scoring Rubric
-  // Base: 0
-  // Criticals: Install (+20), Usage (+20) -> Max 40 if just these (FAIL)
-  // Quality: Description (+10), License (+10), Docs Link (+10), Screenshot (+10) -> Max 40
-  // Bonus: MCP (+5)
-  // Total potential: 95? Let's adjust to hit 100.
-  
-  // Revised Strategy per User Request:
-  // "If either critical missing -> score max 49"
   
   let criticalScore = 0;
   let qualityScore = 0;
-  let isCriticalFail = false;
+  let capReason = null; // New field
 
   // Critical Sections
-  const hasInstall = /install|setup|build|deploy|npm i|pip install/.test(content);
+  const hasInstall = /install|setup|build|deploy|npm i|pip install|cargo build|mvn install/.test(contentLower);
+  evidence.hasInstall = hasInstall;
   if (hasInstall) criticalScore += 25;
-  else { missing.push("Installation"); isCriticalFail = true; }
+  else { 
+      missing.push("Installation instructions"); 
+      if (!capReason) capReason = "missing_install";
+  }
   
-  const hasUsage = /usage|example|quick start|how to|demo|```/.test(content); // added code block check as weak proxy for usage
+  const hasUsage = /usage|example|quick start|how to|demo|```/.test(contentLower); 
+  evidence.hasUsage = hasUsage;
   if (hasUsage) criticalScore += 25;
-  else { missing.push("Usage Example"); isCriticalFail = true; }
+  else { 
+      missing.push("Usage Example"); 
+      if (!capReason) capReason = "missing_usage";
+  }
   
   // Quality Sections
-  const hasDescription = text.length > 200; // Relaxed from 500
+  const hasDescription = text.length > 200; 
+  evidence.hasDescription = hasDescription;
   if (hasDescription) qualityScore += 15;
   else missing.push("Description (too short)");
   
-  const hasDocsLink = /docs|wiki|handbook|api reference/.test(content);
+  // Improved Docs detection: Link text or URL contains docs/wiki/handbook
+  // Regex looks for [Link Text](url) where text or url matches keyword
+  // Updated per request: avoid badges/images and ensure strict link structure
+  // Matches: [Anything](...docs...) or [Documentation](...)
+  // Excludes: ![...](...) (images/badges)
+  
+  const linkRegex = /(?!!)(?:\[([^\]]+)\]\(([^)]+)\))/g;
+  let hasDocsLink = false;
+  let match;
+  
+  while ((match = linkRegex.exec(text)) !== null) {
+      const linkText = match[1].toLowerCase();
+      const linkUrl = match[2].toLowerCase();
+      
+      // Check for docs keywords in valid links
+      if (
+          linkText.includes("docs") || linkText.includes("wiki") || linkText.includes("handbook") ||
+          linkUrl.includes("/docs") || linkUrl.includes("wiki") || linkUrl.includes("handbook") ||
+          linkUrl.includes("readme") // internal links often helpful
+      ) {
+          hasDocsLink = true;
+          break;
+      }
+  }
+  // Fallback: Check for header like "Documentation"
+  if (!hasDocsLink) {
+      hasDocsLink = /#+\s*(documentation|wiki|handbook|api reference)/i.test(text);
+  }
+
+  evidence.hasDocsLink = hasDocsLink;
   if (hasDocsLink) qualityScore += 10;
   
-  const hasLicense = /license|mit|apache|copying/.test(content);
+  const hasLicense = /license|mit|apache|copying/i.test(text); // Case insensitive check on full text
+
+  evidence.hasLicense = hasLicense;
   if (hasLicense) qualityScore += 10;
   else missing.push("License info");
 
-  const hasScreenshot = /!\[.*\]\(.*(png|jpg|gif)|<img/i.test(content);
+  const hasScreenshot = /!\[.*\]\(.*(png|jpg|gif|svg|webp)|<img/i.test(text);
+  evidence.hasScreenshot = hasScreenshot;
   if (hasScreenshot) qualityScore += 15;
   
   // Calculate Final
   let totalScore = criticalScore + qualityScore;
   
-  if (isCriticalFail) {
+  // Cap score if criticals are missing
+  if (capReason) {
       totalScore = Math.min(totalScore, 49);
   }
   
   return {
     score: Math.min(100, Math.max(0, totalScore)),
     status: totalScore >= 80 ? "great" : totalScore >= 50 ? "needs-work" : "poor",
-    missing
+    capReason,
+    missing,
+    evidence
   };
 }
 

@@ -1,0 +1,84 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import healthData from '../../../data/readme-health.json';
+
+const { results, meta } = healthData;
+
+const failing = results.filter(r => r.score < 50 && r.checkStatus === 'ok');
+const missingInstall = results.filter(r => r.evidence?.hasInstall === false && r.checkStatus === 'ok');
+const missingUsage = results.filter(r => r.evidence?.hasUsage === false && r.checkStatus === 'ok');
+const unreachable = results.filter(r => r.checkStatus === 'unreachable');
+const missingReadme = results.filter(r => r.checkStatus === 'missing_readme');
+
+// Sort by score ascending
+const sorted = [...results].sort((a, b) => a.score - b.score);
+const worst10 = sorted.slice(0, 10);
+---
+
+<Layout title="Health Dashboard">
+  <main class="container">
+    <h1>Repo Health Lab</h1>
+    <p class="meta">
+      Generated: {new Date(meta.generatedAt).toLocaleString()} • 
+      Version: {meta.version} • 
+      checked: {meta.checkedCount}
+    </p>
+
+    <div class="grid">
+      <section class="card">
+        <h2>⚠️ Worst 10 Scores</h2>
+        <ul>
+          {worst10.map(r => (
+            <li>
+              <strong>{r.repo}</strong> (Score: {r.score})
+              <br/>
+              <small>{r.missing?.join(', ') || r.checkStatus}</small>
+            </li>
+          ))}
+        </ul>
+      </section>
+      
+      <section class="card">
+        <h2>🔌 Unreachable ({unreachable.length})</h2>
+        <p>Network or 5xx errors. Score preserved from last run.</p>
+        <ul>
+           {unreachable.map(r => <li>{r.repo}</li>)}
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>📄 Missing Install ({missingInstall.length})</h2>
+        <p>No build/install/setup instructions found.</p>
+        <ul>
+           {missingInstall.map(r => <li>{r.repo}</li>)}
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>🛠️ Missing Usage ({missingUsage.length})</h2>
+        <p>No usage examples found.</p>
+        <ul>
+           {missingUsage.map(r => <li>{r.repo}</li>)}
+        </ul>
+      </section>
+
+       <section class="card">
+        <h2>❌ Missing README ({missingReadme.length})</h2>
+        <ul>
+           {missingReadme.map(r => <li>{r.repo}</li>)}
+        </ul>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+  .meta { color: #666; font-size: 0.9rem; margin-bottom: 2rem; border-bottom: 1px solid #eee; padding-bottom: 1rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .card { background: #fff; padding: 1.5rem; border: 1px solid #eee; border-radius: 8px; }
+  h2 { font-size: 1.2rem; border-bottom: 2px solid #f0f0f0; padding-bottom: 0.5rem; margin-top: 0; }
+  ul { padding-left: 1.2rem; }
+  li { margin-bottom: 0.5rem; }
+  small { color: #d00; }
+</style>

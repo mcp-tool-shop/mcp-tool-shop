@@ -9,29 +9,29 @@
       ]
     },
     {
-      "slug": "winget-pkgs",
-      "reason": "Windows Package Manager manifests for mcp-tool-shop packages",
+      "slug": "ally-demo-python",
+      "reason": "Python demonstration of accessibility framework capabilities",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "nexus-suite",
-      "reason": "Governance, attestation, and routing infrastructure for MCP tool ecosystems",
+      "slug": "tool-scan",
+      "reason": "Static inspection utilities for MCP tools and repositories",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "witness",
-      "reason": "Attestation witness and verification tooling",
+      "slug": "accessibility-suite",
+      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "comfy-headless",
-      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
+      "slug": "file-compass",
+      "reason": "Deterministic file-system navigation and inspection for large repos",
       "signals": [
         "featured"
       ]
