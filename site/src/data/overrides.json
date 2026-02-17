@@ -71,8 +71,7 @@
       "Runtime code analysis or profiling",
       "Replacing manual security review for production systems"
     ],
-    "screenshot": "/screenshots/brain-dev.png",
-    "screenshotType": "placeholder"
+    "screenshot": "/screenshots/brain-dev.png"
   },
   "comfy-headless": {
     "featured": true,
