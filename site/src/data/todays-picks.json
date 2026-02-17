@@ -1,0 +1,47 @@
+{
+  "date": "2026-02-17",
+  "picks": [
+    {
+      "slug": "websketch-ir",
+      "reason": "Intermediate representation library for web component analysis",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "winget-pkgs",
+      "reason": "Windows Package Manager manifests for mcp-tool-shop packages",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "nexus-suite",
+      "reason": "Governance, attestation, and routing infrastructure for MCP tool ecosystems",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "witness",
+      "reason": "Attestation witness and verification tooling",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "comfy-headless",
+      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
+      "signals": [
+        "featured"
+      ]
+    },
+    {
+      "slug": "tool-compass",
+      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
+      "signals": [
+        "featured"
+      ]
+    }
+  ]
+}
