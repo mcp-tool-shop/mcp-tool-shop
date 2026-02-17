@@ -29,6 +29,7 @@ const selectedInsight = insights[dayOfYear % insights.length];
 
 const note = {
   date: new Date().toISOString().split('T')[0],
+  generatedAt: new Date().toISOString(),
   title: "Daily Insight",
   body: selectedInsight,
   links: [

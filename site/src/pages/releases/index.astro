@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import releases from '../../data/releases.json';
 import projects from '../../data/projects.json';
+import dailyNote from '../../data/daily-note.json';
 import stats from '../../data/org-stats.json';
 
 const projectRepos = new Set((projects as any[]).map((p: any) => p.repo));
@@ -53,7 +54,7 @@ function relativeDate(iso: string) {
     <p style="max-width: 680px; margin-bottom: 0.5rem;">
       Recent releases across the
       <a href="https://github.com/mcp-tool-shop-org" rel="noopener">mcp-tool-shop-org</a>
-      organization. Refreshed {timeAgo(stats.updatedAt)} ({formatTime(stats.updatedAt)}).
+      organization. Refreshed {timeAgo(dailyNote.generatedAt)} ({formatTime(dailyNote.generatedAt)}).
       {(releases as any[]).length > 0 ? ` Newest release: ${timeAgo((releases as any[])[0].publishedAt)}.` : ''}
     </p>
   </div>

@@ -434,13 +434,16 @@ async function main() {
   const registryArchivedCount = warnings.filter((w) => w.includes("is archived")).length;
   const registryMissingCount = warnings.filter((w) => w.includes("has no matching org repo")).length;
 
+  const currentStats = readJson(STATS_PATH) || {};
+  const newRefreshedAt = new Date().toISOString();
+
   const stats = {
     repoCount: sorted.length,
     registeredCount,
     totalStars,
     languages,
     recentReleases: capped.length,
-    updatedAt: new Date().toISOString(),
+    updatedAt: currentStats.updatedAt || newRefreshedAt, // Keep old time by default
     registryHealth: {
       registryToolCount: registry.size,
       registeredInProjects: registeredCount,
@@ -453,8 +456,16 @@ async function main() {
     },
   };
 
-  writeJson(STATS_PATH, stats);
-  console.log(`Wrote org stats to ${STATS_PATH}`);
+  // Check if content changed (ignoring updatedAt)
+  const contentChanged = JSON.stringify({ ...stats, updatedAt: "" }) !== JSON.stringify({ ...currentStats, updatedAt: "" });
+
+  if (contentChanged) {
+    stats.updatedAt = newRefreshedAt;
+    writeJson(STATS_PATH, stats);
+    console.log(`Wrote org stats to ${STATS_PATH}`);
+  } else {
+    console.log(`Org stats unchanged, skipping write to ${STATS_PATH}`);
+  }
 
   // --- Cleanup artifact ---
   const cleanup = {

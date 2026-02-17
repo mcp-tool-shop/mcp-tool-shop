@@ -41,14 +41,10 @@ jobs:
         run: npm run placeholders
         continue-on-error: true
       
-      # Assuming daily note generation script is added as requested in step 3
-      - name: Generate daily note
+      - name: Generate daily dynamic content
         run: |
-            if npm run | grep -q "daily:note"; then
-                npm run daily:note
-            else
-                echo "daily:note script not found, skipping"
-            fi
+          npm run daily:dynamic
+          npm run daily:note
         continue-on-error: true
 
       - name: Readiness check
