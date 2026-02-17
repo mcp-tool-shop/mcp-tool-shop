@@ -1,7 +1,7 @@
 {
   "name": "@mcptoolshop/promo-kit",
-  "version": "0.1.3",
-  "description": "Portable promotion engine for tool catalogs. Receipt-backed promotions, freeze modes, drift detection.",
+  "version": "0.1.5",
+  "description": "The engine behind the Weekly Spotlight. Governed promotion pipeline with receipts, freeze modes, drift detection.",
   "type": "module",
   "main": "./index.mjs",
   "exports": {
@@ -16,6 +16,7 @@
     "scripts/",
     "index.mjs",
     "kit.config.example.json",
+    "logo.png",
     "README.md",
     "LICENSE",
     "CHANGELOG.md"

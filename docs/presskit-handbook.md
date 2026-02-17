@@ -1,6 +1,6 @@
 # Presskit Handbook
 
-> Verified facts, approved blurbs, brand assets, and a step-by-step verification recipe -- all in one place.
+> Weekly Spotlight facts, approved blurbs, brand assets, and a verification recipe.
 
 **Who it's for**: Journalists, reviewers, partners, and anyone writing about MCP Tool Shop.
 **Not for**: Tool authors adding repos (see [Handbook](HANDBOOK.md)), or adopters forking the engine (see [Portable Core](portable-core.md)).
@@ -8,6 +8,8 @@
 ---
 
 ## What is MCP Tool Shop?
+
+MCP Tool Shop runs a Weekly Spotlight for open-source MCP tools. Each week, we pick the tools worth trying and back every pick with evidence.
 
 MCP Tool Shop is a catalog of open-source tools built for AI agents. The [mcp-tool-shop-org](https://github.com/mcp-tool-shop-org) GitHub organization hosts 99+ public repositories spanning semantic search, code analysis, voice synthesis, accessibility tooling, and Windows desktop apps.
 
@@ -31,19 +33,21 @@ See [@mcptoolshop/promo-kit on npm](https://www.npmjs.com/package/@mcptoolshop/p
 
 ### 25 words
 
-MCP Tool Shop builds open-source tools for AI agents -- semantic search, voice synthesis, code analysis, and more. Everything runs locally, verified by receipts.
+MCP Tool Shop runs a Weekly Spotlight for open-source AI agent tools. Each pick comes with clear install steps, honest tradeoffs, and optional verification.
 
 ### 50 words
 
-MCP Tool Shop is an open-source catalog of 99+ tools for AI agents, built around the Model Context Protocol. Tools span semantic search, voice synthesis, code analysis, accessibility, and desktop apps. Every promotion is receipt-backed: hashed inputs, commit SHAs, and freeze modes ensure nothing is promoted in the dark.
+MCP Tool Shop runs a Weekly Spotlight for open-source MCP tools — semantic search, voice synthesis, code analysis, and more. Each week's picks come with clear install commands, honest tradeoffs, and verified claims. Want to double-check? Every pick has a receipt with hashed inputs and commit SHAs.
 
 ### 100 words
 
-MCP Tool Shop is an open-source organization building tools that AI agents use to get real work done. The catalog at mcp-tool-shop.github.io hosts 99+ public repositories spanning semantic search (File Compass), voice synthesis (Soundboard Plugin), code analysis (Brain-Dev), and more. All tools use the Model Context Protocol and run locally -- no cloud dependencies.
+MCP Tool Shop runs a Weekly Spotlight for open-source tools that AI agents use to get real work done. The catalog at mcp-tool-shop.github.io hosts 99+ public repositories spanning semantic search (File Compass), voice synthesis (Soundboard Plugin), code analysis (Brain-Dev), and more. All tools use the Model Context Protocol and run locally — no cloud dependencies.
 
-What sets MCP Tool Shop apart is its promotion engine: every public claim is evidence-backed, every promotion week produces hashed receipts, and governance includes freeze modes and drift detection. Anyone can independently verify a promotion by checking commit SHAs and input hashes. Build trust from receipts, not promises.
+What sets MCP Tool Shop apart is its weekly rhythm: each spotlight pick is evidence-backed, every week produces hashed receipts, and governance includes freeze modes and drift detection. Anyone can independently verify a pick by checking commit SHAs and input hashes. Trust through transparency, not promises.
 
 ---
+
+Verification sits behind every spotlight pick. Most visitors won't check, but the receipts are always public.
 
 ## How Verification Works
 
@@ -168,6 +172,10 @@ When including screenshots in articles or reviews:
 
 ## FAQ
 
+### What is the Weekly Spotlight?
+
+Every week, MCP Tool Shop picks a small number of MCP tools worth trying and publishes a spotlight page with install commands, honest tradeoffs, and optional verification links. See the latest at [/now/](https://mcp-tool-shop.github.io/now/) or browse the [Spotlight Hub](https://mcp-tool-shop.github.io/spotlight/).
+
 ### Is MCP Tool Shop a registry?
 
 No. The [mcp-tool-registry](https://github.com/nicobailon/mcp-tool-registry) is the upstream registry. MCP Tool Shop is a **promotion and catalog engine** that consumes the registry and adds editorial polish, verification, and press infrastructure.
@@ -180,7 +188,7 @@ Yes. All tools in mcp-tool-shop-org are open source.
 
 The site rebuilds automatically on every push to `main`. Org metadata syncs are triggered manually. Enrichment, screenshots, and target lists run on weekly schedules.
 
-### Can I fork the promotion engine?
+### Can I use the spotlight engine for my own catalog?
 
 Yes. Install via `npm install @mcptoolshop/promo-kit`, then run `npx promo-kit init` and `npx promo-kit selftest`. See [Portable Core](portable-core.md) for the full contract.
 

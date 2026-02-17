@@ -1,4 +1,4 @@
-name: Publish Week
+name: Publish Spotlight Week
 
 on:
   workflow_dispatch:
@@ -109,7 +109,7 @@ jobs:
 
           git add site/public/outreach-run/ site/src/data/feedback-summary.json
           git checkout -B "$BRANCH"
-          git commit -m "chore(auto): publish week ${DATE}"
+          git commit -m "chore(auto): spotlight week ${DATE}"
           git push --force origin "$BRANCH"
 
           # Build PR body from outreach-run.md
@@ -126,7 +126,7 @@ jobs:
             gh pr edit "$EXISTING" --body "$BODY"
           else
             gh pr create \
-              --title "chore(auto): publish week ${DATE}" \
+              --title "chore(auto): spotlight week ${DATE}" \
               --body "$BODY" \
               --base main \
               --head "$BRANCH"

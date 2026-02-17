@@ -94,9 +94,9 @@ try {
   currentPath="/trust/"
 >
   <div class="trust-page">
-    <h1>Trust Center</h1>
+    <h1>Verification, for people who like to double-check.</h1>
     <p class="subtitle">
-      Here's what we do. Here's the evidence. Here's how you can check.
+      We publish weekly spotlights. We also know the internet is full of confident nonsense &mdash; so when we make a claim, we try to back it with something you can inspect.
     </p>
 
     <nav class="trust-path" aria-label="Trust verification path">
@@ -107,9 +107,9 @@ try {
       <a href="/receipts/">Receipts</a>
       <span class="trust-path-sep">&rarr;</span>
       {latestWeek ? (
-        <a href={`/promo/${latestWeek}/`}>Latest Promo Week</a>
+        <a href={`/promo/${latestWeek}/`}>Latest Spotlight Week</a>
       ) : (
-        <span class="trust-path-muted">Promo Week</span>
+        <span class="trust-path-muted">Spotlight Week</span>
       )}
       <span class="trust-path-sep">&rarr;</span>
       <a href="#verify">Verify</a>
@@ -117,12 +117,12 @@ try {
 
     {/* Section 1: What we mean by "trust" */}
     <section class="trust-section">
-      <h2>What we mean by "trust"</h2>
+      <h2>What you can verify here</h2>
       <p>
-        Every public promotion is backed by a{" "}
-        <GlossaryTerm term="receipt" definition="A JSON file listing hashed inputs, the generating commit, and timestamps for a specific promotion week." />.
+        Every spotlight pick is backed by a{" "}
+        <GlossaryTerm term="receipt" definition="A JSON file listing hashed inputs, the generating commit, and timestamps for a specific spotlight week." />.
         Receipts show inputs (hashed), decisions, and the commit that generated them.
-        Nothing is promoted in the dark.
+        You don't need this page to use the site. It's here for the skeptics (we love skeptics).
       </p>
       <div class="freshness-grid">
         {artifactCount > 0 && (
@@ -156,9 +156,9 @@ try {
 
     {/* Section 2: How promos are chosen */}
     <section class="trust-section">
-      <h2>How promos are chosen</h2>
+      <h2>How spotlight picks are chosen</h2>
       <p>
-        Promotion follows four steps. Automation handles scoring and generation;
+        Spotlight selection follows four steps. Automation handles scoring and generation;
         humans handle queuing and review.
       </p>
       <ol class="pipeline-steps">
@@ -168,7 +168,7 @@ try {
           rates each tool on objective criteria.
         </li>
         <li>
-          <strong>Queue.</strong> A human adds qualifying slugs to the promotion queue.
+          <strong>Queue.</strong> A human adds qualifying slugs to the spotlight queue.
         </li>
         <li>
           <strong>Generate.</strong> The pipeline creates press kits, snippets, and proof pages &mdash; all hash-verified.
@@ -178,7 +178,7 @@ try {
         </li>
       </ol>
       <p>
-        See <a href="/now/">This Week's Focus</a> for currently featured tools.
+        See <a href="/now/">This Week's Spotlight</a> for currently featured tools.
       </p>
       {worthyCriteria.length > 0 && (
         <div class="rubric-list">
@@ -201,7 +201,7 @@ try {
         Two switches control automated decisions. When{" "}
         <GlossaryTerm term="frozen" definition="A governance state where automated pipeline decisions are paused. Humans must intervene manually." />,
         the pipeline still builds the site, syncs the catalog, and tracks releases &mdash;
-        but no new promotion or experiment decisions are made until a human unfreezes.
+        but no new spotlight or experiment decisions are made until a human unfreezes.
       </p>
       <div class="freeze-grid">
         <div class={`freeze-item ${decisionsFrozen ? 'frozen' : 'active'}`}>
@@ -229,7 +229,7 @@ try {
     <section class="trust-section">
       <h2>Decision drift</h2>
       <p>
-        Each pipeline run compares current promotion decisions against the previous week's snapshot.{" "}
+        Each pipeline run compares current spotlight decisions against the previous week's snapshot.{" "}
         <GlossaryTerm term="Drift" definition="Week-over-week change in promotion decisions: new entrants, exits, score deltas, and action changes." />{" "}
         detection flags new entrants, exits, score changes, and action flips
         (e.g. "promote" to "skip").
@@ -245,12 +245,12 @@ try {
     <section class="trust-section" id="verify">
       <h2>How to verify a week</h2>
       <p>
-        Anyone can independently verify a promotion week in four steps:
+        Anyone can independently verify a spotlight week in four steps:
       </p>
       <div class="verify-recipe">
         <ol>
           <li>
-            Visit the <strong>promotion week page</strong> (e.g.{" "}
+            Visit the <strong>spotlight week page</strong> (e.g.{" "}
             {latestWeek ? (
               <a href={`/promo/${latestWeek}/`}><code>/promo/{latestWeek}/</code></a>
             ) : (
@@ -265,7 +265,7 @@ try {
             Run <code>sha256sum</code> on each input file listed in the bundle.
           </li>
           <li>
-            Compare your computed hashes to the bundle hashes. If they match, the promotion
+            Compare your computed hashes to the bundle hashes. If they match, the spotlight
             used exactly those inputs.
           </li>
         </ol>
@@ -276,7 +276,7 @@ try {
         </p>
       ) : (
         <p class="section-note">
-          No promotion weeks available yet. Check back after the next scheduled run.
+          No spotlight weeks available yet. Check back after the next scheduled run.
         </p>
       )}
     </section>
