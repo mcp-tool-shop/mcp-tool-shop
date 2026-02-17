@@ -762,15 +762,23 @@
       "cursor-control",
       "deterministic",
       "dotnet",
-      "fitts-law"
+      "fitts-law",
+      "wpf",
+      "desktop-app"
     ],
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-17T10:34:38Z",
+    "updatedAt": "2026-02-17T15:05:00Z",
     "registered": false,
-    "unlisted": true,
-    "deprecated": false
+    "unlisted": false,
+    "deprecated": false,
+    "kind": "desktop-app",
+    "stability": "experimental",
+    "install": "dotnet run --project CursorAssist/CursorAssist.csproj",
+    "tagline": "A deterministic engine for assistive cursor control.",
+    "screenshot": "/screenshots/CursorAssist.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "DeterministicMouseTrainingEngine",

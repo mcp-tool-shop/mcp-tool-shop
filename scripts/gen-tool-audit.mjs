@@ -172,6 +172,18 @@ async function checkReality(p) {
     if (!foundCI) {
         issues.push("Desktop App missing CI workflow (must build in CI)");
     }
+    
+    // Install Instruction Check for Desktop Apps
+    if (p.install) {
+        const lowerInstall = p.install.toLowerCase();
+        if (!lowerInstall.includes("dotnet run") && 
+            !lowerInstall.includes("dotnet build") && 
+            !lowerInstall.includes("download")) {
+            issues.push("Desktop App install must contain 'dotnet run', 'dotnet build', or 'Download'");
+        }
+    } else {
+        issues.push("Desktop App missing install instruction");
+    }
   }
 
   // Kind validation (heuristic)
