@@ -167,6 +167,20 @@
     "screenshot": "/screenshots/mcp-voice-engine.png",
     "screenshotType": "placeholder"
   },
+  "mcp-file-forge": {
+    "tags": [
+      "mcp",
+      "file-ops",
+      "scaffolding"
+    ],
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "npm install @mcptoolshop/file-forge",
+    "tagline": "Secure file operations and project scaffolding via MCP.",
+    "smithery": "https://smithery.ai/servers/mcp-tool-shop/mcp-file-forge",
+    "flyio": "https://mcp-file-forge.fly.dev"
+  },
   "mcp-voice-soundboard": {
     "tags": [
       "tts",
@@ -176,8 +190,10 @@
     "category": "voice",
     "stability": "stable",
     "kind": "mcp-server",
-    "install": "pip install mcp-voice-soundboard",
+    "install": "npm install @mcptoolshop/voice-soundboard-mcp",
     "tagline": "TTS MCP server with 12 voices and SSML-lite.",
+    "smithery": "https://smithery.ai/servers/mcp-tool-shop/voice-soundboard",
+    "flyio": "https://voice-soundboard-mcp.fly.dev",
     "screenshot": "/screenshots/mcp-voice-soundboard.png",
     "screenshotType": "placeholder"
   },
@@ -234,6 +250,8 @@
     "kind": "mcp-server",
     "install": "pip install tool-compass",
     "tagline": "Find MCP tools by describing what you need.",
+    "smithery": "https://smithery.ai/servers/mcp-tool-shop/tool-compass",
+    "flyio": "https://tool-compass-gateway.fly.dev",
     "goodFor": [
       "Discovering tools across large MCP ecosystems",
       "Intent-based tool selection (describe the task, get the tool)",
