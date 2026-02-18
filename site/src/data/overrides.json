@@ -12,6 +12,37 @@
     "screenshot": "/screenshots/Attestia.png",
     "screenshotType": "placeholder"
   },
+  "ConsensusOS": {
+    "tags": [
+      "consensus",
+      "deterministic",
+      "distributed-systems",
+      "event-sourcing",
+      "governance",
+      "multi-chain"
+    ],
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "plugin",
+    "install": "npm install consensusos",
+    "tagline": "Plugin-based multi-chain consensus control plane — zero deps, fail-closed invariants,...",
+    "needsHumanReview": true
+  },
+  "InControl-Desktop": {
+    "tags": [
+      "ai",
+      "csharp",
+      "llm",
+      "local-inference",
+      "ollama",
+      "rtx"
+    ],
+    "category": "desktop",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Privacy-first local LLM chat for Windows — WinUI 3, RTX-accelerated, multi-backend...",
+    "needsHumanReview": true
+  },
   "LeaseGate-Lite": {
     "screenshot": "/screenshots/LeaseGate-Lite.png",
     "screenshotType": "placeholder"
@@ -120,6 +151,20 @@
     "screenshot": "/screenshots/file-compass.png",
     "screenshotType": "placeholder"
   },
+  "mcp-file-forge": {
+    "tags": [
+      "mcp",
+      "file-ops",
+      "scaffolding"
+    ],
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "npm install @mcptoolshop/file-forge",
+    "tagline": "Secure file operations and project scaffolding via MCP.",
+    "smithery": "https://smithery.ai/servers/mcp-tool-shop/mcp-file-forge",
+    "flyio": "https://mcp-file-forge.fly.dev"
+  },
   "mcp-stress-test": {
     "tags": [
       "mcp",
@@ -167,20 +212,6 @@
     "screenshot": "/screenshots/mcp-voice-engine.png",
     "screenshotType": "placeholder"
   },
-  "mcp-file-forge": {
-    "tags": [
-      "mcp",
-      "file-ops",
-      "scaffolding"
-    ],
-    "category": "mcp-core",
-    "stability": "stable",
-    "kind": "mcp-server",
-    "install": "npm install @mcptoolshop/file-forge",
-    "tagline": "Secure file operations and project scaffolding via MCP.",
-    "smithery": "https://smithery.ai/servers/mcp-tool-shop/mcp-file-forge",
-    "flyio": "https://mcp-file-forge.fly.dev"
-  },
   "mcp-voice-soundboard": {
     "tags": [
       "tts",
@@ -192,10 +223,10 @@
     "kind": "mcp-server",
     "install": "npm install @mcptoolshop/voice-soundboard-mcp",
     "tagline": "TTS MCP server with 12 voices and SSML-lite.",
-    "smithery": "https://smithery.ai/servers/mcp-tool-shop/voice-soundboard",
-    "flyio": "https://voice-soundboard-mcp.fly.dev",
     "screenshot": "/screenshots/mcp-voice-soundboard.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "smithery": "https://smithery.ai/servers/mcp-tool-shop/voice-soundboard",
+    "flyio": "https://voice-soundboard-mcp.fly.dev"
   },
   "mcpt": {
     "tags": [
@@ -210,6 +241,75 @@
     "tagline": "CLI for discovering and running MCP tools.",
     "screenshot": "/screenshots/mcpt.png",
     "screenshotType": "placeholder"
+  },
+  "mcpt-logo-studio": {
+    "featured": true,
+    "tags": [
+      "diffusion",
+      "logo-gen",
+      "clip",
+      "comfyui"
+    ],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "library",
+    "install": "npm install @mcptoolshop/logo-studio",
+    "tagline": "Product mining, encoder-aware prompts, and diffusion logo generation.",
+    "goodFor": [
+      "Generating brand marks from a product description alone",
+      "Token-budgeted CLIP/T5 prompts with zero dependencies",
+      "Three prompt modes: raw, studio (LLM brief), readme (full pipeline)",
+      "Pluggable backends: ComfyUI, Together AI, local diffusers"
+    ],
+    "notFor": [
+      "General image generation (use diffusers directly)",
+      "Text-heavy logo design (CLIP weakness)",
+      "Production branding without human review"
+    ],
+    "screenshot": "/screenshots/logo-studio.png",
+    "screenshotType": "real"
+  },
+  "meta-content-system": {
+    "tags": [
+      "content-system",
+      "developer-tools",
+      "dotnet",
+      "lessons",
+      "typing-practice"
+    ],
+    "category": "games",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Shared content system for typing-practice apps — lessons, progression, and adaptive...",
+    "needsHumanReview": true
+  },
+  "runforge-desktop": {
+    "tags": [
+      "windows",
+      "desktop",
+      "workflow",
+      "ai"
+    ],
+    "category": "desktop",
+    "stability": "beta",
+    "kind": "desktop-app",
+    "tagline": "Windows desktop application for AI workflow execution.",
+    "needsHumanReview": true
+  },
+  "soundboard-maui": {
+    "tags": [
+      "cross-platform",
+      "csharp",
+      "desktop-app",
+      "dotnet",
+      "maui",
+      "text-to-speech"
+    ],
+    "category": "voice",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Cross-platform .NET MAUI desktop client for the Sound Board voice engine.",
+    "needsHumanReview": true
   },
   "soundboard-plugin": {
     "featured": true,
@@ -250,8 +350,6 @@
     "kind": "mcp-server",
     "install": "pip install tool-compass",
     "tagline": "Find MCP tools by describing what you need.",
-    "smithery": "https://smithery.ai/servers/mcp-tool-shop/tool-compass",
-    "flyio": "https://tool-compass-gateway.fly.dev",
     "goodFor": [
       "Discovering tools across large MCP ecosystems",
       "Intent-based tool selection (describe the task, get the tool)",
@@ -262,7 +360,9 @@
       "Non-MCP tool discovery"
     ],
     "screenshot": "/screenshots/tool-compass.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "smithery": "https://smithery.ai/servers/mcp-tool-shop/tool-compass",
+    "flyio": "https://tool-compass-gateway.fly.dev"
   },
   "tool-scan": {
     "tags": [
@@ -302,33 +402,6 @@
     "tagline": "Append-only event journal with cryptographic verification.",
     "screenshot": "/screenshots/witness.png",
     "screenshotType": "placeholder"
-  },
-  "mcpt-logo-studio": {
-    "featured": true,
-    "tags": [
-      "diffusion",
-      "logo-gen",
-      "clip",
-      "comfyui"
-    ],
-    "category": "ml",
-    "stability": "beta",
-    "kind": "library",
-    "install": "npm install @mcptoolshop/logo-studio",
-    "tagline": "Product mining, encoder-aware prompts, and diffusion logo generation.",
-    "goodFor": [
-      "Generating brand marks from a product description alone",
-      "Token-budgeted CLIP/T5 prompts with zero dependencies",
-      "Three prompt modes: raw, studio (LLM brief), readme (full pipeline)",
-      "Pluggable backends: ComfyUI, Together AI, local diffusers"
-    ],
-    "notFor": [
-      "General image generation (use diffusers directly)",
-      "Text-heavy logo design (CLIP weakness)",
-      "Production branding without human review"
-    ],
-    "screenshot": "/screenshots/logo-studio.png",
-    "screenshotType": "real"
   },
   "zip-meta-map": {
     "featured": true,

@@ -38,18 +38,6 @@
     "prerelease": false
   },
   {
-    "repo": "mcp-tool-registry",
-    "toolName": "Mcp Tool Registry",
-    "tag": "v1.0.1",
-    "name": "v1.0.1",
-    "body": [
-      "Fix: include logo in npm tarball"
-    ],
-    "publishedAt": "2026-02-17T07:38:09Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-tool-registry/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
     "repo": "mcp-voice-soundboard",
     "toolName": "Mcp Voice Soundboard",
     "tag": "v0.1.2",
@@ -59,6 +47,18 @@
     ],
     "publishedAt": "2026-02-17T07:38:09Z",
     "url": "https://github.com/mcp-tool-shop-org/mcp-voice-soundboard/releases/tag/v0.1.2",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-tool-registry",
+    "toolName": "Mcp Tool Registry",
+    "tag": "v1.0.1",
+    "name": "v1.0.1",
+    "body": [
+      "Fix: include logo in npm tarball"
+    ],
+    "publishedAt": "2026-02-17T07:38:09Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-tool-registry/releases/tag/v1.0.1",
     "prerelease": false
   },
   {
@@ -377,6 +377,33 @@
     "prerelease": false
   },
   {
+    "repo": "soundboard-plugin",
+    "toolName": "Soundboard Plugin",
+    "tag": "v1.0.0",
+    "name": "v1.0.0 — Security Hardening & Release Ready",
+    "body": [
+      "The soundboard plugin hits **v1.0.0** — fully hardened, documented, and ready for production use.",
+      "| Tag | Phase | Highlights |",
+      "|-----|-------|------------|",
+      "| v0.1.0 | Core speech pipeline | SSML-lite, smart chunking, multi-chunk synthesis |",
+      "| v0.2.0 | Multi-speaker dialogue | Script parser, auto-casting, stage directions |",
+      "| v0.3.0 | Emotion & ambient | 8 emotions, SFX tags, inner monologue |"
+    ],
+    "publishedAt": "2026-02-13T09:48:45Z",
+    "url": "https://github.com/mcp-tool-shop-org/soundboard-plugin/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "LeaseGate",
+    "toolName": "LeaseGate",
+    "tag": "policy-bundle-8d936a536fd2795ed2703bfb2889d877a5708cdb",
+    "name": "policy-bundle-8d936a536fd2795ed2703bfb2889d877a5708cdb",
+    "body": [],
+    "publishedAt": "2026-02-12T18:10:57Z",
+    "url": "https://github.com/mcp-tool-shop-org/LeaseGate/releases/tag/policy-bundle-8d936a536fd2795ed2703bfb2889d877a5708cdb",
+    "prerelease": false
+  },
+  {
     "repo": "ThrottleAI",
     "toolName": "ThrottleAI",
     "tag": "v0.1.0",
@@ -443,6 +470,40 @@
     "publishedAt": "2026-02-12T16:21:44Z",
     "url": "https://github.com/mcp-tool-shop-org/ThrottleAI/releases/tag/v0.2.0-alpha.0",
     "prerelease": true
+  },
+  {
+    "repo": "LeaseGate-Lite",
+    "toolName": "LeaseGate Lite",
+    "tag": "v0.1.0",
+    "name": "LeaseGate Lite v0.1.0",
+    "body": [
+      "Smooths local AI workload bursts so your PC stays responsive during heavy usage.",
+      "Applies practical throughput controls (concurrency, adaptive throttling, rate limits) with sensible defaults.",
+      "Gives you clear, auditable visibility through live status, event trail, diagnostics export, and in-app audit harness.",
+      "It does **not** upload prompts or call external telemetry services by default.",
+      "It does **not** act as cloud orchestration or multi-host fleet management.",
+      "It does **not** replace your model runtime; it only governs local request pressure and pacing."
+    ],
+    "publishedAt": "2026-02-12T16:12:15Z",
+    "url": "https://github.com/mcp-tool-shop-org/LeaseGate-Lite/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "LeaseGate",
+    "toolName": "LeaseGate",
+    "tag": "v0.1.0",
+    "name": "v0.1.0 — Security Hardening & Reliability",
+    "body": [
+      "LeaseGate v0.1.0 delivers defense-in-depth security hardening and reliability improvements across the full governance stack. All 5 implementation phases are complete, tested, and production-ready.",
+      "Command injection prevention** — Shell metacharacter blocklist and direct process execution (no `cmd.exe /c` indirection) in tool isolation",
+      "Service account token hashing** — SHA-256 hash comparison by default with plaintext backward compatibility",
+      "Payload size limits** — 16 MB cap on named pipe message framing",
+      "Path traversal protection** — All file export endpoints reject `..` traversal and constrain to temp/app data directories",
+      "CSV formula injection prevention** — Report exports escape formula injection characters (`=`, `+`, `-`, `@`)"
+    ],
+    "publishedAt": "2026-02-12T15:15:40Z",
+    "url": "https://github.com/mcp-tool-shop-org/LeaseGate/releases/tag/v0.1.0",
+    "prerelease": false
   },
   {
     "repo": "InControl-Desktop",
@@ -581,6 +642,40 @@
     "prerelease": false
   },
   {
+    "repo": "Registrum",
+    "toolName": "Registrum",
+    "tag": "v0.1.0",
+    "name": "v0.1.0 — Packaging Integrity Release",
+    "body": [
+      "This release establishes Registrum as **externally consumable with confidence**.",
+      "Unlike feature-driven releases, this update addresses packaging ambiguity—mismatched versions, unclear hash semantics, undocumented tooling assumptions, and incomplete licensing—without altering system semantics or behavior.",
+      "All externally visible version references now derive from `src/version.ts`, ensuring attestations, artifacts, and documentation remain provably consistent.",
+      "Standard MIT license file included, aligning legal metadata with automated compliance requirements.",
+      "`computeSnapshotChecksum32` — Non-cryptographic (djb2) for integrity checking",
+      "`computeSnapshotHashForAttestation` — Cryptographic (SHA-256) for attestation"
+    ],
+    "publishedAt": "2026-02-05T19:36:19Z",
+    "url": "https://github.com/mcp-tool-shop-org/Registrum/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "VectorCaliper",
+    "toolName": "VectorCaliper",
+    "tag": "v1.0.0",
+    "name": "VectorCaliper v1.0.0",
+    "body": [
+      "A geometrical debugger for learning dynamics.**",
+      "1. **Deterministic visualization** — Same input produces same output, byte-for-byte",
+      "2. **Faithful representation** — Every visual element traces to a measured variable",
+      "3. **No interpretation** — VectorCaliper shows what happened, never tells you what it means",
+      "4. **Truthful degradation** — At scale, shows exact subsets with explicit completeness indicators",
+      "5. **Explicit limits** — Budget violations cause rejection, not silent degradation"
+    ],
+    "publishedAt": "2026-02-05T13:39:51Z",
+    "url": "https://github.com/mcp-tool-shop-org/VectorCaliper/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
     "repo": "runforge-desktop",
     "toolName": "Runforge Desktop",
     "tag": "v0.5.0",
@@ -598,139 +693,37 @@
     "prerelease": false
   },
   {
-    "repo": "synthesis",
-    "toolName": "Synthesis",
+    "repo": "codeclone-suite",
+    "toolName": "Codeclone Suite",
     "tag": "v0.1.0",
-    "name": "synthesis v0.1.0",
+    "name": "v0.1.0 - Contract-First Foundation",
     "body": [
-      "Deterministic engine that composes behavioral constraints and interaction signals into coherent response strategies.",
-      "Synthesis avoids emotion modeling, focusing on auditable rules:",
-      "Preserving agency",
-      "Avoiding false reassurance",
-      "Maintaining presence",
-      "Repair after failure"
+      "Deterministic code coverage analysis** as a protocol.",
+      "Contract-first foundation with interop harness in place.",
+      "Analyze response schema (additive changes only)",
+      "Version response schema (additive changes only)",
+      "Diagnostic codes (no removals or renames)",
+      "Severity mapping (new codes require mapping)"
     ],
-    "publishedAt": "2026-02-02T02:04:40Z",
-    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v0.1.0",
+    "publishedAt": "2026-02-02T03:38:49Z",
+    "url": "https://github.com/mcp-tool-shop-org/codeclone-suite/releases/tag/v0.1.0",
     "prerelease": false
   },
   {
-    "repo": "prov-engine-js",
-    "toolName": "Prov Engine Js",
+    "repo": "codeteam-suite",
+    "toolName": "Codeteam Suite",
     "tag": "v0.2.0",
-    "name": "prov-engine-js v0.2.0",
+    "name": "v0.2.0 - Package Verification CLI",
     "body": [
-      "Zero-dependency Node.js provenance engine implementing prov-spec.",
-      "W3C PROV-O compatible provenance tracking",
-      "Zero external dependencies",
-      "TypeScript definitions included",
-      "Immutable provenance records",
-      "Cryptographic hashing support"
+      "Deterministic package signature verification** as a protocol.",
+      "CLI engine for package verification",
+      "Ed25519 cryptographic signatures",
+      "Strict stdout purity (JSON only in --json mode)",
+      "Contract-first development with frozen schemas",
+      "`codeteam-cli` - Python CLI engine"
     ],
-    "publishedAt": "2026-02-02T02:04:02Z",
-    "url": "https://github.com/mcp-tool-shop-org/prov-engine-js/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "websketch-demo",
-    "toolName": "Websketch Demo",
-    "tag": "v0.1.0",
-    "name": "websketch-demo v0.1.0",
-    "body": [
-      "Interactive demo site for WebSketch IR - visualize UI grammar.",
-      "Live IR visualization",
-      "Interactive element highlighting",
-      "Side-by-side HTML and IR view",
-      "Export capabilities",
-      "Example pages included"
-    ],
-    "publishedAt": "2026-02-02T02:02:46Z",
-    "url": "https://github.com/mcp-tool-shop-org/websketch-demo/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "websketch-extension",
-    "toolName": "Websketch Extension",
-    "tag": "v0.1.0",
-    "name": "websketch-extension v0.1.0",
-    "body": [
-      "Chrome extension to capture web pages as WebSketch IR.",
-      "Capture visible page as IR",
-      "Analyze page structure",
-      "Export to JSON",
-      "Direct code generation preview",
-      "DevTools integration"
-    ],
-    "publishedAt": "2026-02-02T02:02:38Z",
-    "url": "https://github.com/mcp-tool-shop-org/websketch-extension/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "websketch-mcp",
-    "toolName": "Websketch Mcp",
-    "tag": "v0.1.0",
-    "name": "websketch-mcp v0.1.0",
-    "body": [
-      "MCP server exposing WebSketch IR tools for LLM agents.",
-      "MCP-compatible server",
-      "Tools for web page analysis",
-      "Claude integration ready",
-      "Streaming support",
-      "`websketch_parse` - Parse URL/HTML to IR"
-    ],
-    "publishedAt": "2026-02-02T02:02:30Z",
-    "url": "https://github.com/mcp-tool-shop-org/websketch-mcp/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "websketch-cli",
-    "toolName": "Websketch Cli",
-    "tag": "v0.2.0",
-    "name": "websketch-cli v0.2.0",
-    "body": [
-      "Command-line tool for WebSketch IR - render, fingerprint, and diff UI captures.",
-      "Parse HTML/URL to WebSketch IR",
-      "Render IR to various formats (JSON, HTML, diff)",
-      "Fingerprint UI structures for comparison",
-      "Diff two UI captures",
-      "Pipe-friendly output"
-    ],
-    "publishedAt": "2026-02-02T02:02:22Z",
-    "url": "https://github.com/mcp-tool-shop-org/websketch-cli/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "websketch-ir",
-    "toolName": "Websketch Ir",
-    "tag": "v0.2.0",
-    "name": "websketch-ir v0.2.0",
-    "body": [
-      "Grammar-based UI representation for LLMs - capture web pages as semantic primitives.",
-      "Semantic element graph representation",
-      "Visual property encoding (colors, spacing, fonts)",
-      "Hierarchy detection and normalization",
-      "Export to multiple formats",
-      "TypeScript support"
-    ],
-    "publishedAt": "2026-02-02T02:02:14Z",
-    "url": "https://github.com/mcp-tool-shop-org/websketch-ir/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "runforge-desktop",
-    "toolName": "Runforge Desktop",
-    "tag": "v0.2.0",
-    "name": "v0.2.0 - V1 Contract + Request Panel",
-    "body": [
-      "Release Date:** 2026-02-01",
-      "v0.2.0 introduces the **V1 Contract** for RunRequest, enabling interoperability between RunForge Desktop and the VS Code extension. This release focuses on displaying, viewing, and exporting run request data.",
-      "Shared Schema**: Both Desktop and VS Code now use the same `request.json` schema (v1)",
-      "Forward Compatibility**: Unknown fields from newer versions are preserved on load/save",
-      "Atomic Writes**: File operations use temp file + rename pattern for crash safety",
-      "The Run Detail page now displays the full run request:"
-    ],
-    "publishedAt": "2026-02-01T22:16:59Z",
-    "url": "https://github.com/mcp-tool-shop-org/runforge-desktop/releases/tag/v0.2.0",
+    "publishedAt": "2026-02-02T03:38:33Z",
+    "url": "https://github.com/mcp-tool-shop-org/codeteam-suite/releases/tag/v0.2.0",
     "prerelease": false
   }
 ]

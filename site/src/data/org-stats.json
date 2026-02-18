@@ -3,15 +3,15 @@
   "registeredCount": 45,
   "totalStars": 4,
   "languages": [
+    "C#",
     "Python",
     "TypeScript",
-    "C#",
     "HTML",
     "JavaScript",
     "Ruby"
   ],
   "recentReleases": 50,
-  "updatedAt": "2026-02-17T16:02:45.819Z",
+  "updatedAt": "2026-02-18T14:07:18.852Z",
   "registryHealth": {
     "registryToolCount": 48,
     "registeredInProjects": 45,

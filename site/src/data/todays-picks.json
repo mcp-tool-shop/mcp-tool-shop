@@ -1,5 +1,5 @@
 {
-  "date": "2026-02-17",
+  "date": "2026-02-18",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,31 +9,24 @@
       ]
     },
     {
-      "slug": "ally-demo-python",
-      "reason": "Python demonstration of accessibility framework capabilities",
+      "slug": "codecomfy-vscode",
+      "reason": "VS Code extension for code analysis and coverage display",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "tool-scan",
-      "reason": "Static inspection utilities for MCP tools and repositories",
+      "slug": "websketch-extension",
+      "reason": "Browser extension for web page analysis and code generation",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "accessibility-suite",
-      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "slug": "aspire-ai",
+      "reason": "Goal-oriented framework for running and evaluating AI workflows over time",
       "signals": [
         "popular"
-      ]
-    },
-    {
-      "slug": "file-compass",
-      "reason": "Deterministic file-system navigation and inspection for large repos",
-      "signals": [
-        "featured"
       ]
     },
     {
@@ -41,6 +34,13 @@
       "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
       "signals": [
         "featured"
+      ]
+    },
+    {
+      "slug": "accessibility-suite",
+      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "signals": [
+        "popular"
       ]
     }
   ]
