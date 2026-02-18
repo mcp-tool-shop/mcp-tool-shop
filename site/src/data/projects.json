@@ -204,7 +204,8 @@
     "tags": [
       "blockchain",
       "governance",
-      "financial"
+      "financial",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 1,
@@ -228,7 +229,8 @@
     "tags": [
       "ml",
       "fine-tuning",
-      "training"
+      "training",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 1,
@@ -260,7 +262,8 @@
       "rate-limiting",
       "system-tray",
       "throttling",
-      "windows"
+      "windows",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 1,
@@ -288,7 +291,8 @@
       "dotnet",
       "maui",
       "training-dynamics",
-      "visualization"
+      "visualization",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 1,
@@ -312,7 +316,8 @@
       "accessibility",
       "wcag",
       "compliance",
-      "monorepo"
+      "monorepo",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -336,7 +341,8 @@
     "tags": [
       "accessibility",
       "demo",
-      "python"
+      "python",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -360,7 +366,8 @@
     "tags": [
       "ml",
       "training",
-      "ai-alignment"
+      "ai-alignment",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -388,7 +395,8 @@
       "financial-infrastructure",
       "windows",
       "windows-app-sdk",
-      "winui3"
+      "winui3",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -411,7 +419,8 @@
     "tags": [
       "audio",
       "ebook",
-      "generation"
+      "generation",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -438,7 +447,8 @@
       "memory-management",
       "python",
       "resource-management",
-      "windows"
+      "windows",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -459,7 +469,8 @@
     "tags": [
       "provenance",
       "cryptography",
-      "dotnet"
+      "dotnet",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -481,7 +492,8 @@
     "tags": [
       "claude",
       "agents",
-      "collaboration"
+      "collaboration",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -503,7 +515,8 @@
       "naming",
       "clearance",
       "npm",
-      "cli"
+      "cli",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -524,7 +537,8 @@
     "tags": [
       "batch-execution",
       "content-addressed",
-      "python"
+      "python",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -545,7 +559,8 @@
     "tags": [
       "coverage",
       "visualization",
-      "testing"
+      "testing",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -570,7 +585,8 @@
       "desktop-app",
       "dotnet",
       "maui",
-      "viewer"
+      "viewer",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -593,7 +609,8 @@
     "tags": [
       "coverage",
       "protocol",
-      "monorepo"
+      "monorepo",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -615,7 +632,8 @@
     "tags": [
       "vscode",
       "extension",
-      "coverage"
+      "coverage",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -637,7 +655,8 @@
     "tags": [
       "code-analysis",
       "cli",
-      "legacy"
+      "legacy",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -659,7 +678,8 @@
     "tags": [
       "code-analysis",
       "protocol",
-      "monorepo"
+      "monorepo",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -685,7 +705,8 @@
       "event-sourcing",
       "governance",
       "multi-chain",
-      "python"
+      "python",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -703,7 +724,8 @@
       "context",
       "tokens",
       "rag",
-      "memory"
+      "memory",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -720,7 +742,8 @@
     "tags": [
       "dashboard",
       "monitoring",
-      "admin"
+      "admin",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -737,7 +760,8 @@
     "tags": [
       "provenance",
       "attestation",
-      "dotnet"
+      "dotnet",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -764,7 +788,8 @@
       "dotnet",
       "fitts-law",
       "wpf",
-      "desktop-app"
+      "desktop-app",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -788,7 +813,8 @@
       "game-loop",
       "training",
       "mouse",
-      "dotnet"
+      "dotnet",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -806,7 +832,9 @@
     "name": "Dev Op Typer",
     "repo": "dev-op-typer",
     "description": "Typing practice for DevOps engineers (Deprecated)",
-    "tags": [],
+    "tags": [
+      "needs-copy"
+    ],
     "featured": false,
     "stars": 0,
     "language": "C#",
@@ -830,7 +858,8 @@
       "feature-flags",
       "nodejs",
       "technical-debt",
-      "typescript"
+      "typescript",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -847,7 +876,8 @@
     "tags": [
       "workflow",
       "automation",
-      "framework"
+      "framework",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -865,7 +895,8 @@
       "python",
       "packaging",
       "wheels",
-      "release"
+      "release",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -886,7 +917,8 @@
       "linux",
       "macos",
       "mcp",
-      "package-manager"
+      "package-manager",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -909,7 +941,8 @@
       "rtx",
       "windows",
       "windows-app-sdk",
-      "winui3"
+      "winui3",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -926,7 +959,8 @@
     "tags": [
       "gradio",
       "ui",
-      "framework"
+      "framework",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -952,7 +986,8 @@
       "governance",
       "lease",
       "policy-enforcement",
-      "rate-limiting"
+      "rate-limiting",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -970,7 +1005,8 @@
       "provenance",
       "cryptography",
       "monorepo",
-      "dotnet"
+      "dotnet",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -993,7 +1029,8 @@
       "developer-tools",
       "dotnet",
       "typing-practice",
-      "desktop-app"
+      "desktop-app",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1019,7 +1056,8 @@
       "local-first",
       "soundscapes",
       "offline",
-      "productivity"
+      "productivity",
+      "needs-copy"
     ],
     "featured": true,
     "stars": 0,
@@ -1037,7 +1075,9 @@
     "name": "Mcp App Builder",
     "repo": "mcp-app-builder",
     "description": "VS Code extension for building MCP servers with interactive UI components (Deprecated)",
-    "tags": [],
+    "tags": [
+      "needs-copy"
+    ],
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
@@ -1062,7 +1102,8 @@
       "python",
       "sandboxed",
       "scaffolding",
-      "windows"
+      "windows",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1079,7 +1120,8 @@
     "tags": [
       "mcp",
       "security",
-      "testing"
+      "testing",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1102,7 +1144,8 @@
     "tags": [
       "tts",
       "audio",
-      "voice"
+      "voice",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1125,7 +1168,8 @@
     "tags": [
       "tts",
       "mcp",
-      "voice"
+      "voice",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1149,7 +1193,8 @@
     "tags": [
       "mcp",
       "cli",
-      "discovery"
+      "discovery",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1175,7 +1220,8 @@
       "developer-tools",
       "dotnet",
       "lessons",
-      "typing-practice"
+      "typing-practice",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1194,7 +1240,8 @@
       "dotnet",
       "game",
       "maui",
-      "windows"
+      "windows",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1208,7 +1255,9 @@
     "name": "Nameops",
     "repo": "nameops",
     "description": "Name clearance orchestrator — batch runs, publish, and PR automation for the clearance-opinion-engine",
-    "tags": [],
+    "tags": [
+      "needs-copy"
+    ],
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
@@ -1229,7 +1278,8 @@
       "windows",
       "desktop",
       "gallery",
-      "images"
+      "images",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1244,7 +1294,9 @@
     "name": "NextGallery Desktop",
     "repo": "NextGallery-Desktop",
     "description": "Standalone Windows desktop gallery for AI-generated images and videos",
-    "tags": [],
+    "tags": [
+      "needs-copy"
+    ],
     "featured": false,
     "stars": 0,
     "language": "C#",
@@ -1267,7 +1319,8 @@
       "windows",
       "local-first",
       "privacy",
-      "winui3"
+      "winui3",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1289,7 +1342,8 @@
       "governance",
       "attestation",
       "routing",
-      "monorepo"
+      "monorepo",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1307,7 +1361,8 @@
     "tags": [
       "workflow",
       "journey",
-      "python"
+      "python",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1324,7 +1379,8 @@
     "tags": [
       "payroll",
       "saas",
-      "hr"
+      "hr",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1341,7 +1397,8 @@
     "tags": [
       "provenance",
       "traceability",
-      "typescript"
+      "typescript",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1362,7 +1419,8 @@
       "governance",
       "python",
       "state-machine",
-      "structural-integrity"
+      "structural-integrity",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1380,7 +1438,8 @@
       "windows",
       "desktop",
       "workflow",
-      "ai"
+      "ai",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1404,7 +1463,8 @@
       "workflow",
       "ai",
       "ml",
-      "training"
+      "training",
+      "needs-copy"
     ],
     "featured": true,
     "stars": 0,
@@ -1426,7 +1486,8 @@
       "aspire-ai",
       "reasoning-engine",
       "adversarial",
-      "python"
+      "python",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1452,7 +1513,8 @@
       "pnpm",
       "svg",
       "turborepo",
-      "typescript"
+      "typescript",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1474,7 +1536,8 @@
       "maui",
       "text-to-speech",
       "tts",
-      "voice"
+      "voice",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1491,7 +1554,8 @@
     "tags": [
       "stress-testing",
       "load",
-      "mcp"
+      "mcp",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1510,7 +1574,8 @@
     "tags": [
       "workflow",
       "composition",
-      "tools"
+      "tools",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1535,7 +1600,8 @@
       "openai",
       "rate-limiting",
       "throttling",
-      "typescript"
+      "typescript",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1557,7 +1623,8 @@
       "maui",
       "rate-limiting",
       "throttling",
-      "windows"
+      "windows",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1573,7 +1640,8 @@
     "description": "Static inspection utilities for MCP tools and repositories",
     "tags": [
       "mcp",
-      "security"
+      "security",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1598,7 +1666,8 @@
       "ml",
       "tensorflowjs",
       "validation",
-      "security"
+      "security",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1615,7 +1684,8 @@
     "tags": [
       "python",
       "venv",
-      "diagnostics"
+      "diagnostics",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1632,7 +1702,8 @@
     "tags": [
       "tts",
       "audio",
-      "voice"
+      "voice",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1655,7 +1726,8 @@
     "tags": [
       "cli",
       "web",
-      "analysis"
+      "analysis",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1673,7 +1745,8 @@
     "tags": [
       "demo",
       "web",
-      "visualization"
+      "visualization",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1691,7 +1764,8 @@
     "tags": [
       "browser",
       "extension",
-      "analysis"
+      "analysis",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1709,7 +1783,8 @@
     "tags": [
       "ir",
       "core",
-      "library"
+      "library",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1727,7 +1802,8 @@
     "tags": [
       "mcp-server",
       "web",
-      "ai"
+      "ai",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1745,7 +1821,8 @@
     "tags": [
       "winget",
       "windows",
-      "packaging"
+      "packaging",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1762,7 +1839,8 @@
     "tags": [
       "provenance",
       "cryptography",
-      "append-only"
+      "append-only",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1786,7 +1864,8 @@
       "game-engine",
       "csharp",
       "dotnet",
-      "rendering"
+      "rendering",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,
@@ -1810,7 +1889,8 @@
       "cli",
       "typescript",
       "analysis",
-      "code-quality"
+      "code-quality",
+      "needs-copy"
     ],
     "featured": false,
     "stars": 0,

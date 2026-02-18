@@ -37,6 +37,20 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
       <button id="search-clear" class="search-clear" aria-label="Clear search" hidden>&times;</button>
     </div>
     <div class="filter-group">
+      <select id="filter-status" class="filter-select">
+        <option value="">All statuses</option>
+        <option value="verified">✅ Verified Only</option>
+        <option value="concept">🚧 Concepts Only</option>
+        <option value="needs-copy">📝 Needs Copy</option>
+      </select>
+      <select id="filter-build" class="filter-select">
+        <option value="">All builds</option>
+        <option value="npm">NPM / Node.js</option>
+        <option value="python">Python</option>
+        <option value="dotnet">.NET</option>
+        <option value="cargo">Rust / Cargo</option>
+        <option value="docker">Container</option>
+      </select>
       <select id="filter-lang" class="filter-select">
         <option value="">All languages</option>
         {languages.map((lang: string) => <option value={lang}>{lang}</option>)}
@@ -80,6 +94,10 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
         data-tags={(project.tags || []).join(' ').toLowerCase()}
         data-registered={project.registered ? '1' : '0'}
         data-deprecated={project.deprecated ? '1' : '0'}
+        data-verified={proofs.find((p: any) => p.repo === project.repo)?.verified ? '1' : '0'}
+        data-concept={proofs.find((p: any) => p.repo === project.repo)?.concept ? '1' : '0'}
+        data-build={(proofs.find((p: any) => p.repo === project.repo)?.proofs || []).join(' ')}
+        data-needs-copy={(project.tags || []).includes('needs-copy') ? '1' : '0'}
       >
         <div class="card-header">
           <h3>
@@ -333,6 +351,8 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
   const langFilter = document.getElementById('filter-lang') as HTMLSelectElement;
   const kindFilter = document.getElementById('filter-kind') as HTMLSelectElement;
   const stabilityFilter = document.getElementById('filter-stability') as HTMLSelectElement;
+  const statusFilter = document.getElementById('filter-status') as HTMLSelectElement;
+  const buildFilter = document.getElementById('filter-build') as HTMLSelectElement;
   const sortBy = document.getElementById('sort-by') as HTMLSelectElement;
   const showOrgOnly = document.getElementById('show-orgonly') as HTMLInputElement;
   const resultsCount = document.getElementById('results-count')!;
@@ -342,6 +362,8 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
     const lang = langFilter.value;
     const kind = kindFilter.value;
     const stability = stabilityFilter.value;
+    const status = statusFilter.value;
+    const build = buildFilter.value;
     const includeOrgOnly = showOrgOnly.checked;
 
     clearBtn.hidden = !q;
@@ -357,12 +379,20 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
       const matchLang = !lang || card.dataset.lang === lang;
       const matchKind = !kind || card.dataset.kind === kind;
       const matchStability = !stability || card.dataset.stability === stability;
+      
+      const matchStatus = !status || 
+        (status === 'verified' && card.dataset.verified === '1') ||
+        (status === 'concept' && card.dataset.concept === '1') ||
+        (status === 'needs-copy' && card.dataset.needsCopy === '1');
+        
+      const matchBuild = !build || (card.dataset.build || '').includes(build);
+      
       const matchRegistered = includeOrgOnly || card.dataset.registered === '1';
       // Deprecated tools hidden unless org-only toggle is on or search matches
       const isDeprecated = card.dataset.deprecated === '1';
       const matchDeprecated = !isDeprecated || includeOrgOnly || Boolean(q);
 
-      const show = matchSearch && matchLang && matchKind && matchStability && matchRegistered && matchDeprecated;
+      const show = matchSearch && matchLang && matchKind && matchStability && matchStatus && matchBuild && matchRegistered && matchDeprecated;
       card.hidden = !show;
       if (show) visible++;
       // Count deprecated tools that passed all filters except the deprecated filter
@@ -412,6 +442,8 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
   langFilter.addEventListener('change', applyFilters);
   kindFilter.addEventListener('change', applyFilters);
   stabilityFilter.addEventListener('change', applyFilters);
+  statusFilter.addEventListener('change', applyFilters);
+  buildFilter.addEventListener('change', applyFilters);
   sortBy.addEventListener('change', applyFilters);
   showOrgOnly.addEventListener('change', applyFilters);
 

@@ -75,6 +75,11 @@ const pressData = showProof ? getPressData(project.repo) : null;
         {project.language && (
           <span class="badge badge-kind">{project.language}</span>
         )}
+        {toolProof?.verified && latestRelease && (
+          <a href={latestRelease.url} target="_blank" rel="noopener noreferrer" class="badge badge-version" title={`Latest release: ${new Date(latestRelease.publishedAt).toLocaleDateString()}`}>
+             {latestRelease.tag}
+          </a>
+        )}
       </div>
     </div>
 

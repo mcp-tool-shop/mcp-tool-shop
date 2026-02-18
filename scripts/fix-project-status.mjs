@@ -40,6 +40,28 @@ projects.forEach(p => {
               changed = true;
          }
     }
+
+    // Enforce Copy Standards
+    const hasTagline = p.tagline && p.tagline.length <= 90;
+    const hasGoodFor = Array.isArray(p.goodFor) && p.goodFor.length >= 3;
+    const hasNotFor = Array.isArray(p.notFor) && p.notFor.length >= 2;
+    
+    const needsCopy = !hasTagline || !hasGoodFor || !hasNotFor;
+    
+    if (needsCopy) {
+        if (!p.tags) p.tags = [];
+        if (!p.tags.includes("needs-copy")) {
+            p.tags.push("needs-copy");
+            changed = true;
+            console.log(`Flagging ${p.name} as needs-copy`);
+        }
+    } else {
+        if (p.tags && p.tags.includes("needs-copy")) {
+            p.tags = p.tags.filter(t => t !== "needs-copy");
+            changed = true;
+            console.log(`Unflagging ${p.name} (copy standards met)`);
+        }
+    }
 });
 
 if (changed) {

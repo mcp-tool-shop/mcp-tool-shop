@@ -669,3 +669,6 @@ main {
     text-align: center;
   }
 }
+
+.badge-version { background: var(--color-success); color: var(--color-canvas-default); text-decoration: none; cursor: pointer; }
+.badge-version:hover { opacity: 0.8; }
