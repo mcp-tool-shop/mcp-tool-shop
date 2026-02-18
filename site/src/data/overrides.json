@@ -285,6 +285,33 @@
     "screenshot": "/screenshots/witness.png",
     "screenshotType": "placeholder"
   },
+  "mcpt-logo-studio": {
+    "featured": true,
+    "tags": [
+      "diffusion",
+      "logo-gen",
+      "clip",
+      "comfyui"
+    ],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "library",
+    "install": "npm install @mcptoolshop/logo-studio",
+    "tagline": "Product mining, encoder-aware prompts, and diffusion logo generation.",
+    "goodFor": [
+      "Generating brand marks from a product description alone",
+      "Token-budgeted CLIP/T5 prompts with zero dependencies",
+      "Three prompt modes: raw, studio (LLM brief), readme (full pipeline)",
+      "Pluggable backends: ComfyUI, Together AI, local diffusers"
+    ],
+    "notFor": [
+      "General image generation (use diffusers directly)",
+      "Text-heavy logo design (CLIP weakness)",
+      "Production branding without human review"
+    ],
+    "screenshot": "/screenshots/logo-studio.png",
+    "screenshotType": "real"
+  },
   "zip-meta-map": {
     "featured": true,
     "tags": [
