@@ -1,0 +1,472 @@
+---
+import Base from '../layouts/Base.astro';
+import projects from '../data/projects.json';
+import releases from '../data/releases.json';
+import proofs from '../data/audit/proofs.json';
+
+// Vitals Calculation
+const totalTools = projects.length;
+const verifiedCount = proofs.filter((p: any) => p.verified).length;
+const verifiedRate = totalTools > 0 ? Math.round((verifiedCount / totalTools) * 100) : 0;
+
+// Language Distribution
+const langCounts: Record<string, number> = {};
+(projects as any[]).forEach((p: any) => {
+  const l = p.language || 'Other';
+  langCounts[l] = (langCounts[l] || 0) + 1;
+});
+const topLangs = Object.entries(langCounts)
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 5);
+
+// Velocity (New in 30 days)
+const now = new Date();
+const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+const newToolsCount = (projects as any[]).filter((p: any) => {
+  if (!p.createdAt && !p.updatedAt) return false;
+  const d = new Date(p.createdAt || p.updatedAt); // Use updated if created missing
+  return d > thirtyDaysAgo;
+}).length;
+
+// Recent Activity Log
+const activityLog = (releases as any[]).slice(0, 15).map((r: any) => ({
+  type: 'release',
+  repo: r.repo,
+  tag: r.tag,
+  date: new Date(r.publishedAt).toLocaleDateString(),
+  time: new Date(r.publishedAt).toLocaleTimeString(),
+  url: r.url
+}));
+
+// Client-side Data for Graph
+const graphNodes = (projects as any[]).map((p: any) => ({
+  id: p.repo,
+  label: p.name,
+  group: p.language || 'Other',
+  verified: proofs.find((pr: any) => pr.repo === p.repo)?.verified || false,
+  val: (p.stars || 0) + 5, // Base size
+  tags: p.tags || []
+}));
+
+// Generate Links based on shared tags (simple syntropy)
+const graphLinks: { source: string; target: string }[] = [];
+// Limit links to avoid hairball - link if share > 1 tag or specific ecosystem tags?
+// For demo, let's link randomly within groups or just 1-2 based on index for structure?
+// Better: link if they share 'ecosystem' or 'category'.
+// Or loop O(N^2) but limited. N=60 is small.
+for (let i = 0; i < graphNodes.length; i++) {
+  for (let j = i + 1; j < graphNodes.length; j++) {
+    const a = graphNodes[i];
+    const b = graphNodes[j];
+    // Link if same group (language) OR share tags
+    const sharedTags = a.tags.filter((t: string) => b.tags.includes(t));
+    if (a.group === b.group || sharedTags.length > 0) {
+       // Only add with probability to keep clean
+       if (Math.random() > 0.85) { 
+         graphLinks.push({ source: a.id, target: b.id });
+       }
+    }
+  }
+}
+---
+
+<Base
+  title="Ecosystem Pulse - mcp-tool-shop"
+  description="Real-time visualization of the MCP Tool Shop ecosystem health and activity."
+  currentPath="/pulse/"
+>
+  <div class="pulse-container">
+    <div class="pulse-header">
+      <h1>SYSTEM STATUS: <span>ONLINE</span></h1>
+      <div class="timestamp" id="clock">--:--:-- UTC</div>
+    </div>
+
+    <div class="dashboard-grid">
+      <!-- Vitals Panel -->
+      <div class="panel vitals-panel">
+        <h2>VITALS</h2>
+        <div class="metric-row">
+          <div class="metric">
+            <span class="label">Total Tools</span>
+            <span class="value">{totalTools}</span>
+          </div>
+          <div class="metric">
+            <span class="label">Verified</span>
+            <span class="value success">{verifiedRate}%</span>
+          </div>
+          <div class="metric">
+            <span class="label">30d Velocity</span>
+            <span class="value accent">+{newToolsCount}</span>
+          </div>
+        </div>
+        
+        <div class="chart-container">
+          <h3>Dominant Stacks</h3>
+          <div class="bars">
+            {topLangs.map(([lang, count]) => (
+              <div class="bar-row">
+                <span class="bar-label">{lang}</span>
+                <div class="bar-track">
+                  <div class="bar-fill" style={`width: ${(count / totalTools) * 100}%`}></div>
+                </div>
+                <span class="bar-val">{count}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Graph Panel -->
+      <div class="panel graph-panel">
+        <canvas id="syntropy-graph"></canvas>
+        <div class="graph-overlay">
+          <h2>Syntropy Map</h2>
+          <p>Real-time ecosystem connectivity</p>
+        </div>
+      </div>
+
+      <!-- Drift Log -->
+      <div class="panel log-panel">
+        <h2>DRIFT LOG</h2>
+        <div class="terminal-feed">
+          {activityLog.map((log: any) => (
+            <div class="log-entry">
+              <span class="log-time">[{log.time}]</span>
+              <span class="log-action">RELEASE</span>
+              <span class="log-repo">{log.repo}</span>
+              <a href={log.url} target="_blank" class="log-tag">{log.tag}</a>
+            </div>
+          ))}
+          <div class="log-entry system">
+            <span class="log-time">[SYSTEM]</span>
+            <span class="log-info">Monitoring active...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script define:vars={{ graphNodes, graphLinks }}>
+  // Simple Clock
+  setInterval(() => {
+    const clock = document.getElementById('clock');
+    if (clock) clock.innerText = new Date().toISOString().replace('T', ' ').split('.')[0] + ' UTC';
+  }, 1000);
+
+  // Force Graph Implementation (Vanilla JS)
+  const canvas = document.getElementById('syntropy-graph');
+  const ctx = canvas.getContext('2d');
+  
+  let width, height;
+  const resize = () => {
+    width = canvas.parentElement.offsetWidth;
+    height = canvas.parentElement.offsetHeight;
+    canvas.width = width;
+    canvas.height = height;
+  };
+  window.addEventListener('resize', resize);
+  resize();
+
+  // Nodes & Links State
+  const nodes = graphNodes.map(n => ({ ...n, x: Math.random() * width, y: Math.random() * height, vx: 0, vy: 0 }));
+  const links = graphLinks.map(l => ({ ...l })); // Shallow copy structure
+
+  // Color Map
+  const colors = {
+    verified: '#3fb950', // Green
+    concept: '#d29922',  // Yellow
+    bg: '#0d1117',
+    link: 'rgba(56, 139, 253, 0.2)'
+  };
+
+  // Simulation Loop
+  function tick() {
+    // Forces
+    const k = 0.1; // Repulsion const
+    const drag = 0.95;
+    
+    // Repulsion (Node-Node)
+    for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+            const a = nodes[i];
+            const b = nodes[j];
+            const dx = b.x - a.x;
+            const dy = b.y - a.y;
+            let dist = Math.sqrt(dx*dx + dy*dy) || 1;
+            if (dist > 200) continue; // Optimization
+            
+            const f = (k * k) / dist; // Repel
+            const fx = (dx / dist) * f * 200;
+            const fy = (dy / dist) * f * 200;
+
+            a.vx -= fx; a.vy -= fy;
+            b.vx += fx; b.vy += fy;
+        }
+    }
+
+    // Attraction (Center & Links)
+    const cx = width / 2;
+    const cy = height / 2;
+    nodes.forEach(n => {
+        n.vx += (cx - n.x) * 0.005; // Gravity to center
+        n.vy += (cy - n.y) * 0.005;
+    });
+
+    // Links (Spring)
+    // Map IDs to indices for speed would be better, but find is ok for N=100
+    links.forEach(l => {
+        const s = nodes.find(n => n.id === l.source);
+        const t = nodes.find(n => n.id === l.target);
+        if (!s || !t) return;
+
+        const dx = t.x - s.x;
+        const dy = t.y - s.y;
+        const dist = Math.sqrt(dx*dx + dy*dy) || 1;
+        const strength = 0.02;
+        const fx = (dx / dist) * (dist - 100) * strength; // Spring length 100
+        const fy = (dy / dist) * (dist - 100) * strength;
+        
+        s.vx += fx; s.vy += fy;
+        t.vx -= fx; t.vy -= fy;
+    });
+
+    // Update
+    nodes.forEach(n => {
+        n.vx *= drag;
+        n.vy *= drag;
+        n.x += n.vx;
+        n.y += n.vy;
+
+        // Boundaries
+        if (n.x < 10) n.x = 10;
+        if (n.x > width - 10) n.x = width - 10;
+        if (n.y < 10) n.y = 10;
+        if (n.y > height - 10) n.y = height - 10;
+    });
+
+    draw();
+    requestAnimationFrame(tick);
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+    
+    // Draw Links
+    ctx.strokeStyle = colors.link;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    links.forEach(l => {
+        const s = nodes.find(n => n.id === l.source);
+        const t = nodes.find(n => n.id === l.target);
+        if (s && t) {
+            ctx.moveTo(s.x, s.y);
+            ctx.lineTo(t.x, t.y);
+        }
+    });
+    ctx.stroke();
+
+    // Draw Nodes
+    nodes.forEach(n => {
+        ctx.fillStyle = n.verified ? colors.verified : colors.concept;
+        ctx.beginPath();
+        const r = n.verified ? 4 : 3;
+        ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Highlight logic
+        // ctx.fillStyle = 'rgba(255,255,255,0.1)';
+        // ctx.fillText(n.label, n.x + 8, n.y + 3);
+    });
+  }
+
+  requestAnimationFrame(tick);
+</script>
+
+<style>
+  .pulse-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+    font-family: 'JetBrains Mono', monospace; /* Use mono font for data feel */
+  }
+
+  .pulse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--sl-color-gray-5);
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .pulse-header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--sl-color-gray-3);
+  }
+
+  .pulse-header h1 span {
+    color: var(--sl-color-green-400);
+    text-shadow: 0 0 10px rgba(74, 222, 128, 0.4);
+  }
+
+  .timestamp {
+    font-size: 1rem;
+    color: var(--sl-color-accent-high);
+  }
+
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr 350px;
+    gap: 1.5rem;
+    height: 600px; /* Fixed height for dashboard feel */
+  }
+
+  @media (max-width: 1024px) {
+    .dashboard-grid {
+      grid-template-columns: 1fr;
+      height: auto;
+    }
+    .graph-panel {
+      height: 400px;
+    }
+  }
+
+  .panel {
+    background: rgba(13, 17, 23, 0.6);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 8px;
+    padding: 1rem;
+    overflow: hidden;
+    position: relative;
+    backdrop-filter: blur(4px);
+  }
+
+  .panel h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--sl-color-gray-4);
+    letter-spacing: 0.1em;
+    margin: 0 0 1rem 0;
+    border-bottom: 1px solid var(--sl-color-gray-6);
+    padding-bottom: 0.5rem;
+  }
+
+  /* Vitals */
+  .metric-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .metric .label {
+    color: var(--sl-color-gray-3);
+    font-size: 0.9rem;
+  }
+
+  .metric .value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--sl-color-white);
+  }
+
+  .metric .value.success { color: var(--sl-color-green-400); }
+  .metric .value.accent { color: var(--sl-color-accent-high); }
+
+  .chart-container h3 {
+    font-size: 0.85rem;
+    color: var(--sl-color-gray-3);
+    margin-bottom: 0.5rem;
+  }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .bar-label { width: 60px; color: var(--sl-color-gray-4); }
+  .bar-track {
+    flex: 1;
+    background: var(--sl-color-gray-6);
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    background: var(--sl-color-accent-low);
+    height: 100%;
+  }
+  .bar-val { width: 30px; text-align: right; color: var(--sl-color-gray-3); }
+
+  /* Graph */
+  .graph-panel {
+    padding: 0; 
+    border-color: var(--sl-color-gray-5);
+  }
+  #syntropy-graph {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(30,30,35,1) 0%, rgba(13,17,23,1) 70%);
+  }
+  .graph-overlay {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    pointer-events: none;
+  }
+  .graph-overlay h2 { border: none; margin: 0; color: var(--sl-color-white); }
+  .graph-overlay p { margin: 0; font-size: 0.8rem; color: var(--sl-color-gray-4); }
+
+  /* Log */
+  .terminal-feed {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.85rem;
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .log-entry {
+    display: flex;
+    gap: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .log-time { color: var(--sl-color-gray-5); }
+  .log-action { color: var(--sl-color-accent-high); font-weight: bold; }
+  .log-repo { color: var(--sl-color-white); }
+  .log-tag { color: var(--sl-color-green-400); text-decoration: none; }
+  .log-tag:hover { text-decoration: underline; }
+
+  .log-info { color: var(--sl-color-gray-4); font-style: italic; }
+
+  /* Scrollbar */
+  .terminal-feed::-webkit-scrollbar { width: 4px; }
+  .terminal-feed::-webkit-scrollbar-thumb { background: var(--sl-color-gray-5); border-radius: 2px; }
+  
+  .graph-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    pointer-events: none;
+    background: 
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+  }
+</style>
