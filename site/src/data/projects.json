@@ -149,8 +149,6 @@
     "kind": "mcp-server",
     "install": "pip install tool-compass",
     "tagline": "Find MCP tools by describing what you need.",
-    "smithery": "https://smithery.ai/servers/mcp-tool-shop/tool-compass",
-    "flyio": "https://tool-compass-gateway.fly.dev",
     "goodFor": [
       "Discovering tools across large MCP ecosystems",
       "Intent-based tool selection (describe the task, get the tool)",
@@ -161,7 +159,9 @@
       "Non-MCP tool discovery"
     ],
     "screenshot": "/screenshots/tool-compass.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "smithery": "https://smithery.ai/servers/mcp-tool-shop/tool-compass",
+    "flyio": "https://tool-compass-gateway.fly.dev"
   },
   {
     "name": "Zip Meta Map",
@@ -399,6 +399,19 @@
     "deprecated": false
   },
   {
+    "name": "Avatar Face Mvp",
+    "repo": "avatar-face-mvp",
+    "description": "Real-time VRM avatar lipsync MVP — Godot 4 + FFT visemes + OpenSeeFace",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "GDScript",
+    "updatedAt": "2026-02-19T06:47:26Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Build Governor",
     "repo": "build-governor",
     "description": "Build Reliability Governor - Prevents build system memory exhaustion on Windows",
@@ -452,6 +465,19 @@
     "updatedAt": "2026-02-02T02:04:48Z",
     "registered": true,
     "unlisted": false,
+    "deprecated": false
+  },
+  {
+    "name": "Claude Session Copilot",
+    "repo": "claude-session-copilot",
+    "description": "Session copilot for Claude Code. Captures decisions, timelines, and patterns across sessions.",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-19T12:13:35Z",
+    "registered": false,
+    "unlisted": true,
     "deprecated": false
   },
   {
@@ -608,8 +634,7 @@
       "distributed-systems",
       "event-sourcing",
       "governance",
-      "multi-chain",
-      "python"
+      "multi-chain"
     ],
     "featured": false,
     "stars": 0,
@@ -617,7 +642,13 @@
     "updatedAt": "2026-02-18T03:59:04Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "plugin",
+    "install": "npm install consensusos",
+    "tagline": "Plugin-based multi-chain consensus control plane — zero deps, fail-closed invariants,...",
+    "needsHumanReview": true
   },
   {
     "name": "Context Window Manager",
@@ -649,7 +680,7 @@
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-15T02:41:27Z",
+    "updatedAt": "2026-02-19T05:58:57Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false
@@ -687,7 +718,7 @@
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-18T03:10:41Z",
+    "updatedAt": "2026-02-18T20:42:06Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -757,6 +788,19 @@
     "deprecated": false
   },
   {
+    "name": "Game Dev Mcp",
+    "repo": "game-dev-mcp",
+    "description": "MCP server giving any LLM control over game engines. UE5 today, more tomorrow.",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-19T11:30:42Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Headless Wheel Builder",
     "repo": "headless-wheel-builder",
     "description": "CLI-first build/validate/release tooling for Python wheels and sdists",
@@ -805,10 +849,7 @@
       "llm",
       "local-inference",
       "ollama",
-      "rtx",
-      "windows",
-      "windows-app-sdk",
-      "winui3"
+      "rtx"
     ],
     "featured": false,
     "stars": 0,
@@ -816,7 +857,12 @@
     "updatedAt": "2026-02-18T02:50:43Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "desktop",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Privacy-first local LLM chat for Windows — WinUI 3, RTX-accelerated, multi-backend...",
+    "needsHumanReview": true
   },
   {
     "name": "Integradio",
@@ -924,6 +970,25 @@
     "deprecated": false
   },
   {
+    "name": "Mcp Aside",
+    "repo": "mcp-aside",
+    "description": "MCP server that gives your AI a place to jot things down mid-conversation — an in-memory interjection inbox with guardrails.",
+    "tags": [
+      "llm-tools",
+      "mcp",
+      "mcp-server",
+      "model-context-protocol",
+      "typescript"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-19T12:20:12Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Mcp File Forge",
     "repo": "mcp-file-forge",
     "description": "MCP server for file operations and project scaffolding - Windows-first, secure, sandboxed",
@@ -946,6 +1011,32 @@
     "tagline": "Secure file operations and project scaffolding via MCP.",
     "smithery": "https://smithery.ai/servers/mcp-tool-shop/mcp-file-forge",
     "flyio": "https://mcp-file-forge.fly.dev"
+  },
+  {
+    "name": "Mcp Game Builder",
+    "repo": "mcp-game-builder",
+    "description": "MCP server giving any LLM full control over Unreal Engine 5 via the built-in Remote Control API",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-19T10:34:12Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
+    "name": "Mcp Personify",
+    "repo": "mcp-personify",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "C++",
+    "updatedAt": "2026-02-19T09:40:18Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "MCP Stress Test",
@@ -1005,7 +1096,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-18T06:06:20Z",
+    "updatedAt": "2026-02-19T11:44:07Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1014,10 +1105,10 @@
     "kind": "mcp-server",
     "install": "npm install @mcptoolshop/voice-soundboard-mcp",
     "tagline": "TTS MCP server with 12 voices and SSML-lite.",
-    "smithery": "https://smithery.ai/servers/mcp-tool-shop/voice-soundboard",
-    "flyio": "https://voice-soundboard-mcp.fly.dev",
     "screenshot": "/screenshots/mcp-voice-soundboard.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "smithery": "https://smithery.ai/servers/mcp-tool-shop/voice-soundboard",
+    "flyio": "https://voice-soundboard-mcp.fly.dev"
   },
   {
     "name": "MCPT",
@@ -1060,7 +1151,12 @@
     "updatedAt": "2026-02-18T03:07:50Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "games",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Shared content system for typing-practice apps — lessons, progression, and adaptive...",
+    "needsHumanReview": true
   },
   {
     "name": "MouseTrainer",
@@ -1076,7 +1172,7 @@
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-02-18T02:58:53Z",
+    "updatedAt": "2026-02-19T00:57:02Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -1230,6 +1326,19 @@
     "deprecated": false
   },
   {
+    "name": "Repo Crawler Mcp",
+    "repo": "repo-crawler-mcp",
+    "description": "MCP server that crawls GitHub repos and extracts structured data for AI agents",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "",
+    "updatedAt": "2026-02-19T14:06:00Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Rippled Windows Debug",
     "repo": "rippled-windows-debug",
     "description": "Windows debugging toolkit for rippled (XRPL validator node)",
@@ -1266,7 +1375,12 @@
     "updatedAt": "2026-02-18T02:53:08Z",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "desktop",
+    "stability": "beta",
+    "kind": "desktop-app",
+    "tagline": "Windows desktop application for AI workflow execution.",
+    "needsHumanReview": true
   },
   {
     "name": "RunForge VS Code",
@@ -1331,9 +1445,7 @@
       "desktop-app",
       "dotnet",
       "maui",
-      "text-to-speech",
-      "tts",
-      "voice"
+      "text-to-speech"
     ],
     "featured": false,
     "stars": 0,
@@ -1341,7 +1453,12 @@
     "updatedAt": "2026-02-18T03:01:28Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "voice",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Cross-platform .NET MAUI desktop client for the Sound Board voice engine.",
+    "needsHumanReview": true
   },
   {
     "name": "StressKit MCP",
@@ -1532,6 +1649,19 @@
     "tagline": "TTS library with compiler/graph/engine architecture.",
     "screenshot": "/screenshots/voice-soundboard.png",
     "screenshotType": "placeholder"
+  },
+  {
+    "name": "Vscode Voice Soundboard",
+    "repo": "vscode-voice-soundboard",
+    "description": "VS Code extension for MCP Voice Soundboard — sidebar panel with voice picker, TTS synthesis, and multi-speaker dialogue",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-19T13:12:21Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "WebSketch CLI",

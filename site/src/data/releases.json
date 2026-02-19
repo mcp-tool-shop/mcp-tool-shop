@@ -1,5 +1,20 @@
 [
   {
+    "repo": "control-room",
+    "toolName": "Control Room",
+    "tag": "v1.0.0",
+    "name": "Control Room v1.0.0",
+    "body": [
+      "1. Download `ControlRoom-win-x64.zip`",
+      "2. Extract to a folder",
+      "3. Run `ControlRoom.App.exe`",
+      "See [CHANGELOG.md](https://github.com/mcp-tool-shop-org/control-room/blob/main/CHANGELOG.md) for details."
+    ],
+    "publishedAt": "2026-02-19T05:51:50Z",
+    "url": "https://github.com/mcp-tool-shop-org/control-room/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
     "repo": "soundboard-maui",
     "toolName": "Soundboard Maui",
     "tag": "v1.2.0",
@@ -707,23 +722,6 @@
     ],
     "publishedAt": "2026-02-02T03:38:49Z",
     "url": "https://github.com/mcp-tool-shop-org/codeclone-suite/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "codeteam-suite",
-    "toolName": "Codeteam Suite",
-    "tag": "v0.2.0",
-    "name": "v0.2.0 - Package Verification CLI",
-    "body": [
-      "Deterministic package signature verification** as a protocol.",
-      "CLI engine for package verification",
-      "Ed25519 cryptographic signatures",
-      "Strict stdout purity (JSON only in --json mode)",
-      "Contract-first development with frozen schemas",
-      "`codeteam-cli` - Python CLI engine"
-    ],
-    "publishedAt": "2026-02-02T03:38:33Z",
-    "url": "https://github.com/mcp-tool-shop-org/codeteam-suite/releases/tag/v0.2.0",
     "prerelease": false
   }
 ]

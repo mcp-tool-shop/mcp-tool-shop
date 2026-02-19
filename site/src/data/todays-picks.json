@@ -1,5 +1,5 @@
 {
-  "date": "2026-02-18",
+  "date": "2026-02-19",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,15 +9,29 @@
       ]
     },
     {
-      "slug": "codecomfy-vscode",
-      "reason": "VS Code extension for code analysis and coverage display",
+      "slug": "runforge-desktop",
+      "reason": "Windows desktop application for AI workflow execution",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "websketch-extension",
-      "reason": "Browser extension for web page analysis and code generation",
+      "slug": "claude-collaborate",
+      "reason": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "flexiflow",
+      "reason": "Flexible workflow automation framework",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "accessibility-suite",
+      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
       "signals": [
         "popular"
       ]
@@ -25,20 +39,6 @@
     {
       "slug": "aspire-ai",
       "reason": "Goal-oriented framework for running and evaluating AI workflows over time",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "tool-compass",
-      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
-      "signals": [
-        "featured"
-      ]
-    },
-    {
-      "slug": "accessibility-suite",
-      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
       "signals": [
         "popular"
       ]

@@ -127,6 +127,18 @@
     "screenshot": "/screenshots/comfy-headless.png",
     "screenshotType": "placeholder"
   },
+  "control-room": {
+    "tags": [
+      "dashboard",
+      "monitoring",
+      "admin"
+    ],
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Dashboard and monitoring for MCP tool ecosystems.",
+    "needsHumanReview": true
+  },
   "file-compass": {
     "featured": true,
     "tags": [
@@ -283,6 +295,19 @@
     "tagline": "Shared content system for typing-practice apps — lessons, progression, and adaptive...",
     "needsHumanReview": true
   },
+  "prov-engine-js": {
+    "tags": [
+      "provenance",
+      "traceability",
+      "typescript"
+    ],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "install": "npm install prov-engine-js",
+    "tagline": "JavaScript/TypeScript provenance and traceability engine.",
+    "needsHumanReview": true
+  },
   "runforge-desktop": {
     "tags": [
       "windows",
@@ -377,6 +402,19 @@
     "screenshot": "/screenshots/tool-scan.png",
     "screenshotType": "placeholder"
   },
+  "venvkit": {
+    "tags": [
+      "python",
+      "venv",
+      "diagnostics"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "install": "npm install venvkit",
+    "tagline": "Python virtual environment diagnostics and utilities.",
+    "needsHumanReview": true
+  },
   "voice-soundboard": {
     "tags": [
       "tts",
@@ -389,6 +427,32 @@
     "tagline": "TTS library with compiler/graph/engine architecture.",
     "screenshot": "/screenshots/voice-soundboard.png",
     "screenshotType": "placeholder"
+  },
+  "websketch-cli": {
+    "tags": [
+      "cli",
+      "web",
+      "analysis"
+    ],
+    "category": "web",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "npx websketch-cli",
+    "tagline": "Command-line interface for web component analysis.",
+    "needsHumanReview": true
+  },
+  "websketch-ir": {
+    "tags": [
+      "ir",
+      "core",
+      "library"
+    ],
+    "category": "web",
+    "stability": "beta",
+    "kind": "library",
+    "install": "npm install websketch-ir",
+    "tagline": "Intermediate representation library for web component analysis.",
+    "needsHumanReview": true
   },
   "witness": {
     "tags": [
