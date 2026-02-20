@@ -1,0 +1,4145 @@
+{
+  "tool": "zip-meta-map",
+  "generatedAt": "2026-02-20T08:34:55.545Z",
+  "scoringVersion": "1.0.0",
+  "scoringWeights": {
+    "topicMatch": {
+      "perMatch": 15,
+      "max": 60
+    },
+    "keywordMatch": {
+      "perMatch": 10,
+      "max": 40
+    },
+    "activityRecency": {
+      "max": 20,
+      "decayDays": 365
+    },
+    "starTier": {
+      "max": 15,
+      "tiers": [
+        {
+          "min": 1000,
+          "score": 15
+        },
+        {
+          "min": 100,
+          "score": 13
+        },
+        {
+          "min": 10,
+          "score": 10
+        },
+        {
+          "min": 0,
+          "score": 5
+        }
+      ]
+    },
+    "fitScore": {
+      "max": 20
+    },
+    "comparableBonus": {
+      "value": 10
+    },
+    "signalBonus": {
+      "value": 10
+    }
+  },
+  "sourcelock": "210820f16a97",
+  "discoveryStats": {
+    "topicSearches": 6,
+    "keywordSearches": 6,
+    "comparableSearches": 2,
+    "signalExpansions": 0,
+    "seedExpansions": 1,
+    "rawCandidates": 751,
+    "afterDedup": 604,
+    "afterExclusion": 574,
+    "afterScoring": 100
+  },
+  "errors": [
+    "seed:aider-chat/aider: 404 Not Found: https://api.github.com/repos/aider-chat/aider"
+  ],
+  "candidateCount": 100,
+  "candidates": [
+    {
+      "owner": "ComposioHQ",
+      "repo": "composio",
+      "fullName": "ComposioHQ/composio",
+      "description": "Composio powers 1000+ toolkits, tool search, context management, authentication, and a sandboxed workbench to help you build AI agents that turn intent into action.",
+      "stars": 26894,
+      "language": "TypeScript",
+      "topics": [
+        "agentic-ai",
+        "agents",
+        "ai",
+        "ai-agents",
+        "aiagents",
+        "developer-tools",
+        "function-calling",
+        "gpt-4",
+        "javascript",
+        "js",
+        "llm",
+        "llmops",
+        "mcp",
+        "python",
+        "remote-mcp-server",
+        "sse",
+        "typescript"
+      ],
+      "pushedAt": "2026-02-20T07:16:39Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "topic:developer-tools"
+      ],
+      "score": 85,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 20,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/ComposioHQ/composio"
+    },
+    {
+      "owner": "yamadashy",
+      "repo": "repomix",
+      "fullName": "yamadashy/repomix",
+      "description": "📦 Repomix is a powerful tool that packs your entire repository into a single, AI-friendly file. Perfect for when you need to feed your codebase to Large Language Models (LLMs) or other AI tools like ",
+      "stars": 21957,
+      "language": "TypeScript",
+      "topics": [
+        "ai",
+        "anthropic",
+        "artificial-intelligence",
+        "chatbot",
+        "chatgpt",
+        "claude",
+        "deepseek",
+        "developer-tools",
+        "gemini",
+        "genai",
+        "generative-ai",
+        "gpt",
+        "javascript",
+        "language-model",
+        "llama",
+        "llm",
+        "mcp",
+        "nodejs",
+        "openai",
+        "typescript"
+      ],
+      "pushedAt": "2026-02-18T14:05:14Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:developer-tools",
+        "comparable:tree / find + jq pipelines"
+      ],
+      "score": 85,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/yamadashy/repomix"
+    },
+    {
+      "owner": "abinthomasonline",
+      "repo": "repo2txt",
+      "fullName": "abinthomasonline/repo2txt",
+      "description": "Web-based tool converts GitHub repository contents into a single formatted text file",
+      "stars": 1738,
+      "language": "TypeScript",
+      "topics": [
+        "ai",
+        "anthropic",
+        "chatgpt",
+        "developer-tools",
+        "devtools",
+        "llm"
+      ],
+      "pushedAt": "2026-02-17T18:52:55Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 80,
+      "scoreBreakdown": {
+        "topicMatch": 45,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/abinthomasonline/repo2txt"
+    },
+    {
+      "owner": "jmuncor",
+      "repo": "tokentap",
+      "fullName": "jmuncor/tokentap",
+      "description": "Intercept LLM API traffic and visualize token usage in a real-time terminal dashboard. Track costs,       debug prompts, and monitor context window usage across your AI development sessions.      ",
+      "stars": 737,
+      "language": "Python",
+      "topics": [
+        "ai-tools",
+        "anthropic",
+        "cli",
+        "developer-tools",
+        "itmproxy",
+        "llm",
+        "m",
+        "proxy",
+        "python",
+        "rich",
+        "terminal-dashboard",
+        "token-counter"
+      ],
+      "pushedAt": "2026-02-02T23:59:28Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 77,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 13,
+        "fitScore": 15,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/jmuncor/tokentap"
+    },
+    {
+      "owner": "potpie-ai",
+      "repo": "potpie",
+      "fullName": "potpie-ai/potpie",
+      "description": "Prompt-To-Agent : Create custom engineering agents for your codebase",
+      "stars": 5160,
+      "language": "Python",
+      "topics": [
+        "agents",
+        "ai-agents",
+        "ai-agents-framework",
+        "artificial-intelligence",
+        "developer-tools",
+        "devtools",
+        "generative-ai",
+        "knowledge-graph",
+        "rag"
+      ],
+      "pushedAt": "2026-02-20T08:30:34Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 75,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/potpie-ai/potpie"
+    },
+    {
+      "owner": "braedonsaunders",
+      "repo": "codeflow",
+      "fullName": "braedonsaunders/codeflow",
+      "description": "Paste any GitHub URL → interactive architecture map. See how files connect, find what breaks if you change something. No install, no accounts — runs entirely in your browser.",
+      "stars": 543,
+      "language": "HTML",
+      "topics": [
+        "architecture",
+        "browser-based",
+        "code-analysis",
+        "codebase-visualization",
+        "d3js",
+        "dependency-graph",
+        "developer-tools",
+        "github-api",
+        "single-file",
+        "visualization"
+      ],
+      "pushedAt": "2026-02-17T16:34:32Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 73,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 13,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/braedonsaunders/codeflow"
+    },
+    {
+      "owner": "triggerdotdev",
+      "repo": "jsonhero-web",
+      "fullName": "triggerdotdev/jsonhero-web",
+      "description": "JSON Hero is an open-source, beautiful JSON explorer for the web that lets you browse, search and navigate your JSON files at speed. 🚀. Built with 💜 by the Trigger.dev team.",
+      "stars": 10597,
+      "language": "TypeScript",
+      "topics": [
+        "developer-tools",
+        "devtools",
+        "hacktoberfest",
+        "json",
+        "json-viewer",
+        "react",
+        "tools",
+        "typescript",
+        "viewer"
+      ],
+      "pushedAt": "2025-11-28T13:32:05Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools",
+        "topic:developer-tools"
+      ],
+      "score": 70,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 15,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/triggerdotdev/jsonhero-web"
+    },
+    {
+      "owner": "rhysd",
+      "repo": "actionlint",
+      "fullName": "rhysd/actionlint",
+      "description": ":octocat: Static checker for GitHub Actions workflow files",
+      "stars": 3617,
+      "language": "Go",
+      "topics": [
+        "actions",
+        "ci",
+        "github-actions",
+        "lint",
+        "linter"
+      ],
+      "pushedAt": "2026-02-15T04:23:12Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 70,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/rhysd/actionlint"
+    },
+    {
+      "owner": "tj-actions",
+      "repo": "changed-files",
+      "fullName": "tj-actions/changed-files",
+      "description": ":octocat: Github action to retrieve all (added, copied, modified, deleted, renamed, type changed, unmerged, unknown) files and directories.",
+      "stars": 2655,
+      "language": "TypeScript",
+      "topics": [
+        "actions",
+        "change-detection",
+        "change-detetion",
+        "changed-file",
+        "changed-files",
+        "ci",
+        "ci-cd",
+        "conditional-execution",
+        "continuous-delivery",
+        "continuous-integration",
+        "github",
+        "github-actions",
+        "modified",
+        "modified-files",
+        "monorepo",
+        "restore-files",
+        "submodules",
+        "workflows",
+        "yaml-files"
+      ],
+      "pushedAt": "2026-02-19T01:33:47Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 70,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/tj-actions/changed-files"
+    },
+    {
+      "owner": "tach-org",
+      "repo": "tach",
+      "fullName": "tach-org/tach",
+      "description": "A Python tool to visualize + enforce dependencies, using modular architecture 🌎 Open source 🐍 Installable via pip 🔧 Able to be adopted incrementally - ⚡ Implemented with no runtime impact ♾️ Intero",
+      "stars": 2650,
+      "language": "Rust",
+      "topics": [
+        "ci",
+        "cli",
+        "code-quality",
+        "config",
+        "dependency-management",
+        "developer-tools",
+        "devops",
+        "framework",
+        "library",
+        "monorepo",
+        "open-source",
+        "package",
+        "productivity",
+        "programming",
+        "python",
+        "rust",
+        "static-code-analysis",
+        "terminal"
+      ],
+      "pushedAt": "2026-02-11T14:31:11Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci"
+      ],
+      "score": 70,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/tach-org/tach"
+    },
+    {
+      "owner": "pypa",
+      "repo": "cibuildwheel",
+      "fullName": "pypa/cibuildwheel",
+      "description": "🎡 Build Python wheels for all the platforms with minimal configuration. ",
+      "stars": 2186,
+      "language": "Python",
+      "topics": [
+        "appveyor",
+        "azure-pipelines",
+        "build-automation",
+        "ci",
+        "circleci",
+        "github-actions",
+        "pypi",
+        "python",
+        "python-wheels",
+        "travis-ci",
+        "wheel"
+      ],
+      "pushedAt": "2026-02-16T18:31:38Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 70,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/pypa/cibuildwheel"
+    },
+    {
+      "owner": "filipdutescu",
+      "repo": "modern-cpp-template",
+      "fullName": "filipdutescu/modern-cpp-template",
+      "description": "A template for modern C++ projects using CMake, Clang-Format, CI, unit testing and more, with support for downstream inclusion.",
+      "stars": 1883,
+      "language": "CMake",
+      "topics": [
+        "ccache",
+        "ci",
+        "clang-format",
+        "cmake",
+        "cmake-module",
+        "cmake-template",
+        "cmakelists",
+        "code-coverage",
+        "codecov",
+        "continuous-integration",
+        "cpp",
+        "github-action",
+        "github-actions",
+        "google-test",
+        "gtest",
+        "open-source",
+        "package-manager",
+        "project-template",
+        "static-analysis",
+        "template"
+      ],
+      "pushedAt": "2025-12-26T19:28:02Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 67,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 17,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/filipdutescu/modern-cpp-template"
+    },
+    {
+      "owner": "microsoft",
+      "repo": "multilspy",
+      "fullName": "microsoft/multilspy",
+      "description": "multilspy is a lsp client library in Python intended to be used to build applications around language servers.",
+      "stars": 538,
+      "language": "Python",
+      "topics": [
+        "ai",
+        "ai4code",
+        "artificial-intelligence",
+        "code-analysis",
+        "code-completion",
+        "code-generation",
+        "codegen",
+        "huggingface-transformers",
+        "language-server-client",
+        "language-server-protocol",
+        "large-language-model",
+        "large-language-models",
+        "llm",
+        "lsp",
+        "lsp-client",
+        "neurips",
+        "neurips-2023",
+        "program-synthesis",
+        "transformer"
+      ],
+      "pushedAt": "2026-02-05T04:29:45Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 67,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 13,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/microsoft/multilspy"
+    },
+    {
+      "owner": "iterative",
+      "repo": "cml",
+      "fullName": "iterative/cml",
+      "description": "♾️ CML - Continuous Machine Learning | CI/CD for ML",
+      "stars": 4166,
+      "language": "JavaScript",
+      "topics": [
+        "bitbucket-pipelines",
+        "ci",
+        "ci-cd",
+        "cicd",
+        "cli",
+        "continuous-delivery",
+        "continuous-integration",
+        "data-science",
+        "developer-tools",
+        "github-actions",
+        "gitlab-ci",
+        "hacktoberfest",
+        "machine-learning"
+      ],
+      "pushedAt": "2025-06-02T04:40:57Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 66,
+      "scoreBreakdown": {
+        "topicMatch": 45,
+        "keywordMatch": 0,
+        "activityRecency": 6,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/iterative/cml"
+    },
+    {
+      "owner": "infiniflow",
+      "repo": "ragflow",
+      "fullName": "infiniflow/ragflow",
+      "description": "RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs",
+      "stars": 73431,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "agentic",
+        "agentic-ai",
+        "agentic-workflow",
+        "ai",
+        "ai-search",
+        "context-engineering",
+        "context-retrieval",
+        "deep-research",
+        "deepseek",
+        "deepseek-r1",
+        "document-parser",
+        "document-understanding",
+        "graphrag",
+        "llm",
+        "mcp",
+        "ollama",
+        "openai",
+        "rag",
+        "retrieval-augmented-generation"
+      ],
+      "pushedAt": "2026-02-14T13:21:16Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "keyword:LLM context",
+        "keyword:code map"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 15,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/infiniflow/ragflow"
+    },
+    {
+      "owner": "OpenHands",
+      "repo": "OpenHands",
+      "fullName": "OpenHands/OpenHands",
+      "description": "🙌 OpenHands: AI-Driven Development",
+      "stars": 67985,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "artificial-intelligence",
+        "chatgpt",
+        "claude-ai",
+        "cli",
+        "developer-tools",
+        "gpt",
+        "llm",
+        "openai"
+      ],
+      "pushedAt": "2026-02-20T07:34:50Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "topic:developer-tools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/OpenHands/OpenHands"
+    },
+    {
+      "owner": "affaan-m",
+      "repo": "everything-claude-code",
+      "fullName": "affaan-m/everything-claude-code",
+      "description": "Complete Claude Code configuration collection - agents, skills, hooks, commands, rules, MCPs. Battle-tested configs from an Anthropic hackathon winner.",
+      "stars": 48535,
+      "language": "JavaScript",
+      "topics": [
+        "ai-agents",
+        "anthropic",
+        "claude",
+        "claude-code",
+        "developer-tools",
+        "llm",
+        "mcp",
+        "productivity"
+      ],
+      "pushedAt": "2026-02-20T06:34:51Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:llm",
+        "topic:developer-tools",
+        "keyword:repo metadata",
+        "keyword:LLM context",
+        "keyword:CI gating"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/affaan-m/everything-claude-code"
+    },
+    {
+      "owner": "continuedev",
+      "repo": "continue",
+      "fullName": "continuedev/continue",
+      "description": "⏩ Source-controlled AI checks, enforceable in CI. Powered by the open-source Continue CLI",
+      "stars": 31452,
+      "language": "TypeScript",
+      "topics": [
+        "agent",
+        "ai",
+        "claude",
+        "cli",
+        "cloud-agents",
+        "continuous-ai",
+        "developer-tools",
+        "gemini",
+        "gpt",
+        "llm",
+        "open-source",
+        "workflows"
+      ],
+      "pushedAt": "2026-02-20T08:30:51Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "topic:developer-tools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/continuedev/continue"
+    },
+    {
+      "owner": "surrealdb",
+      "repo": "surrealdb",
+      "fullName": "surrealdb/surrealdb",
+      "description": "A scalable, distributed, collaborative, document-graph database, for the realtime web",
+      "stars": 31240,
+      "language": "Rust",
+      "topics": [
+        "backend-as-a-service",
+        "cloud-database",
+        "database",
+        "database-as-a-service",
+        "developer-tools",
+        "devtools",
+        "distributed",
+        "distributed-database",
+        "document-database",
+        "graph-database",
+        "iot-database",
+        "nosql",
+        "realtime-database",
+        "serverless",
+        "sql",
+        "surreal",
+        "surrealdb",
+        "web"
+      ],
+      "pushedAt": "2026-02-20T08:28:07Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools",
+        "topic:developer-tools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/surrealdb/surrealdb"
+    },
+    {
+      "owner": "SWE-agent",
+      "repo": "SWE-agent",
+      "fullName": "SWE-agent/SWE-agent",
+      "description": "SWE-agent takes a GitHub issue and tries to automatically fix it, using your LM of choice. It can also be employed for offensive cybersecurity or competitive coding challenges. [NeurIPS 2024] ",
+      "stars": 18509,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "agent-based-model",
+        "ai",
+        "cybersecurity",
+        "developer-tools",
+        "llm",
+        "lms"
+      ],
+      "pushedAt": "2026-02-17T01:53:21Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/SWE-agent/SWE-agent"
+    },
+    {
+      "owner": "e2b-dev",
+      "repo": "E2B",
+      "fullName": "e2b-dev/E2B",
+      "description": "Open-source, secure environment with real-world tools for enterprise-grade agents.",
+      "stars": 10952,
+      "language": "MDX",
+      "topics": [
+        "agent",
+        "ai",
+        "ai-agent",
+        "ai-agents",
+        "code-interpreter",
+        "copilot",
+        "development",
+        "devtools",
+        "gpt",
+        "gpt-4",
+        "javascript",
+        "llm",
+        "nextjs",
+        "openai",
+        "python",
+        "react",
+        "software",
+        "typescript"
+      ],
+      "pushedAt": "2026-02-20T01:27:51Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/e2b-dev/E2B"
+    },
+    {
+      "owner": "promptfoo",
+      "repo": "promptfoo",
+      "fullName": "promptfoo/promptfoo",
+      "description": "Test your prompts, agents, and RAGs. AI Red teaming, pentesting, and vulnerability scanning for LLMs. Compare performance of GPT, Claude, Gemini, Llama, and more. Simple declarative configs with comma",
+      "stars": 10529,
+      "language": "TypeScript",
+      "topics": [
+        "ci",
+        "ci-cd",
+        "cicd",
+        "evaluation",
+        "evaluation-framework",
+        "llm",
+        "llm-eval",
+        "llm-evaluation",
+        "llm-evaluation-framework",
+        "llmops",
+        "pentesting",
+        "prompt-engineering",
+        "prompt-testing",
+        "prompts",
+        "rag",
+        "red-teaming",
+        "testing",
+        "vulnerability-scanners"
+      ],
+      "pushedAt": "2026-02-20T05:19:37Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/promptfoo/promptfoo"
+    },
+    {
+      "owner": "iib0011",
+      "repo": "omni-tools",
+      "fullName": "iib0011/omni-tools",
+      "description": "Self-hosted collection of powerful web-based tools for everyday tasks. No ads, no tracking, just fast, accessible utilities right from your browser!",
+      "stars": 8657,
+      "language": "TypeScript",
+      "topics": [
+        "alternative",
+        "converter",
+        "data-manipulation",
+        "developer-tools",
+        "devtools",
+        "frontend",
+        "good-first-issue",
+        "image-manipulation",
+        "image-processing",
+        "javascript",
+        "pdf-manipulation",
+        "productivity",
+        "react",
+        "self-hosted",
+        "swissarmyknife",
+        "tools",
+        "typescript",
+        "video-manipulation",
+        "webapp",
+        "website"
+      ],
+      "pushedAt": "2026-02-20T01:53:49Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/iib0011/omni-tools"
+    },
+    {
+      "owner": "universal-ctags",
+      "repo": "ctags",
+      "fullName": "universal-ctags/ctags",
+      "description": "A maintained ctags implementation",
+      "stars": 7083,
+      "language": "C",
+      "topics": [
+        "code-analysis",
+        "code-completion",
+        "code-navigation",
+        "code-reading",
+        "code-summarization",
+        "ctags",
+        "developer-tools",
+        "tagjumping"
+      ],
+      "pushedAt": "2026-02-15T00:15:24Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/universal-ctags/ctags"
+    },
+    {
+      "owner": "Kodezi",
+      "repo": "Chronos",
+      "fullName": "Kodezi/Chronos",
+      "description": "Kodezi Chronos is a debugging-first language model that achieves state-of-the-art results on SWE-bench Lite (80.33%) and 67% real-world fix accuracy, over six times better than GPT-4. Built with Adapt",
+      "stars": 5184,
+      "language": "Java",
+      "topics": [
+        "artificial-intelligence",
+        "autonomous-debugging",
+        "benchmark",
+        "benchmark-report",
+        "bug-fixing",
+        "chronos",
+        "code",
+        "code-analysis",
+        "code-analysis-tool",
+        "code-debugger",
+        "code-understanding",
+        "debugging",
+        "developer-tools",
+        "kodezi",
+        "language-model",
+        "machine-learning",
+        "program-repair",
+        "software-engineering"
+      ],
+      "pushedAt": "2025-11-12T09:53:44Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 15,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/Kodezi/Chronos"
+    },
+    {
+      "owner": "txn2",
+      "repo": "kubefwd",
+      "fullName": "txn2/kubefwd",
+      "description": "Bulk port forwarding Kubernetes services for local development.",
+      "stars": 4047,
+      "language": "Go",
+      "topics": [
+        "api-rest",
+        "developer-tools",
+        "devops",
+        "devops-tools",
+        "devtools",
+        "k8s",
+        "kubefwd",
+        "kubernetes",
+        "kubernetes-clusters",
+        "kubernetes-namespace",
+        "mcp-server",
+        "networking",
+        "port-forward",
+        "port-forwarding",
+        "proxy"
+      ],
+      "pushedAt": "2026-02-18T00:30:07Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/txn2/kubefwd"
+    },
+    {
+      "owner": "FalkorDB",
+      "repo": "FalkorDB",
+      "fullName": "FalkorDB/FalkorDB",
+      "description": "A super fast Graph Database uses GraphBLAS under the hood for its sparse adjacency matrix graph representation. Our goal is to provide the best Knowledge Graph for LLM (GraphRAG).",
+      "stars": 3437,
+      "language": "C",
+      "topics": [
+        "cloud-database",
+        "database",
+        "database-as-a-service",
+        "developer-tools",
+        "devtools",
+        "graph-database",
+        "graphrag",
+        "knowledge-graph",
+        "realtime-database"
+      ],
+      "pushedAt": "2026-02-20T06:35:19Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/FalkorDB/FalkorDB"
+    },
+    {
+      "owner": "github",
+      "repo": "gh-aw",
+      "fullName": "github/gh-aw",
+      "description": "GitHub Agentic Workflows",
+      "stars": 3299,
+      "language": "Go",
+      "topics": [
+        "actions",
+        "cai",
+        "ci",
+        "claude-code",
+        "codex",
+        "copilot",
+        "gh-extension",
+        "github-actions"
+      ],
+      "pushedAt": "2026-02-20T08:01:44Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/github/gh-aw"
+    },
+    {
+      "owner": "frain-dev",
+      "repo": "convoy",
+      "fullName": "frain-dev/convoy",
+      "description": "The Cloud Native Webhooks Gateway",
+      "stars": 2759,
+      "language": "Go",
+      "topics": [
+        "angular",
+        "api-gateway",
+        "automation",
+        "cli",
+        "cloud",
+        "convoy",
+        "developer-tools",
+        "devtools",
+        "gateway",
+        "gateways",
+        "golang",
+        "incoming-webhooks",
+        "infrastructure",
+        "outgoing-webhooks",
+        "webhook-gateway",
+        "webhook-service",
+        "webhooks",
+        "webhooks-server"
+      ],
+      "pushedAt": "2026-02-20T07:45:23Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/frain-dev/convoy"
+    },
+    {
+      "owner": "microsoft",
+      "repo": "rnx-kit",
+      "fullName": "microsoft/rnx-kit",
+      "description": "Modern, scalable tools. Exceptional developer experience.",
+      "stars": 1700,
+      "language": "TypeScript",
+      "topics": [
+        "android",
+        "cli",
+        "cross-platform",
+        "dependency-manager",
+        "desktop",
+        "desktop-development",
+        "developer-experience",
+        "developer-tools",
+        "devtools",
+        "ios",
+        "macos",
+        "mobile",
+        "mobile-development",
+        "monorepo",
+        "react-native",
+        "typescript",
+        "visionos",
+        "windows"
+      ],
+      "pushedAt": "2026-02-19T21:47:55Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/microsoft/rnx-kit"
+    },
+    {
+      "owner": "jeremylongshore",
+      "repo": "claude-code-plugins-plus-skills",
+      "fullName": "jeremylongshore/claude-code-plugins-plus-skills",
+      "description": "270+ Claude Code plugins with 739 agent skills. Production orchestration patterns, interactive tutorials (11 Jupyter notebooks), and CCPI package manager. 4.13.0",
+      "stars": 1395,
+      "language": "Python",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "anthropic",
+        "automation",
+        "claude-code",
+        "claude-code-plugins",
+        "developer-tools",
+        "devops",
+        "jupyter-notebooks",
+        "llm",
+        "mcp",
+        "orchestration",
+        "plugin-marketplace",
+        "productivity",
+        "skills",
+        "tutorials"
+      ],
+      "pushedAt": "2026-02-20T00:17:54Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills"
+    },
+    {
+      "owner": "YuzeHao2023",
+      "repo": "Awesome-MCP-Servers",
+      "fullName": "YuzeHao2023/Awesome-MCP-Servers",
+      "description": "A curated list of Model Context Protocol (MCP) servers ",
+      "stars": 1022,
+      "language": null,
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "llm",
+        "mcp",
+        "mcp-server"
+      ],
+      "pushedAt": "2026-02-18T03:50:31Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "comparable:Sourcegraph / code search"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/YuzeHao2023/Awesome-MCP-Servers"
+    },
+    {
+      "owner": "nektos",
+      "repo": "act",
+      "fullName": "nektos/act",
+      "description": "Run your GitHub Actions locally 🚀",
+      "stars": 68870,
+      "language": "Go",
+      "topics": [
+        "ci",
+        "devops",
+        "github-actions",
+        "golang"
+      ],
+      "pushedAt": "2026-02-10T00:45:34Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 64,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/nektos/act"
+    },
+    {
+      "owner": "eli64s",
+      "repo": "readme-ai",
+      "fullName": "eli64s/readme-ai",
+      "description": "README file generator, powered by AI.",
+      "stars": 2867,
+      "language": "Python",
+      "topics": [
+        "agents",
+        "ai",
+        "ai-agents",
+        "ai-documentation",
+        "anthropic",
+        "badge-generator",
+        "cli",
+        "developer-tools",
+        "devtools",
+        "documentation",
+        "documentation-generator",
+        "gemini",
+        "gpt",
+        "markdown",
+        "markdown-generator",
+        "python",
+        "readme",
+        "readme-generator",
+        "readme-md-generator",
+        "readme-template"
+      ],
+      "pushedAt": "2026-02-05T21:24:13Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:devtools",
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 64,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/eli64s/readme-ai"
+    },
+    {
+      "owner": "voideditor",
+      "repo": "void",
+      "fullName": "voideditor/void",
+      "description": "",
+      "stars": 28219,
+      "language": "TypeScript",
+      "topics": [
+        "chatgpt",
+        "claude",
+        "copilot",
+        "cursor",
+        "developer-tools",
+        "editor",
+        "llm",
+        "open-source",
+        "openai",
+        "visual-studio-code",
+        "vscode",
+        "vscode-extension"
+      ],
+      "pushedAt": "2026-01-12T09:57:57Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "topic:developer-tools"
+      ],
+      "score": 63,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 18,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/voideditor/void"
+    },
+    {
+      "owner": "plandex-ai",
+      "repo": "plandex",
+      "fullName": "plandex-ai/plandex",
+      "description": "Open source AI coding agent. Designed for large projects and real world tasks.",
+      "stars": 15002,
+      "language": "Go",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "ai-developer-tools",
+        "ai-tools",
+        "cli",
+        "command-line",
+        "developer-tools",
+        "git",
+        "golang",
+        "gpt-4",
+        "llm",
+        "openai",
+        "polyglot-programming",
+        "terminal",
+        "terminal-based",
+        "terminal-ui"
+      ],
+      "pushedAt": "2025-10-03T21:49:58Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 62,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 12,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/plandex-ai/plandex"
+    },
+    {
+      "owner": "nikolaydubina",
+      "repo": "go-recipes",
+      "fullName": "nikolaydubina/go-recipes",
+      "description": "🦩 Tools for Go projects",
+      "stars": 4462,
+      "language": "Go",
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "benchmarking",
+        "code-generation",
+        "code-visualization",
+        "command-line-tool",
+        "compilers",
+        "data-visualization",
+        "developer-tools",
+        "documentation",
+        "go",
+        "golang",
+        "profiling",
+        "static-analysis",
+        "tests",
+        "visualization"
+      ],
+      "pushedAt": "2025-12-21T16:37:28Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "comparable:tree / find + jq pipelines"
+      ],
+      "score": 62,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 17,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/nikolaydubina/go-recipes"
+    },
+    {
+      "owner": "xnuinside",
+      "repo": "codegraph",
+      "fullName": "xnuinside/codegraph",
+      "description": "Static Python dependency graph with interactive HTML visualization, massive object detection, and unlinked module analysis (no code execution).",
+      "stars": 438,
+      "language": "Python",
+      "topics": [
+        "architecture",
+        "code-analysis",
+        "code-visualization",
+        "dependency-graph",
+        "developer-tools",
+        "graph-visualization",
+        "python",
+        "reverse-engineering",
+        "static-analysis"
+      ],
+      "pushedAt": "2026-01-24T15:44:13Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 62,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 13,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/xnuinside/codegraph"
+    },
+    {
+      "owner": "danger",
+      "repo": "danger-js",
+      "fullName": "danger/danger-js",
+      "description": "⚠️ Stop saying \"you forgot to …\" in code review",
+      "stars": 5444,
+      "language": "TypeScript",
+      "topics": [
+        "ci",
+        "circle",
+        "code-review",
+        "danger",
+        "danger-js",
+        "github-actions",
+        "jenkins",
+        "travis"
+      ],
+      "pushedAt": "2025-12-13T13:29:10Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 61,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 16,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/danger/danger-js"
+    },
+    {
+      "owner": "taielab",
+      "repo": "awesome-hacking-lists",
+      "fullName": "taielab/awesome-hacking-lists",
+      "description": "A curated collection of top-tier penetration testing tools and productivity utilities across multiple domains. Join us to explore, contribute, and enhance your hacking toolkit!",
+      "stars": 1290,
+      "language": null,
+      "topics": [
+        "agents",
+        "ai",
+        "aiagent",
+        "awesome-list",
+        "bounty-hunters",
+        "bug-bounty",
+        "bugbounty",
+        "bugbounty-tool",
+        "hacker",
+        "hacking",
+        "hacking-tool",
+        "hacking-tools",
+        "kali-scripts",
+        "llm",
+        "llm-inference",
+        "mcp",
+        "mcp-server",
+        "pentest-scripts",
+        "pentesting-tools",
+        "web"
+      ],
+      "pushedAt": "2025-12-04T06:55:03Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "comparable:tree / find + jq pipelines",
+        "comparable:Sourcegraph / code search"
+      ],
+      "score": 61,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 16,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/taielab/awesome-hacking-lists"
+    },
+    {
+      "owner": "files-community",
+      "repo": "Files",
+      "fullName": "files-community/Files",
+      "description": "A modern file manager that helps users organize their files and folders.",
+      "stars": 42004,
+      "language": "C#",
+      "topics": [
+        "alternatives",
+        "csharp",
+        "customization",
+        "developer-tools",
+        "dotnet",
+        "file-manager",
+        "files",
+        "fluent",
+        "fluent-design",
+        "git",
+        "good-first-issue",
+        "power-user",
+        "productivity",
+        "utilities",
+        "winappsdk",
+        "windows",
+        "windows-10",
+        "windows-11",
+        "winui",
+        "xaml"
+      ],
+      "pushedAt": "2026-02-20T03:06:01Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 60,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/files-community/Files"
+    },
+    {
+      "owner": "MotiaDev",
+      "repo": "motia",
+      "fullName": "MotiaDev/motia",
+      "description": "Multi-Language Backend Framework that unifies APIs, background jobs, queues, workflows, streams, and AI agents with a single core primitive with built-in observability and state management.",
+      "stars": 15075,
+      "language": "Python",
+      "topics": [
+        "agents",
+        "ai",
+        "api",
+        "backend",
+        "developer-tools",
+        "framework",
+        "genai",
+        "javascript",
+        "python",
+        "typescript"
+      ],
+      "pushedAt": "2026-02-19T22:49:56Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 60,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/MotiaDev/motia"
+    },
+    {
+      "owner": "HariSekhon",
+      "repo": "DevOps-Bash-tools",
+      "fullName": "HariSekhon/DevOps-Bash-tools",
+      "description": "1000+ DevOps Bash Scripts - AWS, GCP, Kubernetes, Docker, CI/CD, APIs, SQL, PostgreSQL, MySQL, Hive, Impala, Kafka, Hadoop, Jenkins, GitHub, GitLab, BitBucket, Azure DevOps, TeamCity, Spotify, MP3, LD",
+      "stars": 8059,
+      "language": "Shell",
+      "topics": [
+        "api",
+        "aws",
+        "bash",
+        "ci",
+        "cloudera",
+        "devops",
+        "docker",
+        "gcp",
+        "git",
+        "github",
+        "hacktoberfest",
+        "hadoop",
+        "jenkins",
+        "kafka",
+        "kubernetes",
+        "linux",
+        "mysql",
+        "perl",
+        "postgresql",
+        "terraform"
+      ],
+      "pushedAt": "2026-02-11T21:16:22Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:ci",
+        "comparable:tree / find + jq pipelines"
+      ],
+      "score": 60,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/HariSekhon/DevOps-Bash-tools"
+    },
+    {
+      "owner": "INRIA",
+      "repo": "spoon",
+      "fullName": "INRIA/spoon",
+      "description": "Spoon is a metaprogramming library to analyze and transform Java source code. :spoon: is made with :heart:, :beers: and :sparkles:. It parses source files to build a well-designed AST with powerful an",
+      "stars": 1901,
+      "language": "Java",
+      "topics": [
+        "abstract-syntax-tree",
+        "ast",
+        "code-analysis",
+        "code-generation",
+        "code-transformation",
+        "compile-time-reflection",
+        "hacktoberfest",
+        "inria",
+        "java",
+        "java-module",
+        "java10",
+        "java9",
+        "metaprogramming",
+        "parser",
+        "spoon",
+        "static-analysis"
+      ],
+      "pushedAt": "2026-02-18T19:12:43Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 60,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/INRIA/spoon"
+    },
+    {
+      "owner": "SpartanJ",
+      "repo": "ecode",
+      "fullName": "SpartanJ/ecode",
+      "description": "Lightweight multi-platform code editor designed for modern hardware with a focus on responsiveness and performance.",
+      "stars": 1534,
+      "language": "Lua",
+      "topics": [
+        "code",
+        "code-editor",
+        "debugger",
+        "developer-tools",
+        "editor",
+        "geany",
+        "gui",
+        "ide",
+        "lapce",
+        "lite",
+        "lite-xl",
+        "lsp-client",
+        "sublime-text",
+        "terminal",
+        "text",
+        "text-editor",
+        "vscode",
+        "zed"
+      ],
+      "pushedAt": "2026-02-13T00:03:06Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "comparable:tree / find + jq pipelines"
+      ],
+      "score": 60,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/SpartanJ/ecode"
+    },
+    {
+      "owner": "Dicklesworthstone",
+      "repo": "beads_viewer",
+      "fullName": "Dicklesworthstone/beads_viewer",
+      "description": "Graph-aware TUI for the Beads issue tracker: PageRank, critical path, kanban, dependency DAG visualization, and robot-mode JSON API",
+      "stars": 1283,
+      "language": "Go",
+      "topics": [
+        "developer-tools",
+        "go",
+        "graph-analysis",
+        "issue-tracker",
+        "tui"
+      ],
+      "pushedAt": "2026-02-19T23:04:04Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "comparable:tree / find + jq pipelines"
+      ],
+      "score": 60,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/Dicklesworthstone/beads_viewer"
+    },
+    {
+      "owner": "agamm",
+      "repo": "awesome-developer-first",
+      "fullName": "agamm/awesome-developer-first",
+      "description": "A curated list of awesome developer-first tools products.",
+      "stars": 1535,
+      "language": null,
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "developer-first",
+        "developer-tools"
+      ],
+      "pushedAt": "2026-02-10T11:34:53Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "comparable:Sourcegraph / code search"
+      ],
+      "score": 59,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/agamm/awesome-developer-first"
+    },
+    {
+      "owner": "khoj-ai",
+      "repo": "khoj",
+      "fullName": "khoj-ai/khoj",
+      "description": "Your AI second brain. Self-hostable. Get answers from the web or your docs. Build custom agents, schedule automations, do deep research. Turn any online or local LLM into your personal, autonomous AI ",
+      "stars": 32535,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "ai",
+        "assistant",
+        "chat",
+        "chatgpt",
+        "emacs",
+        "image-generation",
+        "llama3",
+        "llamacpp",
+        "llm",
+        "obsidian",
+        "obsidian-md",
+        "offline-llm",
+        "productivity",
+        "rag",
+        "research",
+        "self-hosted",
+        "semantic-search",
+        "stt",
+        "whatsapp-ai"
+      ],
+      "pushedAt": "2026-01-06T20:15:01Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 58,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 18,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/khoj-ai/khoj"
+    },
+    {
+      "owner": "stefanzweifel",
+      "repo": "git-auto-commit-action",
+      "fullName": "stefanzweifel/git-auto-commit-action",
+      "description": "Automatically commit and push changed files back to GitHub with this GitHub Action for the 80% use case.",
+      "stars": 2485,
+      "language": "Shell",
+      "topics": [
+        "git",
+        "github",
+        "github-action",
+        "github-actions",
+        "trigger",
+        "workflow-runs"
+      ],
+      "pushedAt": "2026-01-19T18:44:38Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:github-actions"
+      ],
+      "score": 58,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 18,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/stefanzweifel/git-auto-commit-action"
+    },
+    {
+      "owner": "strands-agents",
+      "repo": "tools",
+      "fullName": "strands-agents/tools",
+      "description": "A set of tools that gives agents powerful capabilities.",
+      "stars": 940,
+      "language": "Python",
+      "topics": [
+        "agentic",
+        "agentic-ai",
+        "agents",
+        "ai",
+        "anthropic",
+        "autonomous-agents",
+        "bedrock",
+        "genai",
+        "litellm",
+        "llama",
+        "llm",
+        "machine-learning",
+        "mcp",
+        "multi-agent-systems",
+        "ollama",
+        "openai",
+        "opentelemetry",
+        "python",
+        "strands-agents"
+      ],
+      "pushedAt": "2026-02-19T17:36:15Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 58,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 13,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/strands-agents/tools"
+    },
+    {
+      "owner": "bahdotsh",
+      "repo": "wrkflw",
+      "fullName": "bahdotsh/wrkflw",
+      "description": "Validate and Run GitHub Actions locally.",
+      "stars": 2658,
+      "language": "Rust",
+      "topics": [
+        "ci",
+        "cli",
+        "devops",
+        "github",
+        "github-actions",
+        "hacktoberfest",
+        "ratatui",
+        "rust",
+        "tui"
+      ],
+      "pushedAt": "2025-09-05T05:09:09Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 56,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 11,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/bahdotsh/wrkflw"
+    },
+    {
+      "owner": "zscole",
+      "repo": "adversarial-spec",
+      "fullName": "zscole/adversarial-spec",
+      "description": "A Claude Code plugin that iteratively refines product specifications by debating between multiple LLMs until all models reach consensus.",
+      "stars": 489,
+      "language": "Python",
+      "topics": [
+        "anthropic",
+        "claude-ai",
+        "claude-code",
+        "claude-code-plugin",
+        "claude-skills",
+        "llm",
+        "orchestration"
+      ],
+      "pushedAt": "2026-01-22T06:33:17Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 56,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 18,
+        "starTier": 13,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/zscole/adversarial-spec"
+    },
+    {
+      "owner": "vllm-project",
+      "repo": "vllm",
+      "fullName": "vllm-project/vllm",
+      "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
+      "stars": 70760,
+      "language": "Python",
+      "topics": [
+        "amd",
+        "blackwell",
+        "cuda",
+        "deepseek",
+        "deepseek-v3",
+        "gpt",
+        "gpt-oss",
+        "inference",
+        "kimi",
+        "llama",
+        "llm",
+        "llm-serving",
+        "model-serving",
+        "moe",
+        "openai",
+        "pytorch",
+        "qwen",
+        "qwen3",
+        "tpu",
+        "transformer"
+      ],
+      "pushedAt": "2026-02-20T06:25:46Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/vllm-project/vllm"
+    },
+    {
+      "owner": "hiyouga",
+      "repo": "LlamaFactory",
+      "fullName": "hiyouga/LlamaFactory",
+      "description": "Unified Efficient Fine-Tuning of 100+ LLMs & VLMs (ACL 2024)",
+      "stars": 67391,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "ai",
+        "deepseek",
+        "fine-tuning",
+        "gemma",
+        "gpt",
+        "instruction-tuning",
+        "large-language-models",
+        "llama",
+        "llama3",
+        "llm",
+        "lora",
+        "moe",
+        "nlp",
+        "peft",
+        "qlora",
+        "quantization",
+        "qwen",
+        "rlhf",
+        "transformers"
+      ],
+      "pushedAt": "2026-02-12T14:14:10Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:llm",
+        "keyword:repo index",
+        "keyword:repo metadata",
+        "keyword:LLM context",
+        "keyword:code map"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/hiyouga/LlamaFactory"
+    },
+    {
+      "owner": "mem0ai",
+      "repo": "mem0",
+      "fullName": "mem0ai/mem0",
+      "description": "Universal memory layer for AI Agents",
+      "stars": 47651,
+      "language": "Python",
+      "topics": [
+        "agents",
+        "ai",
+        "ai-agents",
+        "application",
+        "chatbots",
+        "chatgpt",
+        "genai",
+        "llm",
+        "long-term-memory",
+        "memory",
+        "memory-management",
+        "python",
+        "rag",
+        "state-management"
+      ],
+      "pushedAt": "2026-02-20T00:42:46Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "keyword:LLM context"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/mem0ai/mem0"
+    },
+    {
+      "owner": "upstash",
+      "repo": "context7",
+      "fullName": "upstash/context7",
+      "description": "Context7 MCP Server -- Up-to-date code documentation for LLMs and AI code editors",
+      "stars": 46260,
+      "language": "TypeScript",
+      "topics": [
+        "llm",
+        "mcp",
+        "mcp-server",
+        "vibe-coding"
+      ],
+      "pushedAt": "2026-02-19T20:13:45Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "keyword:LLM context"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/upstash/context7"
+    },
+    {
+      "owner": "jeecgboot",
+      "repo": "JeecgBoot",
+      "fullName": "jeecgboot/JeecgBoot",
+      "description": "【AI低代码平台】AI low-code platform empowers enterprises to quickly develop low-code solutions and build AI applications.  助力企业快速实现低代码开发和构建AI应用！ AI应用平台涵盖：AI应用、AI模型、AI聊天助手、知识库、AI流程编排、MCP和插件，聊天式业务操作等。 强大代码生成器",
+      "stars": 45247,
+      "language": "Java",
+      "topics": [
+        "activiti",
+        "agent",
+        "ai",
+        "aiflow",
+        "ant-design-vue",
+        "antd",
+        "codegenerator",
+        "deepseek",
+        "flowable",
+        "langchain4j",
+        "llm",
+        "low-code",
+        "mcp",
+        "mybatis-plus",
+        "rag",
+        "spring-ai",
+        "springboot",
+        "springboot3",
+        "springcloud",
+        "vue3"
+      ],
+      "pushedAt": "2026-02-14T12:45:07Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/jeecgboot/JeecgBoot"
+    },
+    {
+      "owner": "streamlit",
+      "repo": "streamlit",
+      "fullName": "streamlit/streamlit",
+      "description": "Streamlit — A faster way to build and share data apps.",
+      "stars": 43546,
+      "language": "Python",
+      "topics": [
+        "data-analysis",
+        "data-science",
+        "data-visualization",
+        "deep-learning",
+        "developer-tools",
+        "machine-learning",
+        "python",
+        "streamlit"
+      ],
+      "pushedAt": "2026-02-20T06:47:43Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/streamlit/streamlit"
+    },
+    {
+      "owner": "janhq",
+      "repo": "jan",
+      "fullName": "janhq/jan",
+      "description": "Jan is an open source alternative to ChatGPT that runs 100% offline on your computer.",
+      "stars": 40491,
+      "language": "TypeScript",
+      "topics": [
+        "chatgpt",
+        "gpt",
+        "llamacpp",
+        "llm",
+        "localai",
+        "open-source",
+        "self-hosted",
+        "tauri"
+      ],
+      "pushedAt": "2026-02-19T13:57:44Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "keyword:LLM context"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/janhq/jan"
+    },
+    {
+      "owner": "appsmithorg",
+      "repo": "appsmith",
+      "fullName": "appsmithorg/appsmith",
+      "description": "Platform to build admin panels, internal tools, and dashboards. Integrates with 25+ databases and any API.",
+      "stars": 39118,
+      "language": "TypeScript",
+      "topics": [
+        "admin-dashboard",
+        "admin-panels",
+        "app-builder",
+        "automation",
+        "crud",
+        "custom-internal",
+        "developer-tools",
+        "gui",
+        "gui-application",
+        "hacktoberfest",
+        "internal-tools",
+        "java",
+        "javascript",
+        "low-code",
+        "low-code-framework",
+        "react",
+        "self-hosted",
+        "typescript",
+        "webdevelopment",
+        "workflows"
+      ],
+      "pushedAt": "2026-02-20T03:23:25Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/appsmithorg/appsmith"
+    },
+    {
+      "owner": "google",
+      "repo": "langextract",
+      "fullName": "google/langextract",
+      "description": "A Python library for extracting structured information from unstructured text using LLMs with precise source grounding and interactive visualization.",
+      "stars": 33328,
+      "language": "Python",
+      "topics": [
+        "gemini",
+        "gemini-ai",
+        "gemini-api",
+        "gemini-flash",
+        "gemini-pro",
+        "information-extration",
+        "large-language-models",
+        "llm",
+        "nlp",
+        "python",
+        "structured-data"
+      ],
+      "pushedAt": "2026-02-18T22:10:36Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/google/langextract"
+    },
+    {
+      "owner": "CopilotKit",
+      "repo": "CopilotKit",
+      "fullName": "CopilotKit/CopilotKit",
+      "description": "The Frontend for Agents & Generative UI. React + Angular",
+      "stars": 28879,
+      "language": "TypeScript",
+      "topics": [
+        "agent",
+        "agent-native",
+        "agentic-ai",
+        "agents",
+        "ai",
+        "ai-agent",
+        "ai-assistant",
+        "assistant",
+        "assistant-chat-bots",
+        "copilot",
+        "copilot-chat",
+        "generative-ui",
+        "js",
+        "llm",
+        "nextjs",
+        "open-source",
+        "react",
+        "reactjs",
+        "ts",
+        "typescript"
+      ],
+      "pushedAt": "2026-02-20T06:03:44Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/CopilotKit/CopilotKit"
+    },
+    {
+      "owner": "ChromeDevTools",
+      "repo": "chrome-devtools-mcp",
+      "fullName": "ChromeDevTools/chrome-devtools-mcp",
+      "description": "Chrome DevTools for coding agents",
+      "stars": 26081,
+      "language": "TypeScript",
+      "topics": [
+        "browser",
+        "chrome",
+        "chrome-devtools",
+        "debugging",
+        "devtools",
+        "mcp",
+        "mcp-server",
+        "puppeteer"
+      ],
+      "pushedAt": "2026-02-20T08:26:06Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/ChromeDevTools/chrome-devtools-mcp"
+    },
+    {
+      "owner": "responsively-org",
+      "repo": "responsively-app",
+      "fullName": "responsively-org/responsively-app",
+      "description": "A modified web browser that helps in responsive web development. A web developer's must have dev-tool.",
+      "stars": 24701,
+      "language": "TypeScript",
+      "topics": [
+        "contributions-welcome",
+        "desktop-app",
+        "developer-tools",
+        "electron",
+        "good-first-issue",
+        "hacktoberfest",
+        "javascript",
+        "opensource-alternative",
+        "react",
+        "redux",
+        "responsive",
+        "responsive-web-design",
+        "web-development"
+      ],
+      "pushedAt": "2026-02-17T14:37:28Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/responsively-org/responsively-app"
+    },
+    {
+      "owner": "mswjs",
+      "repo": "msw",
+      "fullName": "mswjs/msw",
+      "description": "Industry standard API mocking for JavaScript.",
+      "stars": 17654,
+      "language": "TypeScript",
+      "topics": [
+        "api",
+        "api-mocking",
+        "devtools",
+        "mock",
+        "mock-service-worker",
+        "mocking",
+        "mocking-framework",
+        "mocking-library",
+        "msw",
+        "mswjs",
+        "service-worker"
+      ],
+      "pushedAt": "2026-02-16T18:15:32Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/mswjs/msw"
+    },
+    {
+      "owner": "illacloud",
+      "repo": "illa-builder",
+      "fullName": "illacloud/illa-builder",
+      "description": "Low-code platform allows you to build business apps, enables you to quickly create internal tools such as dashboard, crud app, admin panel, crm, cms, etc. Supports PostgreSQL, MySQL, Supabase, GraphQL",
+      "stars": 12374,
+      "language": "TypeScript",
+      "topics": [
+        "aiagent",
+        "app-builder",
+        "crud-application",
+        "developer-tool",
+        "developer-tools",
+        "gui",
+        "hacktoberfest",
+        "internal-development",
+        "internal-tool",
+        "internal-tools",
+        "low-code",
+        "low-code-development-platform",
+        "lowcode",
+        "react",
+        "self-hosted",
+        "typescript"
+      ],
+      "pushedAt": "2026-02-15T02:17:19Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/illacloud/illa-builder"
+    },
+    {
+      "owner": "qodo-ai",
+      "repo": "pr-agent",
+      "fullName": "qodo-ai/pr-agent",
+      "description": "🚀 PR Agent - The Original Open-Source PR Reviewer, This repo is not the Qodo free tier! Try the free version on our website. ",
+      "stars": 10230,
+      "language": "Python",
+      "topics": [
+        "code-review",
+        "codereview",
+        "coding-assistant",
+        "devtools",
+        "gpt-4",
+        "openai",
+        "pull-request",
+        "pull-requests"
+      ],
+      "pushedAt": "2026-02-13T21:47:04Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/qodo-ai/pr-agent"
+    },
+    {
+      "owner": "wonderwhy-er",
+      "repo": "DesktopCommanderMCP",
+      "fullName": "wonderwhy-er/DesktopCommanderMCP",
+      "description": "This is MCP server for Claude that gives it terminal control, file system search and diff file editing capabilities",
+      "stars": 5493,
+      "language": "TypeScript",
+      "topics": [
+        "agent",
+        "ai",
+        "code-analysis",
+        "code-generation",
+        "mcp",
+        "terminal-ai",
+        "terminal-automation",
+        "vibe-coding"
+      ],
+      "pushedAt": "2026-02-19T19:20:18Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/wonderwhy-er/DesktopCommanderMCP"
+    },
+    {
+      "owner": "docker",
+      "repo": "build-push-action",
+      "fullName": "docker/build-push-action",
+      "description": "GitHub Action to build and push Docker images with Buildx",
+      "stars": 5169,
+      "language": "TypeScript",
+      "topics": [
+        "buildx",
+        "docker",
+        "dockerhub",
+        "github-actions",
+        "github-actions-docker"
+      ],
+      "pushedAt": "2026-02-12T08:51:46Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:github-actions"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/docker/build-push-action"
+    },
+    {
+      "owner": "strands-agents",
+      "repo": "sdk-python",
+      "fullName": "strands-agents/sdk-python",
+      "description": "A model-driven approach to building AI agents in just a few lines of code.",
+      "stars": 5140,
+      "language": "Python",
+      "topics": [
+        "agentic",
+        "agentic-ai",
+        "agents",
+        "ai",
+        "anthropic",
+        "autonomous-agents",
+        "bedrock",
+        "genai",
+        "litellm",
+        "llama",
+        "llm",
+        "machine-learning",
+        "mcp",
+        "multi-agent-systems",
+        "ollama",
+        "openai",
+        "opentelemetry",
+        "python",
+        "strands-agents"
+      ],
+      "pushedAt": "2026-02-19T20:34:48Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/strands-agents/sdk-python"
+    },
+    {
+      "owner": "daveebbelaar",
+      "repo": "ai-cookbook",
+      "fullName": "daveebbelaar/ai-cookbook",
+      "description": "Examples and tutorials to help developers build AI systems",
+      "stars": 3760,
+      "language": "Python",
+      "topics": [
+        "agents",
+        "ai",
+        "anthropic",
+        "llm",
+        "openai",
+        "python"
+      ],
+      "pushedAt": "2026-02-18T06:54:50Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/daveebbelaar/ai-cookbook"
+    },
+    {
+      "owner": "griptape-ai",
+      "repo": "griptape",
+      "fullName": "griptape-ai/griptape",
+      "description": "Modular Python framework for AI agents and workflows with chain-of-thought reasoning, tools, and memory. ",
+      "stars": 2477,
+      "language": "Python",
+      "topics": [
+        "ai",
+        "anthropic",
+        "claude",
+        "gpt",
+        "huggingface",
+        "llm",
+        "openai",
+        "python"
+      ],
+      "pushedAt": "2026-02-19T20:24:15Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/griptape-ai/griptape"
+    },
+    {
+      "owner": "InternLM",
+      "repo": "HuixiangDou",
+      "fullName": "InternLM/HuixiangDou",
+      "description": "HuixiangDou: Overcoming Group Chat Scenarios with LLM-based Technical Assistance",
+      "stars": 2476,
+      "language": "Python",
+      "topics": [
+        "application",
+        "assistant",
+        "assistant-chat-bots",
+        "chatbot",
+        "dsl",
+        "group-chat",
+        "image-retrieval",
+        "lark",
+        "llm",
+        "multimodal",
+        "pipeline",
+        "rag",
+        "robot",
+        "wechat"
+      ],
+      "pushedAt": "2025-11-24T11:17:29Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "comparable:Sourcegraph / code search"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 15,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/InternLM/HuixiangDou"
+    },
+    {
+      "owner": "SignTools",
+      "repo": "SignTools",
+      "fullName": "SignTools/SignTools",
+      "description": "✒ A free, self-hosted platform to sideload iOS apps without a computer",
+      "stars": 2095,
+      "language": "Go",
+      "topics": [
+        "apps",
+        "ci",
+        "cross-platform",
+        "ios",
+        "ipa",
+        "ipad",
+        "iphone",
+        "macos",
+        "self-hosted",
+        "sideload",
+        "signing"
+      ],
+      "pushedAt": "2026-02-13T01:42:23Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/SignTools/SignTools"
+    },
+    {
+      "owner": "nottelabs",
+      "repo": "notte",
+      "fullName": "nottelabs/notte",
+      "description": "🌸 Best framework to build web agents, and deploy serverless web automation functions on reliable browser infra.",
+      "stars": 1867,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "ai",
+        "anthropic",
+        "automation",
+        "browser",
+        "llm",
+        "openai",
+        "web"
+      ],
+      "pushedAt": "2026-02-19T15:31:51Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/nottelabs/notte"
+    },
+    {
+      "owner": "AgentOps-AI",
+      "repo": "agentops",
+      "fullName": "AgentOps-AI/agentops",
+      "description": "Python SDK for AI agent monitoring, LLM cost tracking, benchmarking, and more. Integrates with most LLMs and agent frameworks including CrewAI, Agno, OpenAI Agents SDK, Langchain, Autogen, AG2, and Ca",
+      "stars": 5294,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "agentops",
+        "agents-sdk",
+        "ai",
+        "anthropic",
+        "autogen",
+        "cost-estimation",
+        "crewai",
+        "evals",
+        "evaluation-metrics",
+        "groq",
+        "langchain",
+        "llm",
+        "mistral",
+        "ollama",
+        "openai",
+        "openai-agents"
+      ],
+      "pushedAt": "2025-10-30T18:52:13Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 54,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 14,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/AgentOps-AI/agentops"
+    },
+    {
+      "owner": "peaceiris",
+      "repo": "actions-gh-pages",
+      "fullName": "peaceiris/actions-gh-pages",
+      "description": "GitHub Actions for GitHub Pages 🚀 Deploy static files and publish your site easily. Static-Site-Generators-friendly.",
+      "stars": 5227,
+      "language": "TypeScript",
+      "topics": [
+        "actions",
+        "gatsby",
+        "github-actions",
+        "github-pages",
+        "hugo",
+        "mdbook",
+        "mkdocs",
+        "nextjs",
+        "nuxt",
+        "static-site-generator",
+        "vuepress"
+      ],
+      "pushedAt": "2026-02-07T00:49:48Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:github-actions"
+      ],
+      "score": 54,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/peaceiris/actions-gh-pages"
+    },
+    {
+      "owner": "ligurio",
+      "repo": "awesome-ci",
+      "fullName": "ligurio/awesome-ci",
+      "description": "The list of continuous integration services and tools",
+      "stars": 4033,
+      "language": null,
+      "topics": [
+        "awesome",
+        "ci",
+        "comparison",
+        "continuous-integration",
+        "developer-tools",
+        "development",
+        "devops"
+      ],
+      "pushedAt": "2025-08-01T04:15:35Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:ci",
+        "keyword:CI gating"
+      ],
+      "score": 54,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 9,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/ligurio/awesome-ci"
+    },
+    {
+      "owner": "sagiegurari",
+      "repo": "cargo-make",
+      "fullName": "sagiegurari/cargo-make",
+      "description": "Rust task runner and build tool.",
+      "stars": 2893,
+      "language": "Rust",
+      "topics": [
+        "appveyor",
+        "azure-pipelines",
+        "build",
+        "build-automation",
+        "build-tool",
+        "cargo",
+        "cargo-plugin",
+        "cargo-plugins",
+        "cargo-subcommand",
+        "circleci",
+        "coverage",
+        "github-actions",
+        "gitlab-ci",
+        "make",
+        "rust",
+        "task",
+        "task-runner",
+        "travis",
+        "travis-ci"
+      ],
+      "pushedAt": "2026-02-05T18:50:48Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:github-actions",
+        "keyword:CI gating"
+      ],
+      "score": 54,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/sagiegurari/cargo-make"
+    },
+    {
+      "owner": "terrastruct",
+      "repo": "d2",
+      "fullName": "terrastruct/d2",
+      "description": "D2 is a modern diagram scripting language that turns text to diagrams.",
+      "stars": 23083,
+      "language": "Go",
+      "topics": [
+        "developer-tools",
+        "diagramming",
+        "diagrams",
+        "go",
+        "golang",
+        "software-architecture",
+        "text-to-diagram"
+      ],
+      "pushedAt": "2025-10-14T17:57:28Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 53,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 13,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/terrastruct/d2"
+    },
+    {
+      "owner": "verygoodplugins",
+      "repo": "automem",
+      "fullName": "verygoodplugins/automem",
+      "description": "AutoMem is a graph-vector memory service that gives AI assistants durable, relational memory:",
+      "stars": 611,
+      "language": "Python",
+      "topics": [
+        "ai",
+        "ai-memory",
+        "anthropic",
+        "falkordb",
+        "graph-database",
+        "llm",
+        "memory",
+        "qdrant",
+        "vector-database"
+      ],
+      "pushedAt": "2026-02-20T05:55:37Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 53,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 13,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/verygoodplugins/automem"
+    },
+    {
+      "owner": "Ericsson",
+      "repo": "CodeCompass",
+      "fullName": "Ericsson/CodeCompass",
+      "description": "CodeCompass is a software comprehension tool for large scale software written in C/C++, C# and Python.",
+      "stars": 588,
+      "language": "C++",
+      "topics": [
+        "code-analysis",
+        "code-comprehension",
+        "code-quality",
+        "cpp",
+        "csharp",
+        "python",
+        "static-analysis",
+        "thrift"
+      ],
+      "pushedAt": "2026-02-13T08:29:46Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 53,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 13,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/Ericsson/CodeCompass"
+    },
+    {
+      "owner": "utensils",
+      "repo": "mcp-nixos",
+      "fullName": "utensils/mcp-nixos",
+      "description": "MCP-NixOS - Model Context Protocol Server for NixOS resources",
+      "stars": 450,
+      "language": "Python",
+      "topics": [
+        "ai-assistant",
+        "ai-integration",
+        "ai-tools",
+        "anthropic",
+        "claude",
+        "developer-tools",
+        "devops-tools",
+        "fastmcp",
+        "llm-tools",
+        "mcp",
+        "model-context-protocol",
+        "nix",
+        "nix-options",
+        "nix-packages",
+        "nix-search",
+        "nixos",
+        "package-search",
+        "python",
+        "sre-tools"
+      ],
+      "pushedAt": "2026-02-11T18:47:09Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 53,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 13,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/utensils/mcp-nixos"
+    },
+    {
+      "owner": "Kenza-AI",
+      "repo": "sagify",
+      "fullName": "Kenza-AI/sagify",
+      "description": "LLMs and Machine Learning done easily",
+      "stars": 442,
+      "language": "Python",
+      "topics": [
+        "ai-gateway",
+        "anthropic",
+        "cohere",
+        "generative-ai",
+        "langchain",
+        "langchain-python",
+        "large-language-model",
+        "large-language-models",
+        "llm",
+        "llm-inference",
+        "llmops",
+        "open-source-llm",
+        "openai",
+        "sagemaker"
+      ],
+      "pushedAt": "2026-02-11T10:56:37Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 53,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 13,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/Kenza-AI/sagify"
+    },
+    {
+      "owner": "GitHubDaily",
+      "repo": "GitHubDaily",
+      "fullName": "GitHubDaily/GitHubDaily",
+      "description": "坚持分享 GitHub 上高质量、有趣实用的开源技术教程、开发者工具、编程网站、技术资讯。A list cool, interesting projects of GitHub.",
+      "stars": 45229,
+      "language": null,
+      "topics": [
+        "ai",
+        "algorithms-and-data-structures",
+        "backend",
+        "developer-tools",
+        "development",
+        "frontend",
+        "github",
+        "java",
+        "javascript",
+        "kubernetes",
+        "linux",
+        "markdown",
+        "open-source",
+        "python",
+        "tutorials",
+        "web"
+      ],
+      "pushedAt": "2025-12-31T18:59:20Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools",
+        "keyword:LLM context"
+      ],
+      "score": 52,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 17,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/GitHubDaily/GitHubDaily"
+    },
+    {
+      "owner": "pezzolabs",
+      "repo": "pezzo",
+      "fullName": "pezzolabs/pezzo",
+      "description": "🕹️ Open-source, developer-first LLMOps platform designed to streamline prompt design, version management, instant delivery, collaboration, troubleshooting, observability and more.",
+      "stars": 3188,
+      "language": "TypeScript",
+      "topics": [
+        "ai",
+        "devtools",
+        "gpt-3",
+        "gpt-4",
+        "hacktoberfest",
+        "javascript",
+        "langchain",
+        "llm",
+        "llmops",
+        "monitoring",
+        "nestjs",
+        "nodejs",
+        "observability",
+        "openai",
+        "platform",
+        "prompt",
+        "prompt-engineering",
+        "prompt-management",
+        "python",
+        "typescript"
+      ],
+      "pushedAt": "2025-06-28T05:49:58Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 52,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 7,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/pezzolabs/pezzo"
+    },
+    {
+      "owner": "pdepend",
+      "repo": "pdepend",
+      "fullName": "pdepend/pdepend",
+      "description": "PHP_Depend is an adaptation of the established Java development tool JDepend. This tool shows you the quality of your design in terms of extensibility, reusability and maintainability.",
+      "stars": 950,
+      "language": "PHP",
+      "topics": [
+        "code-analysis",
+        "code-quality",
+        "hacktoberfest",
+        "php"
+      ],
+      "pushedAt": "2026-02-10T15:29:38Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 52,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 13,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/pdepend/pdepend"
+    },
+    {
+      "owner": "strands-agents",
+      "repo": "samples",
+      "fullName": "strands-agents/samples",
+      "description": "Agent samples built using the Strands Agents SDK.",
+      "stars": 641,
+      "language": "Python",
+      "topics": [
+        "agentic",
+        "agentic-ai",
+        "agents",
+        "ai",
+        "anthropic",
+        "autonomous-agents",
+        "bedrock",
+        "genai",
+        "litellm",
+        "llama",
+        "llm",
+        "machine-learning",
+        "mcp",
+        "multi-agent-systems",
+        "ollama",
+        "openai",
+        "opentelemetry",
+        "python",
+        "strands-agents"
+      ],
+      "pushedAt": "2026-02-06T04:35:38Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 52,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 13,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/strands-agents/samples"
+    },
+    {
+      "owner": "xark-argo",
+      "repo": "argo",
+      "fullName": "xark-argo/argo",
+      "description": "ARGO is an open-source AI Agent platform that brings Local Manus to your desktop. With one-click model downloads, seamless closed LLM integration, and offline-first RAG knowledge bases, ARGO becomes a",
+      "stars": 475,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "agentic-ai",
+        "ai",
+        "aigc",
+        "anthropic",
+        "artifacts",
+        "assistant",
+        "chatbot",
+        "deepresearch",
+        "deepseek",
+        "desktop",
+        "langgraph",
+        "llm",
+        "local",
+        "manus",
+        "mcp",
+        "mermaid",
+        "ollama",
+        "openai",
+        "rag"
+      ],
+      "pushedAt": "2026-01-06T03:43:08Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 51,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 18,
+        "starTier": 13,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/xark-argo/argo"
+    },
+    {
+      "owner": "ollama",
+      "repo": "ollama",
+      "fullName": "ollama/ollama",
+      "description": "Get up and running with Kimi-K2.5, GLM-5, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
+      "stars": 162989,
+      "language": "Go",
+      "topics": [
+        "deepseek",
+        "gemma",
+        "gemma3",
+        "glm",
+        "go",
+        "golang",
+        "gpt-oss",
+        "llama",
+        "llama3",
+        "llm",
+        "llms",
+        "minimax",
+        "mistral",
+        "ollama",
+        "qwen"
+      ],
+      "pushedAt": "2026-02-20T00:00:55Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 50,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/ollama/ollama"
+    },
+    {
+      "owner": "huggingface",
+      "repo": "transformers",
+      "fullName": "huggingface/transformers",
+      "description": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training. ",
+      "stars": 156738,
+      "language": "Python",
+      "topics": [
+        "audio",
+        "deep-learning",
+        "deepseek",
+        "gemma",
+        "glm",
+        "hacktoberfest",
+        "llm",
+        "machine-learning",
+        "model-hub",
+        "natural-language-processing",
+        "nlp",
+        "pretrained-models",
+        "python",
+        "pytorch",
+        "pytorch-transformers",
+        "qwen",
+        "speech-recognition",
+        "transformer",
+        "vlm"
+      ],
+      "pushedAt": "2026-02-20T08:28:50Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "keyword:code map"
+      ],
+      "score": 50,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/huggingface/transformers"
+    },
+    {
+      "owner": "f",
+      "repo": "prompts.chat",
+      "fullName": "f/prompts.chat",
+      "description": "a.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete privacy.",
+      "stars": 145683,
+      "language": "HTML",
+      "topics": [
+        "ai",
+        "artificial-intelligence",
+        "awesome-list",
+        "chatgpt",
+        "chatgpt-prompts",
+        "claude",
+        "gemini",
+        "gpt",
+        "gpt-4",
+        "llm",
+        "machine-learning",
+        "nextjs",
+        "open-source",
+        "openai",
+        "prompt-engineering",
+        "prompts",
+        "prompts-chat",
+        "typescript"
+      ],
+      "pushedAt": "2026-02-20T03:50:42Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 50,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/f/prompts.chat"
+    },
+    {
+      "owner": "langgenius",
+      "repo": "dify",
+      "fullName": "langgenius/dify",
+      "description": "Production-ready platform for agentic workflow development.",
+      "stars": 129837,
+      "language": "TypeScript",
+      "topics": [
+        "agent",
+        "agentic-ai",
+        "agentic-framework",
+        "agentic-workflow",
+        "ai",
+        "automation",
+        "gemini",
+        "genai",
+        "gpt",
+        "gpt-4",
+        "llm",
+        "low-code",
+        "mcp",
+        "nextjs",
+        "no-code",
+        "openai",
+        "orchestration",
+        "python",
+        "rag",
+        "workflow"
+      ],
+      "pushedAt": "2026-02-20T06:12:31Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 50,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/langgenius/dify"
+    },
+    {
+      "owner": "langchain-ai",
+      "repo": "langchain",
+      "fullName": "langchain-ai/langchain",
+      "description": "🦜🔗 The platform for reliable agents.",
+      "stars": 127028,
+      "language": "Python",
+      "topics": [
+        "agents",
+        "ai",
+        "ai-agents",
+        "anthropic",
+        "chatgpt",
+        "deepagents",
+        "enterprise",
+        "framework",
+        "gemini",
+        "generative-ai",
+        "langchain",
+        "langgraph",
+        "llm",
+        "multiagent",
+        "open-source",
+        "openai",
+        "pydantic",
+        "python",
+        "rag"
+      ],
+      "pushedAt": "2026-02-20T08:14:00Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 50,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/langchain-ai/langchain"
+    },
+    {
+      "owner": "open-webui",
+      "repo": "open-webui",
+      "fullName": "open-webui/open-webui",
+      "description": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
+      "stars": 124381,
+      "language": "Python",
+      "topics": [
+        "ai",
+        "llm",
+        "llm-ui",
+        "llm-webui",
+        "llms",
+        "mcp",
+        "ollama",
+        "ollama-webui",
+        "open-webui",
+        "openai",
+        "openapi",
+        "rag",
+        "self-hosted",
+        "ui",
+        "webui"
+      ],
+      "pushedAt": "2026-02-19T22:57:34Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 50,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/open-webui/open-webui"
+    },
+    {
+      "owner": "puppeteer",
+      "repo": "puppeteer",
+      "fullName": "puppeteer/puppeteer",
+      "description": "JavaScript API for Chrome and Firefox",
+      "stars": 93603,
+      "language": "TypeScript",
+      "topics": [
+        "automation",
+        "chrome",
+        "chromium",
+        "developer-tools",
+        "firefox",
+        "headless-chrome",
+        "node-module",
+        "testing",
+        "web"
+      ],
+      "pushedAt": "2026-02-19T16:15:28Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 50,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/puppeteer/puppeteer"
+    },
+    {
+      "owner": "rasbt",
+      "repo": "LLMs-from-scratch",
+      "fullName": "rasbt/LLMs-from-scratch",
+      "description": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
+      "stars": 85539,
+      "language": "Jupyter Notebook",
+      "topics": [
+        "ai",
+        "artificial-intelligence",
+        "chatbot",
+        "chatgpt",
+        "deep-learning",
+        "from-scratch",
+        "generative-ai",
+        "gpt",
+        "language-model",
+        "large-language-models",
+        "llm",
+        "machine-learning",
+        "neural-networks",
+        "python",
+        "pytorch",
+        "transformers"
+      ],
+      "pushedAt": "2026-02-19T22:42:23Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 50,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/rasbt/LLMs-from-scratch"
+    },
+    {
+      "owner": "firecrawl",
+      "repo": "firecrawl",
+      "fullName": "firecrawl/firecrawl",
+      "description": "🔥 The Web Data API for AI - Turn entire websites into LLM-ready markdown or structured data",
+      "stars": 84091,
+      "language": "TypeScript",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "ai-crawler",
+        "ai-scraping",
+        "ai-search",
+        "crawler",
+        "data-extraction",
+        "html-to-markdown",
+        "llm",
+        "markdown",
+        "scraper",
+        "scraping",
+        "web-crawler",
+        "web-data",
+        "web-data-extraction",
+        "web-scraper",
+        "web-scraping",
+        "web-search",
+        "webscraping"
+      ],
+      "pushedAt": "2026-02-20T01:49:01Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "keyword:repo metadata",
+        "keyword:LLM context",
+        "keyword:code map"
+      ],
+      "score": 50,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/firecrawl/firecrawl"
+    },
+    {
+      "owner": "browser-use",
+      "repo": "browser-use",
+      "fullName": "browser-use/browser-use",
+      "description": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
+      "stars": 78585,
+      "language": "Python",
+      "topics": [
+        "ai-agents",
+        "ai-tools",
+        "browser-automation",
+        "browser-use",
+        "llm",
+        "playwright",
+        "python"
+      ],
+      "pushedAt": "2026-02-20T02:55:51Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "keyword:repo index"
+      ],
+      "score": 50,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/browser-use/browser-use"
+    },
+    {
+      "owner": "hoppscotch",
+      "repo": "hoppscotch",
+      "fullName": "hoppscotch/hoppscotch",
+      "description": "Open-Source API Development Ecosystem • https://hoppscotch.io • Offline, On-Prem & Cloud • Web, Desktop & CLI • Open-Source Alternative to Postman, Insomnia",
+      "stars": 77885,
+      "language": "TypeScript",
+      "topics": [
+        "api",
+        "api-client",
+        "api-rest",
+        "api-testing",
+        "developer-tools",
+        "graphql",
+        "http",
+        "http-client",
+        "pwa",
+        "rest",
+        "rest-api",
+        "spa",
+        "testing",
+        "testing-tools",
+        "tools",
+        "vue",
+        "vuejs",
+        "websocket"
+      ],
+      "pushedAt": "2026-02-20T08:03:27Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 50,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/hoppscotch/hoppscotch"
+    }
+  ]
+}
