@@ -43,6 +43,21 @@
     "tagline": "Privacy-first local LLM chat for Windows — WinUI 3, RTX-accelerated, multi-backend...",
     "needsHumanReview": true
   },
+  "LeaseGate": {
+    "tags": [
+      "ai",
+      "audit",
+      "csharp",
+      "dotnet",
+      "governance",
+      "lease"
+    ],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "cli",
+    "tagline": "Local-first AI governance control plane — lease admission, policy enforcement,...",
+    "needsHumanReview": true
+  },
   "LeaseGate-Lite": {
     "screenshot": "/screenshots/LeaseGate-Lite.png",
     "screenshotType": "placeholder"
@@ -50,6 +65,22 @@
   "ScalarScope-Desktop": {
     "screenshot": "/screenshots/ScalarScope-Desktop.png",
     "screenshotType": "placeholder"
+  },
+  "ThrottleAI": {
+    "tags": [
+      "ai",
+      "concurrency",
+      "express",
+      "governance",
+      "lease",
+      "llm"
+    ],
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install throttleai",
+    "tagline": "A token-based lease governor for AI calls — small enough to embed anywhere, strict...",
+    "needsHumanReview": true
   },
   "accessibility-suite": {
     "screenshot": "/screenshots/accessibility-suite.png",
@@ -103,6 +134,18 @@
       "Replacing manual security review for production systems"
     ],
     "screenshot": "/screenshots/brain-dev.png"
+  },
+  "codecomfy-vscode": {
+    "tags": [
+      "vscode",
+      "extension",
+      "coverage"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "vscode-extension",
+    "tagline": "VS Code extension for code analysis and coverage display.",
+    "needsHumanReview": true
   },
   "comfy-headless": {
     "featured": true,
@@ -295,6 +338,19 @@
     "tagline": "Shared content system for typing-practice apps — lessons, progression, and adaptive...",
     "needsHumanReview": true
   },
+  "pathway": {
+    "tags": [
+      "workflow",
+      "journey",
+      "python"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "install": "pip install pathway",
+    "tagline": "Python journey engine for workflow progression tracking.",
+    "needsHumanReview": true
+  },
   "prov-engine-js": {
     "tags": [
       "provenance",
@@ -319,6 +375,19 @@
     "stability": "beta",
     "kind": "desktop-app",
     "tagline": "Windows desktop application for AI workflow execution.",
+    "needsHumanReview": true
+  },
+  "runforge-vscode": {
+    "tags": [
+      "vscode",
+      "extension",
+      "workflow",
+      "ai"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "vscode-extension",
+    "tagline": "VS Code extension for AI workflow execution.",
     "needsHumanReview": true
   },
   "soundboard-maui": {

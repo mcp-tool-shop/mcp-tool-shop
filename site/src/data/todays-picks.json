@@ -1,5 +1,5 @@
 {
-  "date": "2026-02-19",
+  "date": "2026-02-20",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,36 +9,36 @@
       ]
     },
     {
-      "slug": "runforge-desktop",
-      "reason": "Windows desktop application for AI workflow execution",
+      "slug": "tool-scan",
+      "reason": "Static inspection utilities for MCP tools and repositories",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "claude-collaborate",
-      "reason": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows",
+      "slug": "file-compass",
+      "reason": "Deterministic file-system navigation and inspection for large repos",
+      "signals": [
+        "featured"
+      ]
+    },
+    {
+      "slug": "CreatorLedger",
+      "reason": "Creator attestation proofs and authorship verification",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "flexiflow",
-      "reason": "Flexible workflow automation framework",
+      "slug": "payroll-engine",
+      "reason": "Comprehensive payroll processing and SaaS platform",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "accessibility-suite",
-      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "aspire-ai",
-      "reason": "Goal-oriented framework for running and evaluating AI workflows over time",
+      "slug": "mcpt",
+      "reason": "MCP Tool Shop command-line interface and utilities",
       "signals": [
         "popular"
       ]

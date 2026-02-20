@@ -1,5 +1,68 @@
 [
   {
+    "repo": "ai_jam_session",
+    "toolName": "Ai_jam_session",
+    "tag": "v1.3.1",
+    "name": "v1.3.1",
+    "body": [
+      "Patch release — identical to v1.3.0 (re-publish for npm)."
+    ],
+    "publishedAt": "2026-02-20T10:21:13Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai_jam_session/releases/tag/v1.3.1",
+    "prerelease": false
+  },
+  {
+    "repo": "ai_jam_session",
+    "toolName": "Ai_jam_session",
+    "tag": "v1.3.0",
+    "name": "v1.3.0",
+    "body": [
+      "Real-time teaching intelligence: position tracking, live MIDI feedback, voice filters, seek, and live playback controls.",
+      "Position tracker** — `PositionTracker` maps time to beat/measure/tempo with binary search for seek operations",
+      "Live MIDI feedback** — `createLiveMidiFeedbackHook` provides position-aware, measure-level teaching: range warnings, velocity shift detection, density alerts, section boundaries, milestone announcements",
+      "Voice filters** — `melody-only` (highest note per cluster), `harmony` (lowest), or `all`",
+      "Seek support** — CLI `--seek N` jumps to second N before playback",
+      "Pause/resume MCP tool** — `pause_playback` tool pauses or resumes the active playback session"
+    ],
+    "publishedAt": "2026-02-20T10:11:15Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai_jam_session/releases/tag/v1.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ai_jam_session",
+    "toolName": "Ai_jam_session",
+    "tag": "v1.0.0",
+    "name": "v1.0.0",
+    "body": [
+      "Initial public release — MCP server + CLI for AI-powered piano teaching.",
+      "Session engine** — play/pause/stop with 4 playback modes (full, measure, hands, loop)",
+      "Speed control** — 0.5x-2x multiplier with per-song tempo override (10-400 BPM)",
+      "Progress tracking** — configurable callbacks at percentage milestones or per-measure",
+      "7 teaching hooks** — console, silent, recording, callback, voice, aside, compose",
+      "Voice feedback** — VoiceDirective output for mcp-voice-soundboard integration"
+    ],
+    "publishedAt": "2026-02-20T06:29:27Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai_jam_session/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-music-sheets",
+    "toolName": "Ai Music Sheets",
+    "tag": "v1.0.0",
+    "name": "v1.0.0",
+    "body": [
+      "Initial public release — piano sheet music in hybrid JSON + musical-language format, built for LLMs.",
+      "10 songs** across 10 genres (classical, jazz, pop, blues, rock, R&B, latin, film, ragtime, new age)",
+      "Three-layer hybrid format**: metadata + musical language (for LLM reasoning) + code-ready measures (for MIDI playback)",
+      "Registry API**: `getSong`, `searchSongs`, `getStats`, `validateSong`",
+      "34 tests** with full validation coverage",
+      "Multilingual README (8 languages)"
+    ],
+    "publishedAt": "2026-02-20T06:29:19Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-music-sheets/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
     "repo": "control-room",
     "toolName": "Control Room",
     "tag": "v1.0.0",
@@ -654,74 +717,6 @@
     ],
     "publishedAt": "2026-02-05T22:13:08Z",
     "url": "https://github.com/mcp-tool-shop-org/soundboard-maui/releases/tag/v0.1-demo",
-    "prerelease": false
-  },
-  {
-    "repo": "Registrum",
-    "toolName": "Registrum",
-    "tag": "v0.1.0",
-    "name": "v0.1.0 — Packaging Integrity Release",
-    "body": [
-      "This release establishes Registrum as **externally consumable with confidence**.",
-      "Unlike feature-driven releases, this update addresses packaging ambiguity—mismatched versions, unclear hash semantics, undocumented tooling assumptions, and incomplete licensing—without altering system semantics or behavior.",
-      "All externally visible version references now derive from `src/version.ts`, ensuring attestations, artifacts, and documentation remain provably consistent.",
-      "Standard MIT license file included, aligning legal metadata with automated compliance requirements.",
-      "`computeSnapshotChecksum32` — Non-cryptographic (djb2) for integrity checking",
-      "`computeSnapshotHashForAttestation` — Cryptographic (SHA-256) for attestation"
-    ],
-    "publishedAt": "2026-02-05T19:36:19Z",
-    "url": "https://github.com/mcp-tool-shop-org/Registrum/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "VectorCaliper",
-    "toolName": "VectorCaliper",
-    "tag": "v1.0.0",
-    "name": "VectorCaliper v1.0.0",
-    "body": [
-      "A geometrical debugger for learning dynamics.**",
-      "1. **Deterministic visualization** — Same input produces same output, byte-for-byte",
-      "2. **Faithful representation** — Every visual element traces to a measured variable",
-      "3. **No interpretation** — VectorCaliper shows what happened, never tells you what it means",
-      "4. **Truthful degradation** — At scale, shows exact subsets with explicit completeness indicators",
-      "5. **Explicit limits** — Budget violations cause rejection, not silent degradation"
-    ],
-    "publishedAt": "2026-02-05T13:39:51Z",
-    "url": "https://github.com/mcp-tool-shop-org/VectorCaliper/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "runforge-desktop",
-    "toolName": "Runforge Desktop",
-    "tag": "v0.5.0",
-    "name": "v0.5.0: Theme Support & MultiRun Sweeps",
-    "body": [
-      "Release Date**: 2026-02-02",
-      "Theme**: User Experience & Customization",
-      "v0.5.0 focuses on user experience improvements: theme customization (dark/light/system), enhanced error messaging with actionable guidance, expanded settings, and hyperparameter sweeps via MultiRun.",
-      "Dark mode** (default) - Optimized for extended use",
-      "Light mode** - Clean, bright interface",
-      "System mode** - Follows Windows theme preference"
-    ],
-    "publishedAt": "2026-02-02T09:52:16Z",
-    "url": "https://github.com/mcp-tool-shop-org/runforge-desktop/releases/tag/v0.5.0",
-    "prerelease": false
-  },
-  {
-    "repo": "codeclone-suite",
-    "toolName": "Codeclone Suite",
-    "tag": "v0.1.0",
-    "name": "v0.1.0 - Contract-First Foundation",
-    "body": [
-      "Deterministic code coverage analysis** as a protocol.",
-      "Contract-first foundation with interop harness in place.",
-      "Analyze response schema (additive changes only)",
-      "Version response schema (additive changes only)",
-      "Diagnostic codes (no removals or renames)",
-      "Severity mapping (new codes require mapping)"
-    ],
-    "publishedAt": "2026-02-02T03:38:49Z",
-    "url": "https://github.com/mcp-tool-shop-org/codeclone-suite/releases/tag/v0.1.0",
     "prerelease": false
   }
 ]

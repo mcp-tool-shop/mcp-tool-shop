@@ -319,6 +319,32 @@
     "screenshotType": "placeholder"
   },
   {
+    "name": "Ai Music Sheets",
+    "repo": "ai-music-sheets",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-20T10:44:18Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
+    "name": "Ai_jam_session",
+    "repo": "ai_jam_session",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-20T13:53:52Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Ally Demo Python",
     "repo": "ally-demo-python",
     "description": "Python demonstration of accessibility framework capabilities",
@@ -683,7 +709,12 @@
     "updatedAt": "2026-02-19T05:58:57Z",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Dashboard and monitoring for MCP tool ecosystems.",
+    "needsHumanReview": true
   },
   {
     "name": "CreatorLedger",
@@ -880,6 +911,19 @@
     "registered": true,
     "unlisted": false,
     "deprecated": true
+  },
+  {
+    "name": "Jam Session Plugin",
+    "repo": "jam-session-plugin",
+    "description": "Claude Code plugin for PianoAI — piano player with 100-song library, teaching system, and AI jam sessions",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "",
+    "updatedAt": "2026-02-20T13:54:01Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "LeaseGate",
@@ -1302,7 +1346,13 @@
     "updatedAt": "2026-02-18T01:43:54Z",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "install": "npm install prov-engine-js",
+    "tagline": "JavaScript/TypeScript provenance and traceability engine.",
+    "needsHumanReview": true
   },
   {
     "name": "Registrum",
@@ -1332,8 +1382,8 @@
     "tags": [],
     "featured": false,
     "stars": 0,
-    "language": "",
-    "updatedAt": "2026-02-19T14:06:00Z",
+    "language": "TypeScript",
+    "updatedAt": "2026-02-19T14:32:45Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -1567,6 +1617,19 @@
     "screenshotType": "placeholder"
   },
   {
+    "name": "ToolShopStudio",
+    "repo": "ToolShopStudio",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-20T04:08:43Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Trace",
     "repo": "Trace",
     "description": "Trace — deterministic cursor discipline game. Navigate chaos through precision, not power.",
@@ -1625,7 +1688,13 @@
     "updatedAt": "2026-02-17T10:34:57Z",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "install": "npm install venvkit",
+    "tagline": "Python virtual environment diagnostics and utilities.",
+    "needsHumanReview": true
   },
   {
     "name": "Voice Soundboard",
@@ -1679,7 +1748,13 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "websketch"
+    "ecosystem": "websketch",
+    "category": "web",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "npx websketch-cli",
+    "tagline": "Command-line interface for web component analysis.",
+    "needsHumanReview": true
   },
   {
     "name": "WebSketch Demo",
@@ -1733,7 +1808,13 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "websketch"
+    "ecosystem": "websketch",
+    "category": "web",
+    "stability": "beta",
+    "kind": "library",
+    "install": "npm install websketch-ir",
+    "tagline": "Intermediate representation library for web component analysis.",
+    "needsHumanReview": true
   },
   {
     "name": "WebSketch MCP",

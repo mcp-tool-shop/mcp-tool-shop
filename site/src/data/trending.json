@@ -1,26 +1,26 @@
 {
-  "asOf": "2026-02-19",
+  "asOf": "2026-02-20",
   "windowDays": 7,
   "items": [
     {
       "slug": "backpropagate",
       "reason": "Top 8 starred repo",
-      "deltaStars": 2
+      "deltaStars": 1
     },
     {
       "slug": "brain-dev",
       "reason": "Top 1 starred repo",
-      "deltaStars": 4
+      "deltaStars": 2
     },
     {
       "slug": "comfy-headless",
       "reason": "Top 2 starred repo",
-      "deltaStars": 3
+      "deltaStars": 1
     },
     {
       "slug": "file-compass",
       "reason": "Top 3 starred repo",
-      "deltaStars": 2
+      "deltaStars": 1
     },
     {
       "slug": "tool-compass",
