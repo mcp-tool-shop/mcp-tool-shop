@@ -3,6 +3,7 @@
     "id": "accessibility-suite",
     "name": "Accessibility Suite",
     "description": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+    "verification": "none",
     "keywords": [
       "accessibility",
       "and",
@@ -30,6 +31,7 @@
     "id": "ally-demo-python",
     "name": "Ally Demo Python",
     "description": "Python demonstration of accessibility framework capabilities",
+    "verification": "none",
     "keywords": [
       "accessibility",
       "ally",
@@ -51,6 +53,7 @@
     "id": "aspire-ai",
     "name": "Aspire AI",
     "description": "Goal-oriented framework for running and evaluating AI workflows over time",
+    "verification": "none",
     "keywords": [
       "and",
       "aspire",
@@ -81,6 +84,7 @@
     "id": "audiobooker",
     "name": "Audiobooker",
     "description": "Audio book generation and management system",
+    "verification": "none",
     "keywords": [
       "and",
       "audio",
@@ -103,6 +107,7 @@
     "id": "backpropagate",
     "name": "Backpropagate",
     "description": "Structured feedback loops for improving AI behavior through iteration",
+    "verification": "none",
     "keywords": [
       "backpropagate",
       "behavior",
@@ -129,6 +134,7 @@
     "id": "brain-dev",
     "name": "Brain Dev",
     "description": "MCP server for AI-powered code analysis — test generation, security audits, refactoring suggestions",
+    "verification": "none",
     "keywords": [
       "ai",
       "analysis",
@@ -164,6 +170,7 @@
     "id": "claim-ledger",
     "name": "ClaimLedger",
     "description": "Scientific claim provenance and verification ledger",
+    "verification": "none",
     "keywords": [
       "and",
       "claim",
@@ -187,6 +194,7 @@
     "id": "claude-collaborate",
     "name": "Claude Collaborate",
     "description": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows",
+    "verification": "none",
     "keywords": [
       "agent",
       "agents",
@@ -216,6 +224,7 @@
     "id": "code-covered",
     "name": "Code Covered",
     "description": "Coverage visualization and reporting tool",
+    "verification": "none",
     "keywords": [
       "and",
       "code",
@@ -240,6 +249,7 @@
     "id": "codeclone-suite",
     "name": "CodeClone Suite",
     "description": "Deterministic code coverage analysis as a protocol — CLI engine and editor extensions",
+    "verification": "none",
     "keywords": [
       "analysis",
       "and",
@@ -269,6 +279,7 @@
     "id": "codecomfy-vscode",
     "name": "CodeComfy VS Code",
     "description": "VS Code extension for code analysis and coverage display",
+    "verification": "none",
     "keywords": [
       "analysis",
       "and",
@@ -294,6 +305,7 @@
     "id": "codeteam",
     "name": "CodeTeam",
     "description": "Legacy code analysis CLI (see codeteam-suite)",
+    "verification": "none",
     "keywords": [
       "(see",
       "analysis",
@@ -316,6 +328,7 @@
     "id": "codeteam-suite",
     "name": "CodeTeam Suite",
     "description": "Code analysis protocol and tools — CLI engine with editor extensions",
+    "verification": "none",
     "keywords": [
       "analysis",
       "and",
@@ -344,6 +357,7 @@
     "id": "comfy-headless",
     "name": "Comfy Headless",
     "description": "Run ComfyUI workflows without the UI — headless execution for automation",
+    "verification": "none",
     "keywords": [
       "automation",
       "comfy",
@@ -372,6 +386,7 @@
     "id": "context-window-manager",
     "name": "Context Window Manager",
     "description": "Deterministic tools for shaping and allocating LLM context windows",
+    "verification": "none",
     "keywords": [
       "allocating",
       "and",
@@ -404,6 +419,7 @@
     "id": "control-room",
     "name": "Control Room",
     "description": "Dashboard and monitoring for MCP tool ecosystems",
+    "verification": "none",
     "keywords": [
       "admin",
       "and",
@@ -430,6 +446,7 @@
     "id": "creator-ledger",
     "name": "CreatorLedger",
     "description": "Creator attestation proofs and authorship verification",
+    "verification": "none",
     "keywords": [
       "and",
       "attestation",
@@ -453,6 +470,7 @@
     "id": "file-compass",
     "name": "File Compass",
     "description": "Deterministic file-system navigation and inspection for large repos",
+    "verification": "none",
     "keywords": [
       "and",
       "compass",
@@ -482,6 +500,7 @@
     "id": "flexiflow",
     "name": "Flexiflow",
     "description": "Flexible workflow automation framework",
+    "verification": "none",
     "keywords": [
       "automation",
       "flexible",
@@ -503,6 +522,7 @@
     "id": "headless-wheel-builder",
     "name": "Headless Wheel Builder",
     "description": "CLI-first build/validate/release tooling for Python wheels and sdists",
+    "verification": "none",
     "keywords": [
       "and",
       "build/validate/release",
@@ -534,6 +554,7 @@
     "id": "homebrew-core",
     "name": "Homebrew Core",
     "description": "Homebrew formulae for mcp-tool-shop packages",
+    "verification": "none",
     "keywords": [
       "core",
       "for",
@@ -560,6 +581,7 @@
     "id": "integradio",
     "name": "Integradio",
     "description": "Structure layer for building maintainable Gradio apps (UI + execution separation)",
+    "verification": "none",
     "keywords": [
       "(ui",
       "apps",
@@ -587,6 +609,7 @@
     "id": "ledger-suite",
     "name": "Ledger Suite",
     "description": "Unified monorepo for cryptographic provenance ledgers — ClaimLedger and CreatorLedger",
+    "verification": "none",
     "keywords": [
       "and",
       "claimledger",
@@ -615,6 +638,7 @@
     "id": "mcp-docs",
     "name": "MCP Tool Shop Website",
     "description": "Official website and documentation for MCP Tool Shop",
+    "verification": "none",
     "keywords": [
       "and",
       "documentation",
@@ -638,6 +662,7 @@
     "id": "mcp-examples",
     "name": "MCP Examples",
     "description": "Example workspaces and templates for MCP tools",
+    "verification": "none",
     "keywords": [
       "and",
       "example",
@@ -660,6 +685,7 @@
     "id": "mcp-stress-test",
     "name": "MCP Stress Test",
     "description": "Load and stress testing utilities for MCP servers and tool ecosystems",
+    "verification": "none",
     "keywords": [
       "and",
       "concurrency",
@@ -688,6 +714,7 @@
     "id": "mcpt",
     "name": "MCPT",
     "description": "MCP Tool Shop command-line interface and utilities",
+    "verification": "none",
     "keywords": [
       "and",
       "cli",
@@ -713,6 +740,7 @@
     "id": "next-gallery",
     "name": "Next Gallery",
     "description": "Windows desktop image gallery application",
+    "verification": "none",
     "keywords": [
       "application",
       "desktop",
@@ -735,6 +763,7 @@
     "id": "nexus-suite",
     "name": "Nexus Suite",
     "description": "Governance, attestation, and routing infrastructure for MCP tool ecosystems",
+    "verification": "none",
     "keywords": [
       "and",
       "attestation",
@@ -762,6 +791,7 @@
     "id": "pathway",
     "name": "Pathway",
     "description": "Python journey engine for workflow progression tracking",
+    "verification": "none",
     "keywords": [
       "engine",
       "for",
@@ -784,6 +814,7 @@
     "id": "payroll-engine",
     "name": "Payroll Engine",
     "description": "Comprehensive payroll processing and SaaS platform",
+    "verification": "none",
     "keywords": [
       "and",
       "comprehensive",
@@ -806,6 +837,7 @@
     "id": "prov-engine-js",
     "name": "Prov Engine JS",
     "description": "JavaScript/TypeScript provenance and traceability engine",
+    "verification": "none",
     "keywords": [
       "and",
       "engine",
@@ -827,6 +859,7 @@
     "id": "runforge-desktop",
     "name": "RunForge Desktop",
     "description": "Windows desktop application for AI workflow execution",
+    "verification": "none",
     "keywords": [
       "ai",
       "application",
@@ -850,6 +883,7 @@
     "id": "runforge-vscode",
     "name": "RunForge VS Code",
     "description": "VS Code extension for AI workflow execution",
+    "verification": "none",
     "keywords": [
       "ai",
       "code",
@@ -873,6 +907,7 @@
     "id": "stresskit-mcp",
     "name": "StressKit MCP",
     "description": "MCP stress testing toolkit with configurable load patterns",
+    "verification": "none",
     "keywords": [
       "configurable",
       "load",
@@ -897,6 +932,7 @@
     "id": "synthesis",
     "name": "Synthesis",
     "description": "Composable tool framework for building complex AI workflows",
+    "verification": "none",
     "keywords": [
       "building",
       "complex",
@@ -922,6 +958,7 @@
     "id": "tool-compass",
     "name": "Tool Compass",
     "description": "Discovery, classification, and ranking utilities for MCP-compatible tools",
+    "verification": "none",
     "keywords": [
       "and",
       "catalog",
@@ -951,6 +988,7 @@
     "id": "tool-scan",
     "name": "Tool Scan",
     "description": "Static inspection utilities for MCP tools and repositories",
+    "verification": "none",
     "keywords": [
       "and",
       "for",
@@ -979,6 +1017,7 @@
     "id": "training-studio",
     "name": "Training Studio",
     "description": "TensorFlow.js ML bundle validator with security-first design and zero code execution",
+    "verification": "none",
     "keywords": [
       "and",
       "bundle",
@@ -1010,6 +1049,7 @@
     "id": "venvkit",
     "name": "Venvkit",
     "description": "Python virtual environment diagnostics and utilities",
+    "verification": "none",
     "keywords": [
       "and",
       "diagnostics",
@@ -1032,6 +1072,7 @@
     "id": "voice-soundboard",
     "name": "Voice Soundboard",
     "description": "TTS and audio generation with voice cloning support",
+    "verification": "none",
     "keywords": [
       "and",
       "audio",
@@ -1056,6 +1097,7 @@
     "id": "websketch-cli",
     "name": "WebSketch CLI",
     "description": "Command-line interface for web component analysis",
+    "verification": "none",
     "keywords": [
       "analysis",
       "cli",
@@ -1079,6 +1121,7 @@
     "id": "websketch-demo",
     "name": "WebSketch Demo",
     "description": "Interactive demo showcasing WebSketch capabilities",
+    "verification": "none",
     "keywords": [
       "capabilities",
       "demo",
@@ -1100,6 +1143,7 @@
     "id": "websketch-extension",
     "name": "WebSketch Extension",
     "description": "Browser extension for web page analysis and code generation",
+    "verification": "none",
     "keywords": [
       "analysis",
       "and",
@@ -1124,6 +1168,7 @@
     "id": "websketch-ir",
     "name": "WebSketch IR",
     "description": "Intermediate representation library for web component analysis",
+    "verification": "none",
     "keywords": [
       "analysis",
       "component",
@@ -1148,6 +1193,7 @@
     "id": "websketch-mcp",
     "name": "WebSketch MCP",
     "description": "MCP server for AI-assisted web analysis",
+    "verification": "none",
     "keywords": [
       "ai",
       "analysis",
@@ -1171,6 +1217,7 @@
     "id": "winget-pkgs",
     "name": "Winget Packages",
     "description": "Windows Package Manager manifests for mcp-tool-shop packages",
+    "verification": "none",
     "keywords": [
       "for",
       "manager",
@@ -1198,6 +1245,7 @@
     "id": "witness",
     "name": "Witness",
     "description": "Attestation witness and verification tooling",
+    "verification": "none",
     "keywords": [
       "and",
       "attestation",

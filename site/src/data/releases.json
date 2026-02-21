@@ -1,5 +1,22 @@
 [
   {
+    "repo": "mcp-bouncer",
+    "toolName": "Mcp Bouncer",
+    "tag": "v1.0.0",
+    "name": "v1.0.0 — Initial Release",
+    "body": [
+      "A SessionStart hook that health-checks your MCP servers, quarantines broken ones, and auto-restores them when they come back online.",
+      "```bash",
+      "pip install mcp-bouncer",
+      "```",
+      "Then add to your Claude Code settings:",
+      "```json"
+    ],
+    "publishedAt": "2026-02-21T21:10:54Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-bouncer/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
     "repo": "ai-jam-sessions",
     "toolName": "Ai Jam Sessions",
     "tag": "v1.3.1",
@@ -700,23 +717,6 @@
     ],
     "publishedAt": "2026-02-05T22:52:01Z",
     "url": "https://github.com/mcp-tool-shop-org/soundboard-maui/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "soundboard-maui",
-    "toolName": "Soundboard Maui",
-    "tag": "v0.1-demo",
-    "name": "v0.1-demo — Phase 5 Demo MVP",
-    "body": [
-      "First-time, non-technical user launches the app and hears impressive audio in under 30 seconds, without reading docs.",
-      "Service Client (v1.0 locked)**",
-      "Pure C# HTTP + WebSocket client, no MAUI dependencies",
-      "`ISoundboardClient` interface with health, presets, voices, speak, stop",
-      "Configurable base URL, timeouts, structured logging",
-      "Partial WebSocket frame handling, cancellation on every async path"
-    ],
-    "publishedAt": "2026-02-05T22:13:08Z",
-    "url": "https://github.com/mcp-tool-shop-org/soundboard-maui/releases/tag/v0.1-demo",
     "prerelease": false
   }
 ]

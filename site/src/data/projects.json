@@ -329,7 +329,12 @@
     "updatedAt": "2026-02-21T10:32:04Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install ai-jam-sessions",
+    "needsHumanReview": true
   },
   {
     "name": "Ai Music Sheets",
@@ -342,7 +347,12 @@
     "updatedAt": "2026-02-20T10:44:18Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install ai-music-sheets",
+    "needsHumanReview": true
   },
   {
     "name": "Ally Demo Python",
@@ -481,8 +491,7 @@
       "governance",
       "mcp",
       "policy",
-      "safety",
-      "typescript"
+      "safety"
     ],
     "featured": false,
     "stars": 0,
@@ -490,7 +499,13 @@
     "updatedAt": "2026-02-21T04:36:56Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install civility-kernel",
+    "tagline": "A policy layer that makes agent behavior preference-governed instead of purely...",
+    "needsHumanReview": true
   },
   {
     "name": "ClaimLedger",
@@ -1075,6 +1090,19 @@
     "deprecated": false
   },
   {
+    "name": "Mcp Bouncer",
+    "repo": "mcp-bouncer",
+    "description": "SessionStart hook that health-checks MCP servers, quarantines broken ones, and auto-restores them",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-02-21T21:10:43Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Mcp File Forge",
     "repo": "mcp-file-forge",
     "description": "MCP server for file operations and project scaffolding - Windows-first, secure, sandboxed",
@@ -1414,14 +1442,22 @@
     "name": "Repo Crawler Mcp",
     "repo": "repo-crawler-mcp",
     "description": "MCP server that crawls GitHub repos and extracts structured data for AI agents",
-    "tags": [],
+    "tags": [
+      "mcp"
+    ],
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
     "updatedAt": "2026-02-19T14:32:45Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "mcp-server",
+    "install": "npx repo-crawler-mcp",
+    "tagline": "MCP server that crawls GitHub repos and extracts structured data for AI agents.",
+    "needsHumanReview": true
   },
   {
     "name": "Rippled Windows Debug",
@@ -1764,14 +1800,22 @@
     "name": "Vscode Voice Soundboard",
     "repo": "vscode-voice-soundboard",
     "description": "VS Code extension for MCP Voice Soundboard — sidebar panel with voice picker, TTS synthesis, and multi-speaker dialogue",
-    "tags": [],
+    "tags": [
+      "mcp",
+      "voice"
+    ],
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
     "updatedAt": "2026-02-19T13:12:21Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "voice",
+    "stability": "experimental",
+    "kind": "vscode-extension",
+    "tagline": "VS Code extension for MCP Voice Soundboard — sidebar panel with voice picker, TTS...",
+    "needsHumanReview": true
   },
   {
     "name": "WebSketch CLI",
