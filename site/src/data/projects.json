@@ -9,8 +9,8 @@
     ],
     "featured": true,
     "stars": 0,
-    "language": "C#",
-    "updatedAt": "2026-02-18T07:29:29Z",
+    "language": "Python",
+    "updatedAt": "2026-02-21T03:23:24Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -140,7 +140,7 @@
     "featured": true,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-18T06:49:51Z",
+    "updatedAt": "2026-02-21T06:22:38Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -319,6 +319,19 @@
     "screenshotType": "placeholder"
   },
   {
+    "name": "Ai Jam Sessions",
+    "repo": "ai-jam-sessions",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-21T10:32:04Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Ai Music Sheets",
     "repo": "ai-music-sheets",
     "description": "",
@@ -327,19 +340,6 @@
     "stars": 0,
     "language": "TypeScript",
     "updatedAt": "2026-02-20T10:44:18Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false
-  },
-  {
-    "name": "Ai_jam_session",
-    "repo": "ai_jam_session",
-    "description": "",
-    "tags": [],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-02-20T13:53:52Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -438,6 +438,19 @@
     "deprecated": false
   },
   {
+    "name": "Backprop",
+    "repo": "backprop",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-21T08:35:28Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Build Governor",
     "repo": "build-governor",
     "description": "Build Reliability Governor - Prevents build system memory exhaustion on Windows",
@@ -454,6 +467,27 @@
     "stars": 0,
     "language": "C#",
     "updatedAt": "2026-02-18T02:57:04Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
+    "name": "Civility Kernel",
+    "repo": "civility-kernel",
+    "description": "A policy layer that makes agent behavior preference-governed instead of purely efficiency-maximizing.",
+    "tags": [
+      "agents",
+      "ai",
+      "governance",
+      "mcp",
+      "policy",
+      "safety",
+      "typescript"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-02-21T04:36:56Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -612,7 +646,12 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "codeteam"
+    "ecosystem": "codeteam",
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "vscode-extension",
+    "tagline": "VS Code extension for code analysis and coverage display.",
+    "needsHumanReview": true
   },
   {
     "name": "CodeTeam",
@@ -935,9 +974,7 @@
       "csharp",
       "dotnet",
       "governance",
-      "lease",
-      "policy-enforcement",
-      "rate-limiting"
+      "lease"
     ],
     "featured": false,
     "stars": 0,
@@ -945,7 +982,12 @@
     "updatedAt": "2026-02-12T18:10:57Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "cli",
+    "tagline": "Local-first AI governance control plane — lease admission, policy enforcement,...",
+    "needsHumanReview": true
   },
   {
     "name": "Ledger Suite",
@@ -1055,19 +1097,6 @@
     "tagline": "Secure file operations and project scaffolding via MCP.",
     "smithery": "https://smithery.ai/servers/mcp-tool-shop/mcp-file-forge",
     "flyio": "https://mcp-file-forge.fly.dev"
-  },
-  {
-    "name": "Mcp Game Builder",
-    "repo": "mcp-game-builder",
-    "description": "MCP server giving any LLM full control over Unreal Engine 5 via the built-in Remote Control API",
-    "tags": [],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-02-19T10:34:12Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false
   },
   {
     "name": "Mcp Personify",
@@ -1312,7 +1341,13 @@
     "updatedAt": "2026-02-17T10:34:54Z",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "install": "pip install pathway",
+    "tagline": "Python journey engine for workflow progression tracking.",
+    "needsHumanReview": true
   },
   {
     "name": "Payroll Engine",
@@ -1448,7 +1483,12 @@
     "updatedAt": "2026-02-15T02:41:36Z",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "vscode-extension",
+    "tagline": "VS Code extension for AI workflow execution.",
+    "needsHumanReview": true
   },
   {
     "name": "ScalarScope",
@@ -1556,12 +1596,7 @@
       "express",
       "governance",
       "lease",
-      "llm",
-      "nodejs",
-      "openai",
-      "rate-limiting",
-      "throttling",
-      "typescript"
+      "llm"
     ],
     "featured": false,
     "stars": 0,
@@ -1569,7 +1604,13 @@
     "updatedAt": "2026-02-16T17:10:54Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install throttleai",
+    "tagline": "A token-based lease governor for AI calls — small enough to embed anywhere, strict...",
+    "needsHumanReview": true
   },
   {
     "name": "ThrottleAI Desktop",

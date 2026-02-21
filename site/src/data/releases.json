@@ -1,19 +1,19 @@
 [
   {
-    "repo": "ai_jam_session",
-    "toolName": "Ai_jam_session",
+    "repo": "ai-jam-sessions",
+    "toolName": "Ai Jam Sessions",
     "tag": "v1.3.1",
     "name": "v1.3.1",
     "body": [
       "Patch release — identical to v1.3.0 (re-publish for npm)."
     ],
     "publishedAt": "2026-02-20T10:21:13Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai_jam_session/releases/tag/v1.3.1",
+    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v1.3.1",
     "prerelease": false
   },
   {
-    "repo": "ai_jam_session",
-    "toolName": "Ai_jam_session",
+    "repo": "ai-jam-sessions",
+    "toolName": "Ai Jam Sessions",
     "tag": "v1.3.0",
     "name": "v1.3.0",
     "body": [
@@ -25,12 +25,12 @@
       "Pause/resume MCP tool** — `pause_playback` tool pauses or resumes the active playback session"
     ],
     "publishedAt": "2026-02-20T10:11:15Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai_jam_session/releases/tag/v1.3.0",
+    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v1.3.0",
     "prerelease": false
   },
   {
-    "repo": "ai_jam_session",
-    "toolName": "Ai_jam_session",
+    "repo": "ai-jam-sessions",
+    "toolName": "Ai Jam Sessions",
     "tag": "v1.0.0",
     "name": "v1.0.0",
     "body": [
@@ -42,7 +42,7 @@
       "Voice feedback** — VoiceDirective output for mcp-voice-soundboard integration"
     ],
     "publishedAt": "2026-02-20T06:29:27Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai_jam_session/releases/tag/v1.0.0",
+    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v1.0.0",
     "prerelease": false
   },
   {

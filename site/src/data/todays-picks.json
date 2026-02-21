@@ -1,5 +1,5 @@
 {
-  "date": "2026-02-20",
+  "date": "2026-02-21",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,22 +9,29 @@
       ]
     },
     {
-      "slug": "tool-scan",
-      "reason": "Static inspection utilities for MCP tools and repositories",
+      "slug": "websketch-extension",
+      "reason": "Browser extension for web page analysis and code generation",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "file-compass",
-      "reason": "Deterministic file-system navigation and inspection for large repos",
+      "slug": "tool-compass",
+      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
       "signals": [
         "featured"
       ]
     },
     {
-      "slug": "CreatorLedger",
-      "reason": "Creator attestation proofs and authorship verification",
+      "slug": "stresskit-mcp",
+      "reason": "MCP stress testing toolkit with configurable load patterns",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "prov-engine-js",
+      "reason": "JavaScript/TypeScript provenance and traceability engine",
       "signals": [
         "popular"
       ]
@@ -32,13 +39,6 @@
     {
       "slug": "payroll-engine",
       "reason": "Comprehensive payroll processing and SaaS platform",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "mcpt",
-      "reason": "MCP Tool Shop command-line interface and utilities",
       "signals": [
         "popular"
       ]

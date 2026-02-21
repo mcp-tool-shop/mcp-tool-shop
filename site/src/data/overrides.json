@@ -86,6 +86,20 @@
     "screenshot": "/screenshots/accessibility-suite.png",
     "screenshotType": "placeholder"
   },
+  "ai-jam-sessions": {
+    "category": "devtools",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install ai-jam-sessions",
+    "needsHumanReview": true
+  },
+  "ai-music-sheets": {
+    "category": "devtools",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install ai-music-sheets",
+    "needsHumanReview": true
+  },
   "aspire-ai": {
     "tags": [
       "ml",
@@ -134,6 +148,22 @@
       "Replacing manual security review for production systems"
     ],
     "screenshot": "/screenshots/brain-dev.png"
+  },
+  "civility-kernel": {
+    "tags": [
+      "agents",
+      "ai",
+      "governance",
+      "mcp",
+      "policy",
+      "safety"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install civility-kernel",
+    "tagline": "A policy layer that makes agent behavior preference-governed instead of purely...",
+    "needsHumanReview": true
   },
   "codecomfy-vscode": {
     "tags": [
@@ -364,6 +394,17 @@
     "tagline": "JavaScript/TypeScript provenance and traceability engine.",
     "needsHumanReview": true
   },
+  "repo-crawler-mcp": {
+    "tags": [
+      "mcp"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "mcp-server",
+    "install": "npx repo-crawler-mcp",
+    "tagline": "MCP server that crawls GitHub repos and extracts structured data for AI agents.",
+    "needsHumanReview": true
+  },
   "runforge-desktop": {
     "tags": [
       "windows",
@@ -496,6 +537,17 @@
     "tagline": "TTS library with compiler/graph/engine architecture.",
     "screenshot": "/screenshots/voice-soundboard.png",
     "screenshotType": "placeholder"
+  },
+  "vscode-voice-soundboard": {
+    "tags": [
+      "mcp",
+      "voice"
+    ],
+    "category": "voice",
+    "stability": "experimental",
+    "kind": "vscode-extension",
+    "tagline": "VS Code extension for MCP Voice Soundboard — sidebar panel with voice picker, TTS...",
+    "needsHumanReview": true
   },
   "websketch-cli": {
     "tags": [

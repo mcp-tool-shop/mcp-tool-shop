@@ -1,11 +1,11 @@
 {
-  "repoCount": 95,
+  "repoCount": 96,
   "registeredCount": 45,
   "totalStars": 4,
   "languages": [
-    "C#",
     "Python",
     "TypeScript",
+    "C#",
     "GDScript",
     "HTML",
     "JavaScript",
@@ -13,11 +13,11 @@
     "C++"
   ],
   "recentReleases": 50,
-  "updatedAt": "2026-02-20T14:01:11.391Z",
+  "updatedAt": "2026-02-21T13:41:48.900Z",
   "registryHealth": {
     "registryToolCount": 48,
     "registeredInProjects": 45,
-    "orgOnlyRepos": 50,
+    "orgOnlyRepos": 51,
     "registryArchived": 5,
     "registryMissing": 1,
     "ignoredRepos": 6,
