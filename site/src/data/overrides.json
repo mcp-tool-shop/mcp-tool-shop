@@ -107,14 +107,22 @@
     "stability": "stable",
     "kind": "library",
     "install": "npm install ai-jam-sessions",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "tagline": "Music sessions",
+    "tags": [
+      "music"
+    ]
   },
   "ai-music-sheets": {
     "category": "devtools",
     "stability": "stable",
     "kind": "library",
     "install": "npm install ai-music-sheets",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "tagline": "Music notation",
+    "tags": [
+      "music"
+    ]
   },
   "aspire-ai": {
     "tags": [
@@ -679,5 +687,149 @@
     "screenshot": "/screenshots/zip-meta-map.png",
     "screenshotType": "real",
     "publicProof": true
+  },
+  "NextLedger": {
+    "tagline": "Financial ledger system",
+    "tags": [
+      "finance"
+    ],
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "library"
+  },
+  "MouseTrainer": {
+    "tagline": "Mouse automation",
+    "tags": [
+      "automation"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library"
+  },
+  "jam-session-plugin": {
+    "tagline": "AI music composition",
+    "tags": [
+      "audio"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "plugin"
+  },
+  "mcp-shipcheck": {
+    "tagline": "Deployment checker",
+    "tags": [
+      "devops"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "mcp-server"
+  },
+  "mcp-aside": {
+    "tagline": "Async event system",
+    "tags": [
+      "mcp"
+    ],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library"
+  },
+  "claude-session-copilot": {
+    "tagline": "Session management",
+    "tags": [
+      "mcp"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library"
+  },
+  "context-window-manager": {
+    "tagline": "Context optimization",
+    "tags": [
+      "llm"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library"
+  },
+  "feature-reacher": {
+    "tagline": "Feature mining",
+    "tags": [
+      "ml"
+    ],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "library"
+  },
+  "siege-kit": {
+    "tagline": "Load testing",
+    "tags": [
+      "testing"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library"
+  },
+  "flexiflow": {
+    "tagline": "Workflow orchestration",
+    "tags": [
+      "workflow"
+    ],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library"
+  },
+  "nexus-suite": {
+    "tagline": "Dev suite",
+    "tags": [
+      "devops"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library"
+  },
+  "payroll-engine": {
+    "tagline": "Payroll processing",
+    "tags": [
+      "finance"
+    ],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library"
+  },
+  "codeclone-suite": {
+    "tagline": "Clone detection",
+    "tags": [
+      "code-analysis"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library"
+  },
+  "CursorAssist": {
+    "tagline": "Editor context",
+    "tags": [
+      "editor"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library"
+  },
+  "homebrew-mcp-tools": {
+    "tagline": "Package manager",
+    "tags": [
+      "package-mgr"
+    ],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library"
+  },
+  "linux-dev-typer": {
+    "tagline": "Linux automation",
+    "tags": [
+      "automation"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library"
   }
 }
