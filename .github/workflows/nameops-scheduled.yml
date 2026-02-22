@@ -57,7 +57,7 @@ jobs:
             coe-nameops-
 
       - name: Install clearance engine
-        run: npm install -g @mcptoolshop/clearance-opinion-engine
+        run: npm install -g github:mcp-tool-shop-org/clearance-opinion-engine
 
       - name: Load safety caps
         id: caps
