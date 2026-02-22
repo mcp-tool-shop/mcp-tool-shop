@@ -2,8 +2,9 @@ name: Weekly clearance freshness
 
 on:
   workflow_dispatch: {}
-  schedule:
-    - cron: '0 10 * * 4'
+  # schedule disabled until @mcptoolshop/clearance-opinion-engine is published to npm
+  # schedule:
+  #   - cron: '0 10 * * 4'
 
 permissions:
   contents: write

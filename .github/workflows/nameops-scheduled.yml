@@ -11,8 +11,9 @@ on:
         options:
           - fast
           - full
-  schedule:
-    - cron: '0 6 * * 2'   # Tuesday 06:00 UTC
+  # schedule disabled until @mcptoolshop/clearance-opinion-engine is published to npm
+  # schedule:
+  #   - cron: '0 6 * * 2'   # Tuesday 06:00 UTC
 
 permissions:
   contents: write
