@@ -154,7 +154,7 @@ function isTaglineOk(t: string) { return t && t.length <= 90; }
                 {/* Links */}
                 <div class="review-links">
                   <a href={`https://github.com/mcp-tool-shop-org/${repo}`} target="_blank" rel="noopener">GitHub</a>
-                  <a href={`/tools/${repo}/`}>Tool page</a>
+                  {project && <a href={`/tools/${repo}/`}>Tool page</a>}
                   {release && <a href={release.url} target="_blank" rel="noopener">Latest release</a>}
                 </div>
               </div>
@@ -175,7 +175,10 @@ function isTaglineOk(t: string) { return t && t.length <= 90; }
           const comp = getCompleteness(entry);
           return (
             <div class="graduated-row">
-              <a href={`/tools/${repo}/`} class="grad-name">{project?.name || repo}</a>
+              {project
+                ? <a href={`/tools/${repo}/`} class="grad-name">{project.name || repo}</a>
+                : <span class="grad-name">{repo}</span>
+              }
               <span class={`badge badge-${entry.stability || 'beta'}`}>{entry.stability || '?'}</span>
               <span class="badge badge-kind">{entry.kind || '?'}</span>
               <span class="grad-completeness">{comp.present.length + (entry.install ? 1 : 0) + (entry.goodFor?.length ? 1 : 0)}/{EXPECTED_FIELDS.length + 2}</span>
