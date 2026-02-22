@@ -8,6 +8,8 @@ import proofs from '../../data/audit/proofs.json';
 import releases from '../../data/releases.json';
 import overrides from '../../data/overrides.json';
 import { getProofData, getPressData, loadSnapshot } from '../../lib/marketir/loader.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
 
 export function getStaticPaths() {
   return (projects as any[]).map((project: any) => ({
@@ -45,6 +47,8 @@ const showProof = toolOverride?.publicProof === true;
 const proofData = showProof ? getProofData(project.repo) : null;
 const snapshot = showProof && proofData ? loadSnapshot() : null;
 const pressData = showProof ? getPressData(project.repo) : null;
+const presskitDir = path.resolve('public/presskit', project.repo);
+const hasPresski = showProof && fs.existsSync(presskitDir);
 ---
 
 <Base
@@ -133,7 +137,7 @@ const pressData = showProof ? getPressData(project.repo) : null;
       <a href={orgUrl} class="btn btn-primary" rel="noopener">View on GitHub</a>
       <a href={`${orgUrl}/issues`} class="btn btn-secondary" rel="noopener">Issues</a>
       <a href={`${orgUrl}/releases`} class="btn btn-secondary" rel="noopener">Releases</a>
-      {showProof && (
+      {hasPresski && (
         <a href={`/presskit/${project.repo}/`} class="btn btn-secondary">Press Kit</a>
       )}
       {showProof && pressData && (

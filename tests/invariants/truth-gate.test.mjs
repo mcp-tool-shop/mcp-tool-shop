@@ -6,8 +6,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-// Assuming c:\workspace\mcp-tool-shop\tests\invariants
-const REPO_ROOT = path.resolve(__dirname, "../../..");
+const REPO_ROOT = path.resolve(__dirname, "../..");
 const TRUTH_MATRIX_PATH = path.join(REPO_ROOT, "audit", "truth-matrix.json");
 
 describe('Truth Maintenance Gate', () => {
