@@ -1,5 +1,5 @@
 {
-  "date": "2026-02-21",
+  "date": "2026-02-22",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,36 +9,36 @@
       ]
     },
     {
-      "slug": "websketch-extension",
-      "reason": "Browser extension for web page analysis and code generation",
+      "slug": "claude-collaborate",
+      "reason": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "tool-compass",
-      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
+      "slug": "accessibility-suite",
+      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "brain-dev",
+      "reason": "MCP server for AI-powered code analysis — test generation, security audits, refactoring suggestions",
       "signals": [
         "featured"
       ]
     },
     {
-      "slug": "stresskit-mcp",
-      "reason": "MCP stress testing toolkit with configurable load patterns",
+      "slug": "CreatorLedger",
+      "reason": "Creator attestation proofs and authorship verification",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "prov-engine-js",
-      "reason": "JavaScript/TypeScript provenance and traceability engine",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "payroll-engine",
-      "reason": "Comprehensive payroll processing and SaaS platform",
+      "slug": "websketch-demo",
+      "reason": "Interactive demo showcasing WebSketch capabilities",
       "signals": [
         "popular"
       ]

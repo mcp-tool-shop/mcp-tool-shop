@@ -62,6 +62,22 @@
     "screenshot": "/screenshots/LeaseGate-Lite.png",
     "screenshotType": "placeholder"
   },
+  "LoKey-Typer": {
+    "tags": [
+      "accessibility",
+      "ambient-audio",
+      "desktop-app",
+      "microsoft-store",
+      "pwa",
+      "react"
+    ],
+    "category": "voice",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install lokey-typer",
+    "tagline": "Calm typing practice with ambient soundscapes, personalized daily sets, and zero...",
+    "needsHumanReview": true
+  },
   "ScalarScope-Desktop": {
     "screenshot": "/screenshots/ScalarScope-Desktop.png",
     "screenshotType": "placeholder"
@@ -236,6 +252,22 @@
     "screenshot": "/screenshots/file-compass.png",
     "screenshotType": "placeholder"
   },
+  "mcp-bouncer": {
+    "tags": [
+      "claude-code",
+      "developer-tools",
+      "health-check",
+      "mcp",
+      "mcp-server",
+      "model-context-protocol"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "pip install mcp-bouncer",
+    "tagline": "SessionStart hook that health-checks MCP servers, quarantines broken ones, and...",
+    "needsHumanReview": true
+  },
   "mcp-file-forge": {
     "tags": [
       "mcp",
@@ -394,6 +426,13 @@
     "tagline": "JavaScript/TypeScript provenance and traceability engine.",
     "needsHumanReview": true
   },
+  "registry-stats": {
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "meta",
+    "tagline": "Multi-registry download stats for npm, PyPI, NuGet, VS Code Marketplace, and Docker Hub.",
+    "needsHumanReview": true
+  },
   "repo-crawler-mcp": {
     "tags": [
       "mcp"
@@ -429,6 +468,16 @@
     "stability": "beta",
     "kind": "vscode-extension",
     "tagline": "VS Code extension for AI workflow execution.",
+    "needsHumanReview": true
+  },
+  "site-theme": {
+    "tags": [
+      "mcp"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Shared Astro theme for MCP Tool Shop org repo landing pages.",
     "needsHumanReview": true
   },
   "soundboard-maui": {
@@ -523,6 +572,22 @@
     "kind": "library",
     "install": "npm install venvkit",
     "tagline": "Python virtual environment diagnostics and utilities.",
+    "needsHumanReview": true
+  },
+  "vocal-synth-engine": {
+    "tags": [
+      "additive-synthesis",
+      "audio",
+      "collaboration",
+      "dsp",
+      "jam-session",
+      "midi"
+    ],
+    "category": "voice",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install vocal-synth-engine",
+    "tagline": "Deterministic vocal instrument engine — additive synthesis, voice presets, real-time...",
     "needsHumanReview": true
   },
   "voice-soundboard": {
