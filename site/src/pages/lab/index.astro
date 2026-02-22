@@ -32,6 +32,13 @@ const LAB_SECTIONS = [
     ],
   },
   {
+    id: "instruments",
+    title: "Live Instruments",
+    items: [
+      { href: "https://cockpit.mcptoolshop.com", icon: "🎹", title: "Vocal Synth Cockpit", desc: "Piano roll, render bank, and A/B comparison for the vocal synthesis engine", badge: "Lab", external: true },
+    ],
+  },
+  {
     id: "intel",
     title: "Market Intelligence",
     items: [
@@ -112,10 +119,10 @@ const LAB_SECTIONS = [
         </h2>
         <div class="grid">
           {sec.items.map((it) => (
-            <a class="card group" href={it.href}>
+            <a class="card group" href={it.href} {...(it.external ? { target: "_blank", rel: "noopener" } : {})}>
               <div class="row">
                 <div class="title-group">
-                    <span class="icon">{it.icon}</span> 
+                    <span class="icon">{it.icon}</span>
                     <span class="title">{it.title}</span>
                 </div>
                 {it.badge ? <span class="badge">{it.badge}</span> : null}
