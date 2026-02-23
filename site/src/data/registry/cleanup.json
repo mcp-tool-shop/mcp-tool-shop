@@ -1,30 +1,6 @@
 {
-  "generatedAt": "2026-02-22T13:43:33.633Z",
+  "generatedAt": "2026-02-23T14:08:11.990Z",
   "archived": [
-    {
-      "registryId": "claim-ledger",
-      "repoName": "ClaimLedger",
-      "repo": "https://github.com/mcp-tool-shop-org/ClaimLedger",
-      "action": "remove or mark deprecated in registry"
-    },
-    {
-      "registryId": "codeteam",
-      "repoName": "codeteam",
-      "repo": "https://github.com/mcp-tool-shop-org/codeteam",
-      "action": "remove or mark deprecated in registry"
-    },
-    {
-      "registryId": "creator-ledger",
-      "repoName": "CreatorLedger",
-      "repo": "https://github.com/mcp-tool-shop-org/CreatorLedger",
-      "action": "remove or mark deprecated in registry"
-    },
-    {
-      "registryId": "integradio",
-      "repoName": "integradio",
-      "repo": "https://github.com/mcp-tool-shop-org/integradio",
-      "action": "remove or mark deprecated in registry"
-    },
     {
       "registryId": "winget-pkgs",
       "repoName": "winget-pkgs",
@@ -52,5 +28,5 @@
       "reason": "case-mismatch or rename"
     }
   ],
-  "totalIssues": 6
+  "totalIssues": 2
 }

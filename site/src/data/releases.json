@@ -1,722 +1,740 @@
 [
   {
-    "repo": "mcp-bouncer",
-    "toolName": "Mcp Bouncer",
-    "tag": "v1.0.0",
-    "name": "v1.0.0 — Initial Release",
+    "repo": "websketch-mcp",
+    "toolName": "Websketch Mcp",
+    "tag": "v0.2.1",
+    "name": "v0.2.1",
     "body": [
-      "A SessionStart hook that health-checks your MCP servers, quarantines broken ones, and auto-restores them when they come back online.",
-      "```bash",
-      "pip install mcp-bouncer",
-      "```",
-      "Then add to your Claude Code settings:",
-      "```json"
+      "Consolidate 3 CI workflows into 2",
+      "Merge security into CI",
+      "Fix dependabot, trim Node matrix",
+      "Bump to 0.2.1"
     ],
-    "publishedAt": "2026-02-21T21:10:54Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-bouncer/releases/tag/v1.0.0",
+    "publishedAt": "2026-02-23T13:03:14Z",
+    "url": "https://github.com/mcp-tool-shop-org/websketch-mcp/releases/tag/v0.2.1",
+    "prerelease": false
+  },
+  {
+    "repo": "websketch-ir",
+    "toolName": "Websketch Ir",
+    "tag": "v0.4.1",
+    "name": "v0.4.1",
+    "body": [
+      "Merge security into CI workflow",
+      "Add workflow_dispatch",
+      "Remove master refs, trim Node matrix",
+      "Fix dependabot",
+      "Add docs landing page",
+      "Bump to 0.4.1"
+    ],
+    "publishedAt": "2026-02-23T13:03:05Z",
+    "url": "https://github.com/mcp-tool-shop-org/websketch-ir/releases/tag/v0.4.1",
+    "prerelease": false
+  },
+  {
+    "repo": "ThrottleAI",
+    "toolName": "ThrottleAI",
+    "tag": "v1.0.2",
+    "name": "v1.0.2",
+    "body": [
+      "Consolidate 5 CI workflows into 2 (ci.yml + publish.yml)",
+      "Fix dependabot to monthly schedule",
+      "Add CI badge to README",
+      "Add docs landing page (docs/index.md)",
+      "Bump to 1.0.2"
+    ],
+    "publishedAt": "2026-02-23T13:03:02Z",
+    "url": "https://github.com/mcp-tool-shop-org/ThrottleAI/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "websketch-cli",
+    "toolName": "Websketch Cli",
+    "tag": "v0.4.1",
+    "name": "v0.4.1",
+    "body": [
+      "Consolidate 3 CI workflows into 2 (ci.yml + publish.yml)",
+      "Merge security scanning into CI pipeline",
+      "Fix dependabot to monthly schedule with groups",
+      "Trim Node matrix to 20 + 22",
+      "Add CI badge, fix site URL in README",
+      "Add docs landing page"
+    ],
+    "publishedAt": "2026-02-23T13:02:57Z",
+    "url": "https://github.com/mcp-tool-shop-org/websketch-cli/releases/tag/v0.4.1",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-tool-registry",
+    "toolName": "Mcp Tool Registry",
+    "tag": "v1.1.1",
+    "name": "v1.1.1",
+    "body": [
+      "Consolidate 5 CI workflows into 2",
+      "Fix dependabot schedule",
+      "Add docs landing page",
+      "Bump to 1.1.1"
+    ],
+    "publishedAt": "2026-02-23T13:02:52Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-tool-registry/releases/tag/v1.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "websketch-extension",
+    "toolName": "Websketch Extension",
+    "tag": "v0.1.1",
+    "name": "v0.1.1",
+    "body": [
+      "Merge security into CI workflow",
+      "Remove master refs",
+      "Fix dependabot",
+      "Add docs landing page",
+      "Bump to 0.1.1"
+    ],
+    "publishedAt": "2026-02-23T13:02:21Z",
+    "url": "https://github.com/mcp-tool-shop-org/websketch-extension/releases/tag/v0.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-voice-engine",
+    "toolName": "Mcp Voice Engine",
+    "tag": "v0.0.3",
+    "name": "v0.0.3",
+    "body": [
+      "Consolidate 3 CI workflows into 2",
+      "Trim Node.js matrix",
+      "Add docs landing page",
+      "Bump voice-engine-dsp to 0.0.3"
+    ],
+    "publishedAt": "2026-02-23T13:01:56Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-voice-engine/releases/tag/v0.0.3",
+    "prerelease": false
+  },
+  {
+    "repo": "training-studio",
+    "toolName": "Training Studio",
+    "tag": "v1.0.1",
+    "name": "v1.0.1",
+    "body": [
+      "Add concurrency to publish workflow",
+      "Bump to 1.0.1"
+    ],
+    "publishedAt": "2026-02-23T13:01:05Z",
+    "url": "https://github.com/mcp-tool-shop-org/training-studio/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "tool-compass",
+    "toolName": "Tool Compass",
+    "tag": "v2.0.5",
+    "name": "v2.0.5",
+    "body": [
+      "Consolidate 3 CI workflows into 2",
+      "Switch to trusted publishing (OIDC)",
+      "Fix dependabot to monthly",
+      "Add GitHub Pages landing page",
+      "Bump to 2.0.5"
+    ],
+    "publishedAt": "2026-02-23T12:38:29Z",
+    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.0.5",
+    "prerelease": false
+  },
+  {
+    "repo": "file-compass",
+    "toolName": "File Compass",
+    "tag": "v0.1.3",
+    "name": "v0.1.3",
+    "body": [
+      "Consolidate 3 CI workflows into 2",
+      "Trim test matrix (ubuntu-only, 2 Python versions)",
+      "Fix dependabot to monthly",
+      "Add GitHub Pages landing page",
+      "Bump to 0.1.3",
+      "Add PyPI Trusted Publishers workflow by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/file-compass/pull/4"
+    ],
+    "publishedAt": "2026-02-23T12:37:44Z",
+    "url": "https://github.com/mcp-tool-shop-org/file-compass/releases/tag/v0.1.3",
+    "prerelease": false
+  },
+  {
+    "repo": "feature-reacher",
+    "toolName": "Feature Reacher",
+    "tag": "v0.2.1",
+    "name": "v0.2.1",
+    "body": [
+      "Add CI workflow for tests, lint, typecheck",
+      "Consolidate deploy workflows",
+      "Add concurrency, paths filters",
+      "Add GitHub Pages landing page",
+      "Bump to 0.2.1"
+    ],
+    "publishedAt": "2026-02-23T12:37:25Z",
+    "url": "https://github.com/mcp-tool-shop-org/feature-reacher/releases/tag/v0.2.1",
+    "prerelease": false
+  },
+  {
+    "repo": "comfy-headless",
+    "toolName": "Comfy Headless",
+    "tag": "v2.5.4",
+    "name": "v2.5.4",
+    "body": [
+      "Consolidate 4 CI workflows into 2 (`ci.yml` + `publish.yml`)",
+      "Merge security + test pipelines into single CI workflow",
+      "Merge docker + publish into single publish workflow",
+      "Remove macOS runners from publish test matrix (10x cost savings)",
+      "Drop Python 3.10 from publish test matrix (keep 3.11 + 3.12)",
+      "Add GitHub Pages landing page (`docs/index.md`)"
+    ],
+    "publishedAt": "2026-02-23T12:37:22Z",
+    "url": "https://github.com/mcp-tool-shop-org/comfy-headless/releases/tag/v2.5.4",
+    "prerelease": false
+  },
+  {
+    "repo": "headless-wheel-builder",
+    "toolName": "Headless Wheel Builder",
+    "tag": "v0.3.5",
+    "name": "v0.3.5",
+    "body": [
+      "Consolidate 5 CI workflows into 2 (ci.yml + publish.yml)",
+      "Remove macOS runners (10x cost savings)",
+      "Trim test matrices to 2 Python versions (3.11, 3.12)",
+      "Merge docs build into CI, merge docker/release into publish",
+      "Fix badge and URL references",
+      "Bump to 0.3.5"
+    ],
+    "publishedAt": "2026-02-23T12:37:15Z",
+    "url": "https://github.com/mcp-tool-shop-org/headless-wheel-builder/releases/tag/v0.3.5",
+    "prerelease": false
+  },
+  {
+    "repo": "backpropagate",
+    "toolName": "Backpropagate",
+    "tag": "v0.1.6",
+    "name": "v0.1.6",
+    "body": [
+      "Consolidate 4 CI workflows into 2 (ci.yml + publish.yml)",
+      "Merge security scanning into CI",
+      "Fix paths filters, trim matrix",
+      "Add GitHub Pages landing page",
+      "Bump to 0.1.6"
+    ],
+    "publishedAt": "2026-02-23T12:36:58Z",
+    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v0.1.6",
+    "prerelease": false
+  },
+  {
+    "repo": "context-window-manager",
+    "toolName": "Context Window Manager",
+    "tag": "v0.6.4",
+    "name": "v0.6.4",
+    "body": [
+      "Consolidate 3 CI workflows into 2 (ci.yml + publish.yml)",
+      "Merge Docker publishing into publish pipeline",
+      "Fix paths filters to include src/ and tests/",
+      "Add GitHub Pages landing page (docs/index.md)",
+      "Fix clone URL in README",
+      "Bump to 0.6.4"
+    ],
+    "publishedAt": "2026-02-23T12:36:47Z",
+    "url": "https://github.com/mcp-tool-shop-org/context-window-manager/releases/tag/v0.6.4",
+    "prerelease": false
+  },
+  {
+    "repo": "code-batch",
+    "toolName": "Code Batch",
+    "tag": "v0.1.1",
+    "name": "v0.1.1",
+    "body": [
+      "Consolidate 3 CI workflows into 2",
+      "Fix paths filters, trim matrix",
+      "Add GitHub Pages landing page",
+      "Bump to 0.1.1"
+    ],
+    "publishedAt": "2026-02-23T12:36:10Z",
+    "url": "https://github.com/mcp-tool-shop-org/code-batch/releases/tag/v0.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "accessibility-suite",
+    "toolName": "Accessibility Suite",
+    "tag": "v0.2.1",
+    "name": "v0.2.1",
+    "body": [
+      "Consolidate 5 CI workflows into single ci.yml",
+      "Add concurrency, paths filters, workflow_dispatch",
+      "Add GitHub Pages landing page",
+      "Bump to 0.2.1"
+    ],
+    "publishedAt": "2026-02-23T12:36:04Z",
+    "url": "https://github.com/mcp-tool-shop-org/accessibility-suite/releases/tag/v0.2.1",
+    "prerelease": false
+  },
+  {
+    "repo": "voice-soundboard",
+    "toolName": "Voice Soundboard",
+    "tag": "v2.6.1",
+    "name": "v2.6.1",
+    "body": [
+      "Harden CI workflows (paths, dispatch, trim matrix)",
+      "Add CI badge to README",
+      "Add GitHub Pages landing page",
+      "Bump to 2.6.1"
+    ],
+    "publishedAt": "2026-02-23T12:09:00Z",
+    "url": "https://github.com/mcp-tool-shop-org/voice-soundboard/releases/tag/v2.6.1",
+    "prerelease": false
+  },
+  {
+    "repo": "ConsensusOS",
+    "toolName": "ConsensusOS",
+    "tag": "v1.0.2",
+    "name": "v1.0.2",
+    "body": [
+      "Harden CI workflows (concurrency groups)",
+      "Add GitHub Pages landing page",
+      "Bump to 1.0.2"
+    ],
+    "publishedAt": "2026-02-23T12:08:43Z",
+    "url": "https://github.com/mcp-tool-shop-org/ConsensusOS/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "venvkit",
+    "toolName": "Venvkit",
+    "tag": "v0.2.2",
+    "name": "v0.2.2",
+    "body": [
+      "Harden CI workflows (concurrency, paths, dispatch, remove master refs)",
+      "Add GitHub Pages landing page",
+      "Bump to 0.2.2"
+    ],
+    "publishedAt": "2026-02-23T12:07:36Z",
+    "url": "https://github.com/mcp-tool-shop-org/venvkit/releases/tag/v0.2.2",
+    "prerelease": false
+  },
+  {
+    "repo": "flexiflow",
+    "toolName": "Flexiflow",
+    "tag": "v0.3.4",
+    "name": "v0.3.4",
+    "body": [
+      "Harden CI workflows (concurrency, paths, dispatch)",
+      "Add CI badge to README",
+      "Add GitHub Pages landing page",
+      "Bump to 0.3.4"
+    ],
+    "publishedAt": "2026-02-23T12:07:19Z",
+    "url": "https://github.com/mcp-tool-shop-org/flexiflow/releases/tag/v0.3.4",
+    "prerelease": false
+  },
+  {
+    "repo": "pathway",
+    "toolName": "Pathway",
+    "tag": "v0.1.3",
+    "name": "v0.1.3",
+    "body": [
+      "Harden CI workflows (concurrency, broader paths, dispatch)",
+      "Add GitHub Pages landing page",
+      "Bump to 0.1.3"
+    ],
+    "publishedAt": "2026-02-23T12:06:53Z",
+    "url": "https://github.com/mcp-tool-shop-org/pathway/releases/tag/v0.1.3",
+    "prerelease": false
+  },
+  {
+    "repo": "payroll-engine",
+    "toolName": "Payroll Engine",
+    "tag": "v0.2.2",
+    "name": "v0.2.2",
+    "body": [
+      "Fix org URLs in documentation",
+      "Bump to 0.2.2"
+    ],
+    "publishedAt": "2026-02-23T12:06:44Z",
+    "url": "https://github.com/mcp-tool-shop-org/payroll-engine/releases/tag/v0.2.2",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-voice-soundboard",
+    "toolName": "Mcp Voice Soundboard",
+    "tag": "v2.5.1",
+    "name": "v2.5.1",
+    "body": [
+      "Add GitHub Pages landing page",
+      "Bump to 2.5.1"
+    ],
+    "publishedAt": "2026-02-23T12:06:41Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-voice-soundboard/releases/tag/v2.5.1",
+    "prerelease": false
+  },
+  {
+    "repo": "a11y-ci",
+    "toolName": "A11y Ci",
+    "tag": "v0.3.1",
+    "name": "v0.3.1",
+    "body": [
+      "Add workflow_dispatch to publish workflow",
+      "Add GitHub Pages landing page",
+      "Bump to 0.3.1"
+    ],
+    "publishedAt": "2026-02-23T12:06:11Z",
+    "url": "https://github.com/mcp-tool-shop-org/a11y-ci/releases/tag/v0.3.1",
+    "prerelease": false
+  },
+  {
+    "repo": "codecomfy-vscode",
+    "toolName": "Codecomfy Vscode",
+    "tag": "v0.5.2",
+    "name": "v0.5.2",
+    "body": [
+      "Add CI badge to README",
+      "Bump to 0.5.2"
+    ],
+    "publishedAt": "2026-02-23T11:47:49Z",
+    "url": "https://github.com/mcp-tool-shop-org/codecomfy-vscode/releases/tag/v0.5.2",
     "prerelease": false
   },
   {
     "repo": "ai-jam-sessions",
     "toolName": "Ai Jam Sessions",
-    "tag": "v1.3.1",
-    "name": "v1.3.1",
+    "tag": "v0.1.3",
+    "name": "v0.1.3",
     "body": [
-      "Patch release — identical to v1.3.0 (re-publish for npm)."
+      "Add CI badge to README",
+      "Bump to 0.1.3"
     ],
-    "publishedAt": "2026-02-20T10:21:13Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v1.3.1",
+    "publishedAt": "2026-02-23T11:47:44Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v0.1.3",
+    "prerelease": false
+  },
+  {
+    "repo": "mcpt",
+    "toolName": "Mcpt",
+    "tag": "v1.0.5",
+    "name": "v1.0.5",
+    "body": [
+      "Add CI badge to README",
+      "Bump to 1.0.5"
+    ],
+    "publishedAt": "2026-02-23T11:47:39Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcpt/releases/tag/v1.0.5",
+    "prerelease": false
+  },
+  {
+    "repo": "audiobooker",
+    "toolName": "Audiobooker",
+    "tag": "v0.5.2",
+    "name": "v0.5.2",
+    "body": [
+      "Add CI badge to README",
+      "Bump to 0.5.2"
+    ],
+    "publishedAt": "2026-02-23T11:47:34Z",
+    "url": "https://github.com/mcp-tool-shop-org/audiobooker/releases/tag/v0.5.2",
+    "prerelease": false
+  },
+  {
+    "repo": "ally-demo-python",
+    "toolName": "Ally Demo Python",
+    "tag": "v0.2.2",
+    "name": "v0.2.2",
+    "body": [
+      "Add CI badge to README",
+      "Bump to 0.2.2"
+    ],
+    "publishedAt": "2026-02-23T11:47:28Z",
+    "url": "https://github.com/mcp-tool-shop-org/ally-demo-python/releases/tag/v0.2.2",
+    "prerelease": false
+  },
+  {
+    "repo": "Attestia",
+    "toolName": "Attestia",
+    "tag": "v0.2.1",
+    "name": "v0.2.1",
+    "body": [
+      "Harden CI workflows (concurrency, paths, dispatch)",
+      "Add GitHub Pages landing page",
+      "Bump to 0.2.1"
+    ],
+    "publishedAt": "2026-02-23T11:36:13Z",
+    "url": "https://github.com/mcp-tool-shop-org/Attestia/releases/tag/v0.2.1",
     "prerelease": false
   },
   {
     "repo": "ai-jam-sessions",
     "toolName": "Ai Jam Sessions",
-    "tag": "v1.3.0",
-    "name": "v1.3.0",
+    "tag": "v0.1.2",
+    "name": "v0.1.2",
     "body": [
-      "Real-time teaching intelligence: position tracking, live MIDI feedback, voice filters, seek, and live playback controls.",
-      "Position tracker** — `PositionTracker` maps time to beat/measure/tempo with binary search for seek operations",
-      "Live MIDI feedback** — `createLiveMidiFeedbackHook` provides position-aware, measure-level teaching: range warnings, velocity shift detection, density alerts, section boundaries, milestone announcements",
-      "Voice filters** — `melody-only` (highest note per cluster), `harmony` (lowest), or `all`",
-      "Seek support** — CLI `--seek N` jumps to second N before playback",
-      "Pause/resume MCP tool** — `pause_playback` tool pauses or resumes the active playback session"
+      "Harden CI workflows (node matrix, dispatch)",
+      "Add GitHub Pages landing page",
+      "Bump to 0.1.2"
     ],
-    "publishedAt": "2026-02-20T10:11:15Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v1.3.0",
+    "publishedAt": "2026-02-23T11:36:07Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v0.1.2",
     "prerelease": false
   },
   {
-    "repo": "ai-jam-sessions",
-    "toolName": "Ai Jam Sessions",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
+    "repo": "codecomfy-vscode",
+    "toolName": "Codecomfy Vscode",
+    "tag": "v0.5.1",
+    "name": "v0.5.1",
     "body": [
-      "Initial public release — MCP server + CLI for AI-powered piano teaching.",
-      "Session engine** — play/pause/stop with 4 playback modes (full, measure, hands, loop)",
-      "Speed control** — 0.5x-2x multiplier with per-song tempo override (10-400 BPM)",
-      "Progress tracking** — configurable callbacks at percentage milestones or per-measure",
-      "7 teaching hooks** — console, silent, recording, callback, voice, aside, compose",
-      "Voice feedback** — VoiceDirective output for mcp-voice-soundboard integration"
+      "Harden CI workflows (broaden paths)",
+      "Add GitHub Pages landing page",
+      "Bump to 0.5.1"
     ],
-    "publishedAt": "2026-02-20T06:29:27Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v1.0.0",
+    "publishedAt": "2026-02-23T11:36:02Z",
+    "url": "https://github.com/mcp-tool-shop-org/codecomfy-vscode/releases/tag/v0.5.1",
     "prerelease": false
   },
   {
-    "repo": "ai-music-sheets",
-    "toolName": "Ai Music Sheets",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
+    "repo": "witness",
+    "toolName": "Witness",
+    "tag": "v0.1.2",
+    "name": "v0.1.2",
     "body": [
-      "Initial public release — piano sheet music in hybrid JSON + musical-language format, built for LLMs.",
-      "10 songs** across 10 genres (classical, jazz, pop, blues, rock, R&B, latin, film, ragtime, new age)",
-      "Three-layer hybrid format**: metadata + musical language (for LLM reasoning) + code-ready measures (for MIDI playback)",
-      "Registry API**: `getSong`, `searchSongs`, `getStats`, `validateSong`",
-      "34 tests** with full validation coverage",
-      "Multilingual README (8 languages)"
+      "Local-first, append-only event journal",
+      "Offline verification",
+      "Canonical JSON + SHA-256 + Ed25519",
+      "See:",
+      "CONTRACT.md",
+      "IMPLEMENTATION_NOTES.md"
     ],
-    "publishedAt": "2026-02-20T06:29:19Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-music-sheets/releases/tag/v1.0.0",
+    "publishedAt": "2026-02-23T11:36:00Z",
+    "url": "https://github.com/mcp-tool-shop-org/witness/releases/tag/v0.1.2",
+    "prerelease": false
+  },
+  {
+    "repo": "mcpt",
+    "toolName": "Mcpt",
+    "tag": "v1.0.4",
+    "name": "v1.0.4",
+    "body": [
+      "Harden CI workflows (paths, concurrency, dispatch)",
+      "Trim Python matrix to 3.11/3.12",
+      "Add GitHub Pages landing page",
+      "Bump to 1.0.4"
+    ],
+    "publishedAt": "2026-02-23T11:35:39Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcpt/releases/tag/v1.0.4",
+    "prerelease": false
+  },
+  {
+    "repo": "runforge-vscode",
+    "toolName": "Runforge Vscode",
+    "tag": "v0.4.1",
+    "name": "v0.4.1",
+    "body": [
+      "Harden CI workflows (broaden paths)",
+      "Add GitHub Pages landing page",
+      "Bump to 0.4.1"
+    ],
+    "publishedAt": "2026-02-23T11:35:13Z",
+    "url": "https://github.com/mcp-tool-shop-org/runforge-vscode/releases/tag/v0.4.1",
+    "prerelease": false
+  },
+  {
+    "repo": "integradio",
+    "toolName": "Integradio",
+    "tag": "v0.3.3",
+    "name": "v0.3.3",
+    "body": [
+      "Harden CI workflows (concurrency, dispatch)",
+      "Add GitHub Pages landing page",
+      "Bump to 0.3.3"
+    ],
+    "publishedAt": "2026-02-23T11:35:09Z",
+    "url": "https://github.com/mcp-tool-shop-org/integradio/releases/tag/v0.3.3",
+    "prerelease": false
+  },
+  {
+    "repo": "audiobooker",
+    "toolName": "Audiobooker",
+    "tag": "v0.5.1",
+    "name": "v0.5.1",
+    "body": [
+      "Harden CI workflows (concurrency, paths)",
+      "Trim Python matrix to 3.11/3.12",
+      "Add GitHub Pages landing page",
+      "Bump to 0.5.1"
+    ],
+    "publishedAt": "2026-02-23T11:34:56Z",
+    "url": "https://github.com/mcp-tool-shop-org/audiobooker/releases/tag/v0.5.1",
+    "prerelease": false
+  },
+  {
+    "repo": "ally-demo-python",
+    "toolName": "Ally Demo Python",
+    "tag": "v0.2.1",
+    "name": "v0.2.1",
+    "body": [
+      "Harden CI workflows (concurrency)",
+      "Trim Python matrix to 3.11/3.12",
+      "Fix GitHub URLs",
+      "Add GitHub Pages landing page",
+      "Bump to 0.2.1"
+    ],
+    "publishedAt": "2026-02-23T11:34:46Z",
+    "url": "https://github.com/mcp-tool-shop-org/ally-demo-python/releases/tag/v0.2.1",
+    "prerelease": false
+  },
+  {
+    "repo": "soundboard-plugin",
+    "toolName": "Soundboard Plugin",
+    "tag": "v1.1.1",
+    "name": "v1.1.1",
+    "body": [
+      "Harden CI workflows (concurrency)",
+      "Add GitHub Pages landing page",
+      "Bump to 1.1.1"
+    ],
+    "publishedAt": "2026-02-23T11:34:32Z",
+    "url": "https://github.com/mcp-tool-shop-org/soundboard-plugin/releases/tag/v1.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "soundboard-maui",
+    "toolName": "Soundboard Maui",
+    "tag": "v1.2.1",
+    "name": "v1.2.1",
+    "body": [
+      "Fix environment: publishing → environment: nuget",
+      "Add concurrency to publish workflow",
+      "Add GitHub Pages landing page"
+    ],
+    "publishedAt": "2026-02-23T11:00:46Z",
+    "url": "https://github.com/mcp-tool-shop-org/soundboard-maui/releases/tag/v1.2.1",
+    "prerelease": false
+  },
+  {
+    "repo": "ScalarScope-Desktop",
+    "toolName": "ScalarScope Desktop",
+    "tag": "v1.4.1",
+    "name": "v1.4.1",
+    "body": [
+      "Harden CI: add concurrency to all 3 workflows, broaden paths filter",
+      "Add workflow_dispatch to release workflow",
+      "Add environment: nuget to NuGet publish job",
+      "Fix README URLs (mcp-tool-shop → mcp-tool-shop-org)",
+      "Add GitHub Pages landing page"
+    ],
+    "publishedAt": "2026-02-23T11:00:43Z",
+    "url": "https://github.com/mcp-tool-shop-org/ScalarScope-Desktop/releases/tag/v1.4.1",
+    "prerelease": false
+  },
+  {
+    "repo": "runforge-desktop",
+    "toolName": "Runforge Desktop",
+    "tag": "v0.5.1",
+    "name": "v0.5.1",
+    "body": [
+      "Add concurrency to publish workflow",
+      "Add environment: nuget to NuGet publish job",
+      "Add GitHub Pages landing page"
+    ],
+    "publishedAt": "2026-02-23T11:00:39Z",
+    "url": "https://github.com/mcp-tool-shop-org/runforge-desktop/releases/tag/v0.5.1",
+    "prerelease": false
+  },
+  {
+    "repo": "NextLedger",
+    "toolName": "NextLedger",
+    "tag": "v1.0.1",
+    "name": "v1.0.1",
+    "body": [
+      "Add concurrency to release workflow",
+      "Add GitHub Pages landing page"
+    ],
+    "publishedAt": "2026-02-23T11:00:36Z",
+    "url": "https://github.com/mcp-tool-shop-org/NextLedger/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "MouseTrainer",
+    "toolName": "MouseTrainer",
+    "tag": "v1.1.1",
+    "name": "v1.1.1",
+    "body": [
+      "Add concurrency to publish workflow",
+      "Add environment: nuget to NuGet publish job",
+      "Add GitHub Pages landing page"
+    ],
+    "publishedAt": "2026-02-23T11:00:28Z",
+    "url": "https://github.com/mcp-tool-shop-org/MouseTrainer/releases/tag/v1.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "meta-content-system",
+    "toolName": "Meta Content System",
+    "tag": "v1.0.1",
+    "name": "v1.0.1",
+    "body": [
+      "Harden CI: add push/PR triggers with paths filter, add concurrency",
+      "Add environment: nuget to NuGet publish job",
+      "Add GitHub Pages landing page"
+    ],
+    "publishedAt": "2026-02-23T11:00:25Z",
+    "url": "https://github.com/mcp-tool-shop-org/meta-content-system/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "linux-dev-typer",
+    "toolName": "Linux Dev Typer",
+    "tag": "v1.0.1",
+    "name": "v1.0.1",
+    "body": [
+      "Harden CI: add concurrency, broaden paths filter",
+      "Add environment: nuget to NuGet publish job",
+      "Add GitHub Pages landing page"
+    ],
+    "publishedAt": "2026-02-23T11:00:22Z",
+    "url": "https://github.com/mcp-tool-shop-org/linux-dev-typer/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "InControl-Desktop",
+    "toolName": "InControl Desktop",
+    "tag": "v1.4.1",
+    "name": "InControl-Desktop v1.4.1",
+    "body": [
+      "1. Download the MSIX package below",
+      "2. Verify the SHA256 checksum",
+      "3. Double-click to install",
+      "```powershell",
+      "(Get-FileHash InControl-Desktop-1.4.1-unsigned.msix -Algorithm SHA256).Hash",
+      "```"
+    ],
+    "publishedAt": "2026-02-23T11:00:18Z",
+    "url": "https://github.com/mcp-tool-shop-org/InControl-Desktop/releases/tag/v1.4.1",
+    "prerelease": false
+  },
+  {
+    "repo": "dev-op-typer",
+    "toolName": "Dev Op Typer",
+    "tag": "v1.0.1",
+    "name": "v1.0.1",
+    "body": [
+      "Harden CI: add concurrency group, broaden paths filter, remove master branch",
+      "Add GitHub Pages landing page"
+    ],
+    "publishedAt": "2026-02-23T11:00:15Z",
+    "url": "https://github.com/mcp-tool-shop-org/dev-op-typer/releases/tag/v1.0.1",
     "prerelease": false
   },
   {
     "repo": "control-room",
     "toolName": "Control Room",
-    "tag": "v1.0.0",
-    "name": "Control Room v1.0.0",
+    "tag": "v1.0.1",
+    "name": "Control Room v1.0.1",
     "body": [
       "1. Download `ControlRoom-win-x64.zip`",
       "2. Extract to a folder",
       "3. Run `ControlRoom.App.exe`",
       "See [CHANGELOG.md](https://github.com/mcp-tool-shop-org/control-room/blob/main/CHANGELOG.md) for details."
     ],
-    "publishedAt": "2026-02-19T05:51:50Z",
-    "url": "https://github.com/mcp-tool-shop-org/control-room/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "soundboard-maui",
-    "toolName": "Soundboard Maui",
-    "tag": "v1.2.0",
-    "name": "Soundboard.Client v1.2.0",
-    "body": [
-      "NuGet icon**: Package now displays the Soundboard icon on nuget.org",
-      "Publishing environment**: Workflow uses NuGet Trusted Publishing with GitHub OIDC",
-      "No API or behavioral changes from v1.1.0"
-    ],
-    "publishedAt": "2026-02-17T07:52:52Z",
-    "url": "https://github.com/mcp-tool-shop-org/soundboard-maui/releases/tag/v1.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "accessibility-suite",
-    "toolName": "Accessibility Suite",
-    "tag": "v0.1.0",
-    "name": "v0.1.0",
-    "body": [
-      "Initial release — accessibility testing monorepo"
-    ],
-    "publishedAt": "2026-02-17T07:38:11Z",
-    "url": "https://github.com/mcp-tool-shop-org/accessibility-suite/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "pathway",
-    "toolName": "Pathway",
-    "tag": "v0.2.2",
-    "name": "v0.2.2",
-    "body": [
-      "Fix: add README to npm tarball"
-    ],
-    "publishedAt": "2026-02-17T07:38:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/pathway/releases/tag/v0.2.2",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-voice-soundboard",
-    "toolName": "Mcp Voice Soundboard",
-    "tag": "v0.1.2",
-    "name": "v0.1.2",
-    "body": [
-      "Fix: npm README logo URLs"
-    ],
-    "publishedAt": "2026-02-17T07:38:09Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-voice-soundboard/releases/tag/v0.1.2",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-tool-registry",
-    "toolName": "Mcp Tool Registry",
-    "tag": "v1.0.1",
-    "name": "v1.0.1",
-    "body": [
-      "Fix: include logo in npm tarball"
-    ],
-    "publishedAt": "2026-02-17T07:38:09Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-tool-registry/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "venvkit",
-    "toolName": "Venvkit",
-    "tag": "v0.2.1",
-    "name": "v0.2.1",
-    "body": [
-      "Scoped package with correct org URLs. Unscoped `venvkit` is now deprecated — use `@mcptoolshop/venvkit` instead."
-    ],
-    "publishedAt": "2026-02-17T07:32:44Z",
-    "url": "https://github.com/mcp-tool-shop-org/venvkit/releases/tag/v0.2.1",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-file-forge",
-    "toolName": "Mcp File Forge",
-    "tag": "v0.1.0",
-    "name": "v0.1.0",
-    "body": [
-      "Initial release — MCP server for file operations and project scaffolding"
-    ],
-    "publishedAt": "2026-02-17T07:14:42Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-file-forge/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "prov-engine-js",
-    "toolName": "Prov Engine Js",
-    "tag": "v0.2.1",
-    "name": "v0.2.1",
-    "body": [
-      "Latest npm release — provenance engine for prov-spec interop"
-    ],
-    "publishedAt": "2026-02-17T07:14:40Z",
-    "url": "https://github.com/mcp-tool-shop-org/prov-engine-js/releases/tag/v0.2.1",
-    "prerelease": false
-  },
-  {
-    "repo": "pathway",
-    "toolName": "Pathway",
-    "tag": "v0.2.1",
-    "name": "v0.2.1",
-    "body": [
-      "Latest npm release — workflow automation tool"
-    ],
-    "publishedAt": "2026-02-17T07:14:38Z",
-    "url": "https://github.com/mcp-tool-shop-org/pathway/releases/tag/v0.2.1",
-    "prerelease": false
-  },
-  {
-    "repo": "websketch-ir",
-    "toolName": "Websketch Ir",
-    "tag": "v0.3.1",
-    "name": "v0.3.1",
-    "body": [
-      "Latest npm release — schema compat helpers and changelog"
-    ],
-    "publishedAt": "2026-02-17T07:14:37Z",
-    "url": "https://github.com/mcp-tool-shop-org/websketch-ir/releases/tag/v0.3.1",
-    "prerelease": false
-  },
-  {
-    "repo": "websketch-cli",
-    "toolName": "Websketch Cli",
-    "tag": "v0.3.0",
-    "name": "v0.3.0",
-    "body": [
-      "Latest npm release — CLI for WebSketch IR"
-    ],
-    "publishedAt": "2026-02-17T07:14:35Z",
-    "url": "https://github.com/mcp-tool-shop-org/websketch-cli/releases/tag/v0.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-tool-registry",
-    "toolName": "Mcp Tool Registry",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
-    "body": [
-      "Stable release — metadata-only registry for MCP Tool Shop tools"
-    ],
-    "publishedAt": "2026-02-17T07:14:33Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-tool-registry/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "venvkit",
-    "toolName": "Venvkit",
-    "tag": "v0.2.0",
-    "name": "v0.2.0",
-    "body": [
-      "Python virtual environment diagnostic toolkit — @mcptoolshop scope"
-    ],
-    "publishedAt": "2026-02-17T07:14:31Z",
-    "url": "https://github.com/mcp-tool-shop-org/venvkit/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ConsensusOS",
-    "toolName": "ConsensusOS",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
-    "body": [
-      "Initial release — modular control plane for distributed consensus systems"
-    ],
-    "publishedAt": "2026-02-17T07:14:29Z",
-    "url": "https://github.com/mcp-tool-shop-org/ConsensusOS/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcpt",
-    "toolName": "Mcpt",
-    "tag": "v1.0.3",
-    "name": "v1.0.3",
-    "body": [
-      "Fix PyPI page: absolute logo URL, updated README with mcp-select branding and install instructions."
-    ],
-    "publishedAt": "2026-02-15T12:24:12Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcpt/releases/tag/v1.0.3",
-    "prerelease": false
-  },
-  {
-    "repo": "mcpt",
-    "toolName": "Mcpt",
-    "tag": "v1.0.2",
-    "name": "v1.0.2",
-    "body": [
-      "Rename PyPI package from mcpt-cli to mcp-select (mcpt was taken on PyPI). Fixes version mismatch between pyproject.toml and __init__.py."
-    ],
-    "publishedAt": "2026-02-15T12:22:35Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcpt/releases/tag/v1.0.2",
-    "prerelease": false
-  },
-  {
-    "repo": "zip-meta-map",
-    "toolName": "Zip Meta Map",
-    "tag": "v0.2.1",
-    "name": "v0.2.1",
-    "body": [
-      "Patch release — version bump for PyPI publish verification.",
-      "No functional changes from v0.2.0."
-    ],
-    "publishedAt": "2026-02-15T11:56:17Z",
-    "url": "https://github.com/mcp-tool-shop-org/zip-meta-map/releases/tag/v0.2.1",
-    "prerelease": false
-  },
-  {
-    "repo": "zip-meta-map",
-    "toolName": "Zip Meta Map",
-    "tag": "v0.2.0",
-    "name": "v0.2.0",
-    "body": [
-      "Turn a ZIP or folder into a guided, LLM-friendly metadata bundle — map, route, and guardrails inside the archive itself.",
-      "Index comparison** (`zip-meta-map diff`)",
-      "Compare two `META_ZIP_INDEX.json` files and surface all changes: files added/removed/modified, role changes, plan changes, capability drift, risk flag changes",
-      "`--exit-code` for CI gating — exit 1 if changes detected",
-      "`--json` for structured output in pipelines",
-      "PR comment mode** (GitHub Action)"
-    ],
-    "publishedAt": "2026-02-15T10:41:47Z",
-    "url": "https://github.com/mcp-tool-shop-org/zip-meta-map/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcpt",
-    "toolName": "Mcpt",
-    "tag": "v1.0.1",
-    "name": "v1.0.1",
-    "body": [
-      "Publish to PyPI as mcpt-cli (mcpt name was taken)"
-    ],
-    "publishedAt": "2026-02-15T08:19:43Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcpt/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "mcpt",
-    "toolName": "Mcpt",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
-    "body": [
-      "First stable release of the MCPT CLI.",
-      "Full registry integration with `mcp-tool-registry`",
-      "Tool discovery, search, and installation",
-      "Workspace configuration via `mcp.yaml`",
-      "Plugin system for extensibility",
-      "```bash"
-    ],
-    "publishedAt": "2026-02-15T08:05:12Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcpt/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-tool-registry",
-    "toolName": "Mcp Tool Registry",
-    "tag": "v0.3.1",
-    "name": "v0.3.1",
-    "body": [
-      "Publish to npm with automated workflow.",
-      "Bundles system (core, agents, ops, evaluation)",
-      "Health reports and facets",
-      "Site build pipeline",
-      "Schema validation improvements"
-    ],
-    "publishedAt": "2026-02-15T05:09:01Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-tool-registry/releases/tag/v0.3.1",
-    "prerelease": false
-  },
-  {
-    "repo": "runforge-vscode",
-    "toolName": "Runforge Vscode",
-    "tag": "v0.4.0",
-    "name": "v0.4.0",
-    "body": [],
-    "publishedAt": "2026-02-14T17:56:09Z",
-    "url": "https://github.com/mcp-tool-shop-org/runforge-vscode/releases/tag/v0.4.0",
-    "prerelease": false
-  },
-  {
-    "repo": "runforge-vscode",
-    "toolName": "Runforge Vscode",
-    "tag": "v0.3.6",
-    "name": "v0.3.6",
-    "body": [],
-    "publishedAt": "2026-02-14T17:47:33Z",
-    "url": "https://github.com/mcp-tool-shop-org/runforge-vscode/releases/tag/v0.3.6",
-    "prerelease": false
-  },
-  {
-    "repo": "codecomfy-vscode",
-    "toolName": "Codecomfy Vscode",
-    "tag": "v0.5.0",
-    "name": "v0.5.0",
-    "body": [],
-    "publishedAt": "2026-02-14T16:27:21Z",
-    "url": "https://github.com/mcp-tool-shop-org/codecomfy-vscode/releases/tag/v0.5.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ThrottleAI",
-    "toolName": "ThrottleAI",
-    "tag": "v1.0.1",
-    "name": "v1.0.1",
-    "body": [],
-    "publishedAt": "2026-02-14T15:42:57Z",
-    "url": "https://github.com/mcp-tool-shop-org/ThrottleAI/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "brain-dev",
-    "toolName": "Brain Dev",
-    "tag": "v1.0.2",
-    "name": "v1.0.2 — Stability & Hardening",
-    "body": [
-      "AST-based analysis**: Complexity scoring and injection detection now use real AST walks instead of string counting/regex",
-      "Deterministic builds**: `uv.lock` committed, CI uses `uv sync --frozen`, lock-drift check prevents silent dep changes",
-      "Build smoke test**: Every push builds a wheel, installs in a clean env, and verifies imports work",
-      "Repo governance**: CODEOWNERS, issue/PR templates, Dependabot (pip + GitHub Actions, weekly)",
-      "Single-source versioning**: `__version__` reads from `importlib.metadata`, test enforces parity with `pyproject.toml`",
-      "`confidence` field renamed to `signal_strength` on all suggestion/issue dataclasses — **backward compatible**: `to_dict()` still emits both keys, `@property` aliases preserved"
-    ],
-    "publishedAt": "2026-02-14T13:46:55Z",
-    "url": "https://github.com/mcp-tool-shop-org/brain-dev/releases/tag/v1.0.2",
-    "prerelease": false
-  },
-  {
-    "repo": "tool-compass",
-    "toolName": "Tool Compass",
-    "tag": "v2.0.3",
-    "name": "v2.0.3",
-    "body": [
-      "`categorize_tool()` now falls back to description matching when name has no category keywords",
-      "`analytics.last_success_at` stores real timestamps instead of the literal string \"CURRENT_TIMESTAMP\"",
-      "`SyncEmbedder` no longer crashes when called from inside a running event loop (Gradio, FastMCP)",
-      "UI `run_async` helper replaced with deterministic loop detection (no more `RuntimeError` roulette)",
-      "Removed discarded `sequence_hash` read in chain detection",
-      "Private `_backends` dict access replaced with public `is_backend_connected()` API"
-    ],
-    "publishedAt": "2026-02-14T11:35:46Z",
-    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.0.3",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-voice-engine",
-    "toolName": "Mcp Voice Engine",
-    "tag": "v1.0.0",
-    "name": "v1.0.0 - Streaming Prosody Engine",
-    "body": [
-      "All notable changes to this project will be documented in this file.",
-      "Deterministic Prosody Engine**: Core DSP logic for expressivity control.",
-      "Micro-Timing Control**: Sub-millisecond precision for rhythm and duration.",
-      "Streaming Architecture**: Low-latency audio processing pipeline.",
-      "Reference Handbook**: Comprehensive guide to vocology and prosody concepts.",
-      "`voice-engine-dsp`: Primary DSP package."
-    ],
-    "publishedAt": "2026-02-14T07:55:39Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-voice-engine/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-voice-soundboard",
-    "toolName": "Mcp Voice Soundboard",
-    "tag": "v2.5.0",
-    "name": "v2.5.0 — MCP Integration & Agent Interoperability",
-    "body": [
-      "Voice Soundboard v2.5.0 — the agent bridge release.",
-      "MCP Server** — embedded MCP-compliant server with tool registration, WebSocket transport, and configurable concurrency",
-      "Core Tools** — `voice.speak`, `voice.stream`, `voice.interrupt`, `voice.list_voices`, `voice.status`",
-      "Agent Sessions** — session-scoped synthesis with agent ownership and priority-based interruption",
-      "Streaming Interrupts** — structured interrupt handling with fade-out and rollback points",
-      "Observability** — synthesis metadata with latency, duration, cost estimates, and cache hit tracking"
-    ],
-    "publishedAt": "2026-02-13T10:20:02Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-voice-soundboard/releases/tag/v2.5.0",
-    "prerelease": false
-  },
-  {
-    "repo": "soundboard-plugin",
-    "toolName": "Soundboard Plugin",
-    "tag": "v1.0.0",
-    "name": "v1.0.0 — Security Hardening & Release Ready",
-    "body": [
-      "The soundboard plugin hits **v1.0.0** — fully hardened, documented, and ready for production use.",
-      "| Tag | Phase | Highlights |",
-      "|-----|-------|------------|",
-      "| v0.1.0 | Core speech pipeline | SSML-lite, smart chunking, multi-chunk synthesis |",
-      "| v0.2.0 | Multi-speaker dialogue | Script parser, auto-casting, stage directions |",
-      "| v0.3.0 | Emotion & ambient | 8 emotions, SFX tags, inner monologue |"
-    ],
-    "publishedAt": "2026-02-13T09:48:45Z",
-    "url": "https://github.com/mcp-tool-shop-org/soundboard-plugin/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "LeaseGate",
-    "toolName": "LeaseGate",
-    "tag": "policy-bundle-8d936a536fd2795ed2703bfb2889d877a5708cdb",
-    "name": "policy-bundle-8d936a536fd2795ed2703bfb2889d877a5708cdb",
-    "body": [],
-    "publishedAt": "2026-02-12T18:10:57Z",
-    "url": "https://github.com/mcp-tool-shop-org/LeaseGate/releases/tag/policy-bundle-8d936a536fd2795ed2703bfb2889d877a5708cdb",
-    "prerelease": false
-  },
-  {
-    "repo": "ThrottleAI",
-    "toolName": "ThrottleAI",
-    "tag": "v0.1.0",
-    "name": "v0.1.0",
-    "body": [
-      "A token-based lease governor for AI calls — small enough to embed anywhere, strict enough to prevent stampedes.",
-      "Concurrency control** — weighted slots with interactive reserve",
-      "Rate limiting** — requests/min and tokens/min with rolling windows",
-      "Fairness** — prevent actor monopolization with soft caps",
-      "Adaptive tuning** — auto-adjust concurrency from deny rate and latency",
-      "Leases** — acquire before, release after, auto-expire on timeout"
-    ],
-    "publishedAt": "2026-02-12T17:10:29Z",
-    "url": "https://github.com/mcp-tool-shop-org/ThrottleAI/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ThrottleAI",
-    "toolName": "ThrottleAI",
-    "tag": "v0.4.0-alpha.0",
-    "name": "v0.4.0-alpha.0 — Optional Adapters",
-    "body": [
-      "Five adapters for common AI integration patterns, all living in separate subpath exports for tree-shaking.",
-      "| Adapter | Import | Description |",
-      "|---------|--------|-------------|",
-      "| **fetch** | `throttleai/adapters/fetch` | Wraps any `fetch`-compatible function |",
-      "| **OpenAI** | `throttleai/adapters/openai` | Wraps `openai.chat.completions.create` with token estimation |",
-      "| **Tool** | `throttleai/adapters/tools` | Wraps any async function (embeddings, rerankers, etc.) |"
-    ],
-    "publishedAt": "2026-02-12T16:49:50Z",
-    "url": "https://github.com/mcp-tool-shop-org/ThrottleAI/releases/tag/v0.4.0-alpha.0",
-    "prerelease": true
-  },
-  {
-    "repo": "ThrottleAI",
-    "toolName": "ThrottleAI",
-    "tag": "v0.3.0-alpha.0",
-    "name": "v0.3.0-alpha.0 — Usability & DX",
-    "body": [
-      "Presets** — `presets.quiet()`, `presets.balanced()`, `presets.aggressive()` return opinionated `GovernorConfig` objects. Spreadable and overridable.",
-      "`snapshot()`** — `gov.snapshot()` returns a read-only view of current state (concurrency, rate pools, flags). Print a one-line health status from any monitoring loop.",
-      "`onEvent` hook** — Optional `GovernorEventHandler` fires structured events on `acquire` / `deny` / `release` / `expire` / `warn`. No logging by default — you decide.",
-      "Better deny guidance** — `recommendation` strings now include concrete numbers (slot counts, rate usage, actor IDs, retry timing).",
-      "`waitForRetry()` + `retryAcquire()`** — Retry helpers: `waitForRetry(decision)` sleeps for `retryAfterMs`, `retryAcquire(gov, req, { maxAttempts })` wraps acquire with automatic retry.",
-      "Strict mode** — `strict: true` catches dev mistakes: double release → error, unknown leaseId → error, long-held leases (>80% TTL) → warn event."
-    ],
-    "publishedAt": "2026-02-12T16:35:24Z",
-    "url": "https://github.com/mcp-tool-shop-org/ThrottleAI/releases/tag/v0.3.0-alpha.0",
-    "prerelease": true
-  },
-  {
-    "repo": "ThrottleAI",
-    "toolName": "ThrottleAI",
-    "tag": "v0.2.0-alpha.0",
-    "name": "v0.2.0-alpha.0 — Phase 2: Smarter Decisions",
-    "body": [
-      "5 commits that make the governor's decisions more intelligent without changing the API surface or adding runtime dependencies.",
-      "Better retryAfter** — computed, not heuristic",
-      "Concurrency denial retryAfterMs derived from earliest lease expiry",
-      "Rate denial retryAfterMs computed from rolling window math",
-      "All values clamped to [25ms, 5000ms] via `clampRetry()`",
-      "Weighted concurrency** — `estimate.weight`"
-    ],
-    "publishedAt": "2026-02-12T16:21:44Z",
-    "url": "https://github.com/mcp-tool-shop-org/ThrottleAI/releases/tag/v0.2.0-alpha.0",
-    "prerelease": true
-  },
-  {
-    "repo": "LeaseGate-Lite",
-    "toolName": "LeaseGate Lite",
-    "tag": "v0.1.0",
-    "name": "LeaseGate Lite v0.1.0",
-    "body": [
-      "Smooths local AI workload bursts so your PC stays responsive during heavy usage.",
-      "Applies practical throughput controls (concurrency, adaptive throttling, rate limits) with sensible defaults.",
-      "Gives you clear, auditable visibility through live status, event trail, diagnostics export, and in-app audit harness.",
-      "It does **not** upload prompts or call external telemetry services by default.",
-      "It does **not** act as cloud orchestration or multi-host fleet management.",
-      "It does **not** replace your model runtime; it only governs local request pressure and pacing."
-    ],
-    "publishedAt": "2026-02-12T16:12:15Z",
-    "url": "https://github.com/mcp-tool-shop-org/LeaseGate-Lite/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "LeaseGate",
-    "toolName": "LeaseGate",
-    "tag": "v0.1.0",
-    "name": "v0.1.0 — Security Hardening & Reliability",
-    "body": [
-      "LeaseGate v0.1.0 delivers defense-in-depth security hardening and reliability improvements across the full governance stack. All 5 implementation phases are complete, tested, and production-ready.",
-      "Command injection prevention** — Shell metacharacter blocklist and direct process execution (no `cmd.exe /c` indirection) in tool isolation",
-      "Service account token hashing** — SHA-256 hash comparison by default with plaintext backward compatibility",
-      "Payload size limits** — 16 MB cap on named pipe message framing",
-      "Path traversal protection** — All file export endpoints reject `..` traversal and constrain to temp/app data directories",
-      "CSV formula injection prevention** — Report exports escape formula injection characters (`=`, `+`, `-`, `@`)"
-    ],
-    "publishedAt": "2026-02-12T15:15:40Z",
-    "url": "https://github.com/mcp-tool-shop-org/LeaseGate/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "InControl-Desktop",
-    "toolName": "InControl Desktop",
-    "tag": "v1.2.0",
-    "name": "InControl-Desktop v1.2.0",
-    "body": [
-      "1. Download the MSIX package below",
-      "2. Verify the SHA256 checksum",
-      "3. Double-click to install",
-      "```powershell",
-      "(Get-FileHash InControl-Desktop-1.2.0-unsigned.msix -Algorithm SHA256).Hash",
-      "```"
-    ],
-    "publishedAt": "2026-02-12T10:59:04Z",
-    "url": "https://github.com/mcp-tool-shop-org/InControl-Desktop/releases/tag/v1.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "InControl-Desktop",
-    "toolName": "InControl Desktop",
-    "tag": "v1.1.0",
-    "name": "InControl-Desktop v1.1.0",
-    "body": [
-      "1. Download the MSIX package below",
-      "2. Verify the SHA256 checksum",
-      "3. Double-click to install",
-      "```powershell",
-      "(Get-FileHash InControl-Desktop-1.1.0-unsigned.msix -Algorithm SHA256).Hash",
-      "```"
-    ],
-    "publishedAt": "2026-02-12T10:58:59Z",
-    "url": "https://github.com/mcp-tool-shop-org/InControl-Desktop/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "soundboard-maui",
-    "toolName": "Soundboard Maui",
-    "tag": "v1.1.0",
-    "name": "Soundboard.Client v1.1.0",
-    "body": [
-      "Multi-target:** net8.0, net9.0, net10.0",
-      "Fix:** EngineInfo deserializes snake_case JSON from real engines (JsonPropertyName)",
-      "Fix:** WsUri uses UriBuilder — https→wss works correctly",
-      "Fix:** SpeakRequest.ResolvedRequestId stable per instance (lazy)",
-      "Fix:** SpeakAsync gracefully closes WebSocket in finally block",
-      "Perf:** ConfigureAwait(false) on all internal awaits"
-    ],
-    "publishedAt": "2026-02-12T10:06:47Z",
-    "url": "https://github.com/mcp-tool-shop-org/soundboard-maui/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "meta-content-system",
-    "toolName": "Meta Content System",
-    "tag": "v1.0.0",
-    "name": "v1.0.0 — Shared Content System Core",
-    "body": [
-      "Portable, local-first content ingestion + normalization + indexing for **Dev-Op-Typer** (Windows) and **linux-dev-typer** (Linux).",
-      "Deterministic language detection** — 3-tier: user choice > file extension > heuristic fallback",
-      "Normalization** — UTF-8 (lossy fallback), LF-only line endings, append trailing newline",
-      "Metrics** — `lines`, `characters`, `symbolDensity` (29-char frozen set incl `\"` and `'`), `maxIndentDepth`",
-      "Content-addressed IDs** — SHA-256(language + normalized code), stable across platforms",
-      "Deduplicated, deterministically ordered index** — by language then title"
-    ],
-    "publishedAt": "2026-02-09T00:58:15Z",
-    "url": "https://github.com/mcp-tool-shop-org/meta-content-system/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ScalarScope-Desktop",
-    "toolName": "ScalarScope Desktop",
-    "tag": "v1.2.0",
-    "name": "v1.2.0 - Enhanced Vortex Rendering",
-    "body": [
-      "Catmull-Rom Spline Smoothing**",
-      "Trajectory paths now render with smooth, organic curves instead of jagged line segments. Each segment is interpolated with 8 subdivisions for fluid motion.",
-      "Adaptive Stroke Width**",
-      "Line thickness now varies inversely with velocity - faster motion creates thinner strokes, slower motion creates thicker strokes. Like calligraphy, this adds natural visual rhythm to the trajectory.",
-      "Trail Opacity Decay**",
-      "Older trajectory points fade naturally, with recent path emphasized. The fade starts at 40% opacity and increases toward the current position, making it easy to see temporal progression."
-    ],
-    "publishedAt": "2026-02-08T20:52:57Z",
-    "url": "https://github.com/mcp-tool-shop-org/ScalarScope-Desktop/releases/tag/v1.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ScalarScope-Desktop",
-    "toolName": "ScalarScope Desktop",
-    "tag": "v1.1.0",
-    "name": "v1.1.0 - Zero-Warning Build & Complete Crash Recovery",
-    "body": [
-      "Session Recovery**: Full crash recovery now restores playback position, current page, and playback state",
-      "Automatically reloads the file that was open when the app crashed",
-      "Resumes playback from exact position",
-      "Navigates to the page you were viewing",
-      "Zero-Warning Build**: Eliminated all 11 compiler warnings",
-      "CS0108: Added \\"
-    ],
-    "publishedAt": "2026-02-08T20:36:28Z",
-    "url": "https://github.com/mcp-tool-shop-org/ScalarScope-Desktop/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "soundboard-maui",
-    "toolName": "Soundboard Maui",
-    "tag": "v1.0.0",
-    "name": "Soundboard SDK v1.0.0",
-    "body": [
-      "The first stable release of the Soundboard SDK: a standalone .NET 8 library for streaming TTS from any engine implementing the Soundboard API contract.",
-      "`ISoundboardClient` interface: health, presets, voices, speak, stop",
-      "Streaming audio via `IProgress<AudioChunk>` over WebSocket",
-      "`CancellationToken` on every async method",
-      "`SoundboardClientOptions` with `SOUNDBOARD_BASE_URL` env var support",
-      "Runtime API version check with warning on mismatch"
-    ],
-    "publishedAt": "2026-02-05T22:52:01Z",
-    "url": "https://github.com/mcp-tool-shop-org/soundboard-maui/releases/tag/v1.0.0",
+    "publishedAt": "2026-02-23T10:49:03Z",
+    "url": "https://github.com/mcp-tool-shop-org/control-room/releases/tag/v1.0.1",
     "prerelease": false
   }
 ]

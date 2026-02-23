@@ -28,6 +28,15 @@
     "tagline": "Plugin-based multi-chain consensus control plane — zero deps, fail-closed invariants,...",
     "needsHumanReview": true
   },
+  "CursorAssist": {
+    "tags": [
+      "editor"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Editor context"
+  },
   "InControl-Desktop": {
     "tags": [
       "ai",
@@ -78,6 +87,24 @@
     "tagline": "Calm typing practice with ambient soundscapes, personalized daily sets, and zero...",
     "needsHumanReview": true
   },
+  "MouseTrainer": {
+    "tags": [
+      "automation"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Mouse automation"
+  },
+  "NextLedger": {
+    "tags": [
+      "finance"
+    ],
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "library",
+    "tagline": "Financial ledger system"
+  },
   "ScalarScope-Desktop": {
     "screenshot": "/screenshots/ScalarScope-Desktop.png",
     "screenshotType": "placeholder"
@@ -103,26 +130,26 @@
     "screenshotType": "placeholder"
   },
   "ai-jam-sessions": {
+    "tags": [
+      "music"
+    ],
     "category": "devtools",
     "stability": "stable",
     "kind": "library",
     "install": "npm install ai-jam-sessions",
-    "needsHumanReview": true,
     "tagline": "Music sessions",
-    "tags": [
-      "music"
-    ]
+    "needsHumanReview": true
   },
   "ai-music-sheets": {
+    "tags": [
+      "music"
+    ],
     "category": "devtools",
     "stability": "stable",
     "kind": "library",
     "install": "npm install ai-music-sheets",
-    "needsHumanReview": true,
     "tagline": "Music notation",
-    "tags": [
-      "music"
-    ]
+    "needsHumanReview": true
   },
   "aspire-ai": {
     "tags": [
@@ -189,6 +216,40 @@
     "tagline": "A policy layer that makes agent behavior preference-governed instead of purely...",
     "needsHumanReview": true
   },
+  "claude-session-copilot": {
+    "tags": [
+      "mcp"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Session management"
+  },
+  "code-batch": {
+    "tags": [
+      "batch-execution",
+      "cli",
+      "code-runner",
+      "content-addressed",
+      "deterministic",
+      "python"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "pipx install code-batch",
+    "tagline": "Content-addressed batch execution engine — deterministic sharding, queryable outputs,...",
+    "needsHumanReview": true
+  },
+  "codeclone-suite": {
+    "tags": [
+      "code-analysis"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Clone detection"
+  },
   "codecomfy-vscode": {
     "tags": [
       "vscode",
@@ -224,6 +285,15 @@
     "screenshot": "/screenshots/comfy-headless.png",
     "screenshotType": "placeholder"
   },
+  "context-window-manager": {
+    "tags": [
+      "llm"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Context optimization"
+  },
   "control-room": {
     "tags": [
       "dashboard",
@@ -235,6 +305,15 @@
     "kind": "desktop-app",
     "tagline": "Dashboard and monitoring for MCP tool ecosystems.",
     "needsHumanReview": true
+  },
+  "feature-reacher": {
+    "tags": [
+      "ml"
+    ],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Feature mining"
   },
   "file-compass": {
     "featured": true,
@@ -259,6 +338,65 @@
     ],
     "screenshot": "/screenshots/file-compass.png",
     "screenshotType": "placeholder"
+  },
+  "flexiflow": {
+    "tags": [
+      "workflow"
+    ],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Workflow orchestration"
+  },
+  "headless-wheel-builder": {
+    "tags": [
+      "python",
+      "packaging",
+      "wheels",
+      "release"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "pipx install headless-wheel-builder",
+    "tagline": "CLI-first build/validate/release tooling for Python wheels and sdists.",
+    "needsHumanReview": true
+  },
+  "homebrew-mcp-tools": {
+    "tags": [
+      "package-mgr"
+    ],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Package manager"
+  },
+  "jam-session-plugin": {
+    "tags": [
+      "audio"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "plugin",
+    "tagline": "AI music composition"
+  },
+  "linux-dev-typer": {
+    "tags": [
+      "automation"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Linux automation"
+  },
+  "mcp-aside": {
+    "tags": [
+      "mcp"
+    ],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Async event system"
   },
   "mcp-bouncer": {
     "tags": [
@@ -289,6 +427,15 @@
     "tagline": "Secure file operations and project scaffolding via MCP.",
     "smithery": "https://smithery.ai/servers/mcp-tool-shop/mcp-file-forge",
     "flyio": "https://mcp-file-forge.fly.dev"
+  },
+  "mcp-shipcheck": {
+    "tags": [
+      "devops"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "mcp-server",
+    "tagline": "Deployment checker"
   },
   "mcp-stress-test": {
     "tags": [
@@ -381,6 +528,15 @@
     "tagline": "Shared content system for typing-practice apps — lessons, progression, and adaptive...",
     "needsHumanReview": true
   },
+  "nexus-suite": {
+    "tags": [
+      "devops"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Dev suite"
+  },
   "pathway": {
     "tags": [
       "workflow",
@@ -393,6 +549,15 @@
     "install": "pip install pathway",
     "tagline": "Python journey engine for workflow progression tracking.",
     "needsHumanReview": true
+  },
+  "payroll-engine": {
+    "tags": [
+      "finance"
+    ],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Payroll processing"
   },
   "prov-engine-js": {
     "tags": [
@@ -450,6 +615,15 @@
     "kind": "vscode-extension",
     "tagline": "VS Code extension for AI workflow execution.",
     "needsHumanReview": true
+  },
+  "siege-kit": {
+    "tags": [
+      "testing"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Load testing"
   },
   "site-theme": {
     "tags": [
@@ -542,6 +716,20 @@
     "screenshot": "/screenshots/tool-scan.png",
     "screenshotType": "placeholder"
   },
+  "training-studio": {
+    "tags": [
+      "ml",
+      "tensorflowjs",
+      "validation",
+      "security"
+    ],
+    "category": "security",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install training-studio",
+    "tagline": "TensorFlow.js ML bundle validator with security-first design and zero code execution.",
+    "needsHumanReview": true
+  },
   "venvkit": {
     "tags": [
       "python",
@@ -608,6 +796,18 @@
     "tagline": "Command-line interface for web component analysis.",
     "needsHumanReview": true
   },
+  "websketch-extension": {
+    "tags": [
+      "browser",
+      "extension",
+      "analysis"
+    ],
+    "category": "web",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Browser extension for web page analysis and code generation.",
+    "needsHumanReview": true
+  },
   "websketch-ir": {
     "tags": [
       "ir",
@@ -619,6 +819,19 @@
     "kind": "library",
     "install": "npm install websketch-ir",
     "tagline": "Intermediate representation library for web component analysis.",
+    "needsHumanReview": true
+  },
+  "websketch-mcp": {
+    "tags": [
+      "mcp-server",
+      "web",
+      "ai"
+    ],
+    "category": "web",
+    "stability": "beta",
+    "kind": "mcp-server",
+    "install": "npx websketch-mcp",
+    "tagline": "MCP server for AI-assisted web analysis.",
     "needsHumanReview": true
   },
   "witness": {
@@ -660,149 +873,5 @@
     "screenshot": "/screenshots/zip-meta-map.png",
     "screenshotType": "real",
     "publicProof": true
-  },
-  "NextLedger": {
-    "tagline": "Financial ledger system",
-    "tags": [
-      "finance"
-    ],
-    "category": "infrastructure",
-    "stability": "stable",
-    "kind": "library"
-  },
-  "MouseTrainer": {
-    "tagline": "Mouse automation",
-    "tags": [
-      "automation"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library"
-  },
-  "jam-session-plugin": {
-    "tagline": "AI music composition",
-    "tags": [
-      "audio"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "plugin"
-  },
-  "mcp-shipcheck": {
-    "tagline": "Deployment checker",
-    "tags": [
-      "devops"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "mcp-server"
-  },
-  "mcp-aside": {
-    "tagline": "Async event system",
-    "tags": [
-      "mcp"
-    ],
-    "category": "infrastructure",
-    "stability": "beta",
-    "kind": "library"
-  },
-  "claude-session-copilot": {
-    "tagline": "Session management",
-    "tags": [
-      "mcp"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library"
-  },
-  "context-window-manager": {
-    "tagline": "Context optimization",
-    "tags": [
-      "llm"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library"
-  },
-  "feature-reacher": {
-    "tagline": "Feature mining",
-    "tags": [
-      "ml"
-    ],
-    "category": "ml",
-    "stability": "beta",
-    "kind": "library"
-  },
-  "siege-kit": {
-    "tagline": "Load testing",
-    "tags": [
-      "testing"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library"
-  },
-  "flexiflow": {
-    "tagline": "Workflow orchestration",
-    "tags": [
-      "workflow"
-    ],
-    "category": "infrastructure",
-    "stability": "beta",
-    "kind": "library"
-  },
-  "nexus-suite": {
-    "tagline": "Dev suite",
-    "tags": [
-      "devops"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library"
-  },
-  "payroll-engine": {
-    "tagline": "Payroll processing",
-    "tags": [
-      "finance"
-    ],
-    "category": "infrastructure",
-    "stability": "beta",
-    "kind": "library"
-  },
-  "codeclone-suite": {
-    "tagline": "Clone detection",
-    "tags": [
-      "code-analysis"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library"
-  },
-  "CursorAssist": {
-    "tagline": "Editor context",
-    "tags": [
-      "editor"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library"
-  },
-  "homebrew-mcp-tools": {
-    "tagline": "Package manager",
-    "tags": [
-      "package-mgr"
-    ],
-    "category": "infrastructure",
-    "stability": "beta",
-    "kind": "library"
-  },
-  "linux-dev-typer": {
-    "tagline": "Linux automation",
-    "tags": [
-      "automation"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library"
   }
 }
