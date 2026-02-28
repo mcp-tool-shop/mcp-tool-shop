@@ -83,6 +83,31 @@ Everything runs locally. No cloud dependencies for core functionality. Tools com
 | [Ops Runbook](docs/OPS-RUNBOOK.md) | Weekly operations, promotion pipeline, error codes |
 | [Contributing](CONTRIBUTING.md) | Local dev setup, testing |
 
+## Security & Data Scope
+
+| Aspect | Detail |
+|--------|--------|
+| **Data touched** | GitHub org metadata (via API), tool manifests (JSON), site build output |
+| **Data NOT touched** | No user data, no analytics, no external tracking services |
+| **Permissions** | Read: GitHub API (org repos, releases). Write: site data files, build output |
+| **Network** | GitHub API only — for org metadata sync |
+| **Telemetry** | None collected or sent |
+
+See [SECURITY.md](SECURITY.md) and [docs/SECURITY-MODEL.md](docs/SECURITY-MODEL.md) for full details.
+
+## Scorecard
+
+| Category | Score |
+|----------|-------|
+| A. Security | 10 |
+| B. Error Handling | 10 |
+| C. Operator Docs | 10 |
+| D. Shipping Hygiene | 10 |
+| E. Identity (soft) | 10 |
+| **Overall** | **50/50** |
+
+> Full audit: [SHIP_GATE.md](SHIP_GATE.md) · [SCORECARD.md](SCORECARD.md)
+
 ## Support
 
 - **Issues**: [github.com/mcp-tool-shop/mcp-tool-shop/issues](https://github.com/mcp-tool-shop/mcp-tool-shop/issues)
