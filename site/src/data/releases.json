@@ -1,5 +1,105 @@
 [
   {
+    "repo": "shipcheck",
+    "toolName": "Shipcheck",
+    "tag": "v1.0.4",
+    "name": "v1.0.4",
+    "body": [
+      "First release with full RepoMesh evidence pipeline:",
+      "CycloneDX SBOM generated and attached",
+      "SLSA-style provenance statement attached",
+      "Signed ReleasePublished event broadcast to ledger",
+      "This release should converge to trust score 100/100 in the network."
+    ],
+    "publishedAt": "2026-02-28T05:05:27Z",
+    "url": "https://github.com/mcp-tool-shop-org/shipcheck/releases/tag/v1.0.4",
+    "prerelease": false
+  },
+  {
+    "repo": "shipcheck",
+    "toolName": "Shipcheck",
+    "tag": "v1.0.3",
+    "name": "v1.0.3",
+    "body": [
+      "RepoMesh smoke test — broadcast workflow with push auth fix."
+    ],
+    "publishedAt": "2026-02-28T04:25:26Z",
+    "url": "https://github.com/mcp-tool-shop-org/shipcheck/releases/tag/v1.0.3",
+    "prerelease": false
+  },
+  {
+    "repo": "shipcheck",
+    "toolName": "Shipcheck",
+    "tag": "v1.0.2",
+    "name": "v1.0.2",
+    "body": [
+      "First RepoMesh-enabled release. Broadcast workflow will emit a signed ReleasePublished event to the RepoMesh ledger."
+    ],
+    "publishedAt": "2026-02-28T04:14:01Z",
+    "url": "https://github.com/mcp-tool-shop-org/shipcheck/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "payroll-engine",
+    "toolName": "Payroll Engine",
+    "tag": "v1.0.0",
+    "name": "v1.0.0",
+    "body": [],
+    "publishedAt": "2026-02-28T01:58:21Z",
+    "url": "https://github.com/mcp-tool-shop-org/payroll-engine/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "code-batch",
+    "toolName": "Code Batch",
+    "tag": "v1.0.0",
+    "name": "v1.0.0",
+    "body": [],
+    "publishedAt": "2026-02-28T01:37:02Z",
+    "url": "https://github.com/mcp-tool-shop-org/code-batch/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "file-compass",
+    "toolName": "File Compass",
+    "tag": "v1.0.0",
+    "name": "v1.0.0",
+    "body": [
+      "Fix CI concurrency for release workflow by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/file-compass/pull/30",
+      "Add landing page using @mcptoolshop/site-theme by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/file-compass/pull/31"
+    ],
+    "publishedAt": "2026-02-28T01:36:30Z",
+    "url": "https://github.com/mcp-tool-shop-org/file-compass/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "witness",
+    "toolName": "Witness",
+    "tag": "v1.0.0",
+    "name": "v1.0.0",
+    "body": [
+      "Local-first, append-only event journal",
+      "Offline verification",
+      "Canonical JSON + SHA-256 + Ed25519",
+      "See:",
+      "CONTRACT.md",
+      "IMPLEMENTATION_NOTES.md"
+    ],
+    "publishedAt": "2026-02-28T01:35:55Z",
+    "url": "https://github.com/mcp-tool-shop-org/witness/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ThrottleAI",
+    "toolName": "ThrottleAI",
+    "tag": "v1.1.2",
+    "name": "v1.1.2",
+    "body": [],
+    "publishedAt": "2026-02-28T01:34:46Z",
+    "url": "https://github.com/mcp-tool-shop-org/ThrottleAI/releases/tag/v1.1.2",
+    "prerelease": false
+  },
+  {
     "repo": "backpropagate",
     "toolName": "Backpropagate",
     "tag": "v1.0.1",
@@ -531,102 +631,6 @@
     ],
     "publishedAt": "2026-02-26T23:05:28Z",
     "url": "https://github.com/mcp-tool-shop-org/flexiflow/releases/tag/v0.3.5",
-    "prerelease": false
-  },
-  {
-    "repo": "headless-wheel-builder",
-    "toolName": "Headless Wheel Builder",
-    "tag": "v0.3.6",
-    "name": "v0.3.6",
-    "body": [
-      "Patch version bump for PyPI republish."
-    ],
-    "publishedAt": "2026-02-26T23:05:25Z",
-    "url": "https://github.com/mcp-tool-shop-org/headless-wheel-builder/releases/tag/v0.3.6",
-    "prerelease": false
-  },
-  {
-    "repo": "integradio",
-    "toolName": "Integradio",
-    "tag": "v0.3.4",
-    "name": "v0.3.4",
-    "body": [
-      "Patch version bump for PyPI republish."
-    ],
-    "publishedAt": "2026-02-26T23:05:23Z",
-    "url": "https://github.com/mcp-tool-shop-org/integradio/releases/tag/v0.3.4",
-    "prerelease": false
-  },
-  {
-    "repo": "mcpt",
-    "toolName": "Mcpt",
-    "tag": "v1.0.6",
-    "name": "v1.0.6",
-    "body": [
-      "Patch version bump for PyPI republish."
-    ],
-    "publishedAt": "2026-02-26T23:05:21Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcpt/releases/tag/v1.0.6",
-    "prerelease": false
-  },
-  {
-    "repo": "nexus-router-adapter-http",
-    "toolName": "Nexus Router Adapter Http",
-    "tag": "v0.2.1",
-    "name": "v0.2.1",
-    "body": [
-      "Patch version bump for PyPI republish."
-    ],
-    "publishedAt": "2026-02-26T23:05:18Z",
-    "url": "https://github.com/mcp-tool-shop-org/nexus-router-adapter-http/releases/tag/v0.2.1",
-    "prerelease": false
-  },
-  {
-    "repo": "pathway",
-    "toolName": "Pathway",
-    "tag": "v0.1.4",
-    "name": "v0.1.4",
-    "body": [
-      "Patch version bump for PyPI republish."
-    ],
-    "publishedAt": "2026-02-26T23:05:16Z",
-    "url": "https://github.com/mcp-tool-shop-org/pathway/releases/tag/v0.1.4",
-    "prerelease": false
-  },
-  {
-    "repo": "payroll-engine",
-    "toolName": "Payroll Engine",
-    "tag": "v0.2.3",
-    "name": "v0.2.3",
-    "body": [
-      "Patch version bump for PyPI republish."
-    ],
-    "publishedAt": "2026-02-26T23:05:14Z",
-    "url": "https://github.com/mcp-tool-shop-org/payroll-engine/releases/tag/v0.2.3",
-    "prerelease": false
-  },
-  {
-    "repo": "nexus-router-adapter-stdout",
-    "toolName": "Nexus Router Adapter Stdout",
-    "tag": "v0.2.1",
-    "name": "v0.2.1",
-    "body": [
-      "Patch version bump for PyPI republish."
-    ],
-    "publishedAt": "2026-02-26T23:05:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/nexus-router-adapter-stdout/releases/tag/v0.2.1",
-    "prerelease": false
-  },
-  {
-    "repo": "nexus-router",
-    "toolName": "Nexus Router",
-    "tag": "v1.1.1",
-    "name": "v1.1.1",
-    "body": [
-      "Patch version bump for PyPI republish."
-    ],
-    "publishedAt": "2026-02-26T23:05:08Z",
-    "url": "https://github.com/mcp-tool-shop-org/nexus-router/releases/tag/v1.1.1",
     "prerelease": false
   }
 ]

@@ -39,6 +39,21 @@
     "tagline": "Scientific claim provenance and verification ledger.",
     "needsHumanReview": true
   },
+  "CodeClone-Desktop": {
+    "tags": [
+      "analysis",
+      "code-analysis",
+      "code-clone",
+      "code-coverage",
+      "desktop-app",
+      "dotnet"
+    ],
+    "category": "desktop",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "MAUI desktop viewer for CodeClone coverage analysis.",
+    "needsHumanReview": true
+  },
   "ConsensusOS": {
     "tags": [
       "consensus",
@@ -53,6 +68,18 @@
     "kind": "plugin",
     "install": "npm install consensusos",
     "tagline": "Plugin-based multi-chain consensus control plane — zero deps, fail-closed invariants,...",
+    "needsHumanReview": true
+  },
+  "CreatorLedger": {
+    "tags": [
+      "provenance",
+      "attestation",
+      "dotnet"
+    ],
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "library",
+    "tagline": "Creator attestation proofs and authorship verification.",
     "needsHumanReview": true
   },
   "CursorAssist": {
@@ -299,6 +326,21 @@
     "tagline": "Centralized brand asset management — migration, audit, and integrity verification for...",
     "needsHumanReview": true
   },
+  "build-governor": {
+    "tags": [
+      "build-tools",
+      "ci",
+      "cpp",
+      "developer-tools",
+      "dotnet",
+      "memory-management"
+    ],
+    "category": "desktop",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Build Reliability Governor - Prevents build system memory exhaustion on Windows.",
+    "needsHumanReview": true
+  },
   "civility-kernel": {
     "tags": [
       "agents",
@@ -366,6 +408,19 @@
     "kind": "cli",
     "install": "pipx install code-batch",
     "tagline": "Content-addressed batch execution engine — deterministic sharding, queryable outputs,...",
+    "needsHumanReview": true
+  },
+  "code-covered": {
+    "tags": [
+      "coverage",
+      "visualization",
+      "testing"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "install": "pip install code-covered",
+    "tagline": "Coverage visualization and reporting tool.",
     "needsHumanReview": true
   },
   "codeclone-suite": {
@@ -768,6 +823,17 @@
     "stability": "beta",
     "kind": "library",
     "tagline": "Dev suite"
+  },
+  "nullout": {
+    "tags": [
+      "mcp"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "mcp-server",
+    "install": "pip install nullout",
+    "tagline": "MCP server that finds and safely removes undeletable files on Windows (reserved device...",
+    "needsHumanReview": true
   },
   "pathway": {
     "tags": [
