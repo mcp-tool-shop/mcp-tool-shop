@@ -369,6 +369,22 @@
     "tagline": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows.",
     "needsHumanReview": true
   },
+  "claude-guardian": {
+    "tags": [
+      "claude",
+      "claude-code",
+      "diagnostics",
+      "hang-detection",
+      "log-rotation",
+      "mcp"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install claude-guardian",
+    "tagline": "Flight computer for Claude Code — log rotation, watchdog, crash bundles, and MCP...",
+    "needsHumanReview": true
+  },
   "claude-session-copilot": {
     "tags": [
       "mcp"
@@ -377,6 +393,14 @@
     "stability": "beta",
     "kind": "library",
     "tagline": "Session management"
+  },
+  "claude-toolstack": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install claude-toolstack",
+    "tagline": "Docker + Claude Code workstation config for 64-GB Linux hosts — cgroup v2 slices,...",
+    "needsHumanReview": true
   },
   "clearance-opinion-engine": {
     "tags": [
@@ -901,11 +925,41 @@
     "tagline": "JavaScript/TypeScript provenance and traceability engine.",
     "needsHumanReview": true
   },
+  "registry-pulse": {
+    "tags": [
+      "astro",
+      "dashboard",
+      "docker",
+      "download-stats",
+      "github-pages",
+      "npm"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "meta",
+    "tagline": "Multi-registry download stats dashboard — executive snapshots, growth pulse, and data...",
+    "needsHumanReview": true
+  },
   "registry-stats": {
     "category": "infrastructure",
     "stability": "experimental",
     "kind": "meta",
     "tagline": "Multi-registry download stats for npm, PyPI, NuGet, VS Code Marketplace, and Docker Hub.",
+    "needsHumanReview": true
+  },
+  "registry-stats-vscode": {
+    "tags": [
+      "docker",
+      "download-stats",
+      "npm",
+      "nuget",
+      "pypi",
+      "registry"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "vscode-extension",
+    "tagline": "Multi-registry download stats for VS Code — Executive PDF, LLM JSONL, and Dev Markdown...",
     "needsHumanReview": true
   },
   "repo-crawler-mcp": {
@@ -917,6 +971,22 @@
     "kind": "mcp-server",
     "install": "npx repo-crawler-mcp",
     "tagline": "MCP server that crawls GitHub repos and extracts structured data for AI agents.",
+    "needsHumanReview": true
+  },
+  "repomesh": {
+    "tags": [
+      "attestation",
+      "ledger",
+      "mcp-tool-shop",
+      "sbom",
+      "supply-chain-security",
+      "trust"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install repomesh",
+    "tagline": "Syntropic repo network — append-only ledger, signed events, multi-dimensional trust...",
     "needsHumanReview": true
   },
   "runforge-desktop": {

@@ -140,7 +140,7 @@
     "featured": true,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-27T16:27:21Z",
+    "updatedAt": "2026-03-01T06:29:09Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -244,6 +244,29 @@
     "screenshotType": "placeholder"
   },
   {
+    "name": "Audiobooker",
+    "repo": "audiobooker",
+    "description": "Audio book generation and management system",
+    "tags": [
+      "audio",
+      "ebook",
+      "generation"
+    ],
+    "featured": false,
+    "stars": 1,
+    "language": "Python",
+    "updatedAt": "2026-02-27T18:27:25Z",
+    "registered": true,
+    "unlisted": false,
+    "deprecated": false,
+    "category": "voice",
+    "stability": "beta",
+    "kind": "library",
+    "install": "pip install audiobooker",
+    "tagline": "Audio book generation and management system.",
+    "needsHumanReview": true
+  },
+  {
     "name": "Backpropagate",
     "repo": "backpropagate",
     "description": "Structured feedback loops for improving AI behavior through iteration",
@@ -255,7 +278,7 @@
     "featured": false,
     "stars": 1,
     "language": "Python",
-    "updatedAt": "2026-02-27T13:37:44Z",
+    "updatedAt": "2026-03-01T06:21:03Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -287,7 +310,7 @@
     "featured": false,
     "stars": 1,
     "language": "C#",
-    "updatedAt": "2026-02-27T21:59:02Z",
+    "updatedAt": "2026-03-01T09:00:27Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -607,29 +630,6 @@
     "needsHumanReview": true
   },
   {
-    "name": "Audiobooker",
-    "repo": "audiobooker",
-    "description": "Audio book generation and management system",
-    "tags": [
-      "audio",
-      "ebook",
-      "generation"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-02-27T18:27:25Z",
-    "registered": true,
-    "unlisted": false,
-    "deprecated": false,
-    "category": "voice",
-    "stability": "beta",
-    "kind": "library",
-    "install": "pip install audiobooker",
-    "tagline": "Audio book generation and management system.",
-    "needsHumanReview": true
-  },
-  {
     "name": "Avatar Face Mvp",
     "repo": "avatar-face-mvp",
     "description": "Real-time VRM avatar lipsync MVP — Godot 4 + FFT visemes + OpenSeeFace",
@@ -692,7 +692,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-02-28T07:47:03Z",
+    "updatedAt": "2026-03-01T12:42:54Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -713,10 +713,7 @@
       "cpp",
       "developer-tools",
       "dotnet",
-      "memory-management",
-      "python",
-      "resource-management",
-      "windows"
+      "memory-management"
     ],
     "featured": false,
     "stars": 0,
@@ -724,7 +721,12 @@
     "updatedAt": "2026-02-27T19:30:52Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "desktop",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Build Reliability Governor - Prevents build system memory exhaustion on Windows.",
+    "needsHumanReview": true
   },
   {
     "name": "Civility Kernel",
@@ -863,6 +865,19 @@
     "deprecated": false
   },
   {
+    "name": "Claude Toolstack",
+    "repo": "claude-toolstack",
+    "description": "Docker + Claude Code workstation config for 64-GB Linux hosts — cgroup v2 slices, Compose tool farm, FastAPI gateway",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-03-01T08:26:40Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Clearance Opinion Engine",
     "repo": "clearance-opinion-engine",
     "description": "Deterministic name-availability and clearance-opinion engine",
@@ -930,7 +945,13 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "codeteam"
+    "ecosystem": "codeteam",
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "install": "pip install code-covered",
+    "tagline": "Coverage visualization and reporting tool.",
+    "needsHumanReview": true
   },
   {
     "name": "CodeClone Desktop",
@@ -942,10 +963,7 @@
       "code-clone",
       "code-coverage",
       "desktop-app",
-      "dotnet",
-      "maui",
-      "viewer",
-      "windows"
+      "dotnet"
     ],
     "featured": false,
     "stars": 0,
@@ -953,7 +971,12 @@
     "updatedAt": "2026-02-28T01:36:22Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "desktop",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "MAUI desktop viewer for CodeClone coverage analysis.",
+    "needsHumanReview": true
   },
   {
     "name": "CodeClone Suite",
@@ -1117,7 +1140,12 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "ledger"
+    "ecosystem": "ledger",
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "library",
+    "tagline": "Creator attestation proofs and authorship verification.",
+    "needsHumanReview": true
   },
   {
     "name": "CursorAssist",
@@ -1888,15 +1916,23 @@
   {
     "name": "Nullout",
     "repo": "nullout",
-    "description": "MCP server that finds and safely removes undeletable files on Windows (reserved device names, trailing dots/spaces, overlong paths)",
-    "tags": [],
+    "description": "MCP server that finds and safely removes undeletable files on Windows",
+    "tags": [
+      "mcp"
+    ],
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-02-28T10:32:35Z",
+    "updatedAt": "2026-02-28T18:06:18Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "mcp-server",
+    "install": "pip install nullout",
+    "tagline": "MCP server that finds and safely removes undeletable files on Windows (reserved device...",
+    "needsHumanReview": true
   },
   {
     "name": "Original_voice Soundboard",
@@ -2118,6 +2154,30 @@
     "deprecated": false
   },
   {
+    "name": "Registry Pulse",
+    "repo": "registry-pulse",
+    "description": "Multi-registry download stats dashboard — executive snapshots, growth pulse, and data health",
+    "tags": [
+      "astro",
+      "dashboard",
+      "docker",
+      "download-stats",
+      "github-pages",
+      "npm",
+      "nuget",
+      "pypi",
+      "registry",
+      "vscode"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Astro",
+    "updatedAt": "2026-03-01T12:49:18Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Registry Stats",
     "repo": "registry-stats",
     "description": "Multi-registry download stats for npm, PyPI, NuGet, VS Code Marketplace, and Docker Hub",
@@ -2135,7 +2195,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-02-28T01:34:14Z",
+    "updatedAt": "2026-03-01T10:41:17Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2144,6 +2204,27 @@
     "kind": "meta",
     "tagline": "Multi-registry download stats for npm, PyPI, NuGet, VS Code Marketplace, and Docker Hub.",
     "needsHumanReview": true
+  },
+  {
+    "name": "Registry Stats Vscode",
+    "repo": "registry-stats-vscode",
+    "description": "Multi-registry download stats for VS Code — Executive PDF, LLM JSONL, and Dev Markdown reports",
+    "tags": [
+      "docker",
+      "download-stats",
+      "npm",
+      "nuget",
+      "pypi",
+      "registry",
+      "vscode-extension"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-03-01T12:57:06Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Repo Crawler Mcp",
@@ -2535,7 +2616,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-02-28T01:35:08Z",
+    "updatedAt": "2026-03-01T02:50:46Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -2670,7 +2751,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-02-27T23:31:50Z",
+    "updatedAt": "2026-03-01T01:00:13Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
