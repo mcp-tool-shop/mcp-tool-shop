@@ -1,11 +1,11 @@
 {
-  "asOf": "2026-03-01",
+  "asOf": "2026-03-02",
   "windowDays": 7,
   "items": [
     {
       "slug": "comfy-headless",
       "reason": "Top 1 starred repo",
-      "deltaStars": 3
+      "deltaStars": 2
     },
     {
       "slug": "audiobooker",
@@ -20,12 +20,12 @@
     {
       "slug": "mcp-stress-test",
       "reason": "Top 10 starred repo",
-      "deltaStars": 3
+      "deltaStars": 2
     },
     {
       "slug": "brain-dev",
       "reason": "Top 2 starred repo",
-      "deltaStars": 3
+      "deltaStars": 2
     }
   ]
 }

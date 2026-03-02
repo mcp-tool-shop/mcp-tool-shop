@@ -159,6 +159,22 @@
     "kind": "library",
     "tagline": "Financial ledger system"
   },
+  "Registrum": {
+    "tags": [
+      "append-only",
+      "audit",
+      "deterministic",
+      "governance",
+      "invariants",
+      "python"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "npx registrum",
+    "tagline": "Deterministic structural registrar — dual-witness state transitions, fail-closed...",
+    "needsHumanReview": true
+  },
   "ScalarScope-Desktop": {
     "screenshot": "/screenshots/ScalarScope-Desktop.png",
     "screenshotType": "placeholder"
@@ -177,6 +193,22 @@
     "kind": "library",
     "install": "npm install throttleai",
     "tagline": "A token-based lease governor for AI calls — small enough to embed anywhere, strict...",
+    "needsHumanReview": true
+  },
+  "VectorCaliper": {
+    "tags": [
+      "ai-research",
+      "debugging",
+      "deterministic",
+      "machine-learning",
+      "svg",
+      "training"
+    ],
+    "category": "ml",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install vectorcaliper",
+    "tagline": "Scientific instrument for faithful model-state visualization — turns vector graphics...",
     "needsHumanReview": true
   },
   "a11y-ci": {
@@ -466,6 +498,18 @@
     "stability": "beta",
     "kind": "vscode-extension",
     "tagline": "VS Code extension for code analysis and coverage display.",
+    "needsHumanReview": true
+  },
+  "codeteam-suite": {
+    "tags": [
+      "code-analysis",
+      "protocol",
+      "monorepo"
+    ],
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "cli",
+    "tagline": "Code analysis protocol and tools — CLI engine with editor extensions.",
     "needsHumanReview": true
   },
   "comfy-headless": {
@@ -962,6 +1006,22 @@
     "tagline": "Multi-registry download stats for VS Code — Executive PDF, LLM JSONL, and Dev Markdown...",
     "needsHumanReview": true
   },
+  "registry-sync": {
+    "tags": [
+      "audit",
+      "cli",
+      "drift",
+      "ghcr",
+      "mcp",
+      "npm"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "npx registry-sync",
+    "tagline": "Desired-state sync engine for multi-registry package publishing.",
+    "needsHumanReview": true
+  },
   "repo-crawler-mcp": {
     "tags": [
       "mcp"
@@ -1087,6 +1147,33 @@
       "Voice cloning or custom voice training"
     ],
     "screenshot": "/screenshots/soundboard-plugin.png",
+    "screenshotType": "placeholder"
+  },
+  "sovereignty": {
+    "tags": [
+      "game",
+      "xrpl",
+      "governance",
+      "trust",
+      "python",
+      "cli"
+    ],
+    "category": "games",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pipx install sovereignty-game",
+    "tagline": "A strategy game about governance, trust, and trade — tabletop + XRPL verification.",
+    "goodFor": [
+      "Teaching governance, negotiation, and trust through gameplay",
+      "Board game nights with cryptographic proof of every promise",
+      "Three tiers: Campfire (beginner) → Town Hall → Treaty Table (advanced)",
+      "Offline-first play with optional XRPL Testnet anchoring for online proofs"
+    ],
+    "notFor": [
+      "Production XRPL wallets or real-money transactions",
+      "Replacing formal governance or voting systems"
+    ],
+    "screenshot": "/screenshots/sovereignty.png",
     "screenshotType": "placeholder"
   },
   "stresskit-mcp": {
@@ -1269,33 +1356,6 @@
     "screenshot": "/screenshots/witness.png",
     "screenshotType": "placeholder"
   },
-  "zip-meta-map": {
-    "featured": true,
-    "tags": [
-      "metadata",
-      "ci",
-      "llm",
-      "schema"
-    ],
-    "category": "infrastructure",
-    "stability": "stable",
-    "kind": "cli",
-    "install": "pipx install zip-meta-map",
-    "tagline": "Make repos and ZIPs self-describing for LLMs with CI-grade diffs.",
-    "goodFor": [
-      "CI gating with diff --exit-code (246 tests, JSON Schema-validated)",
-      "LLM agents that need repo maps under token budgets",
-      "Deterministic builds: same repo = same index, diffable in CI",
-      "GitHub Actions with step summaries and PR comments built in"
-    ],
-    "notFor": [
-      "Replacing code search or embeddings (it complements them)",
-      "Runtime vulnerability scanning (heuristics, not CVEs)"
-    ],
-    "screenshot": "/screenshots/zip-meta-map.png",
-    "screenshotType": "real",
-    "publicProof": true
-  },
   "xrpl-camp": {
     "tags": [
       "xrpl",
@@ -1323,31 +1383,42 @@
     "screenshot": "/screenshots/xrpl-camp.png",
     "screenshotType": "placeholder"
   },
-  "sovereignty": {
+  "xrpl-lab": {
     "tags": [
-      "game",
-      "xrpl",
-      "governance",
-      "trust",
-      "python",
-      "cli"
+      "ml"
     ],
-    "category": "games",
+    "category": "ml",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install xrpl-lab",
+    "tagline": "XRPL training workbook — learn by doing, prove by artifact.",
+    "needsHumanReview": true
+  },
+  "zip-meta-map": {
+    "featured": true,
+    "tags": [
+      "metadata",
+      "ci",
+      "llm",
+      "schema"
+    ],
+    "category": "infrastructure",
     "stability": "stable",
     "kind": "cli",
-    "install": "pipx install sovereignty-game",
-    "tagline": "A strategy game about governance, trust, and trade — tabletop + XRPL verification.",
+    "install": "pipx install zip-meta-map",
+    "tagline": "Make repos and ZIPs self-describing for LLMs with CI-grade diffs.",
     "goodFor": [
-      "Teaching governance, negotiation, and trust through gameplay",
-      "Board game nights with cryptographic proof of every promise",
-      "Three tiers: Campfire (beginner) → Town Hall → Treaty Table (advanced)",
-      "Offline-first play with optional XRPL Testnet anchoring for online proofs"
+      "CI gating with diff --exit-code (246 tests, JSON Schema-validated)",
+      "LLM agents that need repo maps under token budgets",
+      "Deterministic builds: same repo = same index, diffable in CI",
+      "GitHub Actions with step summaries and PR comments built in"
     ],
     "notFor": [
-      "Production XRPL wallets or real-money transactions",
-      "Replacing formal governance or voting systems"
+      "Replacing code search or embeddings (it complements them)",
+      "Runtime vulnerability scanning (heuristics, not CVEs)"
     ],
-    "screenshot": "/screenshots/sovereignty.png",
-    "screenshotType": "placeholder"
+    "screenshot": "/screenshots/zip-meta-map.png",
+    "screenshotType": "real",
+    "publicProof": true
   }
 }
