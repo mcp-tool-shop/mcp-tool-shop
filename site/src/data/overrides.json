@@ -1295,5 +1295,59 @@
     "screenshot": "/screenshots/zip-meta-map.png",
     "screenshotType": "real",
     "publicProof": true
+  },
+  "xrpl-camp": {
+    "tags": [
+      "xrpl",
+      "education",
+      "web3",
+      "blockchain",
+      "python",
+      "cli"
+    ],
+    "category": "games",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pipx install xrpl-camp",
+    "tagline": "Learn the XRP Ledger in one sitting — wallet, payment, verification, certificate.",
+    "goodFor": [
+      "First contact with the XRP Ledger — four lessons, ten minutes",
+      "Classrooms and workshops that need zero-setup blockchain labs",
+      "Earning verifiable round proofs with optional XRPL Testnet anchoring",
+      "Offline-capable learning — no API keys, no cloud, no telemetry"
+    ],
+    "notFor": [
+      "Production XRPL wallets or mainnet transactions",
+      "Full Testnet node operation or validator setup"
+    ],
+    "screenshot": "/screenshots/xrpl-camp.png",
+    "screenshotType": "placeholder"
+  },
+  "sovereignty": {
+    "tags": [
+      "game",
+      "xrpl",
+      "governance",
+      "trust",
+      "python",
+      "cli"
+    ],
+    "category": "games",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pipx install sovereignty-game",
+    "tagline": "A strategy game about governance, trust, and trade — tabletop + XRPL verification.",
+    "goodFor": [
+      "Teaching governance, negotiation, and trust through gameplay",
+      "Board game nights with cryptographic proof of every promise",
+      "Three tiers: Campfire (beginner) → Town Hall → Treaty Table (advanced)",
+      "Offline-first play with optional XRPL Testnet anchoring for online proofs"
+    ],
+    "notFor": [
+      "Production XRPL wallets or real-money transactions",
+      "Replacing formal governance or voting systems"
+    ],
+    "screenshot": "/screenshots/sovereignty.png",
+    "screenshotType": "placeholder"
   }
 }
