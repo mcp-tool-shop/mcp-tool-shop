@@ -1,11 +1,29 @@
 {
-  "generatedAt": "2026-03-03T14:00:19.726Z",
+  "generatedAt": "2026-03-04T13:58:50.791Z",
   "archived": [],
   "missing": [
+    {
+      "registryId": "mcpt",
+      "repoName": "mcpt",
+      "repo": "https://github.com/mcp-tool-shop-org/mcpt",
+      "action": "verify repo exists or remove from registry"
+    },
     {
       "registryId": "next-gallery",
       "repoName": "next-gallery",
       "repo": "https://github.com/mcp-tool-shop-org/next-gallery",
+      "action": "verify repo exists or remove from registry"
+    },
+    {
+      "registryId": "pathway",
+      "repoName": "pathway",
+      "repo": "https://github.com/mcp-tool-shop-org/pathway",
+      "action": "verify repo exists or remove from registry"
+    },
+    {
+      "registryId": "websketch-demo",
+      "repoName": "websketch-demo",
+      "repo": "https://github.com/mcp-tool-shop-org/websketch-demo",
       "action": "verify repo exists or remove from registry"
     },
     {
@@ -27,5 +45,5 @@
       "reason": "case-mismatch or rename"
     }
   ],
-  "totalIssues": 2
+  "totalIssues": 5
 }

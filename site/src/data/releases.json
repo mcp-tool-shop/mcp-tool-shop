@@ -1,5 +1,22 @@
 [
   {
+    "repo": "escape-the-valley",
+    "toolName": "Escape The Valley",
+    "tag": "v1.0.0",
+    "name": "v1.0.0",
+    "body": [
+      "Oregon Trail-style survival game with AI Game Master and optional XRPL ledger backpack.",
+      "Procedurally generated wilderness with seeded world generation",
+      "6 camp actions: travel, rest, hunt, repair, ration, abandon cargo",
+      "AI Game Master with 3 narrative profiles (Chronicler, Fireside, Lantern-Bearer)",
+      "Rich terminal UI via Textual",
+      "Save/load with automatic checkpoint system"
+    ],
+    "publishedAt": "2026-03-04T10:50:58Z",
+    "url": "https://github.com/mcp-tool-shop-org/escape-the-valley/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
     "repo": "receipt-factory",
     "toolName": "Receipt Factory",
     "tag": "v1.7.1",
@@ -631,16 +648,6 @@
     "body": [],
     "publishedAt": "2026-02-27T00:54:07Z",
     "url": "https://github.com/mcp-tool-shop-org/codecomfy-vscode/releases/tag/v0.5.4",
-    "prerelease": false
-  },
-  {
-    "repo": "runforge-vscode",
-    "toolName": "Runforge Vscode",
-    "tag": "v0.4.4",
-    "name": "v0.4.4",
-    "body": [],
-    "publishedAt": "2026-02-27T00:52:51Z",
-    "url": "https://github.com/mcp-tool-shop-org/runforge-vscode/releases/tag/v0.4.4",
     "prerelease": false
   }
 ]

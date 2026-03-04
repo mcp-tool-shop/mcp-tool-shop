@@ -211,6 +211,38 @@
     "tagline": "CI gate for a11y-lint scorecards. Low-vision-first output with strict policy enforcement.",
     "needsHumanReview": true
   },
+  "a11y-evidence-engine": {
+    "tags": [
+      "a11y",
+      "accessibility",
+      "cli",
+      "developer-tools",
+      "evidence",
+      "headless"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "npx a11y-evidence-engine",
+    "tagline": "Headless accessibility evidence engine with prov-spec provenance.",
+    "needsHumanReview": true
+  },
+  "a11y-mcp-tools": {
+    "tags": [
+      "a11y",
+      "accessibility",
+      "cli",
+      "developer-tools",
+      "evidence",
+      "mcp"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "mcp-server",
+    "install": "npx a11y-mcp-tools",
+    "tagline": "MCP tools for accessibility evidence capture and diagnosis.",
+    "needsHumanReview": true
+  },
   "accessibility-suite": {
     "screenshot": "/screenshots/accessibility-suite.png",
     "screenshotType": "placeholder"
@@ -543,6 +575,14 @@
     "tagline": "Developer-focused typing practice for Windows — type real code across 6 languages, with...",
     "needsHumanReview": true
   },
+  "escape-the-valley": {
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "library",
+    "install": "pip install escape-the-valley",
+    "tagline": "Oregon Trail-style survival game powered by Ollama GM with XRPL ledger-backed inventory.",
+    "needsHumanReview": true
+  },
   "feature-reacher": {
     "tags": [
       "ml"
@@ -850,6 +890,22 @@
     "kind": "library",
     "tagline": "Dev suite"
   },
+  "npm-escape-the-valley": {
+    "tags": [
+      "cli",
+      "game",
+      "npm",
+      "ollama",
+      "oregon-trail",
+      "survival"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "npx npm-escape-the-valley",
+    "tagline": "Oregon Trail-style survival game with AI narration and XRPL ledger — zero-prerequisite...",
+    "needsHumanReview": true
+  },
   "npm-sovereignty": {
     "tags": [
       "board-game",
@@ -863,6 +919,21 @@
     "kind": "library",
     "install": "npm install npm-sovereignty",
     "tagline": "npm wrapper for sovereignty — zero-prerequisite npx install via @mcptoolshop/npm-launcher.",
+    "needsHumanReview": true
+  },
+  "npm-xrpl-camp": {
+    "tags": [
+      "cli",
+      "launcher",
+      "npm",
+      "wrapper",
+      "xrpl"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "npx npm-xrpl-camp",
+    "tagline": "npm wrapper for xrpl-camp — zero-prerequisite npx install via @mcptoolshop/npm-launcher.",
     "needsHumanReview": true
   },
   "npm-xrpl-lab": {
