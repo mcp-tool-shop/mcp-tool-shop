@@ -91,6 +91,21 @@
     "kind": "library",
     "tagline": "Editor context"
   },
+  "DeterministicMouseTrainingEngine": {
+    "tags": [
+      "csharp",
+      "desktop-app",
+      "deterministic",
+      "dotnet",
+      "game",
+      "maui"
+    ],
+    "category": "ml",
+    "stability": "experimental",
+    "kind": "desktop-app",
+    "tagline": "Deterministic 60Hz mouse training engine — fixed timestep, alpha interpolation, virtual...",
+    "needsHumanReview": true
+  },
   "InControl-Desktop": {
     "tags": [
       "ai",
@@ -271,6 +286,22 @@
     "kind": "library",
     "install": "npm install ai-jam-sessions",
     "tagline": "Music sessions",
+    "needsHumanReview": true
+  },
+  "ai-loadout": {
+    "tags": [
+      "agent",
+      "ai",
+      "context-optimization",
+      "dispatch-table",
+      "frontmatter",
+      "knowledge-routing"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install ai-loadout",
+    "tagline": "Context-aware knowledge router for AI agents.",
     "needsHumanReview": true
   },
   "ai-ui": {
@@ -473,6 +504,38 @@
     "kind": "library",
     "install": "npm install claude-guardian",
     "tagline": "Flight computer for Claude Code — log rotation, watchdog, crash bundles, and MCP...",
+    "needsHumanReview": true
+  },
+  "claude-memories": {
+    "tags": [
+      "agent",
+      "ai",
+      "ai-agent",
+      "claude",
+      "claude-code",
+      "cli"
+    ],
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "npx claude-memories",
+    "tagline": "MEMORY.md optimizer and dispatch table generator for Claude Code.",
+    "needsHumanReview": true
+  },
+  "claude-rules": {
+    "tags": [
+      "claude",
+      "claude-code",
+      "context-optimization",
+      "dispatch-table",
+      "instruction-file",
+      "mcp"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install claude-rules",
+    "tagline": "Dispatch table generator and instruction-file optimizer for Claude Code.",
     "needsHumanReview": true
   },
   "claude-session-copilot": {
@@ -1083,6 +1146,22 @@
     "kind": "library",
     "install": "npm install prov-engine-js",
     "tagline": "JavaScript/TypeScript provenance and traceability engine.",
+    "needsHumanReview": true
+  },
+  "py-polyglot": {
+    "tags": [
+      "gpu",
+      "mcp",
+      "mcp-server",
+      "ollama",
+      "polyglot",
+      "python"
+    ],
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "pip install py-polyglot",
+    "tagline": "Local GPU translation Python library + MCP server — TranslateGemma via Ollama, 57...",
     "needsHumanReview": true
   },
   "receipt-factory": {

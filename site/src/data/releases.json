@@ -1,5 +1,51 @@
 [
   {
+    "repo": "py-polyglot",
+    "toolName": "Py Polyglot",
+    "tag": "v1.0.4",
+    "name": "v1.0.4",
+    "body": [
+      "Starlight handbook (7 pages, 7 locales), retranslated READMEs, landing page CTA → handbook."
+    ],
+    "publishedAt": "2026-03-06T13:40:55Z",
+    "url": "https://github.com/mcp-tool-shop-org/py-polyglot/releases/tag/v1.0.4",
+    "prerelease": false
+  },
+  {
+    "repo": "py-polyglot",
+    "toolName": "Py Polyglot",
+    "tag": "v1.0.3",
+    "name": "v1.0.3",
+    "body": [
+      "httpx connection pooling** — reuse connections instead of creating one per request",
+      "Semaphore context manager** — `async with sem:` pattern, prevents slot leaks on exceptions",
+      "Race condition fix** — `_active` counter protected by asyncio.Lock",
+      "Cache path traversal** — uses `relative_to()` instead of string comparison",
+      "Structured logging** — replaces `print(stderr)` with Python logging module",
+      "Specific exceptions** — no more bare `except Exception` in ollama.py"
+    ],
+    "publishedAt": "2026-03-06T13:12:47Z",
+    "url": "https://github.com/mcp-tool-shop-org/py-polyglot/releases/tag/v1.0.3",
+    "prerelease": false
+  },
+  {
+    "repo": "py-polyglot",
+    "toolName": "Py Polyglot",
+    "tag": "v1.0.2",
+    "name": "v1.0.2",
+    "body": [
+      "Renamed PyPI distribution from `py-polyglot` to `polyglot-gpu` (import name `pypolyglot` unchanged)",
+      "CLI entry point renamed to `polyglot-gpu`",
+      "Added trusted publisher workflow for PyPI releases",
+      "```bash",
+      "pip install polyglot-gpu",
+      "```"
+    ],
+    "publishedAt": "2026-03-06T13:01:30Z",
+    "url": "https://github.com/mcp-tool-shop-org/py-polyglot/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
     "repo": "escape-the-valley",
     "toolName": "Escape The Valley",
     "tag": "v1.0.0",
@@ -615,39 +661,6 @@
     "body": [],
     "publishedAt": "2026-02-27T02:31:40Z",
     "url": "https://github.com/mcp-tool-shop-org/mcp-app-builder/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "websketch-vscode",
-    "toolName": "Websketch Vscode",
-    "tag": "v0.2.2",
-    "name": "v0.2.2",
-    "body": [],
-    "publishedAt": "2026-02-27T01:00:18Z",
-    "url": "https://github.com/mcp-tool-shop-org/websketch-vscode/releases/tag/v0.2.2",
-    "prerelease": false
-  },
-  {
-    "repo": "vscode-voice-soundboard",
-    "toolName": "Vscode Voice Soundboard",
-    "tag": "v0.2.2",
-    "name": "v0.2.2",
-    "body": [
-      "ci: allow vitest to pass with no tests by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/vscode-voice-soundboard/pull/2",
-      "@mcp-tool-shop made their first contribution in https://github.com/mcp-tool-shop-org/vscode-voice-soundboard/pull/2"
-    ],
-    "publishedAt": "2026-02-27T01:00:14Z",
-    "url": "https://github.com/mcp-tool-shop-org/vscode-voice-soundboard/releases/tag/v0.2.2",
-    "prerelease": false
-  },
-  {
-    "repo": "codecomfy-vscode",
-    "toolName": "Codecomfy Vscode",
-    "tag": "v0.5.4",
-    "name": "v0.5.4",
-    "body": [],
-    "publishedAt": "2026-02-27T00:54:07Z",
-    "url": "https://github.com/mcp-tool-shop-org/codecomfy-vscode/releases/tag/v0.5.4",
     "prerelease": false
   }
 ]
