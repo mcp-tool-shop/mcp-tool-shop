@@ -429,14 +429,7 @@
       "assistant",
       "assistive-technology",
       "cli",
-      "deterministic",
-      "developer-tools",
-      "dyslexia",
-      "low-vision",
-      "plain-language",
-      "provenance",
-      "python",
-      "screen-reader"
+      "deterministic"
     ],
     "featured": false,
     "stars": 0,
@@ -444,7 +437,13 @@
     "updatedAt": "2026-03-05T08:53:38Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "pipx install a11y-assist",
+    "tagline": "Deterministic accessibility assistance for CLI failures — additive, SAFE-only,...",
+    "needsHumanReview": true
   },
   {
     "name": "A11y Ci",
@@ -482,9 +481,7 @@
       "ci",
       "demo",
       "evidence",
-      "github-actions",
-      "provenance",
-      "wcag"
+      "github-actions"
     ],
     "featured": false,
     "stars": 0,
@@ -492,7 +489,12 @@
     "updatedAt": "2026-03-05T08:53:44Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "template",
+    "tagline": "End-to-end demo: a11y-evidence-engine + a11y-assist with provenance verification.",
+    "needsHumanReview": true
   },
   {
     "name": "A11y Evidence Engine",
@@ -631,10 +633,16 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-07T13:35:03Z",
+    "updatedAt": "2026-03-08T11:11:02Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "games",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install ai-rpg-engine",
+    "tagline": "A simulation-first terminal RPG engine for worlds shaped by perception, cognition, and...",
+    "needsHumanReview": true
   },
   {
     "name": "Ai Ui",
@@ -985,14 +993,27 @@
     "name": "Claude Rpg",
     "repo": "claude-rpg",
     "description": "Simulation-grounded narrative RPG where worlds are generated live, but truth remains coherent",
-    "tags": [],
+    "tags": [
+      "ai",
+      "claude",
+      "narrative",
+      "rpg",
+      "simulation",
+      "text-rpg"
+    ],
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-07T12:42:12Z",
+    "updatedAt": "2026-03-08T11:11:02Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install claude-rpg",
+    "tagline": "Simulation-grounded narrative RPG where worlds are generated live, but truth remains...",
+    "needsHumanReview": true
   },
   {
     "name": "Claude Rules",
@@ -2226,11 +2247,7 @@
       "desktop-app",
       "dotnet",
       "local-first",
-      "personal-finance",
-      "privacy",
-      "sqlite",
-      "winui",
-      "winui3"
+      "personal-finance"
     ],
     "featured": false,
     "stars": 0,
@@ -2238,7 +2255,12 @@
     "updatedAt": "2026-03-05T09:00:54Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "desktop-app",
+    "tagline": "Personal finance and budget tracking app — clean, simple, and private-first.",
+    "needsHumanReview": true
   },
   {
     "name": "Polyglot Mcp",
@@ -2544,7 +2566,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-03-07T02:21:40Z",
+    "updatedAt": "2026-03-08T02:33:00Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,

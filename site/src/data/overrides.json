@@ -288,6 +288,22 @@
     "tagline": "Headless accessibility evidence engine with prov-spec provenance.",
     "needsHumanReview": true
   },
+  "a11y-lint": {
+    "tags": [
+      "a11y",
+      "accessibility",
+      "cli",
+      "developer-tools",
+      "lint",
+      "linter"
+    ],
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "pipx install a11y-lint",
+    "tagline": "Accessibility linter for CLI output - validates error messages follow accessible patterns.",
+    "needsHumanReview": true
+  },
   "a11y-mcp-tools": {
     "tags": [
       "a11y",
@@ -658,6 +674,19 @@
     "stability": "beta",
     "kind": "vscode-extension",
     "tagline": "VS Code extension for code analysis and coverage display.",
+    "needsHumanReview": true
+  },
+  "codeteam": {
+    "tags": [
+      "code-analysis",
+      "cli",
+      "legacy"
+    ],
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "npx codeteam",
+    "tagline": "Legacy code analysis CLI (see codeteam-suite).",
     "needsHumanReview": true
   },
   "codeteam-suite": {
@@ -1035,6 +1064,54 @@
     "kind": "cli",
     "install": "pipx install nexus-control",
     "tagline": "Orchestration and approval layer for nexus-router executions.",
+    "needsHumanReview": true
+  },
+  "nexus-router": {
+    "tags": [
+      "adapter",
+      "developer-tools",
+      "dispatch",
+      "event-sourcing",
+      "integrity",
+      "mcp"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install nexus-router",
+    "tagline": "Event-sourced MCP router with provenance + integrity.",
+    "needsHumanReview": true
+  },
+  "nexus-router-adapter-http": {
+    "tags": [
+      "adapter",
+      "developer-tools",
+      "http",
+      "httpx",
+      "mcp",
+      "nexus-router"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install nexus-router-adapter-http",
+    "tagline": "HTTP/REST dispatch adapter for nexus-router.",
+    "needsHumanReview": true
+  },
+  "nexus-router-adapter-stdout": {
+    "tags": [
+      "adapter",
+      "debug",
+      "developer-tools",
+      "mcp",
+      "nexus-router",
+      "python"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install nexus-router-adapter-stdout",
+    "tagline": "Debug adapter that prints tool calls to stdout.",
     "needsHumanReview": true
   },
   "nexus-suite": {
