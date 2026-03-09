@@ -210,6 +210,21 @@
     "tagline": "A token-based lease governor for AI calls — small enough to embed anywhere, strict...",
     "needsHumanReview": true
   },
+  "ToolShopStudio": {
+    "tags": [
+      "blender",
+      "developer-tools",
+      "ffmpeg",
+      "freecad",
+      "gdal",
+      "mcp"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "meta",
+    "tagline": "Six MCP tools + live Registry (FFmpeg, Pandoc, FreeCAD, GDAL, OpenSCAD, Blender) —...",
+    "needsHumanReview": true
+  },
   "Trace": {
     "tags": [
       "csharp",
@@ -617,6 +632,22 @@
     "stability": "beta",
     "kind": "library",
     "tagline": "Session management"
+  },
+  "claude-sfx": {
+    "tags": [
+      "accessibility",
+      "audio",
+      "claude",
+      "claude-code",
+      "developer-experience",
+      "hooks"
+    ],
+    "category": "voice",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install claude-sfx",
+    "tagline": "Procedural audio feedback for Claude Code — UX for agentic coding.",
+    "needsHumanReview": true
   },
   "claude-toolstack": {
     "category": "devtools",
@@ -1295,6 +1326,22 @@
     "tagline": "JavaScript/TypeScript provenance and traceability engine.",
     "needsHumanReview": true
   },
+  "prov-spec": {
+    "tags": [
+      "conformance",
+      "json-schema",
+      "mcp",
+      "provenance",
+      "specification",
+      "standards"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install prov-spec",
+    "tagline": "A formal, language-neutral specification for verifiable provenance.",
+    "needsHumanReview": true
+  },
   "py-polyglot": {
     "tags": [
       "gpu",
@@ -1544,6 +1591,19 @@
     "screenshot": "/screenshots/stresskit-mcp.png",
     "screenshotType": "placeholder"
   },
+  "synthesis": {
+    "tags": [
+      "workflow",
+      "composition",
+      "tools"
+    ],
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install synthesis",
+    "tagline": "Composable tool framework for building complex AI workflows.",
+    "needsHumanReview": true
+  },
   "tool-compass": {
     "featured": true,
     "tags": [
@@ -1719,6 +1779,22 @@
     "tagline": "Append-only event journal with cryptographic verification.",
     "screenshot": "/screenshots/witness.png",
     "screenshotType": "placeholder"
+  },
+  "world-forge": {
+    "tags": [
+      "game-dev",
+      "pixijs",
+      "react",
+      "rpg",
+      "typescript",
+      "world-building"
+    ],
+    "category": "games",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install world-forge",
+    "tagline": "2D world authoring studio for AI RPG Engine.",
+    "needsHumanReview": true
   },
   "xrpl-camp": {
     "tags": [
