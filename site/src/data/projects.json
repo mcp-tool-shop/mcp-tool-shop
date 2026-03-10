@@ -532,10 +532,7 @@
       "cli",
       "developer-tools",
       "lint",
-      "linter",
-      "low-vision",
-      "python",
-      "wcag"
+      "linter"
     ],
     "featured": false,
     "stars": 0,
@@ -543,7 +540,13 @@
     "updatedAt": "2026-03-05T08:51:53Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "pipx install a11y-lint",
+    "tagline": "Accessibility linter for CLI output - validates error messages follow accessible patterns.",
+    "needsHumanReview": true
   },
   {
     "name": "A11y Mcp Tools",
@@ -633,7 +636,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-08T11:11:02Z",
+    "updatedAt": "2026-03-10T12:27:58Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -658,7 +661,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-03-06T12:08:30Z",
+    "updatedAt": "2026-03-09T13:32:56Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -830,7 +833,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-07T12:40:58Z",
+    "updatedAt": "2026-03-10T12:37:15Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -865,6 +868,28 @@
     "kind": "desktop-app",
     "tagline": "Build Reliability Governor - Prevents build system memory exhaustion on Windows.",
     "needsHumanReview": true
+  },
+  {
+    "name": "Cannon Archive",
+    "repo": "cannon-archive",
+    "description": "Structured lore, canon, and narrative-planning studio for the AI RPG ecosystem.",
+    "tags": [
+      "canon",
+      "lore",
+      "narrative",
+      "react",
+      "rpg",
+      "storyboard",
+      "typescript",
+      "worldbuilding"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-03-10T13:09:06Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Civility Kernel",
@@ -1004,7 +1029,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-08T11:11:02Z",
+    "updatedAt": "2026-03-08T15:05:42Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1246,7 +1271,13 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "codeteam"
+    "ecosystem": "codeteam",
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "npx codeteam",
+    "tagline": "Legacy code analysis CLI (see codeteam-suite).",
+    "needsHumanReview": true
   },
   {
     "name": "CodeTeam Suite",
@@ -1950,11 +1981,7 @@
       "dispatch",
       "event-sourcing",
       "integrity",
-      "mcp",
-      "model-context-protocol",
-      "provenance",
-      "python",
-      "router"
+      "mcp"
     ],
     "featured": false,
     "stars": 0,
@@ -1962,7 +1989,13 @@
     "updatedAt": "2026-03-05T08:45:22Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install nexus-router",
+    "tagline": "Event-sourced MCP router with provenance + integrity.",
+    "needsHumanReview": true
   },
   {
     "name": "Nexus Router Adapter Http",
@@ -1974,9 +2007,7 @@
       "http",
       "httpx",
       "mcp",
-      "nexus-router",
-      "pypi",
-      "python"
+      "nexus-router"
     ],
     "featured": false,
     "stars": 0,
@@ -1984,7 +2015,13 @@
     "updatedAt": "2026-03-05T08:51:59Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install nexus-router-adapter-http",
+    "tagline": "HTTP/REST dispatch adapter for nexus-router.",
+    "needsHumanReview": true
   },
   {
     "name": "Nexus Router Adapter Stdout",
@@ -1996,8 +2033,7 @@
       "developer-tools",
       "mcp",
       "nexus-router",
-      "python",
-      "stdout"
+      "python"
     ],
     "featured": false,
     "stars": 0,
@@ -2005,7 +2041,13 @@
     "updatedAt": "2026-03-05T08:53:36Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install nexus-router-adapter-stdout",
+    "tagline": "Debug adapter that prints tool calls to stdout.",
+    "needsHumanReview": true
   },
   {
     "name": "Nexus Suite",
@@ -2277,7 +2319,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-05T09:18:43Z",
+    "updatedAt": "2026-03-09T20:25:09Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2469,7 +2511,7 @@
     "featured": false,
     "stars": 0,
     "language": "Astro",
-    "updatedAt": "2026-03-06T14:33:17Z",
+    "updatedAt": "2026-03-09T22:21:17Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2566,7 +2608,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-03-08T02:33:00Z",
+    "updatedAt": "2026-03-10T02:26:10Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2731,6 +2773,19 @@
     "kind": "desktop-app",
     "tagline": "Cross-platform .NET MAUI desktop client for the Sound Board voice engine.",
     "needsHumanReview": true
+  },
+  {
+    "name": "Soundweave",
+    "repo": "soundweave",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-03-10T13:33:31Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Sovereignty",
@@ -3201,6 +3256,26 @@
     "tagline": "Append-only event journal with cryptographic verification.",
     "screenshot": "/screenshots/witness.png",
     "screenshotType": "placeholder"
+  },
+  {
+    "name": "World Forge",
+    "repo": "world-forge",
+    "description": "2D world authoring studio for AI RPG Engine",
+    "tags": [
+      "game-dev",
+      "pixijs",
+      "react",
+      "rpg",
+      "typescript",
+      "world-building"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-03-09T21:03:04Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Xrpl Camp",

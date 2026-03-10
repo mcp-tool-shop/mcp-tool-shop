@@ -1,5 +1,5 @@
 {
-  "date": "2026-03-08",
+  "date": "2026-03-10",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,36 +9,36 @@
       ]
     },
     {
-      "slug": "ally-demo-python",
-      "reason": "Python demonstration of accessibility framework capabilities",
+      "slug": "tool-scan",
+      "reason": "Static inspection utilities for MCP tools and repositories",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "websketch-extension",
-      "reason": "Browser extension for web page analysis and code generation",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "aspire-ai",
-      "reason": "Goal-oriented framework for running and evaluating AI workflows over time",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "tool-compass",
-      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
+      "slug": "file-compass",
+      "reason": "Deterministic file-system navigation and inspection for large repos",
       "signals": [
         "featured"
       ]
     },
     {
-      "slug": "accessibility-suite",
-      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "slug": "websketch-cli",
+      "reason": "Command-line interface for web component analysis",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "prov-engine-js",
+      "reason": "JavaScript/TypeScript provenance and traceability engine",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "payroll-engine",
+      "reason": "Comprehensive payroll processing and SaaS platform",
       "signals": [
         "popular"
       ]
