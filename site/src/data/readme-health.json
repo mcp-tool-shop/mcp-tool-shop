@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generatedAt": "2026-03-10T14:02:01.615Z",
-    "runId": "09cf76c0-2e58-4466-b6b7-1d92ec7acd26",
+    "generatedAt": "2026-03-11T14:06:21.945Z",
+    "runId": "ff629dd7-5c5c-45a8-85fe-de05dcc02e79",
     "version": "2.0",
     "checkedCount": 45,
     "strategy": {
       "recentDays": 7,
       "sampleSize": 10,
-      "seed": "2026-03-10"
+      "seed": "2026-03-11"
     }
   },
   "results": [
@@ -22,8 +22,8 @@
       "evidence": {
         "hasReadme": false
       },
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "websketch-demo",
@@ -36,8 +36,8 @@
       "evidence": {
         "hasReadme": false
       },
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "mcpt",
@@ -50,8 +50,8 @@
       "evidence": {
         "hasReadme": false
       },
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "next-gallery",
@@ -64,8 +64,8 @@
       "evidence": {
         "hasReadme": false
       },
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "codeteam",
@@ -84,8 +84,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "brain-dev",
@@ -102,8 +102,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "file-compass",
@@ -120,8 +120,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "tool-compass",
@@ -138,8 +138,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "audiobooker",
@@ -156,8 +156,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "backpropagate",
@@ -174,8 +174,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "mcp-stress-test",
@@ -192,8 +192,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "ally-demo-python",
@@ -210,8 +210,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "ClaimLedger",
@@ -228,8 +228,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "claude-collaborate",
@@ -246,8 +246,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "code-covered",
@@ -264,8 +264,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "codecomfy-vscode",
@@ -282,8 +282,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "control-room",
@@ -300,8 +300,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "flexiflow",
@@ -318,8 +318,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "ledger-suite",
@@ -336,8 +336,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "nexus-suite",
@@ -354,8 +354,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "pathway",
@@ -372,8 +372,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "stresskit-mcp",
@@ -390,8 +390,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "venvkit",
@@ -408,8 +408,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "voice-soundboard",
@@ -426,8 +426,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "websketch-extension",
@@ -444,8 +444,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "websketch-mcp",
@@ -462,8 +462,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "comfy-headless",
@@ -480,8 +480,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "accessibility-suite",
@@ -498,8 +498,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "aspire-ai",
@@ -516,8 +516,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "codeclone-suite",
@@ -534,8 +534,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "codeteam-suite",
@@ -552,8 +552,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "context-window-manager",
@@ -570,8 +570,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "CreatorLedger",
@@ -588,8 +588,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "headless-wheel-builder",
@@ -606,8 +606,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "integradio",
@@ -624,8 +624,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "payroll-engine",
@@ -642,8 +642,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "prov-engine-js",
@@ -660,8 +660,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "runforge-desktop",
@@ -678,8 +678,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "runforge-vscode",
@@ -696,8 +696,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "synthesis",
@@ -714,8 +714,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "tool-scan",
@@ -732,8 +732,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "training-studio",
@@ -750,8 +750,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "websketch-cli",
@@ -768,8 +768,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "websketch-ir",
@@ -786,8 +786,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "witness",
@@ -804,8 +804,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-10T14:02:01.615Z",
-      "lastCheckedAt": "2026-03-10T14:02:01.615Z"
+      "checkedAt": "2026-03-11T14:06:21.945Z",
+      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     }
   ]
 }

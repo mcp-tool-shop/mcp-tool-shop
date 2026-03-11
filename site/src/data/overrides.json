@@ -1274,6 +1274,19 @@
     "tagline": "Production-ready TTS library and MCP server for AI assistants.",
     "needsHumanReview": true
   },
+  "pathway": {
+    "tags": [
+      "workflow",
+      "journey",
+      "python"
+    ],
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install pathway",
+    "tagline": "Python journey engine for workflow progression tracking.",
+    "needsHumanReview": true
+  },
   "payroll-engine": {
     "tags": [
       "finance"
@@ -1527,6 +1540,14 @@
     "tagline": "Product standards for MCP Tool Shop — Ship Gate checklist, error contract, templates,...",
     "needsHumanReview": true
   },
+  "siege-kit": {
+    "category": "games",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install siege-kit",
+    "tagline": "Physics-first board game toolkit — deterministic 2D engine, SVG rendering, and a...",
+    "needsHumanReview": true
+  },
   "site-theme": {
     "tags": [
       "mcp"
@@ -1576,6 +1597,22 @@
     "screenshot": "/screenshots/soundboard-plugin.png",
     "screenshotType": "placeholder"
   },
+  "soundweave": {
+    "tags": [
+      "adaptive-music",
+      "game-audio",
+      "interactive-music",
+      "monorepo",
+      "music-composition",
+      "soundtrack"
+    ],
+    "category": "voice",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install soundweave",
+    "tagline": "Adaptive soundtrack studio for composing, arranging, scoring, and exporting interactive...",
+    "needsHumanReview": true
+  },
   "sovereignty": {
     "tags": [
       "game",
@@ -1606,6 +1643,19 @@
   "stresskit-mcp": {
     "screenshot": "/screenshots/stresskit-mcp.png",
     "screenshotType": "placeholder"
+  },
+  "synthesis": {
+    "tags": [
+      "workflow",
+      "composition",
+      "tools"
+    ],
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install synthesis",
+    "tagline": "Composable tool framework for building complex AI workflows.",
+    "needsHumanReview": true
   },
   "tool-compass": {
     "featured": true,

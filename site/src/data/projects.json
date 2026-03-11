@@ -10,7 +10,7 @@
     "featured": true,
     "stars": 1,
     "language": "Python",
-    "updatedAt": "2026-03-05T08:35:49Z",
+    "updatedAt": "2026-03-11T03:54:56Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -636,7 +636,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-10T12:27:58Z",
+    "updatedAt": "2026-03-11T06:01:17Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -833,7 +833,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-10T12:37:15Z",
+    "updatedAt": "2026-03-10T23:34:54Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -879,17 +879,21 @@
       "narrative",
       "react",
       "rpg",
-      "storyboard",
-      "typescript",
-      "worldbuilding"
+      "storyboard"
     ],
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-10T13:09:06Z",
+    "updatedAt": "2026-03-10T14:49:08Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install cannon-archive",
+    "tagline": "Structured lore, canon, and narrative-planning studio for the AI RPG ecosystem.",
+    "needsHumanReview": true
   },
   {
     "name": "Civility Kernel",
@@ -1029,7 +1033,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-08T15:05:42Z",
+    "updatedAt": "2026-03-10T16:26:44Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1095,11 +1099,7 @@
       "claude",
       "claude-code",
       "developer-experience",
-      "hooks",
-      "procedural-audio",
-      "sound",
-      "synth",
-      "typescript"
+      "hooks"
     ],
     "featured": false,
     "stars": 0,
@@ -1107,7 +1107,13 @@
     "updatedAt": "2026-03-05T08:12:13Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "voice",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install claude-sfx",
+    "tagline": "Procedural audio feedback for Claude Code — UX for agentic coding.",
+    "needsHumanReview": true
   },
   {
     "name": "Claude Toolstack",
@@ -2319,7 +2325,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-09T20:25:09Z",
+    "updatedAt": "2026-03-10T14:35:36Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2401,8 +2407,7 @@
       "mcp",
       "provenance",
       "specification",
-      "standards",
-      "test-vectors"
+      "standards"
     ],
     "featured": false,
     "stars": 0,
@@ -2410,7 +2415,13 @@
     "updatedAt": "2026-03-05T08:23:41Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install prov-spec",
+    "tagline": "A formal, language-neutral specification for verifiable provenance.",
+    "needsHumanReview": true
   },
   {
     "name": "Py Polyglot",
@@ -2608,7 +2619,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-03-10T02:26:10Z",
+    "updatedAt": "2026-03-11T02:25:39Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2777,12 +2788,21 @@
   {
     "name": "Soundweave",
     "repo": "soundweave",
-    "description": "",
-    "tags": [],
+    "description": "Adaptive soundtrack studio for composing, arranging, scoring, and exporting interactive game music",
+    "tags": [
+      "adaptive-music",
+      "game-audio",
+      "interactive-music",
+      "monorepo",
+      "music-composition",
+      "soundtrack",
+      "typescript",
+      "web-audio"
+    ],
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-10T13:33:31Z",
+    "updatedAt": "2026-03-11T00:27:10Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -2919,11 +2939,7 @@
       "ffmpeg",
       "freecad",
       "gdal",
-      "mcp",
-      "media-processing",
-      "openscad",
-      "pandoc",
-      "typescript"
+      "mcp"
     ],
     "featured": false,
     "stars": 0,
@@ -2931,7 +2947,12 @@
     "updatedAt": "2026-03-05T08:11:54Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "meta",
+    "tagline": "Six MCP tools + live Registry (FFmpeg, Pandoc, FreeCAD, GDAL, OpenSCAD, Blender) —...",
+    "needsHumanReview": true
   },
   {
     "name": "Trace",
@@ -3272,10 +3293,16 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-09T21:03:04Z",
+    "updatedAt": "2026-03-10T14:58:25Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "games",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install world-forge",
+    "tagline": "2D world authoring studio for AI RPG Engine.",
+    "needsHumanReview": true
   },
   {
     "name": "Xrpl Camp",
