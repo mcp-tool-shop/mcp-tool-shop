@@ -119,6 +119,8 @@
     "stability": "stable",
     "kind": "desktop-app",
     "tagline": "Privacy-first local LLM chat for Windows — WinUI 3, RTX-accelerated, multi-backend...",
+    "screenshot": "/screenshots/InControl-Desktop.png",
+    "screenshotType": "placeholder",
     "needsHumanReview": true
   },
   "LeaseGate": {
@@ -348,6 +350,8 @@
     "kind": "library",
     "install": "npm install ai-jam-sessions",
     "tagline": "Music sessions",
+    "screenshot": "/screenshots/ai-jam-sessions.png",
+    "screenshotType": "placeholder",
     "needsHumanReview": true
   },
   "ai-loadout": {
@@ -441,6 +445,8 @@
     "kind": "library",
     "install": "pip install audiobooker",
     "tagline": "Audio book generation and management system.",
+    "screenshot": "/screenshots/audiobooker.png",
+    "screenshotType": "placeholder",
     "needsHumanReview": true
   },
   "avatar-face-mvp": {
@@ -954,6 +960,8 @@
     "kind": "mcp-server",
     "install": "npx mcp-app-builder",
     "tagline": "Build MCP servers with interactive UI components — from VS Code.",
+    "screenshot": "/screenshots/mcp-app-builder.png",
+    "screenshotType": "placeholder",
     "needsHumanReview": true
   },
   "mcp-aside": {
