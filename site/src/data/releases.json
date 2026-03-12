@@ -1,5 +1,22 @@
 [
   {
+    "repo": "soundweave",
+    "toolName": "Soundweave",
+    "tag": "v1.0.1",
+    "name": "Soundweave v1.0.1",
+    "body": [
+      "Adaptive soundtrack studio for composing, arranging, scoring, and exporting interactive game music. Soundweave is a composition-first, adaptation-aware workstation — game music that feels intentional, not generated.",
+      "Studio** — 13-screen authoring UI for clips, stems, scenes, bindings, transitions, automation, and score maps",
+      "16 packages** — Schema, audio engine, clip engine, music theory, score map, automation, library, runtime pack, and more",
+      "Adaptive logic** — Trigger bindings, deterministic scene resolution, crossfade/stinger/cooldown transitions",
+      "World scoring** — Motif families, score profiles, cue families, derivation chains",
+      "Sample workflow** — Import, trim, slice, kit builder, sample instruments"
+    ],
+    "publishedAt": "2026-03-11T15:09:39Z",
+    "url": "https://github.com/mcp-tool-shop-org/soundweave/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
     "repo": "py-polyglot",
     "toolName": "Py Polyglot",
     "tag": "v1.0.4",
@@ -651,16 +668,6 @@
     ],
     "publishedAt": "2026-02-27T03:03:26Z",
     "url": "https://github.com/mcp-tool-shop-org/polyglot-vscode/releases/tag/v0.1.1",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-app-builder",
-    "toolName": "Mcp App Builder",
-    "tag": "v0.2.0",
-    "name": "v0.2.0",
-    "body": [],
-    "publishedAt": "2026-02-27T02:31:40Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-app-builder/releases/tag/v0.2.0",
     "prerelease": false
   }
 ]

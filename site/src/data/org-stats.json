@@ -1,5 +1,5 @@
 {
-  "repoCount": 139,
+  "repoCount": 143,
   "registeredCount": 45,
   "totalStars": 11,
   "languages": [
@@ -12,11 +12,11 @@
     "Astro"
   ],
   "recentReleases": 50,
-  "updatedAt": "2026-03-10T14:02:00.977Z",
+  "updatedAt": "2026-03-12T14:04:06.534Z",
   "registryHealth": {
     "registryToolCount": 48,
     "registeredInProjects": 45,
-    "orgOnlyRepos": 94,
+    "orgOnlyRepos": 98,
     "registryArchived": 0,
     "registryMissing": 4,
     "ignoredRepos": 6,

@@ -540,6 +540,22 @@
     "tagline": "Build Reliability Governor - Prevents build system memory exhaustion on Windows.",
     "needsHumanReview": true
   },
+  "cannon": {
+    "tags": [
+      "canon",
+      "lore",
+      "narrative",
+      "react",
+      "rpg",
+      "storyboard"
+    ],
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install cannon",
+    "tagline": "Structured lore, canon, and narrative-planning studio for the AI RPG ecosystem.",
+    "needsHumanReview": true
+  },
   "cannon-archive": {
     "tags": [
       "canon",
@@ -771,6 +787,13 @@
     "screenshot": "/screenshots/comfy-headless.png",
     "screenshotType": "placeholder"
   },
+  "commandui": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install commandui",
+    "needsHumanReview": true
+  },
   "context-window-manager": {
     "tags": [
       "llm"
@@ -790,6 +813,22 @@
     "stability": "stable",
     "kind": "desktop-app",
     "tagline": "Dashboard and monitoring for MCP tool ecosystems.",
+    "needsHumanReview": true
+  },
+  "deltamind": {
+    "tags": [
+      "agent-memory",
+      "ai-tools",
+      "context-compaction",
+      "deltas",
+      "llm",
+      "session-management"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install deltamind",
+    "tagline": "Active context compaction for AI agents — typed deltas, structured state, provenance,...",
     "needsHumanReview": true
   },
   "dev-op-typer": {
@@ -1371,6 +1410,16 @@
     "tagline": "A formal, language-neutral specification for verifiable provenance.",
     "needsHumanReview": true
   },
+  "ptsd-mcp": {
+    "tags": [
+      "mcp"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install ptsd-mcp",
+    "needsHumanReview": true
+  },
   "py-polyglot": {
     "tags": [
       "gpu",
@@ -1639,6 +1688,22 @@
     ],
     "screenshot": "/screenshots/sovereignty.png",
     "screenshotType": "placeholder"
+  },
+  "sprite-creator-studio": {
+    "tags": [
+      "2d-assets",
+      "game-dev",
+      "modular-art",
+      "pixel-art",
+      "procedural-generation",
+      "sprite"
+    ],
+    "category": "games",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install sprite-creator-studio",
+    "tagline": "Create style-consistent 2D asset libraries from modular parts, palettes, animation...",
+    "needsHumanReview": true
   },
   "stresskit-mcp": {
     "screenshot": "/screenshots/stresskit-mcp.png",
