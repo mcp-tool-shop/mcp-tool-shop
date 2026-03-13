@@ -402,6 +402,13 @@
     "tagline": "Python demonstration of accessibility framework capabilities.",
     "needsHumanReview": true
   },
+  "ambient-regulator": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Ambient sound regulator — desktop app powered by sonic-core.",
+    "needsHumanReview": true
+  },
   "artifact": {
     "tags": [
       "artifact",
@@ -978,6 +985,13 @@
     "stability": "beta",
     "kind": "library",
     "tagline": "Linux automation"
+  },
+  "llm-sync-drive": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install llm-sync-drive",
+    "needsHumanReview": true
   },
   "mcp-app-builder": {
     "tags": [
@@ -1607,6 +1621,35 @@
     "tagline": "Shared Astro theme for MCP Tool Shop org repo landing pages.",
     "needsHumanReview": true
   },
+  "sonic-core": {
+    "tags": [
+      "audio",
+      "mcp",
+      "playback",
+      "sidecar",
+      "typescript"
+    ],
+    "category": "voice",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install sonic-core",
+    "tagline": "Audio control plane for TypeScript — playback, synthesis, routing, and device...",
+    "needsHumanReview": true
+  },
+  "sonic-runtime": {
+    "tags": [
+      "audio",
+      "csharp",
+      "nativeaot",
+      "openal",
+      "sidecar"
+    ],
+    "category": "voice",
+    "stability": "experimental",
+    "kind": "desktop-app",
+    "tagline": "Native audio engine sidecar — C# NativeAOT with OpenAL Soft, per-playback device...",
+    "needsHumanReview": true
+  },
   "soundboard-maui": {
     "tags": [
       "cross-platform",
@@ -1703,6 +1746,21 @@
     "kind": "library",
     "install": "npm install sprite-creator-studio",
     "tagline": "Create style-consistent 2D asset libraries from modular parts, palettes, animation...",
+    "needsHumanReview": true
+  },
+  "stillpoint": {
+    "tags": [
+      "ambient",
+      "audio",
+      "mixer",
+      "tauri",
+      "wellness"
+    ],
+    "category": "voice",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install stillpoint",
+    "tagline": "Ambient sound mixer for focus and regulation — 50 layered sounds, per-layer volume,...",
     "needsHumanReview": true
   },
   "stresskit-mcp": {

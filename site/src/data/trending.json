@@ -1,30 +1,30 @@
 {
-  "asOf": "2026-03-12",
+  "asOf": "2026-03-13",
   "windowDays": 7,
   "items": [
     {
       "slug": "comfy-headless",
       "reason": "Top 1 starred repo",
-      "deltaStars": 2
+      "deltaStars": 1
+    },
+    {
+      "slug": "tool-compass",
+      "reason": "Top 2 starred repo",
+      "deltaStars": 1
     },
     {
       "slug": "audiobooker",
       "reason": "Top 9 starred repo",
-      "deltaStars": 3
+      "deltaStars": 2
     },
     {
       "slug": "backpropagate",
       "reason": "Top 10 starred repo",
-      "deltaStars": 1
+      "deltaStars": 3
     },
     {
       "slug": "mcp-stress-test",
       "reason": "Top 10 starred repo",
-      "deltaStars": 4
-    },
-    {
-      "slug": "brain-dev",
-      "reason": "Top 2 starred repo",
       "deltaStars": 4
     }
   ]

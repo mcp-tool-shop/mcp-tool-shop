@@ -32,6 +32,40 @@
     "screenshotType": "placeholder"
   },
   {
+    "name": "Tool Compass",
+    "repo": "tool-compass",
+    "description": "Discovery, classification, and ranking utilities for MCP-compatible tools",
+    "tags": [
+      "mcp",
+      "discovery"
+    ],
+    "featured": true,
+    "stars": 1,
+    "language": "Python",
+    "updatedAt": "2026-03-12T15:47:48Z",
+    "registered": true,
+    "unlisted": false,
+    "deprecated": false,
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "pip install tool-compass",
+    "tagline": "Find MCP tools by describing what you need.",
+    "goodFor": [
+      "Discovering tools across large MCP ecosystems",
+      "Intent-based tool selection (describe the task, get the tool)",
+      "Progressive disclosure — see summaries first, details on demand"
+    ],
+    "notFor": [
+      "Running tools directly (it finds them, you run them)",
+      "Non-MCP tool discovery"
+    ],
+    "screenshot": "/screenshots/tool-compass.png",
+    "screenshotType": "placeholder",
+    "smithery": "https://smithery.ai/servers/mcp-tool-shop/tool-compass",
+    "flyio": "https://tool-compass-gateway.fly.dev"
+  },
+  {
     "name": "Brain Dev",
     "repo": "brain-dev",
     "description": "MCP server for AI-powered code analysis — test generation, security audits, refactoring suggestions",
@@ -128,40 +162,6 @@
     ],
     "screenshot": "/screenshots/soundboard-plugin.png",
     "screenshotType": "placeholder"
-  },
-  {
-    "name": "Tool Compass",
-    "repo": "tool-compass",
-    "description": "Discovery, classification, and ranking utilities for MCP-compatible tools",
-    "tags": [
-      "mcp",
-      "discovery"
-    ],
-    "featured": true,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-03-05T08:12:08Z",
-    "registered": true,
-    "unlisted": false,
-    "deprecated": false,
-    "category": "mcp-core",
-    "stability": "stable",
-    "kind": "mcp-server",
-    "install": "pip install tool-compass",
-    "tagline": "Find MCP tools by describing what you need.",
-    "goodFor": [
-      "Discovering tools across large MCP ecosystems",
-      "Intent-based tool selection (describe the task, get the tool)",
-      "Progressive disclosure — see summaries first, details on demand"
-    ],
-    "notFor": [
-      "Running tools directly (it finds them, you run them)",
-      "Non-MCP tool discovery"
-    ],
-    "screenshot": "/screenshots/tool-compass.png",
-    "screenshotType": "placeholder",
-    "smithery": "https://smithery.ai/servers/mcp-tool-shop/tool-compass",
-    "flyio": "https://tool-compass-gateway.fly.dev"
   },
   {
     "name": "Zip Meta Map",
@@ -335,7 +335,7 @@
     "featured": false,
     "stars": 1,
     "language": "C#",
-    "updatedAt": "2026-03-05T09:04:17Z",
+    "updatedAt": "2026-03-12T15:24:04Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -696,6 +696,32 @@
     "needsHumanReview": true
   },
   {
+    "name": "Ambient Regulator",
+    "repo": "ambient-regulator",
+    "description": "Ambient sound regulator — desktop app powered by sonic-core",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "",
+    "updatedAt": "2026-03-13T12:26:11Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
+    "name": "Ambient Wavs",
+    "repo": "ambient-wavs",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-03-12T16:56:06Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Artifact",
     "repo": "artifact",
     "description": "Repo signature artifact decision system — Curator freshness driver + deterministic inference engine",
@@ -833,7 +859,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-12T07:03:43Z",
+    "updatedAt": "2026-03-13T13:15:34Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -879,9 +905,7 @@
       "narrative",
       "react",
       "rpg",
-      "storyboard",
-      "typescript",
-      "worldbuilding"
+      "storyboard"
     ],
     "featured": false,
     "stars": 0,
@@ -889,7 +913,13 @@
     "updatedAt": "2026-03-11T16:59:47Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install cannon",
+    "tagline": "Structured lore, canon, and narrative-planning studio for the AI RPG ecosystem.",
+    "needsHumanReview": true
   },
   {
     "name": "Civility Kernel",
@@ -1315,7 +1345,12 @@
     "updatedAt": "2026-03-12T12:40:42Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install commandui",
+    "needsHumanReview": true
   },
   {
     "name": "ConsensusOS",
@@ -1436,9 +1471,7 @@
       "context-compaction",
       "deltas",
       "llm",
-      "session-management",
-      "state-machine",
-      "typescript"
+      "session-management"
     ],
     "featured": false,
     "stars": 0,
@@ -1446,7 +1479,13 @@
     "updatedAt": "2026-03-11T21:46:18Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install deltamind",
+    "tagline": "Active context compaction for AI agents — typed deltas, structured state, provenance,...",
+    "needsHumanReview": true
   },
   {
     "name": "DeterministicMouseTrainingEngine",
@@ -1714,6 +1753,19 @@
     "stability": "beta",
     "kind": "library",
     "tagline": "Linux automation"
+  },
+  {
+    "name": "Llm Sync Drive",
+    "repo": "llm-sync-drive",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-03-12T20:21:47Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "LoKey Typer",
@@ -2269,7 +2321,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-03-05T08:55:04Z",
+    "updatedAt": "2026-03-12T15:38:58Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2459,19 +2511,6 @@
     "install": "pip install prov-spec",
     "tagline": "A formal, language-neutral specification for verifiable provenance.",
     "needsHumanReview": true
-  },
-  {
-    "name": "Ptsd Mcp",
-    "repo": "ptsd-mcp",
-    "description": "",
-    "tags": [],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-12T13:57:03Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false
   },
   {
     "name": "Py Polyglot",
@@ -2669,7 +2708,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-03-12T02:31:44Z",
+    "updatedAt": "2026-03-13T02:29:20Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2817,6 +2856,44 @@
     "needsHumanReview": true
   },
   {
+    "name": "Sonic Core",
+    "repo": "sonic-core",
+    "description": "Audio control plane for TypeScript — playback, synthesis, routing, and device management via a native runtime sidecar",
+    "tags": [
+      "audio",
+      "mcp",
+      "playback",
+      "sidecar",
+      "typescript"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-03-13T13:24:37Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
+    "name": "Sonic Runtime",
+    "repo": "sonic-runtime",
+    "description": "Native audio engine sidecar — C# NativeAOT with OpenAL Soft, per-playback device routing, and Kokoro TTS",
+    "tags": [
+      "audio",
+      "csharp",
+      "nativeaot",
+      "openal",
+      "sidecar"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-03-13T13:30:14Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Soundboard Maui",
     "repo": "soundboard-maui",
     "description": "Cross-platform .NET MAUI desktop client for the Sound Board voice engine.",
@@ -2914,13 +2991,37 @@
       "modular-art",
       "pixel-art",
       "procedural-generation",
-      "sprite",
-      "sprite-sheet"
+      "sprite"
     ],
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
     "updatedAt": "2026-03-12T10:51:18Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false,
+    "category": "games",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install sprite-creator-studio",
+    "tagline": "Create style-consistent 2D asset libraries from modular parts, palettes, animation...",
+    "needsHumanReview": true
+  },
+  {
+    "name": "Stillpoint",
+    "repo": "stillpoint",
+    "description": "Ambient sound mixer for focus and regulation — 50 layered sounds, per-layer volume, device routing",
+    "tags": [
+      "ambient",
+      "audio",
+      "mixer",
+      "tauri",
+      "wellness"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-03-13T13:35:27Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -2982,7 +3083,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-05T08:54:23Z",
+    "updatedAt": "2026-03-12T16:20:05Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
