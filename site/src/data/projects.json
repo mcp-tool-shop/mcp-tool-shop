@@ -696,27 +696,14 @@
     "needsHumanReview": true
   },
   {
-    "name": "Ambient Regulator",
-    "repo": "ambient-regulator",
-    "description": "Ambient sound regulator — desktop app powered by sonic-core",
-    "tags": [],
-    "featured": false,
-    "stars": 0,
-    "language": "",
-    "updatedAt": "2026-03-13T12:26:11Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false
-  },
-  {
-    "name": "Ambient Wavs",
-    "repo": "ambient-wavs",
+    "name": "Anchor",
+    "repo": "anchor",
     "description": "",
     "tags": [],
     "featured": false,
     "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-12T16:56:06Z",
+    "language": "Rust",
+    "updatedAt": "2026-03-13T20:03:12Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -859,7 +846,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-13T13:15:34Z",
+    "updatedAt": "2026-03-14T00:53:34Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1337,12 +1324,18 @@
   {
     "name": "Commandui",
     "repo": "commandui",
-    "description": "",
-    "tags": [],
+    "description": "AI-native shell environment with semantic command review",
+    "tags": [
+      "ai-shell",
+      "commandui",
+      "react",
+      "tauri",
+      "terminal"
+    ],
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-12T12:40:42Z",
+    "updatedAt": "2026-03-14T07:40:14Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1757,15 +1750,27 @@
   {
     "name": "Llm Sync Drive",
     "repo": "llm-sync-drive",
-    "description": "",
-    "tags": [],
+    "description": "Compile llms.txt from a repo and sync it to Google Drive",
+    "tags": [
+      "context-sync",
+      "google-drive",
+      "llm",
+      "llms-txt",
+      "mcp",
+      "python"
+    ],
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-03-12T20:21:47Z",
+    "updatedAt": "2026-03-13T15:58:52Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install llm-sync-drive",
+    "needsHumanReview": true
   },
   {
     "name": "LoKey Typer",
@@ -2375,6 +2380,19 @@
     "tagline": "Payroll processing"
   },
   {
+    "name": "Pixelstudio",
+    "repo": "pixelstudio",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-03-14T11:25:40Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Pocket Ledger",
     "repo": "pocket-ledger",
     "description": "Personal finance and budget tracking app — clean, simple, and private-first",
@@ -2708,7 +2726,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-03-13T02:29:20Z",
+    "updatedAt": "2026-03-14T02:27:11Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2791,6 +2809,19 @@
     "needsHumanReview": true
   },
   {
+    "name": "Scoop Bucket",
+    "repo": "scoop-bucket",
+    "description": "Scoop bucket for mcp-tool-shop tools",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "",
+    "updatedAt": "2026-03-14T07:21:47Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Shipcheck",
     "repo": "shipcheck",
     "description": "Product standards for MCP Tool Shop — Ship Gate checklist, error contract, templates, and adoption guides",
@@ -2869,10 +2900,16 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-13T13:24:37Z",
+    "updatedAt": "2026-03-13T15:01:06Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "voice",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install sonic-core",
+    "tagline": "Audio control plane for TypeScript — playback, synthesis, routing, and device...",
+    "needsHumanReview": true
   },
   {
     "name": "Sonic Runtime",
@@ -2888,10 +2925,15 @@
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-03-13T13:30:14Z",
+    "updatedAt": "2026-03-13T14:56:51Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "voice",
+    "stability": "experimental",
+    "kind": "desktop-app",
+    "tagline": "Native audio engine sidecar — C# NativeAOT with OpenAL Soft, per-playback device...",
+    "needsHumanReview": true
   },
   {
     "name": "Soundboard Maui",
@@ -2982,32 +3024,6 @@
     "screenshotType": "placeholder"
   },
   {
-    "name": "Sprite Creator Studio",
-    "repo": "sprite-creator-studio",
-    "description": "Create style-consistent 2D asset libraries from modular parts, palettes, animation sets, and structured metadata.",
-    "tags": [
-      "2d-assets",
-      "game-dev",
-      "modular-art",
-      "pixel-art",
-      "procedural-generation",
-      "sprite"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-12T10:51:18Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "games",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install sprite-creator-studio",
-    "tagline": "Create style-consistent 2D asset libraries from modular parts, palettes, animation...",
-    "needsHumanReview": true
-  },
-  {
     "name": "Stillpoint",
     "repo": "stillpoint",
     "description": "Ambient sound mixer for focus and regulation — 50 layered sounds, per-layer volume, device routing",
@@ -3021,10 +3037,16 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-13T13:35:27Z",
+    "updatedAt": "2026-03-14T12:45:35Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "voice",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install stillpoint",
+    "tagline": "Ambient sound mixer for focus and regulation — 50 layered sounds, per-layer volume,...",
+    "needsHumanReview": true
   },
   {
     "name": "StressKit MCP",
@@ -3438,7 +3460,7 @@
     "featured": false,
     "stars": 0,
     "language": "",
-    "updatedAt": "",
+    "updatedAt": "2026-03-14T07:29:45Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false

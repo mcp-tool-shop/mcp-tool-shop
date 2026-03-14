@@ -1,5 +1,32 @@
 [
   {
+    "repo": "commandui",
+    "toolName": "Commandui",
+    "tag": "v1.0.0",
+    "name": "CommandUI v1.0.0",
+    "body": [],
+    "publishedAt": "2026-03-14T02:03:57Z",
+    "url": "https://github.com/mcp-tool-shop-org/commandui/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "llm-sync-drive",
+    "toolName": "Llm Sync Drive",
+    "tag": "v1.0.0",
+    "name": "v1.0.0",
+    "body": [
+      "First stable release.",
+      "Compile repos into structured `llms.txt` Markdown documents",
+      "Auto-sync to Google Drive with idempotent file IDs",
+      "Watch mode with configurable debounce",
+      "MCP server for AI assistant integration (sync_to_drive, compile_context, sync_status, list_repos)",
+      "Smart filtering via `.gitignore`, `.llmsignore`, and built-in rules"
+    ],
+    "publishedAt": "2026-03-13T15:58:52Z",
+    "url": "https://github.com/mcp-tool-shop-org/llm-sync-drive/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
     "repo": "soundweave",
     "toolName": "Soundweave",
     "tag": "v1.0.1",
@@ -634,40 +661,6 @@
     ],
     "publishedAt": "2026-02-27T03:55:07Z",
     "url": "https://github.com/mcp-tool-shop-org/codeclone-suite/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "polyglot-vscode",
-    "toolName": "Polyglot Vscode",
-    "tag": "v0.1.2",
-    "name": "v0.1.2",
-    "body": [
-      "readmeTranslator** (37 tests): segmentReadme parser, cleanTranslation quirk removal for 10+ languages, translateReadme integration",
-      "util** (15 tests): getConfig, pickLanguage/pickLanguages, log, friendlyError with contextual error detection",
-      "commands** (17 tests): translateSelection, translateFile, checkStatus — edge cases, cancellation, error paths",
-      "statusBar** (9 tests): all 4 polling states (ready, Ollama down, model missing, connection error)",
-      "statusTree** (10 tests): tree provider states, dispose cleanup, model filtering",
-      "Exported `segmentReadme` and `cleanTranslation` for testability"
-    ],
-    "publishedAt": "2026-02-27T03:42:23Z",
-    "url": "https://github.com/mcp-tool-shop-org/polyglot-vscode/releases/tag/v0.1.2",
-    "prerelease": false
-  },
-  {
-    "repo": "polyglot-vscode",
-    "toolName": "Polyglot Vscode",
-    "tag": "v0.1.1",
-    "name": "v0.1.1",
-    "body": [
-      "First published release of Polyglot for VS Code — local GPU translation powered by TranslateGemma 12B via Ollama.",
-      "Translate Selection** — Select text, press `Ctrl+Alt+T`, pick a language",
-      "Translate File** — Translate an entire file into a new `file.ja.ext` alongside the original",
-      "Translate README** — Batch-translate README.md into 7 languages, preserving code blocks, tables, and badges",
-      "Sidebar Panel** — Globe icon in the activity bar with action buttons and live Ollama status",
-      "Status Bar** — Real-time Ollama connection status with auto-polling"
-    ],
-    "publishedAt": "2026-02-27T03:03:26Z",
-    "url": "https://github.com/mcp-tool-shop-org/polyglot-vscode/releases/tag/v0.1.1",
     "prerelease": false
   }
 ]

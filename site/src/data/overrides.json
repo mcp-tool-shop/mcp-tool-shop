@@ -409,6 +409,12 @@
     "tagline": "Ambient sound regulator — desktop app powered by sonic-core.",
     "needsHumanReview": true
   },
+  "anchor": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "needsHumanReview": true
+  },
   "artifact": {
     "tags": [
       "artifact",
@@ -795,10 +801,18 @@
     "screenshotType": "placeholder"
   },
   "commandui": {
+    "tags": [
+      "ai-shell",
+      "commandui",
+      "react",
+      "tauri",
+      "terminal"
+    ],
     "category": "devtools",
     "stability": "experimental",
     "kind": "library",
     "install": "npm install commandui",
+    "tagline": "AI-native shell environment with semantic command review.",
     "needsHumanReview": true
   },
   "context-window-manager": {
@@ -1349,6 +1363,13 @@
     "kind": "library",
     "tagline": "Payroll processing"
   },
+  "pixelstudio": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install pixelstudio",
+    "needsHumanReview": true
+  },
   "pocket-ledger": {
     "tags": [
       "budgeting",
@@ -1585,6 +1606,16 @@
     "stability": "beta",
     "kind": "vscode-extension",
     "tagline": "VS Code extension for AI workflow execution.",
+    "needsHumanReview": true
+  },
+  "scoop-bucket": {
+    "tags": [
+      "mcp"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Scoop bucket for mcp-tool-shop tools.",
     "needsHumanReview": true
   },
   "shipcheck": {
@@ -1941,6 +1972,18 @@
     "stability": "experimental",
     "kind": "vscode-extension",
     "tagline": "VS Code extension — capture web pages as grammar-based IR for LLMs.",
+    "needsHumanReview": true
+  },
+  "winget-pkgs": {
+    "tags": [
+      "winget",
+      "windows",
+      "packaging"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Windows Package Manager manifests for mcp-tool-shop packages.",
     "needsHumanReview": true
   },
   "witness": {

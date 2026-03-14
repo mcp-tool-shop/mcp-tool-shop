@@ -1,5 +1,5 @@
 {
-  "date": "2026-03-13",
+  "date": "2026-03-14",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,17 +9,31 @@
       ]
     },
     {
-      "slug": "pathway",
-      "reason": "Python journey engine for workflow progression tracking",
+      "slug": "venvkit",
+      "reason": "Python virtual environment diagnostics and utilities",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "aspire-ai",
-      "reason": "Goal-oriented framework for running and evaluating AI workflows over time",
+      "slug": "flexiflow",
+      "reason": "Flexible workflow automation framework",
       "signals": [
         "popular"
+      ]
+    },
+    {
+      "slug": "tool-compass",
+      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
+      "signals": [
+        "featured"
+      ]
+    },
+    {
+      "slug": "brain-dev",
+      "reason": "MCP server for AI-powered code analysis — test generation, security audits, refactoring suggestions",
+      "signals": [
+        "featured"
       ]
     },
     {
@@ -27,20 +41,6 @@
       "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
       "signals": [
         "featured"
-      ]
-    },
-    {
-      "slug": "websketch-mcp",
-      "reason": "MCP server for AI-assisted web analysis",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "websketch-cli",
-      "reason": "Command-line interface for web component analysis",
-      "signals": [
-        "popular"
       ]
     }
   ]

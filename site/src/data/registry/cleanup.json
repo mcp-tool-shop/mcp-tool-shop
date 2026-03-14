@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-13T14:00:55.896Z",
+  "generatedAt": "2026-03-14T13:45:35.904Z",
   "archived": [],
   "missing": [
     {
@@ -19,12 +19,6 @@
       "repoName": "websketch-demo",
       "repo": "https://github.com/mcp-tool-shop-org/websketch-demo",
       "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "winget-pkgs",
-      "repoName": "winget-pkgs",
-      "repo": "https://github.com/mcp-tool-shop-org/winget-pkgs",
-      "action": "verify repo exists or remove from registry"
     }
   ],
   "aliases": [
@@ -39,5 +33,5 @@
       "reason": "case-mismatch or rename"
     }
   ],
-  "totalIssues": 4
+  "totalIssues": 3
 }

@@ -7,20 +7,21 @@
     "TypeScript",
     "C#",
     "JavaScript",
+    "Rust",
     "GDScript",
     "HTML",
     "Astro"
   ],
   "recentReleases": 50,
-  "updatedAt": "2026-03-13T14:00:55.895Z",
+  "updatedAt": "2026-03-14T13:45:35.904Z",
   "registryHealth": {
     "registryToolCount": 48,
     "registeredInProjects": 45,
     "orgOnlyRepos": 103,
     "registryArchived": 0,
-    "registryMissing": 4,
+    "registryMissing": 3,
     "ignoredRepos": 6,
     "aliasCount": 2,
-    "warnings": 4
+    "warnings": 3
   }
 }
