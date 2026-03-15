@@ -1,5 +1,5 @@
 {
-  "date": "2026-03-14",
+  "date": "2026-03-15",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,29 +9,22 @@
       ]
     },
     {
-      "slug": "venvkit",
-      "reason": "Python virtual environment diagnostics and utilities",
+      "slug": "witness",
+      "reason": "Attestation witness and verification tooling",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "flexiflow",
-      "reason": "Flexible workflow automation framework",
+      "slug": "synthesis",
+      "reason": "Composable tool framework for building complex AI workflows",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "tool-compass",
-      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
-      "signals": [
-        "featured"
-      ]
-    },
-    {
-      "slug": "brain-dev",
-      "reason": "MCP server for AI-powered code analysis — test generation, security audits, refactoring suggestions",
+      "slug": "file-compass",
+      "reason": "Deterministic file-system navigation and inspection for large repos",
       "signals": [
         "featured"
       ]
@@ -39,6 +32,13 @@
     {
       "slug": "comfy-headless",
       "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
+      "signals": [
+        "featured"
+      ]
+    },
+    {
+      "slug": "tool-compass",
+      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
       "signals": [
         "featured"
       ]

@@ -933,6 +933,13 @@
     "tagline": "MCP server giving any LLM control over game engines. Unreal Engine 5 today, more tomorrow.",
     "needsHumanReview": true
   },
+  "glyphstudio": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install glyphstudio",
+    "needsHumanReview": true
+  },
   "headless-wheel-builder": {
     "tags": [
       "python",
@@ -1001,10 +1008,19 @@
     "tagline": "Linux automation"
   },
   "llm-sync-drive": {
+    "tags": [
+      "context-sync",
+      "google-drive",
+      "llm",
+      "llms-txt",
+      "mcp",
+      "python"
+    ],
     "category": "devtools",
     "stability": "experimental",
     "kind": "library",
     "install": "pip install llm-sync-drive",
+    "tagline": "Compile llms.txt from a repo and sync it to Google Drive.",
     "needsHumanReview": true
   },
   "mcp-app-builder": {

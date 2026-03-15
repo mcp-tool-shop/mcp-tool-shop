@@ -1,18 +1,18 @@
 {
   "meta": {
-    "generatedAt": "2026-03-14T13:45:36.563Z",
-    "runId": "8620788f-cd90-4a1a-bd4e-2259aee66e1d",
+    "generatedAt": "2026-03-15T13:48:23.940Z",
+    "runId": "1b17eb53-ec7f-47e3-87d4-3f19251fa976",
     "version": "2.0",
     "checkedCount": 15,
     "strategy": {
       "recentDays": 7,
       "sampleSize": 10,
-      "seed": "2026-03-14"
+      "seed": "2026-03-15"
     }
   },
   "results": [
     {
-      "repo": "mcpt",
+      "repo": "next-gallery",
       "score": 0,
       "checkStatus": "missing_readme",
       "capReason": "no_readme",
@@ -22,11 +22,11 @@
       "evidence": {
         "hasReadme": false
       },
-      "checkedAt": "2026-03-11T14:06:21.945Z",
-      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
+      "checkedAt": "2026-03-15T13:48:23.940Z",
+      "lastCheckedAt": "2026-03-15T13:48:23.940Z"
     },
     {
-      "repo": "next-gallery",
+      "repo": "mcpt",
       "score": 0,
       "checkStatus": "missing_readme",
       "capReason": "no_readme",
@@ -88,8 +88,8 @@
         "hasScreenshot": false
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-14T13:45:36.563Z",
-      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
+      "checkedAt": "2026-03-15T13:48:23.940Z",
+      "lastCheckedAt": "2026-03-15T13:48:23.940Z"
     },
     {
       "repo": "tool-compass",
@@ -106,8 +106,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-14T13:45:36.563Z",
-      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
+      "checkedAt": "2026-03-15T13:48:23.940Z",
+      "lastCheckedAt": "2026-03-15T13:48:23.940Z"
     },
     {
       "repo": "brain-dev",
@@ -124,8 +124,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-14T13:45:36.563Z",
-      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
+      "checkedAt": "2026-03-15T13:48:23.940Z",
+      "lastCheckedAt": "2026-03-15T13:48:23.940Z"
     },
     {
       "repo": "file-compass",
@@ -142,44 +142,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-14T13:45:36.563Z",
-      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
-    },
-    {
-      "repo": "ClaimLedger",
-      "score": 90,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": false,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-03-14T13:45:36.563Z",
-      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
-    },
-    {
-      "repo": "backpropagate",
-      "score": 90,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": false,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-03-14T13:45:36.563Z",
-      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
+      "checkedAt": "2026-03-15T13:48:23.940Z",
+      "lastCheckedAt": "2026-03-15T13:48:23.940Z"
     },
     {
       "repo": "ally-demo-python",
@@ -196,8 +160,26 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-14T13:45:36.563Z",
-      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
+      "checkedAt": "2026-03-15T13:48:23.940Z",
+      "lastCheckedAt": "2026-03-15T13:48:23.940Z"
+    },
+    {
+      "repo": "flexiflow",
+      "score": 90,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": false,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-03-15T13:48:23.940Z",
+      "lastCheckedAt": "2026-03-15T13:48:23.940Z"
     },
     {
       "repo": "ledger-suite",
@@ -214,8 +196,26 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-14T13:45:36.563Z",
-      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
+      "checkedAt": "2026-03-15T13:48:23.940Z",
+      "lastCheckedAt": "2026-03-15T13:48:23.940Z"
+    },
+    {
+      "repo": "stresskit-mcp",
+      "score": 90,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": false,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-03-15T13:48:23.940Z",
+      "lastCheckedAt": "2026-03-15T13:48:23.940Z"
     },
     {
       "repo": "audiobooker",
@@ -236,6 +236,24 @@
       "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
+      "repo": "backpropagate",
+      "score": 90,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": false,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-03-14T13:45:36.563Z",
+      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
+    },
+    {
       "repo": "mcp-stress-test",
       "score": 90,
       "status": "great",
@@ -252,6 +270,24 @@
       "checkStatus": "ok",
       "checkedAt": "2026-03-12T14:04:07.208Z",
       "lastCheckedAt": "2026-03-12T14:04:07.208Z"
+    },
+    {
+      "repo": "ClaimLedger",
+      "score": 90,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": false,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-03-14T13:45:36.563Z",
+      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
     },
     {
       "repo": "claude-collaborate",
@@ -326,24 +362,6 @@
       "lastCheckedAt": "2026-03-12T14:04:07.208Z"
     },
     {
-      "repo": "flexiflow",
-      "score": 90,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": false,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-03-12T14:04:07.208Z",
-      "lastCheckedAt": "2026-03-12T14:04:07.208Z"
-    },
-    {
       "repo": "nexus-suite",
       "score": 90,
       "status": "great",
@@ -378,24 +396,6 @@
       "checkStatus": "ok",
       "checkedAt": "2026-03-12T14:04:07.208Z",
       "lastCheckedAt": "2026-03-12T14:04:07.208Z"
-    },
-    {
-      "repo": "stresskit-mcp",
-      "score": 90,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": false,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-03-11T14:06:21.945Z",
-      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
       "repo": "venvkit",
@@ -484,11 +484,11 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-14T13:45:36.563Z",
-      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
+      "checkedAt": "2026-03-15T13:48:23.940Z",
+      "lastCheckedAt": "2026-03-15T13:48:23.940Z"
     },
     {
-      "repo": "runforge-vscode",
+      "repo": "synthesis",
       "score": 100,
       "status": "great",
       "capReason": null,
@@ -502,11 +502,11 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-14T13:45:36.563Z",
-      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
+      "checkedAt": "2026-03-15T13:48:23.940Z",
+      "lastCheckedAt": "2026-03-15T13:48:23.940Z"
     },
     {
-      "repo": "codeclone-suite",
+      "repo": "websketch-cli",
       "score": 100,
       "status": "great",
       "capReason": null,
@@ -520,26 +520,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-14T13:45:36.563Z",
-      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
-    },
-    {
-      "repo": "payroll-engine",
-      "score": 100,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": true,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-03-14T13:45:36.563Z",
-      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
+      "checkedAt": "2026-03-15T13:48:23.940Z",
+      "lastCheckedAt": "2026-03-15T13:48:23.940Z"
     },
     {
       "repo": "witness",
@@ -556,11 +538,11 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-14T13:45:36.563Z",
-      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
+      "checkedAt": "2026-03-15T13:48:23.940Z",
+      "lastCheckedAt": "2026-03-15T13:48:23.940Z"
     },
     {
-      "repo": "integradio",
+      "repo": "tool-scan",
       "score": 100,
       "status": "great",
       "capReason": null,
@@ -574,8 +556,26 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-14T13:45:36.563Z",
-      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
+      "checkedAt": "2026-03-15T13:48:23.940Z",
+      "lastCheckedAt": "2026-03-15T13:48:23.940Z"
+    },
+    {
+      "repo": "CreatorLedger",
+      "score": 100,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": true,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-03-15T13:48:23.940Z",
+      "lastCheckedAt": "2026-03-15T13:48:23.940Z"
     },
     {
       "repo": "accessibility-suite",
@@ -614,6 +614,24 @@
       "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
+      "repo": "codeclone-suite",
+      "score": 100,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": true,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-03-14T13:45:36.563Z",
+      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
+    },
+    {
       "repo": "codeteam-suite",
       "score": 100,
       "status": "great",
@@ -650,7 +668,7 @@
       "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
-      "repo": "CreatorLedger",
+      "repo": "headless-wheel-builder",
       "score": 100,
       "status": "great",
       "capReason": null,
@@ -668,7 +686,7 @@
       "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
-      "repo": "headless-wheel-builder",
+      "repo": "integradio",
       "score": 100,
       "status": "great",
       "capReason": null,
@@ -682,8 +700,26 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-11T14:06:21.945Z",
-      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
+      "checkedAt": "2026-03-14T13:45:36.563Z",
+      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
+    },
+    {
+      "repo": "payroll-engine",
+      "score": 100,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": true,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-03-14T13:45:36.563Z",
+      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
     },
     {
       "repo": "prov-engine-js",
@@ -722,7 +758,7 @@
       "lastCheckedAt": "2026-03-11T14:06:21.945Z"
     },
     {
-      "repo": "synthesis",
+      "repo": "runforge-vscode",
       "score": 100,
       "status": "great",
       "capReason": null,
@@ -736,26 +772,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-03-13T14:00:56.548Z",
-      "lastCheckedAt": "2026-03-13T14:00:56.548Z"
-    },
-    {
-      "repo": "tool-scan",
-      "score": 100,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": true,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-03-11T14:06:21.945Z",
-      "lastCheckedAt": "2026-03-11T14:06:21.945Z"
+      "checkedAt": "2026-03-14T13:45:36.563Z",
+      "lastCheckedAt": "2026-03-14T13:45:36.563Z"
     },
     {
       "repo": "training-studio",
@@ -774,24 +792,6 @@
       "checkStatus": "ok",
       "checkedAt": "2026-03-11T14:06:21.945Z",
       "lastCheckedAt": "2026-03-11T14:06:21.945Z"
-    },
-    {
-      "repo": "websketch-cli",
-      "score": 100,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": true,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-03-13T14:00:56.548Z",
-      "lastCheckedAt": "2026-03-13T14:00:56.548Z"
     },
     {
       "repo": "websketch-ir",

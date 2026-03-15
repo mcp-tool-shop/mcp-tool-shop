@@ -221,6 +221,27 @@
     "needsHumanReview": true
   },
   {
+    "name": "Accessibility Suite",
+    "repo": "accessibility-suite",
+    "description": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+    "tags": [
+      "accessibility",
+      "wcag",
+      "compliance",
+      "monorepo"
+    ],
+    "featured": false,
+    "stars": 1,
+    "language": "Python",
+    "updatedAt": "2026-03-05T07:45:09Z",
+    "registered": true,
+    "unlisted": false,
+    "deprecated": false,
+    "ecosystem": "accessibility",
+    "screenshot": "/screenshots/accessibility-suite.png",
+    "screenshotType": "placeholder"
+  },
+  {
     "name": "Attestia",
     "repo": "Attestia",
     "description": "Financial truth infrastructure for the decentralized world.",
@@ -575,27 +596,6 @@
     "needsHumanReview": true
   },
   {
-    "name": "Accessibility Suite",
-    "repo": "accessibility-suite",
-    "description": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
-    "tags": [
-      "accessibility",
-      "wcag",
-      "compliance",
-      "monorepo"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-03-05T07:45:09Z",
-    "registered": true,
-    "unlisted": false,
-    "deprecated": false,
-    "ecosystem": "accessibility",
-    "screenshot": "/screenshots/accessibility-suite.png",
-    "screenshotType": "placeholder"
-  },
-  {
     "name": "Ai Loadout",
     "repo": "ai-loadout",
     "description": "Context-aware knowledge router for AI agents. Dispatch table, frontmatter spec, keyword matcher, token estimator.",
@@ -706,7 +706,11 @@
     "updatedAt": "2026-03-13T20:03:12Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "needsHumanReview": true
   },
   {
     "name": "Artifact",
@@ -880,32 +884,6 @@
     "stability": "stable",
     "kind": "desktop-app",
     "tagline": "Build Reliability Governor - Prevents build system memory exhaustion on Windows.",
-    "needsHumanReview": true
-  },
-  {
-    "name": "Cannon",
-    "repo": "cannon",
-    "description": "Structured lore, canon, and narrative-planning studio for the AI RPG ecosystem.",
-    "tags": [
-      "canon",
-      "lore",
-      "narrative",
-      "react",
-      "rpg",
-      "storyboard"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-11T16:59:47Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install cannon",
-    "tagline": "Structured lore, canon, and narrative-planning studio for the AI RPG ecosystem.",
     "needsHumanReview": true
   },
   {
@@ -1343,6 +1321,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "npm install commandui",
+    "tagline": "AI-native shell environment with semantic command review.",
     "needsHumanReview": true
   },
   {
@@ -1612,6 +1591,19 @@
     "install": "npx game-dev-mcp",
     "tagline": "MCP server giving any LLM control over game engines. Unreal Engine 5 today, more tomorrow.",
     "needsHumanReview": true
+  },
+  {
+    "name": "Glyphstudio",
+    "repo": "glyphstudio",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-03-15T11:25:38Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Headless Wheel Builder",
@@ -2380,19 +2372,6 @@
     "tagline": "Payroll processing"
   },
   {
-    "name": "Pixelstudio",
-    "repo": "pixelstudio",
-    "description": "",
-    "tags": [],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-14T11:25:40Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false
-  },
-  {
     "name": "Pocket Ledger",
     "repo": "pocket-ledger",
     "description": "Personal finance and budget tracking app — clean, simple, and private-first",
@@ -2726,7 +2705,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-03-14T02:27:11Z",
+    "updatedAt": "2026-03-15T02:47:19Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2812,14 +2791,21 @@
     "name": "Scoop Bucket",
     "repo": "scoop-bucket",
     "description": "Scoop bucket for mcp-tool-shop tools",
-    "tags": [],
+    "tags": [
+      "mcp"
+    ],
     "featured": false,
     "stars": 0,
     "language": "",
     "updatedAt": "2026-03-14T07:21:47Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Scoop bucket for mcp-tool-shop tools.",
+    "needsHumanReview": true
   },
   {
     "name": "Shipcheck",
@@ -2845,25 +2831,6 @@
     "kind": "library",
     "install": "npm install shipcheck",
     "tagline": "Product standards for MCP Tool Shop — Ship Gate checklist, error contract, templates,...",
-    "needsHumanReview": true
-  },
-  {
-    "name": "Siege Kit",
-    "repo": "siege-kit",
-    "description": "Physics-first board game toolkit — deterministic 2D engine, SVG rendering, and a complete strategy game in a Turborepo monorepo.",
-    "tags": [],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-05T07:46:02Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "games",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install siege-kit",
-    "tagline": "Physics-first board game toolkit — deterministic 2D engine, SVG rendering, and a...",
     "needsHumanReview": true
   },
   {
@@ -3463,7 +3430,12 @@
     "updatedAt": "2026-03-14T07:29:45Z",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Windows Package Manager manifests for mcp-tool-shop packages.",
+    "needsHumanReview": true
   },
   {
     "name": "Witness",

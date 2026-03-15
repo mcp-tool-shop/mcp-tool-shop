@@ -1,7 +1,7 @@
 {
-  "repoCount": 148,
+  "repoCount": 146,
   "registeredCount": 45,
-  "totalStars": 12,
+  "totalStars": 13,
   "languages": [
     "Python",
     "TypeScript",
@@ -13,11 +13,11 @@
     "Astro"
   ],
   "recentReleases": 50,
-  "updatedAt": "2026-03-14T13:45:35.904Z",
+  "updatedAt": "2026-03-15T13:48:23.268Z",
   "registryHealth": {
     "registryToolCount": 48,
     "registeredInProjects": 45,
-    "orgOnlyRepos": 103,
+    "orgOnlyRepos": 101,
     "registryArchived": 0,
     "registryMissing": 3,
     "ignoredRepos": 6,
