@@ -312,6 +312,29 @@
     "screenshotType": "placeholder"
   },
   {
+    "name": "CodeComfy VS Code",
+    "repo": "codecomfy-vscode",
+    "description": "VS Code extension for code analysis and coverage display",
+    "tags": [
+      "vscode",
+      "extension",
+      "coverage"
+    ],
+    "featured": false,
+    "stars": 1,
+    "language": "TypeScript",
+    "updatedAt": "2026-03-05T08:22:17Z",
+    "registered": true,
+    "unlisted": false,
+    "deprecated": false,
+    "ecosystem": "codeteam",
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "vscode-extension",
+    "tagline": "VS Code extension for code analysis and coverage display.",
+    "needsHumanReview": true
+  },
+  {
     "name": "InControl Desktop",
     "repo": "InControl-Desktop",
     "description": "Privacy-first local LLM chat for Windows — WinUI 3, RTX-accelerated, multi-backend (Ollama, llama.cpp)",
@@ -811,6 +834,19 @@
     "needsHumanReview": true
   },
   {
+    "name": "Avatar Runtime",
+    "repo": "avatar-runtime",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-03-15T19:17:33Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Backprop",
     "repo": "backprop",
     "description": "CLI-first ML trainer with intelligent resource governance — timeboxed runs, GPU monitoring, auto-resume from checkpoints",
@@ -850,7 +886,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-14T00:53:34Z",
+    "updatedAt": "2026-03-16T12:28:54Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1230,29 +1266,6 @@
     "tagline": "Clone detection"
   },
   {
-    "name": "CodeComfy VS Code",
-    "repo": "codecomfy-vscode",
-    "description": "VS Code extension for code analysis and coverage display",
-    "tags": [
-      "vscode",
-      "extension",
-      "coverage"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-05T08:22:17Z",
-    "registered": true,
-    "unlisted": false,
-    "deprecated": false,
-    "ecosystem": "codeteam",
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "vscode-extension",
-    "tagline": "VS Code extension for code analysis and coverage display.",
-    "needsHumanReview": true
-  },
-  {
     "name": "CodeTeam",
     "repo": "codeteam",
     "description": "Legacy code analysis CLI (see codeteam-suite)",
@@ -1595,15 +1608,29 @@
   {
     "name": "Glyphstudio",
     "repo": "glyphstudio",
-    "description": "",
-    "tags": [],
+    "description": "Craft-first sprite studio for deterministic pixel editing, frame-by-frame animation, and future locomotion assistance",
+    "tags": [
+      "animation",
+      "desktop-app",
+      "game-dev",
+      "pixel-art",
+      "react",
+      "rust",
+      "sprite-editor",
+      "tauri"
+    ],
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-15T11:25:38Z",
+    "updatedAt": "2026-03-16T14:00:47Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install glyphstudio",
+    "needsHumanReview": true
   },
   {
     "name": "Headless Wheel Builder",
@@ -1762,6 +1789,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "pip install llm-sync-drive",
+    "tagline": "Compile llms.txt from a repo and sync it to Google Drive.",
     "needsHumanReview": true
   },
   {
@@ -2608,7 +2636,7 @@
     "featured": false,
     "stars": 0,
     "language": "Astro",
-    "updatedAt": "2026-03-09T22:21:17Z",
+    "updatedAt": "2026-03-16T07:16:18Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2705,7 +2733,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-03-15T02:47:19Z",
+    "updatedAt": "2026-03-16T02:48:00Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,

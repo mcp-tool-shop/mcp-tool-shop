@@ -471,6 +471,13 @@
     "tagline": "Real-time VRM avatar lipsync MVP — Godot 4 + FFT visemes + OpenSeeFace.",
     "needsHumanReview": true
   },
+  "avatar-runtime": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install avatar-runtime",
+    "needsHumanReview": true
+  },
   "backprop": {
     "tags": [
       "checkpointing",
