@@ -1,5 +1,5 @@
 {
-  "date": "2026-03-16",
+  "date": "2026-03-17",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,31 +9,24 @@
       ]
     },
     {
-      "slug": "witness",
-      "reason": "Attestation witness and verification tooling",
+      "slug": "mcp-stress-test",
+      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "tool-scan",
-      "reason": "Static inspection utilities for MCP tools and repositories",
+      "slug": "websketch-extension",
+      "reason": "Browser extension for web page analysis and code generation",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "accessibility-suite",
-      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "slug": "aspire-ai",
+      "reason": "Goal-oriented framework for running and evaluating AI workflows over time",
       "signals": [
         "popular"
-      ]
-    },
-    {
-      "slug": "tool-compass",
-      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
-      "signals": [
-        "featured"
       ]
     },
     {
@@ -41,6 +34,13 @@
       "reason": "Deterministic file-system navigation and inspection for large repos",
       "signals": [
         "featured"
+      ]
+    },
+    {
+      "slug": "accessibility-suite",
+      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "signals": [
+        "popular"
       ]
     }
   ]

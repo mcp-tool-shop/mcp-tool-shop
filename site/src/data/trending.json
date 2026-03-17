@@ -1,11 +1,11 @@
 {
-  "asOf": "2026-03-16",
+  "asOf": "2026-03-17",
   "windowDays": 7,
   "items": [
     {
       "slug": "comfy-headless",
       "reason": "Top 1 starred repo",
-      "deltaStars": 2
+      "deltaStars": 3
     },
     {
       "slug": "tool-compass",
@@ -15,17 +15,17 @@
     {
       "slug": "accessibility-suite",
       "reason": "Top 8 starred repo",
-      "deltaStars": 4
+      "deltaStars": 3
     },
     {
       "slug": "audiobooker",
       "reason": "Top 10 starred repo",
-      "deltaStars": 0
+      "deltaStars": 3
     },
     {
       "slug": "backpropagate",
       "reason": "Top 10 starred repo",
-      "deltaStars": 0
+      "deltaStars": 1
     }
   ]
 }
