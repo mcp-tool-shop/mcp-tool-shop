@@ -941,10 +941,19 @@
     "needsHumanReview": true
   },
   "glyphstudio": {
+    "tags": [
+      "animation",
+      "desktop-app",
+      "game-dev",
+      "pixel-art",
+      "react",
+      "rust"
+    ],
     "category": "devtools",
     "stability": "experimental",
     "kind": "library",
     "install": "npm install glyphstudio",
+    "tagline": "Craft-first sprite studio for deterministic pixel editing, frame-by-frame animation,...",
     "needsHumanReview": true
   },
   "headless-wheel-builder": {

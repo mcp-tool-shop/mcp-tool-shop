@@ -1,5 +1,5 @@
 {
-  "date": "2026-03-17",
+  "date": "2026-03-18",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,15 +9,29 @@
       ]
     },
     {
-      "slug": "mcp-stress-test",
-      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
+      "slug": "ally-demo-python",
+      "reason": "Python demonstration of accessibility framework capabilities",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "websketch-extension",
-      "reason": "Browser extension for web page analysis and code generation",
+      "slug": "claude-collaborate",
+      "reason": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "flexiflow",
+      "reason": "Flexible workflow automation framework",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "accessibility-suite",
+      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
       "signals": [
         "popular"
       ]
@@ -25,20 +39,6 @@
     {
       "slug": "aspire-ai",
       "reason": "Goal-oriented framework for running and evaluating AI workflows over time",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "file-compass",
-      "reason": "Deterministic file-system navigation and inspection for large repos",
-      "signals": [
-        "featured"
-      ]
-    },
-    {
-      "slug": "accessibility-suite",
-      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
       "signals": [
         "popular"
       ]

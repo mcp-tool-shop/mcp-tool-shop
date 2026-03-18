@@ -1,5 +1,22 @@
 [
   {
+    "repo": "glyphstudio",
+    "toolName": "Glyphstudio",
+    "tag": "v1.0.0",
+    "name": "GlyphStudio v1 — A Governed Pixel Asset Studio",
+    "body": [
+      "GlyphStudio v1 is a governed pixel asset studio for creating stills, animation, variants, reusable parts, and structured output.",
+      "This release focuses on five connected product arcs:",
+      "Palette variants, reusable parts, document variants, and batch bundle export.",
+      "Unified library, pinning and recency, search and keyboard retrieval, and interchange.",
+      "Project templates, asset packs, apply-to-project flows, and an upgraded start surface.",
+      "Starter recipes, contextual workflow hints, shortcut discovery, and canonical sample content."
+    ],
+    "publishedAt": "2026-03-18T13:12:40Z",
+    "url": "https://github.com/mcp-tool-shop-org/glyphstudio/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
     "repo": "commandui",
     "toolName": "Commandui",
     "tag": "v1.0.0",
@@ -644,23 +661,6 @@
     ],
     "publishedAt": "2026-02-27T04:08:54Z",
     "url": "https://github.com/mcp-tool-shop-org/vscode-voice-soundboard/releases/tag/v0.3.1",
-    "prerelease": false
-  },
-  {
-    "repo": "codeclone-suite",
-    "toolName": "Codeclone Suite",
-    "tag": "v0.2.0",
-    "name": "v0.2.0",
-    "body": [
-      "62 Python unit tests** for CLI core — coverage report parsing, diagnostics, staleness checks, file discovery",
-      "37 TypeScript unit tests** for VS Code extension — CLI output parsing, JSON validation, diagnostic publishing, CLI discovery",
-      "CI integration** — unit test steps (pytest + vitest) added to CI workflow",
-      "CLI discovery converted from blocking `execSync` to async `execFile`",
-      "Typo `bySevertity` → `bySeverity` in results tree provider",
-      "Extension version aligned with CLI engine (both now 0.2.0)"
-    ],
-    "publishedAt": "2026-02-27T03:55:07Z",
-    "url": "https://github.com/mcp-tool-shop-org/codeclone-suite/releases/tag/v0.2.0",
     "prerelease": false
   }
 ]
