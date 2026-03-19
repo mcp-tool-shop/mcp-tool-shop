@@ -607,12 +607,13 @@
     "needsHumanReview": true
   },
   "claude-rpg": {
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install claude-rpg",
-    "tagline": "Simulation-grounded narrative RPG where worlds are generated live, but truth remains...",
-    "needsHumanReview": true
+    "category": "games",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "npx claude-rpg play --world fantasy",
+    "tagline": "Simulation-grounded campaign RPG — 10 worlds, streaming narration, 195 tests, runtime-proofed.",
+    "goodFor": "Players who want AI narration grounded in deterministic simulation truth. Developers building on the AI RPG Engine ecosystem.",
+    "notFor": "Casual chatbot RPGs — this is a full simulation engine, not a prompt wrapper."
   },
   "claude-rules": {
     "tags": [
