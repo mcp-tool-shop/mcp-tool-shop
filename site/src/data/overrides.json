@@ -402,13 +402,6 @@
     "tagline": "Python demonstration of accessibility framework capabilities.",
     "needsHumanReview": true
   },
-  "ambient-regulator": {
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "library",
-    "tagline": "Ambient sound regulator — desktop app powered by sonic-core.",
-    "needsHumanReview": true
-  },
   "anchor": {
     "category": "devtools",
     "stability": "experimental",
@@ -469,13 +462,6 @@
     "stability": "experimental",
     "kind": "library",
     "tagline": "Real-time VRM avatar lipsync MVP — Godot 4 + FFT visemes + OpenSeeFace.",
-    "needsHumanReview": true
-  },
-  "avatar-runtime": {
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install avatar-runtime",
     "needsHumanReview": true
   },
   "backprop": {
@@ -558,38 +544,6 @@
     "stability": "stable",
     "kind": "desktop-app",
     "tagline": "Build Reliability Governor - Prevents build system memory exhaustion on Windows.",
-    "needsHumanReview": true
-  },
-  "cannon": {
-    "tags": [
-      "canon",
-      "lore",
-      "narrative",
-      "react",
-      "rpg",
-      "storyboard"
-    ],
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install cannon",
-    "tagline": "Structured lore, canon, and narrative-planning studio for the AI RPG ecosystem.",
-    "needsHumanReview": true
-  },
-  "cannon-archive": {
-    "tags": [
-      "canon",
-      "lore",
-      "narrative",
-      "react",
-      "rpg",
-      "storyboard"
-    ],
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install cannon-archive",
-    "tagline": "Structured lore, canon, and narrative-planning studio for the AI RPG ecosystem.",
     "needsHumanReview": true
   },
   "civility-kernel": {
@@ -978,15 +932,6 @@
     "tagline": "CLI-first build/validate/release tooling for Python wheels and sdists.",
     "needsHumanReview": true
   },
-  "homebrew-mcp-tools": {
-    "tags": [
-      "package-mgr"
-    ],
-    "category": "infrastructure",
-    "stability": "beta",
-    "kind": "library",
-    "tagline": "Package manager"
-  },
   "integradio": {
     "tags": [
       "gradio",
@@ -1102,15 +1047,6 @@
     "smithery": "https://smithery.ai/servers/mcp-tool-shop/mcp-file-forge",
     "flyio": "https://mcp-file-forge.fly.dev"
   },
-  "mcp-shipcheck": {
-    "tags": [
-      "devops"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "mcp-server",
-    "tagline": "Deployment checker"
-  },
   "mcp-stress-test": {
     "tags": [
       "mcp",
@@ -1123,27 +1059,6 @@
     "tagline": "Red team toolkit for MCP security scanners.",
     "screenshot": "/screenshots/mcp-stress-test.png",
     "screenshotType": "placeholder"
-  },
-  "mcp-tool-registry": {
-    "tags": [
-      "mcp",
-      "registry",
-      "metadata"
-    ],
-    "category": "mcp-core",
-    "stability": "stable",
-    "kind": "library",
-    "install": "npm install @mcptoolshop/mcp-tool-registry",
-    "tagline": "Source-of-truth metadata registry for the MCP Tool Shop ecosystem.",
-    "goodFor": [
-      "Fast tool discovery without cloning repos",
-      "Schema-validated tool metadata for clients and CLIs",
-      "Pinnable versions for reproducible environments"
-    ],
-    "notFor": [
-      "Running tools directly (use mcpt CLI for that)",
-      "Hosting your own MCP tools (submit a PR to the registry instead)"
-    ]
   },
   "mcp-voice-engine": {
     "tags": [
@@ -1411,13 +1326,6 @@
     "kind": "library",
     "tagline": "Payroll processing"
   },
-  "pixelstudio": {
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install pixelstudio",
-    "needsHumanReview": true
-  },
   "pocket-ledger": {
     "tags": [
       "budgeting",
@@ -1493,16 +1401,6 @@
     "tagline": "A formal, language-neutral specification for verifiable provenance.",
     "needsHumanReview": true
   },
-  "ptsd-mcp": {
-    "tags": [
-      "mcp"
-    ],
-    "category": "mcp-core",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install ptsd-mcp",
-    "needsHumanReview": true
-  },
   "py-polyglot": {
     "tags": [
       "gpu",
@@ -1533,21 +1431,6 @@
     "kind": "cli",
     "install": "npx receipt-factory",
     "tagline": "Signed, timestamped, reproducible records of what happened — CI, releases, audits, SBOMs.",
-    "needsHumanReview": true
-  },
-  "registry-pulse": {
-    "tags": [
-      "astro",
-      "dashboard",
-      "docker",
-      "download-stats",
-      "github-pages",
-      "npm"
-    ],
-    "category": "infrastructure",
-    "stability": "experimental",
-    "kind": "meta",
-    "tagline": "Multi-registry download stats dashboard — executive snapshots, growth pulse, and data...",
     "needsHumanReview": true
   },
   "registry-stats": {
@@ -1698,14 +1581,6 @@
     "tagline": "Product standards for MCP Tool Shop — Ship Gate checklist, error contract, templates,...",
     "needsHumanReview": true
   },
-  "siege-kit": {
-    "category": "games",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install siege-kit",
-    "tagline": "Physics-first board game toolkit — deterministic 2D engine, SVG rendering, and a...",
-    "needsHumanReview": true
-  },
   "site-theme": {
     "tags": [
       "mcp"
@@ -1826,22 +1701,6 @@
     ],
     "screenshot": "/screenshots/sovereignty.png",
     "screenshotType": "placeholder"
-  },
-  "sprite-creator-studio": {
-    "tags": [
-      "2d-assets",
-      "game-dev",
-      "modular-art",
-      "pixel-art",
-      "procedural-generation",
-      "sprite"
-    ],
-    "category": "games",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install sprite-creator-studio",
-    "tagline": "Create style-consistent 2D asset libraries from modular parts, palettes, animation...",
-    "needsHumanReview": true
   },
   "stillpoint": {
     "tags": [

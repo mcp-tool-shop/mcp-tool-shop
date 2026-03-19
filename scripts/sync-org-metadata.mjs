@@ -46,42 +46,72 @@ function writeJson(p, obj) {
 let apiCalls = 0;
 let rateLimited = false;
 
+const MAX_RETRIES = 3;
+const RETRY_BASE_MS = 1000;
+
+async function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function isRetryable(status) {
+  return status === 429 || status === 500 || status === 502 || status === 503;
+}
+
 async function ghFetch(url) {
-  apiCalls++;
   const headers = {
     Accept: "application/vnd.github+json",
     "User-Agent": "mcp-tool-shop-sync",
   };
   if (TOKEN) headers["Authorization"] = `Bearer ${TOKEN}`;
 
-  const res = await fetch(url, { headers });
-  if (!res.ok) {
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    apiCalls++;
+    const res = await fetch(url, { headers, signal: AbortSignal.timeout(30000) });
+
+    if (res.ok) return res;
+
+    if (isRetryable(res.status) && attempt < MAX_RETRIES) {
+      const delay = RETRY_BASE_MS * Math.pow(2, attempt);
+      console.warn(`  Retrying ${url} (${res.status}) in ${delay}ms (attempt ${attempt + 1}/${MAX_RETRIES})`);
+      await sleep(delay);
+      continue;
+    }
+
     const body = await res.text().catch(() => "");
     throw new Error(`GitHub API ${res.status} for ${url}\n${body}`);
   }
-  return res;
 }
 
 async function ghFetchOptional(url) {
-  apiCalls++;
   const headers = {
     Accept: "application/vnd.github+json",
     "User-Agent": "mcp-tool-shop-sync",
   };
   if (TOKEN) headers["Authorization"] = `Bearer ${TOKEN}`;
 
-  const res = await fetch(url, { headers });
-  if (res.status === 404) return null;
-  if (res.status === 403) {
-    rateLimited = true;
-    console.warn(`Rate limited at ${apiCalls} API calls, skipping remaining release fetches`);
-    return null;
-  }
-  if (!res.ok) {
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    apiCalls++;
+    const res = await fetch(url, { headers, signal: AbortSignal.timeout(30000) });
+
+    if (res.ok) return res;
+    if (res.status === 404) return null;
+    if (res.status === 403) {
+      rateLimited = true;
+      console.warn(`Rate limited at ${apiCalls} API calls, skipping remaining release fetches`);
+      return null;
+    }
+
+    if (isRetryable(res.status) && attempt < MAX_RETRIES) {
+      const delay = RETRY_BASE_MS * Math.pow(2, attempt);
+      console.warn(`  Retrying ${url} (${res.status}) in ${delay}ms (attempt ${attempt + 1}/${MAX_RETRIES})`);
+      await sleep(delay);
+      continue;
+    }
+
     const body = await res.text().catch(() => "");
     throw new Error(`GitHub API ${res.status} for ${url}\n${body}`);
   }
-  return res;
+  return null;
 }
 
 async function listOrgRepos(org) {

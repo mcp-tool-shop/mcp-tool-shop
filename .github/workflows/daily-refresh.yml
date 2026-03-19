@@ -16,17 +16,24 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
           cache: npm
 
       - name: Install
         run: npm ci
+
+      # ── Data Pipeline ─────────────────────────────────────────
+      - name: Fetch registry data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run fetch:registry
+        continue-on-error: true
 
       - name: Sync org metadata
         env:
@@ -40,16 +47,27 @@ jobs:
       - name: Generate placeholders
         run: npm run placeholders
         continue-on-error: true
-      
+
       - name: Generate daily dynamic content
         run: |
           npm run daily:dynamic
           npm run daily:note
         continue-on-error: true
 
+      # ── Quality Gate ──────────────────────────────────────────
       - name: Readiness check
         run: npm run readiness
 
+      - name: Run invariant tests
+        run: npm run test:invariants
+
+      # ── Regenerate SBOM ───────────────────────────────────────
+      - name: Regenerate SBOM
+        run: |
+          cd site && npm sbom --sbom-format cyclonedx --sbom-type library > ../sbom.json
+        continue-on-error: true
+
+      # ── Commit ────────────────────────────────────────────────
       - name: Commit changes if any
         run: |
           if [ -n "$(git status --porcelain)" ]; then
