@@ -1,5 +1,5 @@
 {
-  "date": "2026-03-18",
+  "date": "2026-03-19",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,29 +9,22 @@
       ]
     },
     {
-      "slug": "ally-demo-python",
-      "reason": "Python demonstration of accessibility framework capabilities",
+      "slug": "runforge-desktop",
+      "reason": "Windows desktop application for AI workflow execution",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "claude-collaborate",
-      "reason": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows",
+      "slug": "codecomfy-vscode",
+      "reason": "VS Code extension for code analysis and coverage display",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "flexiflow",
-      "reason": "Flexible workflow automation framework",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "accessibility-suite",
-      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "slug": "synthesis",
+      "reason": "Composable tool framework for building complex AI workflows",
       "signals": [
         "popular"
       ]
@@ -39,6 +32,13 @@
     {
       "slug": "aspire-ai",
       "reason": "Goal-oriented framework for running and evaluating AI workflows over time",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "flexiflow",
+      "reason": "Flexible workflow automation framework",
       "signals": [
         "popular"
       ]

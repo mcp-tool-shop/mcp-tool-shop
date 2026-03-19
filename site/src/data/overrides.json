@@ -822,6 +822,14 @@
     "tagline": "AI-native shell environment with semantic command review.",
     "needsHumanReview": true
   },
+  "composecraft": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install composecraft",
+    "tagline": "Desktop composition workspace — multi-claude proving ground.",
+    "needsHumanReview": true
+  },
   "context-window-manager": {
     "tags": [
       "llm"
@@ -1178,6 +1186,14 @@
     "stability": "stable",
     "kind": "desktop-app",
     "tagline": "Shared content system for typing-practice apps — lessons, progression, and adaptive...",
+    "needsHumanReview": true
+  },
+  "multi-claude": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install multi-claude",
+    "tagline": "Multi-Claude Factory — lane-based parallel build system.",
     "needsHumanReview": true
   },
   "nexus-attest": {
@@ -1583,6 +1599,22 @@
     "tagline": "MCP server that crawls GitHub repos and extracts structured data for AI agents.",
     "needsHumanReview": true
   },
+  "repo-knowledge": {
+    "tags": [
+      "audit",
+      "cli",
+      "fts5",
+      "knowledge-catalog",
+      "mcp",
+      "mcp-server"
+    ],
+    "category": "security",
+    "stability": "experimental",
+    "kind": "mcp-server",
+    "install": "npx repo-knowledge",
+    "tagline": "Repo knowledge system — relational catalog with full-text search, audit evidence, and...",
+    "needsHumanReview": true
+  },
   "repomesh": {
     "tags": [
       "attestation",
@@ -1829,6 +1861,14 @@
   "stresskit-mcp": {
     "screenshot": "/screenshots/stresskit-mcp.png",
     "screenshotType": "placeholder"
+  },
+  "studioflow": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install studioflow",
+    "tagline": "desktop creative workspace (multi-claude proving ground).",
+    "needsHumanReview": true
   },
   "synthesis": {
     "tags": [

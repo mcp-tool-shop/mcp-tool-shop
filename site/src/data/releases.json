@@ -1,5 +1,15 @@
 [
   {
+    "repo": "LeaseGate",
+    "toolName": "LeaseGate",
+    "tag": "policy-bundle-871e0acf6a714d4f452070043740c3e44e8874f4",
+    "name": "policy-bundle-871e0acf6a714d4f452070043740c3e44e8874f4",
+    "body": [],
+    "publishedAt": "2026-03-18T19:56:05Z",
+    "url": "https://github.com/mcp-tool-shop-org/LeaseGate/releases/tag/policy-bundle-871e0acf6a714d4f452070043740c3e44e8874f4",
+    "prerelease": false
+  },
+  {
     "repo": "glyphstudio",
     "toolName": "Glyphstudio",
     "tag": "v1.0.0",
@@ -647,20 +657,6 @@
     ],
     "publishedAt": "2026-02-27T04:21:25Z",
     "url": "https://github.com/mcp-tool-shop-org/backprop/releases/tag/v0.3.4",
-    "prerelease": false
-  },
-  {
-    "repo": "vscode-voice-soundboard",
-    "toolName": "Vscode Voice Soundboard",
-    "tag": "v0.3.1",
-    "name": "v0.3.1",
-    "body": [
-      "102 unit tests** across 7 test files covering all extension modules",
-      "Vitest configuration with comprehensive vscode module mock",
-      "Exported `parseToolResult` and `formatVttTime` for testability"
-    ],
-    "publishedAt": "2026-02-27T04:08:54Z",
-    "url": "https://github.com/mcp-tool-shop-org/vscode-voice-soundboard/releases/tag/v0.3.1",
     "prerelease": false
   }
 ]
