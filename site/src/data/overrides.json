@@ -590,6 +590,22 @@
     "tagline": "Flight computer for Claude Code — log rotation, watchdog, crash bundles, and MCP...",
     "needsHumanReview": true
   },
+  "claude-hook-debug": {
+    "tags": [
+      "claude-code",
+      "cli",
+      "debug",
+      "diagnostic",
+      "hooks",
+      "mcp-tool-shop"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "plugin",
+    "install": "npm install claude-hook-debug",
+    "tagline": "Diagnostic CLI for Claude Code hook issues — detects ghost hooks, scope conflicts, and...",
+    "needsHumanReview": true
+  },
   "claude-memories": {
     "tags": [
       "agent",
@@ -837,6 +853,22 @@
     "tagline": "Developer-focused typing practice for Windows — type real code across 6 languages, with...",
     "needsHumanReview": true
   },
+  "dogfood-labs": {
+    "tags": [
+      "dogfood",
+      "evidence",
+      "governance",
+      "mcp-tool-shop",
+      "quality",
+      "verification"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install dogfood-labs",
+    "tagline": "Centralized dogfood evidence system — proves every repo was actually exercised in a...",
+    "needsHumanReview": true
+  },
   "escape-the-valley": {
     "category": "infrastructure",
     "stability": "stable",
@@ -917,6 +949,13 @@
     "kind": "library",
     "install": "npm install glyphstudio",
     "tagline": "Craft-first sprite studio for deterministic pixel editing, frame-by-frame animation,...",
+    "needsHumanReview": true
+  },
+  "green-room": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Post-run reward console — proof-backed victory ritual (Tauri v2 + React).",
     "needsHumanReview": true
   },
   "headless-wheel-builder": {
@@ -1233,6 +1272,22 @@
     "tagline": "Generic GitHub-release binary launcher with cache + SHA256 verification.",
     "needsHumanReview": true
   },
+  "npm-portlight": {
+    "tags": [
+      "cli",
+      "game",
+      "maritime",
+      "npm",
+      "portlight",
+      "strategy"
+    ],
+    "category": "games",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "npx npm-portlight",
+    "tagline": "npm wrapper for Portlight — zero-prerequisite npx install for the maritime strategy CLI.",
+    "needsHumanReview": true
+  },
   "npm-sovereignty": {
     "tags": [
       "board-game",
@@ -1371,6 +1426,22 @@
     "stability": "beta",
     "kind": "vscode-extension",
     "tagline": "VS Code extension for local GPU translation — TranslateGemma via Ollama, 55 languages,...",
+    "needsHumanReview": true
+  },
+  "portlight": {
+    "tags": [
+      "cli",
+      "game",
+      "maritime",
+      "python",
+      "simulation",
+      "strategy"
+    ],
+    "category": "games",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pipx install portlight",
+    "tagline": "Trade-first maritime strategy CLI — route arbitrage, contracts, infrastructure,...",
     "needsHumanReview": true
   },
   "prov-engine-js": {

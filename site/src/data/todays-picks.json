@@ -1,5 +1,5 @@
 {
-  "date": "2026-03-19",
+  "date": "2026-03-20",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,36 +9,36 @@
       ]
     },
     {
-      "slug": "runforge-desktop",
-      "reason": "Windows desktop application for AI workflow execution",
+      "slug": "websketch-extension",
+      "reason": "Browser extension for web page analysis and code generation",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "codecomfy-vscode",
-      "reason": "VS Code extension for code analysis and coverage display",
+      "slug": "file-compass",
+      "reason": "Deterministic file-system navigation and inspection for large repos",
+      "signals": [
+        "featured"
+      ]
+    },
+    {
+      "slug": "websketch-mcp",
+      "reason": "MCP server for AI-assisted web analysis",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "synthesis",
-      "reason": "Composable tool framework for building complex AI workflows",
+      "slug": "CreatorLedger",
+      "reason": "Creator attestation proofs and authorship verification",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "aspire-ai",
-      "reason": "Goal-oriented framework for running and evaluating AI workflows over time",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "flexiflow",
-      "reason": "Flexible workflow automation framework",
+      "slug": "prov-engine-js",
+      "reason": "JavaScript/TypeScript provenance and traceability engine",
       "signals": [
         "popular"
       ]
