@@ -49,6 +49,10 @@ const snapshot = showProof && proofData ? loadSnapshot() : null;
 const pressData = showProof ? getPressData(project.repo) : null;
 const presskitDir = path.resolve('public/presskit', project.repo);
 const hasPresski = showProof && fs.existsSync(presskitDir);
+
+// Normalize goodFor/notFor: string → single-element array
+const goodFor: string[] | null = project.goodFor ? (Array.isArray(project.goodFor) ? project.goodFor : [project.goodFor]) : null;
+const notFor: string[] | null = project.notFor ? (Array.isArray(project.notFor) ? project.notFor : [project.notFor]) : null;
 ---
 
 <Base
@@ -145,23 +149,23 @@ const hasPresski = showProof && fs.existsSync(presskitDir);
       )}
     </div>
 
-    {(project.goodFor || project.notFor) && (
+    {(goodFor || notFor) && (
       <div class="fit-section">
-        {project.goodFor && (
+        {goodFor && (
           <div class="fit-col">
             <h2>Good for</h2>
             <ul>
-              {project.goodFor.map((item: string) => (
+              {goodFor.map((item: string) => (
                 <li>{item}</li>
               ))}
             </ul>
           </div>
         )}
-        {project.notFor && (
+        {notFor && (
           <div class="fit-col">
             <h2>Not for</h2>
             <ul>
-              {project.notFor.map((item: string) => (
+              {notFor.map((item: string) => (
                 <li>{item}</li>
               ))}
             </ul>
