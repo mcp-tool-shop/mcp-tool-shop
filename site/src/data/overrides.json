@@ -1145,11 +1145,13 @@
   },
   "multi-claude": {
     "category": "devtools",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install multi-claude",
-    "tagline": "Multi-Claude Factory — lane-based parallel build system.",
-    "needsHumanReview": true
+    "stability": "stable",
+    "kind": "cli",
+    "install": "npm install -g @mcptoolshop/multi-claude",
+    "tagline": "Lane-based parallel build system for Claude Code.",
+    "goodFor": ["parallel builds", "packet graphs", "multi-agent orchestration"],
+    "notFor": ["single-file edits", "sequential tasks"],
+    "needsHumanReview": false
   },
   "nexus-attest": {
     "tags": [
