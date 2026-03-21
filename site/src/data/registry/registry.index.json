@@ -246,36 +246,6 @@
     "capabilities": []
   },
   {
-    "id": "codeclone-suite",
-    "name": "CodeClone Suite",
-    "description": "Deterministic code coverage analysis as a protocol — CLI engine and editor extensions",
-    "verification": "none",
-    "keywords": [
-      "analysis",
-      "and",
-      "cli",
-      "code",
-      "codeclone",
-      "coverage",
-      "deterministic",
-      "editor",
-      "engine",
-      "extensions",
-      "monorepo",
-      "protocol",
-      "suite"
-    ],
-    "tags": [
-      "coverage",
-      "monorepo",
-      "protocol"
-    ],
-    "bundle_membership": [
-      "evaluation"
-    ],
-    "capabilities": []
-  },
-  {
     "id": "codecomfy-vscode",
     "name": "CodeComfy VS Code",
     "description": "VS Code extension for code analysis and coverage display",

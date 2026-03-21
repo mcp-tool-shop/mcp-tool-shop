@@ -182,26 +182,6 @@
       }
     },
     {
-      "id": "codeclone-suite",
-      "name": "CodeClone Suite",
-      "description": "Deterministic code coverage analysis as a protocol — CLI engine and editor extensions",
-      "repo": "https://github.com/mcp-tool-shop-org/codeclone-suite",
-      "install": {
-        "type": "git",
-        "url": "https://github.com/mcp-tool-shop-org/codeclone-suite.git",
-        "default_ref": "main"
-      },
-      "ecosystem": "codeteam",
-      "tags": [
-        "coverage",
-        "protocol",
-        "monorepo"
-      ],
-      "defaults": {
-        "safe_run": true
-      }
-    },
-    {
       "id": "codecomfy-vscode",
       "name": "CodeComfy VS Code",
       "description": "VS Code extension for code analysis and coverage display",

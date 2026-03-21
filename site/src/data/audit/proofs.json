@@ -146,21 +146,6 @@
     "concept": true
   },
   {
-    "repo": "CodeClone-Desktop",
-    "proofs": [
-      "dotnet",
-      "ci"
-    ],
-    "verified": true,
-    "concept": false
-  },
-  {
-    "repo": "codeclone-suite",
-    "proofs": [],
-    "verified": false,
-    "concept": true
-  },
-  {
     "repo": "codecomfy-vscode",
     "proofs": [],
     "verified": false,

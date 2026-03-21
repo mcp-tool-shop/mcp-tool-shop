@@ -2,12 +2,6 @@
   "generatedAt": "2026-02-17T19:24:07.830Z",
   "findings": [
     {
-      "repo": "codeclone-suite",
-      "issues": [
-        "Invalid kind: tool-suite"
-      ]
-    },
-    {
       "repo": "codecomfy-vscode",
       "issues": [
         "Invalid kind: vscode-extension"

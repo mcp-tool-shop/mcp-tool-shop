@@ -39,21 +39,6 @@
     "tagline": "Scientific claim provenance and verification ledger.",
     "needsHumanReview": true
   },
-  "CodeClone-Desktop": {
-    "tags": [
-      "analysis",
-      "code-analysis",
-      "code-clone",
-      "code-coverage",
-      "desktop-app",
-      "dotnet"
-    ],
-    "category": "desktop",
-    "stability": "stable",
-    "kind": "desktop-app",
-    "tagline": "MAUI desktop viewer for CodeClone coverage analysis.",
-    "needsHumanReview": true
-  },
   "ConsensusOS": {
     "tags": [
       "consensus",
@@ -708,15 +693,6 @@
     "install": "pip install code-covered",
     "tagline": "Coverage visualization and reporting tool.",
     "needsHumanReview": true
-  },
-  "codeclone-suite": {
-    "tags": [
-      "code-analysis"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library",
-    "tagline": "Clone detection"
   },
   "codecomfy-vscode": {
     "tags": [

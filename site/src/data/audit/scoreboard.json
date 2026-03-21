@@ -275,13 +275,6 @@
       "realityIssuesCount": 0
     },
     {
-      "repo": "codeclone-suite",
-      "score": 95,
-      "label": "Prototype",
-      "metaIssuesCount": 1,
-      "realityIssuesCount": 0
-    },
-    {
       "repo": "codecomfy-vscode",
       "score": 95,
       "label": "Prototype",
@@ -451,13 +444,6 @@
     },
     {
       "repo": "code-covered",
-      "score": 100,
-      "label": "Prototype",
-      "metaIssuesCount": 0,
-      "realityIssuesCount": 0
-    },
-    {
-      "repo": "CodeClone-Desktop",
       "score": 100,
       "label": "Prototype",
       "metaIssuesCount": 0,

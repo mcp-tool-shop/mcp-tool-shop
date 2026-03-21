@@ -1230,51 +1230,6 @@
     "needsHumanReview": true
   },
   {
-    "name": "CodeClone Desktop",
-    "repo": "CodeClone-Desktop",
-    "description": "MAUI desktop viewer for CodeClone coverage analysis",
-    "tags": [
-      "analysis",
-      "code-analysis",
-      "code-clone",
-      "code-coverage",
-      "desktop-app",
-      "dotnet"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "C#",
-    "updatedAt": "2026-03-18T19:37:21Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "desktop",
-    "stability": "stable",
-    "kind": "desktop-app",
-    "tagline": "MAUI desktop viewer for CodeClone coverage analysis.",
-    "needsHumanReview": true
-  },
-  {
-    "name": "CodeClone Suite",
-    "repo": "codeclone-suite",
-    "description": "Deterministic code coverage analysis as a protocol — CLI engine and editor extensions",
-    "tags": [
-      "code-analysis"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-05T08:23:51Z",
-    "registered": true,
-    "unlisted": false,
-    "deprecated": false,
-    "ecosystem": "codeteam",
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library",
-    "tagline": "Clone detection"
-  },
-  {
     "name": "CodeTeam",
     "repo": "codeteam",
     "description": "Legacy code analysis CLI (see codeteam-suite)",
