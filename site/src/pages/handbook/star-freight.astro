@@ -1,0 +1,345 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  title="Star Freight Handbook - mcp-tool-shop"
+  description="Operating manual for Star Freight — a text-first tactics merchant RPG."
+  currentPath="/handbook/star-freight/"
+>
+  <div class="handbook">
+    <a href="/tools/star-freight/" class="back-link">&larr; Star Freight</a>
+
+    <h1>Star Freight Handbook</h1>
+    <p class="subtitle">Operating manual for captains, contributors, and the curious.</p>
+
+    <nav class="toc">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#what-this-is">What this game is</a></li>
+        <li><a href="#four-truths">Four system truths</a></li>
+        <li><a href="#captain-paths">Captain paths</a></li>
+        <li><a href="#the-world">The world</a></li>
+        <li><a href="#campaign-state">Campaign state law</a></li>
+        <li><a href="#balance">Balance doctrine</a></li>
+        <li><a href="#expansion-rules">Expansion rules</a></li>
+        <li><a href="#standing-rule">The standing rule</a></li>
+      </ol>
+    </nav>
+
+    <section id="what-this-is">
+      <h2>What this game is</h2>
+      <p>Star Freight is a text-first tactics merchant RPG about hauling freight through a politically fractured star system. You are a disgraced military pilot rebuilding as a space merchant across five civilizations.</p>
+      <p>It is not a sandbox. It is not a 4X. It is a game about moving through systems of power without ever fully belonging to them. Every run produces a different captain life — not because you picked a class, but because your crew, routes, risks, and standing shaped you into someone.</p>
+    </section>
+
+    <section id="four-truths">
+      <h2>Four system truths</h2>
+      <p>These are the load-bearing walls. They cannot be changed without invalidating the game's identity.</p>
+
+      <div class="truth-grid">
+        <div class="truth-card">
+          <h3>Crew is binding law</h3>
+          <p>Crew members are not stat bonuses. They are capabilities, access gates, and obligations. Losing a crew member costs you abilities, cultural access, and narrative options simultaneously.</p>
+        </div>
+        <div class="truth-card">
+          <h3>Combat is a campaign event</h3>
+          <p>Combat writes to campaign state. Victory produces salvage and faction heat. Retreat costs cargo and reputation. Defeat means seized cargo, injured crew, and expensive limping. No outcome is free.</p>
+        </div>
+        <div class="truth-card">
+          <h3>Culture is decision grammar</h3>
+          <p>Each civilization has social logic that shapes trade, access, and conflict. Knowledge is not a codex — it is reading the room. Cultural errors are expensive; cultural fluency opens doors.</p>
+        </div>
+        <div class="truth-card">
+          <h3>Plot emerges from life</h3>
+          <p>Investigation threads surface through ordinary work. You notice the medical cargo discrepancy because you have been hauling it. The conspiracy does not announce itself.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="captain-paths">
+      <h2>Captain paths</h2>
+      <p>Three postures produce genuinely different lives. Proved divergent across routes, trade mixes, combat profiles, failure textures, and captain identities.</p>
+
+      <div class="path-grid">
+        <div class="path-card">
+          <h3>Relief / Legitimacy</h3>
+          <p>Convoy discipline. Trust-based access. Public consequence. You keep people fed and get trapped by legitimacy.</p>
+          <p class="fears"><strong>Fears:</strong> delivery delay, undercapacity, public failure</p>
+        </div>
+        <div class="path-card">
+          <h3>Gray / Document</h3>
+          <p>Paper leverage. Timing abuse. Institutional risk. You make money by staying hard to read.</p>
+          <p class="fears"><strong>Fears:</strong> seizure, exposure, paper closure</p>
+        </div>
+        <div class="path-card">
+          <h3>Honor / Frontier</h3>
+          <p>Direct confrontation. House politics. Reputation volatility. You solve problems face-to-face.</p>
+          <p class="fears"><strong>Fears:</strong> escalation, crew loss, thin support</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="the-world">
+      <h2>The world</h2>
+      <p>Five civilizations share a star system called the Threshold.</p>
+
+      <table class="civ-table">
+        <thead>
+          <tr>
+            <th>Civilization</th>
+            <th>Identity</th>
+            <th>Trade character</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Terran Compact</td>
+            <td>Bureaucratic human government</td>
+            <td>Safe markets, tight margins, heavy paperwork</td>
+          </tr>
+          <tr>
+            <td>Keth Communion</td>
+            <td>Arthropod collective on biological calendar</td>
+            <td>Best margins if you understand seasons; fastest collapse if you don't</td>
+          </tr>
+          <tr>
+            <td>Veshan Principalities</td>
+            <td>Reptilian feudal houses</td>
+            <td>Formal challenge, direct trade, the Debt Ledger is leverage</td>
+          </tr>
+          <tr>
+            <td>Orryn Drift</td>
+            <td>Mobile broker civilization</td>
+            <td>Neutral, profitable, knows everything, charges for both</td>
+          </tr>
+          <tr>
+            <td>Sable Reach</td>
+            <td>Pirate factions + Ancestor tech salvagers</td>
+            <td>No law, no customs, highest risk and reward</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="campaign-state">
+      <h2>Campaign state law</h2>
+      <p>The campaign state is the single source of truth. All systems read and write it. No system talks directly to another.</p>
+      <ul>
+        <li><strong>Credits:</strong> universal currency, crew pay due every 30 days</li>
+        <li><strong>Hull / Shield:</strong> ship condition, combat writes damage, repair costs credits</li>
+        <li><strong>Reputation:</strong> per-faction standing, gates access and prices</li>
+        <li><strong>Cargo:</strong> what you carry shapes routing, risk, and investigation triggers</li>
+        <li><strong>Crew:</strong> abilities, cultural access, morale, injury state, loyalty</li>
+        <li><strong>Investigation:</strong> fragment-based evidence threads, corroborated by crew and events</li>
+      </ul>
+    </section>
+
+    <section id="balance">
+      <h2>Balance doctrine</h2>
+      <p>Balance is not symmetry. Each captain path should feel different, not equal.</p>
+      <ul>
+        <li>Relief earns steadily through volume — the safest, most consistent path</li>
+        <li>Gray earns through clever positioning — lean, document-driven, survivable</li>
+        <li>Honor earns through combat salvage — tactical, volatile, crew-dependent</li>
+        <li>Target: strongest/weakest credit ratio between 3x and 5x at day 90</li>
+        <li>All three must survive baseline runs</li>
+        <li>Escalation should stress Honor, not reward it</li>
+        <li>Pressure without chores — decisions, not punishment</li>
+      </ul>
+    </section>
+
+    <section id="expansion-rules">
+      <h2>Expansion rules</h2>
+      <p>New content must follow existing truths. Expansions add texture, not systems.</p>
+      <ul>
+        <li>Every expansion must reinforce at least one of the four truths</li>
+        <li>New goods, contracts, and encounters extend existing loops — they do not create parallel economies</li>
+        <li>New crew members must create genuine capability/access/obligation trade-offs</li>
+        <li>No expansion may flatten captain divergence</li>
+      </ul>
+    </section>
+
+    <section id="standing-rule">
+      <h2>The standing rule</h2>
+      <p>When unsure what to build next:</p>
+      <ul>
+        <li>Does it reinforce one of the four truths?</li>
+        <li>Does it sharpen a captain life?</li>
+        <li>Does it create a decision the player can feel?</li>
+      </ul>
+      <p>If not, it can wait.</p>
+    </section>
+
+    <div class="handbook-footer">
+      <p>
+        <a href="https://github.com/mcp-tool-shop-org/star-freight" rel="noopener">GitHub</a>
+        &middot;
+        <a href="/tools/star-freight/">Landing page</a>
+      </p>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .handbook {
+    max-width: 720px;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .back-link:hover {
+    color: var(--color-accent);
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .subtitle {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .toc {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .toc h2 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+
+  .toc ol {
+    padding-left: 1.25rem;
+    margin: 0;
+  }
+
+  .toc li {
+    margin-bottom: 0.375rem;
+    font-size: 0.875rem;
+  }
+
+  .toc a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .toc a:hover {
+    text-decoration: underline;
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  section h2 {
+    font-size: 1.375rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  section p, section li {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+  }
+
+  section ul {
+    padding-left: 1.25rem;
+  }
+
+  section li {
+    margin-bottom: 0.5rem;
+  }
+
+  .truth-grid, .path-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .truth-card, .path-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+  }
+
+  .truth-card h3, .path-card h3 {
+    font-size: 0.9375rem;
+    margin-bottom: 0.625rem;
+    color: var(--color-text);
+  }
+
+  .truth-card p, .path-card p {
+    font-size: 0.8125rem;
+    margin-bottom: 0;
+  }
+
+  .fears {
+    margin-top: 0.75rem !important;
+    font-size: 0.75rem !important;
+    color: var(--color-text-muted);
+  }
+
+  .civ-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+    margin-top: 1rem;
+  }
+
+  .civ-table th, .civ-table td {
+    text-align: left;
+    padding: 0.625rem 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .civ-table th {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    font-weight: 600;
+  }
+
+  .civ-table td {
+    color: var(--color-text-muted);
+  }
+
+  .handbook-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .handbook-footer a {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 640px) {
+    .truth-grid, .path-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
