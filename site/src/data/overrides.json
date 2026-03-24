@@ -1125,15 +1125,8 @@
     "kind": "cli",
     "install": "npm install -g @mcptoolshop/multi-claude",
     "tagline": "Lane-based parallel build system for Claude Code.",
-    "goodFor": [
-      "parallel builds",
-      "packet graphs",
-      "multi-agent orchestration"
-    ],
-    "notFor": [
-      "single-file edits",
-      "sequential tasks"
-    ],
+    "goodFor": ["parallel builds", "packet graphs", "multi-agent orchestration"],
+    "notFor": ["single-file edits", "sequential tasks"],
     "needsHumanReview": false
   },
   "nexus-attest": {
@@ -2067,21 +2060,5 @@
     "screenshot": "/screenshots/zip-meta-map.png",
     "screenshotType": "real",
     "publicProof": true
-  },
-  "star-freight": {
-    "tagline": "Space merchant captain RPG. Five civilizations. One life.",
-    "stability": "beta",
-    "kind": "game",
-    "install": "pip install star-freight",
-    "goodFor": [
-      "Emergent narrative through trade, crew, and cultural systems",
-      "Replayable captain lives with genuine divergence",
-      "Text-first tactical combat with campaign consequences"
-    ],
-    "notFor": [
-      "Real-time action gameplay",
-      "Multiplayer or online features",
-      "Casual / low-commitment play sessions"
-    ]
   }
 }

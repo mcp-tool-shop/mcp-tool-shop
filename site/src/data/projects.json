@@ -3692,40 +3692,5 @@
     "install": "pip install xrpl-lab",
     "tagline": "XRPL training workbook — learn by doing, prove by artifact.",
     "needsHumanReview": true
-  },
-  {
-    "name": "Star Freight",
-    "repo": "star-freight",
-    "description": "Text-first tactics merchant RPG. Five civilizations, one economy, four truths that won't let you play the same life twice.",
-    "tags": [
-      "game",
-      "rpg",
-      "space",
-      "trading",
-      "strategy",
-      "tui"
-    ],
-    "featured": true,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-03-24T00:00:00Z",
-    "registered": false,
-    "unlisted": false,
-    "deprecated": false,
-    "category": "game",
-    "stability": "beta",
-    "kind": "game",
-    "install": "pip install star-freight",
-    "tagline": "Space merchant captain RPG. Five civilizations. One life.",
-    "goodFor": [
-      "Emergent narrative through trade, crew, and cultural systems",
-      "Replayable captain lives with genuine divergence",
-      "Text-first tactical combat with campaign consequences"
-    ],
-    "notFor": [
-      "Real-time action gameplay",
-      "Multiplayer or online features",
-      "Casual / low-commitment play sessions"
-    ]
   }
 ]
