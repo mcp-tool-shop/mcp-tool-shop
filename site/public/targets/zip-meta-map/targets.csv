@@ -1,0 +1,101 @@
+rank,owner,repo,stars,score,language,ownerType,whyMatched,pushedAt,url
+1,ComposioHQ,composio,27624,85,TypeScript,organization,topic:developer-tools,2026-04-02,https://github.com/ComposioHQ/composio
+2,yamadashy,repomix,22923,85,TypeScript,user,topic:developer-tools; comparable:tree / find + jq pipelines,2026-04-03,https://github.com/yamadashy/repomix
+3,DeusData,codebase-memory-mcp,1167,80,C,user,topic:code-analysis; comparable:tree / find + jq pipelines,2026-04-03,https://github.com/DeusData/codebase-memory-mcp
+4,abinthomasonline,repo2txt,1783,78,TypeScript,user,topic:devtools,2026-02-17,https://github.com/abinthomasonline/repo2txt
+5,jmuncor,tokentap,775,78,Python,user,seed:paul-gauthier/aider,2026-04-03,https://github.com/jmuncor/tokentap
+6,rtk-ai,rtk,16924,75,Rust,organization,topic:developer-tools,2026-04-03,https://github.com/rtk-ai/rtk
+7,CoderLuii,HolyClaude,1725,75,Dockerfile,user,topic:devtools; comparable:tree / find + jq pipelines,2026-03-29,https://github.com/CoderLuii/HolyClaude
+8,braedonsaunders,codeflow,579,72,HTML,user,topic:code-analysis,2026-03-21,https://github.com/braedonsaunders/codeflow
+9,mukul975,Anthropic-Cybersecurity-Skills,4001,70,Python,user,comparable:Sourcegraph / code search,2026-04-03,https://github.com/mukul975/Anthropic-Cybersecurity-Skills
+10,rhysd,actionlint,3750,70,Go,user,topic:ci; topic:github-actions,2026-04-02,https://github.com/rhysd/actionlint
+11,tach-org,tach,2684,70,Rust,organization,topic:ci,2026-04-03,https://github.com/tach-org/tach
+12,tj-actions,changed-files,2678,70,TypeScript,organization,topic:ci; topic:github-actions,2026-04-02,https://github.com/tj-actions/changed-files
+13,pypa,cibuildwheel,2208,70,Python,organization,topic:ci; topic:github-actions,2026-04-03,https://github.com/pypa/cibuildwheel
+14,triggerdotdev,jsonhero-web,10666,68,TypeScript,organization,topic:devtools,2025-11-28,https://github.com/triggerdotdev/jsonhero-web
+15,Significant-Gravitas,AutoGPT,183092,65,Python,organization,topic:llm,2026-04-03,https://github.com/Significant-Gravitas/AutoGPT
+16,affaan-m,everything-claude-code,134602,65,JavaScript,user,topic:llm; topic:developer-tools; keyword:repo metadata; keyword:LLM context; keyword:deterministic build; keyword:CI gating,2026-04-03,https://github.com/affaan-m/everything-claude-code
+17,infiniflow,ragflow,76998,65,Python,organization,topic:llm; keyword:LLM context; keyword:code map,2026-04-03,https://github.com/infiniflow/ragflow
+18,OpenHands,OpenHands,70492,65,Python,organization,topic:llm; topic:developer-tools,2026-04-03,https://github.com/OpenHands/OpenHands
+19,nektos,act,69687,65,Go,organization,topic:ci; topic:github-actions,2026-04-01,https://github.com/nektos/act
+20,continuedev,continue,32263,65,TypeScript,organization,topic:llm; topic:developer-tools,2026-04-03,https://github.com/continuedev/continue
+21,surrealdb,surrealdb,31752,65,Rust,organization,topic:devtools; topic:developer-tools,2026-04-02,https://github.com/surrealdb/surrealdb
+22,volcengine,OpenViking,20704,65,Python,organization,keyword:deterministic build,2026-04-03,https://github.com/volcengine/OpenViking
+23,promptfoo,promptfoo,19214,65,TypeScript,organization,topic:ci,2026-04-03,https://github.com/promptfoo/promptfoo
+24,SWE-agent,SWE-agent,18913,65,Python,organization,topic:developer-tools,2026-03-30,https://github.com/SWE-agent/SWE-agent
+25,e2b-dev,E2B,11563,65,Python,organization,topic:devtools,2026-04-02,https://github.com/e2b-dev/E2B
+26,iib0011,omni-tools,8981,65,TypeScript,user,topic:devtools,2026-03-29,https://github.com/iib0011/omni-tools
+27,universal-ctags,ctags,7134,65,C,organization,topic:code-analysis,2026-03-30,https://github.com/universal-ctags/ctags
+28,potpie-ai,potpie,5301,65,Python,organization,topic:devtools,2026-04-02,https://github.com/potpie-ai/potpie
+29,github,gh-aw,4216,65,Go,organization,topic:ci; topic:github-actions,2026-04-03,https://github.com/github/gh-aw
+30,txn2,kubefwd,4082,65,Go,organization,topic:devtools,2026-04-01,https://github.com/txn2/kubefwd
+31,FalkorDB,FalkorDB,3866,65,C,organization,topic:devtools,2026-04-03,https://github.com/FalkorDB/FalkorDB
+32,pezzolabs,pezzo,3216,65,TypeScript,organization,topic:devtools,2026-03-31,https://github.com/pezzolabs/pezzo
+33,eli64s,readme-ai,2889,65,Python,user,topic:devtools; seed:paul-gauthier/aider,2026-04-02,https://github.com/eli64s/readme-ai
+34,frain-dev,convoy,2781,65,Go,organization,topic:devtools,2026-04-02,https://github.com/frain-dev/convoy
+35,bahdotsh,wrkflw,2706,65,Rust,user,topic:ci; topic:github-actions,2026-04-03,https://github.com/bahdotsh/wrkflw
+36,Q00,ouroboros,1994,65,Python,user,topic:devtools,2026-04-03,https://github.com/Q00/ouroboros
+37,filipdutescu,modern-cpp-template,1898,65,CMake,user,topic:ci; topic:github-actions,2025-12-26,https://github.com/filipdutescu/modern-cpp-template
+38,jeremylongshore,claude-code-plugins-plus-skills,1825,65,Python,user,seed:paul-gauthier/aider,2026-04-03,https://github.com/jeremylongshore/claude-code-plugins-plus-skills
+39,YuzeHao2023,Awesome-MCP-Servers,1037,65,,user,comparable:Sourcegraph / code search,2026-04-01,https://github.com/YuzeHao2023/Awesome-MCP-Servers
+40,microsoft,multilspy,560,65,Python,organization,topic:code-analysis,2026-02-05,https://github.com/microsoft/multilspy
+41,danger,danger-js,5461,64,TypeScript,organization,topic:ci; topic:github-actions,2026-03-13,https://github.com/danger/danger-js
+42,nikolaydubina,go-recipes,4475,64,Go,user,comparable:tree / find + jq pipelines,2026-03-09,https://github.com/nikolaydubina/go-recipes
+43,iterative,cml,4169,63,JavaScript,organization,topic:ci; topic:github-actions,2025-06-02,https://github.com/iterative/cml
+44,ligurio,awesome-ci,4065,63,,user,topic:ci,2026-03-01,https://github.com/ligurio/awesome-ci
+45,foryourhealth111-pixel,Vibe-Skills,995,63,Python,user,seed:paul-gauthier/aider,2026-04-03,https://github.com/foryourhealth111-pixel/Vibe-Skills
+46,xnuinside,codegraph,445,63,Python,user,topic:code-analysis,2026-03-30,https://github.com/xnuinside/codegraph
+47,Kodezi,Chronos,5016,62,Java,organization,topic:code-analysis,2025-11-12,https://github.com/Kodezi/Chronos
+48,voideditor,void,28492,61,TypeScript,organization,topic:developer-tools,2026-01-12,https://github.com/voideditor/void
+49,Cranot,roam-code,444,61,Python,user,topic:code-analysis,2026-02-27,https://github.com/Cranot/roam-code
+50,bytedance,deer-flow,57014,60,Python,organization,topic:llm; keyword:repo index; keyword:repo metadata; keyword:LLM context,2026-04-03,https://github.com/bytedance/deer-flow
+51,files-community,Files,42819,60,C#,organization,topic:developer-tools,2026-04-01,https://github.com/files-community/Files
+52,khoj-ai,khoj,33840,60,Python,organization,topic:llm,2026-03-26,https://github.com/khoj-ai/khoj
+53,plandex-ai,plandex,15192,60,Go,organization,topic:developer-tools,2025-10-03,https://github.com/plandex-ai/plandex
+54,HariSekhon,DevOps-Bash-tools,8179,60,Shell,user,topic:ci; comparable:tree / find + jq pipelines,2026-03-31,https://github.com/HariSekhon/DevOps-Bash-tools
+55,INRIA,spoon,1912,60,Java,organization,topic:code-analysis,2026-04-01,https://github.com/INRIA/spoon
+56,SpartanJ,ecode,1582,60,Lua,user,comparable:tree / find + jq pipelines,2026-04-02,https://github.com/SpartanJ/ecode
+57,Dicklesworthstone,beads_viewer,1438,60,Go,user,comparable:tree / find + jq pipelines,2026-03-25,https://github.com/Dicklesworthstone/beads_viewer
+58,strands-agents,tools,1002,60,Python,organization,seed:paul-gauthier/aider,2026-04-02,https://github.com/strands-agents/tools
+59,AgentOps-AI,agentops,5427,59,Python,organization,seed:paul-gauthier/aider,2026-03-19,https://github.com/AgentOps-AI/agentops
+60,stefanzweifel,git-auto-commit-action,2517,59,Shell,user,topic:github-actions,2026-03-22,https://github.com/stefanzweifel/git-auto-commit-action
+61,agamm,awesome-developer-first,1580,59,,user,comparable:Sourcegraph / code search,2026-03-23,https://github.com/agamm/awesome-developer-first
+62,yinwang0,pysonar2,1428,58,Java,user,topic:code-analysis; comparable:Sourcegraph / code search,2026-03-02,https://github.com/yinwang0/pysonar2
+63,taielab,awesome-hacking-lists,1310,58,,user,comparable:tree / find + jq pipelines; comparable:Sourcegraph / code search,2025-12-04,https://github.com/taielab/awesome-hacking-lists
+64,firecrawl,firecrawl,103306,55,TypeScript,organization,topic:llm; keyword:code map,2026-04-03,https://github.com/firecrawl/firecrawl
+65,vllm-project,vllm,75103,55,Python,organization,topic:llm,2026-04-03,https://github.com/vllm-project/vllm
+66,hiyouga,LlamaFactory,69435,55,Python,user,topic:llm; keyword:repo index; keyword:repo metadata; keyword:LLM context; keyword:code map,2026-04-01,https://github.com/hiyouga/LlamaFactory
+67,mem0ai,mem0,51836,55,Python,organization,topic:llm; keyword:LLM context,2026-04-03,https://github.com/mem0ai/mem0
+68,upstash,context7,51496,55,TypeScript,organization,topic:llm; keyword:LLM context,2026-04-02,https://github.com/upstash/context7
+69,streamlit,streamlit,44100,55,Python,organization,topic:developer-tools,2026-04-03,https://github.com/streamlit/streamlit
+70,janhq,jan,41489,55,TypeScript,organization,topic:llm,2026-04-03,https://github.com/janhq/jan
+71,appsmithorg,appsmith,39506,55,TypeScript,organization,topic:developer-tools,2026-04-03,https://github.com/appsmithorg/appsmith
+72,google,langextract,35225,55,Python,organization,topic:llm,2026-04-02,https://github.com/google/langextract
+73,ChromeDevTools,chrome-devtools-mcp,33001,55,TypeScript,organization,topic:devtools,2026-04-02,https://github.com/ChromeDevTools/chrome-devtools-mcp
+74,CopilotKit,CopilotKit,29952,55,TypeScript,organization,topic:llm,2026-04-03,https://github.com/CopilotKit/CopilotKit
+75,responsively-org,responsively-app,24824,55,TypeScript,organization,topic:developer-tools,2026-03-28,https://github.com/responsively-org/responsively-app
+76,NousResearch,hermes-agent,23144,55,Python,organization,seed:paul-gauthier/aider,2026-04-03,https://github.com/NousResearch/hermes-agent
+77,mswjs,msw,17784,55,TypeScript,organization,topic:devtools,2026-04-02,https://github.com/mswjs/msw
+78,public-api-lists,public-api-lists,13855,55,,organization,topic:developer-tools,2026-04-02,https://github.com/public-api-lists/public-api-lists
+79,qodo-ai,pr-agent,10749,55,Python,organization,topic:devtools,2026-04-02,https://github.com/qodo-ai/pr-agent
+80,alirezarezvani,claude-skills,9050,55,Python,user,keyword:CI gating,2026-04-02,https://github.com/alirezarezvani/claude-skills
+81,wonderwhy-er,DesktopCommanderMCP,5836,55,TypeScript,user,topic:code-analysis,2026-04-01,https://github.com/wonderwhy-er/DesktopCommanderMCP
+82,strands-agents,sdk-python,5516,55,Python,organization,seed:paul-gauthier/aider,2026-04-03,https://github.com/strands-agents/sdk-python
+83,docker,build-push-action,5217,55,TypeScript,organization,topic:github-actions,2026-04-01,https://github.com/docker/build-push-action
+84,dorny,paths-filter,3045,55,TypeScript,user,topic:github-actions,2026-03-25,https://github.com/dorny/paths-filter
+85,griptape-ai,griptape,2507,55,Python,organization,seed:paul-gauthier/aider,2026-03-31,https://github.com/griptape-ai/griptape
+86,SignTools,SignTools,2123,55,Go,organization,topic:ci,2026-04-03,https://github.com/SignTools/SignTools
+87,nottelabs,notte,1929,55,Python,organization,seed:paul-gauthier/aider,2026-04-03,https://github.com/nottelabs/notte
+88,plastic-labs,honcho,1518,55,Python,organization,seed:paul-gauthier/aider,2026-04-02,https://github.com/plastic-labs/honcho
+89,explosion,spacy-llm,1376,55,Python,organization,seed:paul-gauthier/aider,2026-03-27,https://github.com/explosion/spacy-llm
+90,chopratejas,headroom,1086,55,Python,user,seed:paul-gauthier/aider,2026-04-03,https://github.com/chopratejas/headroom
+91,peaceiris,actions-gh-pages,5260,54,TypeScript,user,topic:github-actions,2026-03-23,https://github.com/peaceiris/actions-gh-pages
+92,illacloud,illa-builder,12347,53,TypeScript,organization,topic:developer-tools,2026-02-22,https://github.com/illacloud/illa-builder
+93,daveebbelaar,ai-cookbook,3905,53,Python,user,seed:paul-gauthier/aider,2026-03-05,https://github.com/daveebbelaar/ai-cookbook
+94,InternLM,HuixiangDou,2482,53,Python,organization,comparable:Sourcegraph / code search,2025-11-24,https://github.com/InternLM/HuixiangDou
+95,waybarrios,vllm-mlx,735,53,Python,user,seed:paul-gauthier/aider,2026-04-01,https://github.com/waybarrios/vllm-mlx
+96,strands-agents,samples,710,53,Python,organization,seed:paul-gauthier/aider,2026-03-27,https://github.com/strands-agents/samples
+97,verygoodplugins,automem,695,53,Python,organization,seed:paul-gauthier/aider,2026-03-25,https://github.com/verygoodplugins/automem
+98,harshkedia177,axon,616,53,Python,user,topic:code-analysis,2026-03-25,https://github.com/harshkedia177/axon
+99,Ericsson,CodeCompass,593,53,C++,organization,topic:code-analysis,2026-03-25,https://github.com/Ericsson/CodeCompass
+100,sagiegurari,cargo-make,2915,52,Rust,user,topic:github-actions,2026-02-05,https://github.com/sagiegurari/cargo-make
