@@ -1,5 +1,522 @@
 [
   {
+    "repo": "saints-mile",
+    "toolName": "Saints Mile",
+    "tag": "v1.0.2",
+    "name": "Saint's Mile v1.0.2",
+    "body": [
+      "Full combat system wiring and feature expansion from a 10-phase parallel agent swarm.",
+      "Skill registry with age-variant skill progression",
+      "Duo-tech system (paired character abilities)",
+      "NPC ally AI — named characters use role-specific combat behavior",
+      "Flee action, pressure engine, fear cascade, combo system",
+      "Terrain effects (burning/flooding) at round boundaries"
+    ],
+    "publishedAt": "2026-04-06T07:38:30Z",
+    "url": "https://github.com/mcp-tool-shop-org/saints-mile/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "civility-kernel",
+    "toolName": "Civility Kernel",
+    "tag": "v1.1.0",
+    "name": "v1.1.0",
+    "body": [
+      "`createKernel()`** — one-call facade replaces 4-step manual wiring",
+      "`decideAsync()`** — async constraint evaluation for I/O-bound checks",
+      "`PolicyBuilder`** — fluent API for validated policy construction",
+      "`loadPolicy` / `dumpPolicy`** — Zod-validated persistence with deterministic serialization",
+      "`applyPolicyProposal()`** — closes the learning loop",
+      "`planFromMcpToolCall` / `feedbackFromMcpResult`** — MCP tool-call adapter"
+    ],
+    "publishedAt": "2026-04-06T04:50:44Z",
+    "url": "https://github.com/mcp-tool-shop-org/civility-kernel/releases/tag/v1.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-lab",
+    "toolName": "Xrpl Lab",
+    "tag": "v1.0.6",
+    "name": "v1.0.6 — Dogfood Swarm v2",
+    "body": [
+      "Deep quality hardening — 456 tests, zero critical findings.",
+      "Locked API contract: Pydantic response models as single source of truth",
+      "XSS defense: `escapeHtml()` on all frontend innerHTML injections",
+      "Secret handling: `_SecretValue` wrapper prevents seed leakage in tracebacks",
+      "Per-address scoping in DryRunTransport (trust lines, offers)",
+      "Float safety: try/except on all numeric conversions from network data"
+    ],
+    "publishedAt": "2026-04-06T03:33:03Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v1.0.6",
+    "prerelease": false
+  },
+  {
+    "repo": "npm-xrpl-lab",
+    "toolName": "Npm Xrpl Lab",
+    "tag": "v1.0.6",
+    "name": "v1.0.6",
+    "body": [
+      "Version bump to match xrpl-lab Python package v1.0.6.",
+      "Dogfood Swarm v2: 456 tests, Decimal-only financial math, Pydantic contracts, runner isolation",
+      "Added npm publish workflow (triggers on release)"
+    ],
+    "publishedAt": "2026-04-06T03:28:40Z",
+    "url": "https://github.com/mcp-tool-shop-org/npm-xrpl-lab/releases/tag/v1.0.6",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-jam-sessions",
+    "toolName": "Ai Jam Sessions",
+    "tag": "v1.4.0",
+    "name": "v1.4.0 — Dogfood Swarm",
+    "body": [
+      "AI Jam Sessions v1.4.0 ships the complete dogfood swarm — a 10-phase quality pass that added new tools, hardened every engine, humanized all error messages, and expanded test coverage from 594 to 692 tests.",
+      "| Tool | What it does |",
+      "|------|--------------|",
+      "| `server_info` | Server version, library stats, engine list, active session |",
+      "| `validate_song_entry` | Validate a song JSON against the schema before adding |",
+      "| `transpose_song` | Transpose a song up or down by semitones — new key, new notes |"
+    ],
+    "publishedAt": "2026-04-05T23:51:01Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v1.4.0",
+    "prerelease": false
+  },
+  {
+    "repo": "taste-compiler",
+    "toolName": "Taste Compiler",
+    "tag": "v0.3.0",
+    "name": "v0.3.0-beta.1",
+    "body": [
+      "Taste Compiler is now externally alpha-ready.",
+      "This prerelease packages the first full proof cycle of the product:",
+      "6/6 artifact classes** now have enforcement checkers",
+      "6/6 artifact classes** are now live-proven across paired trials",
+      "7 paired trials** completed",
+      "245 baseline violations → 0 constrained**"
+    ],
+    "publishedAt": "2026-04-02T19:47:05Z",
+    "url": "https://github.com/mcp-tool-shop-org/taste-compiler/releases/tag/v0.3.0",
+    "prerelease": true
+  },
+  {
+    "repo": "ai-jam-sessions",
+    "toolName": "Ai Jam Sessions",
+    "tag": "v1.2.0",
+    "name": "v1.2.0 — Dogfood Swarm: Security + Features",
+    "body": [
+      "Fix path traversal guard in MCP `play_song` and `import_midi` (directory containment check)",
+      "Fix XSS vulnerability in guitar tab HTML output",
+      "Fix command injection risk in CLI `openInBrowser` on Windows",
+      "Fix prototype pollution in `add_song` MCP tool",
+      "Docker container now runs as non-root user",
+      "Per-hand scoring breakdown (`breakdownByHand()`) with actionable feedback"
+    ],
+    "publishedAt": "2026-04-02T03:31:07Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v1.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-creator-capsule",
+    "toolName": "Xrpl Creator Capsule",
+    "tag": "v1.0.0",
+    "name": "XRPL Creator Capsule v1.0.0",
+    "body": [
+      "Creator-owned release system on the XRP Ledger. Issue work, sell directly, unlock collector benefits, govern revenue — all backed by durable on-chain proof.",
+      "Studio Mode**: 6-step guided flow for creators (describe, benefit, review, publish, test, recover)",
+      "Advanced Mode**: Full artifact control for developers and integrators",
+      "15 CLI commands** covering the complete release lifecycle",
+      "359 tests** across engine packages and desktop app",
+      "| Phase | What it proves |"
+    ],
+    "publishedAt": "2026-04-01T22:53:54Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-creator-capsule/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-creator-capsule",
+    "toolName": "Xrpl Creator Capsule",
+    "tag": "v1.0.0-rc.2",
+    "name": "v1.0.0-rc.2 — Windows Preview",
+    "body": [
+      "First installable preview for non-engineers. Download, install, publish a release on XRPL Testnet.",
+      "1. **Windows MSI** (recommended) — download the `.msi`, run the installer",
+      "2. **Windows EXE** (portable) — download the `.exe` if you prefer no install",
+      "> **Requires [Node.js 22+](https://nodejs.org/)** — the engine bridge runs as a Node subprocess. This requirement will be removed in a future release.",
+      "Studio Mode** — guided 6-step flow: describe → benefits → review → publish → test access → recovery",
+      "Sample release** — \"Midnight Signal EP\" demo so you can explore without your own files"
+    ],
+    "publishedAt": "2026-04-01T20:56:33Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-creator-capsule/releases/tag/v1.0.0-rc.2",
+    "prerelease": true
+  },
+  {
+    "repo": "xrpl-creator-capsule",
+    "toolName": "Xrpl Creator Capsule",
+    "tag": "v1.0.0-rc.1",
+    "name": "XRPL Creator Capsule Desktop — Preview",
+    "body": [
+      "A desktop app for creators who want to publish, protect, and verify their creative releases on the XRPL blockchain.",
+      "Create a release** — title, artist, edition size, collector benefits",
+      "Publish on XRPL Testnet** — mint real NFTs (test tokens, no real value)",
+      "Test collector access** — verify who can access your content",
+      "Generate recovery bundles** — cryptographic proof that survives if the app disappears",
+      "Inspect every proof artifact** — Advanced mode shows the full hash chain"
+    ],
+    "publishedAt": "2026-04-01T20:09:55Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-creator-capsule/releases/tag/v1.0.0-rc.1",
+    "prerelease": true
+  },
+  {
+    "repo": "xrpl-lab",
+    "toolName": "Xrpl Lab",
+    "tag": "v1.0.5",
+    "name": "v1.0.5",
+    "body": [
+      "Version alignment release — matches npm wrapper @mcptoolshop/xrpl-lab@1.0.5. All changes were shipped in v1.0.3."
+    ],
+    "publishedAt": "2026-03-29T23:14:23Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v1.0.5",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-lab",
+    "toolName": "Xrpl Lab",
+    "tag": "v1.0.3",
+    "name": "v1.0.3 — Dogfood Swarm + Web Dashboard",
+    "body": [
+      "Health Pass (Stages A-C):** 90 findings fixed — logic bugs, CI security hardening, defensive guards, graceful degradation, observability",
+      "Web Dashboard:** FastAPI server + Astro frontend with interactive module runner via WebSocket",
+      "`xrpl-lab serve`:** New CLI command starts API server + web dashboard",
+      "355 tests** (up from 228)",
+      "Ruff clean**, CI green, 36-page site build",
+      "Interactive web dashboard at `/app/` with module catalog, live runner, artifact viewer, doctor page"
+    ],
+    "publishedAt": "2026-03-29T23:07:12Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v1.0.3",
+    "prerelease": false
+  },
+  {
+    "repo": "stillpoint",
+    "toolName": "Stillpoint",
+    "tag": "v1.1.0",
+    "name": "v1.1.0 — Dogfood Swarm",
+    "body": [
+      "The result of a full 10-phase dogfood swarm — 70 health findings fixed, ~50 features shipped, 26 → 136 tests.",
+      "Master volume** — global gain control that scales all layers",
+      "Sleep timer** — 15m / 30m / 1h / 2h auto-stop with countdown",
+      "Saved presets** — save, load, and delete named mixes",
+      "Fade in/out** — smooth volume transitions on layer add/remove",
+      "Per-layer mute** — silence individual layers without removing them"
+    ],
+    "publishedAt": "2026-03-29T06:41:33Z",
+    "url": "https://github.com/mcp-tool-shop-org/stillpoint/releases/tag/v1.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "websketch-ir",
+    "toolName": "Websketch Ir",
+    "tag": "v2.1.0",
+    "name": "v2.1.0 — Dogfood Swarm",
+    "body": [
+      "Dogfood swarm**: 52 fixes, 18 new features, tests 299 → 656.",
+      "Tree traversal**: `flattenNodes`, `walkNodes`, `filterNodes`",
+      "Query API**: `queryByRole`, `findFirst`, `findByRole`",
+      "Builders**: `createNode`, `createCapture`",
+      "JSON renderer**: `renderJSON` for LLM tool-calling",
+      "Markdown renderer**: `renderMarkdown` for LLM consumption"
+    ],
+    "publishedAt": "2026-03-28T23:52:26Z",
+    "url": "https://github.com/mcp-tool-shop-org/websketch-ir/releases/tag/v2.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "claude-collaborate",
+    "toolName": "Claude Collaborate",
+    "tag": "v1.1.0",
+    "name": "Claude Collaborate vv1.1.0",
+    "body": [
+      "> **Where Human Creativity Meets AI Intelligence**",
+      "Claude Collaborate is a unified sandbox environment for real-time human-AI collaboration.",
+      "7 Integrated Environments** - Whiteboard, Code Workshop, Chess, Creative Lab, and more",
+      "Real-time WebSocket Bridge** - Instant communication with Claude Code",
+      "Collapsible Communication Panel** - Maximizes your workspace",
+      "Optional Voice Integration** - Works with voice-soundboard for TTS"
+    ],
+    "publishedAt": "2026-03-28T19:17:47Z",
+    "url": "https://github.com/mcp-tool-shop-org/claude-collaborate/releases/tag/v1.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-rpg-engine",
+    "toolName": "Ai Rpg Engine",
+    "tag": "v2.3.2",
+    "name": "v2.3.2 — Swarm Audit Remediation",
+    "body": [
+      "First repo processed through the dogfood-labs Swarm Protocol v1.0.",
+      "10 parallel audit agents found 148 findings (0 critical, 6 high, 33 medium).",
+      "10 parallel remediation agents fixed all highs. 43 files changed across 27 packages.",
+      "Core Runtime:** Engine.world returns Readonly, EventBus snapshots handlers, dead code removed",
+      "Mechanical Modules:** Extracted shared makeEvent helper from 7 duplicate copies",
+      "Content Schemas:** One-way neighbor check softened to advisory"
+    ],
+    "publishedAt": "2026-03-28T07:23:50Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v2.3.2",
+    "prerelease": false
+  },
+  {
+    "repo": "dogfood-labs",
+    "toolName": "Dogfood Labs",
+    "tag": "v1.1.0",
+    "name": "v1.1.0 — Swarm Protocol",
+    "body": [
+      "A reusable protocol for orchestrating 10+ parallel Claude agents to audit and remediate any repo, with all evidence flowing into structured databases.",
+      "8-phase lifecycle:**",
+      "1. CLAIM — create manifest checkpoint",
+      "2. EXPLORE — 1-3 agents scan repo structure",
+      "3. ASSIGN — map components to agents with exclusive file ownership",
+      "4. AUDIT — 10 parallel agents evaluate 80 controls across 19 domains"
+    ],
+    "publishedAt": "2026-03-28T07:01:22Z",
+    "url": "https://github.com/mcp-tool-shop-org/dogfood-labs/releases/tag/v1.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "dogfood-labs",
+    "toolName": "Dogfood Labs",
+    "tag": "v1.0.1",
+    "name": "v1.0.1 — Security Remediation",
+    "body": [
+      "20 parallel Claude agents audited and remediated the entire codebase:",
+      "10 audit agents** identified 108 findings (1 critical, 13 high, 36 medium)",
+      "10 remediation agents** fixed all criticals and all highs in one pass",
+      "Never-upgrade invariant restored:** Null/undefined proposed verdict no longer silently defaults to \"pass.\" The system now fails closed, treating missing or unrecognized verdicts as \"fail.\"",
+      "Provenance run_url regex anchored (prevents URL prefix injection)",
+      "Repo/SHA binding checks added to GitHub provenance verification"
+    ],
+    "publishedAt": "2026-03-28T06:34:18Z",
+    "url": "https://github.com/mcp-tool-shop-org/dogfood-labs/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "claude-collaborate",
+    "toolName": "Claude Collaborate",
+    "tag": "v1.0.4",
+    "name": "Claude Collaborate vv1.0.4",
+    "body": [
+      "> **Where Human Creativity Meets AI Intelligence**",
+      "Claude Collaborate is a unified sandbox environment for real-time human-AI collaboration.",
+      "7 Integrated Environments** - Whiteboard, Code Workshop, Chess, Creative Lab, and more",
+      "Real-time WebSocket Bridge** - Instant communication with Claude Code",
+      "Collapsible Communication Panel** - Maximizes your workspace",
+      "Optional Voice Integration** - Works with voice-soundboard for TTS"
+    ],
+    "publishedAt": "2026-03-28T02:56:57Z",
+    "url": "https://github.com/mcp-tool-shop-org/claude-collaborate/releases/tag/v1.0.4",
+    "prerelease": false
+  },
+  {
+    "repo": "witness",
+    "toolName": "Witness",
+    "tag": "v1.0.1",
+    "name": "v1.0.1",
+    "body": [
+      "Local-first, append-only event journal",
+      "Offline verification",
+      "Canonical JSON + SHA-256 + Ed25519",
+      "See:",
+      "CONTRACT.md",
+      "IMPLEMENTATION_NOTES.md"
+    ],
+    "publishedAt": "2026-03-26T01:10:55Z",
+    "url": "https://github.com/mcp-tool-shop-org/witness/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "registry-sync",
+    "toolName": "Registry Sync",
+    "tag": "v1.1.1",
+    "name": "v1.1.1",
+    "body": [
+      "Audit + quality pass: version alignment tests, SHA-pinned CI"
+    ],
+    "publishedAt": "2026-03-26T00:24:33Z",
+    "url": "https://github.com/mcp-tool-shop-org/registry-sync/releases/tag/v1.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "py-polyglot",
+    "toolName": "Py Polyglot",
+    "tag": "v1.0.5",
+    "name": "v1.0.5",
+    "body": [
+      "Audit + quality pass: --version flag, SHA-pinned CI, version alignment tests"
+    ],
+    "publishedAt": "2026-03-26T00:15:03Z",
+    "url": "https://github.com/mcp-tool-shop-org/py-polyglot/releases/tag/v1.0.5",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-file-forge",
+    "toolName": "Mcp File Forge",
+    "tag": "v1.0.1",
+    "name": "v1.0.1",
+    "body": [
+      "Server version was hardcoded at 0.2.0 — now reads dynamically from package.json",
+      "`version.ts` module with dynamic VERSION/NAME exports",
+      "3 version tests"
+    ],
+    "publishedAt": "2026-03-25T23:30:35Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-file-forge/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "file-compass",
+    "toolName": "File Compass",
+    "tag": "v1.0.1",
+    "name": "v1.0.1",
+    "body": [
+      "Audit + quality pass: diagnose command, --version flag, workflow fixes",
+      "chore(deps): bump the all-actions group across 1 directory with 5 updates by @dependabot[bot] in https://github.com/mcp-tool-shop-org/file-compass/pull/33",
+      "audit: fix CLI, workflows, author + quality pass by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/file-compass/pull/34",
+      "feat: diagnose command + v1.0.1 audit pass by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/file-compass/pull/35",
+      "chore(deps): bump the all-actions group across 1 directory with 5 updates by @dependabot[bot] in https://github.com/mcp-tool-shop-org/file-compass/pull/33",
+      "audit: fix CLI, workflows, author + quality pass by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/file-compass/pull/34"
+    ],
+    "publishedAt": "2026-03-25T23:22:07Z",
+    "url": "https://github.com/mcp-tool-shop-org/file-compass/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "flexiflow",
+    "toolName": "Flexiflow",
+    "tag": "v1.0.1",
+    "name": "v1.0.1",
+    "body": [
+      "Aligned `__version__` with pyproject.toml (was 0.4.1)",
+      "`--version` / `-V` flag on CLI",
+      "`diagnose` subcommand with `--json` output for environment health checks",
+      "3 new CLI tests (version, diagnose text, diagnose JSON)"
+    ],
+    "publishedAt": "2026-03-25T23:09:06Z",
+    "url": "https://github.com/mcp-tool-shop-org/flexiflow/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "code-batch",
+    "toolName": "Code Batch",
+    "tag": "v1.0.2",
+    "name": "v1.0.2",
+    "body": [],
+    "publishedAt": "2026-03-25T23:01:39Z",
+    "url": "https://github.com/mcp-tool-shop-org/code-batch/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "Attestia-Desktop",
+    "toolName": "Attestia Desktop",
+    "tag": "v1.0.3",
+    "name": "v1.0.3",
+    "body": [
+      "AccountRef.Validate()** — validates Id, Name, and AccountType",
+      "LedgerEntry.Validate()** — validates all required fields, propagates Money validation",
+      "26 new tests for AccountRef and LedgerEntry validation",
+      "Version alignment fix (Directory.Build.props now matches CHANGELOG)",
+      "https://github.com/mcp-tool-shop-org/Attestia-Desktop/blob/main/CHANGELOG.md"
+    ],
+    "publishedAt": "2026-03-25T22:13:44Z",
+    "url": "https://github.com/mcp-tool-shop-org/Attestia-Desktop/releases/tag/v1.0.3",
+    "prerelease": false
+  },
+  {
+    "repo": "a11y-lint",
+    "toolName": "A11y Lint",
+    "tag": "v1.0.1",
+    "name": "v1.0.1",
+    "body": [
+      "`diagnose` command** — reports terminal accessibility environment (NO_COLOR, encoding, width, TTY, rules)",
+      "Structured error handling** — `scan`, `scorecard`, and `report` commands now show `[ERROR]` messages with Why/Fix hints for non-UTF-8 and permission-denied files, instead of raw stack traces",
+      "https://github.com/mcp-tool-shop-org/a11y-lint/blob/main/CHANGELOG.md"
+    ],
+    "publishedAt": "2026-03-25T21:56:08Z",
+    "url": "https://github.com/mcp-tool-shop-org/a11y-lint/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "role-os",
+    "toolName": "Role Os",
+    "tag": "v1.2.0",
+    "name": "v1.2.0 — Pack Promotion",
+    "body": [
+      "Calibrated packs promoted to default entry. Auto-selection, mismatch detection, alternative suggestion, free-routing fallback. See CHANGELOG.md."
+    ],
+    "publishedAt": "2026-03-25T01:54:22Z",
+    "url": "https://github.com/mcp-tool-shop-org/role-os/releases/tag/v1.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "role-os",
+    "toolName": "Role Os",
+    "tag": "v1.1.0",
+    "name": "v1.1.0 — Full Spine Complete",
+    "body": [
+      "See [CHANGELOG.md](CHANGELOG.md) for full notes. 31 roles, 7 proven team packs, 212 tests, 35 execution trials."
+    ],
+    "publishedAt": "2026-03-25T01:20:56Z",
+    "url": "https://github.com/mcp-tool-shop-org/role-os/releases/tag/v1.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "star-freight",
+    "toolName": "Star Freight",
+    "tag": "v1.0.3",
+    "name": "v1.0.3 -- Binary release for npm launcher",
+    "body": [
+      "Adds pre-built binaries for the npm launcher path (`npx @mcptoolshop/star-freight`).",
+      "`star-freight-1.0.3-linux-x64`",
+      "`star-freight-1.0.3-darwin-arm64`",
+      "`star-freight-1.0.3-win-x64.exe`",
+      "`checksums-1.0.3.txt` (SHA256)",
+      "Added `release-binaries.yml` workflow (PyInstaller + SHA256 checksums)"
+    ],
+    "publishedAt": "2026-03-24T14:34:00Z",
+    "url": "https://github.com/mcp-tool-shop-org/star-freight/releases/tag/v1.0.3",
+    "prerelease": false
+  },
+  {
+    "repo": "star-freight",
+    "toolName": "Star Freight",
+    "tag": "v1.0.2",
+    "name": "v1.0.2 -- Star Freight Print-and-Play Board Game",
+    "body": [
+      "Rebuilt the print-and-play PDF generator as a proper Star Freight board game, not a Portlight reskin.",
+      "Lanes** read as governed corridors (inspected / convoy / contested / hazard / gray), not neutral sea routes",
+      "Pressure deck** (40 cards) replaces weather with institutional forces: inspections, seizures, scarcity spikes, convoy delays, pirate ambushes, house challenges, market shifts",
+      "Quarter deck** replaces seasons with political rhythm: Scarcity / Convoy / Sanctions / Claims",
+      "Captain archetypes**: Relief / Gray / Honor -- three distinct lives, not three skill sets",
+      "Vessels**: Rustbucket / Hauler / Runner / Warbird / Bulkframe -- campaign postures, not ship classes"
+    ],
+    "publishedAt": "2026-03-24T14:04:28Z",
+    "url": "https://github.com/mcp-tool-shop-org/star-freight/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "saints-mile",
+    "toolName": "Saints Mile",
+    "tag": "v1.0.0",
+    "name": "Saint's Mile v1.0.0",
+    "body": [
+      "A frontier JRPG built in Rust for the terminal.",
+      "You play as Galen Rook across four decades — from a nineteen-year-old deputy's runner to an older man returning to the place where his life was written wrong.",
+      "Download:** Grab `saints-mile-windows-v1.0.0.zip`, extract, and run `saints-mile.exe` in any terminal.",
+      "Build from source:** `cargo install saints-mile` or clone and `cargo run --release`.",
+      "16 chapters across four life phases",
+      "6 party members with distinct combat identities"
+    ],
+    "publishedAt": "2026-03-23T00:06:22Z",
+    "url": "https://github.com/mcp-tool-shop-org/saints-mile/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
     "repo": "portlight",
     "toolName": "Portlight",
     "tag": "v1.0.0",
@@ -242,450 +759,6 @@
     "body": [],
     "publishedAt": "2026-03-14T02:03:57Z",
     "url": "https://github.com/mcp-tool-shop-org/commandui/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "llm-sync-drive",
-    "toolName": "Llm Sync Drive",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
-    "body": [
-      "First stable release.",
-      "Compile repos into structured `llms.txt` Markdown documents",
-      "Auto-sync to Google Drive with idempotent file IDs",
-      "Watch mode with configurable debounce",
-      "MCP server for AI assistant integration (sync_to_drive, compile_context, sync_status, list_repos)",
-      "Smart filtering via `.gitignore`, `.llmsignore`, and built-in rules"
-    ],
-    "publishedAt": "2026-03-13T15:58:52Z",
-    "url": "https://github.com/mcp-tool-shop-org/llm-sync-drive/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "soundweave",
-    "toolName": "Soundweave",
-    "tag": "v1.0.1",
-    "name": "Soundweave v1.0.1",
-    "body": [
-      "Adaptive soundtrack studio for composing, arranging, scoring, and exporting interactive game music. Soundweave is a composition-first, adaptation-aware workstation — game music that feels intentional, not generated.",
-      "Studio** — 13-screen authoring UI for clips, stems, scenes, bindings, transitions, automation, and score maps",
-      "16 packages** — Schema, audio engine, clip engine, music theory, score map, automation, library, runtime pack, and more",
-      "Adaptive logic** — Trigger bindings, deterministic scene resolution, crossfade/stinger/cooldown transitions",
-      "World scoring** — Motif families, score profiles, cue families, derivation chains",
-      "Sample workflow** — Import, trim, slice, kit builder, sample instruments"
-    ],
-    "publishedAt": "2026-03-11T15:09:39Z",
-    "url": "https://github.com/mcp-tool-shop-org/soundweave/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "py-polyglot",
-    "toolName": "Py Polyglot",
-    "tag": "v1.0.4",
-    "name": "v1.0.4",
-    "body": [
-      "Starlight handbook (7 pages, 7 locales), retranslated READMEs, landing page CTA → handbook."
-    ],
-    "publishedAt": "2026-03-06T13:40:55Z",
-    "url": "https://github.com/mcp-tool-shop-org/py-polyglot/releases/tag/v1.0.4",
-    "prerelease": false
-  },
-  {
-    "repo": "py-polyglot",
-    "toolName": "Py Polyglot",
-    "tag": "v1.0.3",
-    "name": "v1.0.3",
-    "body": [
-      "httpx connection pooling** — reuse connections instead of creating one per request",
-      "Semaphore context manager** — `async with sem:` pattern, prevents slot leaks on exceptions",
-      "Race condition fix** — `_active` counter protected by asyncio.Lock",
-      "Cache path traversal** — uses `relative_to()` instead of string comparison",
-      "Structured logging** — replaces `print(stderr)` with Python logging module",
-      "Specific exceptions** — no more bare `except Exception` in ollama.py"
-    ],
-    "publishedAt": "2026-03-06T13:12:47Z",
-    "url": "https://github.com/mcp-tool-shop-org/py-polyglot/releases/tag/v1.0.3",
-    "prerelease": false
-  },
-  {
-    "repo": "py-polyglot",
-    "toolName": "Py Polyglot",
-    "tag": "v1.0.2",
-    "name": "v1.0.2",
-    "body": [
-      "Renamed PyPI distribution from `py-polyglot` to `polyglot-gpu` (import name `pypolyglot` unchanged)",
-      "CLI entry point renamed to `polyglot-gpu`",
-      "Added trusted publisher workflow for PyPI releases",
-      "```bash",
-      "pip install polyglot-gpu",
-      "```"
-    ],
-    "publishedAt": "2026-03-06T13:01:30Z",
-    "url": "https://github.com/mcp-tool-shop-org/py-polyglot/releases/tag/v1.0.2",
-    "prerelease": false
-  },
-  {
-    "repo": "escape-the-valley",
-    "toolName": "Escape The Valley",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
-    "body": [
-      "Oregon Trail-style survival game with AI Game Master and optional XRPL ledger backpack.",
-      "Procedurally generated wilderness with seeded world generation",
-      "6 camp actions: travel, rest, hunt, repair, ration, abandon cargo",
-      "AI Game Master with 3 narrative profiles (Chronicler, Fireside, Lantern-Bearer)",
-      "Rich terminal UI via Textual",
-      "Save/load with automatic checkpoint system"
-    ],
-    "publishedAt": "2026-03-04T10:50:58Z",
-    "url": "https://github.com/mcp-tool-shop-org/escape-the-valley/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "receipt-factory",
-    "toolName": "Receipt Factory",
-    "tag": "v1.7.1",
-    "name": "v1.7.1",
-    "body": [
-      "Added branded README with logo, usage examples, and exports table to all 10 npm packages",
-      "Added LICENSE to all sub-packages for npm compliance",
-      "Complete translations: Japanese, Chinese, Spanish, French, Hindi, Italian, Portuguese",
-      "All 10 packages now live on npm at v1.7.1:",
-      "| Package | npm |",
-      "|---------|-----|"
-    ],
-    "publishedAt": "2026-03-03T10:58:19Z",
-    "url": "https://github.com/mcp-tool-shop-org/receipt-factory/releases/tag/v1.7.1",
-    "prerelease": false
-  },
-  {
-    "repo": "receipt-factory",
-    "toolName": "Receipt Factory",
-    "tag": "v1.7.0",
-    "name": "v1.7.0 — Supply Chain Receipts",
-    "body": [
-      "Three new receipt pipelines for security teams and executives:",
-      "registry-sync** — Prove what's published vs what's in the repo",
-      "Drift classification: in sync, ahead, behind, unpublished",
-      "Each package becomes a receipt output with version comparison",
-      "security-audit** — Prove what you scanned, with what tool, and what was found",
-      "Severity breakdown (critical/high/moderate/low/info) in intent and metadata"
-    ],
-    "publishedAt": "2026-03-03T10:15:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/receipt-factory/releases/tag/v1.7.0",
-    "prerelease": false
-  },
-  {
-    "repo": "receipt-factory",
-    "toolName": "Receipt Factory",
-    "tag": "v1.6.0",
-    "name": "v1.6.0 — Bundle Authority",
-    "body": [
-      "Bundles can now be signed and their signatures verified, establishing **who created the parcel**. The zip contents are never mutated — signatures live as detached sidecars (`.sig`/`.cert`) next to the bundle.",
-      "`rf bundle sign <file>`** — Sign a bundle with cosign (detached sidecar)",
-      "`--keyless` for OIDC-based signing in CI",
-      "`--key <path>` for local key-based signing",
-      "`rf bundle verify --require-bundle-signature`** — Require a valid bundle-level signature",
-      "`rf verify <file.zip> --require-bundle-signature`** — Auto-detect passthrough"
-    ],
-    "publishedAt": "2026-03-03T09:54:40Z",
-    "url": "https://github.com/mcp-tool-shop-org/receipt-factory/releases/tag/v1.6.0",
-    "prerelease": false
-  },
-  {
-    "repo": "receipt-factory",
-    "toolName": "Receipt Factory",
-    "tag": "v1.5.0",
-    "name": "v1.5.0 — Receipt Bundles",
-    "body": [
-      "v1.5.0 introduces **receipt bundles** — self-verifying zip archives that package a receipt with its entire trust chain into a single portable file.",
-      "```",
-      "bundle.zip/",
-      "├── manifest.json     # Bundle metadata",
-      "├── hashes.json       # SHA-256 of every file",
-      "├── VERIFY.md         # Human-readable verification instructions"
-    ],
-    "publishedAt": "2026-03-03T09:37:47Z",
-    "url": "https://github.com/mcp-tool-shop-org/receipt-factory/releases/tag/v1.5.0",
-    "prerelease": false
-  },
-  {
-    "repo": "receipt-factory",
-    "toolName": "Receipt Factory",
-    "tag": "v1.4.0",
-    "name": "v1.4.0 — Strict Refs, Policy Identity, Policy Signing",
-    "body": [
-      "Default stays best-effort — missing references are reported but don't fail verification. With `--refs-strict`, missing or unreadable references fail. Hash mismatches always fail regardless of mode.",
-      "```bash",
-      "rf verify receipt.json --follow --refs-strict --receipts-dir receipts/",
-      "```",
-      "Receipts now embed `policy_identity.hash` — the SHA-256 of the lint policy rules applied at creation time. During verification, if a policy is supplied, the hash is compared. Mismatch = fail. This prevents policy swapping.",
-      "`PolicyIdentity` type: `hash`, optional `version`, `path`, `signed`, `signatureRef`"
-    ],
-    "publishedAt": "2026-03-03T09:17:49Z",
-    "url": "https://github.com/mcp-tool-shop-org/receipt-factory/releases/tag/v1.4.0",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-lab",
-    "toolName": "Xrpl Lab",
-    "tag": "v1.0.1",
-    "name": "v1.0.1",
-    "body": [],
-    "publishedAt": "2026-03-03T05:14:48Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-lab",
-    "toolName": "Xrpl Lab",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
-    "body": [],
-    "publishedAt": "2026-03-03T05:08:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "site-theme",
-    "toolName": "Site Theme",
-    "tag": "v1.3.0",
-    "name": "v1.3.0 — Multi-Tenant SaaS Architecture",
-    "body": [
-      "App template upgraded** to `/app/[workspace]/…` multi-tenant routing (3 seeded workspaces)",
-      "RBAC policy layer** — `canViewBilling`, `canManageTeam`, `canManageWorkspace`",
-      "Feature flags** — `billing`, `teams`, `auditLog`, `apiKeys` with `isEnabled()` gating",
-      "Centralized data layer** — workspace-keyed projects, metrics, and activity",
-      "Path-preserving workspace switcher** with plan badges (starter / pro / business)",
-      "AccessDenied component** + billing page RBAC gate"
-    ],
-    "publishedAt": "2026-03-03T02:05:00Z",
-    "url": "https://github.com/mcp-tool-shop-org/site-theme/releases/tag/v1.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-camp",
-    "toolName": "Xrpl Camp",
-    "tag": "v1.0.6",
-    "name": "v1.0.6",
-    "body": [],
-    "publishedAt": "2026-03-02T17:41:23Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.0.6",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v1.4.6",
-    "name": "v1.4.6",
-    "body": [],
-    "publishedAt": "2026-03-02T17:41:22Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v1.4.6",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v1.4.5",
-    "name": "v1.4.5",
-    "body": [],
-    "publishedAt": "2026-03-02T17:32:57Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v1.4.5",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-camp",
-    "toolName": "Xrpl Camp",
-    "tag": "v1.0.5",
-    "name": "v1.0.5",
-    "body": [],
-    "publishedAt": "2026-03-02T17:32:36Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.0.5",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v1.4.4",
-    "name": "v1.4.4",
-    "body": [],
-    "publishedAt": "2026-03-02T17:27:00Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v1.4.4",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-camp",
-    "toolName": "Xrpl Camp",
-    "tag": "v1.0.4",
-    "name": "v1.0.4",
-    "body": [],
-    "publishedAt": "2026-03-02T17:26:58Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.0.4",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v1.4.3",
-    "name": "v1.4.3",
-    "body": [],
-    "publishedAt": "2026-03-02T17:00:42Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v1.4.3",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-camp",
-    "toolName": "Xrpl Camp",
-    "tag": "v1.0.3",
-    "name": "v1.0.3",
-    "body": [],
-    "publishedAt": "2026-03-02T17:00:31Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.0.3",
-    "prerelease": false
-  },
-  {
-    "repo": "claude-toolstack",
-    "toolName": "Claude Toolstack",
-    "tag": "v1.0.1",
-    "name": "v1.0.1 — Handbook + Publish Workflow",
-    "body": [
-      "HANDBOOK.md** — complete operational reference (13 chapters + 3 appendices) covering architecture, commands, performance model, Docker execution, resource governance, security, tuning, troubleshooting, and design decisions",
-      "Publish workflow** — 3-channel automated release (PyPI via OIDC, GHCR gateway image, GitHub Release artifacts)",
-      "```bash",
-      "pip install --upgrade claude-toolstack-cli",
-      "```"
-    ],
-    "publishedAt": "2026-03-01T20:36:39Z",
-    "url": "https://github.com/mcp-tool-shop-org/claude-toolstack/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "claude-toolstack",
-    "toolName": "Claude Toolstack",
-    "tag": "v1.0.0",
-    "name": "v1.0.0 — Bounded Code Intelligence",
-    "body": [
-      "A ready-to-deploy stack that keeps Claude Code productive on large, multi-language repositories without thrashing a 64-GB Linux workstation.",
-      "FastAPI gateway** with 6 bounded endpoints (search, slice, ctags, symbol, job runner, metrics)",
-      "systemd cgroup v2 slices** — 5 slices enforce MemoryHigh/Max per service group",
-      "Exec-only Docker model** — socket proxy blocks 14 higher-risk Docker endpoints",
-      "`cts` CLI** — zero-dependency Python client with text/JSON/Claude output modes",
-      "Evidence bundles v2** — 4 bundle modes (default, error, symbol, change) with path ranking + git recency"
-    ],
-    "publishedAt": "2026-03-01T19:19:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/claude-toolstack/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "shipcheck",
-    "toolName": "Shipcheck",
-    "tag": "v1.0.4",
-    "name": "v1.0.4",
-    "body": [
-      "First release with full RepoMesh evidence pipeline:",
-      "CycloneDX SBOM generated and attached",
-      "SLSA-style provenance statement attached",
-      "Signed ReleasePublished event broadcast to ledger",
-      "This release should converge to trust score 100/100 in the network."
-    ],
-    "publishedAt": "2026-02-28T05:05:27Z",
-    "url": "https://github.com/mcp-tool-shop-org/shipcheck/releases/tag/v1.0.4",
-    "prerelease": false
-  },
-  {
-    "repo": "shipcheck",
-    "toolName": "Shipcheck",
-    "tag": "v1.0.3",
-    "name": "v1.0.3",
-    "body": [
-      "RepoMesh smoke test — broadcast workflow with push auth fix."
-    ],
-    "publishedAt": "2026-02-28T04:25:26Z",
-    "url": "https://github.com/mcp-tool-shop-org/shipcheck/releases/tag/v1.0.3",
-    "prerelease": false
-  },
-  {
-    "repo": "shipcheck",
-    "toolName": "Shipcheck",
-    "tag": "v1.0.2",
-    "name": "v1.0.2",
-    "body": [
-      "First RepoMesh-enabled release. Broadcast workflow will emit a signed ReleasePublished event to the RepoMesh ledger."
-    ],
-    "publishedAt": "2026-02-28T04:14:01Z",
-    "url": "https://github.com/mcp-tool-shop-org/shipcheck/releases/tag/v1.0.2",
-    "prerelease": false
-  },
-  {
-    "repo": "payroll-engine",
-    "toolName": "Payroll Engine",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
-    "body": [],
-    "publishedAt": "2026-02-28T01:58:21Z",
-    "url": "https://github.com/mcp-tool-shop-org/payroll-engine/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "code-batch",
-    "toolName": "Code Batch",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
-    "body": [],
-    "publishedAt": "2026-02-28T01:37:02Z",
-    "url": "https://github.com/mcp-tool-shop-org/code-batch/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "file-compass",
-    "toolName": "File Compass",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
-    "body": [
-      "Fix CI concurrency for release workflow by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/file-compass/pull/30",
-      "Add landing page using @mcptoolshop/site-theme by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/file-compass/pull/31"
-    ],
-    "publishedAt": "2026-02-28T01:36:30Z",
-    "url": "https://github.com/mcp-tool-shop-org/file-compass/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "witness",
-    "toolName": "Witness",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
-    "body": [
-      "Local-first, append-only event journal",
-      "Offline verification",
-      "Canonical JSON + SHA-256 + Ed25519",
-      "See:",
-      "CONTRACT.md",
-      "IMPLEMENTATION_NOTES.md"
-    ],
-    "publishedAt": "2026-02-28T01:35:55Z",
-    "url": "https://github.com/mcp-tool-shop-org/witness/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ThrottleAI",
-    "toolName": "ThrottleAI",
-    "tag": "v1.1.2",
-    "name": "v1.1.2",
-    "body": [],
-    "publishedAt": "2026-02-28T01:34:46Z",
-    "url": "https://github.com/mcp-tool-shop-org/ThrottleAI/releases/tag/v1.1.2",
-    "prerelease": false
-  },
-  {
-    "repo": "backpropagate",
-    "toolName": "Backpropagate",
-    "tag": "v1.0.1",
-    "name": "v1.0.1",
-    "body": [
-      "Ship Gate remediation — all hard gates pass (23/31 checked, 14 skipped, 100%)."
-    ],
-    "publishedAt": "2026-02-27T13:08:35Z",
-    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.0.1",
     "prerelease": false
   }
 ]

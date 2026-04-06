@@ -24,7 +24,7 @@
     "category": "infrastructure",
     "stability": "stable",
     "kind": "desktop-app",
-    "tagline": "Financial intent verification for Windows \u00e2\u20ac\u201d WinUI 3 app and .NET SDK for blockchain...",
+    "tagline": "Financial intent verification for Windows â€” WinUI 3 app and .NET SDK for blockchain...",
     "needsHumanReview": true
   },
   "ClaimLedger": {
@@ -52,7 +52,7 @@
     "stability": "stable",
     "kind": "plugin",
     "install": "npm install consensusos",
-    "tagline": "Plugin-based multi-chain consensus control plane \u00e2\u20ac\u201d zero deps, fail-closed invariants,...",
+    "tagline": "Plugin-based multi-chain consensus control plane â€” zero deps, fail-closed invariants,...",
     "needsHumanReview": true
   },
   "CreatorLedger": {
@@ -88,7 +88,7 @@
     "category": "ml",
     "stability": "experimental",
     "kind": "desktop-app",
-    "tagline": "Deterministic 60Hz mouse training engine \u00e2\u20ac\u201d fixed timestep, alpha interpolation, virtual...",
+    "tagline": "Deterministic 60Hz mouse training engine â€” fixed timestep, alpha interpolation, virtual...",
     "needsHumanReview": true
   },
   "InControl-Desktop": {
@@ -103,7 +103,7 @@
     "category": "desktop",
     "stability": "stable",
     "kind": "desktop-app",
-    "tagline": "Privacy-first local LLM chat for Windows \u00e2\u20ac\u201d WinUI 3, RTX-accelerated, multi-backend...",
+    "tagline": "Privacy-first local LLM chat for Windows â€” WinUI 3, RTX-accelerated, multi-backend...",
     "needsHumanReview": true
   },
   "LeaseGate": {
@@ -118,7 +118,7 @@
     "category": "infrastructure",
     "stability": "beta",
     "kind": "cli",
-    "tagline": "Local-first AI governance control plane \u00e2\u20ac\u201d lease admission, policy enforcement,...",
+    "tagline": "Local-first AI governance control plane â€” lease admission, policy enforcement,...",
     "needsHumanReview": true
   },
   "LeaseGate-Lite": {
@@ -172,7 +172,7 @@
     "stability": "experimental",
     "kind": "cli",
     "install": "npx registrum",
-    "tagline": "Deterministic structural registrar \u00e2\u20ac\u201d dual-witness state transitions, fail-closed...",
+    "tagline": "Deterministic structural registrar â€” dual-witness state transitions, fail-closed...",
     "needsHumanReview": true
   },
   "ScalarScope-Desktop": {
@@ -192,7 +192,7 @@
     "stability": "stable",
     "kind": "library",
     "install": "npm install throttleai",
-    "tagline": "A token-based lease governor for AI calls \u00e2\u20ac\u201d small enough to embed anywhere, strict...",
+    "tagline": "A token-based lease governor for AI calls â€” small enough to embed anywhere, strict...",
     "needsHumanReview": true
   },
   "ToolShopStudio": {
@@ -207,7 +207,7 @@
     "category": "infrastructure",
     "stability": "experimental",
     "kind": "meta",
-    "tagline": "Six MCP tools + live Registry (FFmpeg, Pandoc, FreeCAD, GDAL, OpenSCAD, Blender) \u00e2\u20ac\u201d...",
+    "tagline": "Six MCP tools + live Registry (FFmpeg, Pandoc, FreeCAD, GDAL, OpenSCAD, Blender) â€”...",
     "needsHumanReview": true
   },
   "Trace": {
@@ -238,7 +238,7 @@
     "stability": "experimental",
     "kind": "cli",
     "install": "pipx install a11y-assist",
-    "tagline": "Deterministic accessibility assistance for CLI failures \u00e2\u20ac\u201d additive, SAFE-only,...",
+    "tagline": "Deterministic accessibility assistance for CLI failures â€” additive, SAFE-only,...",
     "needsHumanReview": true
   },
   "a11y-ci": {
@@ -372,7 +372,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "npm install ai-ui",
-    "tagline": "Eyes \u00e2\u2020\u2019 Brain \u00e2\u2020\u2019 Hands \u00e2\u20ac\u201d repeatable UI workflow for design-system-first Astro pages.",
+    "tagline": "Eyes â†’ Brain â†’ Hands â€” repeatable UI workflow for design-system-first Astro pages.",
     "needsHumanReview": true
   },
   "ally-demo-python": {
@@ -405,7 +405,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "npm install artifact",
-    "tagline": "Repo signature artifact decision system \u00e2\u20ac\u201d checklist tree + Ollama-powered Curator...",
+    "tagline": "Repo signature artifact decision system â€” checklist tree + Ollama-powered Curator...",
     "needsHumanReview": true
   },
   "aspire-ai": {
@@ -446,7 +446,7 @@
     "category": "devtools",
     "stability": "experimental",
     "kind": "library",
-    "tagline": "Real-time VRM avatar lipsync MVP \u00e2\u20ac\u201d Godot 4 + FFT visemes + OpenSeeFace.",
+    "tagline": "Real-time VRM avatar lipsync MVP â€” Godot 4 + FFT visemes + OpenSeeFace.",
     "needsHumanReview": true
   },
   "backprop": {
@@ -462,7 +462,7 @@
     "stability": "beta",
     "kind": "cli",
     "install": "npx backprop",
-    "tagline": "CLI-first ML trainer with intelligent resource governance \u00e2\u20ac\u201d timeboxed runs, GPU...",
+    "tagline": "CLI-first ML trainer with intelligent resource governance â€” timeboxed runs, GPU...",
     "needsHumanReview": true
   },
   "backpropagate": {
@@ -513,7 +513,7 @@
     "stability": "beta",
     "kind": "cli",
     "install": "npx brand",
-    "tagline": "Centralized brand asset management \u00e2\u20ac\u201d migration, audit, and integrity verification for...",
+    "tagline": "Centralized brand asset management â€” migration, audit, and integrity verification for...",
     "needsHumanReview": true
   },
   "build-governor": {
@@ -572,7 +572,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "npm install claude-guardian",
-    "tagline": "Flight computer for Claude Code \u00e2\u20ac\u201d log rotation, watchdog, crash bundles, and MCP...",
+    "tagline": "Flight computer for Claude Code â€” log rotation, watchdog, crash bundles, and MCP...",
     "needsHumanReview": true
   },
   "claude-hook-debug": {
@@ -588,7 +588,7 @@
     "stability": "experimental",
     "kind": "plugin",
     "install": "npm install claude-hook-debug",
-    "tagline": "Diagnostic CLI for Claude Code hook issues \u00e2\u20ac\u201d detects ghost hooks, scope conflicts, and...",
+    "tagline": "Diagnostic CLI for Claude Code hook issues â€” detects ghost hooks, scope conflicts, and...",
     "needsHumanReview": true
   },
   "claude-memories": {
@@ -612,9 +612,9 @@
     "stability": "stable",
     "kind": "cli",
     "install": "npx claude-rpg play --world fantasy",
-    "tagline": "Simulation-grounded campaign RPG \u00e2\u20ac\u201d 10 worlds, streaming narration, 195 tests, runtime-proofed.",
+    "tagline": "Simulation-grounded campaign RPG â€” 10 worlds, streaming narration, 195 tests, runtime-proofed.",
     "goodFor": "Players who want AI narration grounded in deterministic simulation truth. Developers building on the AI RPG Engine ecosystem.",
-    "notFor": "Casual chatbot RPGs \u00e2\u20ac\u201d this is a full simulation engine, not a prompt wrapper."
+    "notFor": "Casual chatbot RPGs â€” this is a full simulation engine, not a prompt wrapper."
   },
   "claude-rules": {
     "tags": [
@@ -654,7 +654,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "npm install claude-sfx",
-    "tagline": "Procedural audio feedback for Claude Code \u00e2\u20ac\u201d UX for agentic coding.",
+    "tagline": "Procedural audio feedback for Claude Code â€” UX for agentic coding.",
     "needsHumanReview": true
   },
   "claude-toolstack": {
@@ -662,7 +662,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "pip install claude-toolstack",
-    "tagline": "Docker + Claude Code workstation config for 64-GB Linux hosts \u00e2\u20ac\u201d cgroup v2 slices,...",
+    "tagline": "Docker + Claude Code workstation config for 64-GB Linux hosts â€” cgroup v2 slices,...",
     "needsHumanReview": true
   },
   "code-batch": {
@@ -678,7 +678,7 @@
     "stability": "beta",
     "kind": "cli",
     "install": "pipx install code-batch",
-    "tagline": "Content-addressed batch execution engine \u00e2\u20ac\u201d deterministic sharding, queryable outputs,...",
+    "tagline": "Content-addressed batch execution engine â€” deterministic sharding, queryable outputs,...",
     "needsHumanReview": true
   },
   "code-covered": {
@@ -728,7 +728,7 @@
     "category": "devtools",
     "stability": "experimental",
     "kind": "cli",
-    "tagline": "Code analysis protocol and tools \u00e2\u20ac\u201d CLI engine with editor extensions.",
+    "tagline": "Code analysis protocol and tools â€” CLI engine with editor extensions.",
     "needsHumanReview": true
   },
   "comfy-headless": {
@@ -774,7 +774,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "npm install composecraft",
-    "tagline": "Desktop composition workspace \u00e2\u20ac\u201d multi-claude proving ground.",
+    "tagline": "Desktop composition workspace â€” multi-claude proving ground.",
     "needsHumanReview": true
   },
   "context-window-manager": {
@@ -811,7 +811,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "npm install deltamind",
-    "tagline": "Active context compaction for AI agents \u00e2\u20ac\u201d typed deltas, structured state, provenance,...",
+    "tagline": "Active context compaction for AI agents â€” typed deltas, structured state, provenance,...",
     "needsHumanReview": true
   },
   "dev-op-typer": {
@@ -826,7 +826,7 @@
     "category": "games",
     "stability": "experimental",
     "kind": "desktop-app",
-    "tagline": "Developer-focused typing practice for Windows \u00e2\u20ac\u201d type real code across 6 languages, with...",
+    "tagline": "Developer-focused typing practice for Windows â€” type real code across 6 languages, with...",
     "needsHumanReview": true
   },
   "dogfood-labs": {
@@ -842,7 +842,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "npm install dogfood-labs",
-    "tagline": "Centralized dogfood evidence system \u00e2\u20ac\u201d proves every repo was actually exercised in a...",
+    "tagline": "Centralized dogfood evidence system â€” proves every repo was actually exercised in a...",
     "needsHumanReview": true
   },
   "escape-the-valley": {
@@ -973,7 +973,7 @@
     "category": "infrastructure",
     "stability": "experimental",
     "kind": "library",
-    "tagline": "Unified monorepo for cryptographic provenance ledgers \u00e2\u20ac\u201d ClaimLedger and CreatorLedger.",
+    "tagline": "Unified monorepo for cryptographic provenance ledgers â€” ClaimLedger and CreatorLedger.",
     "needsHumanReview": true
   },
   "linux-dev-typer": {
@@ -1014,7 +1014,7 @@
     "stability": "experimental",
     "kind": "mcp-server",
     "install": "npx mcp-app-builder",
-    "tagline": "Build MCP servers with interactive UI components \u00e2\u20ac\u201d from VS Code.",
+    "tagline": "Build MCP servers with interactive UI components â€” from VS Code.",
     "needsHumanReview": true
   },
   "mcp-aside": {
@@ -1109,7 +1109,7 @@
     "category": "games",
     "stability": "stable",
     "kind": "desktop-app",
-    "tagline": "Shared content system for typing-practice apps \u00e2\u20ac\u201d lessons, progression, and adaptive...",
+    "tagline": "Shared content system for typing-practice apps â€” lessons, progression, and adaptive...",
     "needsHumanReview": true
   },
   "multi-claude": {
@@ -1142,7 +1142,7 @@
     "stability": "experimental",
     "kind": "cli",
     "install": "pipx install nexus-attest",
-    "tagline": "Deterministic attestation with verifiable evidence \u00e2\u20ac\u201d governance, audit packages, and...",
+    "tagline": "Deterministic attestation with verifiable evidence â€” governance, audit packages, and...",
     "needsHumanReview": true
   },
   "nexus-control": {
@@ -1231,7 +1231,7 @@
     "stability": "experimental",
     "kind": "cli",
     "install": "npx npm-escape-the-valley",
-    "tagline": "Oregon Trail-style survival game with AI narration and XRPL ledger \u00e2\u20ac\u201d zero-prerequisite...",
+    "tagline": "Oregon Trail-style survival game with AI narration and XRPL ledger â€” zero-prerequisite...",
     "needsHumanReview": true
   },
   "npm-launcher": {
@@ -1263,7 +1263,7 @@
     "stability": "experimental",
     "kind": "cli",
     "install": "npx npm-portlight",
-    "tagline": "npm wrapper for Portlight \u00e2\u20ac\u201d zero-prerequisite npx install for the maritime strategy CLI.",
+    "tagline": "npm wrapper for Portlight â€” zero-prerequisite npx install for the maritime strategy CLI.",
     "needsHumanReview": true
   },
   "npm-sovereignty": {
@@ -1278,7 +1278,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "npm install npm-sovereignty",
-    "tagline": "npm wrapper for sovereignty \u00e2\u20ac\u201d zero-prerequisite npx install via @mcptoolshop/npm-launcher.",
+    "tagline": "npm wrapper for sovereignty â€” zero-prerequisite npx install via @mcptoolshop/npm-launcher.",
     "needsHumanReview": true
   },
   "npm-xrpl-camp": {
@@ -1293,7 +1293,7 @@
     "stability": "experimental",
     "kind": "cli",
     "install": "npx npm-xrpl-camp",
-    "tagline": "npm wrapper for xrpl-camp \u00e2\u20ac\u201d zero-prerequisite npx install via @mcptoolshop/npm-launcher.",
+    "tagline": "npm wrapper for xrpl-camp â€” zero-prerequisite npx install via @mcptoolshop/npm-launcher.",
     "needsHumanReview": true
   },
   "npm-xrpl-lab": {
@@ -1308,7 +1308,7 @@
     "stability": "experimental",
     "kind": "cli",
     "install": "npx npm-xrpl-lab",
-    "tagline": "XRPL Lab \u00e2\u20ac\u201d zero-prerequisite npx install (verified binary launcher).",
+    "tagline": "XRPL Lab â€” zero-prerequisite npx install (verified binary launcher).",
     "needsHumanReview": true
   },
   "nullout": {
@@ -1372,7 +1372,7 @@
     "category": "infrastructure",
     "stability": "experimental",
     "kind": "desktop-app",
-    "tagline": "Personal finance and budget tracking app \u00e2\u20ac\u201d clean, simple, and private-first.",
+    "tagline": "Personal finance and budget tracking app â€” clean, simple, and private-first.",
     "needsHumanReview": true
   },
   "polyglot-mcp": {
@@ -1388,7 +1388,7 @@
     "stability": "experimental",
     "kind": "mcp-server",
     "install": "npx polyglot-mcp",
-    "tagline": "Local GPU translation MCP server \u00e2\u20ac\u201d TranslateGemma via Ollama, 55 languages, zero cloud...",
+    "tagline": "Local GPU translation MCP server â€” TranslateGemma via Ollama, 55 languages, zero cloud...",
     "needsHumanReview": true
   },
   "polyglot-vscode": {
@@ -1403,7 +1403,7 @@
     "category": "devtools",
     "stability": "beta",
     "kind": "vscode-extension",
-    "tagline": "VS Code extension for local GPU translation \u00e2\u20ac\u201d TranslateGemma via Ollama, 55 languages,...",
+    "tagline": "VS Code extension for local GPU translation â€” TranslateGemma via Ollama, 55 languages,...",
     "needsHumanReview": true
   },
   "portlight": {
@@ -1419,7 +1419,7 @@
     "stability": "stable",
     "kind": "cli",
     "install": "pipx install portlight",
-    "tagline": "Trade-first maritime strategy CLI \u00e2\u20ac\u201d route arbitrage, contracts, infrastructure,...",
+    "tagline": "Trade-first maritime strategy CLI â€” route arbitrage, contracts, infrastructure,...",
     "needsHumanReview": true
   },
   "prov-engine-js": {
@@ -1464,7 +1464,7 @@
     "stability": "stable",
     "kind": "mcp-server",
     "install": "pip install py-polyglot",
-    "tagline": "Local GPU translation Python library + MCP server \u00e2\u20ac\u201d TranslateGemma via Ollama, 57...",
+    "tagline": "Local GPU translation Python library + MCP server â€” TranslateGemma via Ollama, 57...",
     "needsHumanReview": true
   },
   "receipt-factory": {
@@ -1480,7 +1480,7 @@
     "stability": "stable",
     "kind": "cli",
     "install": "npx receipt-factory",
-    "tagline": "Signed, timestamped, reproducible records of what happened \u00e2\u20ac\u201d CI, releases, audits, SBOMs.",
+    "tagline": "Signed, timestamped, reproducible records of what happened â€” CI, releases, audits, SBOMs.",
     "needsHumanReview": true
   },
   "registry-stats": {
@@ -1502,7 +1502,7 @@
     "category": "infrastructure",
     "stability": "experimental",
     "kind": "vscode-extension",
-    "tagline": "Multi-registry download stats for VS Code \u00e2\u20ac\u201d Executive PDF, LLM JSONL, and Dev Markdown...",
+    "tagline": "Multi-registry download stats for VS Code â€” Executive PDF, LLM JSONL, and Dev Markdown...",
     "needsHumanReview": true
   },
   "registry-sync": {
@@ -1545,7 +1545,7 @@
     "stability": "experimental",
     "kind": "mcp-server",
     "install": "npx repo-knowledge",
-    "tagline": "Repo knowledge system \u00e2\u20ac\u201d relational catalog with full-text search, audit evidence, and...",
+    "tagline": "Repo knowledge system â€” relational catalog with full-text search, audit evidence, and...",
     "needsHumanReview": true
   },
   "repomesh": {
@@ -1561,7 +1561,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "npm install repomesh",
-    "tagline": "Syntropic repo network \u00e2\u20ac\u201d append-only ledger, signed events, multi-dimensional trust...",
+    "tagline": "Syntropic repo network â€” append-only ledger, signed events, multi-dimensional trust...",
     "needsHumanReview": true
   },
   "rippled-windows-debug": {
@@ -1577,6 +1577,22 @@
     "stability": "experimental",
     "kind": "desktop-app",
     "tagline": "Windows debugging toolkit for rippled (XRPL validator node).",
+    "needsHumanReview": true
+  },
+  "role-os": {
+    "tags": [
+      "agents",
+      "ai-workflow",
+      "code-review",
+      "contracts",
+      "developer-tools",
+      "handoffs"
+    ],
+    "category": "devtools",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install role-os",
+    "tagline": "Role OS — a repo-native operating layer where specialized roles execute work through...",
     "needsHumanReview": true
   },
   "runforge-desktop": {
@@ -1605,6 +1621,21 @@
     "tagline": "VS Code extension for AI workflow execution.",
     "needsHumanReview": true
   },
+  "saints-mile": {
+    "tags": [
+      "game",
+      "jrpg",
+      "ratatui",
+      "rpg",
+      "rust",
+      "terminal"
+    ],
+    "category": "games",
+    "stability": "stable",
+    "kind": "library",
+    "tagline": "A frontier JRPG for the adults who loved those games first.",
+    "needsHumanReview": true
+  },
   "scoop-bucket": {
     "tags": [
       "mcp"
@@ -1628,7 +1659,7 @@
     "stability": "stable",
     "kind": "library",
     "install": "npm install shipcheck",
-    "tagline": "Product standards for MCP Tool Shop \u00e2\u20ac\u201d Ship Gate checklist, error contract, templates,...",
+    "tagline": "Product standards for MCP Tool Shop â€” Ship Gate checklist, error contract, templates,...",
     "needsHumanReview": true
   },
   "site-theme": {
@@ -1653,7 +1684,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "npm install sonic-core",
-    "tagline": "Audio control plane for TypeScript \u00e2\u20ac\u201d playback, synthesis, routing, and device...",
+    "tagline": "Audio control plane for TypeScript â€” playback, synthesis, routing, and device...",
     "needsHumanReview": true
   },
   "sonic-runtime": {
@@ -1667,7 +1698,7 @@
     "category": "voice",
     "stability": "experimental",
     "kind": "desktop-app",
-    "tagline": "Native audio engine sidecar \u00e2\u20ac\u201d C# NativeAOT with OpenAL Soft, per-playback device...",
+    "tagline": "Native audio engine sidecar â€” C# NativeAOT with OpenAL Soft, per-playback device...",
     "needsHumanReview": true
   },
   "soundboard-maui": {
@@ -1738,11 +1769,11 @@
     "stability": "stable",
     "kind": "cli",
     "install": "pipx install sovereignty-game",
-    "tagline": "A strategy game about governance, trust, and trade \u00e2\u20ac\u201d tabletop + XRPL verification.",
+    "tagline": "A strategy game about governance, trust, and trade â€” tabletop + XRPL verification.",
     "goodFor": [
       "Teaching governance, negotiation, and trust through gameplay",
       "Board game nights with cryptographic proof of every promise",
-      "Three tiers: Campfire (beginner) \u00e2\u2020\u2019 Town Hall \u00e2\u2020\u2019 Treaty Table (advanced)",
+      "Three tiers: Campfire (beginner) â†’ Town Hall â†’ Treaty Table (advanced)",
       "Offline-first play with optional XRPL Testnet anchoring for online proofs"
     ],
     "notFor": [
@@ -1751,6 +1782,22 @@
     ],
     "screenshot": "/screenshots/sovereignty.png",
     "screenshotType": "placeholder"
+  },
+  "star-freight": {
+    "tags": [
+      "game",
+      "python",
+      "rich",
+      "rpg",
+      "space",
+      "strategy"
+    ],
+    "category": "games",
+    "stability": "stable",
+    "kind": "library",
+    "install": "pip install star-freight",
+    "tagline": "Star Freight — Space Merchant RPG.",
+    "needsHumanReview": true
   },
   "stillpoint": {
     "tags": [
@@ -1764,7 +1811,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "npm install stillpoint",
-    "tagline": "Ambient sound mixer for focus and regulation \u00e2\u20ac\u201d 50 layered sounds, per-layer volume,...",
+    "tagline": "Ambient sound mixer for focus and regulation â€” 50 layered sounds, per-layer volume,...",
     "needsHumanReview": true
   },
   "stresskit-mcp": {
@@ -1792,6 +1839,21 @@
     "tagline": "Composable tool framework for building complex AI workflows.",
     "needsHumanReview": true
   },
+  "taste-compiler": {
+    "tags": [
+      "ai-safety",
+      "design-system",
+      "static-analysis",
+      "taste",
+      "typescript"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "install": "npm install taste-compiler",
+    "tagline": "Compile product taste into enforceable constraints that preserve visual coherence,...",
+    "needsHumanReview": true
+  },
   "tool-compass": {
     "featured": true,
     "tags": [
@@ -1806,7 +1868,7 @@
     "goodFor": [
       "Discovering tools across large MCP ecosystems",
       "Intent-based tool selection (describe the task, get the tool)",
-      "Progressive disclosure \u00e2\u20ac\u201d see summaries first, details on demand"
+      "Progressive disclosure â€” see summaries first, details on demand"
     ],
     "notFor": [
       "Running tools directly (it finds them, you run them)",
@@ -1870,7 +1932,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "npm install vocal-synth-engine",
-    "tagline": "Deterministic vocal instrument engine \u00e2\u20ac\u201d additive synthesis, voice presets, real-time...",
+    "tagline": "Deterministic vocal instrument engine â€” additive synthesis, voice presets, real-time...",
     "needsHumanReview": true
   },
   "voice-soundboard": {
@@ -1894,7 +1956,7 @@
     "category": "voice",
     "stability": "experimental",
     "kind": "vscode-extension",
-    "tagline": "VS Code extension for MCP Voice Soundboard \u00e2\u20ac\u201d sidebar panel with voice picker, TTS...",
+    "tagline": "VS Code extension for MCP Voice Soundboard â€” sidebar panel with voice picker, TTS...",
     "needsHumanReview": true
   },
   "websketch-cli": {
@@ -1952,7 +2014,7 @@
     "category": "web",
     "stability": "experimental",
     "kind": "vscode-extension",
-    "tagline": "VS Code extension \u00e2\u20ac\u201d capture web pages as grammar-based IR for LLMs.",
+    "tagline": "VS Code extension â€” capture web pages as grammar-based IR for LLMs.",
     "needsHumanReview": true
   },
   "winget-pkgs": {
@@ -2009,12 +2071,12 @@
     "stability": "stable",
     "kind": "cli",
     "install": "pipx install xrpl-camp",
-    "tagline": "Learn the XRP Ledger in one sitting \u00e2\u20ac\u201d wallet, payment, verification, certificate.",
+    "tagline": "Learn the XRP Ledger in one sitting â€” wallet, payment, verification, certificate.",
     "goodFor": [
-      "First contact with the XRP Ledger \u00e2\u20ac\u201d four lessons, ten minutes",
+      "First contact with the XRP Ledger â€” four lessons, ten minutes",
       "Classrooms and workshops that need zero-setup blockchain labs",
       "Earning verifiable round proofs with optional XRPL Testnet anchoring",
-      "Offline-capable learning \u00e2\u20ac\u201d no API keys, no cloud, no telemetry"
+      "Offline-capable learning â€” no API keys, no cloud, no telemetry"
     ],
     "notFor": [
       "Production XRPL wallets or mainnet transactions",
@@ -2022,6 +2084,22 @@
     ],
     "screenshot": "/screenshots/xrpl-camp.png",
     "screenshotType": "placeholder"
+  },
+  "xrpl-creator-capsule": {
+    "tags": [
+      "creator-tools",
+      "desktop-app",
+      "digital-ownership",
+      "nft",
+      "react",
+      "rust"
+    ],
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "npx xrpl-creator-capsule",
+    "tagline": "Creator-owned release system on XRPL — desktop app + CLI for publishing, minting,...",
+    "needsHumanReview": true
   },
   "xrpl-lab": {
     "tags": [
@@ -2031,7 +2109,7 @@
     "stability": "experimental",
     "kind": "library",
     "install": "pip install xrpl-lab",
-    "tagline": "XRPL training workbook \u00e2\u20ac\u201d learn by doing, prove by artifact.",
+    "tagline": "XRPL training workbook â€” learn by doing, prove by artifact.",
     "needsHumanReview": true
   },
   "zip-meta-map": {
