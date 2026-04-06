@@ -936,29 +936,6 @@
     "needsHumanReview": true
   },
   {
-    "name": "ClaimLedger",
-    "repo": "ClaimLedger",
-    "description": "Scientific claim provenance and verification ledger",
-    "tags": [
-      "provenance",
-      "cryptography",
-      "dotnet"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "C#",
-    "updatedAt": "2026-03-05T08:35:43Z",
-    "registered": true,
-    "unlisted": false,
-    "deprecated": false,
-    "ecosystem": "ledger",
-    "category": "infrastructure",
-    "stability": "stable",
-    "kind": "library",
-    "tagline": "Scientific claim provenance and verification ledger.",
-    "needsHumanReview": true
-  },
-  {
     "name": "Claude Collaborate",
     "repo": "claude-collaborate",
     "description": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows",
@@ -1321,32 +1298,6 @@
     "needsHumanReview": true
   },
   {
-    "name": "ConsensusOS",
-    "repo": "ConsensusOS",
-    "description": "Modular, zero-dependency control plane for multi-chain consensus governance.",
-    "tags": [
-      "consensus",
-      "deterministic",
-      "distributed-systems",
-      "event-sourcing",
-      "governance",
-      "multi-chain"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-18T20:21:55Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "infrastructure",
-    "stability": "stable",
-    "kind": "plugin",
-    "install": "npm install consensusos",
-    "tagline": "Plugin-based multi-chain consensus control plane — zero deps, fail-closed invariants,...",
-    "needsHumanReview": true
-  },
-  {
     "name": "Context Window Manager",
     "repo": "context-window-manager",
     "description": "Deterministic tools for shaping and allocating LLM context windows",
@@ -1388,48 +1339,6 @@
     "needsHumanReview": true
   },
   {
-    "name": "CreatorLedger",
-    "repo": "CreatorLedger",
-    "description": "Creator attestation proofs and authorship verification",
-    "tags": [
-      "provenance",
-      "attestation",
-      "dotnet"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "C#",
-    "updatedAt": "2026-03-05T08:35:51Z",
-    "registered": true,
-    "unlisted": false,
-    "deprecated": false,
-    "ecosystem": "ledger",
-    "category": "infrastructure",
-    "stability": "stable",
-    "kind": "library",
-    "tagline": "Creator attestation proofs and authorship verification.",
-    "needsHumanReview": true
-  },
-  {
-    "name": "CursorAssist",
-    "repo": "CursorAssist",
-    "description": "CursorAssist — A deterministic engine for assistive cursor control, UI accessibility benchmarking, and adaptive motor-skill training.",
-    "tags": [
-      "editor"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "C#",
-    "updatedAt": "2026-03-05T07:47:57Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library",
-    "tagline": "Editor context"
-  },
-  {
     "name": "Deltamind",
     "repo": "deltamind",
     "description": "Active context compaction for AI agents — typed deltas, structured state, provenance, and working-set budgeting for long-running conversations",
@@ -1453,31 +1362,6 @@
     "kind": "library",
     "install": "npm install deltamind",
     "tagline": "Active context compaction for AI agents — typed deltas, structured state, provenance,...",
-    "needsHumanReview": true
-  },
-  {
-    "name": "DeterministicMouseTrainingEngine",
-    "repo": "DeterministicMouseTrainingEngine",
-    "description": "Deterministic 60Hz mouse training engine — fixed timestep, alpha interpolation, virtual coordinate space, pluggable game modes",
-    "tags": [
-      "csharp",
-      "desktop-app",
-      "deterministic",
-      "dotnet",
-      "game",
-      "maui"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "C#",
-    "updatedAt": "2026-03-05T09:03:21Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "ml",
-    "stability": "experimental",
-    "kind": "desktop-app",
-    "tagline": "Deterministic 60Hz mouse training engine — fixed timestep, alpha interpolation, virtual...",
     "needsHumanReview": true
   },
   {
@@ -1712,31 +1596,6 @@
     "stability": "beta",
     "kind": "plugin",
     "tagline": "AI music composition"
-  },
-  {
-    "name": "LeaseGate",
-    "repo": "LeaseGate",
-    "description": "Local-first AI governance control plane — lease admission, policy enforcement, tamper-evident audit",
-    "tags": [
-      "ai",
-      "audit",
-      "csharp",
-      "dotnet",
-      "governance",
-      "lease"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "C#",
-    "updatedAt": "2026-03-18T20:01:50Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "infrastructure",
-    "stability": "beta",
-    "kind": "cli",
-    "tagline": "Local-first AI governance control plane — lease admission, policy enforcement,...",
-    "needsHumanReview": true
   },
   {
     "name": "Ledger Suite",
@@ -1993,25 +1852,6 @@
     "needsHumanReview": true
   },
   {
-    "name": "MouseTrainer",
-    "repo": "MouseTrainer",
-    "description": "Deterministic mouse dexterity trainer — precision, control, and flow. .NET MAUI, fixed-timestep simulation, composable blueprint mutators.",
-    "tags": [
-      "automation"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "C#",
-    "updatedAt": "2026-03-05T07:48:19Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library",
-    "tagline": "Mouse automation"
-  },
-  {
     "name": "Multi Claude",
     "repo": "multi-claude",
     "description": "Multi-Claude Factory — lane-based parallel build system",
@@ -2047,25 +1887,6 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false
-  },
-  {
-    "name": "NextLedger",
-    "repo": "NextLedger",
-    "description": "Personal budgeting app with envelope-style budgeting - Windows-first desktop experience",
-    "tags": [
-      "finance"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "C#",
-    "updatedAt": "2026-03-05T09:00:36Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "infrastructure",
-    "stability": "stable",
-    "kind": "library",
-    "tagline": "Financial ledger system"
   },
   {
     "name": "Nexus Attest",
@@ -3278,31 +3099,6 @@
     "stability": "experimental",
     "kind": "meta",
     "tagline": "Six MCP tools + live Registry (FFmpeg, Pandoc, FreeCAD, GDAL, OpenSCAD, Blender) —...",
-    "needsHumanReview": true
-  },
-  {
-    "name": "Trace",
-    "repo": "Trace",
-    "description": "Trace — deterministic cursor discipline game. Navigate chaos through precision, not power.",
-    "tags": [
-      "csharp",
-      "desktop-app",
-      "deterministic",
-      "dotnet",
-      "game",
-      "maui"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "C#",
-    "updatedAt": "2026-03-05T09:04:14Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "games",
-    "stability": "experimental",
-    "kind": "desktop-app",
-    "tagline": "deterministic cursor discipline game. Navigate chaos through precision, not power.",
     "needsHumanReview": true
   },
   {

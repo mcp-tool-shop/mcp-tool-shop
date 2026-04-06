@@ -167,30 +167,6 @@
     "capabilities": []
   },
   {
-    "id": "claim-ledger",
-    "name": "ClaimLedger",
-    "description": "Scientific claim provenance and verification ledger",
-    "verification": "none",
-    "keywords": [
-      "and",
-      "claim",
-      "claimledger",
-      "cryptography",
-      "dotnet",
-      "ledger",
-      "provenance",
-      "scientific",
-      "verification"
-    ],
-    "tags": [
-      "cryptography",
-      "dotnet",
-      "provenance"
-    ],
-    "bundle_membership": [],
-    "capabilities": []
-  },
-  {
     "id": "claude-collaborate",
     "name": "Claude Collaborate",
     "description": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows",
@@ -410,30 +386,6 @@
     "bundle_membership": [
       "ops"
     ],
-    "capabilities": []
-  },
-  {
-    "id": "creator-ledger",
-    "name": "CreatorLedger",
-    "description": "Creator attestation proofs and authorship verification",
-    "verification": "none",
-    "keywords": [
-      "and",
-      "attestation",
-      "authorship",
-      "creator",
-      "creatorledger",
-      "dotnet",
-      "proofs",
-      "provenance",
-      "verification"
-    ],
-    "tags": [
-      "attestation",
-      "dotnet",
-      "provenance"
-    ],
-    "bundle_membership": [],
     "capabilities": []
   },
   {
