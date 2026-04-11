@@ -1,0 +1,4153 @@
+{
+  "tool": "zip-meta-map",
+  "generatedAt": "2026-04-03T08:45:18.734Z",
+  "scoringVersion": "1.0.0",
+  "scoringWeights": {
+    "topicMatch": {
+      "perMatch": 15,
+      "max": 60
+    },
+    "keywordMatch": {
+      "perMatch": 10,
+      "max": 40
+    },
+    "activityRecency": {
+      "max": 20,
+      "decayDays": 365
+    },
+    "starTier": {
+      "max": 15,
+      "tiers": [
+        {
+          "min": 1000,
+          "score": 15
+        },
+        {
+          "min": 100,
+          "score": 13
+        },
+        {
+          "min": 10,
+          "score": 10
+        },
+        {
+          "min": 0,
+          "score": 5
+        }
+      ]
+    },
+    "fitScore": {
+      "max": 20
+    },
+    "comparableBonus": {
+      "value": 10
+    },
+    "signalBonus": {
+      "value": 10
+    }
+  },
+  "sourcelock": "8ac0cca3b8b4",
+  "discoveryStats": {
+    "topicSearches": 6,
+    "keywordSearches": 6,
+    "comparableSearches": 2,
+    "signalExpansions": 0,
+    "seedExpansions": 1,
+    "rawCandidates": 751,
+    "afterDedup": 592,
+    "afterExclusion": 564,
+    "afterScoring": 100
+  },
+  "errors": [
+    "seed:aider-chat/aider: 404 Not Found: https://api.github.com/repos/aider-chat/aider"
+  ],
+  "candidateCount": 100,
+  "candidates": [
+    {
+      "owner": "ComposioHQ",
+      "repo": "composio",
+      "fullName": "ComposioHQ/composio",
+      "description": "Composio powers 1000+ toolkits, tool search, context management, authentication, and a sandboxed workbench to help you build AI agents that turn intent into action.",
+      "stars": 27624,
+      "language": "TypeScript",
+      "topics": [
+        "agentic-ai",
+        "agents",
+        "ai",
+        "ai-agents",
+        "aiagents",
+        "developer-tools",
+        "function-calling",
+        "gpt-4",
+        "javascript",
+        "js",
+        "llm",
+        "llmops",
+        "mcp",
+        "python",
+        "remote-mcp-server",
+        "sse",
+        "typescript"
+      ],
+      "pushedAt": "2026-04-02T15:25:06Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 85,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 20,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/ComposioHQ/composio"
+    },
+    {
+      "owner": "yamadashy",
+      "repo": "repomix",
+      "fullName": "yamadashy/repomix",
+      "description": "📦 Repomix is a powerful tool that packs your entire repository into a single, AI-friendly file. Perfect for when you need to feed your codebase to Large Language Models (LLMs) or other AI tools like ",
+      "stars": 22923,
+      "language": "TypeScript",
+      "topics": [
+        "ai",
+        "anthropic",
+        "artificial-intelligence",
+        "chatbot",
+        "chatgpt",
+        "claude",
+        "deepseek",
+        "developer-tools",
+        "gemini",
+        "genai",
+        "generative-ai",
+        "gpt",
+        "javascript",
+        "language-model",
+        "llama",
+        "llm",
+        "mcp",
+        "nodejs",
+        "openai",
+        "typescript"
+      ],
+      "pushedAt": "2026-04-03T08:24:47Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:developer-tools",
+        "comparable:tree / find + jq pipelines"
+      ],
+      "score": 85,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/yamadashy/repomix"
+    },
+    {
+      "owner": "DeusData",
+      "repo": "codebase-memory-mcp",
+      "fullName": "DeusData/codebase-memory-mcp",
+      "description": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in milliseconds. 66 languages, sub-ms queries, 99% fewer tokens. Single static binary,",
+      "stars": 1167,
+      "language": "C",
+      "topics": [
+        "aider",
+        "c",
+        "claude-code",
+        "code-analysis",
+        "code-intelligence",
+        "codex",
+        "cursor",
+        "developer-tools",
+        "gemini-cli",
+        "graph-visualization",
+        "kilocode",
+        "knowledge-graph",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "opencode",
+        "performance",
+        "sqlite",
+        "tree-sitter",
+        "windsurf"
+      ],
+      "pushedAt": "2026-04-03T00:05:44Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:code-analysis",
+        "comparable:tree / find + jq pipelines"
+      ],
+      "score": 80,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/DeusData/codebase-memory-mcp"
+    },
+    {
+      "owner": "abinthomasonline",
+      "repo": "repo2txt",
+      "fullName": "abinthomasonline/repo2txt",
+      "description": "Web-based tool converts GitHub repository contents into a single formatted text file",
+      "stars": 1783,
+      "language": "TypeScript",
+      "topics": [
+        "ai",
+        "anthropic",
+        "chatgpt",
+        "developer-tools",
+        "devtools",
+        "llm"
+      ],
+      "pushedAt": "2026-02-17T18:52:55Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 78,
+      "scoreBreakdown": {
+        "topicMatch": 45,
+        "keywordMatch": 0,
+        "activityRecency": 18,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/abinthomasonline/repo2txt"
+    },
+    {
+      "owner": "jmuncor",
+      "repo": "tokentap",
+      "fullName": "jmuncor/tokentap",
+      "description": "Intercept LLM API traffic and visualize token usage in a real-time terminal dashboard. Track costs,       debug prompts, and monitor context window usage across your AI development sessions.      ",
+      "stars": 775,
+      "language": "Python",
+      "topics": [
+        "ai-tools",
+        "anthropic",
+        "cli",
+        "developer-tools",
+        "itmproxy",
+        "llm",
+        "m",
+        "proxy",
+        "python",
+        "rich",
+        "terminal-dashboard",
+        "token-counter"
+      ],
+      "pushedAt": "2026-04-03T01:40:11Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 78,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 13,
+        "fitScore": 15,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/jmuncor/tokentap"
+    },
+    {
+      "owner": "rtk-ai",
+      "repo": "rtk",
+      "fullName": "rtk-ai/rtk",
+      "description": "CLI proxy that reduces LLM token consumption by 60-90% on common dev commands. Single Rust binary, zero dependencies",
+      "stars": 16924,
+      "language": "Rust",
+      "topics": [
+        "agentic-coding",
+        "ai-coding",
+        "anthropic",
+        "claude-code",
+        "cli",
+        "command-line-tool",
+        "cost-reduction",
+        "developer-tools",
+        "llm",
+        "open-source",
+        "productivity",
+        "rust",
+        "token-optimization"
+      ],
+      "pushedAt": "2026-04-03T07:08:58Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 75,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/rtk-ai/rtk"
+    },
+    {
+      "owner": "CoderLuii",
+      "repo": "HolyClaude",
+      "fullName": "CoderLuii/HolyClaude",
+      "description": "AI coding workstation: Claude Code + web UI + 5 AI CLIs + headless browser + 50+ tools",
+      "stars": 1725,
+      "language": "Dockerfile",
+      "topics": [
+        "ai",
+        "ai-coding",
+        "anthropic",
+        "claude",
+        "claude-code",
+        "coding-agent",
+        "container",
+        "developer-tools",
+        "devtools",
+        "docker",
+        "docker-compose",
+        "gemini",
+        "headless-browser",
+        "openai",
+        "playwright"
+      ],
+      "pushedAt": "2026-03-29T03:36:44Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:devtools",
+        "comparable:tree / find + jq pipelines"
+      ],
+      "score": 75,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/CoderLuii/HolyClaude"
+    },
+    {
+      "owner": "braedonsaunders",
+      "repo": "codeflow",
+      "fullName": "braedonsaunders/codeflow",
+      "description": "Paste any GitHub URL → interactive architecture map. See how files connect, find what breaks if you change something. No install, no accounts — runs entirely in your browser.",
+      "stars": 579,
+      "language": "HTML",
+      "topics": [
+        "architecture",
+        "browser-based",
+        "code-analysis",
+        "codebase-visualization",
+        "d3js",
+        "dependency-graph",
+        "developer-tools",
+        "github-api",
+        "single-file",
+        "visualization"
+      ],
+      "pushedAt": "2026-03-21T18:19:36Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 72,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 13,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/braedonsaunders/codeflow"
+    },
+    {
+      "owner": "mukul975",
+      "repo": "Anthropic-Cybersecurity-Skills",
+      "fullName": "mukul975/Anthropic-Cybersecurity-Skills",
+      "description": "753+ structured cybersecurity skills for AI agents · MITRE ATT&CK mapped · agentskills.io open standard · Works with Claude Code, GitHub Copilot, OpenAI Codex CLI, Cursor, Gemini CLI & 20+ platforms ·",
+      "stars": 4001,
+      "language": "Python",
+      "topics": [
+        "ai-agents",
+        "claude",
+        "claude-code",
+        "cloud-security",
+        "cybersecurity",
+        "devsecops",
+        "ethical-hacking",
+        "incident-response",
+        "infosec",
+        "llm",
+        "malware-analysis",
+        "mcp",
+        "mitre-attack",
+        "osint",
+        "penetration-testing",
+        "red-team",
+        "security",
+        "security-automation",
+        "security-tools",
+        "threat-intelligence"
+      ],
+      "pushedAt": "2026-04-03T06:56:10Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "comparable:Sourcegraph / code search"
+      ],
+      "score": 70,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills"
+    },
+    {
+      "owner": "rhysd",
+      "repo": "actionlint",
+      "fullName": "rhysd/actionlint",
+      "description": ":octocat: Static checker for GitHub Actions workflow files",
+      "stars": 3750,
+      "language": "Go",
+      "topics": [
+        "actions",
+        "ci",
+        "github-actions",
+        "lint",
+        "linter"
+      ],
+      "pushedAt": "2026-04-02T09:00:26Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 70,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/rhysd/actionlint"
+    },
+    {
+      "owner": "tach-org",
+      "repo": "tach",
+      "fullName": "tach-org/tach",
+      "description": "A Python tool to visualize + enforce dependencies, using modular architecture 🌎 Open source 🐍 Installable via pip 🔧 Able to be adopted incrementally - ⚡ Implemented with no runtime impact ♾️ Intero",
+      "stars": 2684,
+      "language": "Rust",
+      "topics": [
+        "ci",
+        "cli",
+        "code-quality",
+        "config",
+        "dependency-management",
+        "developer-tools",
+        "devops",
+        "framework",
+        "library",
+        "monorepo",
+        "open-source",
+        "package",
+        "productivity",
+        "programming",
+        "python",
+        "rust",
+        "static-code-analysis",
+        "terminal"
+      ],
+      "pushedAt": "2026-04-03T06:03:47Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci"
+      ],
+      "score": 70,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/tach-org/tach"
+    },
+    {
+      "owner": "tj-actions",
+      "repo": "changed-files",
+      "fullName": "tj-actions/changed-files",
+      "description": ":octocat: Github action to retrieve all (added, copied, modified, deleted, renamed, type changed, unmerged, unknown) files and directories.",
+      "stars": 2678,
+      "language": "TypeScript",
+      "topics": [
+        "actions",
+        "change-detection",
+        "change-detetion",
+        "changed-file",
+        "changed-files",
+        "ci",
+        "ci-cd",
+        "conditional-execution",
+        "continuous-delivery",
+        "continuous-integration",
+        "github",
+        "github-actions",
+        "modified",
+        "modified-files",
+        "monorepo",
+        "restore-files",
+        "submodules",
+        "workflows",
+        "yaml-files"
+      ],
+      "pushedAt": "2026-04-02T05:00:05Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 70,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/tj-actions/changed-files"
+    },
+    {
+      "owner": "pypa",
+      "repo": "cibuildwheel",
+      "fullName": "pypa/cibuildwheel",
+      "description": "🎡 Build Python wheels for all the platforms with minimal configuration. ",
+      "stars": 2208,
+      "language": "Python",
+      "topics": [
+        "appveyor",
+        "azure-pipelines",
+        "build-automation",
+        "ci",
+        "circleci",
+        "github-actions",
+        "pypi",
+        "python",
+        "python-wheels",
+        "travis-ci",
+        "wheel"
+      ],
+      "pushedAt": "2026-04-03T05:35:57Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 70,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/pypa/cibuildwheel"
+    },
+    {
+      "owner": "triggerdotdev",
+      "repo": "jsonhero-web",
+      "fullName": "triggerdotdev/jsonhero-web",
+      "description": "JSON Hero is an open-source, beautiful JSON explorer for the web that lets you browse, search and navigate your JSON files at speed. 🚀. Built with 💜 by the Trigger.dev team.",
+      "stars": 10666,
+      "language": "TypeScript",
+      "topics": [
+        "developer-tools",
+        "devtools",
+        "hacktoberfest",
+        "json",
+        "json-viewer",
+        "react",
+        "tools",
+        "typescript",
+        "viewer"
+      ],
+      "pushedAt": "2025-11-28T13:32:05Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 68,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 13,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/triggerdotdev/jsonhero-web"
+    },
+    {
+      "owner": "Significant-Gravitas",
+      "repo": "AutoGPT",
+      "fullName": "Significant-Gravitas/AutoGPT",
+      "description": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "stars": 183092,
+      "language": "Python",
+      "topics": [
+        "agentic-ai",
+        "agents",
+        "ai",
+        "artificial-intelligence",
+        "autonomous-agents",
+        "claude",
+        "gpt",
+        "llama-api",
+        "llm",
+        "openai",
+        "python"
+      ],
+      "pushedAt": "2026-04-03T08:36:54Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 15,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/Significant-Gravitas/AutoGPT"
+    },
+    {
+      "owner": "affaan-m",
+      "repo": "everything-claude-code",
+      "fullName": "affaan-m/everything-claude-code",
+      "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+      "stars": 134602,
+      "language": "JavaScript",
+      "topics": [
+        "ai-agents",
+        "anthropic",
+        "claude",
+        "claude-code",
+        "developer-tools",
+        "llm",
+        "mcp",
+        "productivity"
+      ],
+      "pushedAt": "2026-04-03T01:27:52Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:llm",
+        "topic:developer-tools",
+        "keyword:repo metadata",
+        "keyword:LLM context",
+        "keyword:deterministic build",
+        "keyword:CI gating"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/affaan-m/everything-claude-code"
+    },
+    {
+      "owner": "infiniflow",
+      "repo": "ragflow",
+      "fullName": "infiniflow/ragflow",
+      "description": "RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent capabilities to create a superior context layer for LLMs",
+      "stars": 76998,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "agentic",
+        "agentic-ai",
+        "agentic-workflow",
+        "ai",
+        "context-engineering",
+        "context-retrieval",
+        "deep-research",
+        "deepseek",
+        "deepseek-r1",
+        "document-understanding",
+        "graphrag",
+        "harness",
+        "llm",
+        "mcp",
+        "ollama",
+        "openai",
+        "openclaw",
+        "rag",
+        "retrieval-augmented-generation"
+      ],
+      "pushedAt": "2026-04-03T07:51:35Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "keyword:LLM context",
+        "keyword:code map"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 15,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/infiniflow/ragflow"
+    },
+    {
+      "owner": "OpenHands",
+      "repo": "OpenHands",
+      "fullName": "OpenHands/OpenHands",
+      "description": "🙌 OpenHands: AI-Driven Development",
+      "stars": 70492,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "artificial-intelligence",
+        "chatgpt",
+        "claude-ai",
+        "cli",
+        "developer-tools",
+        "gpt",
+        "llm",
+        "openai"
+      ],
+      "pushedAt": "2026-04-03T06:26:33Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "topic:developer-tools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/OpenHands/OpenHands"
+    },
+    {
+      "owner": "nektos",
+      "repo": "act",
+      "fullName": "nektos/act",
+      "description": "Run your GitHub Actions locally 🚀",
+      "stars": 69687,
+      "language": "Go",
+      "topics": [
+        "ci",
+        "devops",
+        "github-actions",
+        "golang"
+      ],
+      "pushedAt": "2026-04-01T03:09:56Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/nektos/act"
+    },
+    {
+      "owner": "continuedev",
+      "repo": "continue",
+      "fullName": "continuedev/continue",
+      "description": "⏩ Source-controlled AI checks, enforceable in CI. Powered by the open-source Continue CLI",
+      "stars": 32263,
+      "language": "TypeScript",
+      "topics": [
+        "agent",
+        "ai",
+        "cli",
+        "developer-tools",
+        "jetbrains-plugin",
+        "llm",
+        "open-source",
+        "vs-code-extenstion"
+      ],
+      "pushedAt": "2026-04-03T08:30:38Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "topic:developer-tools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/continuedev/continue"
+    },
+    {
+      "owner": "surrealdb",
+      "repo": "surrealdb",
+      "fullName": "surrealdb/surrealdb",
+      "description": "A scalable, distributed, collaborative, document-graph database, for the realtime web",
+      "stars": 31752,
+      "language": "Rust",
+      "topics": [
+        "backend-as-a-service",
+        "cloud-database",
+        "database",
+        "database-as-a-service",
+        "developer-tools",
+        "devtools",
+        "distributed",
+        "distributed-database",
+        "document-database",
+        "graph-database",
+        "iot-database",
+        "nosql",
+        "realtime-database",
+        "serverless",
+        "sql",
+        "surreal",
+        "surrealdb",
+        "web"
+      ],
+      "pushedAt": "2026-04-02T19:05:42Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools",
+        "topic:developer-tools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/surrealdb/surrealdb"
+    },
+    {
+      "owner": "volcengine",
+      "repo": "OpenViking",
+      "fullName": "volcengine/OpenViking",
+      "description": "OpenViking is an open-source context database designed specifically for AI Agents(such as openclaw). OpenViking unifies the management of context (memory, resources, and skills) that Agents need throu",
+      "stars": 20704,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "agentic-rag",
+        "ai-agents",
+        "clawbot",
+        "context-database",
+        "context-engineering",
+        "filesystem",
+        "llm",
+        "memory",
+        "openclaw",
+        "opencode",
+        "rag",
+        "skill"
+      ],
+      "pushedAt": "2026-04-03T08:12:55Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "keyword:deterministic build"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 15,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/volcengine/OpenViking"
+    },
+    {
+      "owner": "promptfoo",
+      "repo": "promptfoo",
+      "fullName": "promptfoo/promptfoo",
+      "description": "Test your prompts, agents, and RAGs. Red teaming/pentesting/vulnerability scanning for AI. Compare performance of GPT, Claude, Gemini, Llama, and more. Simple declarative configs with command line and",
+      "stars": 19214,
+      "language": "TypeScript",
+      "topics": [
+        "ci",
+        "ci-cd",
+        "cicd",
+        "evaluation",
+        "evaluation-framework",
+        "llm",
+        "llm-eval",
+        "llm-evaluation",
+        "llm-evaluation-framework",
+        "llmops",
+        "pentesting",
+        "prompt-engineering",
+        "prompt-testing",
+        "prompts",
+        "rag",
+        "red-teaming",
+        "testing",
+        "vulnerability-scanners"
+      ],
+      "pushedAt": "2026-04-03T08:11:06Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/promptfoo/promptfoo"
+    },
+    {
+      "owner": "SWE-agent",
+      "repo": "SWE-agent",
+      "fullName": "SWE-agent/SWE-agent",
+      "description": "SWE-agent takes a GitHub issue and tries to automatically fix it, using your LM of choice. It can also be employed for offensive cybersecurity or competitive coding challenges. [NeurIPS 2024] ",
+      "stars": 18913,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "agent-based-model",
+        "ai",
+        "cybersecurity",
+        "developer-tools",
+        "llm",
+        "lms"
+      ],
+      "pushedAt": "2026-03-30T21:33:06Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/SWE-agent/SWE-agent"
+    },
+    {
+      "owner": "e2b-dev",
+      "repo": "E2B",
+      "fullName": "e2b-dev/E2B",
+      "description": "Open-source, secure environment with real-world tools for enterprise-grade agents.",
+      "stars": 11563,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "ai",
+        "ai-agent",
+        "ai-agents",
+        "code-interpreter",
+        "copilot",
+        "development",
+        "devtools",
+        "gpt",
+        "gpt-4",
+        "javascript",
+        "llm",
+        "nextjs",
+        "openai",
+        "python",
+        "react",
+        "software",
+        "typescript"
+      ],
+      "pushedAt": "2026-04-02T19:20:44Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/e2b-dev/E2B"
+    },
+    {
+      "owner": "iib0011",
+      "repo": "omni-tools",
+      "fullName": "iib0011/omni-tools",
+      "description": "Self-hosted collection of powerful web-based tools for everyday tasks. No ads, no tracking, just fast, accessible utilities right from your browser!",
+      "stars": 8981,
+      "language": "TypeScript",
+      "topics": [
+        "alternative",
+        "converter",
+        "data-manipulation",
+        "developer-tools",
+        "devtools",
+        "frontend",
+        "good-first-issue",
+        "image-manipulation",
+        "image-processing",
+        "javascript",
+        "pdf-manipulation",
+        "productivity",
+        "react",
+        "self-hosted",
+        "swissarmyknife",
+        "tools",
+        "typescript",
+        "video-manipulation",
+        "webapp",
+        "website"
+      ],
+      "pushedAt": "2026-03-29T21:40:30Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/iib0011/omni-tools"
+    },
+    {
+      "owner": "universal-ctags",
+      "repo": "ctags",
+      "fullName": "universal-ctags/ctags",
+      "description": "A maintained ctags implementation",
+      "stars": 7134,
+      "language": "C",
+      "topics": [
+        "code-analysis",
+        "code-completion",
+        "code-navigation",
+        "code-reading",
+        "code-summarization",
+        "ctags",
+        "developer-tools",
+        "tagjumping"
+      ],
+      "pushedAt": "2026-03-30T16:01:01Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/universal-ctags/ctags"
+    },
+    {
+      "owner": "potpie-ai",
+      "repo": "potpie",
+      "fullName": "potpie-ai/potpie",
+      "description": "Spec-driven development for large codebases",
+      "stars": 5301,
+      "language": "Python",
+      "topics": [
+        "agents",
+        "ai-agents",
+        "ai-agents-framework",
+        "artificial-intelligence",
+        "developer-tools",
+        "devtools",
+        "generative-ai",
+        "knowledge-graph",
+        "rag"
+      ],
+      "pushedAt": "2026-04-02T10:51:47Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/potpie-ai/potpie"
+    },
+    {
+      "owner": "github",
+      "repo": "gh-aw",
+      "fullName": "github/gh-aw",
+      "description": "GitHub Agentic Workflows",
+      "stars": 4216,
+      "language": "Go",
+      "topics": [
+        "actions",
+        "cai",
+        "ci",
+        "claude-code",
+        "codex",
+        "copilot",
+        "gh-extension",
+        "github-actions"
+      ],
+      "pushedAt": "2026-04-03T06:44:09Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/github/gh-aw"
+    },
+    {
+      "owner": "txn2",
+      "repo": "kubefwd",
+      "fullName": "txn2/kubefwd",
+      "description": "Bulk port forwarding Kubernetes services for local development.",
+      "stars": 4082,
+      "language": "Go",
+      "topics": [
+        "api-rest",
+        "developer-tools",
+        "devops",
+        "devops-tools",
+        "devtools",
+        "k8s",
+        "kubefwd",
+        "kubernetes",
+        "kubernetes-clusters",
+        "kubernetes-namespace",
+        "mcp-server",
+        "networking",
+        "port-forward",
+        "port-forwarding",
+        "proxy"
+      ],
+      "pushedAt": "2026-04-01T22:10:08Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/txn2/kubefwd"
+    },
+    {
+      "owner": "FalkorDB",
+      "repo": "FalkorDB",
+      "fullName": "FalkorDB/FalkorDB",
+      "description": "A super fast Graph Database uses GraphBLAS under the hood for its sparse adjacency matrix graph representation. Our goal is to provide the best Knowledge Graph for LLM (GraphRAG).",
+      "stars": 3866,
+      "language": "C",
+      "topics": [
+        "cloud-database",
+        "database",
+        "database-as-a-service",
+        "developer-tools",
+        "devtools",
+        "graph-database",
+        "graphrag",
+        "knowledge-graph",
+        "realtime-database"
+      ],
+      "pushedAt": "2026-04-03T07:54:37Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/FalkorDB/FalkorDB"
+    },
+    {
+      "owner": "pezzolabs",
+      "repo": "pezzo",
+      "fullName": "pezzolabs/pezzo",
+      "description": "🕹️ Open-source, developer-first LLMOps platform designed to streamline prompt design, version management, instant delivery, collaboration, troubleshooting, observability and more.",
+      "stars": 3216,
+      "language": "TypeScript",
+      "topics": [
+        "ai",
+        "devtools",
+        "gpt-3",
+        "gpt-4",
+        "hacktoberfest",
+        "javascript",
+        "langchain",
+        "llm",
+        "llmops",
+        "monitoring",
+        "nestjs",
+        "nodejs",
+        "observability",
+        "openai",
+        "platform",
+        "prompt",
+        "prompt-engineering",
+        "prompt-management",
+        "python",
+        "typescript"
+      ],
+      "pushedAt": "2026-03-31T02:03:01Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/pezzolabs/pezzo"
+    },
+    {
+      "owner": "eli64s",
+      "repo": "readme-ai",
+      "fullName": "eli64s/readme-ai",
+      "description": "README file generator, powered by AI.",
+      "stars": 2889,
+      "language": "Python",
+      "topics": [
+        "agents",
+        "ai",
+        "ai-agents",
+        "ai-documentation",
+        "anthropic",
+        "badge-generator",
+        "cli",
+        "developer-tools",
+        "devtools",
+        "documentation",
+        "documentation-generator",
+        "gemini",
+        "gpt",
+        "markdown",
+        "markdown-generator",
+        "python",
+        "readme",
+        "readme-generator",
+        "readme-md-generator",
+        "readme-template"
+      ],
+      "pushedAt": "2026-04-02T00:41:39Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:devtools",
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/eli64s/readme-ai"
+    },
+    {
+      "owner": "frain-dev",
+      "repo": "convoy",
+      "fullName": "frain-dev/convoy",
+      "description": "The Cloud Native Webhooks Gateway",
+      "stars": 2781,
+      "language": "Go",
+      "topics": [
+        "angular",
+        "api-gateway",
+        "automation",
+        "cli",
+        "cloud",
+        "convoy",
+        "developer-tools",
+        "devtools",
+        "gateway",
+        "gateways",
+        "golang",
+        "incoming-webhooks",
+        "infrastructure",
+        "outgoing-webhooks",
+        "webhook-gateway",
+        "webhook-service",
+        "webhooks",
+        "webhooks-server"
+      ],
+      "pushedAt": "2026-04-02T10:55:27Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/frain-dev/convoy"
+    },
+    {
+      "owner": "bahdotsh",
+      "repo": "wrkflw",
+      "fullName": "bahdotsh/wrkflw",
+      "description": "Validate and Run GitHub Actions locally.",
+      "stars": 2706,
+      "language": "Rust",
+      "topics": [
+        "ci",
+        "cli",
+        "devops",
+        "github",
+        "github-actions",
+        "hacktoberfest",
+        "ratatui",
+        "rust",
+        "tui"
+      ],
+      "pushedAt": "2026-04-03T08:07:09Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/bahdotsh/wrkflw"
+    },
+    {
+      "owner": "Q00",
+      "repo": "ouroboros",
+      "fullName": "Q00/ouroboros",
+      "description": "Stop prompting. Start specifying.",
+      "stars": 1994,
+      "language": "Python",
+      "topics": [
+        "ai-agent",
+        "claude-code",
+        "codex-cli",
+        "devtools",
+        "evaluation",
+        "llm",
+        "mcp",
+        "multi-agent",
+        "prompt-engineering",
+        "python",
+        "spec-driven-development",
+        "workflow-automation"
+      ],
+      "pushedAt": "2026-04-03T07:32:13Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/Q00/ouroboros"
+    },
+    {
+      "owner": "filipdutescu",
+      "repo": "modern-cpp-template",
+      "fullName": "filipdutescu/modern-cpp-template",
+      "description": "A template for modern C++ projects using CMake, Clang-Format, CI, unit testing and more, with support for downstream inclusion.",
+      "stars": 1898,
+      "language": "CMake",
+      "topics": [
+        "ccache",
+        "ci",
+        "clang-format",
+        "cmake",
+        "cmake-module",
+        "cmake-template",
+        "cmakelists",
+        "code-coverage",
+        "codecov",
+        "continuous-integration",
+        "cpp",
+        "github-action",
+        "github-actions",
+        "google-test",
+        "gtest",
+        "open-source",
+        "package-manager",
+        "project-template",
+        "static-analysis",
+        "template"
+      ],
+      "pushedAt": "2025-12-26T19:28:02Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 15,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/filipdutescu/modern-cpp-template"
+    },
+    {
+      "owner": "jeremylongshore",
+      "repo": "claude-code-plugins-plus-skills",
+      "fullName": "jeremylongshore/claude-code-plugins-plus-skills",
+      "description": "340 plugins + 1367 agent skills for Claude Code. Open-source marketplace with CCPI package manager, interactive tutorials, and production orchestration patterns.",
+      "stars": 1825,
+      "language": "Python",
+      "topics": [
+        "agent-skills",
+        "ai",
+        "ai-agents",
+        "anthropic",
+        "automation",
+        "claude-code",
+        "claude-code-plugins",
+        "developer-tools",
+        "devops",
+        "llm",
+        "marketplace",
+        "mcp",
+        "plugin-marketplace",
+        "plugin-system",
+        "saas",
+        "skills"
+      ],
+      "pushedAt": "2026-04-03T03:47:29Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills"
+    },
+    {
+      "owner": "YuzeHao2023",
+      "repo": "Awesome-MCP-Servers",
+      "fullName": "YuzeHao2023/Awesome-MCP-Servers",
+      "description": "A curated list of Model Context Protocol (MCP) servers ",
+      "stars": 1037,
+      "language": null,
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "llm",
+        "mcp",
+        "mcp-server"
+      ],
+      "pushedAt": "2026-04-01T13:54:53Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "comparable:Sourcegraph / code search"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/YuzeHao2023/Awesome-MCP-Servers"
+    },
+    {
+      "owner": "microsoft",
+      "repo": "multilspy",
+      "fullName": "microsoft/multilspy",
+      "description": "multilspy is a lsp client library in Python intended to be used to build applications around language servers.",
+      "stars": 560,
+      "language": "Python",
+      "topics": [
+        "ai",
+        "ai4code",
+        "artificial-intelligence",
+        "code-analysis",
+        "code-completion",
+        "code-generation",
+        "codegen",
+        "huggingface-transformers",
+        "language-server-client",
+        "language-server-protocol",
+        "large-language-model",
+        "large-language-models",
+        "llm",
+        "lsp",
+        "lsp-client",
+        "neurips",
+        "neurips-2023",
+        "program-synthesis",
+        "transformer"
+      ],
+      "pushedAt": "2026-02-05T04:29:45Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 65,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 17,
+        "starTier": 13,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/microsoft/multilspy"
+    },
+    {
+      "owner": "danger",
+      "repo": "danger-js",
+      "fullName": "danger/danger-js",
+      "description": "⚠️ Stop saying \"you forgot to …\" in code review",
+      "stars": 5461,
+      "language": "TypeScript",
+      "topics": [
+        "ci",
+        "circle",
+        "code-review",
+        "danger",
+        "danger-js",
+        "github-actions",
+        "jenkins",
+        "travis"
+      ],
+      "pushedAt": "2026-03-13T23:58:14Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 64,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/danger/danger-js"
+    },
+    {
+      "owner": "nikolaydubina",
+      "repo": "go-recipes",
+      "fullName": "nikolaydubina/go-recipes",
+      "description": "🦩 Tools for Go projects",
+      "stars": 4475,
+      "language": "Go",
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "benchmarking",
+        "code-generation",
+        "code-visualization",
+        "command-line-tool",
+        "compilers",
+        "data-visualization",
+        "developer-tools",
+        "documentation",
+        "go",
+        "golang",
+        "profiling",
+        "static-analysis",
+        "tests",
+        "visualization"
+      ],
+      "pushedAt": "2026-03-09T10:50:59Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "comparable:tree / find + jq pipelines"
+      ],
+      "score": 64,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/nikolaydubina/go-recipes"
+    },
+    {
+      "owner": "iterative",
+      "repo": "cml",
+      "fullName": "iterative/cml",
+      "description": "♾️ CML - Continuous Machine Learning | CI/CD for ML",
+      "stars": 4169,
+      "language": "JavaScript",
+      "topics": [
+        "bitbucket-pipelines",
+        "ci",
+        "ci-cd",
+        "cicd",
+        "cli",
+        "continuous-delivery",
+        "continuous-integration",
+        "data-science",
+        "developer-tools",
+        "github-actions",
+        "gitlab-ci",
+        "hacktoberfest",
+        "machine-learning"
+      ],
+      "pushedAt": "2025-06-02T04:40:57Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci",
+        "topic:github-actions"
+      ],
+      "score": 63,
+      "scoreBreakdown": {
+        "topicMatch": 45,
+        "keywordMatch": 0,
+        "activityRecency": 3,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/iterative/cml"
+    },
+    {
+      "owner": "ligurio",
+      "repo": "awesome-ci",
+      "fullName": "ligurio/awesome-ci",
+      "description": "The list of continuous integration services and tools",
+      "stars": 4065,
+      "language": null,
+      "topics": [
+        "awesome",
+        "ci",
+        "comparison",
+        "continuous-integration",
+        "developer-tools",
+        "development",
+        "devops"
+      ],
+      "pushedAt": "2026-03-01T09:45:46Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:ci"
+      ],
+      "score": 63,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 18,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/ligurio/awesome-ci"
+    },
+    {
+      "owner": "foryourhealth111-pixel",
+      "repo": "Vibe-Skills",
+      "fullName": "foryourhealth111-pixel/Vibe-Skills",
+      "description": "Wherever your AI supports skills, VibeSkills works. 340+ governed skills spanning coding, research, automation & creative work.",
+      "stars": 995,
+      "language": "Python",
+      "topics": [
+        "agent-skills",
+        "agentic-coding",
+        "ai-agents",
+        "ai-skills",
+        "ai-workflow",
+        "anthropic",
+        "automation",
+        "claude",
+        "claude-code",
+        "claude-skills",
+        "codex",
+        "cursor",
+        "developer-tools",
+        "llm",
+        "mcp",
+        "opencode",
+        "skills",
+        "vibe-coding",
+        "vibecoding",
+        "windsurf"
+      ],
+      "pushedAt": "2026-04-03T02:01:48Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 63,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 13,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/foryourhealth111-pixel/Vibe-Skills"
+    },
+    {
+      "owner": "xnuinside",
+      "repo": "codegraph",
+      "fullName": "xnuinside/codegraph",
+      "description": "Static Python dependency graph with interactive HTML visualization, massive object detection, and unlinked module analysis (no code execution).",
+      "stars": 445,
+      "language": "Python",
+      "topics": [
+        "architecture",
+        "code-analysis",
+        "code-visualization",
+        "dependency-graph",
+        "developer-tools",
+        "graph-visualization",
+        "python",
+        "reverse-engineering",
+        "static-analysis"
+      ],
+      "pushedAt": "2026-03-30T19:46:06Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 63,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 13,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/xnuinside/codegraph"
+    },
+    {
+      "owner": "Kodezi",
+      "repo": "Chronos",
+      "fullName": "Kodezi/Chronos",
+      "description": "Kodezi Chronos is a debugging-first language model that achieves state-of-the-art results on SWE-bench Lite (80.33%) and 67% real-world fix accuracy, over six times better than GPT-4. Built with Adapt",
+      "stars": 5016,
+      "language": "Java",
+      "topics": [
+        "artificial-intelligence",
+        "autonomous-debugging",
+        "benchmark",
+        "benchmark-report",
+        "bug-fixing",
+        "chronos",
+        "code",
+        "code-analysis",
+        "code-analysis-tool",
+        "code-debugger",
+        "code-understanding",
+        "debugging",
+        "developer-tools",
+        "kodezi",
+        "language-model",
+        "machine-learning",
+        "program-repair",
+        "software-engineering"
+      ],
+      "pushedAt": "2025-11-12T09:53:44Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 62,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 12,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/Kodezi/Chronos"
+    },
+    {
+      "owner": "voideditor",
+      "repo": "void",
+      "fullName": "voideditor/void",
+      "description": "",
+      "stars": 28492,
+      "language": "TypeScript",
+      "topics": [
+        "chatgpt",
+        "claude",
+        "copilot",
+        "cursor",
+        "developer-tools",
+        "editor",
+        "llm",
+        "open-source",
+        "openai",
+        "visual-studio-code",
+        "vscode",
+        "vscode-extension"
+      ],
+      "pushedAt": "2026-01-12T09:57:57Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 61,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 16,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/voideditor/void"
+    },
+    {
+      "owner": "Cranot",
+      "repo": "roam-code",
+      "fullName": "Cranot/roam-code",
+      "description": "Architectural intelligence layer for AI coding agents. Structural graph, architecture governance, multi-agent orchestration, vulnerability mapping. 139 commands, 101 MCP tools, 26 languages, 100% loca",
+      "stars": 444,
+      "language": "Python",
+      "topics": [
+        "ai-coding",
+        "ai-tools",
+        "architecture",
+        "cli",
+        "code-analysis",
+        "code-graph",
+        "code-intelligence",
+        "code-quality",
+        "developer-tools",
+        "graph-analysis",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "python",
+        "static-analysis",
+        "tree-sitter"
+      ],
+      "pushedAt": "2026-02-27T21:39:53Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 61,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 18,
+        "starTier": 13,
+        "fitScore": 0,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/Cranot/roam-code"
+    },
+    {
+      "owner": "bytedance",
+      "repo": "deer-flow",
+      "fullName": "bytedance/deer-flow",
+      "description": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of ta",
+      "stars": 57014,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "agentic",
+        "agentic-framework",
+        "agentic-workflow",
+        "ai",
+        "ai-agents",
+        "deep-research",
+        "harness",
+        "langchain",
+        "langgraph",
+        "langmanus",
+        "llm",
+        "multi-agent",
+        "nodejs",
+        "podcast",
+        "python",
+        "superagent",
+        "typescript"
+      ],
+      "pushedAt": "2026-04-03T08:03:06Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "keyword:repo index",
+        "keyword:repo metadata",
+        "keyword:LLM context"
+      ],
+      "score": 60,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/bytedance/deer-flow"
+    },
+    {
+      "owner": "files-community",
+      "repo": "Files",
+      "fullName": "files-community/Files",
+      "description": "A modern file manager that helps users organize their files and folders.",
+      "stars": 42819,
+      "language": "C#",
+      "topics": [
+        "alternatives",
+        "csharp",
+        "customization",
+        "developer-tools",
+        "dotnet",
+        "file-manager",
+        "files",
+        "fluent",
+        "fluent-design",
+        "git",
+        "good-first-issue",
+        "power-user",
+        "productivity",
+        "utilities",
+        "winappsdk",
+        "windows",
+        "windows-10",
+        "windows-11",
+        "winui",
+        "xaml"
+      ],
+      "pushedAt": "2026-04-01T04:47:06Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 60,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/files-community/Files"
+    },
+    {
+      "owner": "khoj-ai",
+      "repo": "khoj",
+      "fullName": "khoj-ai/khoj",
+      "description": "Your AI second brain. Self-hostable. Get answers from the web or your docs. Build custom agents, schedule automations, do deep research. Turn any online or local LLM into your personal, autonomous AI ",
+      "stars": 33840,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "ai",
+        "assistant",
+        "chat",
+        "chatgpt",
+        "emacs",
+        "image-generation",
+        "llama3",
+        "llamacpp",
+        "llm",
+        "obsidian",
+        "obsidian-md",
+        "offline-llm",
+        "productivity",
+        "rag",
+        "research",
+        "self-hosted",
+        "semantic-search",
+        "stt",
+        "whatsapp-ai"
+      ],
+      "pushedAt": "2026-03-26T03:35:43Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 60,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/khoj-ai/khoj"
+    },
+    {
+      "owner": "plandex-ai",
+      "repo": "plandex",
+      "fullName": "plandex-ai/plandex",
+      "description": "Open source AI coding agent. Designed for large projects and real world tasks.",
+      "stars": 15192,
+      "language": "Go",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "ai-developer-tools",
+        "ai-tools",
+        "cli",
+        "command-line",
+        "developer-tools",
+        "git",
+        "golang",
+        "gpt-4",
+        "llm",
+        "openai",
+        "polyglot-programming",
+        "terminal",
+        "terminal-based",
+        "terminal-ui"
+      ],
+      "pushedAt": "2025-10-03T21:49:58Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 60,
+      "scoreBreakdown": {
+        "topicMatch": 30,
+        "keywordMatch": 0,
+        "activityRecency": 10,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/plandex-ai/plandex"
+    },
+    {
+      "owner": "HariSekhon",
+      "repo": "DevOps-Bash-tools",
+      "fullName": "HariSekhon/DevOps-Bash-tools",
+      "description": "1000+ DevOps Bash Scripts - AWS, GCP, Kubernetes, Docker, CI/CD, APIs, SQL, PostgreSQL, MySQL, Hive, Impala, Kafka, Hadoop, Jenkins, GitHub, GitLab, BitBucket, Azure DevOps, TeamCity, Spotify, MP3, LD",
+      "stars": 8179,
+      "language": "Shell",
+      "topics": [
+        "api",
+        "aws",
+        "bash",
+        "ci",
+        "cloudera",
+        "devops",
+        "docker",
+        "gcp",
+        "git",
+        "github",
+        "hacktoberfest",
+        "hadoop",
+        "jenkins",
+        "kafka",
+        "kubernetes",
+        "linux",
+        "mysql",
+        "perl",
+        "postgresql",
+        "terraform"
+      ],
+      "pushedAt": "2026-03-31T07:01:17Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:ci",
+        "comparable:tree / find + jq pipelines"
+      ],
+      "score": 60,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/HariSekhon/DevOps-Bash-tools"
+    },
+    {
+      "owner": "INRIA",
+      "repo": "spoon",
+      "fullName": "INRIA/spoon",
+      "description": "Spoon is a metaprogramming library to analyze and transform Java source code. :spoon: is made with :heart:, :beers: and :sparkles:. It parses source files to build a well-designed AST with powerful an",
+      "stars": 1912,
+      "language": "Java",
+      "topics": [
+        "abstract-syntax-tree",
+        "ast",
+        "code-analysis",
+        "code-generation",
+        "code-transformation",
+        "compile-time-reflection",
+        "hacktoberfest",
+        "inria",
+        "java",
+        "java-module",
+        "java10",
+        "java9",
+        "metaprogramming",
+        "parser",
+        "spoon",
+        "static-analysis"
+      ],
+      "pushedAt": "2026-04-01T18:14:50Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 60,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/INRIA/spoon"
+    },
+    {
+      "owner": "SpartanJ",
+      "repo": "ecode",
+      "fullName": "SpartanJ/ecode",
+      "description": "Lightweight multi-platform code editor designed for modern hardware with a focus on responsiveness and performance.",
+      "stars": 1582,
+      "language": "Lua",
+      "topics": [
+        "code",
+        "code-editor",
+        "debugger",
+        "developer-tools",
+        "editor",
+        "geany",
+        "gui",
+        "ide",
+        "lapce",
+        "lite",
+        "lite-xl",
+        "lsp-client",
+        "sublime-text",
+        "terminal",
+        "text",
+        "text-editor",
+        "vscode",
+        "zed"
+      ],
+      "pushedAt": "2026-04-02T05:00:48Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "comparable:tree / find + jq pipelines"
+      ],
+      "score": 60,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/SpartanJ/ecode"
+    },
+    {
+      "owner": "Dicklesworthstone",
+      "repo": "beads_viewer",
+      "fullName": "Dicklesworthstone/beads_viewer",
+      "description": "Graph-aware TUI for the Beads issue tracker: PageRank, critical path, kanban, dependency DAG visualization, and robot-mode JSON API",
+      "stars": 1438,
+      "language": "Go",
+      "topics": [
+        "developer-tools",
+        "go",
+        "graph-analysis",
+        "issue-tracker",
+        "tui"
+      ],
+      "pushedAt": "2026-03-25T19:56:57Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "comparable:tree / find + jq pipelines"
+      ],
+      "score": 60,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/Dicklesworthstone/beads_viewer"
+    },
+    {
+      "owner": "strands-agents",
+      "repo": "tools",
+      "fullName": "strands-agents/tools",
+      "description": "A set of tools that gives agents powerful capabilities.",
+      "stars": 1002,
+      "language": "Python",
+      "topics": [
+        "agentic",
+        "agentic-ai",
+        "agents",
+        "ai",
+        "anthropic",
+        "autonomous-agents",
+        "bedrock",
+        "genai",
+        "litellm",
+        "llama",
+        "llm",
+        "machine-learning",
+        "mcp",
+        "multi-agent-systems",
+        "ollama",
+        "openai",
+        "opentelemetry",
+        "python",
+        "strands-agents"
+      ],
+      "pushedAt": "2026-04-02T19:17:04Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 60,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/strands-agents/tools"
+    },
+    {
+      "owner": "AgentOps-AI",
+      "repo": "agentops",
+      "fullName": "AgentOps-AI/agentops",
+      "description": "Python SDK for AI agent monitoring, LLM cost tracking, benchmarking, and more. Integrates with most LLMs and agent frameworks including CrewAI, Agno, OpenAI Agents SDK, Langchain, Autogen, AG2, and Ca",
+      "stars": 5427,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "agentops",
+        "agents-sdk",
+        "ai",
+        "anthropic",
+        "autogen",
+        "cost-estimation",
+        "crewai",
+        "evals",
+        "evaluation-metrics",
+        "groq",
+        "langchain",
+        "llm",
+        "mistral",
+        "ollama",
+        "openai",
+        "openai-agents"
+      ],
+      "pushedAt": "2026-03-19T18:37:57Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 59,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/AgentOps-AI/agentops"
+    },
+    {
+      "owner": "stefanzweifel",
+      "repo": "git-auto-commit-action",
+      "fullName": "stefanzweifel/git-auto-commit-action",
+      "description": "Automatically commit and push changed files back to GitHub with this GitHub Action for the 80% use case.",
+      "stars": 2517,
+      "language": "Shell",
+      "topics": [
+        "git",
+        "github",
+        "github-action",
+        "github-actions",
+        "trigger",
+        "workflow-runs"
+      ],
+      "pushedAt": "2026-03-22T16:30:45Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:github-actions"
+      ],
+      "score": 59,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 15,
+        "fitScore": 10,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/stefanzweifel/git-auto-commit-action"
+    },
+    {
+      "owner": "agamm",
+      "repo": "awesome-developer-first",
+      "fullName": "agamm/awesome-developer-first",
+      "description": "A curated list of awesome developer-first tools products.",
+      "stars": 1580,
+      "language": null,
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "developer-first",
+        "developer-tools"
+      ],
+      "pushedAt": "2026-03-23T13:56:24Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "comparable:Sourcegraph / code search"
+      ],
+      "score": 59,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/agamm/awesome-developer-first"
+    },
+    {
+      "owner": "yinwang0",
+      "repo": "pysonar2",
+      "fullName": "yinwang0/pysonar2",
+      "description": "PySonar2: a semantic indexer for Python with interprocedual type inference",
+      "stars": 1428,
+      "language": "Java",
+      "topics": [
+        "code-analysis",
+        "code-intelligence",
+        "code-search",
+        "index",
+        "python",
+        "static-analysis",
+        "type-inference"
+      ],
+      "pushedAt": "2026-03-02T04:19:48Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:code-analysis",
+        "comparable:Sourcegraph / code search"
+      ],
+      "score": 58,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 18,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/yinwang0/pysonar2"
+    },
+    {
+      "owner": "taielab",
+      "repo": "awesome-hacking-lists",
+      "fullName": "taielab/awesome-hacking-lists",
+      "description": "A curated collection of top-tier penetration testing tools and productivity utilities across multiple domains. Join us to explore, contribute, and enhance your hacking toolkit!",
+      "stars": 1310,
+      "language": null,
+      "topics": [
+        "agents",
+        "ai",
+        "aiagent",
+        "awesome-list",
+        "bounty-hunters",
+        "bug-bounty",
+        "bugbounty",
+        "bugbounty-tool",
+        "hacker",
+        "hacking",
+        "hacking-tool",
+        "hacking-tools",
+        "kali-scripts",
+        "llm",
+        "llm-inference",
+        "mcp",
+        "mcp-server",
+        "pentest-scripts",
+        "pentesting-tools",
+        "web"
+      ],
+      "pushedAt": "2025-12-04T06:55:03Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "comparable:tree / find + jq pipelines",
+        "comparable:Sourcegraph / code search"
+      ],
+      "score": 58,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 13,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/taielab/awesome-hacking-lists"
+    },
+    {
+      "owner": "firecrawl",
+      "repo": "firecrawl",
+      "fullName": "firecrawl/firecrawl",
+      "description": "🔥 The Web Data API for AI - Power AI agents with clean web data",
+      "stars": 103306,
+      "language": "TypeScript",
+      "topics": [
+        "ai",
+        "ai-agents",
+        "ai-crawler",
+        "ai-scraping",
+        "ai-search",
+        "crawler",
+        "data-extraction",
+        "html-to-markdown",
+        "llm",
+        "markdown",
+        "scraper",
+        "scraping",
+        "web-crawler",
+        "web-data",
+        "web-data-extraction",
+        "web-scraper",
+        "web-scraping",
+        "web-search",
+        "webscraping"
+      ],
+      "pushedAt": "2026-04-03T08:33:01Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "keyword:code map"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/firecrawl/firecrawl"
+    },
+    {
+      "owner": "vllm-project",
+      "repo": "vllm",
+      "fullName": "vllm-project/vllm",
+      "description": "A high-throughput and memory-efficient inference and serving engine for LLMs",
+      "stars": 75103,
+      "language": "Python",
+      "topics": [
+        "amd",
+        "blackwell",
+        "cuda",
+        "deepseek",
+        "deepseek-v3",
+        "gpt",
+        "gpt-oss",
+        "inference",
+        "kimi",
+        "llama",
+        "llm",
+        "llm-serving",
+        "model-serving",
+        "moe",
+        "openai",
+        "pytorch",
+        "qwen",
+        "qwen3",
+        "tpu",
+        "transformer"
+      ],
+      "pushedAt": "2026-04-03T07:22:06Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/vllm-project/vllm"
+    },
+    {
+      "owner": "hiyouga",
+      "repo": "LlamaFactory",
+      "fullName": "hiyouga/LlamaFactory",
+      "description": "Unified Efficient Fine-Tuning of 100+ LLMs & VLMs (ACL 2024)",
+      "stars": 69435,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "ai",
+        "deepseek",
+        "fine-tuning",
+        "gemma",
+        "gpt",
+        "instruction-tuning",
+        "large-language-models",
+        "llama",
+        "llama3",
+        "llm",
+        "lora",
+        "moe",
+        "nlp",
+        "peft",
+        "qlora",
+        "quantization",
+        "qwen",
+        "rlhf",
+        "transformers"
+      ],
+      "pushedAt": "2026-04-01T14:40:12Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:llm",
+        "keyword:repo index",
+        "keyword:repo metadata",
+        "keyword:LLM context",
+        "keyword:code map"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/hiyouga/LlamaFactory"
+    },
+    {
+      "owner": "mem0ai",
+      "repo": "mem0",
+      "fullName": "mem0ai/mem0",
+      "description": "Universal memory layer for AI Agents",
+      "stars": 51836,
+      "language": "Python",
+      "topics": [
+        "agents",
+        "ai",
+        "ai-agents",
+        "application",
+        "chatbots",
+        "chatgpt",
+        "genai",
+        "llm",
+        "long-term-memory",
+        "memory",
+        "memory-management",
+        "python",
+        "rag",
+        "state-management"
+      ],
+      "pushedAt": "2026-04-03T02:32:30Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "keyword:LLM context"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/mem0ai/mem0"
+    },
+    {
+      "owner": "upstash",
+      "repo": "context7",
+      "fullName": "upstash/context7",
+      "description": "Context7 Platform -- Up-to-date code documentation for LLMs and AI code editors",
+      "stars": 51496,
+      "language": "TypeScript",
+      "topics": [
+        "llm",
+        "mcp",
+        "mcp-server",
+        "vibe-coding"
+      ],
+      "pushedAt": "2026-04-02T08:52:25Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm",
+        "keyword:LLM context"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/upstash/context7"
+    },
+    {
+      "owner": "streamlit",
+      "repo": "streamlit",
+      "fullName": "streamlit/streamlit",
+      "description": "Streamlit — A faster way to build and share data apps.",
+      "stars": 44100,
+      "language": "Python",
+      "topics": [
+        "data-analysis",
+        "data-science",
+        "data-visualization",
+        "deep-learning",
+        "developer-tools",
+        "machine-learning",
+        "python",
+        "streamlit"
+      ],
+      "pushedAt": "2026-04-03T06:51:54Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/streamlit/streamlit"
+    },
+    {
+      "owner": "janhq",
+      "repo": "jan",
+      "fullName": "janhq/jan",
+      "description": "Jan is an open source alternative to ChatGPT that runs 100% offline on your computer.",
+      "stars": 41489,
+      "language": "TypeScript",
+      "topics": [
+        "chatgpt",
+        "gpt",
+        "llamacpp",
+        "llm",
+        "localai",
+        "open-source",
+        "self-hosted",
+        "tauri"
+      ],
+      "pushedAt": "2026-04-03T04:40:37Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/janhq/jan"
+    },
+    {
+      "owner": "appsmithorg",
+      "repo": "appsmith",
+      "fullName": "appsmithorg/appsmith",
+      "description": "Platform to build admin panels, internal tools, and dashboards. Integrates with 25+ databases and any API.",
+      "stars": 39506,
+      "language": "TypeScript",
+      "topics": [
+        "admin-dashboard",
+        "admin-panels",
+        "app-builder",
+        "automation",
+        "crud",
+        "custom-internal",
+        "developer-tools",
+        "gui",
+        "gui-application",
+        "hacktoberfest",
+        "internal-tools",
+        "java",
+        "javascript",
+        "low-code",
+        "low-code-framework",
+        "react",
+        "self-hosted",
+        "typescript",
+        "webdevelopment",
+        "workflows"
+      ],
+      "pushedAt": "2026-04-03T07:22:31Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/appsmithorg/appsmith"
+    },
+    {
+      "owner": "google",
+      "repo": "langextract",
+      "fullName": "google/langextract",
+      "description": "A Python library for extracting structured information from unstructured text using LLMs with precise source grounding and interactive visualization.",
+      "stars": 35225,
+      "language": "Python",
+      "topics": [
+        "gemini",
+        "gemini-ai",
+        "gemini-api",
+        "gemini-flash",
+        "gemini-pro",
+        "information-extration",
+        "large-language-models",
+        "llm",
+        "nlp",
+        "python",
+        "structured-data"
+      ],
+      "pushedAt": "2026-04-02T05:41:55Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/google/langextract"
+    },
+    {
+      "owner": "ChromeDevTools",
+      "repo": "chrome-devtools-mcp",
+      "fullName": "ChromeDevTools/chrome-devtools-mcp",
+      "description": "Chrome DevTools for coding agents",
+      "stars": 33001,
+      "language": "TypeScript",
+      "topics": [
+        "browser",
+        "chrome",
+        "chrome-devtools",
+        "debugging",
+        "devtools",
+        "mcp",
+        "mcp-server",
+        "puppeteer"
+      ],
+      "pushedAt": "2026-04-02T19:36:17Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/ChromeDevTools/chrome-devtools-mcp"
+    },
+    {
+      "owner": "CopilotKit",
+      "repo": "CopilotKit",
+      "fullName": "CopilotKit/CopilotKit",
+      "description": "The Frontend Stack for Agents & Generative UI. React + Angular.  Makers of the AG-UI Protocol",
+      "stars": 29952,
+      "language": "TypeScript",
+      "topics": [
+        "agent",
+        "agent-native",
+        "agentic-ai",
+        "agents",
+        "ai",
+        "ai-agent",
+        "ai-assistant",
+        "assistant",
+        "assistant-chat-bots",
+        "copilot",
+        "copilot-chat",
+        "generative-ui",
+        "js",
+        "llm",
+        "nextjs",
+        "open-source",
+        "react",
+        "reactjs",
+        "ts",
+        "typescript"
+      ],
+      "pushedAt": "2026-04-03T08:13:01Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:llm"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/CopilotKit/CopilotKit"
+    },
+    {
+      "owner": "responsively-org",
+      "repo": "responsively-app",
+      "fullName": "responsively-org/responsively-app",
+      "description": "A modified web browser that helps in responsive web development. A web developer's must have dev-tool.",
+      "stars": 24824,
+      "language": "TypeScript",
+      "topics": [
+        "contributions-welcome",
+        "desktop-app",
+        "developer-tools",
+        "electron",
+        "good-first-issue",
+        "hacktoberfest",
+        "javascript",
+        "opensource-alternative",
+        "react",
+        "redux",
+        "responsive",
+        "responsive-web-design",
+        "web-development"
+      ],
+      "pushedAt": "2026-03-28T17:20:58Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/responsively-org/responsively-app"
+    },
+    {
+      "owner": "NousResearch",
+      "repo": "hermes-agent",
+      "fullName": "NousResearch/hermes-agent",
+      "description": "The agent that grows with you",
+      "stars": 23144,
+      "language": "Python",
+      "topics": [
+        "ai",
+        "ai-agent",
+        "ai-agents",
+        "anthropic",
+        "chatgpt",
+        "claude",
+        "claude-code",
+        "clawdbot",
+        "codex",
+        "hermes",
+        "hermes-agent",
+        "llm",
+        "moltbot",
+        "nous-research",
+        "openai",
+        "openclaw"
+      ],
+      "pushedAt": "2026-04-03T08:38:14Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/NousResearch/hermes-agent"
+    },
+    {
+      "owner": "mswjs",
+      "repo": "msw",
+      "fullName": "mswjs/msw",
+      "description": "Industry standard API mocking for JavaScript.",
+      "stars": 17784,
+      "language": "TypeScript",
+      "topics": [
+        "api",
+        "api-mocking",
+        "devtools",
+        "mock",
+        "mock-service-worker",
+        "mocking",
+        "mocking-framework",
+        "mocking-library",
+        "msw",
+        "mswjs",
+        "service-worker"
+      ],
+      "pushedAt": "2026-04-02T17:07:45Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/mswjs/msw"
+    },
+    {
+      "owner": "public-api-lists",
+      "repo": "public-api-lists",
+      "fullName": "public-api-lists/public-api-lists",
+      "description": "A curated list of free public APIs across 48 categories — searchable, community-maintained, with a free JSON API.",
+      "stars": 13855,
+      "language": null,
+      "topics": [
+        "api",
+        "api-list",
+        "apis",
+        "awesome",
+        "awesome-list",
+        "beginner-friendly",
+        "collection",
+        "curated-list",
+        "developer-resources",
+        "developer-tools",
+        "free-api",
+        "hacktoberfest",
+        "json-api",
+        "list",
+        "open-data",
+        "open-source",
+        "public-api",
+        "public-apis",
+        "resource",
+        "rest-api"
+      ],
+      "pushedAt": "2026-04-02T08:35:46Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/public-api-lists/public-api-lists"
+    },
+    {
+      "owner": "qodo-ai",
+      "repo": "pr-agent",
+      "fullName": "qodo-ai/pr-agent",
+      "description": "🚀 PR Agent - The Original Open-Source PR Reviewer. This repo is not the Qodo free tier! Try the free version on our website. ",
+      "stars": 10749,
+      "language": "Python",
+      "topics": [
+        "code-review",
+        "codereview",
+        "coding-assistant",
+        "devtools",
+        "gpt-4",
+        "openai",
+        "pull-request",
+        "pull-requests"
+      ],
+      "pushedAt": "2026-04-02T19:06:05Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:devtools"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/qodo-ai/pr-agent"
+    },
+    {
+      "owner": "alirezarezvani",
+      "repo": "claude-skills",
+      "fullName": "alirezarezvani/claude-skills",
+      "description": "220+ Claude Code skills & agent plugins for Claude Code, Codex, Gemini CLI, Cursor, and 8 more coding agents — engineering, marketing, product, compliance, C-level advisory.",
+      "stars": 9050,
+      "language": "Python",
+      "topics": [
+        "agent-plugins",
+        "agent-skills",
+        "agentic-ai",
+        "ai-coding-agent",
+        "anthropic-claude",
+        "claude-ai",
+        "claude-code",
+        "claude-code-plugins",
+        "claude-code-skills",
+        "claude-skills",
+        "codex-skills",
+        "coding-agent-plugins",
+        "cursor-skills",
+        "developer-tools",
+        "gemini-cli-skills",
+        "openai-codex",
+        "openclaw",
+        "openclaw-plugins",
+        "openclaw-skills",
+        "prompt-engineering"
+      ],
+      "pushedAt": "2026-04-02T23:59:23Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "keyword:CI gating"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/alirezarezvani/claude-skills"
+    },
+    {
+      "owner": "wonderwhy-er",
+      "repo": "DesktopCommanderMCP",
+      "fullName": "wonderwhy-er/DesktopCommanderMCP",
+      "description": "This is MCP server for Claude that gives it terminal control, file system search and diff file editing capabilities",
+      "stars": 5836,
+      "language": "TypeScript",
+      "topics": [
+        "agent",
+        "ai",
+        "code-analysis",
+        "code-generation",
+        "mcp",
+        "terminal-ai",
+        "terminal-automation",
+        "vibe-coding"
+      ],
+      "pushedAt": "2026-04-01T19:15:51Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/wonderwhy-er/DesktopCommanderMCP"
+    },
+    {
+      "owner": "strands-agents",
+      "repo": "sdk-python",
+      "fullName": "strands-agents/sdk-python",
+      "description": "A model-driven approach to building AI agents in just a few lines of code.",
+      "stars": 5516,
+      "language": "Python",
+      "topics": [
+        "agentic",
+        "agentic-ai",
+        "agents",
+        "ai",
+        "anthropic",
+        "autonomous-agents",
+        "bedrock",
+        "genai",
+        "litellm",
+        "llama",
+        "llm",
+        "machine-learning",
+        "mcp",
+        "multi-agent-systems",
+        "ollama",
+        "openai",
+        "opentelemetry",
+        "python",
+        "strands-agents"
+      ],
+      "pushedAt": "2026-04-03T07:54:22Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/strands-agents/sdk-python"
+    },
+    {
+      "owner": "docker",
+      "repo": "build-push-action",
+      "fullName": "docker/build-push-action",
+      "description": "GitHub Action to build and push Docker images with Buildx",
+      "stars": 5217,
+      "language": "TypeScript",
+      "topics": [
+        "buildx",
+        "docker",
+        "dockerhub",
+        "github-actions",
+        "github-actions-docker"
+      ],
+      "pushedAt": "2026-04-01T13:17:25Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:github-actions"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/docker/build-push-action"
+    },
+    {
+      "owner": "dorny",
+      "repo": "paths-filter",
+      "fullName": "dorny/paths-filter",
+      "description": "Conditionally run actions based on files modified by PR, feature branch or pushed commits",
+      "stars": 3045,
+      "language": "TypeScript",
+      "topics": [
+        "change-detection",
+        "ci-cd",
+        "conditional-execution",
+        "github-actions"
+      ],
+      "pushedAt": "2026-03-25T16:27:15Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:github-actions"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/dorny/paths-filter"
+    },
+    {
+      "owner": "griptape-ai",
+      "repo": "griptape",
+      "fullName": "griptape-ai/griptape",
+      "description": "Modular Python framework for AI agents and workflows with chain-of-thought reasoning, tools, and memory. ",
+      "stars": 2507,
+      "language": "Python",
+      "topics": [
+        "ai",
+        "anthropic",
+        "claude",
+        "gpt",
+        "huggingface",
+        "llm",
+        "openai",
+        "python"
+      ],
+      "pushedAt": "2026-03-31T16:09:07Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/griptape-ai/griptape"
+    },
+    {
+      "owner": "SignTools",
+      "repo": "SignTools",
+      "fullName": "SignTools/SignTools",
+      "description": "✒ A free, self-hosted platform to sideload iOS apps without a computer",
+      "stars": 2123,
+      "language": "Go",
+      "topics": [
+        "apps",
+        "ci",
+        "cross-platform",
+        "ios",
+        "ipa",
+        "ipad",
+        "iphone",
+        "macos",
+        "self-hosted",
+        "sideload",
+        "signing"
+      ],
+      "pushedAt": "2026-04-03T01:42:20Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:ci"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/SignTools/SignTools"
+    },
+    {
+      "owner": "nottelabs",
+      "repo": "notte",
+      "fullName": "nottelabs/notte",
+      "description": "🌸 Best framework to build web agents, and deploy serverless web automation functions on reliable browser infra.",
+      "stars": 1929,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "ai",
+        "anthropic",
+        "automation",
+        "browser",
+        "llm",
+        "openai",
+        "web"
+      ],
+      "pushedAt": "2026-04-03T04:09:50Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/nottelabs/notte"
+    },
+    {
+      "owner": "plastic-labs",
+      "repo": "honcho",
+      "fullName": "plastic-labs/honcho",
+      "description": " Memory library for building stateful agents",
+      "stars": 1518,
+      "language": "Python",
+      "topics": [
+        "agent-memory",
+        "ai",
+        "ai-agents",
+        "ai-memory",
+        "anthropic",
+        "context-engineering",
+        "continual-learning",
+        "embeddings",
+        "fastapi",
+        "langchain",
+        "llm",
+        "long-term-memory",
+        "memory",
+        "openai",
+        "personalization",
+        "python",
+        "rag",
+        "state-management",
+        "typescript",
+        "vector-database"
+      ],
+      "pushedAt": "2026-04-02T18:14:51Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/plastic-labs/honcho"
+    },
+    {
+      "owner": "explosion",
+      "repo": "spacy-llm",
+      "fullName": "explosion/spacy-llm",
+      "description": "🦙 Integrating LLMs into structured NLP pipelines",
+      "stars": 1376,
+      "language": "Python",
+      "topics": [
+        "anthropic",
+        "claude",
+        "cohere",
+        "dolly",
+        "falcon",
+        "gpt-3",
+        "gpt-4",
+        "large-language-models",
+        "llama",
+        "llm",
+        "machine-learning",
+        "named-entity-recognition",
+        "natural-language-processing",
+        "nlp",
+        "openai",
+        "prompt-engineering",
+        "spacy",
+        "text-classification"
+      ],
+      "pushedAt": "2026-03-27T08:49:38Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/explosion/spacy-llm"
+    },
+    {
+      "owner": "chopratejas",
+      "repo": "headroom",
+      "fullName": "chopratejas/headroom",
+      "description": "The Context Optimization Layer for LLM Applications",
+      "stars": 1086,
+      "language": "Python",
+      "topics": [
+        "agent",
+        "ai",
+        "anthropic",
+        "compression",
+        "context-engineering",
+        "context-window",
+        "fastapi",
+        "langchain",
+        "llm",
+        "mcp",
+        "openai",
+        "proxy",
+        "python",
+        "rag",
+        "token-optimization"
+      ],
+      "pushedAt": "2026-04-03T05:37:13Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 55,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/chopratejas/headroom"
+    },
+    {
+      "owner": "peaceiris",
+      "repo": "actions-gh-pages",
+      "fullName": "peaceiris/actions-gh-pages",
+      "description": "GitHub Actions for GitHub Pages 🚀 Deploy static files and publish your site easily. Static-Site-Generators-friendly.",
+      "stars": 5260,
+      "language": "TypeScript",
+      "topics": [
+        "actions",
+        "gatsby",
+        "github-actions",
+        "github-pages",
+        "hugo",
+        "mdbook",
+        "mkdocs",
+        "nextjs",
+        "nuxt",
+        "static-site-generator",
+        "vuepress"
+      ],
+      "pushedAt": "2026-03-23T17:14:54Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:github-actions"
+      ],
+      "score": 54,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 19,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/peaceiris/actions-gh-pages"
+    },
+    {
+      "owner": "illacloud",
+      "repo": "illa-builder",
+      "fullName": "illacloud/illa-builder",
+      "description": "Low-code platform allows you to build business apps, enables you to quickly create internal tools such as dashboard, crud app, admin panel, crm, cms, etc. Supports PostgreSQL, MySQL, Supabase, GraphQL",
+      "stars": 12347,
+      "language": "TypeScript",
+      "topics": [
+        "aiagent",
+        "app-builder",
+        "crud-application",
+        "developer-tool",
+        "developer-tools",
+        "gui",
+        "hacktoberfest",
+        "internal-development",
+        "internal-tool",
+        "internal-tools",
+        "low-code",
+        "low-code-development-platform",
+        "lowcode",
+        "react",
+        "self-hosted",
+        "typescript"
+      ],
+      "pushedAt": "2026-02-22T02:17:11Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:developer-tools"
+      ],
+      "score": 53,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 18,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/illacloud/illa-builder"
+    },
+    {
+      "owner": "daveebbelaar",
+      "repo": "ai-cookbook",
+      "fullName": "daveebbelaar/ai-cookbook",
+      "description": "Examples and tutorials to help developers build AI systems",
+      "stars": 3905,
+      "language": "Python",
+      "topics": [
+        "agents",
+        "ai",
+        "anthropic",
+        "llm",
+        "openai",
+        "python"
+      ],
+      "pushedAt": "2026-03-05T11:09:29Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 53,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 18,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/daveebbelaar/ai-cookbook"
+    },
+    {
+      "owner": "InternLM",
+      "repo": "HuixiangDou",
+      "fullName": "InternLM/HuixiangDou",
+      "description": "HuixiangDou: Overcoming Group Chat Scenarios with LLM-based Technical Assistance",
+      "stars": 2482,
+      "language": "Python",
+      "topics": [
+        "application",
+        "assistant",
+        "assistant-chat-bots",
+        "chatbot",
+        "dsl",
+        "group-chat",
+        "image-retrieval",
+        "lark",
+        "llm",
+        "multimodal",
+        "pipeline",
+        "rag",
+        "robot",
+        "wechat"
+      ],
+      "pushedAt": "2025-11-24T11:17:29Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "comparable:Sourcegraph / code search"
+      ],
+      "score": 53,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 13,
+        "starTier": 15,
+        "fitScore": 0,
+        "comparableBonus": 10,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/InternLM/HuixiangDou"
+    },
+    {
+      "owner": "waybarrios",
+      "repo": "vllm-mlx",
+      "fullName": "waybarrios/vllm-mlx",
+      "description": "OpenAI and Anthropic compatible server for Apple Silicon. Run LLMs and vision-language models (Llama, Qwen-VL, LLaVA) with continuous batching, MCP tool calling, and multimodal support. Native MLX bac",
+      "stars": 735,
+      "language": "Python",
+      "topics": [
+        "anthropic",
+        "apple-silicon",
+        "audio-processing",
+        "claude-code",
+        "computer-vision",
+        "image-understanding",
+        "inference",
+        "llm",
+        "machine-learning",
+        "macos",
+        "mllm",
+        "mlx",
+        "multimodal-ai",
+        "speech-to-text",
+        "stt",
+        "text-to-speech",
+        "tts",
+        "video-understanding",
+        "vision-language-model",
+        "vllm"
+      ],
+      "pushedAt": "2026-04-01T16:04:39Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 53,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 13,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/waybarrios/vllm-mlx"
+    },
+    {
+      "owner": "strands-agents",
+      "repo": "samples",
+      "fullName": "strands-agents/samples",
+      "description": "Agent samples built using the Strands Agents SDK.",
+      "stars": 710,
+      "language": "Python",
+      "topics": [
+        "agentic",
+        "agentic-ai",
+        "agents",
+        "ai",
+        "anthropic",
+        "autonomous-agents",
+        "bedrock",
+        "genai",
+        "litellm",
+        "llama",
+        "llm",
+        "machine-learning",
+        "mcp",
+        "multi-agent-systems",
+        "ollama",
+        "openai",
+        "opentelemetry",
+        "python",
+        "strands-agents"
+      ],
+      "pushedAt": "2026-03-27T18:30:30Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 53,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 13,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/strands-agents/samples"
+    },
+    {
+      "owner": "verygoodplugins",
+      "repo": "automem",
+      "fullName": "verygoodplugins/automem",
+      "description": "AutoMem is a graph-vector memory service that gives AI assistants durable, relational memory:",
+      "stars": 695,
+      "language": "Python",
+      "topics": [
+        "ai",
+        "ai-memory",
+        "anthropic",
+        "falkordb",
+        "graph-database",
+        "llm",
+        "memory",
+        "qdrant",
+        "vector-database"
+      ],
+      "pushedAt": "2026-03-25T18:47:16Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "seed:paul-gauthier/aider"
+      ],
+      "score": 53,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 13,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/verygoodplugins/automem"
+    },
+    {
+      "owner": "harshkedia177",
+      "repo": "axon",
+      "fullName": "harshkedia177/axon",
+      "description": "Graph-powered code intelligence engine — indexes codebases into a knowledge graph, exposed via MCP tools for AI agents and a CLI for developers.",
+      "stars": 616,
+      "language": "Python",
+      "topics": [
+        "claude-code",
+        "code-analysis",
+        "code-intelligence",
+        "dead-code-detection",
+        "knowledge-graph",
+        "mcp",
+        "python",
+        "static-analysis",
+        "tree-sitter",
+        "typescript"
+      ],
+      "pushedAt": "2026-03-25T06:56:58Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 53,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 13,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/harshkedia177/axon"
+    },
+    {
+      "owner": "Ericsson",
+      "repo": "CodeCompass",
+      "fullName": "Ericsson/CodeCompass",
+      "description": "CodeCompass is a software comprehension tool for large scale software written in C/C++, C# and Python.",
+      "stars": 593,
+      "language": "C++",
+      "topics": [
+        "code-analysis",
+        "code-comprehension",
+        "code-quality",
+        "cpp",
+        "csharp",
+        "python",
+        "static-analysis",
+        "thrift"
+      ],
+      "pushedAt": "2026-03-25T21:55:27Z",
+      "ownerType": "organization",
+      "whyMatched": [
+        "topic:code-analysis"
+      ],
+      "score": 53,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 20,
+        "starTier": 13,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/Ericsson/CodeCompass"
+    },
+    {
+      "owner": "sagiegurari",
+      "repo": "cargo-make",
+      "fullName": "sagiegurari/cargo-make",
+      "description": "Rust task runner and build tool.",
+      "stars": 2915,
+      "language": "Rust",
+      "topics": [
+        "appveyor",
+        "azure-pipelines",
+        "build",
+        "build-automation",
+        "build-tool",
+        "cargo",
+        "cargo-plugin",
+        "cargo-plugins",
+        "cargo-subcommand",
+        "circleci",
+        "coverage",
+        "github-actions",
+        "gitlab-ci",
+        "make",
+        "rust",
+        "task",
+        "task-runner",
+        "travis",
+        "travis-ci"
+      ],
+      "pushedAt": "2026-02-05T18:50:48Z",
+      "ownerType": "user",
+      "whyMatched": [
+        "topic:github-actions"
+      ],
+      "score": 52,
+      "scoreBreakdown": {
+        "topicMatch": 15,
+        "keywordMatch": 0,
+        "activityRecency": 17,
+        "starTier": 15,
+        "fitScore": 5,
+        "comparableBonus": 0,
+        "signalBonus": 0
+      },
+      "scoringVersion": "1.0.0",
+      "htmlUrl": "https://github.com/sagiegurari/cargo-make"
+    }
+  ]
+}
