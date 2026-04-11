@@ -1,4 +1,4 @@
-## Submission: Promotion
+## Submission: Spotlight
 
 **Tool slug:** <!-- e.g. my-cool-tool -->
 **Submission file:** `submissions/<slug>.json`
@@ -12,7 +12,7 @@
 - [ ] I am the maintainer or an authorized contributor
 - [ ] Tool is not already in the [catalog](/tools/)
 
-### Why this tool deserves promotion
+### Why this tool deserves a spotlight
 
 <!-- 2-3 sentences on what makes this tool worth featuring. What problem does it solve? Who is it for? -->
 

@@ -88,8 +88,8 @@ if (receipt?.inputs) {
   }
 }
 
-const title = `Promotion Week: ${week}`;
-const description = `Tools promoted during the week of ${week}.`;
+const title = `Spotlight Week: ${week}`;
+const description = `Tools spotlighted during the week of ${week}.`;
 ---
 
 <Base
@@ -98,17 +98,17 @@ const description = `Tools promoted during the week of ${week}.`;
   currentPath={`/promo/${week}/`}
 >
   <div class="promo-week-page" data-telemetry-week={week} data-repo-marketing={kit.repo.marketing || 'mcp-tool-shop/mcp-tool-shop'}>
-    <a href="/now/" class="back-link">&larr; Back to This Week's Focus</a>
+    <a href="/now/" class="back-link">&larr; Back to This Week's Spotlight</a>
 
     <h1>
-      Promotion Week: {week}
+      Spotlight Week: {week}
       <span class={`type-badge type-${promotionType}`}>{promotionType}</span>
       {receipt && <ProofBadge type="receipt" />}
     </h1>
 
     {items.length === 0 ? (
       <div class="empty-state">
-        <p>No tools in this promotion run.</p>
+        <p>No tools in this spotlight run.</p>
       </div>
     ) : (
       <div class="tools-list">

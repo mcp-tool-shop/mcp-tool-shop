@@ -4,8 +4,8 @@ import { kit } from '../lib/kit';
 import fs from "node:fs";
 import path from "node:path";
 
-const title = "This Week's Focus";
-const description = "Featured tools being promoted this week, with proof and evidence.";
+const title = "This Week's Spotlight";
+const description = "This week's spotlight picks — tools worth trying.";
 
 // Load promo-decisions.json
 let promoDecisions: any = { decisions: [], generatedAt: null };
@@ -76,8 +76,8 @@ const generatedAt = promoDecisions.generatedAt
   currentPath="/now/"
 >
   <div class="now-page">
-    <h1>This Week's Focus</h1>
-    <p class="subtitle">Featured tools from the {kit.site.title || 'mcp-tool-shop'} ecosystem &mdash; selected by evidence, not hype.</p>
+    <h1>This Week's Spotlight</h1>
+    <p class="subtitle">Spotlight picks from the {kit.site.title || 'mcp-tool-shop'} ecosystem. Clear installs, honest tradeoffs, receipts if you want them.</p>
 
     {featuredTools.length === 0 ? (
       <div class="empty-state">
@@ -122,7 +122,7 @@ const generatedAt = promoDecisions.generatedAt
 
     {trust && (
       <p class="trust-link">
-        <a href="/trust/">Verified build inputs &rarr;</a>
+        <a href="/trust/">Verify these picks &rarr;</a>
       </p>
     )}
   </div>
