@@ -92,6 +92,8 @@
     "kind": "library",
     "install": "npm install ai-jam-sessions",
     "tagline": "Music sessions",
+    "screenshot": "/screenshots/ai-jam-sessions.png",
+    "screenshotType": "placeholder",
     "needsHumanReview": true
   },
   "ai-loadout": {
@@ -155,6 +157,10 @@
     "tagline": "Repo signature artifact decision system â€” checklist tree + Ollama-powered Curator...",
     "needsHumanReview": true
   },
+  "aspire-ai": {
+    "screenshot": "/screenshots/aspire-ai.png",
+    "screenshotType": "placeholder"
+  },
   "audiobooker": {
     "tags": [
       "audio",
@@ -166,6 +172,8 @@
     "kind": "library",
     "install": "pip install audiobooker",
     "tagline": "Audio book generation and management system.",
+    "screenshot": "/screenshots/audiobooker.png",
+    "screenshotType": "placeholder",
     "needsHumanReview": true
   },
   "backpropagate": {
@@ -180,6 +188,10 @@
     "install": "pip install backpropagate",
     "tagline": "Headless LLM fine-tuning with smart defaults.",
     "screenshot": "/screenshots/backpropagate.png",
+    "screenshotType": "placeholder"
+  },
+  "brain-dev": {
+    "screenshot": "/screenshots/brain-dev.png",
     "screenshotType": "placeholder"
   },
   "brand": {
@@ -296,6 +308,8 @@
     "stability": "beta",
     "kind": "vscode-extension",
     "tagline": "VS Code extension for code analysis and coverage display.",
+    "screenshot": "/screenshots/codecomfy-vscode.png",
+    "screenshotType": "placeholder",
     "needsHumanReview": true
   },
   "codeteam-suite": {
@@ -854,6 +868,10 @@
     "tagline": "Deterministic vocal instrument engine â€” additive synthesis, voice presets, real-time...",
     "needsHumanReview": true
   },
+  "voice-soundboard": {
+    "screenshot": "/screenshots/voice-soundboard.png",
+    "screenshotType": "placeholder"
+  },
   "websketch-ir": {
     "tags": [
       "ir",
@@ -866,6 +884,10 @@
     "install": "npm install websketch-ir",
     "tagline": "Intermediate representation library for web component analysis.",
     "needsHumanReview": true
+  },
+  "witness": {
+    "screenshot": "/screenshots/witness.png",
+    "screenshotType": "placeholder"
   },
   "world-forge": {
     "tags": [
