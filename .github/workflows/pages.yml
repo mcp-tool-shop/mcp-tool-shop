@@ -79,4 +79,4 @@ jobs:
         with:
           node-version: 22
       - name: Smoke test live site
-        run: node scripts/smoke-test.mjs
+        run: node scripts/smoke-test.mjs --all
