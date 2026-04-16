@@ -2,43 +2,43 @@
   "date": "2026-04-16",
   "picks": [
     {
-      "slug": "sprite-foundry",
-      "reason": "Headless sprite generation pipeline for game character art",
+      "slug": "websketch-ir",
+      "reason": "Featured Tool",
       "signals": [
-        "featured"
+        "popular"
+      ]
+    },
+    {
+      "slug": "mcp-stress-test",
+      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "audiobooker",
+      "reason": "Audio book generation and management system",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "tool-compass",
+      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "CreatorLedger",
+      "reason": "Creator attestation proofs and authorship verification",
+      "signals": [
+        "popular"
       ]
     },
     {
       "slug": "backpropagate",
-      "reason": "Headless LLM fine-tuning with smart defaults and VRAM-aware sizing",
-      "signals": [
-        "featured"
-      ]
-    },
-    {
-      "slug": "style-dataset-lab",
-      "reason": "Visual canon and dataset production for any image domain",
-      "signals": [
-        "active"
-      ]
-    },
-    {
-      "slug": "xrpl-lab",
-      "reason": "XRPL training workbook with real transactions and portable proof",
-      "signals": [
-        "active"
-      ]
-    },
-    {
-      "slug": "motif",
-      "reason": "Adaptive soundtrack studio for interactive game music",
-      "signals": [
-        "active"
-      ]
-    },
-    {
-      "slug": "shipcheck",
-      "reason": "Product standards CLI with hard quality gates",
+      "reason": "Structured feedback loops for improving AI behavior through iteration",
       "signals": [
         "featured"
       ]

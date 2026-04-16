@@ -29,7 +29,9 @@
       "Real-time interactive editing"
     ],
     "screenshot": "/screenshots/comfy-headless.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Backpropagate",
@@ -53,7 +55,9 @@
     "install": "pip install backpropagate",
     "tagline": "Headless LLM fine-tuning with smart defaults.",
     "screenshot": "/screenshots/backpropagate.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Mcp Voice Soundboard",
@@ -79,7 +83,9 @@
     "screenshot": "/screenshots/mcp-voice-soundboard.png",
     "screenshotType": "placeholder",
     "smithery": "https://smithery.ai/servers/mcp-tool-shop/voice-soundboard",
-    "flyio": "https://voice-soundboard-mcp.fly.dev"
+    "flyio": "https://voice-soundboard-mcp.fly.dev",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Shipcheck",
@@ -105,7 +111,8 @@
     "kind": "library",
     "install": "npm install shipcheck",
     "tagline": "Product standards for MCP Tool Shop â€” Ship Gate checklist, error contract, templates,...",
-    "needsHumanReview": true
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Sprite Foundry",
@@ -127,7 +134,9 @@
     "updatedAt": "2026-04-09T06:39:06Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Xrpl Lab",
@@ -148,7 +157,8 @@
     "kind": "library",
     "install": "pip install xrpl-lab",
     "tagline": "XRPL training workbook â€” learn by doing, prove by artifact.",
-    "needsHumanReview": true
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Ai Jam Sessions",
@@ -169,7 +179,8 @@
     "kind": "library",
     "install": "npm install ai-jam-sessions",
     "tagline": "Music sessions",
-    "needsHumanReview": true
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "CodeComfy VS Code",
@@ -192,7 +203,8 @@
     "stability": "beta",
     "kind": "vscode-extension",
     "tagline": "VS Code extension for code analysis and coverage display.",
-    "needsHumanReview": true
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Accessibility Suite",
@@ -213,7 +225,9 @@
     "deprecated": false,
     "ecosystem": "accessibility",
     "screenshot": "/screenshots/accessibility-suite.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Attestia",
@@ -236,7 +250,9 @@
     "kind": "library",
     "tagline": "Financial truth infrastructure for decentralized systems.",
     "screenshot": "/screenshots/Attestia.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Audiobooker",
@@ -259,7 +275,8 @@
     "kind": "library",
     "install": "pip install audiobooker",
     "tagline": "Audio book generation and management system.",
-    "needsHumanReview": true
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "MCP Stress Test",
@@ -282,7 +299,9 @@
     "kind": "cli",
     "tagline": "Red team toolkit for MCP security scanners.",
     "screenshot": "/screenshots/mcp-stress-test.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Site Theme",
@@ -302,7 +321,8 @@
     "stability": "experimental",
     "kind": "library",
     "tagline": "Shared Astro theme for MCP Tool Shop org repo landing pages.",
-    "needsHumanReview": true
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Tool Compass",
@@ -336,7 +356,9 @@
     "screenshot": "/screenshots/tool-compass.png",
     "screenshotType": "placeholder",
     "smithery": "https://smithery.ai/servers/mcp-tool-shop/tool-compass",
-    "flyio": "https://tool-compass-gateway.fly.dev"
+    "flyio": "https://tool-compass-gateway.fly.dev",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Ai Loadout",
@@ -362,7 +384,8 @@
     "kind": "library",
     "install": "npm install ai-loadout",
     "tagline": "Context-aware knowledge router for AI agents.",
-    "needsHumanReview": true
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Ai Rpg Engine",
@@ -388,7 +411,8 @@
     "kind": "library",
     "install": "npm install ai-rpg-engine",
     "tagline": "A simulation-first terminal RPG engine for worlds shaped by perception, cognition, and...",
-    "needsHumanReview": true
+    "lane": "internal",
+    "surfaceEligible": false
   },
   {
     "name": "Asset Forge",
@@ -401,7 +425,9 @@
     "updatedAt": "2026-03-26T21:37:50Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "internal",
+    "surfaceEligible": false
   },
   {
     "name": "Brand",
@@ -417,7 +443,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-04-15T07:19:36Z",
+    "updatedAt": "2026-04-16T07:20:18Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -426,7 +452,8 @@
     "kind": "cli",
     "install": "npx brand",
     "tagline": "Centralized brand asset management â€” migration, audit, and integrity verification for...",
-    "needsHumanReview": true
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "ClaimLedger",
@@ -449,7 +476,8 @@
     "stability": "stable",
     "kind": "library",
     "tagline": "Scientific claim provenance and verification ledger.",
-    "needsHumanReview": true
+    "lane": "internal",
+    "surfaceEligible": false
   },
   {
     "name": "Claude Guardian",
@@ -475,7 +503,8 @@
     "kind": "library",
     "install": "npm install claude-guardian",
     "tagline": "Flight computer for Claude Code â€” log rotation, watchdog, crash bundles, and MCP...",
-    "needsHumanReview": true
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Claude Rpg",
@@ -502,7 +531,9 @@
     "install": "npx claude-rpg play --world fantasy",
     "tagline": "Simulation-grounded campaign RPG â€” 10 worlds, streaming narration, 195 tests, runtime-proofed.",
     "goodFor": "Players who want AI narration grounded in deterministic simulation truth. Developers building on the AI RPG Engine ecosystem.",
-    "notFor": "Casual chatbot RPGs â€” this is a full simulation engine, not a prompt wrapper."
+    "notFor": "Casual chatbot RPGs â€” this is a full simulation engine, not a prompt wrapper.",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Commandui",
@@ -527,7 +558,8 @@
     "kind": "library",
     "install": "npm install commandui",
     "tagline": "AI-native shell environment with semantic command review.",
-    "needsHumanReview": true
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "CreatorLedger",
@@ -550,7 +582,8 @@
     "stability": "stable",
     "kind": "library",
     "tagline": "Creator attestation proofs and authorship verification.",
-    "needsHumanReview": true
+    "lane": "internal",
+    "surfaceEligible": false
   },
   {
     "name": "Dogfood Labs",
@@ -576,7 +609,8 @@
     "kind": "library",
     "install": "npm install dogfood-labs",
     "tagline": "Centralized dogfood evidence system â€” proves every repo was actually exercised in a...",
-    "needsHumanReview": true
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Escape The Valley",
@@ -595,7 +629,8 @@
     "kind": "library",
     "install": "pip install escape-the-valley",
     "tagline": "Oregon Trail-style survival game powered by Ollama GM with XRPL ledger-backed inventory.",
-    "needsHumanReview": true
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Game Foundry Os",
@@ -616,7 +651,9 @@
     "updatedAt": "2026-04-09T02:12:03Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Glyphstudio",
@@ -642,7 +679,8 @@
     "kind": "library",
     "install": "npm install glyphstudio",
     "tagline": "Craft-first sprite studio for deterministic pixel editing, frame-by-frame animation,...",
-    "needsHumanReview": true
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Knowledge Core",
@@ -662,7 +700,9 @@
     "updatedAt": "2026-03-29T04:42:27Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "LeaseGate Lite",
@@ -689,7 +729,9 @@
     "unlisted": true,
     "deprecated": false,
     "screenshot": "/screenshots/LeaseGate-Lite.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Motif",
@@ -710,7 +752,9 @@
     "updatedAt": "2026-04-14T05:24:10Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Multi Claude",
@@ -744,7 +788,9 @@
       "single-file edits",
       "sequential tasks"
     ],
-    "needsHumanReview": false
+    "needsHumanReview": false,
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Npm Launcher",
@@ -770,7 +816,8 @@
     "kind": "cli",
     "install": "npx npm-launcher",
     "tagline": "Generic GitHub-release binary launcher with cache + SHA256 verification.",
-    "needsHumanReview": true
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Polyglot Mcp",
@@ -796,7 +843,8 @@
     "kind": "mcp-server",
     "install": "npx polyglot-mcp",
     "tagline": "Local GPU translation MCP server â€” TranslateGemma via Ollama, 55 languages, zero cloud...",
-    "needsHumanReview": true
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Portlight",
@@ -822,7 +870,8 @@
     "kind": "cli",
     "install": "pipx install portlight",
     "tagline": "Trade-first maritime strategy CLI â€” route arbitrage, contracts, infrastructure,...",
-    "needsHumanReview": true
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Prototypes",
@@ -842,7 +891,9 @@
     "updatedAt": "2026-04-11T03:04:12Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "seed_vault",
+    "surfaceEligible": false
   },
   {
     "name": "Registry Stats",
@@ -865,7 +916,7 @@
     "featured": false,
     "stars": 0,
     "language": "Astro",
-    "updatedAt": "2026-04-15T08:08:52Z",
+    "updatedAt": "2026-04-16T08:08:18Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -873,7 +924,8 @@
     "stability": "experimental",
     "kind": "meta",
     "tagline": "Multi-registry download stats for npm, PyPI, NuGet, VS Code Marketplace, and Docker Hub.",
-    "needsHumanReview": true
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Registry Sync",
@@ -899,7 +951,8 @@
     "kind": "cli",
     "install": "npx registry-sync",
     "tagline": "Desired-state sync engine for multi-registry package publishing.",
-    "needsHumanReview": true
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Repo Dataset",
@@ -919,7 +972,9 @@
     "updatedAt": "2026-04-14T21:23:31Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Repo Knowledge",
@@ -945,7 +1000,8 @@
     "kind": "mcp-server",
     "install": "npx repo-knowledge",
     "tagline": "Repo knowledge system â€” relational catalog with full-text search, audit evidence, and...",
-    "needsHumanReview": true
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Repomesh",
@@ -971,7 +1027,8 @@
     "kind": "library",
     "install": "npm install repomesh",
     "tagline": "Syntropic repo network â€” append-only ledger, signed events, multi-dimensional trust...",
-    "needsHumanReview": true
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Role Os",
@@ -995,7 +1052,9 @@
     "updatedAt": "2026-03-29T06:36:22Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Roll",
@@ -1017,7 +1076,9 @@
     "updatedAt": "2026-04-11T18:01:40Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Saints Mile",
@@ -1039,7 +1100,9 @@
     "updatedAt": "2026-04-06T07:38:30Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Sensor Humor",
@@ -1062,7 +1125,9 @@
     "updatedAt": "2026-03-31T20:12:06Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Sovereignty",
@@ -1099,7 +1164,9 @@
       "Replacing formal governance or voting systems"
     ],
     "screenshot": "/screenshots/sovereignty.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Sprite Foundry Packs",
@@ -1122,7 +1189,9 @@
     "updatedAt": "2026-03-28T16:56:00Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "internal",
+    "surfaceEligible": false
   },
   {
     "name": "Star Freight",
@@ -1144,7 +1213,9 @@
     "updatedAt": "2026-03-27T01:30:36Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Star Freight Client",
@@ -1166,7 +1237,9 @@
     "updatedAt": "2026-03-27T01:29:00Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "internal",
+    "surfaceEligible": false
   },
   {
     "name": "Stillpoint",
@@ -1191,7 +1264,8 @@
     "kind": "library",
     "install": "npm install stillpoint",
     "tagline": "Ambient sound mixer for focus and regulation â€” 50 layered sounds, per-layer volume,...",
-    "needsHumanReview": true
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Style Dataset Lab",
@@ -1219,7 +1293,9 @@
     "updatedAt": "2026-04-16T04:47:40Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Synthesis",
@@ -1242,7 +1318,8 @@
     "kind": "library",
     "install": "npm install synthesis",
     "tagline": "Composable tool framework for building complex AI workflows.",
-    "needsHumanReview": true
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Taste Engine",
@@ -1262,7 +1339,9 @@
     "updatedAt": "2026-03-31T18:04:30Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "World Forge",
@@ -1288,7 +1367,8 @@
     "kind": "library",
     "install": "npm install world-forge",
     "tagline": "2D world authoring studio for AI RPG Engine.",
-    "needsHumanReview": true
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   {
     "name": "Xrpl Camp",
@@ -1325,7 +1405,9 @@
       "Full Testnet node operation or validator setup"
     ],
     "screenshot": "/screenshots/xrpl-camp.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   {
     "name": "Xrpl Creator Capsule",
@@ -1350,6 +1432,8 @@
     "updatedAt": "2026-04-01T22:52:27Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "lane": "active_lab",
+    "surfaceEligible": true
   }
 ]

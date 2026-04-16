@@ -41,8 +41,21 @@
     "surfaceEligible": false
   },
   "LeaseGate-Lite": {
+    "tags": [
+      "ai",
+      "concurrency",
+      "csharp",
+      "daemon",
+      "dotnet",
+      "llm"
+    ],
+    "category": "desktop",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "A one-tab MAUI control surface and local daemon for throttling AI workloads on Windows...",
     "screenshot": "/screenshots/LeaseGate-Lite.png",
     "screenshotType": "placeholder",
+    "needsHumanReview": true,
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -98,6 +111,10 @@
     "lane": "internal",
     "surfaceEligible": false
   },
+  "asset-forge": {
+    "lane": "internal",
+    "surfaceEligible": false
+  },
   "audiobooker": {
     "tags": [
       "audio",
@@ -113,6 +130,7 @@
     "surfaceEligible": true
   },
   "backpropagate": {
+    "featured": true,
     "tags": [
       "ml",
       "fine-tuning",
@@ -125,7 +143,6 @@
     "tagline": "Headless LLM fine-tuning with smart defaults.",
     "screenshot": "/screenshots/backpropagate.png",
     "screenshotType": "placeholder",
-    "featured": true,
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -253,6 +270,10 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
+  "game-foundry-os": {
+    "lane": "active_lab",
+    "surfaceEligible": true
+  },
   "glyphstudio": {
     "tags": [
       "animation",
@@ -267,6 +288,10 @@
     "kind": "library",
     "install": "npm install glyphstudio",
     "tagline": "Craft-first sprite studio for deterministic pixel editing, frame-by-frame animation,...",
+    "lane": "active_lab",
+    "surfaceEligible": true
+  },
+  "knowledge-core": {
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -286,6 +311,7 @@
     "surfaceEligible": true
   },
   "mcp-voice-soundboard": {
+    "featured": true,
     "tags": [
       "tts",
       "mcp",
@@ -300,8 +326,11 @@
     "screenshotType": "placeholder",
     "smithery": "https://smithery.ai/servers/mcp-tool-shop/voice-soundboard",
     "flyio": "https://voice-soundboard-mcp.fly.dev",
-    "featured": true,
     "lane": "shipped",
+    "surfaceEligible": true
+  },
+  "motif": {
+    "lane": "active_lab",
     "surfaceEligible": true
   },
   "multi-claude": {
@@ -374,6 +403,10 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
+  "prototypes": {
+    "lane": "seed_vault",
+    "surfaceEligible": false
+  },
   "registry-stats": {
     "category": "infrastructure",
     "stability": "experimental",
@@ -397,6 +430,24 @@
     "install": "npx registry-sync",
     "tagline": "Desired-state sync engine for multi-registry package publishing.",
     "lane": "active_lab",
+    "surfaceEligible": true
+  },
+  "repo-dataset": {
+    "tags": [
+      "cli",
+      "dataset",
+      "fine-tuning",
+      "llm",
+      "training-data",
+      "typescript"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "npx repo-dataset",
+    "tagline": "Convert any git repository or visual style repo into LLM training datasets — 8 formats,...",
+    "needsHumanReview": true,
+    "lane": "shipped",
     "surfaceEligible": true
   },
   "repo-knowledge": {
@@ -433,7 +484,51 @@
     "lane": "active_lab",
     "surfaceEligible": true
   },
+  "role-os": {
+    "lane": "shipped",
+    "surfaceEligible": true
+  },
+  "roll": {
+    "tags": [
+      "cli",
+      "dice",
+      "game-design",
+      "loot-table",
+      "probability",
+      "rpg"
+    ],
+    "category": "games",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "npx roll",
+    "tagline": "RPG dice engine — expression parser, probability analyzer, loot tables, beautiful...",
+    "needsHumanReview": true,
+    "lane": "shipped",
+    "surfaceEligible": true
+  },
+  "saints-mile": {
+    "tags": [
+      "game",
+      "jrpg",
+      "ratatui",
+      "rpg",
+      "rust",
+      "terminal"
+    ],
+    "category": "games",
+    "stability": "stable",
+    "kind": "library",
+    "tagline": "A frontier JRPG for the adults who loved those games first.",
+    "needsHumanReview": true,
+    "lane": "shipped",
+    "surfaceEligible": true
+  },
+  "sensor-humor": {
+    "lane": "active_lab",
+    "surfaceEligible": true
+  },
   "shipcheck": {
+    "featured": true,
     "tags": [
       "checklist",
       "developer-tools",
@@ -447,7 +542,6 @@
     "kind": "library",
     "install": "npm install shipcheck",
     "tagline": "Product standards for MCP Tool Shop â€” Ship Gate checklist, error contract, templates,...",
-    "featured": true,
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -491,6 +585,23 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
+  "sprite-foundry": {
+    "featured": true,
+    "lane": "active_lab",
+    "surfaceEligible": true
+  },
+  "sprite-foundry-packs": {
+    "lane": "internal",
+    "surfaceEligible": false
+  },
+  "star-freight": {
+    "lane": "shipped",
+    "surfaceEligible": true
+  },
+  "star-freight-client": {
+    "lane": "internal",
+    "surfaceEligible": false
+  },
   "stillpoint": {
     "tags": [
       "ambient",
@@ -507,6 +618,24 @@
     "lane": "active_lab",
     "surfaceEligible": true
   },
+  "style-dataset-lab": {
+    "tags": [
+      "comfyui",
+      "computer-vision",
+      "concept-art",
+      "curation",
+      "dataset",
+      "evaluation"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install style-dataset-lab",
+    "tagline": "Visual canon and dataset production pipeline — snapshots, splits, training packages,...",
+    "needsHumanReview": true,
+    "lane": "active_lab",
+    "surfaceEligible": true
+  },
   "synthesis": {
     "tags": [
       "workflow",
@@ -519,6 +648,10 @@
     "install": "npm install synthesis",
     "tagline": "Composable tool framework for building complex AI workflows.",
     "lane": "shipped",
+    "surfaceEligible": true
+  },
+  "taste-engine": {
+    "lane": "active_lab",
     "surfaceEligible": true
   },
   "tool-compass": {
@@ -593,7 +726,12 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
+  "xrpl-creator-capsule": {
+    "lane": "active_lab",
+    "surfaceEligible": true
+  },
   "xrpl-lab": {
+    "featured": true,
     "tags": [
       "ml"
     ],
@@ -602,77 +740,7 @@
     "kind": "library",
     "install": "pip install xrpl-lab",
     "tagline": "XRPL training workbook â€” learn by doing, prove by artifact.",
-    "featured": true,
     "lane": "shipped",
     "surfaceEligible": true
-  },
-  "sprite-foundry": {
-    "featured": true,
-    "lane": "active_lab",
-    "surfaceEligible": true
-  },
-  "roll": {
-    "lane": "shipped",
-    "surfaceEligible": true
-  },
-  "saints-mile": {
-    "lane": "shipped",
-    "surfaceEligible": true
-  },
-  "role-os": {
-    "lane": "shipped",
-    "surfaceEligible": true
-  },
-  "repo-dataset": {
-    "lane": "shipped",
-    "surfaceEligible": true
-  },
-  "star-freight": {
-    "lane": "shipped",
-    "surfaceEligible": true
-  },
-  "style-dataset-lab": {
-    "lane": "active_lab",
-    "surfaceEligible": true
-  },
-  "game-foundry-os": {
-    "lane": "active_lab",
-    "surfaceEligible": true
-  },
-  "motif": {
-    "lane": "active_lab",
-    "surfaceEligible": true
-  },
-  "knowledge-core": {
-    "lane": "active_lab",
-    "surfaceEligible": true
-  },
-  "taste-engine": {
-    "lane": "active_lab",
-    "surfaceEligible": true
-  },
-  "xrpl-creator-capsule": {
-    "lane": "active_lab",
-    "surfaceEligible": true
-  },
-  "sensor-humor": {
-    "lane": "active_lab",
-    "surfaceEligible": true
-  },
-  "prototypes": {
-    "lane": "seed_vault",
-    "surfaceEligible": false
-  },
-  "sprite-foundry-packs": {
-    "lane": "internal",
-    "surfaceEligible": false
-  },
-  "star-freight-client": {
-    "lane": "internal",
-    "surfaceEligible": false
-  },
-  "asset-forge": {
-    "lane": "internal",
-    "surfaceEligible": false
   }
 }
