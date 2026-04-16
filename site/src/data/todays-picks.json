@@ -1,46 +1,46 @@
 {
-  "date": "2026-03-20",
+  "date": "2026-04-16",
   "picks": [
     {
-      "slug": "websketch-ir",
-      "reason": "Intermediate representation library for web component analysis",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "websketch-extension",
-      "reason": "Browser extension for web page analysis and code generation",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "file-compass",
-      "reason": "Deterministic file-system navigation and inspection for large repos",
+      "slug": "sprite-foundry",
+      "reason": "Headless sprite generation pipeline for game character art",
       "signals": [
         "featured"
       ]
     },
     {
-      "slug": "websketch-mcp",
-      "reason": "MCP server for AI-assisted web analysis",
+      "slug": "backpropagate",
+      "reason": "Headless LLM fine-tuning with smart defaults and VRAM-aware sizing",
       "signals": [
-        "popular"
+        "featured"
       ]
     },
     {
-      "slug": "CreatorLedger",
-      "reason": "Creator attestation proofs and authorship verification",
+      "slug": "style-dataset-lab",
+      "reason": "Visual canon and dataset production for any image domain",
       "signals": [
-        "popular"
+        "active"
       ]
     },
     {
-      "slug": "prov-engine-js",
-      "reason": "JavaScript/TypeScript provenance and traceability engine",
+      "slug": "xrpl-lab",
+      "reason": "XRPL training workbook with real transactions and portable proof",
       "signals": [
-        "popular"
+        "active"
+      ]
+    },
+    {
+      "slug": "motif",
+      "reason": "Adaptive soundtrack studio for interactive game music",
+      "signals": [
+        "active"
+      ]
+    },
+    {
+      "slug": "shipcheck",
+      "reason": "Product standards CLI with hard quality gates",
+      "signals": [
+        "featured"
       ]
     }
   ]

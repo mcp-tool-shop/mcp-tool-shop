@@ -8,9 +8,9 @@
       "image-gen"
     ],
     "featured": true,
-    "stars": 1,
+    "stars": 2,
     "language": "Python",
-    "updatedAt": "2026-03-27T00:13:23Z",
+    "updatedAt": "2026-04-11T21:36:40Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -42,7 +42,7 @@
     "featured": true,
     "stars": 1,
     "language": "Python",
-    "updatedAt": "2026-04-06T22:42:31Z",
+    "updatedAt": "2026-04-11T21:21:25Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -66,6 +66,38 @@
     "flyio": "https://tool-compass-gateway.fly.dev"
   },
   {
+    "name": "Brain Dev",
+    "repo": "brain-dev",
+    "description": "MCP server for AI-powered code analysis — test generation, security audits, refactoring suggestions",
+    "tags": [
+      "mcp",
+      "code-analysis"
+    ],
+    "featured": true,
+    "stars": 0,
+    "language": "",
+    "updatedAt": "",
+    "registered": true,
+    "unlisted": false,
+    "deprecated": false,
+    "ecosystem": "codeteam",
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "pip install brain-dev",
+    "tagline": "AI-powered code analysis via MCP.",
+    "goodFor": [
+      "Automated test generation from existing code",
+      "Security audit reports",
+      "Codebase health scoring"
+    ],
+    "notFor": [
+      "Runtime code analysis or profiling",
+      "Replacing manual security review for production systems"
+    ],
+    "screenshot": "/screenshots/brain-dev.png"
+  },
+  {
     "name": "File Compass",
     "repo": "file-compass",
     "description": "Deterministic file-system navigation and inspection for large repos",
@@ -76,8 +108,8 @@
     ],
     "featured": true,
     "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-04-01T20:24:39Z",
+    "language": "",
+    "updatedAt": "",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -108,7 +140,7 @@
     "featured": false,
     "stars": 2,
     "language": "TypeScript",
-    "updatedAt": "2026-04-05T23:50:32Z",
+    "updatedAt": "2026-04-11T20:16:57Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -117,6 +149,29 @@
     "kind": "library",
     "install": "npm install ai-jam-sessions",
     "tagline": "Music sessions",
+    "needsHumanReview": true
+  },
+  {
+    "name": "CodeComfy VS Code",
+    "repo": "codecomfy-vscode",
+    "description": "VS Code extension for code analysis and coverage display",
+    "tags": [
+      "vscode",
+      "extension",
+      "coverage"
+    ],
+    "featured": false,
+    "stars": 2,
+    "language": "TypeScript",
+    "updatedAt": "2026-03-26T21:41:23Z",
+    "registered": true,
+    "unlisted": false,
+    "deprecated": false,
+    "ecosystem": "codeteam",
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "vscode-extension",
+    "tagline": "VS Code extension for code analysis and coverage display.",
     "needsHumanReview": true
   },
   {
@@ -152,7 +207,7 @@
     "featured": false,
     "stars": 1,
     "language": "TypeScript",
-    "updatedAt": "2026-03-27T01:19:55Z",
+    "updatedAt": "2026-04-11T21:22:21Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -198,7 +253,7 @@
     "featured": false,
     "stars": 1,
     "language": "Python",
-    "updatedAt": "2026-04-01T06:44:54Z",
+    "updatedAt": "2026-04-15T07:35:48Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -208,56 +263,6 @@
     "install": "pip install backpropagate",
     "tagline": "Headless LLM fine-tuning with smart defaults.",
     "screenshot": "/screenshots/backpropagate.png",
-    "screenshotType": "placeholder"
-  },
-  {
-    "name": "CodeComfy VS Code",
-    "repo": "codecomfy-vscode",
-    "description": "VS Code extension for code analysis and coverage display",
-    "tags": [
-      "vscode",
-      "extension",
-      "coverage"
-    ],
-    "featured": false,
-    "stars": 1,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-26T21:41:23Z",
-    "registered": true,
-    "unlisted": false,
-    "deprecated": false,
-    "ecosystem": "codeteam",
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "vscode-extension",
-    "tagline": "VS Code extension for code analysis and coverage display.",
-    "needsHumanReview": true
-  },
-  {
-    "name": "LeaseGate Lite",
-    "repo": "LeaseGate-Lite",
-    "description": "A one-tab MAUI control surface and local daemon for throttling AI workloads on Windows — smoother calls, less stutter, fewer thermal spikes.",
-    "tags": [
-      "ai",
-      "concurrency",
-      "csharp",
-      "daemon",
-      "dotnet",
-      "llm",
-      "maui",
-      "rate-limiting",
-      "system-tray",
-      "throttling",
-      "windows"
-    ],
-    "featured": false,
-    "stars": 1,
-    "language": "C#",
-    "updatedAt": "2026-04-07T00:13:33Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "screenshot": "/screenshots/LeaseGate-Lite.png",
     "screenshotType": "placeholder"
   },
   {
@@ -272,7 +277,7 @@
     "featured": false,
     "stars": 1,
     "language": "Python",
-    "updatedAt": "2026-04-02T04:00:17Z",
+    "updatedAt": "2026-04-11T21:23:00Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -293,7 +298,7 @@
     "featured": false,
     "stars": 1,
     "language": "Astro",
-    "updatedAt": "2026-03-27T03:56:18Z",
+    "updatedAt": "2026-04-11T21:32:20Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -318,7 +323,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-04-01T07:50:51Z",
+    "updatedAt": "2026-04-11T20:18:26Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -356,31 +361,6 @@
     "needsHumanReview": true
   },
   {
-    "name": "Ai Ui",
-    "repo": "ai-ui",
-    "description": "Automated design diagnostics for SPAs — crawl, diff, verify UI against docs",
-    "tags": [
-      "accessibility",
-      "cli",
-      "design-diagnostics",
-      "spa",
-      "ui-testing"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "JavaScript",
-    "updatedAt": "2026-04-01T02:58:20Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install ai-ui",
-    "tagline": "Eyes â†’ Brain â†’ Hands â€” repeatable UI workflow for design-system-first Astro pages.",
-    "needsHumanReview": true
-  },
-  {
     "name": "Ally Demo Python",
     "repo": "ally-demo-python",
     "description": "Python demonstration of accessibility framework capabilities",
@@ -396,48 +376,11 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "accessibility"
-  },
-  {
-    "name": "Anchor",
-    "repo": "anchor",
-    "description": "",
-    "tags": [],
-    "featured": false,
-    "stars": 0,
-    "language": "Rust",
-    "updatedAt": "2026-04-01T04:51:23Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
+    "ecosystem": "accessibility",
     "category": "devtools",
-    "stability": "experimental",
-    "kind": "library",
-    "needsHumanReview": true
-  },
-  {
-    "name": "Artifact",
-    "repo": "artifact",
-    "description": "Repo signature artifact decision system — Curator freshness driver + deterministic inference engine",
-    "tags": [
-      "artifact",
-      "curator",
-      "decision-system",
-      "mcp-tool-shop",
-      "ollama"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-27T01:16:07Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "mcp-core",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install artifact",
-    "tagline": "Repo signature artifact decision system â€” checklist tree + Ollama-powered Curator...",
+    "stability": "beta",
+    "kind": "template",
+    "tagline": "Python demonstration of accessibility framework capabilities.",
     "needsHumanReview": true
   },
   {
@@ -445,9 +388,9 @@
     "repo": "aspire-ai",
     "description": "Goal-oriented framework for running and evaluating AI workflows over time",
     "tags": [
-      "evaluation",
-      "experimentation",
-      "metrics"
+      "ml",
+      "training",
+      "ai-alignment"
     ],
     "featured": false,
     "stars": 0,
@@ -455,7 +398,13 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "ml",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Adversarial student-professor training engine.",
+    "screenshot": "/screenshots/aspire-ai.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "Asset Forge",
@@ -471,25 +420,6 @@
     "deprecated": false
   },
   {
-    "name": "Brain Dev",
-    "repo": "brain-dev",
-    "description": "MCP server for AI-powered code analysis — test generation, security audits, refactoring suggestions",
-    "tags": [
-      "mcp-server",
-      "code-analysis",
-      "ai",
-      "testing"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "",
-    "updatedAt": "",
-    "registered": true,
-    "unlisted": false,
-    "deprecated": false,
-    "ecosystem": "codeteam"
-  },
-  {
     "name": "Brand",
     "repo": "brand",
     "description": "Centralized brand asset management — migration, audit, and integrity verification for GitHub orgs",
@@ -503,7 +433,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-04-08T07:07:43Z",
+    "updatedAt": "2026-04-15T07:19:36Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -512,32 +442,6 @@
     "kind": "cli",
     "install": "npx brand",
     "tagline": "Centralized brand asset management â€” migration, audit, and integrity verification for...",
-    "needsHumanReview": true
-  },
-  {
-    "name": "Civility Kernel",
-    "repo": "civility-kernel",
-    "description": "A policy layer that makes agent behavior preference-governed instead of purely efficiency-maximizing.",
-    "tags": [
-      "agents",
-      "ai",
-      "governance",
-      "mcp",
-      "policy",
-      "safety"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-04-06T04:49:54Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "infrastructure",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install civility-kernel",
-    "tagline": "A policy layer that makes agent behavior preference-governed instead of purely...",
     "needsHumanReview": true
   },
   {
@@ -556,7 +460,12 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "ledger"
+    "ecosystem": "ledger",
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "library",
+    "tagline": "Scientific claim provenance and verification ledger.",
+    "needsHumanReview": true
   },
   {
     "name": "Claude Collaborate",
@@ -573,7 +482,12 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows.",
+    "needsHumanReview": true
   },
   {
     "name": "Claude Guardian",
@@ -590,7 +504,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-04-01T03:35:13Z",
+    "updatedAt": "2026-04-11T20:15:34Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -599,32 +513,6 @@
     "kind": "library",
     "install": "npm install claude-guardian",
     "tagline": "Flight computer for Claude Code â€” log rotation, watchdog, crash bundles, and MCP...",
-    "needsHumanReview": true
-  },
-  {
-    "name": "Claude Memories",
-    "repo": "claude-memories",
-    "description": "MEMORY.md optimizer and dispatch table generator for Claude Code",
-    "tags": [
-      "agent",
-      "ai",
-      "ai-agent",
-      "claude",
-      "claude-code",
-      "cli"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-27T00:08:28Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "cli",
-    "install": "npx claude-memories",
-    "tagline": "MEMORY.md optimizer and dispatch table generator for Claude Code.",
     "needsHumanReview": true
   },
   {
@@ -655,58 +543,6 @@
     "notFor": "Casual chatbot RPGs â€” this is a full simulation engine, not a prompt wrapper."
   },
   {
-    "name": "Claude Rules",
-    "repo": "claude-rules",
-    "description": "Dispatch table generator and instruction-file optimizer for Claude Code. Put your CLAUDE.md on a diet.",
-    "tags": [
-      "claude",
-      "claude-code",
-      "context-optimization",
-      "dispatch-table",
-      "instruction-file",
-      "mcp"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-04-01T11:12:14Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "mcp-core",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install claude-rules",
-    "tagline": "Dispatch table generator and instruction-file optimizer for Claude Code.",
-    "needsHumanReview": true
-  },
-  {
-    "name": "Claude Sfx",
-    "repo": "claude-sfx",
-    "description": "Procedural audio feedback for Claude Code — UX for agentic coding",
-    "tags": [
-      "accessibility",
-      "audio",
-      "claude",
-      "claude-code",
-      "developer-experience",
-      "hooks"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-30T04:49:32Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "voice",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install claude-sfx",
-    "tagline": "Procedural audio feedback for Claude Code â€” UX for agentic coding.",
-    "needsHumanReview": true
-  },
-  {
     "name": "Code Covered",
     "repo": "code-covered",
     "description": "Coverage visualization and reporting tool",
@@ -722,7 +558,13 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "codeteam"
+    "ecosystem": "codeteam",
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "install": "pip install code-covered",
+    "tagline": "Coverage visualization and reporting tool.",
+    "needsHumanReview": true
   },
   {
     "name": "CodeTeam",
@@ -740,7 +582,13 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "codeteam"
+    "ecosystem": "codeteam",
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "npx codeteam",
+    "tagline": "Legacy code analysis CLI (see codeteam-suite).",
+    "needsHumanReview": true
   },
   {
     "name": "CodeTeam Suite",
@@ -753,8 +601,8 @@
     ],
     "featured": false,
     "stars": 0,
-    "language": "C#",
-    "updatedAt": "2026-03-27T00:11:10Z",
+    "language": "",
+    "updatedAt": "",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -795,10 +643,7 @@
     "repo": "context-window-manager",
     "description": "Deterministic tools for shaping and allocating LLM context windows",
     "tags": [
-      "context",
-      "tokens",
-      "rag",
-      "memory"
+      "llm"
     ],
     "featured": false,
     "stars": 0,
@@ -806,7 +651,11 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Context optimization"
   },
   {
     "name": "Control Room",
@@ -823,7 +672,12 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Dashboard and monitoring for MCP tool ecosystems.",
+    "needsHumanReview": true
   },
   {
     "name": "CreatorLedger",
@@ -841,54 +695,11 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "ledger"
-  },
-  {
-    "name": "Datagates",
-    "repo": "datagates",
-    "description": "Governed data promotion system. Data earns trust through layered gates, not silent cleaning.",
-    "tags": [
-      "calibration",
-      "cli",
-      "data",
-      "dataset",
-      "governance",
-      "ml",
-      "pipeline",
-      "typescript",
-      "validation"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-31T21:28:06Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false
-  },
-  {
-    "name": "Dev Op Typer",
-    "repo": "dev-op-typer",
-    "description": "Developer-focused typing practice for Windows — type real code across 6 languages, with adaptive difficulty and live stats.",
-    "tags": [
-      "accessibility",
-      "adaptive-learning",
-      "code-snippets",
-      "csharp",
-      "desktop-app",
-      "developer-tools"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "C#",
-    "updatedAt": "2026-03-26T21:40:01Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "games",
-    "stability": "experimental",
-    "kind": "desktop-app",
-    "tagline": "Developer-focused typing practice for Windows â€” type real code across 6 languages, with...",
+    "ecosystem": "ledger",
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "library",
+    "tagline": "Creator attestation proofs and authorship verification.",
     "needsHumanReview": true
   },
   {
@@ -906,7 +717,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-03-29T05:09:50Z",
+    "updatedAt": "2026-04-11T05:27:56Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -916,28 +727,6 @@
     "install": "npm install dogfood-labs",
     "tagline": "Centralized dogfood evidence system â€” proves every repo was actually exercised in a...",
     "needsHumanReview": true
-  },
-  {
-    "name": "Edgepacks",
-    "repo": "edgepacks",
-    "description": "Task-dataset foundry for training small models on narrow jobs",
-    "tags": [
-      "datasets",
-      "edge-ai",
-      "fine-tuning",
-      "machine-learning",
-      "ollama",
-      "small-models",
-      "synthetic-data",
-      "training-data"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-03-28T06:03:57Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false
   },
   {
     "name": "Escape The Valley",
@@ -959,32 +748,11 @@
     "needsHumanReview": true
   },
   {
-    "name": "Feature Reacher",
-    "repo": "feature-reacher",
-    "description": "Adoption Risk Auditing — surface underutilized features before they become technical debt.",
-    "tags": [
-      "ml"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-04-01T21:23:55Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "ml",
-    "stability": "beta",
-    "kind": "library",
-    "tagline": "Feature mining"
-  },
-  {
     "name": "Flexiflow",
     "repo": "flexiflow",
     "description": "Flexible workflow automation framework",
     "tags": [
-      "workflow",
-      "automation",
-      "framework"
+      "workflow"
     ],
     "featured": false,
     "stars": 0,
@@ -992,7 +760,11 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Workflow orchestration"
   },
   {
     "name": "Game Foundry Os",
@@ -1002,7 +774,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-04-08T04:39:07Z",
+    "updatedAt": "2026-04-09T02:12:03Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -1049,7 +821,13 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "pipx install headless-wheel-builder",
+    "tagline": "CLI-first build/validate/release tooling for Python wheels and sdists.",
+    "needsHumanReview": true
   },
   {
     "name": "Integradio",
@@ -1066,7 +844,13 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "install": "pip install integradio",
+    "tagline": "Structure layer for building maintainable Gradio apps (UI + execution separation).",
+    "needsHumanReview": true
   },
   {
     "name": "Knowledge Core",
@@ -1089,6 +873,33 @@
     "deprecated": false
   },
   {
+    "name": "LeaseGate Lite",
+    "repo": "LeaseGate-Lite",
+    "description": "A one-tab MAUI control surface and local daemon for throttling AI workloads on Windows — smoother calls, less stutter, fewer thermal spikes.",
+    "tags": [
+      "ai",
+      "concurrency",
+      "csharp",
+      "daemon",
+      "dotnet",
+      "llm",
+      "maui",
+      "rate-limiting",
+      "system-tray",
+      "throttling",
+      "windows"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "C#",
+    "updatedAt": "2026-04-11T21:52:52Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false,
+    "screenshot": "/screenshots/LeaseGate-Lite.png",
+    "screenshotType": "placeholder"
+  },
+  {
     "name": "Ledger Suite",
     "repo": "ledger-suite",
     "description": "Unified monorepo for cryptographic provenance ledgers — ClaimLedger and CreatorLedger",
@@ -1100,8 +911,8 @@
     ],
     "featured": false,
     "stars": 0,
-    "language": "C#",
-    "updatedAt": "2026-03-27T00:21:49Z",
+    "language": "",
+    "updatedAt": "",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -1111,73 +922,6 @@
     "kind": "library",
     "tagline": "Unified monorepo for cryptographic provenance ledgers â€” ClaimLedger and CreatorLedger.",
     "needsHumanReview": true
-  },
-  {
-    "name": "LoKey Typer",
-    "repo": "LoKey-Typer",
-    "description": "Calm typing practice with ambient soundscapes, personalized daily sets, and zero tracking — Microsoft Store + PWA",
-    "tags": [
-      "accessibility",
-      "ambient-audio",
-      "desktop-app",
-      "microsoft-store",
-      "pwa",
-      "react"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-27T00:21:11Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "voice",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install lokey-typer",
-    "tagline": "Calm typing practice with ambient soundscapes, personalized daily sets, and zero...",
-    "needsHumanReview": true
-  },
-  {
-    "name": "MCP Examples",
-    "repo": "mcp-examples",
-    "description": "Example workspaces and templates for MCP tools",
-    "tags": [
-      "examples",
-      "templates",
-      "mcp"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "",
-    "updatedAt": "",
-    "registered": true,
-    "unlisted": false,
-    "deprecated": false
-  },
-  {
-    "name": "Mcp File Forge",
-    "repo": "mcp-file-forge",
-    "description": "MCP server for file operations and project scaffolding - Windows-first, secure, sandboxed",
-    "tags": [
-      "mcp",
-      "file-ops",
-      "scaffolding"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-04-01T18:00:04Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "mcp-core",
-    "stability": "stable",
-    "kind": "mcp-server",
-    "install": "npm install @mcptoolshop/file-forge",
-    "tagline": "Secure file operations and project scaffolding via MCP.",
-    "smithery": "https://smithery.ai/servers/mcp-tool-shop/mcp-file-forge",
-    "flyio": "https://mcp-file-forge.fly.dev"
   },
   {
     "name": "Mcp Voice Soundboard",
@@ -1191,7 +935,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-04-01T14:03:44Z",
+    "updatedAt": "2026-04-11T20:18:37Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1220,6 +964,27 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
+    "deprecated": false
+  },
+  {
+    "name": "Motif",
+    "repo": "motif",
+    "description": "Adaptive soundtrack studio for composing, arranging, scoring, and exporting interactive game music",
+    "tags": [
+      "adaptive-music",
+      "game-audio",
+      "game-dev",
+      "music-composition",
+      "soundtrack",
+      "typescript",
+      "web-audio"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-04-14T05:24:10Z",
+    "registered": false,
+    "unlisted": true,
     "deprecated": false
   },
   {
@@ -1283,8 +1048,8 @@
     ],
     "featured": false,
     "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-03-27T00:25:44Z",
+    "language": "",
+    "updatedAt": "",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -1309,7 +1074,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-03-27T00:25:12Z",
+    "updatedAt": "2026-04-14T20:49:24Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1318,27 +1083,6 @@
     "kind": "cli",
     "install": "npx npm-launcher",
     "tagline": "Generic GitHub-release binary launcher with cache + SHA256 verification.",
-    "needsHumanReview": true
-  },
-  {
-    "name": "Nullout",
-    "repo": "nullout",
-    "description": "MCP server that finds and safely removes undeletable files on Windows",
-    "tags": [
-      "mcp"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-03-27T00:27:00Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "mcp-core",
-    "stability": "experimental",
-    "kind": "mcp-server",
-    "install": "pip install nullout",
-    "tagline": "MCP server that finds and safely removes undeletable files on Windows (reserved device...",
     "needsHumanReview": true
   },
   {
@@ -1356,16 +1100,20 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install pathway",
+    "tagline": "Python journey engine for workflow progression tracking.",
+    "needsHumanReview": true
   },
   {
     "name": "Payroll Engine",
     "repo": "payroll-engine",
     "description": "Comprehensive payroll processing and SaaS platform",
     "tags": [
-      "payroll",
-      "saas",
-      "hr"
+      "finance"
     ],
     "featured": false,
     "stars": 0,
@@ -1373,7 +1121,11 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Payroll processing"
   },
   {
     "name": "Polyglot Mcp",
@@ -1390,7 +1142,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-04-06T18:59:40Z",
+    "updatedAt": "2026-04-13T20:03:14Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1399,31 +1151,6 @@
     "kind": "mcp-server",
     "install": "npx polyglot-mcp",
     "tagline": "Local GPU translation MCP server â€” TranslateGemma via Ollama, 55 languages, zero cloud...",
-    "needsHumanReview": true
-  },
-  {
-    "name": "Polyglot Vscode",
-    "repo": "polyglot-vscode",
-    "description": "VS Code extension for local GPU translation — TranslateGemma via Ollama, 55 languages, zero cloud dependency",
-    "tags": [
-      "gpu",
-      "i18n",
-      "local-gpu",
-      "ollama",
-      "translategemma",
-      "translation"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-26T21:42:49Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "vscode-extension",
-    "tagline": "VS Code extension for local GPU translation â€” TranslateGemma via Ollama, 55 languages,...",
     "needsHumanReview": true
   },
   {
@@ -1455,12 +1182,12 @@
   {
     "name": "Prototypes",
     "repo": "prototypes",
-    "description": "Seed vault — 74 archived packages from MCP Tool Shop. Voice engines, developer tools, desktop apps, game prototypes, and more. Browse the source, steal patterns, revive what works.",
+    "description": "Seed vault — 104 archived packages from MCP Tool Shop. Voice engines, developer tools, desktop apps, game prototypes, and more. Browse the source, steal patterns, revive what works.",
     "tags": [],
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-04-07T03:44:08Z",
+    "updatedAt": "2026-04-11T03:04:12Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -1480,58 +1207,12 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
-  },
-  {
-    "name": "Py Polyglot",
-    "repo": "py-polyglot",
-    "description": "Local GPU translation Python library + MCP server — TranslateGemma via Ollama, 57 languages, zero cloud dependency",
-    "tags": [
-      "gpu",
-      "mcp",
-      "mcp-server",
-      "ollama",
-      "polyglot",
-      "python"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-03-27T00:28:39Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "mcp-core",
-    "stability": "stable",
-    "kind": "mcp-server",
-    "install": "pip install py-polyglot",
-    "tagline": "Local GPU translation Python library + MCP server â€” TranslateGemma via Ollama, 57...",
-    "needsHumanReview": true
-  },
-  {
-    "name": "Registrum",
-    "repo": "Registrum",
-    "description": "Deterministic structural registrar — dual-witness state transitions, fail-closed invariants, replayable history",
-    "tags": [
-      "append-only",
-      "audit",
-      "deterministic",
-      "governance",
-      "invariants",
-      "python"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-27T01:27:04Z",
-    "registered": false,
-    "unlisted": true,
     "deprecated": false,
     "category": "infrastructure",
-    "stability": "experimental",
-    "kind": "cli",
-    "install": "npx registrum",
-    "tagline": "Deterministic structural registrar â€” dual-witness state transitions, fail-closed...",
+    "stability": "beta",
+    "kind": "library",
+    "install": "npm install prov-engine-js",
+    "tagline": "JavaScript/TypeScript provenance and traceability engine.",
     "needsHumanReview": true
   },
   {
@@ -1555,7 +1236,7 @@
     "featured": false,
     "stars": 0,
     "language": "Astro",
-    "updatedAt": "2026-04-08T07:57:17Z",
+    "updatedAt": "2026-04-15T08:08:52Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1563,31 +1244,6 @@
     "stability": "experimental",
     "kind": "meta",
     "tagline": "Multi-registry download stats for npm, PyPI, NuGet, VS Code Marketplace, and Docker Hub.",
-    "needsHumanReview": true
-  },
-  {
-    "name": "Registry Stats Vscode",
-    "repo": "registry-stats-vscode",
-    "description": "Multi-registry download stats for VS Code — Executive PDF, LLM JSONL, and Dev Markdown reports",
-    "tags": [
-      "docker",
-      "download-stats",
-      "npm",
-      "nuget",
-      "pypi",
-      "registry"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-04-01T05:50:01Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "infrastructure",
-    "stability": "experimental",
-    "kind": "vscode-extension",
-    "tagline": "Multi-registry download stats for VS Code â€” Executive PDF, LLM JSONL, and Dev Markdown...",
     "needsHumanReview": true
   },
   {
@@ -1605,7 +1261,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-27T00:24:13Z",
+    "updatedAt": "2026-04-11T20:13:45Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1617,25 +1273,24 @@
     "needsHumanReview": true
   },
   {
-    "name": "Repo Crawler Mcp",
-    "repo": "repo-crawler-mcp",
-    "description": "MCP server that crawls GitHub repos and extracts structured data for AI agents",
+    "name": "Repo Dataset",
+    "repo": "repo-dataset",
+    "description": "Convert any git repository or visual style repo into LLM training datasets — 8 formats, MinHash dedup, contamination checks",
     "tags": [
-      "mcp"
+      "cli",
+      "dataset",
+      "fine-tuning",
+      "llm",
+      "training-data",
+      "typescript"
     ],
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-03-27T00:26:27Z",
+    "updatedAt": "2026-04-14T21:23:31Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false,
-    "category": "mcp-core",
-    "stability": "experimental",
-    "kind": "mcp-server",
-    "install": "npx repo-crawler-mcp",
-    "tagline": "MCP server that crawls GitHub repos and extracts structured data for AI agents.",
-    "needsHumanReview": true
+    "deprecated": false
   },
   {
     "name": "Repo Knowledge",
@@ -1652,7 +1307,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-04-01T14:46:10Z",
+    "updatedAt": "2026-04-11T20:18:43Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1678,7 +1333,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-04-08T02:48:41Z",
+    "updatedAt": "2026-04-12T03:18:15Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1714,6 +1369,28 @@
     "deprecated": false
   },
   {
+    "name": "Roll",
+    "repo": "roll",
+    "description": "RPG dice engine — expression parser, probability analyzer, loot tables, beautiful terminal output",
+    "tags": [
+      "cli",
+      "dice",
+      "game-design",
+      "loot-table",
+      "probability",
+      "rpg",
+      "tabletop",
+      "typescript"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-04-11T18:01:40Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "RunForge Desktop",
     "repo": "runforge-desktop",
     "description": "Windows desktop application for AI workflow execution",
@@ -1729,7 +1406,12 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "desktop",
+    "stability": "beta",
+    "kind": "desktop-app",
+    "tagline": "Windows desktop application for AI workflow execution.",
+    "needsHumanReview": true
   },
   {
     "name": "RunForge VS Code",
@@ -1743,8 +1425,8 @@
     ],
     "featured": false,
     "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-04-01T20:26:54Z",
+    "language": "",
+    "updatedAt": "",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -1879,7 +1561,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-03-27T23:47:03Z",
+    "updatedAt": "2026-04-09T06:39:06Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -1965,7 +1647,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-04-02T03:44:35Z",
+    "updatedAt": "2026-04-11T20:16:19Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1987,13 +1669,41 @@
     ],
     "featured": false,
     "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-03-27T01:18:16Z",
+    "language": "",
+    "updatedAt": "",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
     "screenshot": "/screenshots/stresskit-mcp.png",
     "screenshotType": "placeholder"
+  },
+  {
+    "name": "Style Dataset Lab",
+    "repo": "style-dataset-lab",
+    "description": "Visual canon and dataset production pipeline — snapshots, splits, training packages, eval scorecards, implementation packs, and closed-loop re-ingest for any image production domain",
+    "tags": [
+      "comfyui",
+      "computer-vision",
+      "concept-art",
+      "curation",
+      "dataset",
+      "evaluation",
+      "fine-tuning",
+      "image-dataset",
+      "multimodal",
+      "style-guide",
+      "training-data",
+      "visual",
+      "visual-development",
+      "vlm"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-04-16T04:47:40Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Synthesis",
@@ -2019,25 +1729,6 @@
     "needsHumanReview": true
   },
   {
-    "name": "Taste Compiler",
-    "repo": "taste-compiler",
-    "description": "Compile product taste into enforceable constraints that preserve visual coherence, identity boundaries, and UX safety under AI-generated change.",
-    "tags": [
-      "ai-safety",
-      "design-system",
-      "static-analysis",
-      "taste",
-      "typescript"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-04-02T19:27:58Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false
-  },
-  {
     "name": "Taste Engine",
     "repo": "taste-engine",
     "description": "Canon-and-judgment system for creative and product work",
@@ -2058,87 +1749,6 @@
     "deprecated": false
   },
   {
-    "name": "Terminal Tutor",
-    "repo": "terminal-tutor",
-    "description": "Situated terminal coaching — learn by doing inside Claude Code",
-    "tags": [
-      "claude-code",
-      "cli",
-      "shell",
-      "teaching",
-      "terminal",
-      "tutor"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-30T02:59:04Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false
-  },
-  {
-    "name": "ThrottleAI",
-    "repo": "ThrottleAI",
-    "description": "A token-based lease governor for AI calls — small enough to embed anywhere, strict enough to prevent stampedes.",
-    "tags": [
-      "ai",
-      "concurrency",
-      "express",
-      "governance",
-      "lease",
-      "llm"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-04-07T00:58:13Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "infrastructure",
-    "stability": "stable",
-    "kind": "library",
-    "install": "npm install throttleai",
-    "tagline": "A token-based lease governor for AI calls â€” small enough to embed anywhere, strict...",
-    "needsHumanReview": true
-  },
-  {
-    "name": "Tinytrainer",
-    "repo": "tinytrainer",
-    "description": "Desktop training foundry + mobile personalization export pipeline",
-    "tags": [
-      "coreml",
-      "edge-ai",
-      "fine-tuning",
-      "machine-learning",
-      "mobile",
-      "onnx",
-      "small-models",
-      "training"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-03-28T06:39:56Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false
-  },
-  {
-    "name": "Tinytrainer Mobile",
-    "repo": "tinytrainer-mobile",
-    "description": "iOS/iPadOS reference app for on-device ML personalization — imports .kit.zip, runs inference, personalizes locally",
-    "tags": [],
-    "featured": false,
-    "stars": 0,
-    "language": "Swift",
-    "updatedAt": "2026-03-28T05:54:33Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false
-  },
-  {
     "name": "Tool Scan",
     "repo": "tool-scan",
     "description": "Static inspection utilities for MCP tools and repositories",
@@ -2148,8 +1758,8 @@
     ],
     "featured": false,
     "stars": 0,
-    "language": "Python",
-    "updatedAt": "2026-03-27T00:30:55Z",
+    "language": "",
+    "updatedAt": "",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -2160,31 +1770,6 @@
     "tagline": "Security scanner for MCP tools.",
     "screenshot": "/screenshots/tool-scan.png",
     "screenshotType": "placeholder"
-  },
-  {
-    "name": "ToolShopStudio",
-    "repo": "ToolShopStudio",
-    "description": "Six MCP tools + live Registry (FFmpeg, Pandoc, FreeCAD, GDAL, OpenSCAD, Blender) — schema-first, sandboxed, observable",
-    "tags": [
-      "blender",
-      "developer-tools",
-      "ffmpeg",
-      "freecad",
-      "gdal",
-      "mcp"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-03-27T01:28:31Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "infrastructure",
-    "stability": "experimental",
-    "kind": "meta",
-    "tagline": "Six MCP tools + live Registry (FFmpeg, Pandoc, FreeCAD, GDAL, OpenSCAD, Blender) â€”...",
-    "needsHumanReview": true
   },
   {
     "name": "Training Studio",
@@ -2202,7 +1787,13 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "security",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install training-studio",
+    "tagline": "TensorFlow.js ML bundle validator with security-first design and zero code execution.",
+    "needsHumanReview": true
   },
   {
     "name": "Venvkit",
@@ -2215,8 +1806,8 @@
     ],
     "featured": false,
     "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-04-01T02:48:07Z",
+    "language": "",
+    "updatedAt": "",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -2228,40 +1819,13 @@
     "needsHumanReview": true
   },
   {
-    "name": "Vocal Synth Engine",
-    "repo": "vocal-synth-engine",
-    "description": "Deterministic vocal instrument engine — additive synthesis, voice presets, real-time WebSocket streaming, multi-user jam sessions, cockpit UI",
-    "tags": [
-      "additive-synthesis",
-      "audio",
-      "collaboration",
-      "dsp",
-      "jam-session",
-      "midi"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-04-01T16:12:18Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "voice",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install vocal-synth-engine",
-    "tagline": "Deterministic vocal instrument engine â€” additive synthesis, voice presets, real-time...",
-    "needsHumanReview": true
-  },
-  {
     "name": "Voice Soundboard",
     "repo": "voice-soundboard",
     "description": "TTS and audio generation with voice cloning support",
     "tags": [
       "tts",
       "audio",
-      "voice",
-      "cloning"
+      "voice"
     ],
     "featured": false,
     "stars": 0,
@@ -2269,7 +1833,13 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "voice",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "TTS library with compiler/graph/engine architecture.",
+    "screenshot": "/screenshots/voice-soundboard.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "WebSketch CLI",
@@ -2287,7 +1857,13 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "websketch"
+    "ecosystem": "websketch",
+    "category": "web",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "npx websketch-cli",
+    "tagline": "Command-line interface for web component analysis.",
+    "needsHumanReview": true
   },
   {
     "name": "WebSketch Demo",
@@ -2323,7 +1899,12 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "websketch"
+    "ecosystem": "websketch",
+    "category": "web",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Browser extension for web page analysis and code generation.",
+    "needsHumanReview": true
   },
   {
     "name": "WebSketch IR",
@@ -2336,8 +1917,8 @@
     ],
     "featured": false,
     "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-04-02T03:35:36Z",
+    "language": "",
+    "updatedAt": "",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -2365,7 +1946,13 @@
     "registered": true,
     "unlisted": false,
     "deprecated": false,
-    "ecosystem": "websketch"
+    "ecosystem": "websketch",
+    "category": "web",
+    "stability": "beta",
+    "kind": "mcp-server",
+    "install": "npx websketch-mcp",
+    "tagline": "MCP server for AI-assisted web analysis.",
+    "needsHumanReview": true
   },
   {
     "name": "Winget Packages",
@@ -2382,16 +1969,21 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Windows Package Manager manifests for mcp-tool-shop packages.",
+    "needsHumanReview": true
   },
   {
     "name": "Witness",
     "repo": "witness",
     "description": "Attestation witness and verification tooling",
     "tags": [
-      "attestation",
-      "verification",
-      "security"
+      "provenance",
+      "cryptography",
+      "append-only"
     ],
     "featured": false,
     "stars": 0,
@@ -2399,7 +1991,13 @@
     "updatedAt": "",
     "registered": true,
     "unlisted": false,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Append-only event journal with cryptographic verification.",
+    "screenshot": "/screenshots/witness.png",
+    "screenshotType": "placeholder"
   },
   {
     "name": "World Forge",
@@ -2430,7 +2028,7 @@
   {
     "name": "Xrpl Camp",
     "repo": "xrpl-camp",
-    "description": "Learn the XRP Ledger in one sitting — wallet, payment, verification, certificate in 10 minutes.",
+    "description": "Learn the XRP Ledger in one sitting — real transactions, portable proof, 10 minutes.",
     "tags": [
       "xrpl",
       "education",
@@ -2442,7 +2040,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-03-27T00:32:13Z",
+    "updatedAt": "2026-04-15T05:39:14Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2499,7 +2097,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-04-06T03:33:03Z",
+    "updatedAt": "2026-04-15T07:56:08Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,

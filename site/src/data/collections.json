@@ -1,32 +1,60 @@
 [
   {
-    "id": "mcp-core",
-    "title": "MCP Core Tools",
-    "description": "The essentials for building and discovering MCP tool ecosystems.",
-    "repos": ["file-compass", "tool-compass", "brain-dev", "tool-scan"]
+    "id": "game-dev",
+    "title": "Game Development",
+    "description": "Turn-based RPGs, adaptive soundtracks, and sprite production pipelines.",
+    "repos": [
+      "sprite-foundry",
+      "saints-mile",
+      "motif",
+      "game-foundry-os"
+    ]
   },
   {
-    "id": "voice",
-    "title": "Voice Stack",
-    "description": "Text-to-speech infrastructure from plugin to engine.",
-    "repos": ["soundboard-plugin", "mcp-voice-soundboard", "mcp-voice-engine", "voice-soundboard"]
+    "id": "ml-pipeline",
+    "title": "ML & Dataset Pipeline",
+    "description": "Local model training, fine-tuning, and dataset engineering.",
+    "repos": [
+      "backpropagate",
+      "comfy-headless",
+      "repo-dataset",
+      "style-dataset-lab"
+    ]
   },
   {
-    "id": "security",
-    "title": "Security & Testing",
-    "description": "Audit, stress-test, and harden your MCP tools.",
-    "repos": ["tool-scan", "mcp-stress-test", "stresskit-mcp"]
+    "id": "developer-tools",
+    "title": "Developer Tools",
+    "description": "Product standards, knowledge routing, and agent coordination.",
+    "repos": [
+      "shipcheck",
+      "ai-loadout",
+      "role-os",
+      "multi-claude",
+      "claude-guardian"
+    ]
   },
   {
-    "id": "ml",
-    "title": "ML & Training",
-    "description": "Local model training, fine-tuning, and image generation.",
-    "repos": ["backpropagate", "comfy-headless", "aspire-ai"]
+    "id": "blockchain",
+    "title": "Blockchain & XRPL",
+    "description": "XRPL education, creator tools, and trust infrastructure.",
+    "repos": [
+      "xrpl-lab",
+      "xrpl-camp",
+      "Attestia",
+      "xrpl-creator-capsule",
+      "repomesh"
+    ]
   },
   {
-    "id": "infrastructure",
-    "title": "Infrastructure",
-    "description": "Deterministic building blocks for CI, packaging, and agent reliability.",
-    "repos": ["zip-meta-map", "witness", "Attestia"]
+    "id": "creative",
+    "title": "Creative Tools",
+    "description": "Voice synthesis, sprite editing, audiobooks, and ambient sound.",
+    "repos": [
+      "mcp-voice-soundboard",
+      "glyphstudio",
+      "ai-jam-sessions",
+      "audiobooker",
+      "stillpoint"
+    ]
   }
 ]

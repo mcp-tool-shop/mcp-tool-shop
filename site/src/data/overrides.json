@@ -12,72 +12,33 @@
     "screenshot": "/screenshots/Attestia.png",
     "screenshotType": "placeholder"
   },
-  "LeaseGate-Lite": {
-    "screenshot": "/screenshots/LeaseGate-Lite.png",
-    "screenshotType": "placeholder"
-  },
-  "LoKey-Typer": {
+  "ClaimLedger": {
     "tags": [
-      "accessibility",
-      "ambient-audio",
-      "desktop-app",
-      "microsoft-store",
-      "pwa",
-      "react"
-    ],
-    "category": "voice",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install lokey-typer",
-    "tagline": "Calm typing practice with ambient soundscapes, personalized daily sets, and zero...",
-    "needsHumanReview": true
-  },
-  "Registrum": {
-    "tags": [
-      "append-only",
-      "audit",
-      "deterministic",
-      "governance",
-      "invariants",
-      "python"
-    ],
-    "category": "infrastructure",
-    "stability": "experimental",
-    "kind": "cli",
-    "install": "npx registrum",
-    "tagline": "Deterministic structural registrar â€” dual-witness state transitions, fail-closed...",
-    "needsHumanReview": true
-  },
-  "ThrottleAI": {
-    "tags": [
-      "ai",
-      "concurrency",
-      "express",
-      "governance",
-      "lease",
-      "llm"
+      "provenance",
+      "cryptography",
+      "dotnet"
     ],
     "category": "infrastructure",
     "stability": "stable",
     "kind": "library",
-    "install": "npm install throttleai",
-    "tagline": "A token-based lease governor for AI calls â€” small enough to embed anywhere, strict...",
+    "tagline": "Scientific claim provenance and verification ledger.",
     "needsHumanReview": true
   },
-  "ToolShopStudio": {
+  "CreatorLedger": {
     "tags": [
-      "blender",
-      "developer-tools",
-      "ffmpeg",
-      "freecad",
-      "gdal",
-      "mcp"
+      "provenance",
+      "attestation",
+      "dotnet"
     ],
     "category": "infrastructure",
-    "stability": "experimental",
-    "kind": "meta",
-    "tagline": "Six MCP tools + live Registry (FFmpeg, Pandoc, FreeCAD, GDAL, OpenSCAD, Blender) â€”...",
+    "stability": "stable",
+    "kind": "library",
+    "tagline": "Creator attestation proofs and authorship verification.",
     "needsHumanReview": true
+  },
+  "LeaseGate-Lite": {
+    "screenshot": "/screenshots/LeaseGate-Lite.png",
+    "screenshotType": "placeholder"
   },
   "accessibility-suite": {
     "screenshot": "/screenshots/accessibility-suite.png",
@@ -92,8 +53,6 @@
     "kind": "library",
     "install": "npm install ai-jam-sessions",
     "tagline": "Music sessions",
-    "screenshot": "/screenshots/ai-jam-sessions.png",
-    "screenshotType": "placeholder",
     "needsHumanReview": true
   },
   "ai-loadout": {
@@ -128,36 +87,28 @@
     "tagline": "A simulation-first terminal RPG engine for worlds shaped by perception, cognition, and...",
     "needsHumanReview": true
   },
-  "ai-ui": {
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install ai-ui",
-    "tagline": "Eyes â†’ Brain â†’ Hands â€” repeatable UI workflow for design-system-first Astro pages.",
-    "needsHumanReview": true
-  },
-  "anchor": {
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "library",
-    "needsHumanReview": true
-  },
-  "artifact": {
+  "ally-demo-python": {
     "tags": [
-      "artifact",
-      "curator",
-      "decision-system",
-      "mcp-tool-shop",
-      "ollama"
+      "accessibility",
+      "demo",
+      "python"
     ],
-    "category": "mcp-core",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install artifact",
-    "tagline": "Repo signature artifact decision system â€” checklist tree + Ollama-powered Curator...",
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "template",
+    "tagline": "Python demonstration of accessibility framework capabilities.",
     "needsHumanReview": true
   },
   "aspire-ai": {
+    "tags": [
+      "ml",
+      "training",
+      "ai-alignment"
+    ],
+    "category": "ml",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Adversarial student-professor training engine.",
     "screenshot": "/screenshots/aspire-ai.png",
     "screenshotType": "placeholder"
   },
@@ -172,8 +123,6 @@
     "kind": "library",
     "install": "pip install audiobooker",
     "tagline": "Audio book generation and management system.",
-    "screenshot": "/screenshots/audiobooker.png",
-    "screenshotType": "placeholder",
     "needsHumanReview": true
   },
   "backpropagate": {
@@ -188,11 +137,29 @@
     "install": "pip install backpropagate",
     "tagline": "Headless LLM fine-tuning with smart defaults.",
     "screenshot": "/screenshots/backpropagate.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "featured": true
   },
   "brain-dev": {
-    "screenshot": "/screenshots/brain-dev.png",
-    "screenshotType": "placeholder"
+    "tags": [
+      "mcp",
+      "code-analysis"
+    ],
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "pip install brain-dev",
+    "tagline": "AI-powered code analysis via MCP.",
+    "goodFor": [
+      "Automated test generation from existing code",
+      "Security audit reports",
+      "Codebase health scoring"
+    ],
+    "notFor": [
+      "Runtime code analysis or profiling",
+      "Replacing manual security review for production systems"
+    ],
+    "screenshot": "/screenshots/brain-dev.png"
   },
   "brand": {
     "tags": [
@@ -209,20 +176,16 @@
     "tagline": "Centralized brand asset management â€” migration, audit, and integrity verification for...",
     "needsHumanReview": true
   },
-  "civility-kernel": {
+  "claude-collaborate": {
     "tags": [
+      "claude",
       "agents",
-      "ai",
-      "governance",
-      "mcp",
-      "policy",
-      "safety"
+      "collaboration"
     ],
-    "category": "infrastructure",
+    "category": "devtools",
     "stability": "experimental",
     "kind": "library",
-    "install": "npm install civility-kernel",
-    "tagline": "A policy layer that makes agent behavior preference-governed instead of purely...",
+    "tagline": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows.",
     "needsHumanReview": true
   },
   "claude-guardian": {
@@ -241,22 +204,6 @@
     "tagline": "Flight computer for Claude Code â€” log rotation, watchdog, crash bundles, and MCP...",
     "needsHumanReview": true
   },
-  "claude-memories": {
-    "tags": [
-      "agent",
-      "ai",
-      "ai-agent",
-      "claude",
-      "claude-code",
-      "cli"
-    ],
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "cli",
-    "install": "npx claude-memories",
-    "tagline": "MEMORY.md optimizer and dispatch table generator for Claude Code.",
-    "needsHumanReview": true
-  },
   "claude-rpg": {
     "category": "games",
     "stability": "stable",
@@ -266,36 +213,17 @@
     "goodFor": "Players who want AI narration grounded in deterministic simulation truth. Developers building on the AI RPG Engine ecosystem.",
     "notFor": "Casual chatbot RPGs â€” this is a full simulation engine, not a prompt wrapper."
   },
-  "claude-rules": {
+  "code-covered": {
     "tags": [
-      "claude",
-      "claude-code",
-      "context-optimization",
-      "dispatch-table",
-      "instruction-file",
-      "mcp"
+      "coverage",
+      "visualization",
+      "testing"
     ],
-    "category": "mcp-core",
-    "stability": "experimental",
+    "category": "devtools",
+    "stability": "beta",
     "kind": "library",
-    "install": "npm install claude-rules",
-    "tagline": "Dispatch table generator and instruction-file optimizer for Claude Code.",
-    "needsHumanReview": true
-  },
-  "claude-sfx": {
-    "tags": [
-      "accessibility",
-      "audio",
-      "claude",
-      "claude-code",
-      "developer-experience",
-      "hooks"
-    ],
-    "category": "voice",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install claude-sfx",
-    "tagline": "Procedural audio feedback for Claude Code â€” UX for agentic coding.",
+    "install": "pip install code-covered",
+    "tagline": "Coverage visualization and reporting tool.",
     "needsHumanReview": true
   },
   "codecomfy-vscode": {
@@ -308,8 +236,19 @@
     "stability": "beta",
     "kind": "vscode-extension",
     "tagline": "VS Code extension for code analysis and coverage display.",
-    "screenshot": "/screenshots/codecomfy-vscode.png",
-    "screenshotType": "placeholder",
+    "needsHumanReview": true
+  },
+  "codeteam": {
+    "tags": [
+      "code-analysis",
+      "cli",
+      "legacy"
+    ],
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "npx codeteam",
+    "tagline": "Legacy code analysis CLI (see codeteam-suite).",
     "needsHumanReview": true
   },
   "codeteam-suite": {
@@ -362,19 +301,25 @@
     "tagline": "AI-native shell environment with semantic command review.",
     "needsHumanReview": true
   },
-  "dev-op-typer": {
+  "context-window-manager": {
     "tags": [
-      "accessibility",
-      "adaptive-learning",
-      "code-snippets",
-      "csharp",
-      "desktop-app",
-      "developer-tools"
+      "llm"
     ],
-    "category": "games",
-    "stability": "experimental",
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Context optimization"
+  },
+  "control-room": {
+    "tags": [
+      "dashboard",
+      "monitoring",
+      "admin"
+    ],
+    "category": "mcp-core",
+    "stability": "stable",
     "kind": "desktop-app",
-    "tagline": "Developer-focused typing practice for Windows â€” type real code across 6 languages, with...",
+    "tagline": "Dashboard and monitoring for MCP tool ecosystems.",
     "needsHumanReview": true
   },
   "dogfood-labs": {
@@ -401,17 +346,7 @@
     "tagline": "Oregon Trail-style survival game powered by Ollama GM with XRPL ledger-backed inventory.",
     "needsHumanReview": true
   },
-  "feature-reacher": {
-    "tags": [
-      "ml"
-    ],
-    "category": "ml",
-    "stability": "beta",
-    "kind": "library",
-    "tagline": "Feature mining"
-  },
   "file-compass": {
-    "featured": true,
     "tags": [
       "mcp",
       "search",
@@ -434,6 +369,15 @@
     "screenshot": "/screenshots/file-compass.png",
     "screenshotType": "placeholder"
   },
+  "flexiflow": {
+    "tags": [
+      "workflow"
+    ],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Workflow orchestration"
+  },
   "glyphstudio": {
     "tags": [
       "animation",
@@ -450,6 +394,33 @@
     "tagline": "Craft-first sprite studio for deterministic pixel editing, frame-by-frame animation,...",
     "needsHumanReview": true
   },
+  "headless-wheel-builder": {
+    "tags": [
+      "python",
+      "packaging",
+      "wheels",
+      "release"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "pipx install headless-wheel-builder",
+    "tagline": "CLI-first build/validate/release tooling for Python wheels and sdists.",
+    "needsHumanReview": true
+  },
+  "integradio": {
+    "tags": [
+      "gradio",
+      "ui",
+      "framework"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "install": "pip install integradio",
+    "tagline": "Structure layer for building maintainable Gradio apps (UI + execution separation).",
+    "needsHumanReview": true
+  },
   "ledger-suite": {
     "tags": [
       "provenance",
@@ -462,20 +433,6 @@
     "kind": "library",
     "tagline": "Unified monorepo for cryptographic provenance ledgers â€” ClaimLedger and CreatorLedger.",
     "needsHumanReview": true
-  },
-  "mcp-file-forge": {
-    "tags": [
-      "mcp",
-      "file-ops",
-      "scaffolding"
-    ],
-    "category": "mcp-core",
-    "stability": "stable",
-    "kind": "mcp-server",
-    "install": "npm install @mcptoolshop/file-forge",
-    "tagline": "Secure file operations and project scaffolding via MCP.",
-    "smithery": "https://smithery.ai/servers/mcp-tool-shop/mcp-file-forge",
-    "flyio": "https://mcp-file-forge.fly.dev"
   },
   "mcp-stress-test": {
     "tags": [
@@ -504,7 +461,8 @@
     "screenshot": "/screenshots/mcp-voice-soundboard.png",
     "screenshotType": "placeholder",
     "smithery": "https://smithery.ai/servers/mcp-tool-shop/voice-soundboard",
-    "flyio": "https://voice-soundboard-mcp.fly.dev"
+    "flyio": "https://voice-soundboard-mcp.fly.dev",
+    "featured": true
   },
   "multi-claude": {
     "category": "devtools",
@@ -548,16 +506,27 @@
     "tagline": "Generic GitHub-release binary launcher with cache + SHA256 verification.",
     "needsHumanReview": true
   },
-  "nullout": {
+  "pathway": {
     "tags": [
-      "mcp"
+      "workflow",
+      "journey",
+      "python"
     ],
-    "category": "mcp-core",
+    "category": "devtools",
     "stability": "experimental",
-    "kind": "mcp-server",
-    "install": "pip install nullout",
-    "tagline": "MCP server that finds and safely removes undeletable files on Windows (reserved device...",
+    "kind": "library",
+    "install": "pip install pathway",
+    "tagline": "Python journey engine for workflow progression tracking.",
     "needsHumanReview": true
+  },
+  "payroll-engine": {
+    "tags": [
+      "finance"
+    ],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Payroll processing"
   },
   "polyglot-mcp": {
     "tags": [
@@ -573,21 +542,6 @@
     "kind": "mcp-server",
     "install": "npx polyglot-mcp",
     "tagline": "Local GPU translation MCP server â€” TranslateGemma via Ollama, 55 languages, zero cloud...",
-    "needsHumanReview": true
-  },
-  "polyglot-vscode": {
-    "tags": [
-      "gpu",
-      "i18n",
-      "local-gpu",
-      "ollama",
-      "translategemma",
-      "translation"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "vscode-extension",
-    "tagline": "VS Code extension for local GPU translation â€” TranslateGemma via Ollama, 55 languages,...",
     "needsHumanReview": true
   },
   "portlight": {
@@ -606,20 +560,17 @@
     "tagline": "Trade-first maritime strategy CLI â€” route arbitrage, contracts, infrastructure,...",
     "needsHumanReview": true
   },
-  "py-polyglot": {
+  "prov-engine-js": {
     "tags": [
-      "gpu",
-      "mcp",
-      "mcp-server",
-      "ollama",
-      "polyglot",
-      "python"
+      "provenance",
+      "traceability",
+      "typescript"
     ],
-    "category": "mcp-core",
-    "stability": "stable",
-    "kind": "mcp-server",
-    "install": "pip install py-polyglot",
-    "tagline": "Local GPU translation Python library + MCP server â€” TranslateGemma via Ollama, 57...",
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "install": "npm install prov-engine-js",
+    "tagline": "JavaScript/TypeScript provenance and traceability engine.",
     "needsHumanReview": true
   },
   "registry-stats": {
@@ -627,21 +578,6 @@
     "stability": "experimental",
     "kind": "meta",
     "tagline": "Multi-registry download stats for npm, PyPI, NuGet, VS Code Marketplace, and Docker Hub.",
-    "needsHumanReview": true
-  },
-  "registry-stats-vscode": {
-    "tags": [
-      "docker",
-      "download-stats",
-      "npm",
-      "nuget",
-      "pypi",
-      "registry"
-    ],
-    "category": "infrastructure",
-    "stability": "experimental",
-    "kind": "vscode-extension",
-    "tagline": "Multi-registry download stats for VS Code â€” Executive PDF, LLM JSONL, and Dev Markdown...",
     "needsHumanReview": true
   },
   "registry-sync": {
@@ -658,17 +594,6 @@
     "kind": "cli",
     "install": "npx registry-sync",
     "tagline": "Desired-state sync engine for multi-registry package publishing.",
-    "needsHumanReview": true
-  },
-  "repo-crawler-mcp": {
-    "tags": [
-      "mcp"
-    ],
-    "category": "mcp-core",
-    "stability": "experimental",
-    "kind": "mcp-server",
-    "install": "npx repo-crawler-mcp",
-    "tagline": "MCP server that crawls GitHub repos and extracts structured data for AI agents.",
     "needsHumanReview": true
   },
   "repo-knowledge": {
@@ -703,6 +628,19 @@
     "tagline": "Syntropic repo network â€” append-only ledger, signed events, multi-dimensional trust...",
     "needsHumanReview": true
   },
+  "runforge-desktop": {
+    "tags": [
+      "windows",
+      "desktop",
+      "workflow",
+      "ai"
+    ],
+    "category": "desktop",
+    "stability": "beta",
+    "kind": "desktop-app",
+    "tagline": "Windows desktop application for AI workflow execution.",
+    "needsHumanReview": true
+  },
   "runforge-vscode": {
     "tags": [
       "vscode",
@@ -730,7 +668,8 @@
     "kind": "library",
     "install": "npm install shipcheck",
     "tagline": "Product standards for MCP Tool Shop â€” Ship Gate checklist, error contract, templates,...",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "featured": true
   },
   "site-theme": {
     "tags": [
@@ -802,7 +741,6 @@
     "needsHumanReview": true
   },
   "tool-compass": {
-    "featured": true,
     "tags": [
       "mcp",
       "discovery"
@@ -839,6 +777,20 @@
     "screenshot": "/screenshots/tool-scan.png",
     "screenshotType": "placeholder"
   },
+  "training-studio": {
+    "tags": [
+      "ml",
+      "tensorflowjs",
+      "validation",
+      "security"
+    ],
+    "category": "security",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install training-studio",
+    "tagline": "TensorFlow.js ML bundle validator with security-first design and zero code execution.",
+    "needsHumanReview": true
+  },
   "venvkit": {
     "tags": [
       "python",
@@ -852,25 +804,43 @@
     "tagline": "Python virtual environment diagnostics and utilities.",
     "needsHumanReview": true
   },
-  "vocal-synth-engine": {
+  "voice-soundboard": {
     "tags": [
-      "additive-synthesis",
+      "tts",
       "audio",
-      "collaboration",
-      "dsp",
-      "jam-session",
-      "midi"
+      "voice"
     ],
     "category": "voice",
-    "stability": "experimental",
+    "stability": "beta",
     "kind": "library",
-    "install": "npm install vocal-synth-engine",
-    "tagline": "Deterministic vocal instrument engine â€” additive synthesis, voice presets, real-time...",
-    "needsHumanReview": true
-  },
-  "voice-soundboard": {
+    "tagline": "TTS library with compiler/graph/engine architecture.",
     "screenshot": "/screenshots/voice-soundboard.png",
     "screenshotType": "placeholder"
+  },
+  "websketch-cli": {
+    "tags": [
+      "cli",
+      "web",
+      "analysis"
+    ],
+    "category": "web",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "npx websketch-cli",
+    "tagline": "Command-line interface for web component analysis.",
+    "needsHumanReview": true
+  },
+  "websketch-extension": {
+    "tags": [
+      "browser",
+      "extension",
+      "analysis"
+    ],
+    "category": "web",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Browser extension for web page analysis and code generation.",
+    "needsHumanReview": true
   },
   "websketch-ir": {
     "tags": [
@@ -885,7 +855,41 @@
     "tagline": "Intermediate representation library for web component analysis.",
     "needsHumanReview": true
   },
+  "websketch-mcp": {
+    "tags": [
+      "mcp-server",
+      "web",
+      "ai"
+    ],
+    "category": "web",
+    "stability": "beta",
+    "kind": "mcp-server",
+    "install": "npx websketch-mcp",
+    "tagline": "MCP server for AI-assisted web analysis.",
+    "needsHumanReview": true
+  },
+  "winget-pkgs": {
+    "tags": [
+      "winget",
+      "windows",
+      "packaging"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Windows Package Manager manifests for mcp-tool-shop packages.",
+    "needsHumanReview": true
+  },
   "witness": {
+    "tags": [
+      "provenance",
+      "cryptography",
+      "append-only"
+    ],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "Append-only event journal with cryptographic verification.",
     "screenshot": "/screenshots/witness.png",
     "screenshotType": "placeholder"
   },
@@ -941,6 +945,10 @@
     "kind": "library",
     "install": "pip install xrpl-lab",
     "tagline": "XRPL training workbook â€” learn by doing, prove by artifact.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "featured": true
+  },
+  "sprite-foundry": {
+    "featured": true
   }
 }

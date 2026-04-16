@@ -1,5 +1,204 @@
 [
   {
+    "repo": "style-dataset-lab",
+    "toolName": "Style Dataset Lab",
+    "tag": "v3.0.0",
+    "name": "v3.0.0 — Production Workbench Spine",
+    "body": [
+      "Style Dataset Lab is now a full production workbench.** The repo closes the complete loop:",
+      "\\\\\\",
+      "canon → dataset → training → brief → run → critique → batch → select → re-ingest",
+      "\\\\\\",
+      "Workflow profiles define generation strategies per output mode",
+      "Brief compiler assembles deterministic generation instructions from project truth"
+    ],
+    "publishedAt": "2026-04-16T04:48:09Z",
+    "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v3.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "style-dataset-lab",
+    "toolName": "Style Dataset Lab",
+    "tag": "v2.3.0",
+    "name": "v2.3.0 — Shipcheck Pass",
+    "body": [
+      "All hard gates (A-D) now pass. This is the first release with full quality gate compliance.",
+      "Structured errors** — `SdlabError` with `code`, `message`, `hint` fields. Exit code 1 for user errors, 2 for runtime errors.",
+      "debug flag** — stack traces on demand, message-only by default",
+      "dry-run** — preview snapshot and split creation without writing files",
+      "verbose / --quiet** — logging levels for all commands",
+      "CI workflow** — Node 20 + 22 matrix, smoke tests (help, doctor, snapshot dry-run, eligibility, training profiles), `npm audit`"
+    ],
+    "publishedAt": "2026-04-16T03:41:48Z",
+    "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v2.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "style-dataset-lab",
+    "toolName": "Style Dataset Lab",
+    "tag": "v2.2.1",
+    "name": "v2.2.1 — README update",
+    "body": [
+      "Patch bump to publish updated README to npm. No code changes."
+    ],
+    "publishedAt": "2026-04-16T03:21:43Z",
+    "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v2.2.1",
+    "prerelease": false
+  },
+  {
+    "repo": "style-dataset-lab",
+    "toolName": "Style Dataset Lab",
+    "tag": "v2.2.0",
+    "name": "v2.2.0 — Training + Implementation Spine",
+    "body": [
+      "Style Dataset Lab now goes from written visual canon all the way through to trained model assets and back again.",
+      "Training profiles** — define what kind of asset to produce: target family, eligible lanes, adapter targets, eval requirements",
+      "Training manifests** — frozen contracts capturing exact export + split + profile + config fingerprint",
+      "Training packages** — trainer-ready layouts via adapters (`generic-image-caption`, `diffusers-lora`). Adapters never mutate dataset truth.",
+      "Eval runs + scorecards** — score generated outputs against canon-aware eval packs. Per-task pass/fail verdicts.",
+      "Implementation packs** — prompt examples, known failures, subject continuity tests, re-ingest guidance"
+    ],
+    "publishedAt": "2026-04-16T03:20:04Z",
+    "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v2.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "style-dataset-lab",
+    "toolName": "Style Dataset Lab",
+    "tag": "v2.1.0",
+    "name": "v2.1.0 — Dataset Spine Complete",
+    "body": [
+      "Style Dataset Lab is now a dataset production pipeline, not just a curation tool.",
+      "Four new artifacts complete the move from curation to dataset production:",
+      "Frozen snapshots** — deterministic, fingerprinted record selection with explicit reason traces (`sdlab snapshot create`)",
+      "Leakage-safe splits** — subject-isolated, lane-balanced train/val/test partitions with seeded PRNG (`sdlab split build`)",
+      "Export packages** — self-contained datasets with manifest, metadata.jsonl, images, splits, dataset cards, and BSD-format checksums (`sdlab export build`)",
+      "Canon-aware eval packs** — four task types (lane coverage, forbidden drift, anchor/gold, subject continuity) for model verification (`sdlab eval-pack build`)"
+    ],
+    "publishedAt": "2026-04-16T02:33:15Z",
+    "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v2.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-lab",
+    "toolName": "Xrpl Lab",
+    "tag": "v1.5.0",
+    "name": "v1.5.0 — Humanization Pass",
+    "body": [
+      "Clearer, steadier, more motivating copy across every learner-facing surface.",
+      "Voice lock**: clear, steady, respectful, lightly encouraging — defined once, applied everywhere",
+      "Module openers**: removed mechanical 'Welcome to X' from all 12 modules; each now opens with what you'll learn",
+      "Fear-point reassurance**: added 'nothing here is permanent' and 'testnet costs nothing' at trust line, DEX, AMM, and reserve entry points",
+      "Recovery copy**: humanized all blocker messages and recovery hints — warmer, shorter, more actionable",
+      "CLI copy**: warmer status, doctor, and error messages throughout"
+    ],
+    "publishedAt": "2026-04-15T07:56:55Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v1.5.0",
+    "prerelease": false
+  },
+  {
+    "repo": "backpropagate",
+    "toolName": "Backpropagate",
+    "tag": "v1.0.5",
+    "name": "v1.0.5",
+    "body": [
+      "Release binaries workflow: v1.0.4 tag was cut before the Linux exclusion fix (PR #71) landed, causing the >2GB linux binary upload to fail. This release picks up the corrected matrix (macOS + Windows only).",
+      "Linux users: install via `pipx install backpropagate`"
+    ],
+    "publishedAt": "2026-04-15T07:35:59Z",
+    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.0.5",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-camp",
+    "toolName": "Xrpl Camp",
+    "tag": "v1.3.1",
+    "name": "v1.3.1",
+    "body": [],
+    "publishedAt": "2026-04-15T05:37:48Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.3.1",
+    "prerelease": false
+  },
+  {
+    "repo": "repo-dataset",
+    "toolName": "Repo Dataset",
+    "tag": "v1.2.0",
+    "name": "v1.2.0",
+    "body": [
+      "7 README translations (ja, zh, es, fr, hi, it, pt-BR)",
+      "GitHub Pages handbook site live",
+      "```bash",
+      "npm install -g @mcptoolshop/repo-dataset",
+      "```"
+    ],
+    "publishedAt": "2026-04-14T21:23:43Z",
+    "url": "https://github.com/mcp-tool-shop-org/repo-dataset/releases/tag/v1.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "backpropagate",
+    "toolName": "Backpropagate",
+    "tag": "v1.0.4",
+    "name": "v1.0.4",
+    "body": [
+      "Linux binary build**: Replace CUDA torch with CPU-only torch in CI (PR #70)",
+      "Strip step SIGPIPE**: Fixed false build failure from `du | head -5` under pipefail",
+      "| Platform | Method |",
+      "|----------|--------|",
+      "| **macOS ARM64** | Download binary below, or `npx @mcptoolshop/backpropagate` |",
+      "| **Windows x64** | Download `.exe` below, or `npx @mcptoolshop/backpropagate` |"
+    ],
+    "publishedAt": "2026-04-14T19:02:24Z",
+    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.0.4",
+    "prerelease": false
+  },
+  {
+    "repo": "backpropagate",
+    "toolName": "Backpropagate",
+    "tag": "v1.0.3",
+    "name": "v1.0.3",
+    "body": [
+      "npm distribution + platform binaries for linux-x64, darwin-arm64, win-x64"
+    ],
+    "publishedAt": "2026-04-14T10:20:59Z",
+    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.0.3",
+    "prerelease": false
+  },
+  {
+    "repo": "roll",
+    "toolName": "Roll",
+    "tag": "v2.0.0",
+    "name": "v2.0.0 — Universal Game Dice Infrastructure",
+    "body": [
+      "Full Roll20/VTT notation: reroll (`r`/`ro`), compounding (`!!`), penetrating (`!p`), min/max clamping, success counting (`cs>=N`), failure counting (`cf<=N`), critical marking, sorting (`sa`/`sd`), and all comparison operators.",
+      "Not just Monte Carlo — analytical reroll redistribution, min/max truncation, success counting convolution, and compound/penetrate depth expansion. Every V2 modifier has exact probability analysis.",
+      "8 table kinds (encounter, critical, fumble, reward, status, event, loot, custom), conditions (compare, nat, tag, context), level filtering, table chaining, dice fields, rarity tiers, and validation with circular reference detection.",
+      "JSON-RPC 2.0 bridge with stdio and HTTP transports for Godot, Unreal, and Rust game engine integration. 11 methods including deterministic seeding for reproducible gameplay.",
+      "5 MCP tools for Claude integration during game design: roll_dice, analyze_dice, compare_dice, roll_table, query_table.",
+      "226 tests across 9 suites (up from 80)"
+    ],
+    "publishedAt": "2026-04-11T18:01:40Z",
+    "url": "https://github.com/mcp-tool-shop-org/roll/releases/tag/v2.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "roll",
+    "toolName": "Roll",
+    "tag": "v1.0.0",
+    "name": "v1.0.0",
+    "body": [
+      "Initial release — RPG dice engine with probability analysis, loot tables, and beautiful terminal output.",
+      "Dice expression parser** — `2d6`, `4d6kh3`, `4d6dl1`, `1d6!`, `d%`, `4dF`, arithmetic, grouping",
+      "Probability analyzer** — exact distributions via convolution + enumeration, Monte Carlo fallback",
+      "Statistics** — mean, median, mode, stddev, percentiles, Shannon entropy",
+      "Terminal histograms** — colored bar charts with mode/median markers",
+      "Loot table roller** — weighted selection, nested tables, dice integration"
+    ],
+    "publishedAt": "2026-04-11T04:14:52Z",
+    "url": "https://github.com/mcp-tool-shop-org/roll/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
     "repo": "saints-mile",
     "toolName": "Saints Mile",
     "tag": "v1.0.2",
@@ -14,23 +213,6 @@
     ],
     "publishedAt": "2026-04-06T07:38:30Z",
     "url": "https://github.com/mcp-tool-shop-org/saints-mile/releases/tag/v1.0.2",
-    "prerelease": false
-  },
-  {
-    "repo": "civility-kernel",
-    "toolName": "Civility Kernel",
-    "tag": "v1.1.0",
-    "name": "v1.1.0",
-    "body": [
-      "`createKernel()`** — one-call facade replaces 4-step manual wiring",
-      "`decideAsync()`** — async constraint evaluation for I/O-bound checks",
-      "`PolicyBuilder`** — fluent API for validated policy construction",
-      "`loadPolicy` / `dumpPolicy`** — Zod-validated persistence with deterministic serialization",
-      "`applyPolicyProposal()`** — closes the learning loop",
-      "`planFromMcpToolCall` / `feedbackFromMcpResult`** — MCP tool-call adapter"
-    ],
-    "publishedAt": "2026-04-06T04:50:44Z",
-    "url": "https://github.com/mcp-tool-shop-org/civility-kernel/releases/tag/v1.1.0",
     "prerelease": false
   },
   {
@@ -66,23 +248,6 @@
     "publishedAt": "2026-04-05T23:51:01Z",
     "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v1.4.0",
     "prerelease": false
-  },
-  {
-    "repo": "taste-compiler",
-    "toolName": "Taste Compiler",
-    "tag": "v0.3.0",
-    "name": "v0.3.0-beta.1",
-    "body": [
-      "Taste Compiler is now externally alpha-ready.",
-      "This prerelease packages the first full proof cycle of the product:",
-      "6/6 artifact classes** now have enforcement checkers",
-      "6/6 artifact classes** are now live-proven across paired trials",
-      "7 paired trials** completed",
-      "245 baseline violations → 0 constrained**"
-    ],
-    "publishedAt": "2026-04-02T19:47:05Z",
-    "url": "https://github.com/mcp-tool-shop-org/taste-compiler/releases/tag/v0.3.0",
-    "prerelease": true
   },
   {
     "repo": "ai-jam-sessions",
@@ -199,23 +364,6 @@
     "prerelease": false
   },
   {
-    "repo": "websketch-ir",
-    "toolName": "Websketch Ir",
-    "tag": "v2.1.0",
-    "name": "v2.1.0 — Dogfood Swarm",
-    "body": [
-      "Dogfood swarm**: 52 fixes, 18 new features, tests 299 → 656.",
-      "Tree traversal**: `flattenNodes`, `walkNodes`, `filterNodes`",
-      "Query API**: `queryByRole`, `findFirst`, `findByRole`",
-      "Builders**: `createNode`, `createCapture`",
-      "JSON renderer**: `renderJSON` for LLM tool-calling",
-      "Markdown renderer**: `renderMarkdown` for LLM consumption"
-    ],
-    "publishedAt": "2026-03-28T23:52:26Z",
-    "url": "https://github.com/mcp-tool-shop-org/websketch-ir/releases/tag/v2.1.0",
-    "prerelease": false
-  },
-  {
     "repo": "ai-rpg-engine",
     "toolName": "Ai Rpg Engine",
     "tag": "v2.3.2",
@@ -276,49 +424,6 @@
     ],
     "publishedAt": "2026-03-26T00:24:33Z",
     "url": "https://github.com/mcp-tool-shop-org/registry-sync/releases/tag/v1.1.1",
-    "prerelease": false
-  },
-  {
-    "repo": "py-polyglot",
-    "toolName": "Py Polyglot",
-    "tag": "v1.0.5",
-    "name": "v1.0.5",
-    "body": [
-      "Audit + quality pass: --version flag, SHA-pinned CI, version alignment tests"
-    ],
-    "publishedAt": "2026-03-26T00:15:03Z",
-    "url": "https://github.com/mcp-tool-shop-org/py-polyglot/releases/tag/v1.0.5",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-file-forge",
-    "toolName": "Mcp File Forge",
-    "tag": "v1.0.1",
-    "name": "v1.0.1",
-    "body": [
-      "Server version was hardcoded at 0.2.0 — now reads dynamically from package.json",
-      "`version.ts` module with dynamic VERSION/NAME exports",
-      "3 version tests"
-    ],
-    "publishedAt": "2026-03-25T23:30:35Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-file-forge/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "file-compass",
-    "toolName": "File Compass",
-    "tag": "v1.0.1",
-    "name": "v1.0.1",
-    "body": [
-      "Audit + quality pass: diagnose command, --version flag, workflow fixes",
-      "chore(deps): bump the all-actions group across 1 directory with 5 updates by @dependabot[bot] in https://github.com/mcp-tool-shop-org/file-compass/pull/33",
-      "audit: fix CLI, workflows, author + quality pass by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/file-compass/pull/34",
-      "feat: diagnose command + v1.0.1 audit pass by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/file-compass/pull/35",
-      "chore(deps): bump the all-actions group across 1 directory with 5 updates by @dependabot[bot] in https://github.com/mcp-tool-shop-org/file-compass/pull/33",
-      "audit: fix CLI, workflows, author + quality pass by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/file-compass/pull/34"
-    ],
-    "publishedAt": "2026-03-25T23:22:07Z",
-    "url": "https://github.com/mcp-tool-shop-org/file-compass/releases/tag/v1.0.1",
     "prerelease": false
   },
   {
@@ -431,33 +536,6 @@
     "prerelease": false
   },
   {
-    "repo": "ledger-suite",
-    "toolName": "Ledger Suite",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
-    "body": [],
-    "publishedAt": "2026-03-20T00:33:00Z",
-    "url": "https://github.com/mcp-tool-shop-org/ledger-suite/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "claude-sfx",
-    "toolName": "Claude Sfx",
-    "tag": "v1.1.0",
-    "name": "v1.1.0",
-    "body": [
-      "Sounds now evolve with your session — not just what tool fired, but how the work is *going*.",
-      "Streak awareness** — consecutive successful plays build harmonic intensity (5 levels). Your productive session *sounds* productive.",
-      "Error escalation** — repeated errors get progressively more urgent (5 levels). You'll know something is stuck without reading the output.",
-      "Completion fanfare** — session end is outcome-aware: triumphant ascending chord for great sessions, muted resolution for rough ones.",
-      "New `--intensity` and `--escalation` flags for manual control",
-      "`demo` and `export` commands showcase all new variants"
-    ],
-    "publishedAt": "2026-03-19T22:00:23Z",
-    "url": "https://github.com/mcp-tool-shop-org/claude-sfx/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
     "repo": "claude-guardian",
     "toolName": "Claude Guardian",
     "tag": "v1.2.0",
@@ -536,52 +614,6 @@
     "prerelease": false
   },
   {
-    "repo": "py-polyglot",
-    "toolName": "Py Polyglot",
-    "tag": "v1.0.4",
-    "name": "v1.0.4",
-    "body": [
-      "Starlight handbook (7 pages, 7 locales), retranslated READMEs, landing page CTA → handbook."
-    ],
-    "publishedAt": "2026-03-06T13:40:55Z",
-    "url": "https://github.com/mcp-tool-shop-org/py-polyglot/releases/tag/v1.0.4",
-    "prerelease": false
-  },
-  {
-    "repo": "py-polyglot",
-    "toolName": "Py Polyglot",
-    "tag": "v1.0.3",
-    "name": "v1.0.3",
-    "body": [
-      "httpx connection pooling** — reuse connections instead of creating one per request",
-      "Semaphore context manager** — `async with sem:` pattern, prevents slot leaks on exceptions",
-      "Race condition fix** — `_active` counter protected by asyncio.Lock",
-      "Cache path traversal** — uses `relative_to()` instead of string comparison",
-      "Structured logging** — replaces `print(stderr)` with Python logging module",
-      "Specific exceptions** — no more bare `except Exception` in ollama.py"
-    ],
-    "publishedAt": "2026-03-06T13:12:47Z",
-    "url": "https://github.com/mcp-tool-shop-org/py-polyglot/releases/tag/v1.0.3",
-    "prerelease": false
-  },
-  {
-    "repo": "py-polyglot",
-    "toolName": "Py Polyglot",
-    "tag": "v1.0.2",
-    "name": "v1.0.2",
-    "body": [
-      "Renamed PyPI distribution from `py-polyglot` to `polyglot-gpu` (import name `pypolyglot` unchanged)",
-      "CLI entry point renamed to `polyglot-gpu`",
-      "Added trusted publisher workflow for PyPI releases",
-      "```bash",
-      "pip install polyglot-gpu",
-      "```"
-    ],
-    "publishedAt": "2026-03-06T13:01:30Z",
-    "url": "https://github.com/mcp-tool-shop-org/py-polyglot/releases/tag/v1.0.2",
-    "prerelease": false
-  },
-  {
     "repo": "escape-the-valley",
     "toolName": "Escape The Valley",
     "tag": "v1.0.0",
@@ -606,16 +638,6 @@
     "body": [],
     "publishedAt": "2026-03-03T05:14:48Z",
     "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-lab",
-    "toolName": "Xrpl Lab",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
-    "body": [],
-    "publishedAt": "2026-03-03T05:08:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v1.0.0",
     "prerelease": false
   },
   {
@@ -703,16 +725,6 @@
     "body": [],
     "publishedAt": "2026-03-02T17:00:42Z",
     "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v1.4.3",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-camp",
-    "toolName": "Xrpl Camp",
-    "tag": "v1.0.3",
-    "name": "v1.0.3",
-    "body": [],
-    "publishedAt": "2026-03-02T17:00:31Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.0.3",
     "prerelease": false
   },
   {
