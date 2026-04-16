@@ -10,7 +10,9 @@
     "kind": "library",
     "tagline": "Financial truth infrastructure for decentralized systems.",
     "screenshot": "/screenshots/Attestia.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   "ClaimLedger": {
     "tags": [
@@ -22,7 +24,9 @@
     "stability": "stable",
     "kind": "library",
     "tagline": "Scientific claim provenance and verification ledger.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "internal",
+    "surfaceEligible": false
   },
   "CreatorLedger": {
     "tags": [
@@ -34,15 +38,21 @@
     "stability": "stable",
     "kind": "library",
     "tagline": "Creator attestation proofs and authorship verification.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "internal",
+    "surfaceEligible": false
   },
   "LeaseGate-Lite": {
     "screenshot": "/screenshots/LeaseGate-Lite.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "lane": "active_lab",
+    "surfaceEligible": true
   },
   "accessibility-suite": {
     "screenshot": "/screenshots/accessibility-suite.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   "ai-jam-sessions": {
     "tags": [
@@ -53,7 +63,9 @@
     "kind": "library",
     "install": "npm install ai-jam-sessions",
     "tagline": "Music sessions",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "shipped",
+    "surfaceEligible": false
   },
   "ai-loadout": {
     "tags": [
@@ -69,7 +81,9 @@
     "kind": "library",
     "install": "npm install ai-loadout",
     "tagline": "Context-aware knowledge router for AI agents.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "shipped",
+    "surfaceEligible": false
   },
   "ai-rpg-engine": {
     "tags": [
@@ -85,7 +99,9 @@
     "kind": "library",
     "install": "npm install ai-rpg-engine",
     "tagline": "A simulation-first terminal RPG engine for worlds shaped by perception, cognition, and...",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "internal",
+    "surfaceEligible": false
   },
   "audiobooker": {
     "tags": [
@@ -98,7 +114,9 @@
     "kind": "library",
     "install": "pip install audiobooker",
     "tagline": "Audio book generation and management system.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "shipped",
+    "surfaceEligible": false
   },
   "backpropagate": {
     "tags": [
@@ -113,7 +131,9 @@
     "tagline": "Headless LLM fine-tuning with smart defaults.",
     "screenshot": "/screenshots/backpropagate.png",
     "screenshotType": "placeholder",
-    "featured": true
+    "featured": true,
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   "brand": {
     "tags": [
@@ -128,7 +148,9 @@
     "kind": "cli",
     "install": "npx brand",
     "tagline": "Centralized brand asset management â€” migration, audit, and integrity verification for...",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "active_lab",
+    "surfaceEligible": false
   },
   "claude-guardian": {
     "tags": [
@@ -144,7 +166,9 @@
     "kind": "library",
     "install": "npm install claude-guardian",
     "tagline": "Flight computer for Claude Code â€” log rotation, watchdog, crash bundles, and MCP...",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "shipped",
+    "surfaceEligible": false
   },
   "claude-rpg": {
     "category": "games",
@@ -153,7 +177,9 @@
     "install": "npx claude-rpg play --world fantasy",
     "tagline": "Simulation-grounded campaign RPG â€” 10 worlds, streaming narration, 195 tests, runtime-proofed.",
     "goodFor": "Players who want AI narration grounded in deterministic simulation truth. Developers building on the AI RPG Engine ecosystem.",
-    "notFor": "Casual chatbot RPGs â€” this is a full simulation engine, not a prompt wrapper."
+    "notFor": "Casual chatbot RPGs â€” this is a full simulation engine, not a prompt wrapper.",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   "codecomfy-vscode": {
     "tags": [
@@ -165,7 +191,9 @@
     "stability": "beta",
     "kind": "vscode-extension",
     "tagline": "VS Code extension for code analysis and coverage display.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "shipped",
+    "surfaceEligible": false
   },
   "comfy-headless": {
     "featured": true,
@@ -188,7 +216,9 @@
       "Real-time interactive editing"
     ],
     "screenshot": "/screenshots/comfy-headless.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   "commandui": {
     "tags": [
@@ -203,7 +233,9 @@
     "kind": "library",
     "install": "npm install commandui",
     "tagline": "AI-native shell environment with semantic command review.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "active_lab",
+    "surfaceEligible": false
   },
   "dogfood-labs": {
     "tags": [
@@ -219,7 +251,9 @@
     "kind": "library",
     "install": "npm install dogfood-labs",
     "tagline": "Centralized dogfood evidence system â€” proves every repo was actually exercised in a...",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "active_lab",
+    "surfaceEligible": false
   },
   "escape-the-valley": {
     "category": "infrastructure",
@@ -227,7 +261,9 @@
     "kind": "library",
     "install": "pip install escape-the-valley",
     "tagline": "Oregon Trail-style survival game powered by Ollama GM with XRPL ledger-backed inventory.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "shipped",
+    "surfaceEligible": false
   },
   "glyphstudio": {
     "tags": [
@@ -243,7 +279,9 @@
     "kind": "library",
     "install": "npm install glyphstudio",
     "tagline": "Craft-first sprite studio for deterministic pixel editing, frame-by-frame animation,...",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "active_lab",
+    "surfaceEligible": false
   },
   "mcp-stress-test": {
     "tags": [
@@ -256,7 +294,9 @@
     "kind": "cli",
     "tagline": "Red team toolkit for MCP security scanners.",
     "screenshot": "/screenshots/mcp-stress-test.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   "mcp-voice-soundboard": {
     "tags": [
@@ -273,7 +313,9 @@
     "screenshotType": "placeholder",
     "smithery": "https://smithery.ai/servers/mcp-tool-shop/voice-soundboard",
     "flyio": "https://voice-soundboard-mcp.fly.dev",
-    "featured": true
+    "featured": true,
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   "multi-claude": {
     "category": "devtools",
@@ -290,7 +332,9 @@
       "single-file edits",
       "sequential tasks"
     ],
-    "needsHumanReview": false
+    "needsHumanReview": false,
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   "npm-launcher": {
     "tags": [
@@ -306,7 +350,9 @@
     "kind": "cli",
     "install": "npx npm-launcher",
     "tagline": "Generic GitHub-release binary launcher with cache + SHA256 verification.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "shipped",
+    "surfaceEligible": false
   },
   "polyglot-mcp": {
     "tags": [
@@ -322,7 +368,9 @@
     "kind": "mcp-server",
     "install": "npx polyglot-mcp",
     "tagline": "Local GPU translation MCP server â€” TranslateGemma via Ollama, 55 languages, zero cloud...",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "shipped",
+    "surfaceEligible": false
   },
   "portlight": {
     "tags": [
@@ -338,14 +386,18 @@
     "kind": "cli",
     "install": "pipx install portlight",
     "tagline": "Trade-first maritime strategy CLI â€” route arbitrage, contracts, infrastructure,...",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "shipped",
+    "surfaceEligible": false
   },
   "registry-stats": {
     "category": "infrastructure",
     "stability": "experimental",
     "kind": "meta",
     "tagline": "Multi-registry download stats for npm, PyPI, NuGet, VS Code Marketplace, and Docker Hub.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "active_lab",
+    "surfaceEligible": false
   },
   "registry-sync": {
     "tags": [
@@ -361,7 +413,9 @@
     "kind": "cli",
     "install": "npx registry-sync",
     "tagline": "Desired-state sync engine for multi-registry package publishing.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "active_lab",
+    "surfaceEligible": false
   },
   "repo-knowledge": {
     "tags": [
@@ -377,7 +431,9 @@
     "kind": "mcp-server",
     "install": "npx repo-knowledge",
     "tagline": "Repo knowledge system â€” relational catalog with full-text search, audit evidence, and...",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "active_lab",
+    "surfaceEligible": false
   },
   "repomesh": {
     "tags": [
@@ -393,7 +449,9 @@
     "kind": "library",
     "install": "npm install repomesh",
     "tagline": "Syntropic repo network â€” append-only ledger, signed events, multi-dimensional trust...",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "active_lab",
+    "surfaceEligible": false
   },
   "shipcheck": {
     "tags": [
@@ -410,7 +468,9 @@
     "install": "npm install shipcheck",
     "tagline": "Product standards for MCP Tool Shop â€” Ship Gate checklist, error contract, templates,...",
     "needsHumanReview": true,
-    "featured": true
+    "featured": true,
+    "lane": "shipped",
+    "surfaceEligible": false
   },
   "site-theme": {
     "tags": [
@@ -420,7 +480,9 @@
     "stability": "experimental",
     "kind": "library",
     "tagline": "Shared Astro theme for MCP Tool Shop org repo landing pages.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "active_lab",
+    "surfaceEligible": false
   },
   "sovereignty": {
     "tags": [
@@ -447,7 +509,9 @@
       "Replacing formal governance or voting systems"
     ],
     "screenshot": "/screenshots/sovereignty.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   "stillpoint": {
     "tags": [
@@ -462,7 +526,9 @@
     "kind": "library",
     "install": "npm install stillpoint",
     "tagline": "Ambient sound mixer for focus and regulation â€” 50 layered sounds, per-layer volume,...",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "active_lab",
+    "surfaceEligible": false
   },
   "synthesis": {
     "tags": [
@@ -475,7 +541,9 @@
     "kind": "library",
     "install": "npm install synthesis",
     "tagline": "Composable tool framework for building complex AI workflows.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "shipped",
+    "surfaceEligible": false
   },
   "tool-compass": {
     "tags": [
@@ -499,7 +567,9 @@
     "screenshot": "/screenshots/tool-compass.png",
     "screenshotType": "placeholder",
     "smithery": "https://smithery.ai/servers/mcp-tool-shop/tool-compass",
-    "flyio": "https://tool-compass-gateway.fly.dev"
+    "flyio": "https://tool-compass-gateway.fly.dev",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   "world-forge": {
     "tags": [
@@ -515,7 +585,9 @@
     "kind": "library",
     "install": "npm install world-forge",
     "tagline": "2D world authoring studio for AI RPG Engine.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "lane": "active_lab",
+    "surfaceEligible": false
   },
   "xrpl-camp": {
     "tags": [
@@ -542,7 +614,9 @@
       "Full Testnet node operation or validator setup"
     ],
     "screenshot": "/screenshots/xrpl-camp.png",
-    "screenshotType": "placeholder"
+    "screenshotType": "placeholder",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   "xrpl-lab": {
     "tags": [
@@ -554,9 +628,77 @@
     "install": "pip install xrpl-lab",
     "tagline": "XRPL training workbook â€” learn by doing, prove by artifact.",
     "needsHumanReview": true,
-    "featured": true
+    "featured": true,
+    "lane": "shipped",
+    "surfaceEligible": false
   },
   "sprite-foundry": {
-    "featured": true
+    "featured": true,
+    "lane": "active_lab",
+    "surfaceEligible": true
+  },
+  "roll": {
+    "lane": "shipped",
+    "surfaceEligible": true
+  },
+  "saints-mile": {
+    "lane": "shipped",
+    "surfaceEligible": true
+  },
+  "role-os": {
+    "lane": "shipped",
+    "surfaceEligible": true
+  },
+  "repo-dataset": {
+    "lane": "shipped",
+    "surfaceEligible": true
+  },
+  "star-freight": {
+    "lane": "shipped",
+    "surfaceEligible": true
+  },
+  "style-dataset-lab": {
+    "lane": "active_lab",
+    "surfaceEligible": true
+  },
+  "game-foundry-os": {
+    "lane": "active_lab",
+    "surfaceEligible": true
+  },
+  "motif": {
+    "lane": "active_lab",
+    "surfaceEligible": true
+  },
+  "knowledge-core": {
+    "lane": "active_lab",
+    "surfaceEligible": true
+  },
+  "taste-engine": {
+    "lane": "active_lab",
+    "surfaceEligible": true
+  },
+  "xrpl-creator-capsule": {
+    "lane": "active_lab",
+    "surfaceEligible": true
+  },
+  "sensor-humor": {
+    "lane": "active_lab",
+    "surfaceEligible": true
+  },
+  "prototypes": {
+    "lane": "seed_vault",
+    "surfaceEligible": false
+  },
+  "sprite-foundry-packs": {
+    "lane": "internal",
+    "surfaceEligible": false
+  },
+  "star-freight-client": {
+    "lane": "internal",
+    "surfaceEligible": false
+  },
+  "asset-forge": {
+    "lane": "internal",
+    "surfaceEligible": false
   }
 }
