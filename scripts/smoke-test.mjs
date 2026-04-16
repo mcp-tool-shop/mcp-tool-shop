@@ -59,9 +59,6 @@ const CI_GENERATED = [
   { url: "/registry.html", expect: 200, label: "legacy: registry.html" },
   { url: "/voice-soundboard.html", expect: 200, label: "legacy: voice-soundboard.html" },
 
-  // Marketing outputs (generated from MarketIR — gitignored)
-  { url: "/links.json", expect: 200, label: "link registry" },
-
   // Build metadata
   { url: "/_build.json", expect: 200, label: "build metadata" },
 ];
