@@ -1,25 +1,7 @@
 {
-  "generatedAt": "2026-04-16T05:21:11.115Z",
+  "generatedAt": "2026-04-16T05:39:50.307Z",
   "archived": [],
   "missing": [
-    {
-      "registryId": "ally-demo-python",
-      "repoName": "ally-demo-python",
-      "repo": "https://github.com/mcp-tool-shop-org/ally-demo-python",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "aspire-ai",
-      "repoName": "aspire-ai",
-      "repo": "https://github.com/mcp-tool-shop-org/aspire-ai",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "brain-dev",
-      "repoName": "brain-dev",
-      "repo": "https://github.com/mcp-tool-shop-org/brain-dev",
-      "action": "verify repo exists or remove from registry"
-    },
     {
       "registryId": "claim-ledger",
       "repoName": "ClaimLedger",
@@ -27,195 +9,9 @@
       "action": "verify repo exists or remove from registry"
     },
     {
-      "registryId": "claude-collaborate",
-      "repoName": "claude-collaborate",
-      "repo": "https://github.com/mcp-tool-shop-org/claude-collaborate",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "code-covered",
-      "repoName": "code-covered",
-      "repo": "https://github.com/mcp-tool-shop-org/code-covered",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "codeteam",
-      "repoName": "codeteam",
-      "repo": "https://github.com/mcp-tool-shop-org/codeteam",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "codeteam-suite",
-      "repoName": "codeteam-suite",
-      "repo": "https://github.com/mcp-tool-shop-org/codeteam-suite",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "context-window-manager",
-      "repoName": "context-window-manager",
-      "repo": "https://github.com/mcp-tool-shop-org/context-window-manager",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "control-room",
-      "repoName": "control-room",
-      "repo": "https://github.com/mcp-tool-shop-org/control-room",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
       "registryId": "creator-ledger",
       "repoName": "CreatorLedger",
       "repo": "https://github.com/mcp-tool-shop-org/CreatorLedger",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "file-compass",
-      "repoName": "file-compass",
-      "repo": "https://github.com/mcp-tool-shop-org/file-compass",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "flexiflow",
-      "repoName": "flexiflow",
-      "repo": "https://github.com/mcp-tool-shop-org/flexiflow",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "headless-wheel-builder",
-      "repoName": "headless-wheel-builder",
-      "repo": "https://github.com/mcp-tool-shop-org/headless-wheel-builder",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "integradio",
-      "repoName": "integradio",
-      "repo": "https://github.com/mcp-tool-shop-org/integradio",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "ledger-suite",
-      "repoName": "ledger-suite",
-      "repo": "https://github.com/mcp-tool-shop-org/ledger-suite",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "mcpt",
-      "repoName": "mcpt",
-      "repo": "https://github.com/mcp-tool-shop-org/mcpt",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "next-gallery",
-      "repoName": "next-gallery",
-      "repo": "https://github.com/mcp-tool-shop-org/next-gallery",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "nexus-suite",
-      "repoName": "nexus-suite",
-      "repo": "https://github.com/mcp-tool-shop-org/nexus-suite",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "pathway",
-      "repoName": "pathway",
-      "repo": "https://github.com/mcp-tool-shop-org/pathway",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "payroll-engine",
-      "repoName": "payroll-engine",
-      "repo": "https://github.com/mcp-tool-shop-org/payroll-engine",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "prov-engine-js",
-      "repoName": "prov-engine-js",
-      "repo": "https://github.com/mcp-tool-shop-org/prov-engine-js",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "runforge-desktop",
-      "repoName": "runforge-desktop",
-      "repo": "https://github.com/mcp-tool-shop-org/runforge-desktop",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "runforge-vscode",
-      "repoName": "runforge-vscode",
-      "repo": "https://github.com/mcp-tool-shop-org/runforge-vscode",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "stresskit-mcp",
-      "repoName": "stresskit-mcp",
-      "repo": "https://github.com/mcp-tool-shop-org/stresskit-mcp",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "tool-scan",
-      "repoName": "tool-scan",
-      "repo": "https://github.com/mcp-tool-shop-org/tool-scan",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "training-studio",
-      "repoName": "training-studio",
-      "repo": "https://github.com/mcp-tool-shop-org/training-studio",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "venvkit",
-      "repoName": "venvkit",
-      "repo": "https://github.com/mcp-tool-shop-org/venvkit",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "voice-soundboard",
-      "repoName": "voice-soundboard",
-      "repo": "https://github.com/mcp-tool-shop-org/voice-soundboard",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "websketch-cli",
-      "repoName": "websketch-cli",
-      "repo": "https://github.com/mcp-tool-shop-org/websketch-cli",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "websketch-demo",
-      "repoName": "websketch-demo",
-      "repo": "https://github.com/mcp-tool-shop-org/websketch-demo",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "websketch-extension",
-      "repoName": "websketch-extension",
-      "repo": "https://github.com/mcp-tool-shop-org/websketch-extension",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "websketch-ir",
-      "repoName": "websketch-ir",
-      "repo": "https://github.com/mcp-tool-shop-org/websketch-ir",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "websketch-mcp",
-      "repoName": "websketch-mcp",
-      "repo": "https://github.com/mcp-tool-shop-org/websketch-mcp",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "winget-pkgs",
-      "repoName": "winget-pkgs",
-      "repo": "https://github.com/mcp-tool-shop-org/winget-pkgs",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "witness",
-      "repoName": "witness",
-      "repo": "https://github.com/mcp-tool-shop-org/witness",
       "action": "verify repo exists or remove from registry"
     }
   ],
@@ -231,5 +27,5 @@
       "reason": "case-mismatch or rename"
     }
   ],
-  "totalIssues": 36
+  "totalIssues": 2
 }

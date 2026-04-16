@@ -1,26 +1,26 @@
 {
-  "repoCount": 89,
-  "registeredCount": 44,
+  "repoCount": 55,
+  "registeredCount": 10,
   "totalStars": 13,
   "languages": [
     "Python",
+    "JavaScript",
     "TypeScript",
     "Astro",
     "Rust",
-    "JavaScript",
     "C#",
     "GDScript"
   ],
   "recentReleases": 50,
-  "updatedAt": "2026-04-16T05:21:11.114Z",
+  "updatedAt": "2026-04-16T05:39:50.305Z",
   "registryHealth": {
-    "registryToolCount": 47,
-    "registeredInProjects": 44,
+    "registryToolCount": 10,
+    "registeredInProjects": 10,
     "orgOnlyRepos": 45,
     "registryArchived": 0,
-    "registryMissing": 36,
-    "ignoredRepos": 6,
+    "registryMissing": 2,
+    "ignoredRepos": 5,
     "aliasCount": 2,
-    "warnings": 36
+    "warnings": 2
   }
 }

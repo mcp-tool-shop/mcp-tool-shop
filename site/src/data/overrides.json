@@ -87,31 +87,6 @@
     "tagline": "A simulation-first terminal RPG engine for worlds shaped by perception, cognition, and...",
     "needsHumanReview": true
   },
-  "ally-demo-python": {
-    "tags": [
-      "accessibility",
-      "demo",
-      "python"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "template",
-    "tagline": "Python demonstration of accessibility framework capabilities.",
-    "needsHumanReview": true
-  },
-  "aspire-ai": {
-    "tags": [
-      "ml",
-      "training",
-      "ai-alignment"
-    ],
-    "category": "ml",
-    "stability": "experimental",
-    "kind": "library",
-    "tagline": "Adversarial student-professor training engine.",
-    "screenshot": "/screenshots/aspire-ai.png",
-    "screenshotType": "placeholder"
-  },
   "audiobooker": {
     "tags": [
       "audio",
@@ -140,27 +115,6 @@
     "screenshotType": "placeholder",
     "featured": true
   },
-  "brain-dev": {
-    "tags": [
-      "mcp",
-      "code-analysis"
-    ],
-    "category": "mcp-core",
-    "stability": "stable",
-    "kind": "mcp-server",
-    "install": "pip install brain-dev",
-    "tagline": "AI-powered code analysis via MCP.",
-    "goodFor": [
-      "Automated test generation from existing code",
-      "Security audit reports",
-      "Codebase health scoring"
-    ],
-    "notFor": [
-      "Runtime code analysis or profiling",
-      "Replacing manual security review for production systems"
-    ],
-    "screenshot": "/screenshots/brain-dev.png"
-  },
   "brand": {
     "tags": [
       "assets",
@@ -174,18 +128,6 @@
     "kind": "cli",
     "install": "npx brand",
     "tagline": "Centralized brand asset management â€” migration, audit, and integrity verification for...",
-    "needsHumanReview": true
-  },
-  "claude-collaborate": {
-    "tags": [
-      "claude",
-      "agents",
-      "collaboration"
-    ],
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "library",
-    "tagline": "Collaboration primitives for multi-agent and human-in-the-loop Claude workflows.",
     "needsHumanReview": true
   },
   "claude-guardian": {
@@ -213,19 +155,6 @@
     "goodFor": "Players who want AI narration grounded in deterministic simulation truth. Developers building on the AI RPG Engine ecosystem.",
     "notFor": "Casual chatbot RPGs â€” this is a full simulation engine, not a prompt wrapper."
   },
-  "code-covered": {
-    "tags": [
-      "coverage",
-      "visualization",
-      "testing"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library",
-    "install": "pip install code-covered",
-    "tagline": "Coverage visualization and reporting tool.",
-    "needsHumanReview": true
-  },
   "codecomfy-vscode": {
     "tags": [
       "vscode",
@@ -236,31 +165,6 @@
     "stability": "beta",
     "kind": "vscode-extension",
     "tagline": "VS Code extension for code analysis and coverage display.",
-    "needsHumanReview": true
-  },
-  "codeteam": {
-    "tags": [
-      "code-analysis",
-      "cli",
-      "legacy"
-    ],
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "cli",
-    "install": "npx codeteam",
-    "tagline": "Legacy code analysis CLI (see codeteam-suite).",
-    "needsHumanReview": true
-  },
-  "codeteam-suite": {
-    "tags": [
-      "code-analysis",
-      "protocol",
-      "monorepo"
-    ],
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "cli",
-    "tagline": "Code analysis protocol and tools â€” CLI engine with editor extensions.",
     "needsHumanReview": true
   },
   "comfy-headless": {
@@ -301,27 +205,6 @@
     "tagline": "AI-native shell environment with semantic command review.",
     "needsHumanReview": true
   },
-  "context-window-manager": {
-    "tags": [
-      "llm"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library",
-    "tagline": "Context optimization"
-  },
-  "control-room": {
-    "tags": [
-      "dashboard",
-      "monitoring",
-      "admin"
-    ],
-    "category": "mcp-core",
-    "stability": "stable",
-    "kind": "desktop-app",
-    "tagline": "Dashboard and monitoring for MCP tool ecosystems.",
-    "needsHumanReview": true
-  },
   "dogfood-labs": {
     "tags": [
       "dogfood",
@@ -346,38 +229,6 @@
     "tagline": "Oregon Trail-style survival game powered by Ollama GM with XRPL ledger-backed inventory.",
     "needsHumanReview": true
   },
-  "file-compass": {
-    "tags": [
-      "mcp",
-      "search",
-      "embeddings"
-    ],
-    "category": "mcp-core",
-    "stability": "stable",
-    "kind": "mcp-server",
-    "install": "pip install file-compass",
-    "tagline": "Semantic file search with HNSW indexing and local embeddings.",
-    "goodFor": [
-      "Finding files by meaning, not just name",
-      "Multi-language codebases with AST-aware chunking",
-      "Sub-100ms queries over 10K+ files"
-    ],
-    "notFor": [
-      "Cloud-hosted file search",
-      "Full-text grep replacement (use ripgrep for exact matches)"
-    ],
-    "screenshot": "/screenshots/file-compass.png",
-    "screenshotType": "placeholder"
-  },
-  "flexiflow": {
-    "tags": [
-      "workflow"
-    ],
-    "category": "infrastructure",
-    "stability": "beta",
-    "kind": "library",
-    "tagline": "Workflow orchestration"
-  },
   "glyphstudio": {
     "tags": [
       "animation",
@@ -392,46 +243,6 @@
     "kind": "library",
     "install": "npm install glyphstudio",
     "tagline": "Craft-first sprite studio for deterministic pixel editing, frame-by-frame animation,...",
-    "needsHumanReview": true
-  },
-  "headless-wheel-builder": {
-    "tags": [
-      "python",
-      "packaging",
-      "wheels",
-      "release"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "cli",
-    "install": "pipx install headless-wheel-builder",
-    "tagline": "CLI-first build/validate/release tooling for Python wheels and sdists.",
-    "needsHumanReview": true
-  },
-  "integradio": {
-    "tags": [
-      "gradio",
-      "ui",
-      "framework"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library",
-    "install": "pip install integradio",
-    "tagline": "Structure layer for building maintainable Gradio apps (UI + execution separation).",
-    "needsHumanReview": true
-  },
-  "ledger-suite": {
-    "tags": [
-      "provenance",
-      "cryptography",
-      "monorepo",
-      "dotnet"
-    ],
-    "category": "infrastructure",
-    "stability": "experimental",
-    "kind": "library",
-    "tagline": "Unified monorepo for cryptographic provenance ledgers â€” ClaimLedger and CreatorLedger.",
     "needsHumanReview": true
   },
   "mcp-stress-test": {
@@ -481,15 +292,6 @@
     ],
     "needsHumanReview": false
   },
-  "nexus-suite": {
-    "tags": [
-      "devops"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library",
-    "tagline": "Dev suite"
-  },
   "npm-launcher": {
     "tags": [
       "binary",
@@ -505,28 +307,6 @@
     "install": "npx npm-launcher",
     "tagline": "Generic GitHub-release binary launcher with cache + SHA256 verification.",
     "needsHumanReview": true
-  },
-  "pathway": {
-    "tags": [
-      "workflow",
-      "journey",
-      "python"
-    ],
-    "category": "devtools",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "pip install pathway",
-    "tagline": "Python journey engine for workflow progression tracking.",
-    "needsHumanReview": true
-  },
-  "payroll-engine": {
-    "tags": [
-      "finance"
-    ],
-    "category": "infrastructure",
-    "stability": "beta",
-    "kind": "library",
-    "tagline": "Payroll processing"
   },
   "polyglot-mcp": {
     "tags": [
@@ -558,19 +338,6 @@
     "kind": "cli",
     "install": "pipx install portlight",
     "tagline": "Trade-first maritime strategy CLI â€” route arbitrage, contracts, infrastructure,...",
-    "needsHumanReview": true
-  },
-  "prov-engine-js": {
-    "tags": [
-      "provenance",
-      "traceability",
-      "typescript"
-    ],
-    "category": "infrastructure",
-    "stability": "beta",
-    "kind": "library",
-    "install": "npm install prov-engine-js",
-    "tagline": "JavaScript/TypeScript provenance and traceability engine.",
     "needsHumanReview": true
   },
   "registry-stats": {
@@ -626,32 +393,6 @@
     "kind": "library",
     "install": "npm install repomesh",
     "tagline": "Syntropic repo network â€” append-only ledger, signed events, multi-dimensional trust...",
-    "needsHumanReview": true
-  },
-  "runforge-desktop": {
-    "tags": [
-      "windows",
-      "desktop",
-      "workflow",
-      "ai"
-    ],
-    "category": "desktop",
-    "stability": "beta",
-    "kind": "desktop-app",
-    "tagline": "Windows desktop application for AI workflow execution.",
-    "needsHumanReview": true
-  },
-  "runforge-vscode": {
-    "tags": [
-      "vscode",
-      "extension",
-      "workflow",
-      "ai"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "vscode-extension",
-    "tagline": "VS Code extension for AI workflow execution.",
     "needsHumanReview": true
   },
   "shipcheck": {
@@ -723,10 +464,6 @@
     "tagline": "Ambient sound mixer for focus and regulation â€” 50 layered sounds, per-layer volume,...",
     "needsHumanReview": true
   },
-  "stresskit-mcp": {
-    "screenshot": "/screenshots/stresskit-mcp.png",
-    "screenshotType": "placeholder"
-  },
   "synthesis": {
     "tags": [
       "workflow",
@@ -763,135 +500,6 @@
     "screenshotType": "placeholder",
     "smithery": "https://smithery.ai/servers/mcp-tool-shop/tool-compass",
     "flyio": "https://tool-compass-gateway.fly.dev"
-  },
-  "tool-scan": {
-    "tags": [
-      "mcp",
-      "security"
-    ],
-    "category": "security",
-    "stability": "stable",
-    "kind": "cli",
-    "install": "pip install tool-scan",
-    "tagline": "Security scanner for MCP tools.",
-    "screenshot": "/screenshots/tool-scan.png",
-    "screenshotType": "placeholder"
-  },
-  "training-studio": {
-    "tags": [
-      "ml",
-      "tensorflowjs",
-      "validation",
-      "security"
-    ],
-    "category": "security",
-    "stability": "stable",
-    "kind": "library",
-    "install": "npm install training-studio",
-    "tagline": "TensorFlow.js ML bundle validator with security-first design and zero code execution.",
-    "needsHumanReview": true
-  },
-  "venvkit": {
-    "tags": [
-      "python",
-      "venv",
-      "diagnostics"
-    ],
-    "category": "devtools",
-    "stability": "beta",
-    "kind": "library",
-    "install": "npm install venvkit",
-    "tagline": "Python virtual environment diagnostics and utilities.",
-    "needsHumanReview": true
-  },
-  "voice-soundboard": {
-    "tags": [
-      "tts",
-      "audio",
-      "voice"
-    ],
-    "category": "voice",
-    "stability": "beta",
-    "kind": "library",
-    "tagline": "TTS library with compiler/graph/engine architecture.",
-    "screenshot": "/screenshots/voice-soundboard.png",
-    "screenshotType": "placeholder"
-  },
-  "websketch-cli": {
-    "tags": [
-      "cli",
-      "web",
-      "analysis"
-    ],
-    "category": "web",
-    "stability": "beta",
-    "kind": "cli",
-    "install": "npx websketch-cli",
-    "tagline": "Command-line interface for web component analysis.",
-    "needsHumanReview": true
-  },
-  "websketch-extension": {
-    "tags": [
-      "browser",
-      "extension",
-      "analysis"
-    ],
-    "category": "web",
-    "stability": "beta",
-    "kind": "library",
-    "tagline": "Browser extension for web page analysis and code generation.",
-    "needsHumanReview": true
-  },
-  "websketch-ir": {
-    "tags": [
-      "ir",
-      "core",
-      "library"
-    ],
-    "category": "web",
-    "stability": "beta",
-    "kind": "library",
-    "install": "npm install websketch-ir",
-    "tagline": "Intermediate representation library for web component analysis.",
-    "needsHumanReview": true
-  },
-  "websketch-mcp": {
-    "tags": [
-      "mcp-server",
-      "web",
-      "ai"
-    ],
-    "category": "web",
-    "stability": "beta",
-    "kind": "mcp-server",
-    "install": "npx websketch-mcp",
-    "tagline": "MCP server for AI-assisted web analysis.",
-    "needsHumanReview": true
-  },
-  "winget-pkgs": {
-    "tags": [
-      "winget",
-      "windows",
-      "packaging"
-    ],
-    "category": "mcp-core",
-    "stability": "experimental",
-    "kind": "library",
-    "tagline": "Windows Package Manager manifests for mcp-tool-shop packages.",
-    "needsHumanReview": true
-  },
-  "witness": {
-    "tags": [
-      "provenance",
-      "cryptography",
-      "append-only"
-    ],
-    "category": "infrastructure",
-    "stability": "beta",
-    "kind": "library",
-    "tagline": "Append-only event journal with cryptographic verification.",
-    "screenshot": "/screenshots/witness.png",
-    "screenshotType": "placeholder"
   },
   "world-forge": {
     "tags": [
