@@ -1,0 +1,730 @@
+{
+  "generatedAt": "2026-04-16T05:45:59.288Z",
+  "summary": {
+    "totalProjects": 55,
+    "byLane": {
+      "shipped": 27,
+      "active_lab": 21,
+      "internal": 6,
+      "seed_vault": 1
+    },
+    "surfaceEligible": 48,
+    "blocked": 7,
+    "featured": 6,
+    "needsHumanReview": 0
+  },
+  "repos": [
+    {
+      "repo": "accessibility-suite",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "ai-jam-sessions",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "ai-loadout",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "ai-rpg-engine",
+      "lane": "internal",
+      "surfaceEligible": false,
+      "needsHumanReview": false,
+      "surfaces": [],
+      "blockedReason": "lane=internal"
+    },
+    {
+      "repo": "asset-forge",
+      "lane": "internal",
+      "surfaceEligible": false,
+      "needsHumanReview": false,
+      "surfaces": [],
+      "blockedReason": "lane=internal"
+    },
+    {
+      "repo": "Attestia",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "collection:blockchain"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "audiobooker",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "backpropagate",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "featured",
+        "collection:ml-pipeline",
+        "picks"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "brand",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "ClaimLedger",
+      "lane": "internal",
+      "surfaceEligible": false,
+      "needsHumanReview": false,
+      "surfaces": [],
+      "blockedReason": "lane=internal"
+    },
+    {
+      "repo": "claude-guardian",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "claude-rpg",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "codecomfy-vscode",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "comfy-headless",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "featured",
+        "collection:ml-pipeline"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "commandui",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "CreatorLedger",
+      "lane": "internal",
+      "surfaceEligible": false,
+      "needsHumanReview": false,
+      "surfaces": [],
+      "blockedReason": "lane=internal"
+    },
+    {
+      "repo": "dogfood-labs",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "escape-the-valley",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "game-foundry-os",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "collection:game-dev"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "glyphstudio",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "knowledge-core",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "LeaseGate-Lite",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "mcp-stress-test",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "mcp-voice-soundboard",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "featured",
+        "collection:creative"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "motif",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "collection:game-dev",
+        "picks"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "multi-claude",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "collection:developer-tools"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "npm-launcher",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "polyglot-mcp",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "portlight",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "prototypes",
+      "lane": "seed_vault",
+      "surfaceEligible": false,
+      "needsHumanReview": false,
+      "surfaces": [],
+      "blockedReason": "lane=seed_vault"
+    },
+    {
+      "repo": "registry-stats",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "registry-sync",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "repo-dataset",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "collection:ml-pipeline"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "repo-knowledge",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "repomesh",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "role-os",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "collection:developer-tools"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "roll",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "saints-mile",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "collection:game-dev"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "sensor-humor",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "shipcheck",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "featured",
+        "picks"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "site-theme",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "sovereignty",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "sprite-foundry",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "featured",
+        "collection:game-dev",
+        "picks"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "sprite-foundry-packs",
+      "lane": "internal",
+      "surfaceEligible": false,
+      "needsHumanReview": false,
+      "surfaces": [],
+      "blockedReason": "lane=internal"
+    },
+    {
+      "repo": "star-freight",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "star-freight-client",
+      "lane": "internal",
+      "surfaceEligible": false,
+      "needsHumanReview": false,
+      "surfaces": [],
+      "blockedReason": "lane=internal"
+    },
+    {
+      "repo": "stillpoint",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "style-dataset-lab",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "collection:ml-pipeline",
+        "picks"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "synthesis",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "taste-engine",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "tool-compass",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "world-forge",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "xrpl-camp",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "collection:blockchain"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "xrpl-creator-capsule",
+      "lane": "active_lab",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "collection:blockchain"
+      ],
+      "blockedReason": null
+    },
+    {
+      "repo": "xrpl-lab",
+      "lane": "shipped",
+      "surfaceEligible": true,
+      "needsHumanReview": false,
+      "surfaces": [
+        "catalog",
+        "featured",
+        "picks"
+      ],
+      "blockedReason": null
+    }
+  ],
+  "collections": [
+    {
+      "collection": "game-dev",
+      "repo": "sprite-foundry",
+      "action": "included",
+      "reason": "lane=active_lab, surfaceEligible=true"
+    },
+    {
+      "collection": "game-dev",
+      "repo": "saints-mile",
+      "action": "included",
+      "reason": "lane=shipped, surfaceEligible=true"
+    },
+    {
+      "collection": "game-dev",
+      "repo": "motif",
+      "action": "included",
+      "reason": "lane=active_lab, surfaceEligible=true"
+    },
+    {
+      "collection": "game-dev",
+      "repo": "game-foundry-os",
+      "action": "included",
+      "reason": "lane=active_lab, surfaceEligible=true"
+    },
+    {
+      "collection": "ml-pipeline",
+      "repo": "backpropagate",
+      "action": "included",
+      "reason": "lane=shipped, surfaceEligible=true"
+    },
+    {
+      "collection": "ml-pipeline",
+      "repo": "comfy-headless",
+      "action": "included",
+      "reason": "lane=shipped, surfaceEligible=true"
+    },
+    {
+      "collection": "ml-pipeline",
+      "repo": "repo-dataset",
+      "action": "included",
+      "reason": "lane=shipped, surfaceEligible=true"
+    },
+    {
+      "collection": "ml-pipeline",
+      "repo": "style-dataset-lab",
+      "action": "included",
+      "reason": "lane=active_lab, surfaceEligible=true"
+    },
+    {
+      "collection": "developer-tools",
+      "repo": "role-os",
+      "action": "included",
+      "reason": "lane=shipped, surfaceEligible=true"
+    },
+    {
+      "collection": "developer-tools",
+      "repo": "multi-claude",
+      "action": "included",
+      "reason": "lane=shipped, surfaceEligible=true"
+    },
+    {
+      "collection": "blockchain",
+      "repo": "xrpl-camp",
+      "action": "included",
+      "reason": "lane=shipped, surfaceEligible=true"
+    },
+    {
+      "collection": "blockchain",
+      "repo": "Attestia",
+      "action": "included",
+      "reason": "lane=active_lab, surfaceEligible=true"
+    },
+    {
+      "collection": "blockchain",
+      "repo": "xrpl-creator-capsule",
+      "action": "included",
+      "reason": "lane=active_lab, surfaceEligible=true"
+    },
+    {
+      "collection": "creative",
+      "repo": "mcp-voice-soundboard",
+      "action": "included",
+      "reason": "lane=shipped, surfaceEligible=true"
+    }
+  ],
+  "featured": [
+    {
+      "repo": "comfy-headless",
+      "action": "included",
+      "reason": "featured + surfaceEligible"
+    },
+    {
+      "repo": "backpropagate",
+      "action": "included",
+      "reason": "featured + surfaceEligible"
+    },
+    {
+      "repo": "mcp-voice-soundboard",
+      "action": "included",
+      "reason": "featured + surfaceEligible"
+    },
+    {
+      "repo": "shipcheck",
+      "action": "included",
+      "reason": "featured + surfaceEligible"
+    },
+    {
+      "repo": "sprite-foundry",
+      "action": "included",
+      "reason": "featured + surfaceEligible"
+    },
+    {
+      "repo": "xrpl-lab",
+      "action": "included",
+      "reason": "featured + surfaceEligible"
+    }
+  ],
+  "picks": [
+    {
+      "slug": "sprite-foundry",
+      "action": "included",
+      "reason": "lane=active_lab, surfaceEligible=true"
+    },
+    {
+      "slug": "backpropagate",
+      "action": "included",
+      "reason": "lane=shipped, surfaceEligible=true"
+    },
+    {
+      "slug": "style-dataset-lab",
+      "action": "included",
+      "reason": "lane=active_lab, surfaceEligible=true"
+    },
+    {
+      "slug": "xrpl-lab",
+      "action": "included",
+      "reason": "lane=shipped, surfaceEligible=true"
+    },
+    {
+      "slug": "motif",
+      "action": "included",
+      "reason": "lane=active_lab, surfaceEligible=true"
+    },
+    {
+      "slug": "shipcheck",
+      "action": "included",
+      "reason": "lane=shipped, surfaceEligible=true"
+    }
+  ]
+}

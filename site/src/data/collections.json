@@ -26,11 +26,8 @@
     "title": "Developer Tools",
     "description": "Product standards, knowledge routing, and agent coordination.",
     "repos": [
-      "shipcheck",
-      "ai-loadout",
       "role-os",
-      "multi-claude",
-      "claude-guardian"
+      "multi-claude"
     ]
   },
   {
@@ -38,11 +35,9 @@
     "title": "Blockchain & XRPL",
     "description": "XRPL education, creator tools, and trust infrastructure.",
     "repos": [
-      "xrpl-lab",
       "xrpl-camp",
       "Attestia",
-      "xrpl-creator-capsule",
-      "repomesh"
+      "xrpl-creator-capsule"
     ]
   },
   {
@@ -50,11 +45,7 @@
     "title": "Creative Tools",
     "description": "Voice synthesis, sprite editing, audiobooks, and ambient sound.",
     "repos": [
-      "mcp-voice-soundboard",
-      "glyphstudio",
-      "ai-jam-sessions",
-      "audiobooker",
-      "stillpoint"
+      "mcp-voice-soundboard"
     ]
   }
 ]
