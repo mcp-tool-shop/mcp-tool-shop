@@ -1,5 +1,39 @@
 [
   {
+    "repo": "ollama-intern-mcp",
+    "toolName": "Ollama Intern Mcp",
+    "tag": "v1.0.1",
+    "name": "v1.0.1 — Translations (zh/es/fr/hi/it/ja/pt-BR)",
+    "body": [
+      "Patch release — adds translated READMEs via [polyglot-mcp](https://github.com/mcp-tool-shop-org/polyglot-mcp) / TranslateGemma 12B.",
+      "Languages shipped: **中文 · Español · Français · हिन्दी · Italiano · 日本語 · Português (BR)**. Language switcher in the README header.",
+      "Closes the shipcheck **E2 identity gate** — `ollama-intern-mcp` is now \"whole\" by the shipcheck standard.",
+      "```bash",
+      "npm install -g ollama-intern-mcp@1.0.1",
+      "```"
+    ],
+    "publishedAt": "2026-04-17T08:08:20Z",
+    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "ollama-intern-mcp",
+    "toolName": "Ollama Intern Mcp",
+    "tag": "v1.0.0",
+    "name": "v1.0.0 — The local intern for Claude Code",
+    "body": [
+      "First stable release.** 28 tools across 4 tiers, 395 tests, full treatment shipped — shipcheck hard gates A–D green, landing page, Starlight handbook with Pagefind search, published to npm as the unscoped [`ollama-intern-mcp`](https://www.npmjs.com/package/ollama-intern-mcp).",
+      "> _The local intern for Claude Code — 28 job-shaped tools, evidence-first briefs, durable artifacts._",
+      "```bash",
+      "npm install -g ollama-intern-mcp",
+      "```",
+      "🌐 Landing page: https://mcp-tool-shop-org.github.io/ollama-intern-mcp/"
+    ],
+    "publishedAt": "2026-04-17T07:58:02Z",
+    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
     "repo": "style-dataset-lab",
     "toolName": "Style Dataset Lab",
     "tag": "v3.0.0",
@@ -715,32 +749,6 @@
     "body": [],
     "publishedAt": "2026-03-02T17:26:58Z",
     "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.0.4",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v1.4.3",
-    "name": "v1.4.3",
-    "body": [],
-    "publishedAt": "2026-03-02T17:00:42Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v1.4.3",
-    "prerelease": false
-  },
-  {
-    "repo": "shipcheck",
-    "toolName": "Shipcheck",
-    "tag": "v1.0.4",
-    "name": "v1.0.4",
-    "body": [
-      "First release with full RepoMesh evidence pipeline:",
-      "CycloneDX SBOM generated and attached",
-      "SLSA-style provenance statement attached",
-      "Signed ReleasePublished event broadcast to ledger",
-      "This release should converge to trust score 100/100 in the network."
-    ],
-    "publishedAt": "2026-02-28T05:05:27Z",
-    "url": "https://github.com/mcp-tool-shop-org/shipcheck/releases/tag/v1.0.4",
     "prerelease": false
   }
 ]

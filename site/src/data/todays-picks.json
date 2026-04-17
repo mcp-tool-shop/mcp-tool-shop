@@ -1,5 +1,5 @@
 {
-  "date": "2026-04-16",
+  "date": "2026-04-17",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,10 +9,10 @@
       ]
     },
     {
-      "slug": "mcp-stress-test",
-      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
+      "slug": "comfy-headless",
+      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
       "signals": [
-        "popular"
+        "featured"
       ]
     },
     {
@@ -23,24 +23,24 @@
       ]
     },
     {
-      "slug": "tool-compass",
-      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "CreatorLedger",
-      "reason": "Creator attestation proofs and authorship verification",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
       "slug": "backpropagate",
       "reason": "Structured feedback loops for improving AI behavior through iteration",
       "signals": [
         "featured"
+      ]
+    },
+    {
+      "slug": "codecomfy-vscode",
+      "reason": "VS Code extension for code analysis and coverage display",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "accessibility-suite",
+      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "signals": [
+        "popular"
       ]
     }
   ]

@@ -369,6 +369,22 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
+  "ollama-intern-mcp": {
+    "tags": [
+      "anthropic",
+      "claude",
+      "claude-code",
+      "embeddings",
+      "local-first",
+      "local-llm"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "npx ollama-intern-mcp",
+    "tagline": "The local intern for Claude Code — 28 job-shaped tools, evidence-first briefs, durable...",
+    "needsHumanReview": true
+  },
   "polyglot-mcp": {
     "tags": [
       "gpu",
