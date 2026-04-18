@@ -2,6 +2,40 @@
   {
     "repo": "ollama-intern-mcp",
     "toolName": "Ollama Intern Mcp",
+    "tag": "v1.0.2",
+    "name": "v1.0.2 — Phase A: contract hardening + doc-draft quality",
+    "body": [
+      "Phase A of the Output Quality Report — contract hardening and doc-draft output-quality gates.",
+      "Upstream-stringification diagnostic** — strict-array inputs reject with a specific message when the caller JSON-stringifies the array upstream. Contracts stay strict; no silent coercion. Tagged stderr events for grep.",
+      "`source_path` mode** — `classify` and `extract` now read files server-side, so callers don't have to pre-read them. Mutual-exclusion enforced (`text` XOR `source_path` XOR `items`).",
+      "Banned-phrase rejection** — `draft(style=\"doc\")` now rejects marketing sludge (`seamless`, `effortless`, `leverage`, `blazing fast`, `empower`, `robust`, `cutting-edge`, …), regenerates up to 3 attempts, then fails with a new `DRAFT_BANNED_PHRASE` error carrying the detected phrases and an actionable rewrite hint. On success, the result envelope surfaces `regenerations_triggered` and `detected_phrases`.",
+      "Version drift fix** — `src/version.ts` was pinned at `0.1.0`; re-aligned to the current version.",
+      "449 unit tests (+54 new); `tsc --noEmit` clean; `npm run verify` green."
+    ],
+    "publishedAt": "2026-04-17T21:12:40Z",
+    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "repo-dataset",
+    "toolName": "Repo Dataset",
+    "tag": "v1.2.1",
+    "name": "v1.2.1 — positioning spine + logo refresh",
+    "body": [
+      "Docs-only patch release. No runtime behavior changes.",
+      "Locks one spine across every public surface:**",
+      "repo-dataset is the dataset construction and verification layer for local ML workflows. Not a trainer. Not a format zoo.",
+      "📐 **README, landing, handbook** rewritten around the construction-and-verification thesis. Contamination check is now the flagship proof section, not a feature bullet.",
+      "🎯 **GitHub description + 10 topics** realigned to the thesis (training-data, fine-tuning, dataset-generation, multimodal-datasets, data-contamination, benchmark-leakage, vision-language, jsonl, axolotl, llava).",
+      "🖼️ **New logo** — magnifying glass over dataset stack (verification motif). README logo width 400 → 500."
+    ],
+    "publishedAt": "2026-04-17T20:21:50Z",
+    "url": "https://github.com/mcp-tool-shop-org/repo-dataset/releases/tag/v1.2.1",
+    "prerelease": false
+  },
+  {
+    "repo": "ollama-intern-mcp",
+    "toolName": "Ollama Intern Mcp",
     "tag": "v1.0.1",
     "name": "v1.0.1 — Translations (zh/es/fr/hi/it/ja/pt-BR)",
     "body": [
@@ -729,26 +763,6 @@
     "body": [],
     "publishedAt": "2026-03-02T17:32:36Z",
     "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.0.5",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v1.4.4",
-    "name": "v1.4.4",
-    "body": [],
-    "publishedAt": "2026-03-02T17:27:00Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v1.4.4",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-camp",
-    "toolName": "Xrpl Camp",
-    "tag": "v1.0.4",
-    "name": "v1.0.4",
-    "body": [],
-    "publishedAt": "2026-03-02T17:26:58Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.0.4",
     "prerelease": false
   }
 ]

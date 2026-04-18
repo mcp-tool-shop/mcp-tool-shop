@@ -1,23 +1,9 @@
 {
-  "date": "2026-04-17",
+  "date": "2026-04-18",
   "picks": [
     {
       "slug": "websketch-ir",
       "reason": "Featured Tool",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "comfy-headless",
-      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
-      "signals": [
-        "featured"
-      ]
-    },
-    {
-      "slug": "audiobooker",
-      "reason": "Audio book generation and management system",
       "signals": [
         "popular"
       ]
@@ -30,15 +16,29 @@
       ]
     },
     {
-      "slug": "codecomfy-vscode",
-      "reason": "VS Code extension for code analysis and coverage display",
+      "slug": "comfy-headless",
+      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
+      "signals": [
+        "featured"
+      ]
+    },
+    {
+      "slug": "synthesis",
+      "reason": "Composable tool framework for building complex AI workflows",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "accessibility-suite",
-      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "slug": "tool-compass",
+      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "codecomfy-vscode",
+      "reason": "VS Code extension for code analysis and coverage display",
       "signals": [
         "popular"
       ]

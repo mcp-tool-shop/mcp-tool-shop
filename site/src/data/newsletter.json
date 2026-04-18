@@ -2,7 +2,7 @@
   "title": "MCP: Tests",
   "subtitle": "A short, no-fluff newsletter for curious minds",
   "issue": "April 2026 | Issue 3",
-  "updatedAt": "2026-04-17T13:34:59.365Z",
+  "updatedAt": "2026-04-18T13:29:36.046Z",
   "lede": "We spent March watching prototypes light up the scene—scrappy demos that proved MCP could actually do things. April is where the party ends and the pressure test begins. Because once your AI starts touching real files, real calendars, and real codebases, the only question that matters is: \"Will this still work at 3 a.m. when the CEO is on the line?\" Tests are the unglamorous hero of the MCP story—the systematic, ruthless checks that separate \"it worked in the demo\" from \"it ships to thousands without exploding.\"",
   "sections": [
     {

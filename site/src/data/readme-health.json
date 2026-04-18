@@ -1,30 +1,16 @@
 {
   "meta": {
-    "generatedAt": "2026-04-17T13:34:59.393Z",
-    "runId": "3cd331a8-33fa-431a-ad69-442d94a00b73",
+    "generatedAt": "2026-04-18T13:29:36.080Z",
+    "runId": "0053c6be-39f1-4738-ba56-ec20c3aaa7e2",
     "version": "2.0",
     "checkedCount": 10,
     "strategy": {
       "recentDays": 7,
       "sampleSize": 10,
-      "seed": "2026-04-17"
+      "seed": "2026-04-18"
     }
   },
   "results": [
-    {
-      "repo": "CreatorLedger",
-      "score": 0,
-      "checkStatus": "missing_readme",
-      "capReason": "no_readme",
-      "missing": [
-        "README file"
-      ],
-      "evidence": {
-        "hasReadme": false
-      },
-      "checkedAt": "2026-04-17T13:34:59.393Z",
-      "lastCheckedAt": "2026-04-17T13:34:59.393Z"
-    },
     {
       "repo": "ClaimLedger",
       "score": 0,
@@ -36,8 +22,22 @@
       "evidence": {
         "hasReadme": false
       },
-      "checkedAt": "2026-04-17T13:34:59.393Z",
-      "lastCheckedAt": "2026-04-17T13:34:59.393Z"
+      "checkedAt": "2026-04-18T13:29:36.080Z",
+      "lastCheckedAt": "2026-04-18T13:29:36.080Z"
+    },
+    {
+      "repo": "CreatorLedger",
+      "score": 0,
+      "checkStatus": "missing_readme",
+      "capReason": "no_readme",
+      "missing": [
+        "README file"
+      ],
+      "evidence": {
+        "hasReadme": false
+      },
+      "checkedAt": "2026-04-18T13:29:36.080Z",
+      "lastCheckedAt": "2026-04-18T13:29:36.080Z"
     },
     {
       "repo": "backpropagate",
@@ -54,8 +54,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-04-17T13:34:59.393Z",
-      "lastCheckedAt": "2026-04-17T13:34:59.393Z"
+      "checkedAt": "2026-04-18T13:29:36.080Z",
+      "lastCheckedAt": "2026-04-18T13:29:36.080Z"
     },
     {
       "repo": "mcp-stress-test",
@@ -72,8 +72,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-04-17T13:34:59.393Z",
-      "lastCheckedAt": "2026-04-17T13:34:59.393Z"
+      "checkedAt": "2026-04-18T13:29:36.080Z",
+      "lastCheckedAt": "2026-04-18T13:29:36.080Z"
     },
     {
       "repo": "tool-compass",
@@ -90,8 +90,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-04-17T13:34:59.393Z",
-      "lastCheckedAt": "2026-04-17T13:34:59.393Z"
+      "checkedAt": "2026-04-18T13:29:36.080Z",
+      "lastCheckedAt": "2026-04-18T13:29:36.080Z"
     },
     {
       "repo": "codecomfy-vscode",
@@ -108,8 +108,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-04-17T13:34:59.393Z",
-      "lastCheckedAt": "2026-04-17T13:34:59.393Z"
+      "checkedAt": "2026-04-18T13:29:36.080Z",
+      "lastCheckedAt": "2026-04-18T13:29:36.080Z"
     },
     {
       "repo": "comfy-headless",
@@ -126,44 +126,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-04-17T13:34:59.393Z",
-      "lastCheckedAt": "2026-04-17T13:34:59.393Z"
-    },
-    {
-      "repo": "synthesis",
-      "score": 100,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": true,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-04-17T13:34:59.393Z",
-      "lastCheckedAt": "2026-04-17T13:34:59.393Z"
-    },
-    {
-      "repo": "accessibility-suite",
-      "score": 100,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": true,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-04-17T13:34:59.393Z",
-      "lastCheckedAt": "2026-04-17T13:34:59.393Z"
+      "checkedAt": "2026-04-18T13:29:36.080Z",
+      "lastCheckedAt": "2026-04-18T13:29:36.080Z"
     },
     {
       "repo": "audiobooker",
@@ -180,8 +144,44 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-04-17T13:34:59.393Z",
-      "lastCheckedAt": "2026-04-17T13:34:59.393Z"
+      "checkedAt": "2026-04-18T13:29:36.080Z",
+      "lastCheckedAt": "2026-04-18T13:29:36.080Z"
+    },
+    {
+      "repo": "synthesis",
+      "score": 100,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": true,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-04-18T13:29:36.080Z",
+      "lastCheckedAt": "2026-04-18T13:29:36.080Z"
+    },
+    {
+      "repo": "accessibility-suite",
+      "score": 100,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": true,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-04-18T13:29:36.080Z",
+      "lastCheckedAt": "2026-04-18T13:29:36.080Z"
     }
   ]
 }
