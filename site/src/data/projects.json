@@ -472,7 +472,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-04-19T07:07:37Z",
+    "updatedAt": "2026-04-20T07:52:28Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -662,6 +662,27 @@
     "surfaceEligible": true
   },
   {
+    "name": "Forkable",
+    "repo": "forkable",
+    "description": "Adoption control plane for GitHub repos. MCP server + CLI: assess, choose path, fork or template, bootstrap, sync.",
+    "tags": [
+      "cli",
+      "fork",
+      "github",
+      "mcp",
+      "model-context-protocol",
+      "template",
+      "typescript"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-04-20T09:56:46Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Game Foundry Os",
     "repo": "game-foundry-os",
     "description": "Game production operating system — asset registry, encounter doctrine, proof pipeline, and chapter management.",
@@ -822,7 +843,7 @@
   {
     "name": "Ollama Intern Mcp",
     "repo": "ollama-intern-mcp",
-    "description": "The local intern for Claude Code — 28 job-shaped tools, evidence-first briefs, durable artifacts. Local-first MCP server over Ollama.",
+    "description": "The local intern for Claude Code — 28 job-shaped tools, evidence-first briefs, durable artifacts. Local-first MCP server over Ollama. Validated Hermes Agent integration on hermes3:8b (v2.0.0+).",
     "tags": [
       "anthropic",
       "claude",
@@ -834,7 +855,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-04-19T03:42:23Z",
+    "updatedAt": "2026-04-20T08:22:44Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -942,7 +963,7 @@
     "featured": false,
     "stars": 0,
     "language": "Astro",
-    "updatedAt": "2026-04-19T07:48:44Z",
+    "updatedAt": "2026-04-20T08:31:13Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,

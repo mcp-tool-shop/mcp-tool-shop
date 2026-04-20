@@ -1,5 +1,73 @@
 [
   {
+    "repo": "forkable",
+    "toolName": "Forkable",
+    "tag": "v1.1.0",
+    "name": "v1.1.0 — Layer 7 Rename",
+    "body": [
+      "Layer 7 — Rename (new).** AST-aware polyglot rename engine for seamless fork rebranding. Three new tools take forkable from 19 → 22 tools across 7 layers:",
+      "`forkable_rename_plan` — read-only AST-aware planner; emits reviewable diff",
+      "`forkable_rename_apply` — snapshots, then applies five passes in order",
+      "`forkable_rename_rollback` — restores from latest snapshot",
+      "Nobody in the fork-rebrand space (cookiecutter, copier, create-*, rebrand.sh) does AST-aware rename. forkable now does — via `@ast-grep/napi` for polyglot symbol matching, `ts-morph` for TypeScript deep refactoring, plus a structured identity-manifest pass, a fence-aware textual pass, and a post pass that regenerates lockfiles / moves paths / emits an asset-regen manifest.",
+      "```bash"
+    ],
+    "publishedAt": "2026-04-20T09:57:37Z",
+    "url": "https://github.com/mcp-tool-shop-org/forkable/releases/tag/v1.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ollama-intern-mcp",
+    "toolName": "Ollama Intern Mcp",
+    "tag": "v2.0.1",
+    "name": "v2.0.1 — dogfood-swarm health pass",
+    "body": [
+      "Three-stage dogfood-swarm health pass (A: bug/security, B: proactive, C: humanization). **No API or tool-surface changes** — all hardening, observability, and operator polish on the v2.0.0 surface.",
+      "corpus/indexer**: TOCTOU race fixed (stat-before-read), 50 MB file-size cap, symlink rejection via realpath, chunk IDs include content-hash (no cross-run collisions or 16 M wraparound), silent model-mismatch on reindex now errors",
+      "corpus/manifest**: validated paths on load, `schema_version_written_by` stamp prevents silent downgrade",
+      "corpus/storage**: `MAX_CHUNKS = 100_000` guard before serialize",
+      "tools/artifacts**: `assertUnderAllowedRoots` rewritten with `path.relative` (authoritative containment)",
+      "tools/triage_logs**: `sanitizePatterns()` guards prompt injection"
+    ],
+    "publishedAt": "2026-04-20T08:22:48Z",
+    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "forkable",
+    "toolName": "Forkable",
+    "tag": "v1.0.0",
+    "name": "v1.0.0 — initial release",
+    "body": [
+      "Adoption control plane for GitHub repos.** Not a fork wrapper — an end-to-end layer that scores adoption-readiness, picks fork vs template, executes the copy as a tracked async operation, leaves the result runnable, and keeps it synced.",
+      "📦 **npm:** [`@mcptoolshop/forkable`](https://www.npmjs.com/package/@mcptoolshop/forkable)",
+      "🌐 **Landing:** https://mcp-tool-shop-org.github.io/forkable/",
+      "📖 **Handbook:** https://mcp-tool-shop-org.github.io/forkable/handbook/",
+      "| Layer | Tools |",
+      "|---|---|"
+    ],
+    "publishedAt": "2026-04-20T00:01:52Z",
+    "url": "https://github.com/mcp-tool-shop-org/forkable/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ollama-intern-mcp",
+    "toolName": "Ollama Intern Mcp",
+    "tag": "v2.0.0",
+    "name": "v2.0.0 — Hermes-ready release",
+    "body": [
+      "Hermes-ready release.** The blocker that stopped `incident_pack` working end-to-end with [Hermes Agent](https://github.com/NousResearch/hermes-agent) on `hermes3:8b` is fixed, the default model ladder moves to the validated integration path, and Qwen 3 gets first-class runtime support for callers who want it.",
+      "Default model ladder is now `hermes3:8b`** (was `qwen2.5:*-instruct-q4_K_M`). The `dev-rtx5080` profile collapses Instant/Workhorse/Deep onto the validated Hermes Agent integration path.",
+      "Retired profile `dev-rtx5080-llama` removed.** `INTERN_PROFILE=dev-rtx5080-llama` now falls back to default rather than erroring.",
+      "New profile `dev-rtx5080-qwen3`** for callers who want the same-family Qwen 3 ladder + `THINK_BY_SHAPE` plumbing.",
+      "`m5-max` profile moved to Qwen 3** (`qwen3:14b` / `qwen3:14b` / `qwen3:32b`) — qwen2.5 is retired on modern Ollama installs.",
+      "Corpus manifest schema v1 → v2** with new `embed_model_resolved` field. v1 manifests auto-migrate on load — no action required."
+    ],
+    "publishedAt": "2026-04-19T22:16:01Z",
+    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.0.0",
+    "prerelease": false
+  },
+  {
     "repo": "ollama-intern-mcp",
     "toolName": "Ollama Intern Mcp",
     "tag": "v1.0.2",
@@ -723,46 +791,6 @@
     ],
     "publishedAt": "2026-03-03T02:05:00Z",
     "url": "https://github.com/mcp-tool-shop-org/site-theme/releases/tag/v1.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-camp",
-    "toolName": "Xrpl Camp",
-    "tag": "v1.0.6",
-    "name": "v1.0.6",
-    "body": [],
-    "publishedAt": "2026-03-02T17:41:23Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.0.6",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v1.4.6",
-    "name": "v1.4.6",
-    "body": [],
-    "publishedAt": "2026-03-02T17:41:22Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v1.4.6",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v1.4.5",
-    "name": "v1.4.5",
-    "body": [],
-    "publishedAt": "2026-03-02T17:32:57Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v1.4.5",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-camp",
-    "toolName": "Xrpl Camp",
-    "tag": "v1.0.5",
-    "name": "v1.0.5",
-    "body": [],
-    "publishedAt": "2026-03-02T17:32:36Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.0.5",
     "prerelease": false
   }
 ]

@@ -270,6 +270,22 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
+  "forkable": {
+    "tags": [
+      "cli",
+      "fork",
+      "github",
+      "mcp",
+      "model-context-protocol",
+      "template"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "npx forkable",
+    "tagline": "Adoption control plane for GitHub repos.",
+    "needsHumanReview": true
+  },
   "game-foundry-os": {
     "lane": "active_lab",
     "surfaceEligible": true
