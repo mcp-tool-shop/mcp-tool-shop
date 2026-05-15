@@ -244,6 +244,22 @@
     "lane": "active_lab",
     "surfaceEligible": true
   },
+  "creator-studio-os": {
+    "tags": [
+      "apple",
+      "applescript",
+      "automation",
+      "compressor",
+      "fcpxml",
+      "final-cut-pro"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install creator-studio-os",
+    "tagline": "MCP control plane for Apple Creator Studio apps — drive Final Cut Pro, Compressor,...",
+    "needsHumanReview": true
+  },
   "escape-the-valley": {
     "category": "infrastructure",
     "stability": "stable",
@@ -499,6 +515,37 @@
     "lane": "active_lab",
     "surfaceEligible": true
   },
+  "research-os": {
+    "tags": [
+      "ai-research",
+      "citations",
+      "claim-extraction",
+      "claim-tracing",
+      "claude",
+      "cowork"
+    ],
+    "category": "mcp-core",
+    "stability": "beta",
+    "kind": "library",
+    "install": "npm install research-os",
+    "tagline": "Local-first research control plane for gated source packs, claim truth, contradiction...",
+    "needsHumanReview": true
+  },
+  "research-packs": {
+    "tags": [
+      "archive",
+      "claim-traceability",
+      "frozen-packs",
+      "monorepo",
+      "research",
+      "research-os"
+    ],
+    "category": "security",
+    "stability": "experimental",
+    "kind": "cli",
+    "tagline": "Frozen research packs with source truth, claim traceability, and audit receipts.",
+    "needsHumanReview": true
+  },
   "role-os": {
     "lane": "shipped",
     "surfaceEligible": true
@@ -520,6 +567,16 @@
     "needsHumanReview": true,
     "lane": "shipped",
     "surfaceEligible": true
+  },
+  "runforge-vscode": {
+    "tags": [
+      "ml"
+    ],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "vscode-extension",
+    "tagline": "Push-button ML training with presets, indexed runs, and artifact inspection — all...",
+    "needsHumanReview": true
   },
   "saints-mile": {
     "tags": [
@@ -632,6 +689,22 @@
     "tagline": "Ambient sound mixer for focus and regulation â€” 50 layered sounds, per-layer volume,...",
     "lane": "active_lab",
     "surfaceEligible": true
+  },
+  "storyboard-os": {
+    "tags": [
+      "astro",
+      "authoring-tool",
+      "campaign",
+      "game-design",
+      "game-narrative",
+      "konva"
+    ],
+    "category": "games",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install storyboard-os",
+    "tagline": "Visual story-structure platform.",
+    "needsHumanReview": true
   },
   "style-dataset-lab": {
     "tags": [
