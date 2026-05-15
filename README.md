@@ -1,12 +1,14 @@
 <div align="center">
 
-<img src="logo.png" alt="MCP Tool Shop" width="200">
-
-# mcp-tool-shop
+<img src="https://raw.githubusercontent.com/mcp-tool-shop-org/brand/main/logos/mcp-tool-shop.github.io/readme.png" alt="MCP Tool Shop" width="400">
 
 **Weekly spotlights on MCP tools that actually help.**
 
-[Live Site](https://mcp-tool-shop.github.io/) · [Trust Center](https://mcp-tool-shop.github.io/trust/) · [Browse Tools](https://mcp-tool-shop.github.io/tools/) · [This Week's Spotlight](https://mcp-tool-shop.github.io/now/)
+[![CI](https://github.com/mcp-tool-shop/mcp-tool-shop/actions/workflows/site-quality.yml/badge.svg)](https://github.com/mcp-tool-shop/mcp-tool-shop/actions/workflows/site-quality.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Live Site](https://img.shields.io/badge/Live%20Site-mcptoolshop.com-blue)](https://mcptoolshop.com/)
+
+[Live Site](https://mcptoolshop.com/) · [Trust Center](https://mcptoolshop.com/trust/) · [Browse Tools](https://mcptoolshop.com/tools/) · [This Week's Spotlight](https://mcptoolshop.com/now/)
 
 </div>
 
@@ -18,7 +20,7 @@
 - **Journalists and reviewers** looking for press kits with receipt-backed spotlight picks. See the [Presskit Handbook](docs/presskit-handbook.md).
 - **Other orgs** who want to run the spotlight engine for their own catalog. See [Portable Core](docs/portable-core.md).
 
-**Not for**: End users of individual tools -- go to the [tool pages](https://mcp-tool-shop.github.io/tools/) instead.
+**Not for**: End users of individual tools -- go to the [tool pages](https://mcptoolshop.com/tools/) instead.
 
 ## 60-Second Quickstart
 
@@ -43,14 +45,14 @@ To add a tool: push a repo to [mcp-tool-shop-org](https://github.com/mcp-tool-sh
 
 Every spotlight pick is backed by receipts, not promises.
 
-- **555 tests** (449 unit + 106 invariant), all passing
+- **566 tests** (449 unit + 117 invariant), all passing
 - **Zero runtime deps** -- nothing to audit, nothing to break
-- **Receipt-verified spotlight picks** -- every promo week has hashed inputs and a commit SHA ([browse receipts](https://mcp-tool-shop.github.io/receipts/))
-- **Freeze modes** -- automation pauses when frozen; humans must intervene ([Trust Center](https://mcp-tool-shop.github.io/trust/))
+- **Receipt-verified spotlight picks** -- every promo week has hashed inputs and a commit SHA ([browse receipts](https://mcptoolshop.com/receipts/))
+- **Freeze modes** -- automation pauses when frozen; humans must intervene ([Trust Center](https://mcptoolshop.com/trust/))
 - **Decision drift detection** -- week-over-week changes are flagged automatically
-- **Proven claims** -- MarketIR claims are evidence-backed and independently verifiable ([view proofs](https://mcp-tool-shop.github.io/proof/))
+- **Proven claims** -- MarketIR claims are evidence-backed and independently verifiable ([view proofs](https://mcptoolshop.com/proof/))
 
-Verify any week yourself: visit a [spotlight page](https://mcp-tool-shop.github.io/receipts/), copy the commit SHA, checkout that commit, and compare `sha256sum` on each input file.
+Verify any week yourself: visit a [spotlight page](https://mcptoolshop.com/receipts/), copy the commit SHA, checkout that commit, and compare `sha256sum` on each input file.
 
 Example outputs: [trust receipt](docs/examples/trust-receipt.json) · [drift report](docs/examples/decision-drift.json) · [recommendations](docs/examples/recommendations.json)
 
@@ -111,11 +113,13 @@ See [SECURITY.md](SECURITY.md) and [docs/SECURITY-MODEL.md](docs/SECURITY-MODEL.
 ## Support
 
 - **Issues**: [github.com/mcp-tool-shop/mcp-tool-shop/issues](https://github.com/mcp-tool-shop/mcp-tool-shop/issues)
-- **Trust verification**: [Trust Center](https://mcp-tool-shop.github.io/trust/)
+- **Trust verification**: [Trust Center](https://mcptoolshop.com/trust/)
 - **Press inquiries**: [Presskit Handbook](docs/presskit-handbook.md)
 
 <div align="center">
 
-**[mcp-tool-shop-org](https://github.com/mcp-tool-shop-org)** · **[mcp-tool-shop.github.io](https://mcp-tool-shop.github.io/)**
+**[mcp-tool-shop-org](https://github.com/mcp-tool-shop-org)** · **[mcptoolshop.com](https://mcptoolshop.com/)**
+
+Built by <a href="https://mcptoolshop.com/">MCP Tool Shop</a>
 
 </div>
