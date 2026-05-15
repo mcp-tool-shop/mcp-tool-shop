@@ -76,12 +76,18 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+          # Create/reset branch first so the index is unambiguously on the target branch
+          git checkout -B "$BRANCH"
+
           # Force-add normally-gitignored target output
           git add -f site/public/targets/
 
-          git checkout -B "$BRANCH"
-          git commit -m "chore(auto): weekly target discovery"
+          if git diff --cached --quiet; then
+            echo "No staged changes after add -f — targets identical to current HEAD. Nothing to publish this week."
+            exit 0
+          fi
 
+          git commit -m "chore(auto): weekly target discovery"
           git push --force origin "$BRANCH"
 
           TOTAL="${{ steps.diff.outputs.total }}"

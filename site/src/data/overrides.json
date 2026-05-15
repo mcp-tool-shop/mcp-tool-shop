@@ -244,23 +244,6 @@
     "lane": "active_lab",
     "surfaceEligible": true
   },
-  "dogfood-labs": {
-    "tags": [
-      "dogfood",
-      "evidence",
-      "governance",
-      "mcp-tool-shop",
-      "quality",
-      "verification"
-    ],
-    "category": "infrastructure",
-    "stability": "experimental",
-    "kind": "library",
-    "install": "npm install dogfood-labs",
-    "tagline": "Centralized dogfood evidence system â€” proves every repo was actually exercised in a...",
-    "lane": "active_lab",
-    "surfaceEligible": true
-  },
   "escape-the-valley": {
     "category": "infrastructure",
     "stability": "stable",
@@ -270,7 +253,7 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
-  "forkable": {
+  "forkctl": {
     "tags": [
       "cli",
       "fork",
@@ -282,7 +265,7 @@
     "category": "ml",
     "stability": "stable",
     "kind": "mcp-server",
-    "install": "npx forkable",
+    "install": "npx forkctl",
     "tagline": "Adoption control plane for GitHub repos.",
     "needsHumanReview": true
   },
