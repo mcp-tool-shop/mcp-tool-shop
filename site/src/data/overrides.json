@@ -546,6 +546,22 @@
     "tagline": "Frozen research packs with source truth, claim traceability, and audit receipts.",
     "needsHumanReview": true
   },
+  "rig-bridge": {
+    "tags": [
+      "async-messaging",
+      "cli",
+      "cross-rig",
+      "developer-tools",
+      "envelope-protocol",
+      "git"
+    ],
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "npx rig-bridge",
+    "tagline": "Cross-rig sync tool for paired dev machines.",
+    "needsHumanReview": true
+  },
   "role-os": {
     "lane": "shipped",
     "surfaceEligible": true
@@ -767,6 +783,14 @@
     "flyio": "https://tool-compass-gateway.fly.dev",
     "lane": "shipped",
     "surfaceEligible": true
+  },
+  "vocal-synth-engine": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install vocal-synth-engine",
+    "tagline": "Deterministic vocal instrument engine — additive synthesis with formant control.",
+    "needsHumanReview": true
   },
   "world-forge": {
     "tags": [

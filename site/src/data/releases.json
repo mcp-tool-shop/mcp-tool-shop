@@ -1,5 +1,174 @@
 [
   {
+    "repo": "research-os",
+    "toolName": "Research Os",
+    "tag": "v0.12.1",
+    "name": "research-os v0.12.1 — synth planner timeout override (Path C patch)",
+    "body": [
+      "v0.12.1 is a single-repair patch on top of v0.12.0. It ships R-018 only — a research-os-side wrapper timeout on synth prose MCP `callTool` calls, controlled by an operator-discoverable CLI flag and env var with default behavior preserved byte-identical to v0.12.0.",
+      "The release exists because the v0.4 operator-aloneness gate against npm `@mcptoolshop/research-os@0.12.0` returned **PASS_WITH_CONDITIONS, NOT authorization-grade** (`operator_aloneness_dst_v0.4`). The v0.11 defense floor held under live load (R-007 / R-009 / R-010 / R-011 all PROVEN_LIVE; R-008 not needed this run). All six v0.12 coverage-recovery surfaces fired live and carried the operator: R-012 LLM rescue auto-rescued 24/28 source_content_mismatch claims; R-013 rebuilt 19 cards through cached-body buildCard; R-014 exercised both state-changed and no-regen-needed paths; R-015 resume+progress shipped; R-016 example consulted before override authoring; R-017 missed one natural policy-phrasing keyword and was logged as a v0.13 candidate. Sealed envelope coverage reached PASS thresholds (4/5 SUPPORTED + 1 PARTIAL must-include; 2/3 SUPPORTED + 1 PARTIAL moderators; 0/3 traps; 0/5 material failures triggered). Contamination markers were all HARMLESS. The single failure mode was finalization: synth prose hit `TIER_TIMEOUT` reproducibly at ~15010ms vs the 15s Instant-tier budget across both gate-eligible sections, with no documented CLI / env-var override to raise it. Section briefs were envelope-compliant; the pack just couldn't reach freeze.",
+      "Path C disposition (new pattern earned at v0.4) — when Session B identifies a single named failure mechanism with an explicit patch path AND envelope coverage is at PASS thresholds AND the defense floor is preserved AND contamination is HARMLESS, the disposition is: ship the patch, rerun the same operator path against the patched version, re-grade. No envelope re-authoring. No human rater. No v0.13 architectural arc. v0.12.1 is the named patch; the v0.4 rerun against published v0.12.1 is the prerequisite for Admissibility Slice 1 authorization.",
+      "> **v0.4 proves coverage-grade Research-OS at the section-brief level.**",
+      "> **v0.12.1 must prove finalization-grade by removing the single planner-timeout bottleneck without weakening the defense floor.**",
+      "`research-os synth section <id> --planner-timeout-ms <N>`** (R-018, commit `e6957dd`) — opt-in CLI flag that overrides the research-os-side wrapper timeout for synth prose MCP `callTool` calls on a per-section synth run. Also registered on `synth workspace --section <id>`. Accepts integers in `[1, 600000]` (600000ms = 10-minute safety rail against typo runaway). Documented in `--help` with default, upper bound, and env-var alternative."
+    ],
+    "publishedAt": "2026-05-16T13:31:37Z",
+    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.12.1",
+    "prerelease": false
+  },
+  {
+    "repo": "research-os",
+    "toolName": "Research Os",
+    "tag": "v0.12.0",
+    "name": "research-os v0.12.0 — coverage-recovery release",
+    "body": [
+      "v0.12.0 closes the v0.3 operator-aloneness gate findings surfaced 2026-05-16 (`operator_aloneness_dst_v0.3`, PASS_WITH_CONDITIONS but not authorization-grade). The release is a four-slice arc covering six named findings (R-012 through R-017) across two halves: three architectural repairs that close the v0.4-blocking coverage gaps, and three ergonomic closures that improve the operator surface the v0.4 gate will exercise. v0.3 failed authorization not because defenses regressed — all five v0.11 defense surfaces (R-007 through R-011) fired exactly as designed, captured the contamination cases they were built for, and produced a clean honest narrow synthesis with zero silent-wrong content — but because the same defenses, working correctly, trimmed load-bearing primary-source coverage out of the accepted-claim base. The pack reached FROZEN, the operator hit the gate honestly, and the sealed envelope showed 3/5 must-include claims MISSING + 2/3 moderators MISSING + 2/5 material failure conditions TRIGGERED (failure_3 no null-result; failure_4 AASM omitted). The doctrine ratchet earned at v0.3 named the failure shape: defense-grade operator-aloneness PROVEN; coverage-grade operator-aloneness NOT yet. v0.12.0 is the answer.",
+      "> **v0.11 made the system safe enough to avoid silent-wrong synthesis.**",
+      "> **v0.12 makes it more capable of recovering coverage without weakening those defenses.**",
+      "The v0.11 defense floor stays unchanged. v0.12 adds lawful, witnessed recovery paths on top.",
+      "> **Thesis:** Conservative defenses can prevent silent-wrong synthesis, but they can also starve the pack of necessary coverage.",
+      "R-011 rescue path for source_content_mismatch exclusions** (R-012, commit `74f54ed`) — three-stage sequential pipeline added inside the extract loop: deterministic eligibility gate (`non_excluded_on_topic_peers >= 2` from the same source body) → LLM rescue critic (per-source rescue decision with operator-readable rationale) → operator rescue CLI (`research-os claim rescue`, post-extraction). Closed enum `FrameRescueStatus` (5 values: `not_rescued | rescued_by_llm | rescued_by_operator | operator_declined | ineligible_for_rescue`). Hard invariant enforced in code at three layers (extractor, operator CLI, pure gate): rescues that change `frame_excluded: true → false` are witnessed by an append-only ledger entry. New append-only `evidence/claim-frame-rescues.jsonl` recording every rescue event with `rescue_scope` + `rescue_boundary` metadata. Rescue metadata NEVER rewrites the original claim's `scope` or `not` fields — original claim state is preserved alongside the rescue record."
+    ],
+    "publishedAt": "2026-05-16T09:16:55Z",
+    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.12.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ollama-intern-mcp",
+    "toolName": "Ollama Intern Mcp",
+    "tag": "v2.5.3",
+    "name": "v2.5.3",
+    "body": [
+      "Patch — finishes the macOS realpath story. v2.5.1 realpath'd allowedRoots. v2.5.2 realpath'd the assertSafePath input. Both fail when the input file doesn't exist (synthetic-path amends — a documented use case where the path is recorded in the manifest before the operator creates the file). v2.5.3 fixes this by expanding allowedRoots to return BOTH the literal-normalized form AND the realpath form. Input check passes if it matches either side — no longer requires input.realpath to succeed.",
+      "`src/corpus/manifest.ts:allowedRoots()` returns both literal + realpath forms.** On macOS, `/var/folders/...` and `/private/var/folders/...` are the same directory through the system symlink. With both forms in the allowed-roots set, an input path in either form matches without requiring the input itself to exist on disk. Closes the corpusAmend macOS failure where synthetic-path tests pass an `INTERN_CORPUS_ALLOWED_ROOTS = /var/folders/...` but `corpusAmend` is called with a path whose file isn't on disk (`realpathSync` throws ENOENT → falls back to literal → doesn't match the realpath'd root from v2.5.1).",
+      "Local 958/959 passing. Coverage thresholds unchanged."
+    ],
+    "publishedAt": "2026-05-16T04:22:16Z",
+    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.5.3",
+    "prerelease": false
+  },
+  {
+    "repo": "ollama-intern-mcp",
+    "toolName": "Ollama Intern Mcp",
+    "tag": "v2.5.2",
+    "name": "v2.5.2",
+    "body": [
+      "Patch — completes the v2.5.1 macOS fix. v2.5.1 made `allowedRoots()` realpath each entry, but the INPUT path passed to `assertSafePath()` was still un-realpath'd by `corpusAmend.ts` (and any other caller that doesn't go through the indexer's `realpath → assertSafePath` pipeline). On macOS that left `/var/folders/...` (input) vs `/private/var/folders/...` (root) asymmetric — paths were still rejected as outside-roots. This patch realpaths inside `assertSafePath` itself so both sides match, with an OR-fallback to the normalized form so non-existent paths still validate against the literal allowed-roots string (preserves the historical pre-realpath behavior for the indexer's \"file recorded in manifest but no longer on disk\" case).",
+      "Also fixes the Doc Drift workflow to `npm run build` before `npm test` — without it, tests that spawn `dist/index.js` (cli, mcpGolden, mcp.integration, pack) error at `beforeAll`, making the parseable pass count artificially low and exit code 1.",
+      "`src/corpus/manifest.ts:assertSafePath` realpaths the input path before comparison.** Symmetric with v2.5.1's `allowedRoots()` realpath. Now `corpusAmend` (and any future caller that doesn't pre-realpath) compares apples-to-apples. Fallback: if `realpathSync` fails (file doesn't exist yet), use the normalized form — both candidates are tried so any path that passed pre-v2.5.1 still passes.",
+      "`.github/workflows/doc-drift.yml`** adds `npm run build` between install and test.",
+      "Tests, typecheck, build, coverage thresholds unchanged. Local Windows run: 958/959 passing."
+    ],
+    "publishedAt": "2026-05-16T04:17:16Z",
+    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.5.2",
+    "prerelease": false
+  },
+  {
+    "repo": "ollama-intern-mcp",
+    "toolName": "Ollama Intern Mcp",
+    "tag": "v2.5.1",
+    "name": "v2.5.1",
+    "body": [
+      "Patch — closes three cross-platform CI matrix failures the v2.5.0 multi-OS strategy surfaced on first invocation. No API or behavior changes. The release-spine doing exactly what it was built to do: catching real platform-sensitive code that had been sitting in the repo behind the Linux-only gate.",
+      "`tests/errorHintQuality.test.ts` Node 20 compatibility.** Test used `fs.globSync` which is a Node 22+ API; Node 20 doesn't have it (`TypeError: globSync is not a function`). Replaced with a small hand-rolled `walkTsFilesSync` (recursive `readdirSync` with `withFileTypes`). Skips `.dot` dirs + `node_modules`. No new dep. `engines.node: \">=20.0.0\"` honored.",
+      "`src/corpus/manifest.ts` macOS realpath consistency.** `allowedRoots()` returned entries as-is, while the indexer calls `realpath(path)` before checking them. On macOS, `realpath('/var/folders/...')` resolves to `/private/var/folders/...` (the canonical symlink target). An allowed root configured as `/var/folders/...` was therefore rejected as outside-roots even though it pointed at the same directory. `allowedRoots()` now calls `realpathSync` on each entry (fall through to `normalize` if the path doesn't exist yet). Tests on macOS that set `INTERN_CORPUS_ALLOWED_ROOTS = tmpdir()` now produce paths consistent with `realpath(file)` from inside the indexer.",
+      "`tests/corpus/indexerSearcher.test.ts` Windows skip widened.** The TOCTOU-style \"outside allowed roots\" test had a dynamic skip (`if (tmpdir().startsWith(homedir())) return`) intended to catch the local-dev case where Windows tmpdir is under the user profile. On GitHub Actions Windows runners, tmpdir is on `D:\\a\\_temp` and homedir is on `C:\\Users\\runneradmin` (different drive), so the dynamic skip didn't fire but the test setup couldn't produce a reliable \"outside\" path either. Skip is now `process.platform === 'win32'` unconditionally; `assertSafePath` has its own direct unit tests covering the rejection path, this integration test exists to verify the indexer's `realpath → assertSafePath` wiring on POSIX where the topology is controllable.",
+      "Tests, typecheck, build, coverage thresholds unchanged. Local Windows run: 958/959 passing, 1 todo. Coverage holds at 86.52% statements / 88.94% lines.",
+      "v2.5.0 npm package + GitHub release are unaffected — the publish workflow gated on `ubuntu × 22` which passed; this patch only restores green CI across the multi-OS verify matrix that v2.5.0 introduced."
+    ],
+    "publishedAt": "2026-05-16T04:06:52Z",
+    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.5.1",
+    "prerelease": false
+  },
+  {
+    "repo": "ollama-intern-mcp",
+    "toolName": "Ollama Intern Mcp",
+    "tag": "v2.5.0",
+    "name": "v2.5.0",
+    "body": [
+      "Health hardening, proactive defenses, humanization of error/observability surfaces, and 10 user-facing feature additions from a 10-phase dogfood swarm. The 41-tool surface gains `ollama_code_review` (42 total). Correlation IDs now propagate across every NDJSON event so an operator can join `pack_step` to its originating `tools/call` envelope. A breaking behavior change in the confidence guardrail default (now fail-closed) is the reason for the minor bump's prominence — see **Changed** below.",
+      "`ollama_code_review` atom tool.** Structured PR review: takes a unified diff (`diff_text`, 2MB cap) + optional source paths (max 50), returns `{findings:[{severity, category, file, line?, symbol?, description, recommendation}], summary, diff_size_bytes}`. Severity `critical|high|medium|low`, category `bug|security|performance|style|maintainability`. `severity_floor` and `max_findings` filters. Tier defaults to workhorse; `tier:'deep'` for high-stakes. `coerceReview` drops malformed entries instead of throwing — same pattern as `coerceOnboardingFacts` in packs. Distinct from `ollama_multi_file_refactor_propose` (which proposes refactors): code_review flags issues to fix in the diff as-is.",
+      "Correlation IDs across the stack.** Every NDJSON event now carries `{run_id, call_id?, parent_call_id?, op, ...}` where `run_id` is minted in `runner.ts` at every tool entry, `call_id` is per-HTTP-attempt, and `parent_call_id` lets pack sub-step events link back to the originating tool call. `op` enum is closed (`chat|embeddings|pack_step|semaphore_wait|guardrail|shutdown|startup`), borrows OTel `gen_ai.operation.name` vocab. Propagation uses Node's `AsyncLocalStorage` — no parameter threading required for the read side. Tool envelopes echo `run_id` for client-side correlation. Design grounded by a study-swarm (W3C TraceContext / OTel GenAI / MCP progressToken trade-offs; see commit messages for sources).",
+      "CLI surface.** `npx ollama-intern-mcp [--version|-V|--help|-h|doctor|init]`. Doctor reuses the `ollama_doctor` tool with NullLogger and renders a human-readable report (Profile / Tiers / Ollama / Models / Healthy). Init scaffolds `hermes.config.yaml` in cwd, refuses to overwrite. No new dependencies.",
+      "Profile validation fail-fast.** `INTERN_TIER_<TIER>` env values are validated at `loadProfile()` against `^[a-z0-9._-]+(:[a-z0-9._-]+)?$` for model names and `[256, 1048576]` for `num_ctx`. Catches the `hermes3-8b` (dash instead of colon) typo at load time with a \"Did you mean hermes3:8b?\" hint instead of failing as `OLLAMA_MODEL_MISSING` hours later.",
+      "Vitest coverage configuration.** `npm run test:coverage` (v8 provider, 4 reporters incl. lcov + json-summary, thresholds 70/70/60/70 lines/functions/branches/statements). Current suite reports 86.52% statements / 88.94% lines / 73.96% branches / 86.80% functions."
+    ],
+    "publishedAt": "2026-05-16T02:42:15Z",
+    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.5.0",
+    "prerelease": false
+  },
+  {
+    "repo": "research-os",
+    "toolName": "Research Os",
+    "tag": "v0.11.0",
+    "name": "v0.11.0 — Second Operator-Aloneness Repair Release",
+    "body": [
+      "Release date:** 2026-05-15",
+      "npm:** `@mcptoolshop/research-os@0.11.0`",
+      "Requires:** `ollama-intern-mcp@^2.4.0`",
+      "v0.11.0 closes the v0.2 operator-aloneness gate failure conditions surfaced 2026-05-15 (`operator_aloneness_dst_v0.2`, PASS_WITH_CONDITIONS but not authorization-grade). The release is a 4-slice repair arc covering 5 named findings: scope/boundary repair alignment (R-007), discover-time URL relevance check (R-008), paired source-content contamination defense at extraction and frame-critic layers (R-009 + R-011), and recover advisor fallback-cause visibility (R-010). v0.2 failed authorization because three independent contamination paths slipped past v0.10.0's defenses — `repair-scope --auto` filled `scope` but left `not` null so triage re-classified claims as `needs_scope_repair`, `llm-heuristic` discover presented real-but-unrelated PMC URLs as confidence-high candidates, and the extractor + frame-critic chain admitted 11 cancer-paper-derived claims with DST-framed text. The accept-floor invariant was the only designed defense that fired structurally; v0.11.0 closes the upstream gaps so v0.3 of the gate can fire against fresh operator runs.",
+      "```",
+      "Slice 1 → claim repair-scope fills both scope + not          (R-007)"
+    ],
+    "publishedAt": "2026-05-16T02:38:31Z",
+    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.11.0",
+    "prerelease": false
+  },
+  {
+    "repo": "brand",
+    "toolName": "Brand",
+    "tag": "v1.0.4",
+    "name": "v1.0.4 — dogfood swarm: 170+ findings, 31→137 tests",
+    "body": [
+      "10-phase dogfood swarm. **170+ findings closed** across health (Stages A–D) + visual polish + treatment phases. **Test suite grew from 31 → 137 tests (+342%)**.",
+      "`brand stats` was shipped-broken in v1.0.3 — read `manifest.logos` but the real manifest shape is `manifest.assets`. Live output reported `Manifest entries: 4` against 187 real logos. Now correct.",
+      "`--json` mode on `verify`, `audit`, `migrate`, `manifest --check` (joining `stats`).",
+      "`--quiet` / `--verbose` global flags.",
+      "Differentiated exit codes: **0** success, **1** drift/mismatch, **2** operator error, **3** unexpected.",
+      "`brand migrate` is now transactional: per-file atomic write (temp + rename), per-repo journal at `<repo>/.brand-migrate.journal.json`, `--resume` to recover from a partial cross-org run, per-repo try/catch, TTY progress indicator."
+    ],
+    "publishedAt": "2026-05-16T01:26:12Z",
+    "url": "https://github.com/mcp-tool-shop-org/brand/releases/tag/v1.0.4",
+    "prerelease": false
+  },
+  {
+    "repo": "rig-bridge",
+    "toolName": "Rig Bridge",
+    "tag": "v1.0.2",
+    "name": "v1.0.2",
+    "body": [],
+    "publishedAt": "2026-05-16T00:57:35Z",
+    "url": "https://github.com/mcp-tool-shop-org/rig-bridge/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "rig-bridge",
+    "toolName": "Rig Bridge",
+    "tag": "v1.0.1",
+    "name": "v1.0.1",
+    "body": [],
+    "publishedAt": "2026-05-15T21:29:35Z",
+    "url": "https://github.com/mcp-tool-shop-org/rig-bridge/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "research-os",
+    "toolName": "Research Os",
+    "tag": "v0.10.0",
+    "name": "v0.10.0 — Operator-Aloneness Repair Release",
+    "body": [
+      "Release date:** 2026-05-15",
+      "npm:** `@mcptoolshop/research-os@0.10.0`",
+      "Requires:** `ollama-intern-mcp@^2.4.0`",
+      "v0.10.0 closes the v0.1 operator-aloneness gate failure conditions surfaced on 2026-05-15 (`operator_aloneness_dst_v0.1`, FAIL). The release is a 4-slice repair arc: recovery routing alignment (R-002), scope-repair CLI (R-001), paired source-card audit hardening (R-003 + R-005), and honest `gather_outcome` status (R-004). The v0.1 gate FAILED because an external operator hit three independent walls — `recover` recommended the wrong unblock path, no CLI existed to repair `scope=null` claims, and source-card audit passed a fabricated COVID-19 card extracted from a 1035-byte APA Incapsula bot-check fragment. v0.10.0 closes those walls so v0.2 of the gate can fire against fresh operator runs.",
+      "```",
+      "Slice 1 → recover advisor routes from gate state              (R-002)"
+    ],
+    "publishedAt": "2026-05-15T21:08:10Z",
+    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.10.0",
+    "prerelease": false
+  },
+  {
     "repo": "tool-compass",
     "toolName": "Tool Compass",
     "tag": "v2.3.0",
@@ -68,23 +237,6 @@
     "prerelease": false
   },
   {
-    "repo": "research-os",
-    "toolName": "Research Os",
-    "tag": "v0.8.0",
-    "name": "v0.8.0 — Architecture Recovery",
-    "body": [
-      "Release date:** 2026-05-12",
-      "npm:** `@mcptoolshop/research-os@0.8.0`",
-      "Substrate:** `ollama-intern-mcp@^2.4.0`",
-      "v0.8.0 reconnects research-os to its declared local-LLM substrate (ollama-intern-mcp), enforces section topicality with an extraction-time critic, and produces section-scoped evidence-citation briefs from the resulting accepted claims. Pack-level narrative synthesis remains gated on whole-pack synthesis-readiness; this release does not ship narrative drafting.",
-      "This is a meaningful release. v0.7.1 was absorbed into v0.8.0 — the section-level synthesis machinery shipped here, but is correctly framed as evidence-citation output rather than narrative drafting. The architecture-recovery framing is honest: the README declared ollama-intern-mcp as a runtime requirement since the v0.1 scaffold (2026-05-06), but the code had internal direct-Ollama stubs bypassing the MCP. v0.8.0 closes that drift.",
-      "MCP client substrate.** Binary discovery (`OLLAMA_INTERN_MCP_BIN` env or PATH) + `StdioClientTransport` wiring connect research-os to `ollama-intern-mcp@^2.4.0` over MCP. Replaces internal direct-Ollama stubs that previously bypassed the declared substrate."
-    ],
-    "publishedAt": "2026-05-12T07:36:35Z",
-    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.8.0",
-    "prerelease": false
-  },
-  {
     "repo": "ollama-intern-mcp",
     "toolName": "Ollama Intern Mcp",
     "tag": "v2.4.0",
@@ -99,91 +251,6 @@
     ],
     "publishedAt": "2026-05-12T05:17:02Z",
     "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.4.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ollama-intern-mcp",
-    "toolName": "Ollama Intern Mcp",
-    "tag": "v2.3.0",
-    "name": "v2.3.0 — per-call model override + calibration fidelity",
-    "body": [
-      "Released:** TBD (release-pending; coordinator handles tag + npm publish after the slice lands)",
-      "v2.3.0 adds per-call model override across LLM-backed atom tools. Orchestrators that maintain receipt-backed model identity (e.g., research-os reviewer profiles, calibration evidence, model-comparison proofs) can now specify an explicit model per call while preserving the tier/profile default behavior for tools that omit the override. Tier-based timeouts and fallback semantics are preserved. Composite/brief tools continue to use tier defaults; orchestrators needing per-call control should use atom tools directly.",
-      "This is a non-breaking additive minor. All v2.2.0 callers continue working unchanged.",
-      "The 8 LLM-backed atom tools accept an optional `model: string` input:",
-      "`ollama_extract`",
-      "`ollama_classify`"
-    ],
-    "publishedAt": "2026-05-12T03:21:12Z",
-    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ollama-intern-mcp",
-    "toolName": "Ollama Intern Mcp",
-    "tag": "v2.2.0",
-    "name": "v2.2.0 — local evidence-worker role contract",
-    "body": [
-      "Released:** 2026-05-11",
-      "v2.2.0 ships the local evidence-worker role contract: frame-bound topicality outputs on `extract` / `classify` / `summarize`, structured abstention on `ollama_research` / `ollama_corpus_answer`, retrieval scores preserved through brief evidence, and citation line-range bounds-checking. Designed in response to a research-os product proof that surfaced relevance as a first-class missing concept. research-os v0.8.0 (in development) will consume this contract via MCP, replacing direct-Ollama call paths.",
-      "This is a non-breaking additive minor. All v2.1.0 callers continue working unchanged. New behavior unlocks only when new optional inputs are supplied.",
-      "`ollama_extract`, `ollama_classify`, `ollama_summarize_fast`, and `ollama_summarize_deep` accept an optional `frame: string` input — the section purpose, question, or topic the call is being made FOR. When supplied, the model first judges whether the source addresses the frame, then either extracts/classifies/summarizes only the frame-relevant content or surfaces an explicit off-topic signal. Off-topic sources are flagged in a structured output field rather than paraphrased into the caller's schema.",
-      "Output fields (present only when `frame` was supplied):",
-      "`extract`: `frame_alignment: { on_topic: boolean, reason: string, unaddressed_aspects?: string[] }`"
-    ],
-    "publishedAt": "2026-05-12T02:23:51Z",
-    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "research-os",
-    "toolName": "Research Os",
-    "tag": "v0.7.0",
-    "name": "v0.7.0 — Dogfood Swarm Hardening",
-    "body": [
-      "Release date:** 2026-05-11",
-      "npm:** `@mcptoolshop/research-os@0.7.0`",
-      "Tests:** 901/901 (713 → 901, +188 across the swarm)",
-      "Frozen-pack regression:** all 4 packs byte-identical against v0.3.3 baselines",
-      "v0.7.0 hardens `research-os` after a full dogfood swarm: safer fetches, stronger pack publishing, resilient malformed-input handling, structured recovery errors, progress feedback, clearer operator docs, and preserved frozen-pack verification.",
-      "This is a hardening release. v1.0 is not yet authorized.** A separate v1 readiness arc opens around fresh-pack production proof and operator-first product positioning. See the [v1.0 readiness reassessment](#v10-readiness-reassessment) section below."
-    ],
-    "publishedAt": "2026-05-11T08:34:34Z",
-    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.7.0",
-    "prerelease": false
-  },
-  {
-    "repo": "research-os",
-    "toolName": "Research Os",
-    "tag": "v0.6.0",
-    "name": "v0.6.0 — canonical Hermes baseline produced with caveats",
-    "body": [
-      "v0.6.0 closes Experiment 6 with a canonical Hermes baseline produced with caveats. The baseline is reproducible and attributable, but Hermes is not promoted to `trusted_baseline`.**",
-      "The win is the mechanism, not a passing receipt.",
-      "`review_profiles.<name>.reviewer_options` in `research.yaml` carries `temperature`, `seed`, `top_p`, `top_k`, `repeat_penalty`, `num_ctx`. The CLI extracts these from the active preset and threads them into `OllamaInternReviewer` for both general and narrow-critic passes.",
-      "New seeded profile `hermes-two-pass-deterministic` (`status: experimental`) alongside the existing `hermes-two-pass` (unchanged).",
-      "`review.json` carries `reviewer_options` directly when the run used a preset that provides them.",
-      "`review.md` renders a `## Reviewer options` section conditionally — keys in stable order, omitted entirely when no options were set."
-    ],
-    "publishedAt": "2026-05-11T01:55:18Z",
-    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.6.0",
-    "prerelease": false
-  },
-  {
-    "repo": "research-os",
-    "toolName": "Research Os",
-    "tag": "v0.5.0",
-    "name": "v0.5.0 — reviewer calibration as durable trust contract",
-    "body": [
-      "v0.5.0 makes reviewer calibration durable.** A reviewer profile is not trusted because it ran once; it earns a status through structured seeded-failure receipts and multi-run aggregation.",
-      "Product guardrail:** *research-os can now refuse to trust a reviewer profile when repeated seeded failures do not support trust.*",
-      "The three canonical receipts shipped with v0.5.0:",
-      "| Profile | Status | Notes |",
-      "|---|---|---|",
-      "| `hermes-two-pass` | **`failed`** | Aggregate, 3 runs. Recurring failures: any-flag recall, per-category any-flag floor, decision vocab completeness. |"
-    ],
-    "publishedAt": "2026-05-10T23:17:41Z",
-    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.5.0",
     "prerelease": false
   },
   {
@@ -592,23 +659,6 @@
     "prerelease": false
   },
   {
-    "repo": "ollama-intern-mcp",
-    "toolName": "Ollama Intern Mcp",
-    "tag": "v2.1.0",
-    "name": "v2.1.0 — freeze lifted: 13 new tools + 4 enhancements",
-    "body": [
-      "The dogfood-swarm feature pass. The 28-tool surface freeze that held through v2.0.0-v2.0.2 is lifted; Hermes Agent integration has been validated end-to-end, so the local-labor layer is free to grow.",
-      "Tool count 28 → 41.** No breaking changes — drop-in upgrade from v2.0.x.",
-      "\\`\\`\\`",
-      "npm install ollama-intern-mcp@2.1.0",
-      "\\`\\`\\`",
-      "\\`ollama_doctor\\` — prereqs + status snapshot (Ollama reachability, loaded/pulled/required models, profile tiers). One-call health gate."
-    ],
-    "publishedAt": "2026-04-22T04:27:27Z",
-    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.1.0",
-    "prerelease": false
-  },
-  {
     "repo": "style-dataset-lab",
     "toolName": "Style Dataset Lab",
     "tag": "v3.1.0",
@@ -640,23 +690,6 @@
     ],
     "publishedAt": "2026-04-22T00:20:10Z",
     "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v3.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "ollama-intern-mcp",
-    "toolName": "Ollama Intern Mcp",
-    "tag": "v2.0.2",
-    "name": "v2.0.2 — zod v4 + TypeScript 6 toolchain bump",
-    "body": [
-      "Dependency migrations only, no API or behavior changes. All 481 tests pass on the new toolchain.",
-      "zod 3.25.76 → 4.3.6** (#18) — two in-house fixes for v4 breaking changes:",
-      "`z.record` now requires an explicit key type → `z.record(z.string(), z.unknown())`",
-      "`ctx.addIssue` no longer accepts bare `$ZodIssue` → issues are spread into a plain object",
-      "Supersedes and closes Dependabot #13",
-      "typescript 5.9.3 → 6.0.3, @types/node 20 → 22** (#20) — TS 6 tightened ambient-type handling; `tsconfig.json` now declares `\"types\": [\"node\"]` so node globals (`process`, `console`, `Buffer`, `node:` imports) resolve without TS 5's implicit fallback. Zero source changes. Supersedes and closes Dependabot #14."
-    ],
-    "publishedAt": "2026-04-21T04:49:05Z",
-    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.0.2",
     "prerelease": false
   },
   {
@@ -767,49 +800,6 @@
     ],
     "publishedAt": "2026-04-15T07:35:59Z",
     "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.0.5",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-camp",
-    "toolName": "Xrpl Camp",
-    "tag": "v1.3.1",
-    "name": "v1.3.1",
-    "body": [],
-    "publishedAt": "2026-04-15T05:37:48Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.3.1",
-    "prerelease": false
-  },
-  {
-    "repo": "repo-dataset",
-    "toolName": "Repo Dataset",
-    "tag": "v1.2.0",
-    "name": "v1.2.0",
-    "body": [
-      "7 README translations (ja, zh, es, fr, hi, it, pt-BR)",
-      "GitHub Pages handbook site live",
-      "```bash",
-      "npm install -g @mcptoolshop/repo-dataset",
-      "```"
-    ],
-    "publishedAt": "2026-04-14T21:23:43Z",
-    "url": "https://github.com/mcp-tool-shop-org/repo-dataset/releases/tag/v1.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "backpropagate",
-    "toolName": "Backpropagate",
-    "tag": "v1.0.4",
-    "name": "v1.0.4",
-    "body": [
-      "Linux binary build**: Replace CUDA torch with CPU-only torch in CI (PR #70)",
-      "Strip step SIGPIPE**: Fixed false build failure from `du | head -5` under pipefail",
-      "| Platform | Method |",
-      "|----------|--------|",
-      "| **macOS ARM64** | Download binary below, or `npx @mcptoolshop/backpropagate` |",
-      "| **Windows x64** | Download `.exe` below, or `npx @mcptoolshop/backpropagate` |"
-    ],
-    "publishedAt": "2026-04-14T19:02:24Z",
-    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.0.4",
     "prerelease": false
   }
 ]
