@@ -1,5 +1,22 @@
 [
   {
+    "repo": "vocal-synth-engine",
+    "toolName": "Vocal Synth Engine",
+    "tag": "v1.1.0",
+    "name": "v1.1.0 — Dogfood-Swarm Full Treatment",
+    "body": [
+      "First release after standalone-repo restoration and full dogfood-swarm",
+      "treatment (Stages A-D health + Feature Pass + Phase 10 Full Treatment).",
+      "Tests 28 → 246 (+218). Coverage 35% → 40%+. Multi-OS CI matrix.",
+      "npm audit clean. SHA-256 asset-integrity verification. Worker-loop-",
+      "yielding render queue. Graceful shutdown. WS heartbeat. Structured",
+      "error envelope on every API failure. Backward-compatible across all"
+    ],
+    "publishedAt": "2026-05-16T19:51:33Z",
+    "url": "https://github.com/mcp-tool-shop-org/vocal-synth-engine/releases/tag/v1.1.0",
+    "prerelease": false
+  },
+  {
     "repo": "research-os",
     "toolName": "Research Os",
     "tag": "v0.12.1",
@@ -787,19 +804,6 @@
     ],
     "publishedAt": "2026-04-15T07:56:55Z",
     "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v1.5.0",
-    "prerelease": false
-  },
-  {
-    "repo": "backpropagate",
-    "toolName": "Backpropagate",
-    "tag": "v1.0.5",
-    "name": "v1.0.5",
-    "body": [
-      "Release binaries workflow: v1.0.4 tag was cut before the Linux exclusion fix (PR #71) landed, causing the >2GB linux binary upload to fail. This release picks up the corrected matrix (macOS + Windows only).",
-      "Linux users: install via `pipx install backpropagate`"
-    ],
-    "publishedAt": "2026-04-15T07:35:59Z",
-    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.0.5",
     "prerelease": false
   }
 ]

@@ -129,6 +129,22 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
+  "backprop-trace": {
+    "tags": [
+      "backpropagation",
+      "canonical-emission",
+      "cli",
+      "deterministic",
+      "jsonl",
+      "mazur"
+    ],
+    "category": "ml",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "npx backprop-trace",
+    "tagline": "Deterministic neural-network training-trace verifier.",
+    "needsHumanReview": true
+  },
   "backpropagate": {
     "featured": true,
     "tags": [
@@ -785,6 +801,14 @@
     "surfaceEligible": true
   },
   "vocal-synth-engine": {
+    "tags": [
+      "additive-synthesis",
+      "audio",
+      "deterministic",
+      "formant",
+      "jam-session",
+      "mcp"
+    ],
     "category": "devtools",
     "stability": "experimental",
     "kind": "library",

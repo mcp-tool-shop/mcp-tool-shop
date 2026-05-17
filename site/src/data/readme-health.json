@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generatedAt": "2026-05-16T13:33:44.725Z",
-    "runId": "56c1256b-045d-48a2-848b-d8e7265d7476",
+    "generatedAt": "2026-05-17T13:33:39.470Z",
+    "runId": "3a9685f7-691f-47e5-8af9-c709d959eb00",
     "version": "2.0",
     "checkedCount": 10,
     "strategy": {
       "recentDays": 7,
       "sampleSize": 10,
-      "seed": "2026-05-16"
+      "seed": "2026-05-17"
     }
   },
   "results": [
@@ -22,8 +22,8 @@
       "evidence": {
         "hasReadme": false
       },
-      "checkedAt": "2026-05-16T13:33:44.725Z",
-      "lastCheckedAt": "2026-05-16T13:33:44.725Z"
+      "checkedAt": "2026-05-17T13:33:39.470Z",
+      "lastCheckedAt": "2026-05-17T13:33:39.470Z"
     },
     {
       "repo": "ClaimLedger",
@@ -36,8 +36,8 @@
       "evidence": {
         "hasReadme": false
       },
-      "checkedAt": "2026-05-16T13:33:44.725Z",
-      "lastCheckedAt": "2026-05-16T13:33:44.725Z"
+      "checkedAt": "2026-05-17T13:33:39.470Z",
+      "lastCheckedAt": "2026-05-17T13:33:39.470Z"
     },
     {
       "repo": "backpropagate",
@@ -54,8 +54,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-05-16T13:33:44.725Z",
-      "lastCheckedAt": "2026-05-16T13:33:44.725Z"
+      "checkedAt": "2026-05-17T13:33:39.470Z",
+      "lastCheckedAt": "2026-05-17T13:33:39.470Z"
     },
     {
       "repo": "mcp-stress-test",
@@ -72,8 +72,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-05-16T13:33:44.725Z",
-      "lastCheckedAt": "2026-05-16T13:33:44.725Z"
+      "checkedAt": "2026-05-17T13:33:39.470Z",
+      "lastCheckedAt": "2026-05-17T13:33:39.470Z"
     },
     {
       "repo": "codecomfy-vscode",
@@ -90,8 +90,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-05-16T13:33:44.725Z",
-      "lastCheckedAt": "2026-05-16T13:33:44.725Z"
+      "checkedAt": "2026-05-17T13:33:39.470Z",
+      "lastCheckedAt": "2026-05-17T13:33:39.470Z"
     },
     {
       "repo": "comfy-headless",
@@ -108,8 +108,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-05-16T13:33:44.725Z",
-      "lastCheckedAt": "2026-05-16T13:33:44.725Z"
+      "checkedAt": "2026-05-17T13:33:39.470Z",
+      "lastCheckedAt": "2026-05-17T13:33:39.470Z"
     },
     {
       "repo": "tool-compass",
@@ -126,26 +126,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-05-16T13:33:44.725Z",
-      "lastCheckedAt": "2026-05-16T13:33:44.725Z"
-    },
-    {
-      "repo": "accessibility-suite",
-      "score": 100,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": true,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-05-16T13:33:44.725Z",
-      "lastCheckedAt": "2026-05-16T13:33:44.725Z"
+      "checkedAt": "2026-05-17T13:33:39.470Z",
+      "lastCheckedAt": "2026-05-17T13:33:39.470Z"
     },
     {
       "repo": "synthesis",
@@ -162,8 +144,26 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-05-16T13:33:44.725Z",
-      "lastCheckedAt": "2026-05-16T13:33:44.725Z"
+      "checkedAt": "2026-05-17T13:33:39.470Z",
+      "lastCheckedAt": "2026-05-17T13:33:39.470Z"
+    },
+    {
+      "repo": "accessibility-suite",
+      "score": 100,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": true,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-05-17T13:33:39.470Z",
+      "lastCheckedAt": "2026-05-17T13:33:39.470Z"
     },
     {
       "repo": "audiobooker",
@@ -180,8 +180,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-05-16T13:33:44.725Z",
-      "lastCheckedAt": "2026-05-16T13:33:44.725Z"
+      "checkedAt": "2026-05-17T13:33:39.470Z",
+      "lastCheckedAt": "2026-05-17T13:33:39.470Z"
     }
   ]
 }
