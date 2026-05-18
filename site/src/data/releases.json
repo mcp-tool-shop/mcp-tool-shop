@@ -1,5 +1,56 @@
 [
   {
+    "repo": "backprop-trace",
+    "toolName": "Backprop Trace",
+    "tag": "v0.11.0",
+    "name": "v0.11.0",
+    "body": [
+      "First npm-published release.** **NOT a v1.0.0 promotion** — backprop-trace",
+      "remains mid-v0. v1.0 still gated on: real-world fixture (CNN/transformer),",
+      "adopter validation, multi-framework live helpers (JAX/TF), SGD coupled-L2",
+      "weight decay.",
+      "v0.11.0 promotes the v0.10.x stretch to a publishable artifact. Everything",
+      "the v0.10.x slices built — the helper optimizer matrix (v0.10.1), the"
+    ],
+    "publishedAt": "2026-05-18T10:13:08Z",
+    "url": "https://github.com/mcp-tool-shop-org/backprop-trace/releases/tag/v0.11.0",
+    "prerelease": false
+  },
+  {
+    "repo": "research-os",
+    "toolName": "Research Os",
+    "tag": "v0.13.0",
+    "name": "v0.13.0 — finalization-blocker triage arc",
+    "body": [
+      "v0.13.0 closes the v0.13 finalization-blocker triage arc opened after the v0.4 rerun against npm `@mcptoolshop/research-os@0.12.1` returned **PASS_WITH_CONDITIONS, NOT authorization-grade**, via Path D (multi-blocker triage arc, distinct from Path C named-patch). Three independent finalization blockers were identified at three different pipeline layers; this release ships three independent named knobs that, together, unblock synth prose finalization + no_answer_cluster recovery surface + contradict-map auto-mode. The defense floor and coverage-recovery surfaces from v0.10 / v0.11 / v0.12 / v0.12.1 remain intact; no closed-enum changes; no breaking surface changes.",
+      "> **v0.4 rerun proves synthetic acceptance can validate plumbing while live replay falsifies the target mechanism.**",
+      "> **v0.13 addresses finalization runtime control: R-019 unblocks the inner MCP tier-budget layer; R-020 surfaces honest no_answer_cluster refusal with recovery actions; R-021 unblocks the contradict-map auto-mode RPC layer.**",
+      "The v0.5 operator-aloneness gate against published v0.13.0 fires in a separate session. Admissibility Slice 1 remains **NOT authorized** until v0.5 PASS.",
+      "Optional `tierBudgetMsOverride` parameter on planner / drafter / verifier toolArgs builders** (R-019, `src/synth/prose/{planner,drafter,verifier}.ts`). When the operator-supplied `--planner-timeout-ms <N>` (or `RESEARCH_OS_SYNTH_PLANNER_TIMEOUT_MS=<N>` env var) sets a non-default source, the value flows into the `ollama_extract` MCP call as `tier_budget_ms_override` and reaches `runWithTimeoutAndFallback` at `ollama-intern-mcp/src/guardrails/timeouts.ts:61`. The inner per-tier timeout mechanism that produced the v0.4 rerun's `elapsed=15018ms budget=15000ms` failure now honors the operator's budget directly, instead of merely being wrapped by R-018's Promise.race.",
+      "R-018 wrapper retained as outer hard-rail.** The wrapping `wrapClientWithTimeout` from R-018 still fires when the underlying `callTool` actually hangs (promise never resolves). R-019 closes the orthogonal failure mode where the underlying call RESOLVES with a structured `isError: true` payload but at an inner-tier budget the wrapper cannot override. Both defenses now operate at their respective layers."
+    ],
+    "publishedAt": "2026-05-18T01:48:18Z",
+    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.13.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ollama-intern-mcp",
+    "toolName": "Ollama Intern Mcp",
+    "tag": "v2.6.0",
+    "name": "v2.6.0",
+    "body": [
+      "Minor — non-breaking server-side feature for the v0.13 cross-repo finalization arc. Adds a per-call tier-budget override on `ollama_extract` so research-os (and any other MCP client) can authoritatively set the inner tier-budget that drives `TIER_TIMEOUT` events at the live guardrail layer. Pre-R-019 callers see byte-identical behavior (field is optional and omitted = profile defaults govern).",
+      "`tier_budget_ms_override?: number` schema field on `ollama_extract`.** Optional, bounded `[1, 600000]` ms. When present, the runner builds an `effectiveTimeouts` record (override applied to every tier visited; cascade still honored) and passes it as `timeoutOverrideMs` into the existing `runWithTimeoutAndFallback` machinery at `guardrails/timeouts.ts:61`. The per-tier override slot already existed; v2.6.0 adds the MCP-client entry point to populate it. Handler threads via `RunToolInput.tierBudgetMsOverride` and `RunBatchInput.tierBudgetMsOverride` for items-mode batches.",
+      "The R-018 wrapper that shipped in research-os v0.12.1 wrapped the MCP `callTool` with `Promise.race`. The v0.4 rerun's MISTARGETED-PATCH finding showed the wrapper's effective budget did NOT reach the inner mechanism — `DEV_RTX5080_TIMEOUTS.instant = 15_000` in `src/profiles.ts` continued to fire `TIER_TIMEOUT` at 15000ms regardless of the wrapper's 180000ms budget. v2.6.0's schema field is the MCP-side authoritative budget surface: when research-os passes a `tier_budget_ms_override`, the value reaches the inner mechanism directly, and the operator's `--planner-timeout-ms` flag (or `RESEARCH_OS_SYNTH_PLANNER_TIMEOUT_MS` env var) finally controls inner-tier timeouts as designed.",
+      "Default behavior preserved when the field is omitted. Pre-R-019 callers (any research-os version below 0.13.0; any other MCP client; any direct `ollama_extract` caller that doesn't set the field) see profile defaults govern byte-identically.",
+      "The existing `guardrails/timeouts.ts` per-tier override slot at line 61 is UNCHANGED. The plumbing was already there; v2.6.0 supplies the client-side entry point.",
+      "The cascade (workhorse → instant on timeout) honors the override on every tier visited; `effectiveTimeouts` applies the override uniformly."
+    ],
+    "publishedAt": "2026-05-18T01:21:03Z",
+    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.6.0",
+    "prerelease": false
+  },
+  {
     "repo": "vocal-synth-engine",
     "toolName": "Vocal Synth Engine",
     "tag": "v1.1.0",
@@ -220,23 +271,6 @@
     "prerelease": false
   },
   {
-    "repo": "research-os",
-    "toolName": "Research Os",
-    "tag": "v0.9.0",
-    "name": "v0.9.0 — Product Artifact Arc",
-    "body": [
-      "Release date:** 2026-05-14",
-      "npm:** `@mcptoolshop/research-os@0.9.0`",
-      "Requires:** `ollama-intern-mcp@^2.4.0`",
-      "v0.9.0 turns the v0.8 evidence spine into operator-useful artifacts. It adds section-level prose with paragraph-level provenance, partial-pack synthesis that consumes section prose rather than raw claims, and lawful recovery guidance embedded where blocked sections are disclosed. Freeze and publish semantics are unchanged: readable partial artifacts do not make an incomplete pack freezable or publishable.",
-      "```",
-      "Slice 1 → sections readable                 (5 commits)"
-    ],
-    "publishedAt": "2026-05-14T04:33:42Z",
-    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.9.0",
-    "prerelease": false
-  },
-  {
     "repo": "storyboard-os",
     "toolName": "Storyboard Os",
     "tag": "v1.1.0",
@@ -251,23 +285,6 @@
     ],
     "publishedAt": "2026-05-12T09:53:11Z",
     "url": "https://github.com/mcp-tool-shop-org/storyboard-os/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ollama-intern-mcp",
-    "toolName": "Ollama Intern Mcp",
-    "tag": "v2.4.0",
-    "name": "v2.4.0 — per-tier num_ctx control",
-    "body": [
-      "Released:** 2026-05-12",
-      "v2.4.0 adds per-tier `num_ctx` control to the profile system. Operators on VRAM-constrained hardware can now set smaller context windows for workhorse/instant tiers to prevent CPU spill while keeping deep-tier defaults. The `dev-rtx5080` profile now ships with `instant: 4096`, `workhorse: 8192`, `deep: unset` — sized to keep hermes3:8b in the RTX 5080's 16GB VRAM for fast tools.",
-      "This is a non-breaking additive minor. All v2.3.0 callers continue working unchanged.",
-      "The research-os v0.8.0 Phase 1 diagnostic surfaced a load-bearing operational gap: hermes3:8b at the default 32K context on RTX 5080 16GB VRAM spills to CPU. Workhorse-tier `ollama_extract` then turns into a 5-10× latency event — and in the dogfood case, started timing out outright. The root cause isn't the model or the tier discipline; it's that the MCP server had no way to express \"this tier should run at a smaller context budget.\"",
-      "v2.4.0 fixes it at the profile layer. Operators tune by selecting / editing the profile; the runner threads the value to Ollama on every generate call routed to that tier.",
-      "Schema additions:**"
-    ],
-    "publishedAt": "2026-05-12T05:17:02Z",
-    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.4.0",
     "prerelease": false
   },
   {
@@ -787,23 +804,6 @@
     ],
     "publishedAt": "2026-04-16T03:21:43Z",
     "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v2.2.1",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-lab",
-    "toolName": "Xrpl Lab",
-    "tag": "v1.5.0",
-    "name": "v1.5.0 — Humanization Pass",
-    "body": [
-      "Clearer, steadier, more motivating copy across every learner-facing surface.",
-      "Voice lock**: clear, steady, respectful, lightly encouraging — defined once, applied everywhere",
-      "Module openers**: removed mechanical 'Welcome to X' from all 12 modules; each now opens with what you'll learn",
-      "Fear-point reassurance**: added 'nothing here is permanent' and 'testnet costs nothing' at trust line, DEX, AMM, and reserve entry points",
-      "Recovery copy**: humanized all blocker messages and recovery hints — warmer, shorter, more actionable",
-      "CLI copy**: warmer status, doctor, and error messages throughout"
-    ],
-    "publishedAt": "2026-04-15T07:56:55Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v1.5.0",
     "prerelease": false
   }
 ]
