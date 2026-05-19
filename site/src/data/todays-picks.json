@@ -1,9 +1,16 @@
 {
-  "date": "2026-05-18",
+  "date": "2026-05-19",
   "picks": [
     {
       "slug": "websketch-ir",
       "reason": "Featured Tool",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "synthesis",
+      "reason": "Composable tool framework for building complex AI workflows",
       "signals": [
         "popular"
       ]
@@ -16,29 +23,22 @@
       ]
     },
     {
-      "slug": "backpropagate",
-      "reason": "Structured feedback loops for improving AI behavior through iteration",
+      "slug": "mcp-stress-test",
+      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "comfy-headless",
+      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
       "signals": [
         "featured"
       ]
     },
     {
-      "slug": "codecomfy-vscode",
-      "reason": "VS Code extension for code analysis and coverage display",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
       "slug": "audiobooker",
       "reason": "Audio book generation and management system",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "mcp-stress-test",
-      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
       "signals": [
         "popular"
       ]

@@ -660,6 +660,21 @@
     "lane": "active_lab",
     "surfaceEligible": true
   },
+  "sovereign": {
+    "tags": [
+      "board-game",
+      "browser-game",
+      "deterministic-simulation",
+      "economic-strategy",
+      "game",
+      "hamilton"
+    ],
+    "category": "web",
+    "stability": "stable",
+    "kind": "library",
+    "tagline": "a Hamilton-system economic board game and its solo / digital adaptation.",
+    "needsHumanReview": true
+  },
   "sovereignty": {
     "tags": [
       "game",

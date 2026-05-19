@@ -1,5 +1,124 @@
 [
   {
+    "repo": "research-os",
+    "toolName": "Research Os",
+    "tag": "v0.13.1",
+    "name": "v0.13.1",
+    "body": [
+      "v0.13.1 is a single-repair patch on top of v0.13.0. It closes the v0.5 Track-C condition (R-019 wire-up scope gap at the claim extract stage) by extending R-019's tier-budget authority to every `ollama_extract` MCP call made during `claim extract` — the per-window extractor, the per-claim R-011 section-evidence critic, and the per-rescue-candidate R-012 rescue critic. Same architectural shape as R-019's synth-prose coverage (planner + drafter + verifier). Single-repo patch (research-os only); ollama-intern-mcp@2.6.0's `tier_budget_ms_override` schema field is the unchanged server-side reach.",
+      "The release exists because the v0.5 operator-aloneness gate (`operator_aloneness_dst_v0.5` against published `@mcptoolshop/research-os@0.13.0` + `ollama-intern-mcp@2.6.0`) returned **PASS_WITH_CONDITIONS, NOT authorization-grade**. Three tracks of repair were identified: Track A (memory-gate hook scope; closed as R-022 in scaffolding), Track B (operator-side source coverage; opens as R-023 in v0.6 scaffolding), and Track C (this release — R-024). On the v0.5 operator-run, 3 of 8 sources in section 02 (`02-safety-and-economic`) hit the inner 15000ms instant-tier TIER_TIMEOUT during extract with no operator-facing override. R-019 had shipped the analog override for synth prose in v0.13.0; v0.13.1 extends it to the extract stage.",
+      "> **R-024 lands the full-coverage tier-budget rule: when extending a tier budget, the budget must reach every LLM call at that stage that can produce the same inner timeout. Partial coverage = mistargeted patch at the call-site-coverage layer; the named timeout reappears at the uncovered call site.**",
+      "> **R-024 also lands the live-replay test brittleness rule: when a live-replay acceptance test fails for harness reasons (timing, capture, fixture state) rather than mechanism reasons, fix the test harness — do NOT skip, downgrade, or substitute manual artifact inspection.**",
+      "The v0.5 disposition is Path D (multi-track triage). v0.13.1 closes Track C. R-022 closed in scaffolding (memory-gate hook path whitelist exemption). R-023 fires in a separate session after v0.13.1 publishes. v0.6 gate setup follows R-023. Admissibility Slice 1 remains **NOT authorized** until v0.6 PASS.",
+      "`research-os claim extract <section> --tier-budget-ms <N>`** (R-024) — operator-controllable per-call tier-budget override for the claim extract stage. Forwarded to `ollama-intern-mcp@>=2.6.0` as `tier_budget_ms_override` on EVERY `ollama_extract` callTool invocation during this section's extract run. Bounded `[1, 600000]` ms (10-minute upper safety rail; mirrors R-018's `MAX_PLANNER_TIMEOUT_MS`)."
+    ],
+    "publishedAt": "2026-05-19T07:42:57Z",
+    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.13.1",
+    "prerelease": false
+  },
+  {
+    "repo": "sovereign",
+    "toolName": "Sovereign",
+    "tag": "v1.0.2",
+    "name": "Sovereign v1.0.2",
+    "body": [
+      "> A Hamilton-system Monopoly-grammar board game and its solo / digital adaptation.",
+      "> Two artifact streams, one design thesis: **debt → credit → bank → industry**.",
+      "The product is shipped, signed, versioned, and on npm. \"Prototype\" language was design-time scaffolding that should have been retired at v1.0.0. This release removes that language across all user-facing surfaces.",
+      "Changes:**",
+      "Renamed `release/board-game/sovereign-prototype.html` → `release/board-game/sovereign-board-game.html`. Updated `bin/sovereign.js` `--print` resolution and the smoke tests to match.",
+      "Swept \"prototype\" out of README.md, CHANGELOG.md, release/README.txt, release/00-START-HERE.html, release/board-game/README.txt, release/board-game/V0.10-RULES-ALIGNMENT.md, site/src/site-config.ts, site/src/content/docs/handbook/getting-started.md, site/src/content/docs/handbook/reference.md, site/src/content/docs/handbook/design-history.md, bin/sovereign.js, and test/smoke.test.mjs."
+    ],
+    "publishedAt": "2026-05-19T06:31:50Z",
+    "url": "https://github.com/mcp-tool-shop-org/sovereign/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "sovereign",
+    "toolName": "Sovereign",
+    "tag": "v1.0.1",
+    "name": "Sovereign v1.0.1",
+    "body": [
+      "> A Hamilton-system Monopoly-grammar board game and its solo / digital adaptation.",
+      "> Two artifact streams, one design thesis: **debt → credit → bank → industry**.",
+      "Adds `release/board-game/V0.10-RULES-ALIGNMENT.md`: a delta sheet that lists the eight rule changes a physical table would apply on top of the v0.2 printable prototype to play at v0.10 balance. The board-game prototype HTML itself remains frozen at v0.2 (no human-table playtest has been run); this delta is opt-in for groups reprinting at v0.10 rules.",
+      "The eight deltas: Industrial Charter setup grant · Capacity +1 on first industrial purchase · Capacity ≥ 8 payment bonus +25% → +50% · Capacity ≥ 10 industrial milestone (new) · Full Mfg / Strategic set completion bonuses (new) · Cash IP scoring 1 per 200 TN → 1 per 400 TN · NF Credit endgame bonus 5-IP-split → +1/+2 per qualifying owner · Report on Manufactures capital event (now includes 50 TN per Mfg/Strategic owned + Strategic upgrade halving).",
+      "No game-logic changes. No CLI changes. No digital-mode changes. No npm package shape changes. Pure documentation / table-tool addition. v1.0.x patch shape verified clean.",
+      "Full-treatment Phases 0–7 executed. npm package `@mcptoolshop/sovereign@1.0.0` published with Sigstore provenance. GitHub Release with offline-play zip. Landing page and Starlight handbook deployed. README translated to 7 languages (ja, zh, es, fr, hi, it, pt-BR) before tag."
+    ],
+    "publishedAt": "2026-05-19T05:58:18Z",
+    "url": "https://github.com/mcp-tool-shop-org/sovereign/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-jam-sessions",
+    "toolName": "Ai Jam Sessions",
+    "tag": "v1.4.3",
+    "name": "v1.4.3 — Restore to npm under @mcptoolshop scope",
+    "body": [
+      "npm-recovery release. Restores the package to npm under the **`@mcptoolshop/ai-jam-sessions`** scope after the unscoped `ai-jam-sessions` publish was unpublished a month ago and the v1.4.2 retry hit npm's E409 packument-save race.",
+      "No functional changes vs v1.4.2.** Same MCP server, same 41 tools, same dataset publication (Zenodo DOI [`10.5281/zenodo.20279919`](https://doi.org/10.5281/zenodo.20279919)).",
+      "```bash",
+      "npm install -g @mcptoolshop/ai-jam-sessions",
+      "```",
+      "The bin commands are unchanged — after install, run `ai-jam-sessions <command>` and `ai-jam-sessions-mcp` as before."
+    ],
+    "publishedAt": "2026-05-19T05:52:15Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v1.4.3",
+    "prerelease": false
+  },
+  {
+    "repo": "sovereign",
+    "toolName": "Sovereign",
+    "tag": "v1.0.0",
+    "name": "Sovereign v1.0.0",
+    "body": [
+      "> A Hamilton-system Monopoly-grammar board game and its solo / digital adaptation.",
+      "> Two artifact streams, one design thesis: **debt → credit → bank → industry**.",
+      "The printable board-game artifact. 34 US Letter sheets, 40-space board, 22 properties + 4 routes + 2 institutions, 8 color systems, 7 Acts of Congress in fixed historical order, 4 player roles, 3 shared tracks (Public Credit · Public Resistance · Industrial Capacity), 12+12 event cards, 5 distinct card backs.",
+      "Balance levers (v0.2 changes from v0.1):**",
+      "| Change | Effect |",
+      "|---|---|"
+    ],
+    "publishedAt": "2026-05-19T05:47:38Z",
+    "url": "https://github.com/mcp-tool-shop-org/sovereign/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-jam-sessions",
+    "toolName": "Ai Jam Sessions",
+    "tag": "v1.4.2",
+    "name": "v1.4.2 — Publish jam-actions-v0 with Zenodo DOI",
+    "body": [
+      "`jam-actions-v0` v0.4.3 is now publicly published on Zenodo** with DOI [`10.5281/zenodo.20279919`](https://doi.org/10.5281/zenodo.20279919). This is the canonical citation handle going forward.",
+      "This is a publication-readiness release. No new MCP server functionality vs v1.4.0 — the 41 tools, 3 prompts, 120 songs, 6 sound engines, browser cockpit, and practice journal are unchanged. What's new is the **marketed surface for the training dataset** and the **actual public publication** of that dataset on Zenodo.",
+      "| | |",
+      "|---|---|",
+      "| **Zenodo DOI** | [`10.5281/zenodo.20279919`](https://doi.org/10.5281/zenodo.20279919) |",
+      "| **Zenodo record** | https://zenodo.org/records/20279919 |"
+    ],
+    "publishedAt": "2026-05-19T05:46:25Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v1.4.2",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-loadout",
+    "toolName": "Ai Loadout",
+    "tag": "v1.4.3",
+    "name": "v1.4.3",
+    "body": [
+      "build(deps): Bump the actions group across 1 directory with 5 updates by @dependabot[bot] in https://github.com/mcp-tool-shop-org/ai-loadout/pull/3",
+      "build(deps-dev): Bump the dev-deps group across 1 directory with 2 updates by @dependabot[bot] in https://github.com/mcp-tool-shop-org/ai-loadout/pull/4",
+      "Cutover: dispatch to dogfood-lab/testing-os by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/ai-loadout/pull/5",
+      "fix(ci): include node types under TS6 + bump brace-expansion by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/ai-loadout/pull/8",
+      "@dependabot[bot] made their first contribution in https://github.com/mcp-tool-shop-org/ai-loadout/pull/3",
+      "@mcp-tool-shop made their first contribution in https://github.com/mcp-tool-shop-org/ai-loadout/pull/5"
+    ],
+    "publishedAt": "2026-05-19T01:15:03Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-loadout/releases/tag/v1.4.3",
+    "prerelease": false
+  },
+  {
     "repo": "backprop-trace",
     "toolName": "Backprop Trace",
     "tag": "v0.11.0",
@@ -217,23 +336,6 @@
     "body": [],
     "publishedAt": "2026-05-15T21:29:35Z",
     "url": "https://github.com/mcp-tool-shop-org/rig-bridge/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "research-os",
-    "toolName": "Research Os",
-    "tag": "v0.10.0",
-    "name": "v0.10.0 — Operator-Aloneness Repair Release",
-    "body": [
-      "Release date:** 2026-05-15",
-      "npm:** `@mcptoolshop/research-os@0.10.0`",
-      "Requires:** `ollama-intern-mcp@^2.4.0`",
-      "v0.10.0 closes the v0.1 operator-aloneness gate failure conditions surfaced on 2026-05-15 (`operator_aloneness_dst_v0.1`, FAIL). The release is a 4-slice repair arc: recovery routing alignment (R-002), scope-repair CLI (R-001), paired source-card audit hardening (R-003 + R-005), and honest `gather_outcome` status (R-004). The v0.1 gate FAILED because an external operator hit three independent walls — `recover` recommended the wrong unblock path, no CLI existed to repair `scope=null` claims, and source-card audit passed a fabricated COVID-19 card extracted from a 1035-byte APA Incapsula bot-check fragment. v0.10.0 closes those walls so v0.2 of the gate can fire against fresh operator runs.",
-      "```",
-      "Slice 1 → recover advisor routes from gate state              (R-002)"
-    ],
-    "publishedAt": "2026-05-15T21:08:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.10.0",
     "prerelease": false
   },
   {
@@ -707,103 +809,6 @@
     ],
     "publishedAt": "2026-04-22T02:19:50Z",
     "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v3.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "style-dataset-lab",
-    "toolName": "Style Dataset Lab",
-    "tag": "v3.0.1",
-    "name": "v3.0.1 — Dogfood swarm health pass",
-    "body": [
-      "Four Laws enforcement** (`lib/snapshot.js`, `lib/split.js`, `lib/export.js`):",
-      "Export now inherits `snapshot.config_fingerprint` instead of recomputing; throws `FINGERPRINT_DRIFT` on mismatch (Law 4).",
-      "Deterministic majority-lane per family with lexicographic tie-break, recorded in `audit.family_lane_decisions` (Law 3).",
-      "Unassigned-family fallback now throws instead of silently landing in train.",
-      "`existsSync` guards across snapshot/split/export/eval/training-manifest/training-package/impl-pack prevent ID collisions from overwriting frozen artifacts (Law 1).",
-      "`included.jsonl` entries now carry `rules_checked`, `profile_id`, and `config_fingerprint` for explainable inclusion (Law 2)."
-    ],
-    "publishedAt": "2026-04-22T00:20:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v3.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "forkctl",
-    "toolName": "Forkctl",
-    "tag": "v2.1.0",
-    "name": "v2.1.0 — --brand mode, --strings gate, polyglot bundle",
-    "body": [
-      "Closes all five phases of [`design/brand-mode.md`](https://github.com/mcp-tool-shop-org/forkctl/blob/main/design/brand-mode.md) — the product-brand rename engine that's a superset of the v1.1.0 content rename engine.",
-      "`--brand` flag** for `forkctl rename plan`. Emits a categorized summary in the plan diff (identifiers / env-vars / tool-names / error-classes / headers / other) so users can see the shape of the rebrand at a glance.",
-      "`--strings <mode>` gate** with four modes: `off`, `safe`, `review`, `all`. Default `all` when `--brand` is off (v1.1.0 compat), `review` when `--brand` is on. `review` tags each string-literal rewrite with a `STRING_REWRITE_PENDING_REVIEW` warning for pre-apply audit.",
-      "Polyglot language bundle** via 11 new `optionalDependencies`: `@ast-grep/lang-python`, `-rust`, `-go`, `-java`, `-ruby`, `-csharp`, `-cpp`, `-c`, `-bash`, `-yaml`, `-json`. Registered at module-load via `registerDynamicLanguage`. Failures fall through to the existing `RENAME_LANG_UNAVAILABLE` warning — no regression for users who skip optional deps.",
-      "Brand-category classifier** and per-category `{hits, files}` counts in plan output.",
-      "Compound-identifier rename miss.** `ForkableError`, `ForkableErrorCode`, `makeForkableTool`, `FORKABLE_LOG`, `FORKABLE_STATE_DIR`, `MAKE_FORKABLE_BRANCH_EXISTS` — all slipped past the v1.1.0 rename engine during the v2.0.0 self-rename dogfood. Pass B (ast-grep) now covers `property_identifier` + `shorthand_property_identifier` with unanchored matching + `transform.replace`. Pass C (ts-morph) falls back to case-aware word-boundary rewrites and iterates class methods, properties, and enum members."
-    ],
-    "publishedAt": "2026-04-21T03:58:53Z",
-    "url": "https://github.com/mcp-tool-shop-org/forkctl/releases/tag/v2.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "repo-dataset",
-    "toolName": "Repo Dataset",
-    "tag": "v1.2.1",
-    "name": "v1.2.1 — positioning spine + logo refresh",
-    "body": [
-      "Docs-only patch release. No runtime behavior changes.",
-      "Locks one spine across every public surface:**",
-      "repo-dataset is the dataset construction and verification layer for local ML workflows. Not a trainer. Not a format zoo.",
-      "📐 **README, landing, handbook** rewritten around the construction-and-verification thesis. Contamination check is now the flagship proof section, not a feature bullet.",
-      "🎯 **GitHub description + 10 topics** realigned to the thesis (training-data, fine-tuning, dataset-generation, multimodal-datasets, data-contamination, benchmark-leakage, vision-language, jsonl, axolotl, llava).",
-      "🖼️ **New logo** — magnifying glass over dataset stack (verification motif). README logo width 400 → 500."
-    ],
-    "publishedAt": "2026-04-17T20:21:50Z",
-    "url": "https://github.com/mcp-tool-shop-org/repo-dataset/releases/tag/v1.2.1",
-    "prerelease": false
-  },
-  {
-    "repo": "style-dataset-lab",
-    "toolName": "Style Dataset Lab",
-    "tag": "v3.0.0",
-    "name": "v3.0.0 — Production Workbench Spine",
-    "body": [
-      "Style Dataset Lab is now a full production workbench.** The repo closes the complete loop:",
-      "\\\\\\",
-      "canon → dataset → training → brief → run → critique → batch → select → re-ingest",
-      "\\\\\\",
-      "Workflow profiles define generation strategies per output mode",
-      "Brief compiler assembles deterministic generation instructions from project truth"
-    ],
-    "publishedAt": "2026-04-16T04:48:09Z",
-    "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v3.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "style-dataset-lab",
-    "toolName": "Style Dataset Lab",
-    "tag": "v2.3.0",
-    "name": "v2.3.0 — Shipcheck Pass",
-    "body": [
-      "All hard gates (A-D) now pass. This is the first release with full quality gate compliance.",
-      "Structured errors** — `SdlabError` with `code`, `message`, `hint` fields. Exit code 1 for user errors, 2 for runtime errors.",
-      "debug flag** — stack traces on demand, message-only by default",
-      "dry-run** — preview snapshot and split creation without writing files",
-      "verbose / --quiet** — logging levels for all commands",
-      "CI workflow** — Node 20 + 22 matrix, smoke tests (help, doctor, snapshot dry-run, eligibility, training profiles), `npm audit`"
-    ],
-    "publishedAt": "2026-04-16T03:41:48Z",
-    "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v2.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "style-dataset-lab",
-    "toolName": "Style Dataset Lab",
-    "tag": "v2.2.1",
-    "name": "v2.2.1 — README update",
-    "body": [
-      "Patch bump to publish updated README to npm. No code changes."
-    ],
-    "publishedAt": "2026-04-16T03:21:43Z",
-    "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v2.2.1",
     "prerelease": false
   }
 ]

@@ -2,7 +2,7 @@
   "title": "AI: Inference",
   "subtitle": "A short, no-fluff newsletter for curious minds",
   "issue": "May 2026 | Issue 4",
-  "updatedAt": "2026-05-18T14:13:41.001Z",
+  "updatedAt": "2026-05-19T14:01:43.512Z",
   "lede": "Inference is the part of AI nobody talks about until the cloud bill arrives. It's the runtime moment—the actual generating-an-answer step—that fires every time your model \"thinks,\" every tool call, every approval round-trip inside an agent loop. Training built the ship. Inference is what burns the fuel. And the fuel economy of AI in 2026 is what quietly decides whether your product survives.",
   "sections": [
     {
