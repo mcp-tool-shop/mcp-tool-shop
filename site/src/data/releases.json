@@ -1,5 +1,39 @@
 [
   {
+    "repo": "sovereign",
+    "toolName": "Sovereign",
+    "tag": "v1.1.2",
+    "name": "Sovereign v1.1.2",
+    "body": [
+      "> A Hamilton-system Monopoly-grammar board game and its solo / digital adaptation.",
+      "> Two artifact streams, one design thesis: **debt → credit → bank → industry**.",
+      "Beta.** Same day as v1.1.1, but a meaningfully different shape. After the v1.1.1 cold playthrough the game still felt too short and the ending too arbitrary — it ended because the clock ran out, not because someone won the Republic. v1.1.2 replaces the round-cap-with-mandate end condition with a **circuit-based** end condition tied to physical movement around the board.",
+      "The new end condition:**",
+      "The game ends when one player has carried their faction around the Republic four times — i.e., completed their fourth crossing of Treasury Opens. At that moment, Final Accounting fires and the highest-Influence player wins, *not necessarily the player who got around first*. Hard cap stays at round 30 (a safety; essentially never fires — diagnostic showed 100 / 100 CANONICAL × 100 games complete by round 28).",
+      "Why this is structurally different from v1.1.1:**"
+    ],
+    "publishedAt": "2026-05-20T10:33:59Z",
+    "url": "https://github.com/mcp-tool-shop-org/sovereign/releases/tag/v1.1.2",
+    "prerelease": false
+  },
+  {
+    "repo": "sovereign",
+    "toolName": "Sovereign",
+    "tag": "v1.1.1",
+    "name": "Sovereign v1.1.1",
+    "body": [
+      "> A Hamilton-system Monopoly-grammar board game and its solo / digital adaptation.",
+      "> Two artifact streams, one design thesis: **debt → credit → bank → industry**.",
+      "Beta release.** Second attempt at the digital mode after v1.1.0 was withdrawn the same day it shipped (2026-05-20). v1.1.0 simulation-verified but failed first cold human play; v1.1.1 fixes the structural human-playability gaps that audit could not catch. Not fully cold-validated end-to-end; shipping as beta so anyone who wants the digital mode can opt in while the player experience continues to settle.",
+      "What's new vs v1.0.2:**",
+      "Human playability rebuild (Pass 1 + Pass 2).** Action rail moved above the board (visible without scrolling). Positions strip shows each player's location, cash, and Influence with active-player highlight. Portfolio strip near the action rail surfaces holdings without requiring the sidebar. Right sidebar collapsed by default with `▶ Panels` toggle so the board occupies more real estate. 26 px tokens with active-player halo and `YOU` pointer. Designer-only chrome (Balance Sweep, seed pill, version pill, phase pill, canonical/telemetry labels) hidden by default; visible only with `?designer=1`. Real dice-roll overlay (~3.3 s, deterministic outcome). Acts explain their effect before the YES / NO vote. First-round helping-hand footer fades after lap 1.",
+      "Rent surfacing (Pass 3).** New landing-outcome band synthesized from existing ledger rows. Opponent property: \"You landed on Hamilton's Customs House. Paid 40 TN rent.\" Opponent route: \"Paid 50 TN route toll.\" Opponent institution: \"Paid 70 TN institution payment.\" Own property: \"No rent due\" (plus \"Upgrade available\" when applicable). Tax space: \"Paid 200 TN in tax.\" Sent-to-Crisis surfaces too. No reducer change; the band reads rows the ledger already wrote."
+    ],
+    "publishedAt": "2026-05-20T09:34:13Z",
+    "url": "https://github.com/mcp-tool-shop-org/sovereign/releases/tag/v1.1.1",
+    "prerelease": false
+  },
+  {
     "repo": "research-os",
     "toolName": "Research Os",
     "tag": "v0.13.1",
@@ -775,40 +809,6 @@
     ],
     "publishedAt": "2026-04-23T06:26:10Z",
     "url": "https://github.com/mcp-tool-shop-org/world-forge/releases/tag/v4.4.0",
-    "prerelease": false
-  },
-  {
-    "repo": "world-forge",
-    "toolName": "World Forge",
-    "tag": "v4.3.0",
-    "name": "v4.3.0 — 2.5D-focused feature wave",
-    "body": [
-      "Dogfood-swarm release. The 2.5D surface ships end-to-end: schema foundations → editor authoring UI → renderer visualization → UE5 export. 15 features landed across all 5 packages.",
-      "Schema (@world-forge/schema):**",
-      "`LootTable` + `LootTableEntry` — weighted drop pools with optional conditions, quantity ranges, rarity tiers. `ItemPlacement.lootTableId` references a table instead of / in addition to the single-item placement.",
-      "SpawnCondition grammar** — structured validation of `always`, `never`, `random:<p>`, `time:<period>`, `quest:<id>:<stage>`, `faction:<id>:<op><value>`, `level:<op><value>`.",
-      "`TransitionEntity` — first-class type for elevators, warps, transporters, cargo lifts, stairwells.",
-      "Zone physics overrides** — `gravityOverride`, `gravityDirection`, `physicsMode` for platformer / zero-g / aquatic zones."
-    ],
-    "publishedAt": "2026-04-23T04:33:08Z",
-    "url": "https://github.com/mcp-tool-shop-org/world-forge/releases/tag/v4.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "style-dataset-lab",
-    "toolName": "Style Dataset Lab",
-    "tag": "v3.1.0",
-    "name": "v3.1.0 — Feature Pass: --resume, deterministic SaveImage, coverage, mobile nav, adapter registry",
-    "body": [
-      "`sdlab generate --resume`** — skip subjects whose record JSON and output PNG are already on disk. Seeds remain stable: skipped slots still advance the seed counter so resumed runs are bit-identical to a fresh run that reaches the same point. Final summary now reports `(N errors, M resumed)`.",
-      "`sdlab batch generate --resume <batch_id>`** — re-runs only failed/missing slots in an existing batch, keeps the same `batch_id`, and inherits `mode_id`/`subject_id`/`theme`/`asset_ref` from the prior manifest. Surfaces \"(C/T slots already complete)\" in the header. Throws `BATCH_NOT_FOUND` for a bad id and `BATCH_NO_PROGRESS` for pre-checkpoint manifests that can't be partially resumed.",
-      "Manifest format:** `slots[].status` is now persisted (`'ok'` or `'error'`) so resume can distinguish failures from successes. Older manifests fall back to \"selected_output truthy = success\" for compatibility.",
-      "New helpers: `buildCompletedSlotMap()`, `openBatchDirForResume()` in `lib/batch-runs.js`.",
-      "7 new tests in `tests/lib-pipeline/batch-resume.test.js`.",
-      "`lib/comfyui-output.js`** (new): `pickOutputImage(outputs, { preferNodeId })` selects the canonical SaveImage output deterministically. Previously, `comfyui-runner.js` and `generate.js` used `Object.values(outputs)` and broke on the first node with images — first-wins ordering depends on ComfyUI's execution scheduler, not the workflow graph."
-    ],
-    "publishedAt": "2026-04-22T02:19:50Z",
-    "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v3.1.0",
     "prerelease": false
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "date": "2026-05-19",
+  "date": "2026-05-20",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -16,6 +16,13 @@
       ]
     },
     {
+      "slug": "backpropagate",
+      "reason": "Structured feedback loops for improving AI behavior through iteration",
+      "signals": [
+        "featured"
+      ]
+    },
+    {
       "slug": "accessibility-suite",
       "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
       "signals": [
@@ -27,13 +34,6 @@
       "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
       "signals": [
         "popular"
-      ]
-    },
-    {
-      "slug": "comfy-headless",
-      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
-      "signals": [
-        "featured"
       ]
     },
     {

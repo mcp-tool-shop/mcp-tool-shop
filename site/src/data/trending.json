@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-05-19",
+  "asOf": "2026-05-20",
   "windowDays": 7,
   "items": [
     {
@@ -10,12 +10,12 @@
     {
       "slug": "codecomfy-vscode",
       "reason": "Top 8 starred repo",
-      "deltaStars": 0
+      "deltaStars": 3
     },
     {
       "slug": "backpropagate",
       "reason": "Top 2 starred repo",
-      "deltaStars": 1
+      "deltaStars": 3
     },
     {
       "slug": "accessibility-suite",
@@ -25,7 +25,7 @@
     {
       "slug": "audiobooker",
       "reason": "Top 10 starred repo",
-      "deltaStars": 4
+      "deltaStars": 2
     }
   ]
 }
