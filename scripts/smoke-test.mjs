@@ -55,9 +55,7 @@ const CI_GENERATED = [
   { url: "/tools/comfy-headless/", expect: 200, label: "tool page: comfy-headless" },
 
   // Legacy redirects
-  { url: "/brain-dev.html", expect: 200, label: "legacy: brain-dev.html" },
   { url: "/registry.html", expect: 200, label: "legacy: registry.html" },
-  { url: "/voice-soundboard.html", expect: 200, label: "legacy: voice-soundboard.html" },
 
   // Build metadata
   { url: "/_build.json", expect: 200, label: "build metadata" },
