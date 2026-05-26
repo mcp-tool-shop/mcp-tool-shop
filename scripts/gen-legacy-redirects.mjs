@@ -13,18 +13,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC = path.resolve(__dirname, "..", "site", "public");
 
 const REDIRECTS = {
-  "brain-dev.html": "/tools/brain-dev/",
   "cid-badge.html": "/tools/",
   "cid-publish.html": "/tools/",
   "cid-registry.html": "/tools/",
   "claude-fresh.html": "/tools/",
   "comfy-headless.html": "/tools/comfy-headless/",
   "context-bar.html": "/tools/",
-  "context-window-manager.html": "/tools/context-window-manager/",
-  "file-compass.html": "/tools/file-compass/",
   "registry.html": "/tools/",
   "tool-compass.html": "/tools/tool-compass/",
-  "voice-soundboard.html": "/tools/voice-soundboard/",
 };
 
 for (const [file, target] of Object.entries(REDIRECTS)) {
