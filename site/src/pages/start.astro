@@ -1,7 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
+import projects from '../data/projects.json';
 
-const stacks = [
+const validSlugs = new Set((projects as any[]).map((p: any) => p.repo));
+
+const stacksSource = [
   {
     question: "I want to find and use MCP tools",
     tools: [
@@ -42,6 +45,10 @@ const stacks = [
     ],
   },
 ];
+
+const stacks = stacksSource
+  .map((s) => ({ ...s, tools: s.tools.filter((t) => validSlugs.has(t.repo)) }))
+  .filter((s) => s.tools.length > 0);
 ---
 
 <Base
