@@ -200,9 +200,14 @@
     "stability": "stable",
     "kind": "cli",
     "install": "npx claude-rpg play --world fantasy",
-    "tagline": "Simulation-grounded campaign RPG â€” 10 worlds, streaming narration, 195 tests, runtime-proofed.",
-    "goodFor": "Players who want AI narration grounded in deterministic simulation truth. Developers building on the AI RPG Engine ecosystem.",
-    "notFor": "Casual chatbot RPGs â€” this is a full simulation engine, not a prompt wrapper.",
+    "tagline": "Simulation-grounded campaign RPG — 10 worlds, streaming narration, runtime-proofed.",
+    "goodFor": [
+      "Players who want AI narration grounded in deterministic simulation truth",
+      "Developers building on the AI RPG Engine ecosystem"
+    ],
+    "notFor": [
+      "Casual chatbot RPGs — this is a full simulation engine, not a prompt wrapper"
+    ],
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -429,7 +434,7 @@
     "stability": "experimental",
     "kind": "mcp-server",
     "install": "npx polyglot-mcp",
-    "tagline": "Local GPU translation MCP server â€” TranslateGemma via Ollama, 55 languages, zero cloud...",
+    "tagline": "Local GPU translation MCP server — TranslateGemma via Ollama, 55 languages, zero cloud...",
     "lane": "shipped",
     "surfaceEligible": true
   },
