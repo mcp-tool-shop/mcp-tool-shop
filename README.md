@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/mcp-tool-shop-mcp-tool-shop-badge.png)](https://mseep.ai/app/mcp-tool-shop-mcp-tool-shop)
+
 <div align="center">
 
 <img src="https://raw.githubusercontent.com/mcp-tool-shop-org/brand/main/logos/mcp-tool-shop.github.io/readme.png" alt="MCP Tool Shop" width="400">
