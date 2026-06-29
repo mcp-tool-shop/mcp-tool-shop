@@ -115,6 +115,22 @@
     "lane": "internal",
     "surfaceEligible": false
   },
+  "attestia": {
+    "tags": [
+      "accounting",
+      "attestation",
+      "attestia",
+      "blockchain",
+      "double-entry",
+      "ethereum"
+    ],
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install attestia",
+    "tagline": "Financial truth infrastructure for the decentralized world.",
+    "needsHumanReview": true
+  },
   "audiobooker": {
     "tags": [
       "audio",
@@ -281,6 +297,22 @@
     "tagline": "MCP control plane for Apple Creator Studio apps — drive Final Cut Pro, Compressor,...",
     "needsHumanReview": true
   },
+  "db-cluster": {
+    "tags": [
+      "ai-native",
+      "audit-trail",
+      "claude",
+      "cli",
+      "database",
+      "federated"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "npx db-cluster",
+    "tagline": "AI-native federated database cluster — specialized truth stores behaving as one...",
+    "needsHumanReview": true
+  },
   "escape-the-valley": {
     "category": "infrastructure",
     "stability": "stable",
@@ -330,6 +362,22 @@
   "knowledge-core": {
     "lane": "active_lab",
     "surfaceEligible": true
+  },
+  "loadout-os": {
+    "tags": [
+      "ai-agents",
+      "claude-code",
+      "cli",
+      "context-management",
+      "dispatch-table",
+      "knowledge-os"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "npx loadout-os",
+    "tagline": "Knowledge OS for AI coding agents — one CLI that routes the right context (memories +...",
+    "needsHumanReview": true
   },
   "mcp-stress-test": {
     "tags": [
@@ -454,6 +502,22 @@
     "tagline": "Trade-first maritime strategy CLI â€” route arbitrage, contracts, infrastructure,...",
     "lane": "shipped",
     "surfaceEligible": true
+  },
+  "prism-verify": {
+    "tags": [
+      "adjudication",
+      "ai-agents",
+      "ai-safety",
+      "cli",
+      "llm",
+      "llm-as-judge"
+    ],
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pipx install prism-verify",
+    "tagline": "Runtime LLM verifier — family-different, reasoning-stripped, multi-lens adjudication...",
+    "needsHumanReview": true
   },
   "prototypes": {
     "lane": "seed_vault",
@@ -834,6 +898,22 @@
     "kind": "library",
     "install": "npm install vocal-synth-engine",
     "tagline": "Deterministic vocal instrument engine — additive synthesis with formant control.",
+    "needsHumanReview": true
+  },
+  "websketch-ir": {
+    "tags": [
+      "ai-agents",
+      "browser-automation",
+      "dom",
+      "intermediate-representation",
+      "llm",
+      "llm-tools"
+    ],
+    "category": "web",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install websketch-ir",
+    "tagline": "Grammar-based intermediate representation that compiles messy DOM into a small, fixed...",
     "needsHumanReview": true
   },
   "world-forge": {
