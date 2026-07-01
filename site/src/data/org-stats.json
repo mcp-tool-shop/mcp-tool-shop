@@ -1,7 +1,7 @@
 {
-  "repoCount": 65,
+  "repoCount": 71,
   "registeredCount": 10,
-  "totalStars": 16,
+  "totalStars": 24,
   "languages": [
     "Python",
     "JavaScript",
@@ -13,11 +13,11 @@
     "GDScript"
   ],
   "recentReleases": 50,
-  "updatedAt": "2026-05-19T14:01:42.861Z",
+  "updatedAt": "2026-07-01T09:05:04.739Z",
   "registryHealth": {
     "registryToolCount": 10,
     "registeredInProjects": 10,
-    "orgOnlyRepos": 55,
+    "orgOnlyRepos": 61,
     "registryArchived": 0,
     "registryMissing": 2,
     "ignoredRepos": 5,
