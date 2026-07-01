@@ -108,12 +108,18 @@
     "kind": "library",
     "install": "npm install ai-rpg-engine",
     "tagline": "A simulation-first terminal RPG engine for worlds shaped by perception, cognition, and...",
+    "screenshot": "/screenshots/ai-rpg-engine.png",
+    "screenshotType": "placeholder",
     "lane": "internal",
     "surfaceEligible": false
   },
   "asset-forge": {
     "lane": "internal",
     "surfaceEligible": false
+  },
+  "attestia": {
+    "screenshot": "/screenshots/attestia.png",
+    "screenshotType": "placeholder"
   },
   "audiobooker": {
     "tags": [
@@ -177,6 +183,10 @@
     "tagline": "Centralized brand asset management â€” migration, audit, and integrity verification for...",
     "lane": "active_lab",
     "surfaceEligible": true
+  },
+  "bytefit": {
+    "screenshot": "/screenshots/bytefit.png",
+    "screenshotType": "placeholder"
   },
   "claude-guardian": {
     "tags": [
@@ -307,6 +317,8 @@
     "needsHumanReview": true
   },
   "game-foundry-os": {
+    "screenshot": "/screenshots/game-foundry-os.png",
+    "screenshotType": "placeholder",
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -366,6 +378,8 @@
     "surfaceEligible": true
   },
   "motif": {
+    "screenshot": "/screenshots/motif.png",
+    "screenshotType": "placeholder",
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -384,6 +398,8 @@
       "single-file edits",
       "sequential tasks"
     ],
+    "screenshot": "/screenshots/multi-claude.png",
+    "screenshotType": "placeholder",
     "needsHumanReview": false,
     "lane": "shipped",
     "surfaceEligible": true
@@ -498,6 +514,8 @@
     "kind": "cli",
     "install": "npx repo-dataset",
     "tagline": "Convert any git repository or visual style repo into LLM training datasets — 8 formats,...",
+    "screenshot": "/screenshots/repo-dataset.png",
+    "screenshotType": "placeholder",
     "needsHumanReview": true,
     "lane": "shipped",
     "surfaceEligible": true
@@ -584,6 +602,8 @@
     "needsHumanReview": true
   },
   "role-os": {
+    "screenshot": "/screenshots/role-os.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -628,6 +648,8 @@
     "stability": "stable",
     "kind": "library",
     "tagline": "A frontier JRPG for the adults who loved those games first.",
+    "screenshot": "/screenshots/saints-mile.png",
+    "screenshotType": "placeholder",
     "needsHumanReview": true,
     "lane": "shipped",
     "surfaceEligible": true
@@ -651,6 +673,8 @@
     "kind": "library",
     "install": "npm install shipcheck",
     "tagline": "Product standards for MCP Tool Shop â€” Ship Gate checklist, error contract, templates,...",
+    "screenshot": "/screenshots/shipcheck.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -711,6 +735,8 @@
   },
   "sprite-foundry": {
     "featured": true,
+    "screenshot": "/screenshots/sprite-foundry.png",
+    "screenshotType": "placeholder",
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -772,6 +798,8 @@
     "kind": "library",
     "install": "npm install style-dataset-lab",
     "tagline": "Visual canon and dataset production pipeline — snapshots, splits, training packages,...",
+    "screenshot": "/screenshots/style-dataset-lab.png",
+    "screenshotType": "placeholder",
     "needsHumanReview": true,
     "lane": "active_lab",
     "surfaceEligible": true
@@ -850,6 +878,8 @@
     "kind": "library",
     "install": "npm install world-forge",
     "tagline": "2D world authoring studio for AI RPG Engine.",
+    "screenshot": "/screenshots/world-forge.png",
+    "screenshotType": "placeholder",
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -883,6 +913,8 @@
     "surfaceEligible": true
   },
   "xrpl-creator-capsule": {
+    "screenshot": "/screenshots/xrpl-creator-capsule.png",
+    "screenshotType": "placeholder",
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -896,6 +928,8 @@
     "kind": "library",
     "install": "pip install xrpl-lab",
     "tagline": "XRPL training workbook â€” learn by doing, prove by artifact.",
+    "screenshot": "/screenshots/xrpl-lab.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   }

@@ -1,814 +1,764 @@
 [
   {
-    "repo": "sovereign",
-    "toolName": "Sovereign",
-    "tag": "v1.1.2",
-    "name": "Sovereign v1.1.2",
+    "repo": "brand",
+    "toolName": "Brand",
+    "tag": "v1.0.6",
+    "name": "brand v1.0.6",
     "body": [
-      "> A Hamilton-system Monopoly-grammar board game and its solo / digital adaptation.",
-      "> Two artifact streams, one design thesis: **debt → credit → bank → industry**.",
-      "Beta.** Same day as v1.1.1, but a meaningfully different shape. After the v1.1.1 cold playthrough the game still felt too short and the ending too arbitrary — it ended because the clock ran out, not because someone won the Republic. v1.1.2 replaces the round-cap-with-mandate end condition with a **circuit-based** end condition tied to physical movement around the board.",
-      "The new end condition:**",
-      "The game ends when one player has carried their faction around the Republic four times — i.e., completed their fourth crossing of Treasury Opens. At that moment, Final Accounting fires and the highest-Influence player wins, *not necessarily the player who got around first*. Hard cap stays at round 30 (a safety; essentially never fires — diagnostic showed 100 / 100 CANONICAL × 100 games complete by round 28).",
-      "Why this is structurally different from v1.1.1:**"
+      "Feature pass: first-class galleries + dynamic README sync. Dogfood swarm, grounded in a 4-question study-swarm + retrieval-verified citation recovery.",
+      "`brand add-gallery <slug> <source-dir>`** — explicit, idempotent registration of a directory of images as a named gallery collection for a slug. Full resync on re-run (adds/updates/removes to match `source-dir`, content-hash compared, never mtime), natural-sort default order, `--order` for explicit ordering via numeric-prefix renaming, `--dry-run`. Auto-regenerates `manifest.json`.",
+      "`brand sync --slug <slug> [--check]`** — regenerates a consuming repo's README gallery block from the manifest, via a new `<!-- brand:gallery:start slug=\"...\" -->` / `<!-- brand:gallery:end -->` marker convention (namespaced so future block types don't collide). `--check` reports drift without writing (CI-gatable, exit 1 on drift). Pure function of the local manifest + local README — no network calls. Deterministic output: byte-identical across runs with unchanged inputs.",
+      "Manifest asset entries now carry an explicit `role: \"primary\" | \"gallery\"`** (plus `gallery: \"<folder>\"` for gallery entries). `generateManifest()` moved from an unscoped recursive glob to a bounded two-level scan (`<slug>/readme.<ext>` = primary, `<slug>/<oneFolder>/<file>` = gallery) — zero migration needed, every existing slug's file coverage is unchanged.",
+      "`brand audit` is role-aware.** The `multiple-logo-matches` check no longer false-flags a legitimate gallery as a badge collision; a README with unmanaged gallery `<img>` tags gets a new informational `unmanaged-gallery` finding pointing at `brand sync` instead.",
+      "`docs/handbook.md` §10 \"Galleries & Dynamic READMEs\" — the design rationale and prior-art grounding (doctoc, terraform-docs, Kubernetes' verify-codegen.sh, Bazel's bare-glob warning, Storybook/Astro's readdir-order caution)."
     ],
-    "publishedAt": "2026-05-20T10:33:59Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereign/releases/tag/v1.1.2",
+    "publishedAt": "2026-07-01T06:29:25Z",
+    "url": "https://github.com/mcp-tool-shop-org/brand/releases/tag/v1.0.6",
     "prerelease": false
   },
   {
-    "repo": "sovereign",
-    "toolName": "Sovereign",
-    "tag": "v1.1.1",
-    "name": "Sovereign v1.1.1",
+    "repo": "sprite-foundry-packs",
+    "toolName": "Sprite Foundry Packs",
+    "tag": "pirate-raiders-3d-2-v1.0.0",
+    "name": "@sprite-foundry/pirate-raiders-3d-2 1.0.0",
     "body": [
-      "> A Hamilton-system Monopoly-grammar board game and its solo / digital adaptation.",
-      "> Two artifact streams, one design thesis: **debt → credit → bank → industry**.",
-      "Beta release.** Second attempt at the digital mode after v1.1.0 was withdrawn the same day it shipped (2026-05-20). v1.1.0 simulation-verified but failed first cold human play; v1.1.1 fixes the structural human-playability gaps that audit could not catch. Not fully cold-validated end-to-end; shipping as beta so anyone who wants the digital mode can opt in while the player experience continues to settle.",
-      "What's new vs v1.0.2:**",
-      "Human playability rebuild (Pass 1 + Pass 2).** Action rail moved above the board (visible without scrolling). Positions strip shows each player's location, cash, and Influence with active-player highlight. Portfolio strip near the action rail surfaces holdings without requiring the sidebar. Right sidebar collapsed by default with `▶ Panels` toggle so the board occupies more real estate. 26 px tokens with active-player halo and `YOU` pointer. Designer-only chrome (Balance Sweep, seed pill, version pill, phase pill, canonical/telemetry labels) hidden by default; visible only with `?designer=1`. Real dice-roll overlay (~3.3 s, deterministic outcome). Acts explain their effect before the YES / NO vote. First-round helping-hand footer fades after lap 1.",
-      "Rent surfacing (Pass 3).** New landing-outcome band synthesized from existing ledger rows. Opponent property: \"You landed on Hamilton's Customs House. Paid 40 TN rent.\" Opponent route: \"Paid 50 TN route toll.\" Opponent institution: \"Paid 70 TN institution payment.\" Own property: \"No rent due\" (plus \"Upgrade available\" when applicable). Tax space: \"Paid 200 TN in tax.\" Sent-to-Crisis surfaces too. No reducer change; the band reads rows the ledger already wrote."
+      "feat: pirate-raiders-3d-2 — next-gen true-3D pre-render pack (26 chars) by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/sprite-foundry-packs/pull/12"
     ],
-    "publishedAt": "2026-05-20T09:34:13Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereign/releases/tag/v1.1.1",
+    "publishedAt": "2026-07-01T05:05:34Z",
+    "url": "https://github.com/mcp-tool-shop-org/sprite-foundry-packs/releases/tag/pirate-raiders-3d-2-v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "sensor-humor",
+    "toolName": "Sensor Humor",
+    "tag": "v1.2.1",
+    "name": "sensor-humor v1.2.1",
+    "body": [
+      "Dockerfile now copies `tsconfig.build.json` so the GHCR image builds. v1.2.0's `build` script",
+      "became `tsc -p tsconfig.build.json` (to keep the dev-only scorecard out of the published dist),",
+      "but the Docker build only copied `tsconfig.json`, so the v1.2.0 GHCR image failed. The npm",
+      "package, GitHub Release, and Pages site for v1.2.0 were unaffected; this patch is npm-identical",
+      "to 1.2.0 apart from the Docker build fix."
+    ],
+    "publishedAt": "2026-06-30T09:07:00Z",
+    "url": "https://github.com/mcp-tool-shop-org/sensor-humor/releases/tag/v1.2.1",
+    "prerelease": false
+  },
+  {
+    "repo": "sensor-humor",
+    "toolName": "Sensor Humor",
+    "tag": "v1.2.0",
+    "name": "sensor-humor v1.2.0",
+    "body": [
+      "Dogfood swarm: a research study-swarm grounded the design, then a full health pass",
+      "(bug/security + proactive + humanization) and a feature pass. 187 → 294 tests.",
+      "v1.2 Prompt Stability Lock** — a *form + safety* regression scorecard (explicitly NOT a",
+      "\"funniness\" metric). A deterministic golden set + statistics run in `npm test`; `npm run",
+      "scorecard` runs the live drift gate: per-mood conformance over N samples, gated on a **Wilson**",
+      "score interval with a **three-valued PASS / FAIL / INCONCLUSIVE** verdict (FAIL only when the"
+    ],
+    "publishedAt": "2026-06-30T08:45:45Z",
+    "url": "https://github.com/mcp-tool-shop-org/sensor-humor/releases/tag/v1.2.0",
     "prerelease": false
   },
   {
     "repo": "research-os",
     "toolName": "Research Os",
-    "tag": "v0.13.1",
-    "name": "v0.13.1",
+    "tag": "v0.14.0",
+    "name": "v0.14.0",
     "body": [
-      "v0.13.1 is a single-repair patch on top of v0.13.0. It closes the v0.5 Track-C condition (R-019 wire-up scope gap at the claim extract stage) by extending R-019's tier-budget authority to every `ollama_extract` MCP call made during `claim extract` — the per-window extractor, the per-claim R-011 section-evidence critic, and the per-rescue-candidate R-012 rescue critic. Same architectural shape as R-019's synth-prose coverage (planner + drafter + verifier). Single-repo patch (research-os only); ollama-intern-mcp@2.6.0's `tier_budget_ms_override` schema field is the unchanged server-side reach.",
-      "The release exists because the v0.5 operator-aloneness gate (`operator_aloneness_dst_v0.5` against published `@mcptoolshop/research-os@0.13.0` + `ollama-intern-mcp@2.6.0`) returned **PASS_WITH_CONDITIONS, NOT authorization-grade**. Three tracks of repair were identified: Track A (memory-gate hook scope; closed as R-022 in scaffolding), Track B (operator-side source coverage; opens as R-023 in v0.6 scaffolding), and Track C (this release — R-024). On the v0.5 operator-run, 3 of 8 sources in section 02 (`02-safety-and-economic`) hit the inner 15000ms instant-tier TIER_TIMEOUT during extract with no operator-facing override. R-019 had shipped the analog override for synth prose in v0.13.0; v0.13.1 extends it to the extract stage.",
-      "> **R-024 lands the full-coverage tier-budget rule: when extending a tier budget, the budget must reach every LLM call at that stage that can produce the same inner timeout. Partial coverage = mistargeted patch at the call-site-coverage layer; the named timeout reappears at the uncovered call site.**",
-      "> **R-024 also lands the live-replay test brittleness rule: when a live-replay acceptance test fails for harness reasons (timing, capture, fixture state) rather than mechanism reasons, fix the test harness — do NOT skip, downgrade, or substitute manual artifact inspection.**",
-      "The v0.5 disposition is Path D (multi-track triage). v0.13.1 closes Track C. R-022 closed in scaffolding (memory-gate hook path whitelist exemption). R-023 fires in a separate session after v0.13.1 publishes. v0.6 gate setup follows R-023. Admissibility Slice 1 remains **NOT authorized** until v0.6 PASS.",
-      "`research-os claim extract <section> --tier-budget-ms <N>`** (R-024) — operator-controllable per-call tier-budget override for the claim extract stage. Forwarded to `ollama-intern-mcp@>=2.6.0` as `tier_budget_ms_override` on EVERY `ollama_extract` callTool invocation during this section's extract run. Bounded `[1, 600000]` ms (10-minute upper safety rail; mirrors R-018's `MAX_PLANNER_TIMEOUT_MS`)."
+      "A two-stage hardening pass over the v0.13.1 surface. **No new pipeline layers, gates, closure ledgers, or reviewer models** — every change is a defect fix or an additive guard/observability field within the locked architecture. Default (no-failure) behavior is byte-identical; the four frozen packs and the locked operator surfaces (error codes, the four help topics, CLI summary labels) are unchanged. 1663 → 1834 tests.",
+      "Discover-time SSRF guard.** `research-os discover run` fetches LLM-proposed URLs to title-check them; that fetch now routes through the same private/loopback/link-local + DNS guard that `gather` uses (factored into `src/sources/url-safety.ts`), **including a post-redirect re-check** so a public URL that 30x-redirects to `127.0.0.1` / `169.254.169.254` / an internal host is refused before its body is read. The discover intake filter now also rejects `http:` (was silently allowed).",
+      "`research-os query` no longer crashes on hyphenated terms.** FTS5 search of ordinary research vocabulary (`machine-learning`, `cost-benefit`, `peer-reviewed`) previously aborted with a raw SQLite error; terms are now quoted as phrases, and any residual FTS error surfaces as a structured `INDEX_QUERY_INVALID` with a quoting hint.",
+      "`review --review-window 0` (or negative), and `--per-source-cap 0`/negative, no longer hang.** Both flags now require a positive integer; the reviewer and triage seams also clamp defensively.",
+      "Freeze integrity at the immutability boundary.** `freeze` now refuses (rather than silently passing) when a live `claims.jsonl` / `claim-reviews.jsonl` line is malformed, when two same-timestamp review rows for one claim disagree (the canonical conflict guard `pack publish` already enforced — now shared via `getEffectiveDecisionMap`), and when a synthesis report contains a malformed `[claim:…]` citation. New refusal codes: `FREEZE_INCOMPATIBLE_REVIEW_DECISIONS`, `FREEZE_MALFORMED_CITATION`.",
+      "`review promote` reads the shipped calibration receipts.** The canonical `seeded-v1.json` profile receipts are *aggregate* receipts; `loadReceiptForPack` now reads them (was hard-aborting `CALIBRATION_RECEIPT_MALFORMED` on a valid receipt). It also no longer mis-blocks promotion of a clean section that contains `frame_excluded` claims."
     ],
-    "publishedAt": "2026-05-19T07:42:57Z",
-    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.13.1",
+    "publishedAt": "2026-06-30T04:08:00Z",
+    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.14.0",
     "prerelease": false
   },
   {
-    "repo": "sovereign",
-    "toolName": "Sovereign",
-    "tag": "v1.0.2",
-    "name": "Sovereign v1.0.2",
+    "repo": "sprite-foundry-packs",
+    "toolName": "Sprite Foundry Packs",
+    "tag": "pirate-raiders-3d-v1.0.1",
+    "name": "@sprite-foundry/pirate-raiders-3d 1.0.1",
     "body": [
-      "> A Hamilton-system Monopoly-grammar board game and its solo / digital adaptation.",
-      "> Two artifact streams, one design thesis: **debt → credit → bank → industry**.",
-      "The product is shipped, signed, versioned, and on npm. \"Prototype\" language was design-time scaffolding that should have been retired at v1.0.0. This release removes that language across all user-facing surfaces.",
-      "Changes:**",
-      "Renamed `release/board-game/sovereign-prototype.html` → `release/board-game/sovereign-board-game.html`. Updated `bin/sovereign.js` `--print` resolution and the smoke tests to match.",
-      "Swept \"prototype\" out of README.md, CHANGELOG.md, release/README.txt, release/00-START-HERE.html, release/board-game/README.txt, release/board-game/V0.10-RULES-ALIGNMENT.md, site/src/site-config.ts, site/src/content/docs/handbook/getting-started.md, site/src/content/docs/handbook/reference.md, site/src/content/docs/handbook/design-history.md, bin/sovereign.js, and test/smoke.test.mjs."
+      "fix(pirate-raiders-3d): 2-row lineup preview (v1.0.1) by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/sprite-foundry-packs/pull/11"
     ],
-    "publishedAt": "2026-05-19T06:31:50Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereign/releases/tag/v1.0.2",
+    "publishedAt": "2026-06-27T02:00:38Z",
+    "url": "https://github.com/mcp-tool-shop-org/sprite-foundry-packs/releases/tag/pirate-raiders-3d-v1.0.1",
     "prerelease": false
   },
   {
-    "repo": "sovereign",
-    "toolName": "Sovereign",
-    "tag": "v1.0.1",
-    "name": "Sovereign v1.0.1",
+    "repo": "sprite-foundry-packs",
+    "toolName": "Sprite Foundry Packs",
+    "tag": "pirate-raiders-3d-v1.0.0",
+    "name": "@sprite-foundry/pirate-raiders-3d 1.0.0",
     "body": [
-      "> A Hamilton-system Monopoly-grammar board game and its solo / digital adaptation.",
-      "> Two artifact streams, one design thesis: **debt → credit → bank → industry**.",
-      "Adds `release/board-game/V0.10-RULES-ALIGNMENT.md`: a delta sheet that lists the eight rule changes a physical table would apply on top of the v0.2 printable prototype to play at v0.10 balance. The board-game prototype HTML itself remains frozen at v0.2 (no human-table playtest has been run); this delta is opt-in for groups reprinting at v0.10 rules.",
-      "The eight deltas: Industrial Charter setup grant · Capacity +1 on first industrial purchase · Capacity ≥ 8 payment bonus +25% → +50% · Capacity ≥ 10 industrial milestone (new) · Full Mfg / Strategic set completion bonuses (new) · Cash IP scoring 1 per 200 TN → 1 per 400 TN · NF Credit endgame bonus 5-IP-split → +1/+2 per qualifying owner · Report on Manufactures capital event (now includes 50 TN per Mfg/Strategic owned + Strategic upgrade halving).",
-      "No game-logic changes. No CLI changes. No digital-mode changes. No npm package shape changes. Pure documentation / table-tool addition. v1.0.x patch shape verified clean.",
-      "Full-treatment Phases 0–7 executed. npm package `@mcptoolshop/sovereign@1.0.0` published with Sigstore provenance. GitHub Release with offline-play zip. Landing page and Starlight handbook deployed. README translated to 7 languages (ja, zh, es, fr, hi, it, pt-BR) before tag."
+      "feat: pirate-raiders-3d — 26 fantasy raiders, true-3D pre-rendered 2.5D pack by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/sprite-foundry-packs/pull/10"
     ],
-    "publishedAt": "2026-05-19T05:58:18Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereign/releases/tag/v1.0.1",
+    "publishedAt": "2026-06-27T01:50:56Z",
+    "url": "https://github.com/mcp-tool-shop-org/sprite-foundry-packs/releases/tag/pirate-raiders-3d-v1.0.0",
     "prerelease": false
   },
   {
-    "repo": "ai-jam-sessions",
-    "toolName": "Ai Jam Sessions",
-    "tag": "v1.4.3",
-    "name": "v1.4.3 — Restore to npm under @mcptoolshop scope",
+    "repo": "sprite-foundry-packs",
+    "toolName": "Sprite Foundry Packs",
+    "tag": "fantasy-villains-hd-v1.0.1",
+    "name": "@sprite-foundry/fantasy-villains-hd 1.0.1",
     "body": [
-      "npm-recovery release. Restores the package to npm under the **`@mcptoolshop/ai-jam-sessions`** scope after the unscoped `ai-jam-sessions` publish was unpublished a month ago and the v1.4.2 retry hit npm's E409 packument-save race.",
-      "No functional changes vs v1.4.2.** Same MCP server, same 41 tools, same dataset publication (Zenodo DOI [`10.5281/zenodo.20279919`](https://doi.org/10.5281/zenodo.20279919)).",
-      "```bash",
-      "npm install -g @mcptoolshop/ai-jam-sessions",
-      "```",
-      "The bin commands are unchanged — after install, run `ai-jam-sessions <command>` and `ai-jam-sessions-mcp` as before."
+      "fix(fantasy-villains-hd): shoulder the reaver's cleaver (v1.0.1) by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/sprite-foundry-packs/pull/9"
     ],
-    "publishedAt": "2026-05-19T05:52:15Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v1.4.3",
+    "publishedAt": "2026-06-25T03:03:10Z",
+    "url": "https://github.com/mcp-tool-shop-org/sprite-foundry-packs/releases/tag/fantasy-villains-hd-v1.0.1",
     "prerelease": false
   },
   {
-    "repo": "sovereign",
-    "toolName": "Sovereign",
-    "tag": "v1.0.0",
-    "name": "Sovereign v1.0.0",
+    "repo": "sprite-foundry-packs",
+    "toolName": "Sprite Foundry Packs",
+    "tag": "pirate-raiders-hd-v1.0.0",
+    "name": "@sprite-foundry/pirate-raiders-hd 1.0.0",
     "body": [
-      "> A Hamilton-system Monopoly-grammar board game and its solo / digital adaptation.",
-      "> Two artifact streams, one design thesis: **debt → credit → bank → industry**.",
-      "The printable board-game artifact. 34 US Letter sheets, 40-space board, 22 properties + 4 routes + 2 institutions, 8 color systems, 7 Acts of Congress in fixed historical order, 4 player roles, 3 shared tracks (Public Credit · Public Resistance · Industrial Capacity), 12+12 event cards, 5 distinct card backs.",
-      "Balance levers (v0.2 changes from v0.1):**",
-      "| Change | Effect |",
-      "|---|---|"
+      "feat: pirate-raiders-hd — 26 fantasy multi-species raiders (HD 2.5D pack) by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/sprite-foundry-packs/pull/8"
     ],
-    "publishedAt": "2026-05-19T05:47:38Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereign/releases/tag/v1.0.0",
+    "publishedAt": "2026-06-25T02:22:42Z",
+    "url": "https://github.com/mcp-tool-shop-org/sprite-foundry-packs/releases/tag/pirate-raiders-hd-v1.0.0",
     "prerelease": false
   },
   {
-    "repo": "ai-jam-sessions",
-    "toolName": "Ai Jam Sessions",
-    "tag": "v1.4.2",
-    "name": "v1.4.2 — Publish jam-actions-v0 with Zenodo DOI",
+    "repo": "registry-stats",
+    "toolName": "Registry Stats",
+    "tag": "v3.4.0",
+    "name": "v3.4.0 — GitHub Releases provider",
     "body": [
-      "`jam-actions-v0` v0.4.3 is now publicly published on Zenodo** with DOI [`10.5281/zenodo.20279919`](https://doi.org/10.5281/zenodo.20279919). This is the canonical citation handle going forward.",
-      "This is a publication-readiness release. No new MCP server functionality vs v1.4.0 — the 41 tools, 3 prompts, 120 songs, 6 sound engines, browser cockpit, and practice journal are unchanged. What's new is the **marketed surface for the training dataset** and the **actual public publication** of that dataset on Zenodo.",
-      "| | |",
-      "|---|---|",
-      "| **Zenodo DOI** | [`10.5281/zenodo.20279919`](https://doi.org/10.5281/zenodo.20279919) |",
-      "| **Zenodo record** | https://zenodo.org/records/20279919 |"
+      "GitHub Releases provider** — a sixth registry alongside npm, PyPI, NuGet, VS Code Marketplace, and Docker Hub.",
+      "Identifier is a repository slug (`owner/repo`). Reports the cumulative download count of all uploaded release assets (binaries, checksums, SBOMs) summed across every release, plus release/asset counts and the latest tag.",
+      "Query it: `registry-stats owner/repo -r github` or `stats('github', 'owner/repo')`.",
+      "GitHub only counts manually-uploaded assets, not the auto-generated source archive, so source-only repos report `0`. The count is all-time cumulative (like NuGet/VS Code), so weekly deltas are derived from snapshot diffing.",
+      "A `githubToken` option (wired to the CI `GITHUB_TOKEN`) raises the API rate limit from 60 to 5000 requests/hour.",
+      "Published via npm Trusted Publishing (OIDC) with Sigstore provenance. Full notes in [CHANGELOG.md](https://github.com/mcp-tool-shop-org/registry-stats/blob/main/CHANGELOG.md)."
     ],
-    "publishedAt": "2026-05-19T05:46:25Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v1.4.2",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-loadout",
-    "toolName": "Ai Loadout",
-    "tag": "v1.4.3",
-    "name": "v1.4.3",
-    "body": [
-      "build(deps): Bump the actions group across 1 directory with 5 updates by @dependabot[bot] in https://github.com/mcp-tool-shop-org/ai-loadout/pull/3",
-      "build(deps-dev): Bump the dev-deps group across 1 directory with 2 updates by @dependabot[bot] in https://github.com/mcp-tool-shop-org/ai-loadout/pull/4",
-      "Cutover: dispatch to dogfood-lab/testing-os by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/ai-loadout/pull/5",
-      "fix(ci): include node types under TS6 + bump brace-expansion by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/ai-loadout/pull/8",
-      "@dependabot[bot] made their first contribution in https://github.com/mcp-tool-shop-org/ai-loadout/pull/3",
-      "@mcp-tool-shop made their first contribution in https://github.com/mcp-tool-shop-org/ai-loadout/pull/5"
-    ],
-    "publishedAt": "2026-05-19T01:15:03Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-loadout/releases/tag/v1.4.3",
+    "publishedAt": "2026-06-24T14:46:42Z",
+    "url": "https://github.com/mcp-tool-shop-org/registry-stats/releases/tag/v3.4.0",
     "prerelease": false
   },
   {
     "repo": "backprop-trace",
     "toolName": "Backprop Trace",
-    "tag": "v0.11.0",
-    "name": "v0.11.0",
-    "body": [
-      "First npm-published release.** **NOT a v1.0.0 promotion** — backprop-trace",
-      "remains mid-v0. v1.0 still gated on: real-world fixture (CNN/transformer),",
-      "adopter validation, multi-framework live helpers (JAX/TF), SGD coupled-L2",
-      "weight decay.",
-      "v0.11.0 promotes the v0.10.x stretch to a publishable artifact. Everything",
-      "the v0.10.x slices built — the helper optimizer matrix (v0.10.1), the"
-    ],
-    "publishedAt": "2026-05-18T10:13:08Z",
-    "url": "https://github.com/mcp-tool-shop-org/backprop-trace/releases/tag/v0.11.0",
-    "prerelease": false
-  },
-  {
-    "repo": "research-os",
-    "toolName": "Research Os",
-    "tag": "v0.13.0",
-    "name": "v0.13.0 — finalization-blocker triage arc",
-    "body": [
-      "v0.13.0 closes the v0.13 finalization-blocker triage arc opened after the v0.4 rerun against npm `@mcptoolshop/research-os@0.12.1` returned **PASS_WITH_CONDITIONS, NOT authorization-grade**, via Path D (multi-blocker triage arc, distinct from Path C named-patch). Three independent finalization blockers were identified at three different pipeline layers; this release ships three independent named knobs that, together, unblock synth prose finalization + no_answer_cluster recovery surface + contradict-map auto-mode. The defense floor and coverage-recovery surfaces from v0.10 / v0.11 / v0.12 / v0.12.1 remain intact; no closed-enum changes; no breaking surface changes.",
-      "> **v0.4 rerun proves synthetic acceptance can validate plumbing while live replay falsifies the target mechanism.**",
-      "> **v0.13 addresses finalization runtime control: R-019 unblocks the inner MCP tier-budget layer; R-020 surfaces honest no_answer_cluster refusal with recovery actions; R-021 unblocks the contradict-map auto-mode RPC layer.**",
-      "The v0.5 operator-aloneness gate against published v0.13.0 fires in a separate session. Admissibility Slice 1 remains **NOT authorized** until v0.5 PASS.",
-      "Optional `tierBudgetMsOverride` parameter on planner / drafter / verifier toolArgs builders** (R-019, `src/synth/prose/{planner,drafter,verifier}.ts`). When the operator-supplied `--planner-timeout-ms <N>` (or `RESEARCH_OS_SYNTH_PLANNER_TIMEOUT_MS=<N>` env var) sets a non-default source, the value flows into the `ollama_extract` MCP call as `tier_budget_ms_override` and reaches `runWithTimeoutAndFallback` at `ollama-intern-mcp/src/guardrails/timeouts.ts:61`. The inner per-tier timeout mechanism that produced the v0.4 rerun's `elapsed=15018ms budget=15000ms` failure now honors the operator's budget directly, instead of merely being wrapped by R-018's Promise.race.",
-      "R-018 wrapper retained as outer hard-rail.** The wrapping `wrapClientWithTimeout` from R-018 still fires when the underlying `callTool` actually hangs (promise never resolves). R-019 closes the orthogonal failure mode where the underlying call RESOLVES with a structured `isError: true` payload but at an inner-tier budget the wrapper cannot override. Both defenses now operate at their respective layers."
-    ],
-    "publishedAt": "2026-05-18T01:48:18Z",
-    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.13.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ollama-intern-mcp",
-    "toolName": "Ollama Intern Mcp",
-    "tag": "v2.6.0",
-    "name": "v2.6.0",
-    "body": [
-      "Minor — non-breaking server-side feature for the v0.13 cross-repo finalization arc. Adds a per-call tier-budget override on `ollama_extract` so research-os (and any other MCP client) can authoritatively set the inner tier-budget that drives `TIER_TIMEOUT` events at the live guardrail layer. Pre-R-019 callers see byte-identical behavior (field is optional and omitted = profile defaults govern).",
-      "`tier_budget_ms_override?: number` schema field on `ollama_extract`.** Optional, bounded `[1, 600000]` ms. When present, the runner builds an `effectiveTimeouts` record (override applied to every tier visited; cascade still honored) and passes it as `timeoutOverrideMs` into the existing `runWithTimeoutAndFallback` machinery at `guardrails/timeouts.ts:61`. The per-tier override slot already existed; v2.6.0 adds the MCP-client entry point to populate it. Handler threads via `RunToolInput.tierBudgetMsOverride` and `RunBatchInput.tierBudgetMsOverride` for items-mode batches.",
-      "The R-018 wrapper that shipped in research-os v0.12.1 wrapped the MCP `callTool` with `Promise.race`. The v0.4 rerun's MISTARGETED-PATCH finding showed the wrapper's effective budget did NOT reach the inner mechanism — `DEV_RTX5080_TIMEOUTS.instant = 15_000` in `src/profiles.ts` continued to fire `TIER_TIMEOUT` at 15000ms regardless of the wrapper's 180000ms budget. v2.6.0's schema field is the MCP-side authoritative budget surface: when research-os passes a `tier_budget_ms_override`, the value reaches the inner mechanism directly, and the operator's `--planner-timeout-ms` flag (or `RESEARCH_OS_SYNTH_PLANNER_TIMEOUT_MS` env var) finally controls inner-tier timeouts as designed.",
-      "Default behavior preserved when the field is omitted. Pre-R-019 callers (any research-os version below 0.13.0; any other MCP client; any direct `ollama_extract` caller that doesn't set the field) see profile defaults govern byte-identically.",
-      "The existing `guardrails/timeouts.ts` per-tier override slot at line 61 is UNCHANGED. The plumbing was already there; v2.6.0 supplies the client-side entry point.",
-      "The cascade (workhorse → instant on timeout) honors the override on every tier visited; `effectiveTimeouts` applies the override uniformly."
-    ],
-    "publishedAt": "2026-05-18T01:21:03Z",
-    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.6.0",
-    "prerelease": false
-  },
-  {
-    "repo": "vocal-synth-engine",
-    "toolName": "Vocal Synth Engine",
-    "tag": "v1.1.0",
-    "name": "v1.1.0 — Dogfood-Swarm Full Treatment",
-    "body": [
-      "First release after standalone-repo restoration and full dogfood-swarm",
-      "treatment (Stages A-D health + Feature Pass + Phase 10 Full Treatment).",
-      "Tests 28 → 246 (+218). Coverage 35% → 40%+. Multi-OS CI matrix.",
-      "npm audit clean. SHA-256 asset-integrity verification. Worker-loop-",
-      "yielding render queue. Graceful shutdown. WS heartbeat. Structured",
-      "error envelope on every API failure. Backward-compatible across all"
-    ],
-    "publishedAt": "2026-05-16T19:51:33Z",
-    "url": "https://github.com/mcp-tool-shop-org/vocal-synth-engine/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "research-os",
-    "toolName": "Research Os",
-    "tag": "v0.12.1",
-    "name": "research-os v0.12.1 — synth planner timeout override (Path C patch)",
-    "body": [
-      "v0.12.1 is a single-repair patch on top of v0.12.0. It ships R-018 only — a research-os-side wrapper timeout on synth prose MCP `callTool` calls, controlled by an operator-discoverable CLI flag and env var with default behavior preserved byte-identical to v0.12.0.",
-      "The release exists because the v0.4 operator-aloneness gate against npm `@mcptoolshop/research-os@0.12.0` returned **PASS_WITH_CONDITIONS, NOT authorization-grade** (`operator_aloneness_dst_v0.4`). The v0.11 defense floor held under live load (R-007 / R-009 / R-010 / R-011 all PROVEN_LIVE; R-008 not needed this run). All six v0.12 coverage-recovery surfaces fired live and carried the operator: R-012 LLM rescue auto-rescued 24/28 source_content_mismatch claims; R-013 rebuilt 19 cards through cached-body buildCard; R-014 exercised both state-changed and no-regen-needed paths; R-015 resume+progress shipped; R-016 example consulted before override authoring; R-017 missed one natural policy-phrasing keyword and was logged as a v0.13 candidate. Sealed envelope coverage reached PASS thresholds (4/5 SUPPORTED + 1 PARTIAL must-include; 2/3 SUPPORTED + 1 PARTIAL moderators; 0/3 traps; 0/5 material failures triggered). Contamination markers were all HARMLESS. The single failure mode was finalization: synth prose hit `TIER_TIMEOUT` reproducibly at ~15010ms vs the 15s Instant-tier budget across both gate-eligible sections, with no documented CLI / env-var override to raise it. Section briefs were envelope-compliant; the pack just couldn't reach freeze.",
-      "Path C disposition (new pattern earned at v0.4) — when Session B identifies a single named failure mechanism with an explicit patch path AND envelope coverage is at PASS thresholds AND the defense floor is preserved AND contamination is HARMLESS, the disposition is: ship the patch, rerun the same operator path against the patched version, re-grade. No envelope re-authoring. No human rater. No v0.13 architectural arc. v0.12.1 is the named patch; the v0.4 rerun against published v0.12.1 is the prerequisite for Admissibility Slice 1 authorization.",
-      "> **v0.4 proves coverage-grade Research-OS at the section-brief level.**",
-      "> **v0.12.1 must prove finalization-grade by removing the single planner-timeout bottleneck without weakening the defense floor.**",
-      "`research-os synth section <id> --planner-timeout-ms <N>`** (R-018, commit `e6957dd`) — opt-in CLI flag that overrides the research-os-side wrapper timeout for synth prose MCP `callTool` calls on a per-section synth run. Also registered on `synth workspace --section <id>`. Accepts integers in `[1, 600000]` (600000ms = 10-minute safety rail against typo runaway). Documented in `--help` with default, upper bound, and env-var alternative."
-    ],
-    "publishedAt": "2026-05-16T13:31:37Z",
-    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.12.1",
-    "prerelease": false
-  },
-  {
-    "repo": "research-os",
-    "toolName": "Research Os",
-    "tag": "v0.12.0",
-    "name": "research-os v0.12.0 — coverage-recovery release",
-    "body": [
-      "v0.12.0 closes the v0.3 operator-aloneness gate findings surfaced 2026-05-16 (`operator_aloneness_dst_v0.3`, PASS_WITH_CONDITIONS but not authorization-grade). The release is a four-slice arc covering six named findings (R-012 through R-017) across two halves: three architectural repairs that close the v0.4-blocking coverage gaps, and three ergonomic closures that improve the operator surface the v0.4 gate will exercise. v0.3 failed authorization not because defenses regressed — all five v0.11 defense surfaces (R-007 through R-011) fired exactly as designed, captured the contamination cases they were built for, and produced a clean honest narrow synthesis with zero silent-wrong content — but because the same defenses, working correctly, trimmed load-bearing primary-source coverage out of the accepted-claim base. The pack reached FROZEN, the operator hit the gate honestly, and the sealed envelope showed 3/5 must-include claims MISSING + 2/3 moderators MISSING + 2/5 material failure conditions TRIGGERED (failure_3 no null-result; failure_4 AASM omitted). The doctrine ratchet earned at v0.3 named the failure shape: defense-grade operator-aloneness PROVEN; coverage-grade operator-aloneness NOT yet. v0.12.0 is the answer.",
-      "> **v0.11 made the system safe enough to avoid silent-wrong synthesis.**",
-      "> **v0.12 makes it more capable of recovering coverage without weakening those defenses.**",
-      "The v0.11 defense floor stays unchanged. v0.12 adds lawful, witnessed recovery paths on top.",
-      "> **Thesis:** Conservative defenses can prevent silent-wrong synthesis, but they can also starve the pack of necessary coverage.",
-      "R-011 rescue path for source_content_mismatch exclusions** (R-012, commit `74f54ed`) — three-stage sequential pipeline added inside the extract loop: deterministic eligibility gate (`non_excluded_on_topic_peers >= 2` from the same source body) → LLM rescue critic (per-source rescue decision with operator-readable rationale) → operator rescue CLI (`research-os claim rescue`, post-extraction). Closed enum `FrameRescueStatus` (5 values: `not_rescued | rescued_by_llm | rescued_by_operator | operator_declined | ineligible_for_rescue`). Hard invariant enforced in code at three layers (extractor, operator CLI, pure gate): rescues that change `frame_excluded: true → false` are witnessed by an append-only ledger entry. New append-only `evidence/claim-frame-rescues.jsonl` recording every rescue event with `rescue_scope` + `rescue_boundary` metadata. Rescue metadata NEVER rewrites the original claim's `scope` or `not` fields — original claim state is preserved alongside the rescue record."
-    ],
-    "publishedAt": "2026-05-16T09:16:55Z",
-    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.12.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ollama-intern-mcp",
-    "toolName": "Ollama Intern Mcp",
-    "tag": "v2.5.3",
-    "name": "v2.5.3",
-    "body": [
-      "Patch — finishes the macOS realpath story. v2.5.1 realpath'd allowedRoots. v2.5.2 realpath'd the assertSafePath input. Both fail when the input file doesn't exist (synthetic-path amends — a documented use case where the path is recorded in the manifest before the operator creates the file). v2.5.3 fixes this by expanding allowedRoots to return BOTH the literal-normalized form AND the realpath form. Input check passes if it matches either side — no longer requires input.realpath to succeed.",
-      "`src/corpus/manifest.ts:allowedRoots()` returns both literal + realpath forms.** On macOS, `/var/folders/...` and `/private/var/folders/...` are the same directory through the system symlink. With both forms in the allowed-roots set, an input path in either form matches without requiring the input itself to exist on disk. Closes the corpusAmend macOS failure where synthetic-path tests pass an `INTERN_CORPUS_ALLOWED_ROOTS = /var/folders/...` but `corpusAmend` is called with a path whose file isn't on disk (`realpathSync` throws ENOENT → falls back to literal → doesn't match the realpath'd root from v2.5.1).",
-      "Local 958/959 passing. Coverage thresholds unchanged."
-    ],
-    "publishedAt": "2026-05-16T04:22:16Z",
-    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.5.3",
-    "prerelease": false
-  },
-  {
-    "repo": "ollama-intern-mcp",
-    "toolName": "Ollama Intern Mcp",
-    "tag": "v2.5.2",
-    "name": "v2.5.2",
-    "body": [
-      "Patch — completes the v2.5.1 macOS fix. v2.5.1 made `allowedRoots()` realpath each entry, but the INPUT path passed to `assertSafePath()` was still un-realpath'd by `corpusAmend.ts` (and any other caller that doesn't go through the indexer's `realpath → assertSafePath` pipeline). On macOS that left `/var/folders/...` (input) vs `/private/var/folders/...` (root) asymmetric — paths were still rejected as outside-roots. This patch realpaths inside `assertSafePath` itself so both sides match, with an OR-fallback to the normalized form so non-existent paths still validate against the literal allowed-roots string (preserves the historical pre-realpath behavior for the indexer's \"file recorded in manifest but no longer on disk\" case).",
-      "Also fixes the Doc Drift workflow to `npm run build` before `npm test` — without it, tests that spawn `dist/index.js` (cli, mcpGolden, mcp.integration, pack) error at `beforeAll`, making the parseable pass count artificially low and exit code 1.",
-      "`src/corpus/manifest.ts:assertSafePath` realpaths the input path before comparison.** Symmetric with v2.5.1's `allowedRoots()` realpath. Now `corpusAmend` (and any future caller that doesn't pre-realpath) compares apples-to-apples. Fallback: if `realpathSync` fails (file doesn't exist yet), use the normalized form — both candidates are tried so any path that passed pre-v2.5.1 still passes.",
-      "`.github/workflows/doc-drift.yml`** adds `npm run build` between install and test.",
-      "Tests, typecheck, build, coverage thresholds unchanged. Local Windows run: 958/959 passing."
-    ],
-    "publishedAt": "2026-05-16T04:17:16Z",
-    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.5.2",
-    "prerelease": false
-  },
-  {
-    "repo": "ollama-intern-mcp",
-    "toolName": "Ollama Intern Mcp",
-    "tag": "v2.5.1",
-    "name": "v2.5.1",
-    "body": [
-      "Patch — closes three cross-platform CI matrix failures the v2.5.0 multi-OS strategy surfaced on first invocation. No API or behavior changes. The release-spine doing exactly what it was built to do: catching real platform-sensitive code that had been sitting in the repo behind the Linux-only gate.",
-      "`tests/errorHintQuality.test.ts` Node 20 compatibility.** Test used `fs.globSync` which is a Node 22+ API; Node 20 doesn't have it (`TypeError: globSync is not a function`). Replaced with a small hand-rolled `walkTsFilesSync` (recursive `readdirSync` with `withFileTypes`). Skips `.dot` dirs + `node_modules`. No new dep. `engines.node: \">=20.0.0\"` honored.",
-      "`src/corpus/manifest.ts` macOS realpath consistency.** `allowedRoots()` returned entries as-is, while the indexer calls `realpath(path)` before checking them. On macOS, `realpath('/var/folders/...')` resolves to `/private/var/folders/...` (the canonical symlink target). An allowed root configured as `/var/folders/...` was therefore rejected as outside-roots even though it pointed at the same directory. `allowedRoots()` now calls `realpathSync` on each entry (fall through to `normalize` if the path doesn't exist yet). Tests on macOS that set `INTERN_CORPUS_ALLOWED_ROOTS = tmpdir()` now produce paths consistent with `realpath(file)` from inside the indexer.",
-      "`tests/corpus/indexerSearcher.test.ts` Windows skip widened.** The TOCTOU-style \"outside allowed roots\" test had a dynamic skip (`if (tmpdir().startsWith(homedir())) return`) intended to catch the local-dev case where Windows tmpdir is under the user profile. On GitHub Actions Windows runners, tmpdir is on `D:\\a\\_temp` and homedir is on `C:\\Users\\runneradmin` (different drive), so the dynamic skip didn't fire but the test setup couldn't produce a reliable \"outside\" path either. Skip is now `process.platform === 'win32'` unconditionally; `assertSafePath` has its own direct unit tests covering the rejection path, this integration test exists to verify the indexer's `realpath → assertSafePath` wiring on POSIX where the topology is controllable.",
-      "Tests, typecheck, build, coverage thresholds unchanged. Local Windows run: 958/959 passing, 1 todo. Coverage holds at 86.52% statements / 88.94% lines.",
-      "v2.5.0 npm package + GitHub release are unaffected — the publish workflow gated on `ubuntu × 22` which passed; this patch only restores green CI across the multi-OS verify matrix that v2.5.0 introduced."
-    ],
-    "publishedAt": "2026-05-16T04:06:52Z",
-    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.5.1",
-    "prerelease": false
-  },
-  {
-    "repo": "ollama-intern-mcp",
-    "toolName": "Ollama Intern Mcp",
-    "tag": "v2.5.0",
-    "name": "v2.5.0",
-    "body": [
-      "Health hardening, proactive defenses, humanization of error/observability surfaces, and 10 user-facing feature additions from a 10-phase dogfood swarm. The 41-tool surface gains `ollama_code_review` (42 total). Correlation IDs now propagate across every NDJSON event so an operator can join `pack_step` to its originating `tools/call` envelope. A breaking behavior change in the confidence guardrail default (now fail-closed) is the reason for the minor bump's prominence — see **Changed** below.",
-      "`ollama_code_review` atom tool.** Structured PR review: takes a unified diff (`diff_text`, 2MB cap) + optional source paths (max 50), returns `{findings:[{severity, category, file, line?, symbol?, description, recommendation}], summary, diff_size_bytes}`. Severity `critical|high|medium|low`, category `bug|security|performance|style|maintainability`. `severity_floor` and `max_findings` filters. Tier defaults to workhorse; `tier:'deep'` for high-stakes. `coerceReview` drops malformed entries instead of throwing — same pattern as `coerceOnboardingFacts` in packs. Distinct from `ollama_multi_file_refactor_propose` (which proposes refactors): code_review flags issues to fix in the diff as-is.",
-      "Correlation IDs across the stack.** Every NDJSON event now carries `{run_id, call_id?, parent_call_id?, op, ...}` where `run_id` is minted in `runner.ts` at every tool entry, `call_id` is per-HTTP-attempt, and `parent_call_id` lets pack sub-step events link back to the originating tool call. `op` enum is closed (`chat|embeddings|pack_step|semaphore_wait|guardrail|shutdown|startup`), borrows OTel `gen_ai.operation.name` vocab. Propagation uses Node's `AsyncLocalStorage` — no parameter threading required for the read side. Tool envelopes echo `run_id` for client-side correlation. Design grounded by a study-swarm (W3C TraceContext / OTel GenAI / MCP progressToken trade-offs; see commit messages for sources).",
-      "CLI surface.** `npx ollama-intern-mcp [--version|-V|--help|-h|doctor|init]`. Doctor reuses the `ollama_doctor` tool with NullLogger and renders a human-readable report (Profile / Tiers / Ollama / Models / Healthy). Init scaffolds `hermes.config.yaml` in cwd, refuses to overwrite. No new dependencies.",
-      "Profile validation fail-fast.** `INTERN_TIER_<TIER>` env values are validated at `loadProfile()` against `^[a-z0-9._-]+(:[a-z0-9._-]+)?$` for model names and `[256, 1048576]` for `num_ctx`. Catches the `hermes3-8b` (dash instead of colon) typo at load time with a \"Did you mean hermes3:8b?\" hint instead of failing as `OLLAMA_MODEL_MISSING` hours later.",
-      "Vitest coverage configuration.** `npm run test:coverage` (v8 provider, 4 reporters incl. lcov + json-summary, thresholds 70/70/60/70 lines/functions/branches/statements). Current suite reports 86.52% statements / 88.94% lines / 73.96% branches / 86.80% functions."
-    ],
-    "publishedAt": "2026-05-16T02:42:15Z",
-    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.5.0",
-    "prerelease": false
-  },
-  {
-    "repo": "research-os",
-    "toolName": "Research Os",
-    "tag": "v0.11.0",
-    "name": "v0.11.0 — Second Operator-Aloneness Repair Release",
-    "body": [
-      "Release date:** 2026-05-15",
-      "npm:** `@mcptoolshop/research-os@0.11.0`",
-      "Requires:** `ollama-intern-mcp@^2.4.0`",
-      "v0.11.0 closes the v0.2 operator-aloneness gate failure conditions surfaced 2026-05-15 (`operator_aloneness_dst_v0.2`, PASS_WITH_CONDITIONS but not authorization-grade). The release is a 4-slice repair arc covering 5 named findings: scope/boundary repair alignment (R-007), discover-time URL relevance check (R-008), paired source-content contamination defense at extraction and frame-critic layers (R-009 + R-011), and recover advisor fallback-cause visibility (R-010). v0.2 failed authorization because three independent contamination paths slipped past v0.10.0's defenses — `repair-scope --auto` filled `scope` but left `not` null so triage re-classified claims as `needs_scope_repair`, `llm-heuristic` discover presented real-but-unrelated PMC URLs as confidence-high candidates, and the extractor + frame-critic chain admitted 11 cancer-paper-derived claims with DST-framed text. The accept-floor invariant was the only designed defense that fired structurally; v0.11.0 closes the upstream gaps so v0.3 of the gate can fire against fresh operator runs.",
-      "```",
-      "Slice 1 → claim repair-scope fills both scope + not          (R-007)"
-    ],
-    "publishedAt": "2026-05-16T02:38:31Z",
-    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.11.0",
-    "prerelease": false
-  },
-  {
-    "repo": "brand",
-    "toolName": "Brand",
-    "tag": "v1.0.4",
-    "name": "v1.0.4 — dogfood swarm: 170+ findings, 31→137 tests",
-    "body": [
-      "10-phase dogfood swarm. **170+ findings closed** across health (Stages A–D) + visual polish + treatment phases. **Test suite grew from 31 → 137 tests (+342%)**.",
-      "`brand stats` was shipped-broken in v1.0.3 — read `manifest.logos` but the real manifest shape is `manifest.assets`. Live output reported `Manifest entries: 4` against 187 real logos. Now correct.",
-      "`--json` mode on `verify`, `audit`, `migrate`, `manifest --check` (joining `stats`).",
-      "`--quiet` / `--verbose` global flags.",
-      "Differentiated exit codes: **0** success, **1** drift/mismatch, **2** operator error, **3** unexpected.",
-      "`brand migrate` is now transactional: per-file atomic write (temp + rename), per-repo journal at `<repo>/.brand-migrate.journal.json`, `--resume` to recover from a partial cross-org run, per-repo try/catch, TTY progress indicator."
-    ],
-    "publishedAt": "2026-05-16T01:26:12Z",
-    "url": "https://github.com/mcp-tool-shop-org/brand/releases/tag/v1.0.4",
-    "prerelease": false
-  },
-  {
-    "repo": "rig-bridge",
-    "toolName": "Rig Bridge",
-    "tag": "v1.0.2",
-    "name": "v1.0.2",
-    "body": [],
-    "publishedAt": "2026-05-16T00:57:35Z",
-    "url": "https://github.com/mcp-tool-shop-org/rig-bridge/releases/tag/v1.0.2",
-    "prerelease": false
-  },
-  {
-    "repo": "rig-bridge",
-    "toolName": "Rig Bridge",
-    "tag": "v1.0.1",
-    "name": "v1.0.1",
-    "body": [],
-    "publishedAt": "2026-05-15T21:29:35Z",
-    "url": "https://github.com/mcp-tool-shop-org/rig-bridge/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "tool-compass",
-    "toolName": "Tool Compass",
-    "tag": "v2.3.0",
-    "name": "v2.3.0 — dogfood swarm v2 (npm wrapper + 86% coverage)",
-    "body": [
-      "Dogfood swarm v2** — 12-wave audit/amend cycle. Adds zero-prerequisite npm install path, raises test coverage to production-grade 80%+ floor, ships 6 new CLI subcommands for full MCP-surface parity.",
-      "```bash",
-      "npx @mcptoolshop/tool-compass --help",
-      "```",
-      "SHA256-verified platform binary (linux-x64 / darwin-arm64 / win-x64) downloaded on first run via [@mcptoolshop/npm-launcher](https://www.npmjs.com/package/@mcptoolshop/npm-launcher). No Python toolchain required.",
-      "`tool-compass ui` — launch Gradio UI"
-    ],
-    "publishedAt": "2026-05-15T06:13:39Z",
-    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "polyglot-mcp",
-    "toolName": "Polyglot Mcp",
-    "tag": "v1.7.2",
-    "name": "v1.7.2 — fix stale version tokens in fuzzy cache",
-    "body": [
-      "Stale version tokens preserved through the fuzzy cache.** `getFuzzyCached()` in `src/cache.ts` now compares SemVer-style version tokens between the query and the candidate cache entry, and rejects the fuzzy match when the tokens disagree.",
-      "Caught on the testing-os v1.2.2 release (2026-05-14). Every translation pass produced `README.{ja,zh,es,fr,hi,it,pt-BR}.md` with the `<!-- version:start -->` marker block stamped at the *previous* release's version, because the marker-block segment had ~0.99 Levenshtein similarity to the previous release's cached segment — only the version number changed. The fuzzy cache returned the prior translation verbatim, version token and all. The translator never reached Ollama for that segment.",
-      "`extractInvariantTokens(text)` — extracts SemVer tokens (`v\\d+\\.\\d+\\.\\d+(?:-[\\w.]+)?`) from a string, sorted for order-independent comparison",
-      "`hasSameInvariantTokens(a, b)` — returns true only when two texts share the exact same multiset of tokens",
-      "`getFuzzyCached()` — when a candidate clears the Levenshtein threshold but disagrees on invariant tokens, the entry is **skipped** and the search continues. If no other candidate qualifies, the segment falls through to fresh translation",
-      "Cost: ~7 extra Ollama calls per release (one per language). Correctness gain: every release."
-    ],
-    "publishedAt": "2026-05-15T02:34:57Z",
-    "url": "https://github.com/mcp-tool-shop-org/polyglot-mcp/releases/tag/v1.7.2",
-    "prerelease": false
-  },
-  {
-    "repo": "storyboard-os",
-    "toolName": "Storyboard Os",
-    "tag": "v1.1.0",
-    "name": "v1.1.0 — Dogfood Swarm Hardening Pass",
-    "body": [
-      "10-phase parallel-agent swarm covering Stage A (bug/security), Stage B (proactive health), Stage C (humanization), and Stage D (visual polish) across all 5 domains: `core-infra`, `verticals`, `apps`, `docs-site`, `ci-tooling`. Tests: 609 → 660 (+51).",
-      "core-infra**",
-      "`StoryboardCanvas` positions state now reconciles with the `frames` prop on change — prunes orphan positions, seeds new ids, preserves dragged positions (F-CI-001)",
-      "`@storyboard-os/routing` route builders URL-encode every id segment via `encodeURIComponent` — fixes path-traversal vector (`boardRoute('../admin')`) and id-collision class (F-CI-002)",
-      "`@storyboard-os/routing` ships its first test suite (16 tests for normalization, encoding, traversal vectors, collision class) and runtime `vitest` config (F-CI-003)",
-      "`validateStoryboard` is hardened against null/undefined input, missing `frame.size` / `frame.position`, NaN/Infinity dimensions and positions, duplicate connection ids, self-loops, and duplicate edges. New error codes: `INVALID_STORYBOARD_SHAPE`, `MISSING_FRAME_SIZE`, `MISSING_FRAME_POSITION`, `INVALID_FRAME_DIMENSION`, `INVALID_FRAME_POSITION`, `DUPLICATE_CONNECTION_ID`, `SELF_LOOP_CONNECTION`, `DUPLICATE_CONNECTION_EDGE` (F-CI-004, F-CI-005, F-CI-006, F-CI-013, F-CI-201)"
-    ],
-    "publishedAt": "2026-05-12T09:53:11Z",
-    "url": "https://github.com/mcp-tool-shop-org/storyboard-os/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "creator-studio-os",
-    "toolName": "Creator Studio Os",
-    "tag": "v2.0.1",
-    "name": "v2.0.1 — README v2.0 alignment + translations",
-    "body": [
-      "Doc-only release. Source code and tool surface unchanged from 2.0.0.",
-      "Root README updated to v2.0.0 reality (was rendering 'v1.7.10 / 78 tools' on GitHub home + the umbrella package's npm page).",
-      "Translator-induced malformed H1 (`# ```text` code-fence wrap) on 5 of 18 ja+zh per-package READMEs (pixelmator, fcp, keynote). Latin-script translations were not affected.",
-      "Umbrella app translations — `apps/creator-studio-os/README.{es,fr,hi,it,ja,pt-BR,zh}.md`. Total translation surface now 11 READMEs × 7 languages = **77 files**.",
-      "`.github/` polish — CODEOWNERS, FUNDING.yml, PR template, issue templates.",
-      "Site landing handbook page `packages.md`."
-    ],
-    "publishedAt": "2026-05-06T08:45:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/creator-studio-os/releases/tag/v2.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "creator-studio-os",
-    "toolName": "Creator Studio Os",
-    "tag": "v2.0.0",
-    "name": "v2.0.0 — Monorepo + 9 publishable packages",
-    "body": [
-      "Monorepo decomposition: the monolith is now **10 npm packages**, each publishable independently under the `@creator-studio-os` scope.",
-      "9 new packages + umbrella CLI:**",
-      "`@creator-studio-os/core` — shared runtime, AppleScript runners",
-      "`@creator-studio-os/compressor` — headless encode, batch jobs, live progress (15 tools)",
-      "`@creator-studio-os/fcp` — FCPXML 1.14 authoring + FCP import (22 tools)",
-      "`@creator-studio-os/iwork-docs` — Pages + Numbers lifecycle (10 tools)"
-    ],
-    "publishedAt": "2026-05-06T06:59:03Z",
-    "url": "https://github.com/mcp-tool-shop-org/creator-studio-os/releases/tag/v2.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "creator-studio-os",
-    "toolName": "Creator Studio Os",
-    "tag": "v1.7.12",
-    "name": "v1.7.12 — first public npm release",
-    "body": [
-      "First public release of **@creator-studio-os/creator-studio-os** on npm.",
-      "78 MCP tools** across all 8 Apple Creator Studio apps: FCP, Compressor, Motion, Pixelmator Pro, Logic Pro, Keynote, Pages, Numbers",
-      "`brand-deck-minimal` cross-app protocol** — 13-step pipeline composes Pixelmator brand cards, Motion lower-thirds via OZML mutation, and Compressor encode into a finished MOV from a JSON spec",
-      "Headless Motion render via Compressor** (first programmatic Motion render path in any MCP)",
-      "OZML 4.0 parameter + sibling-text mutation** (no prior art globally)",
-      "FCPXML 1.14 round-trip diff** + 12 silent-transformation pre-flight checks"
-    ],
-    "publishedAt": "2026-05-06T05:14:09Z",
-    "url": "https://github.com/mcp-tool-shop-org/creator-studio-os/releases/tag/v1.7.12",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v2.2.1",
-    "name": "v2.2.1 — translations + SIGTERM fix",
-    "body": [
-      "README translated into all 8 languages: Japanese, Simplified Chinese, Spanish, French, Hindi, Italian, and Brazilian Portuguese via TranslateGemma 12B (local, zero API cost). Language nav bar added to the English README.",
-      "`test_daemon_sigterm_removes_daemon_json_on_clean_exit` no longer flakes on slow CI runners. The test was racing the SIGTERM handler install window. Fix: poll `GET /health` until 200 OK before signalling — proves uvicorn is in its event loop and cleanup is wired. Cleanup deadline bumped 10s → 30s.",
-      "```bash",
-      "pip install sovereignty-game==2.2.1",
-      "npx @mcptoolshop/sovereignty",
-      "```"
-    ],
-    "publishedAt": "2026-05-05T03:36:30Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.2.1",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v2.2.0",
-    "name": "v2.2.0 — Tier 1 print pack",
-    "body": [
-      "Tier 1 print pack — production-grade printable PDFs.** Sovereignty now ships eight ready-to-print PDFs covering the entire Tier 1 (Campfire) and Tier 3 (Treaty Table) print package: a 16-space Campfire board, a player mat, two quick-references, and three decks (20 Event cards + 10 Deal cards + 10 Voucher cards). The previous \"draw the board on a piece of paper or count spaces 0-15\" instruction is gone — the board is now a real printable artifact.",
-      "PDFs are vector with embedded fonts (Cormorant Garamond, IM Fell English, JetBrains Mono, ZapfDingbats), zero system fallbacks, US Letter portrait, home-printer-friendly. The visual contract is locked in [`docs/visual-language.md`](https://github.com/mcp-tool-shop-org/sovereignty/blob/v2.2.0/docs/visual-language.md) as Direction A (Parchment Heritage).",
-      "Re-render pipeline ships with the package.** JSX components, the print-only HTML entry, render scripts, and a step-by-step recipe live at [`assets/print/source/`](https://github.com/mcp-tool-shop-org/sovereignty/tree/v2.2.0/assets/print/source) so the PDFs can be reproduced from scratch with headless Chromium.",
-      "Humanized README + handbook.** The README now leads with \"play tonight\" and the print pack, with the console install moved to \"Want a console to keep score?\" framing. The handbook print-and-play page links the actual PDFs (was: source markdown).",
-      "| Sheet | File | Pages |",
-      "|---|---|---|"
-    ],
-    "publishedAt": "2026-05-05T02:43:50Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "storyboard-os",
-    "toolName": "Storyboard Os",
-    "tag": "v1.0.3",
-    "name": "Storyboard OS v1.0.3 - Three Verticals + Generic Connection Core",
-    "body": [
-      "Three-vertical story-structure platform with hardened generic infrastructure.",
-      "RPG Storyboard** - quest and game narrative implementation authoring",
-      "Marketing Storyboard** - campaign launch readiness and implementation flow",
-      "Cinematic Storyboard** - production storyboard for trailers, cutscenes, explainers",
-      "Generic connection core** - domains own their connection vocabularies without casts",
-      "`StoryboardConnection<TConnectionType>`"
-    ],
-    "publishedAt": "2026-05-04T23:04:56Z",
-    "url": "https://github.com/mcp-tool-shop-org/storyboard-os/releases/tag/v1.0.3",
-    "prerelease": false
-  },
-  {
-    "repo": "storyboard-os",
-    "toolName": "Storyboard Os",
-    "tag": "v1.0.1",
-    "name": "v1.0.1 — Handbook, Translations, Landing Page",
-    "body": [
-      "Starlight handbook** — 5 pages (index, getting started, authoring workflow, architecture, reference) with Pagefind full-text search",
-      "Translations** — 35 README files across 7 languages (ja, zh, es, fr, hi, it, pt-BR) via TranslateGemma 12B",
-      "Landing page** — handbook CTA connected, version badge updated to v1.0.1",
-      "Landing page secondary CTA restored to `#features` (was accidentally overwritten with handbook link by site-theme CLI)",
-      "| Package | Version |",
-      "|---|---|"
-    ],
-    "publishedAt": "2026-05-04T09:24:48Z",
-    "url": "https://github.com/mcp-tool-shop-org/storyboard-os/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "storyboard-os",
-    "toolName": "Storyboard Os",
     "tag": "v1.0.0",
-    "name": "v1.0.0 — Phase 2: Durable Local Authoring",
+    "name": "v1.0.0",
     "body": [
-      "First stable release. Phase 2 completes the durable local authoring loop.",
-      "| Package | Description |",
-      "|---|---|",
-      "| [`@storyboard-os/core`](https://www.npmjs.com/package/@storyboard-os/core) | Generic storyboard primitives — frame, connection, annotation, template, structural validation |",
-      "| [`@storyboard-os/rpg-domain`](https://www.npmjs.com/package/@storyboard-os/rpg-domain) | RPG game-authoring contract — frame types, content schema, templates, readiness model, handoff, project helpers |",
-      "| [`@storyboard-os/canvas`](https://www.npmjs.com/package/@storyboard-os/canvas) | Domain-configurable Konva canvas renderer — frames, connections, selection, drag, viewport |"
+      "v1.0.0 — the sober promotion.** A comprehensive dogfood swarm took",
+      "backprop-trace from honest mid-v0 to a v1.0.0 that meets the product's own gate",
+      "criteria. Tests 792 → 940; CPU-only; 26 reconciler rules.",
+      "SGD coupled-L2 weight decay** (the documented Rule 7 third branch) for plain",
+      "SGD and SGD-momentum (classical / Nesterov / dampening). Coupled, not",
+      "decoupled — the decay folds into the gradient and enters the momentum buffer,"
     ],
-    "publishedAt": "2026-05-04T07:50:47Z",
-    "url": "https://github.com/mcp-tool-shop-org/storyboard-os/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v2.1.0",
-    "name": "v2.1.0 — multi-save · daemon · audit viewer",
-    "body": [
-      "Multiple saved games at once. Sovereignty now keeps every game you start under `.sov/games/<game-id>/`. List them with `sov games`, switch with `sov resume <game-id>`. Starting a new game no longer overwrites the old one. Existing v1 layouts (`.sov/game_state.json`) auto-migrate on first invocation — transparent, one-shot, with a stderr notice.",
-      "Batched anchoring across a small constant of chain pointers per game. `sov anchor` at game-end batches pending rounds into ≤8-memo AccountSet transactions on XRPL — a typical 16-round Campfire game produces 2 anchor txs at game-end, indexed by `round_key` in memo body. A verifier walks the trail (1-2 tx URLs per game) instead of the 30+ baseline a per-round-anchor design would produce. Pending hashes queue in `pending-anchors.json`; `sov anchor --checkpoint` flushes mid-game when a checkpoint is needed. The per-tx cap reflects rippled's aggregate `Memos`-field constraint, pinned mechanically by real-testnet boundary tests.",
-      "Network selection. `sov anchor --network testnet|mainnet|devnet` and the `SOV_XRPL_NETWORK` env var join the existing testnet default. Mainnet anchors cost real XRP; the network switcher in the desktop app asks for confirmation before crossing that boundary. `XRPLTransport(network=…)` replaces `XRPLTestnetTransport`.",
-      "Optional daemon mode. `sov daemon start` runs sovereignty as a localhost HTTP/JSON server with bearer-token auth. Install with `pip install 'sovereignty-game[daemon]'`. Required by the desktop app; optional for everyone else. CLI-only users skip the dep cost.",
-      "Audit Viewer desktop app. The Tauri shell ships three views: `/audit` (XRPL-anchored proof viewer with verify-all-rounds), `/game` (passive real-time state display for the active game), `/settings` (daemon config + network switcher with three guardrails). Currently runs from source for developers (`npm --prefix app run tauri dev`); signed binaries ship in v2.1 final via Wave 11.",
-      "Migration + deprecation calendar. v1 game-state files (`.sov/game_state.json`) auto-migrate to the multi-save layout on first v2.1 invocation — transparent, one-shot, with a stderr notice. Four shims emit `DeprecationWarning` and remove in v2.2: `fund_testnet_wallet()`, `XRPLTestnetTransport`, `sov anchor <proof_file>` (single-round legacy form), `LedgerTransport.verify()`."
-    ],
-    "publishedAt": "2026-05-03T00:17:06Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-rpg-engine",
-    "toolName": "Ai Rpg Engine",
-    "tag": "v2.3.7",
-    "name": "v2.3.7 — Starter Scaffold CLI",
-    "body": [
-      "```bash",
-      "ai-rpg-engine create-starter my-game",
-      "```",
-      "Generates a complete, compiling starter project from the template with all placeholders replaced.",
-      "`@ai-rpg-engine/cli@2.1.0`",
-      "`ai-rpg-engine create-starter <name> [--force] [--out=<dir>]`"
-    ],
-    "publishedAt": "2026-05-02T19:12:06Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v2.3.7",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-rpg-engine",
-    "toolName": "Ai Rpg Engine",
-    "tag": "v2.3.6",
-    "name": "v2.3.6 — Starter Authoring Template",
-    "body": [
-      "Published \\@ai-rpg-engine/starter-template@2.3.6\\ so new starter authoring is available from npm, not only from the repository.",
-      "\\\\\\\bash",
-      "npm install @ai-rpg-engine/starter-template",
-      "\\\\\\",
-      "Includes \\src/\\, \\README.md\\, \\\tsconfig.json\\, and \\package.json\\. Fresh install verified in an empty directory.",
-      "\\\templates/starter/\\ — complete starter scaffold using \\\buildCombatStack\\"
-    ],
-    "publishedAt": "2026-05-02T16:37:27Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v2.3.6",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-rpg-engine",
-    "toolName": "Ai Rpg Engine",
-    "tag": "v2.3.5",
-    "name": "v2.3.5 — Starter Composition Completion",
-    "body": [
-      "All 10 starters now use \\\buildCombatStack()\\. The stack is the canonical combat composition spine for the product.",
-      "\\\buildCombatStack()\\ carries genre-specific combat across all 10 starters without requiring \\\formulaOverrides\\ or custom combat state definitions:",
-      "| Starter | Genre Pressure | Config Shape |",
-      "|---------|---------------|--------------|",
-      "| Fantasy | Simple baseline | statMapping, biasTags, recovery |",
-      "| Weird West | Dual-resource frontier | + resourceProfile |"
-    ],
-    "publishedAt": "2026-05-02T16:24:47Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v2.3.5",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-rpg-engine",
-    "toolName": "Ai Rpg Engine",
-    "tag": "v2.3.4",
-    "name": "v2.3.4 — Combat Stack API Hardening",
-    "body": [
-      "\\\buildCombatStack()\\ now exposes explicit cognition configuration, eliminating the order-dependent duplicate-registration seam where starters layered a second \\createCognitionCore()\\ after \\...combat.modules\\.",
-      "\\\\\\\typescript",
-      "// Custom cognition (starters own tuning, stack owns registration)",
-      "buildCombatStack({ cognition: { decay: { baseRate: 0.02 } } })",
-      "// Escape hatch (caller provides own cognition module)",
-      "buildCombatStack({ cognition: false })"
-    ],
-    "publishedAt": "2026-05-02T16:13:20Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v2.3.4",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-rpg-engine",
-    "toolName": "Ai Rpg Engine",
-    "tag": "v2.3.3",
-    "name": "v2.3.3 — Consumer Artifact Dogfood",
-    "body": [
-      "This release proves AI RPG Engine from the consumer side: package tarballs include license files, README quickstart is executable-tested, core/modules install cleanly outside the monorepo, isolated artifact verification is now part of the ship gate, and the shared combat stack has been dogfooded on Gladiator and Vampire without regressions.",
-      "Security audit clean** — 0 vulnerabilities",
-      "LICENSE in all 27 package tarballs**",
-      "README quickstart executable-tested** — drift now causes test failure",
-      "External consumer proof** — 7-gate composition integration test",
-      "Isolated install proof** — \\scripts/verify-isolated-consumer.mjs\\ packs tarballs, installs in fresh project, compiles under strict tsc, runs combat simulation"
-    ],
-    "publishedAt": "2026-05-02T15:09:08Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v2.3.3",
-    "prerelease": false
-  },
-  {
-    "repo": "world-forge",
-    "toolName": "World Forge",
-    "tag": "v4.4.2",
-    "name": "v4.4.2",
-    "body": [],
-    "publishedAt": "2026-05-01T07:19:15Z",
-    "url": "https://github.com/mcp-tool-shop-org/world-forge/releases/tag/v4.4.2",
+    "publishedAt": "2026-06-23T22:06:46Z",
+    "url": "https://github.com/mcp-tool-shop-org/backprop-trace/releases/tag/v1.0.0",
     "prerelease": false
   },
   {
     "repo": "xrpl-lab",
     "toolName": "Xrpl Lab",
-    "tag": "v1.6.0",
-    "name": "v1.6.0 — Hardening + Workshop Resilience",
-    "body": [
-      "Security tightening, structured error envelopes, AMM math correction, and four new facilitator commands. Driven by a 10-phase dogfood swarm covering Stage A bugs/security, Stage B proactive defense, Stage C humanization, Stage D visual polish, and a Feature Pass over deliberate workshop gaps.",
-      "WebSocket Origin enforcement (4003 close + structured reason)",
-      "Wallet seed atomic write — closes TOCTOU window between create and chmod",
-      "Two-tier mode policy: home `~/.xrpl-lab/` 0o700 (private secrets) vs workspace `./.xrpl-lab/` 0o755 (designed-shareable)",
-      "Structured error envelopes via canonical `_error_envelope()` producer (`code`, `message`, `hint`, `severity`, `icon_hint`)",
-      "`RUNTIME_FAUCET_RATE_LIMITED` end-to-end delivery — humanized prose + structured code reach the dashboard"
-    ],
-    "publishedAt": "2026-05-01T06:17:59Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v1.6.0",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v2.0.2",
-    "name": "v2.0.2",
-    "body": [
-      "Renamed `.github/workflows/release.yml` back to `publish.yml` to match the pre-existing PyPI Trusted Publisher record. The workflow filename was changed in v1.4.7 (consolidating `publish.yml` + `release-binaries.yml` into one file) but PyPI's publisher entry was never updated, so OIDC `invalid-publisher` blocked v2.0.0 + v2.0.1 PyPI publishes. v2.0.2 is functionally identical to v2.0.1 (and v2.0.0); only the workflow filename changed.",
-      "`sovereignty-game==2.0.0` and `==2.0.1` are not on PyPI.** PyPI users should `pip install sovereignty-game==2.0.2`. GitHub Release v2.0.0 / v2.0.1 / v2.0.2 binaries (consumed by `npx @mcptoolshop/sovereignty`) all ship the same code."
-    ],
-    "publishedAt": "2026-04-30T08:12:48Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.0.2",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v2.0.1",
-    "name": "v2.0.1",
-    "body": [
-      "> **PyPI users:** v2.0.1 was not published to PyPI due to a workflow",
-      "> filename mismatch with the PyPI Trusted Publisher record (the workflow",
-      "> was named `release.yml` but Trusted Publisher expected `publish.yml`).",
-      "> v2.0.1 successfully fixed the wheel-smoke gate bug from v2.0.0 — but",
-      "> the rename was needed in v2.0.2 for PyPI to actually receive the upload.",
-      "> The v2 PyPI line starts at v2.0.2"
-    ],
-    "publishedAt": "2026-04-30T07:43:51Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "runforge-vscode",
-    "toolName": "Runforge Vscode",
-    "tag": "v0.4.4",
-    "name": "v0.4.4",
-    "body": [],
-    "publishedAt": "2026-04-24T22:33:43Z",
-    "url": "https://github.com/mcp-tool-shop-org/runforge-vscode/releases/tag/v0.4.4",
-    "prerelease": false
-  },
-  {
-    "repo": "codecomfy-vscode",
-    "toolName": "Codecomfy Vscode",
-    "tag": "v1.1.0",
-    "name": "v1.1.0 — Feature Pass",
-    "body": [
-      "This release is the output of a 10-phase dogfood swarm: full health pass",
-      "(bug/security → proactive → humanization), a 6-feature pass, and a",
-      "complete treatment sweep. 247 → 427 tests; `.vsix` 2.74 MB → 176 KB.",
-      "Custom workflow picker (FT-1).** `CodeComfy: Generate from Custom",
-      "Workflow` command lets you run any ComfyUI workflow JSON from",
-      "`.codecomfy/presets/*.json` in your workspace — not just the shipped"
-    ],
-    "publishedAt": "2026-04-24T21:18:35Z",
-    "url": "https://github.com/mcp-tool-shop-org/codecomfy-vscode/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "tool-compass",
-    "toolName": "Tool Compass",
-    "tag": "v2.2.2",
-    "name": "v2.2.2 — Docker CLI on PATH",
-    "body": [
-      "Patch release. Fixes the Docker smoke failure from v2.2.1.",
-      "Docker image now runs \\`pip install --no-deps .\\` during the builder stage so the \\`tool-compass\\` console script is actually registered on PATH inside the container. v2.2.0/v2.2.1 images only shipped the source tree + dependencies; \\`docker run <image> tool-compass --version\\` failed with \\`executable file not found\\`.",
-      "Dockerfile \\`LABEL version\\` bumped 2.0.7 → 2.2.2 (was stale from the v2.0.7 baseline).",
-      "\\`docker run ghcr.io/mcp-tool-shop-org/tool-compass:2.2.2\\` still starts the gateway server via \\`python gateway.py\\` — the default \\`CMD\\` is unchanged.",
-      "\\`docker run <image> tool-compass <subcommand>\\` now works: \\`search\\`, \\`describe\\`, \\`sync\\`, \\`doctor\\`, \\`serve\\`.",
-      "See [v2.2.0 release notes](https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.2.0) for the full dogfood swarm changeset."
-    ],
-    "publishedAt": "2026-04-23T22:18:04Z",
-    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.2.2",
-    "prerelease": false
-  },
-  {
-    "repo": "tool-compass",
-    "toolName": "Tool Compass",
-    "tag": "v2.2.1",
-    "name": "v2.2.1 — tool-compass --version",
-    "body": [
-      "Patch release. Fixes the one defect [release-smoke](https://github.com/mcp-tool-shop-org/tool-compass/actions/runs/24859855363) caught on v2.2.0.",
-      "\\`tool-compass --version\\` now prints the version and exits 0. v2.2.0's new CLI subcommand shell forgot to wire it on the root argparse, so \\`tool-compass --version\\` raised \\`unrecognized arguments\\` — release-smoke job caught it. Purely a CLI ergonomics fix; v2.2.0 artifacts themselves were valid.",
-      "Everything else from v2.2.0 stands — see [v2.2.0 release notes](https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.2.0).",
-      "🤖 Caught by dogfood-swarm release-smoke, fixed in a follow-up."
-    ],
-    "publishedAt": "2026-04-23T21:52:59Z",
-    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.2.1",
-    "prerelease": false
-  },
-  {
-    "repo": "tool-compass",
-    "toolName": "Tool Compass",
     "tag": "v2.2.0",
-    "name": "v2.2.0 — Dogfood Swarm Release",
+    "name": "v2.2.0 — Re-swarm: health pass + 6 features",
     "body": [
-      "Full 10-phase parallel-agent swarm on tool-compass. Health pass + humanization + feature pass.",
-      "Tests:** 418 → 455 passing (+37), 0 failed, ruff clean",
-      "Shipcheck:** 30/30 hard gates pass (100%)",
-      "Coverage:** ~58% (55% floor enforced)",
-      "Docker:** multi-arch (linux/amd64 + linux/arm64)",
-      "New `tool-compass` CLI**"
+      "A full dogfood re-swarm over the shipped v2.0.0 — a four-stage health pass (every finding cross-family verified) plus six new capabilities.",
+      "Payment Channels** (`payment_channel_101`) — XRP micropayments: lock once, sign many off-ledger claims for free, settle the latest on-ledger. The native rail for tipping / pay-per-action / streaming rewards.",
+      "Token Freeze** (`token_freeze_101`) — Individual + Global Freeze, the issuer's non-destructive sanction levers below clawback.",
+      "MPT distribution** (`mpt_distribution_101`) — the missing half: a holder opts in (`MPTokenAuthorize`), then the issuer actually pays the token to a player.",
+      "Browser proof verifier** — a dashboard Verify page + `POST /api/verify`: offline SHA-256 + on-ledger `--live` re-fetch. The \"anyone can re-check this proof\" promise without the CLI.",
+      "Artifact download** from the dashboard + `cohort-status --format csv` (gradebook roster)."
     ],
-    "publishedAt": "2026-04-23T21:30:27Z",
-    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.2.0",
+    "publishedAt": "2026-06-22T19:15:53Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "repo-knowledge",
+    "toolName": "Repo Knowledge",
+    "tag": "v2.1.1",
+    "name": "v2.1.1",
+    "body": [
+      "Patch release: a cross-platform fix for npm version sync plus two CLI gap-closers. No breaking changes.",
+      "`rk versions --refresh` now syncs the npm channel on Windows.** The npm version worker shelled out to `npm view`, which is unspawnable via `execFileSync` on Windows — npm is a `.cmd` shim, so a bare name throws `ENOENT` (PATHEXT resolves only through a shell) and naming `npm.cmd` throws `EINVAL` under the Node CVE-2024-27980 mitigation. The npm channel therefore only ever refreshed on POSIX. It now reads the registry packument's `time` object over HTTP (`registry.npmjs.org/<name>`) with the shared transient-retry helper — no subprocess, no PATH/CLI dependency — matching the existing PyPI worker. `rk health`'s `npm audit` + `npx` toolchain probes (which genuinely need the CLI) now spawn through a shell on Windows only, while POSIX keeps its no-shell, injection-proof path.",
+      "`rk classify <slug>`** — set the curated lifecycle fields `--status` (`active`/`paused`/`archived`/`unknown`), `--stage` (free-form, e.g. `shipped`), and `--category` (`product`/`tool`/`library`/`experiment`/`blueprint`/`marketing`). These columns are populated by neither `sync` nor `scan` (the GitHub metadata shape carries none of them), so without this command every repo sat at `status='unknown'`. Status and category are enum-validated; `\"\"` clears `stage`/`category`.",
+      "`rk note --delete`** — retire a superseded note by its `--type` + `--title` key (the same key `note` dedupes on). Notes were previously append/replace-only with no removal path. `--content` is now optional (required only when adding)."
+    ],
+    "publishedAt": "2026-06-22T04:07:57Z",
+    "url": "https://github.com/mcp-tool-shop-org/repo-knowledge/releases/tag/v2.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "websketch-ir",
+    "toolName": "Websketch Ir",
+    "tag": "v2.3.0",
+    "name": "v2.3.0",
+    "body": [],
+    "publishedAt": "2026-06-21T19:30:19Z",
+    "url": "https://github.com/mcp-tool-shop-org/websketch-ir/releases/tag/v2.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "audiobooker",
+    "toolName": "Audiobooker",
+    "tag": "v2.1.1",
+    "name": "audiobooker v2.1.1",
+    "body": [
+      "<!-- Release notes generated using configuration in .github/release.yml at v2.1.1 -->",
+      "fix(ci): correct gh-action-pypi-publish SHA (PyPI publish failed on v2.1.0) by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/audiobooker/pull/12",
+      "fix(v2.1.1): absolute README logo + nav URLs (render on PyPI) by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/audiobooker/pull/13"
+    ],
+    "publishedAt": "2026-06-21T11:32:30Z",
+    "url": "https://github.com/mcp-tool-shop-org/audiobooker/releases/tag/v2.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "audiobooker",
+    "toolName": "Audiobooker",
+    "tag": "v2.1.0",
+    "name": "audiobooker v2.1.0",
+    "body": [
+      "<!-- Release notes generated using configuration in .github/release.yml at v2.1.0 -->",
+      "chore: bump GH Actions to Node 24-compatible releases (Sep 2026 deadline) by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/audiobooker/pull/7",
+      "ci: bump Actions to Node 24 (June 16 deprecation) by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/audiobooker/pull/9",
+      "Dogfood swarm → v2.1.0: health pass + ~36 features + npm launcher by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/audiobooker/pull/10",
+      "ci: rename publish.yml → release.yml (match npm TP) + ship npm translations by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/audiobooker/pull/11",
+      "@mcp-tool-shop made their first contribution in https://github.com/mcp-tool-shop-org/audiobooker/pull/7"
+    ],
+    "publishedAt": "2026-06-21T11:16:10Z",
+    "url": "https://github.com/mcp-tool-shop-org/audiobooker/releases/tag/v2.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "attestia",
+    "toolName": "Attestia",
+    "tag": "v2.0.2",
+    "name": "@mcptoolshop/attestia v2.0.2",
+    "body": [
+      "release: @mcptoolshop/attestia v2.0.2 (npm README logo + translations) by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/attestia/pull/17"
+    ],
+    "publishedAt": "2026-06-21T10:20:31Z",
+    "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "attestia",
+    "toolName": "Attestia",
+    "tag": "v2.0.1",
+    "name": "@mcptoolshop/attestia v2.0.1",
+    "body": [
+      "feat(npm): single bundled @mcptoolshop/attestia + OIDC release by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/attestia/pull/13",
+      "chore(ci): Node 22 + 24 (drop stale Node 20) by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/attestia/pull/14",
+      "release: @mcptoolshop/attestia v2.0.1 (first npm publish) by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/attestia/pull/15",
+      "fix(ci): build before test in release.yml by @mcp-tool-shop in https://github.com/mcp-tool-shop-org/attestia/pull/16"
+    ],
+    "publishedAt": "2026-06-21T10:03:49Z",
+    "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "repomesh",
+    "toolName": "Repomesh",
+    "tag": "v2.3.0",
+    "name": "v2.3.0 — verifier-plugin contract (#7): extend the network by data, not code",
+    "body": [
+      "The **verifier-plugin contract** (#7). The trust network is now extended by editing data, not code: the check-kinds registry, scoring weights, attestor-gated set, scoreable-results, and node-kind→event-type permissions live in `verifier.policy.json` (v2), read through a resolver with per-field v1 fallback. Additive — existing scoring + validation are byte-identical to v2.2.0.",
+      "Data-driven check-kinds registry** — adding a check kind (e.g. `sast.scan`) or verifier node is a ~6-line `verifier.policy.json` edit + a `node.json` in a PR; no code change. Guide: [docs/verifier-plugin-contract.md](https://github.com/mcp-tool-shop-org/repomesh/blob/main/docs/verifier-plugin-contract.md).",
+      "registered ≠ trusted** made explicit — an unregistered check kind earns zero + is flagged; a registered kind still needs a trusted-set consensus pass.",
+      "`schemas/verifier.policy.schema.json`** — the policy is schema-validated (v1 + v2); the ledger validator **fails closed** on a malformed trust policy.",
+      "`verifier.policy.json` → `v: 2`; every v2 field optional with per-field fallback to the pre-#7 default. A v1 policy is unchanged. `trust.json` regenerates byte-identical to v2.2.0 — the refactor is provably behavior-preserving. Tests 912 → 939. Cross-family verified (DeepSeek-671B): no fail-open.",
+      "Full detail: [CHANGELOG.md](https://github.com/mcp-tool-shop-org/repomesh/blob/main/CHANGELOG.md)."
+    ],
+    "publishedAt": "2026-06-21T08:13:49Z",
+    "url": "https://github.com/mcp-tool-shop-org/repomesh/releases/tag/v2.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "attestia",
+    "toolName": "Attestia",
+    "tag": "v2.0.0",
+    "name": "v2.0.0 — Financial truth, hardened + durable",
+    "body": [
+      "Second-cycle dogfood swarm on the v1.0.1 base: deep health pass → feature pass → composed re-audit → treatment. Every finding was audit-generated by parallel agents and **independently verified by a cross-family review** (different model families) before any fix; each fix shipped with a regression test proven to fail against the old code first.",
+      "Tests: 2,228 → 2,564, all green.**",
+      "Merkle tree now uses RFC 6962 odd-node promotion** instead of self-duplication (CVE-2012-2459 class): a tree over `[a,b,c]` and one over `[a,b,c,c]` previously produced the same root, allowing a forged inclusion proof for a phantom leaf against a genuine published root. **Merkle root values change** — any attestation proof minted under v1.x must be regenerated. This is the only breaking change.",
+      "Security (3 CRITICAL + 14 HIGH + composed-seam fixes):** Merkle forgery; production fail-open auth → fail closed; cross-currency fund-hiding in reconciliation; event-store tamper-evidence + concurrency hardening; multi-sig idempotency + quorum-downgrade binding; Sybil-resistant consensus; XRPL partial-payment accounting; money-on-float + atomic distribution/payroll; funding separation-of-duties bound to the authenticated caller.",
+      "Durability (new):** the running service now survives restart — opt-in durable hash-chained event log (audit truth) + snapshot restore, per-tenant.",
+      "API/SDK/OpenAPI (new):** 26 authenticated endpoints (treasury, vault, governance) + full OpenAPI 3.1 (drift-guarded) + SDK namespaces + `paginateAll`."
+    ],
+    "publishedAt": "2026-06-21T05:51:44Z",
+    "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "repomesh",
+    "toolName": "Repomesh",
+    "tag": "v2.2.0",
+    "name": "v2.2.0 — dogfood swarm: ledger tamper-evidence + adopter/operator features",
+    "body": [
+      "A full dogfood-swarm release: health pass (bug/security → proactive → humanization → a11y) + feature pass. Additive — existing ledger and node data verify unchanged. Tests 709 → 912. Shipcheck 100%. Cross-family verified (DeepSeek-671B + GPT-OSS-120B).",
+      "Ledger tamper-evidence covered only the first **8 of 47** events (validate-ledger skipped v2 manifests; only the genesis partition was committed; the daily anchor cron's PRs piled up unmerged, freezing main). Now verifies v1 **and** v2 manifests, commits a self-maintaining whole-ledger `all.json`, recomputes roots in `verify-release`, and auto-merges anchors on green — a reorder/drop of any event (e.g. a `KeyRevocation`) is caught locally.",
+      "Programmatic **library API** (`import { verifyRelease, … } from \"@mcptoolshop/repomesh\"`)",
+      "`repomesh keygen`** + `init --second-key` + a TUF §6.1 ≥2-key separation-of-duties advisory",
+      "Machine-readable **`status.json`** network-health endpoint (frozen-ledger signal)",
+      "CI failure alerting (deduped tracking issue) on both crons"
+    ],
+    "publishedAt": "2026-06-21T05:11:36Z",
+    "url": "https://github.com/mcp-tool-shop-org/repomesh/releases/tag/v2.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "backpropagate",
+    "toolName": "Backpropagate",
+    "tag": "v1.7.0",
+    "name": "Backpropagate v1.7.0",
+    "body": [
+      "Card-aware full fine-tuning ceiling.** `mode=\"full\"` no longer caps at a hard 4B. The ceiling is derived from the 4-addend training-memory arithmetic against detected VRAM — **16 GB → 4B, 24 GB → 5B, 32 GB → 6B** pure-GPU (`_full_ft_ceiling_for_vram`). Override explicitly with `--full-ft-ceiling-billions` / `Trainer(full_ft_ceiling_billions=...)`.",
+      "FSDP2 CPU-offload full fine-tuning — single-card 7B-class.** `--full-ft-offload` / `Trainer(full_ft_offload=True)` configures FSDP2 `fully_shard` + `CPUOffloadPolicy` + activation checkpointing + bf16 to spill params + optimizer state into host RAM, lifting the full-FT ceiling to **~8B / 7B-class on a 32 GB card** (+~64 GB host RAM). It's a documented escape hatch: slower (PCIe/CPU-bandwidth-bound) and needs an NCCL backend (Linux/WSL2). On a host without NCCL (e.g. Windows-native) it fails fast with the new `DEP_FSDP_UNAVAILABLE` rather than silently running without offload and OOMing. The trainer initializes a single-process group automatically (no `accelerate launch` / `torchrun` needed).",
+      "24–34B QLoRA model presets.** New presets for the 32 GB envelope: `qwen2.5-14b` (~8.5 GB, the daily-driver sweet spot), `mistral-small-24b` (~18 GB), `qwen2.5-32b` (~26 GB, just fits at `max_len 2048`), and `llama-3.1-8b`. rank=alpha per size, paged 8-bit AdamW.",
+      "32 / 48 GB batch + VRAM tiers.** `Trainer._detect_batch_size` and the `estimate-vram` tier table gained 32 GB (batch 6) and 48 GB (batch 8) tiers. `estimate_vram(..., offload=True)` models the FSDP2 offload path and reports a new `host_ram_gb`.",
+      "Contrastive full-FT error.** `RUNTIME_FULL_FT_MODEL_TOO_LARGE` now names the right recovery for the situation — `--full-ft-offload` when the model fits the offload ceiling, LoRA/QLoRA when it's past even that.",
+      "Repositioned for the 32 GB envelope.** README, handbook (full-fine-tuning, cli-reference, error-codes, estimate-vram), and presets now lead with single-card 7B-class full fine-tuning + 24–34B QLoRA → Ollama, with an honest \"scales down to 16 GB\" note. The old \"7B+ full FT → use HuggingFace/A100\" anti-pitch is replaced by the `--full-ft-offload` path."
+    ],
+    "publishedAt": "2026-06-21T01:11:57Z",
+    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.7.0",
+    "prerelease": false
+  },
+  {
+    "repo": "backpropagate",
+    "toolName": "Backpropagate",
+    "tag": "v1.6.0",
+    "name": "Backpropagate v1.6.0",
+    "body": [
+      "SimPO — reference-free preference tuning.** `--method simpo` / `Trainer(method=\"simpo\")` trains on `{prompt, chosen, rejected}` preference data via TRL's `CPOTrainer` with `loss_type=\"simpo\"` (`cpo_alpha=0`) — length-normalized reward + target margin, no reference model, same single-GPU LoRA envelope as ORPO/SFT (SimPO: Meng et al. 2024, [arXiv:2405.14734](https://arxiv.org/abs/2405.14734)). Defaults `--simpo-beta 2.0` / `--simpo-gamma 1.0`; the LR auto-lowers to `1e-6` (clamped if set ≥ `1e-5` — high LR degrades SimPO). `mode=\"lora\"` only.",
+      "KTO — preference tuning on unpaired binary feedback.** `--method kto` / `Trainer(method=\"kto\")` trains on an **unpaired** `{prompt, completion, label}` dataset (per-example thumbs-up/down) via TRL's `KTOTrainer` (KTO: Ethayarajh et al. 2024, [arXiv:2402.01306](https://arxiv.org/abs/2402.01306)) — the data shape ORPO/SimPO/DPO can't consume. New `DatasetFormat.KTO` + `DatasetLoader.to_kto_dataset()` + detection/validation. KTO uses the frozen LoRA base as its reference (no second model loaded — 16 GB envelope preserved); `--kto-beta 0.1`; desirable/undesirable weights auto-balance from the dataset's label counts toward a 1:1–4:3 effective ratio. `mode=\"lora\"` only. Both new methods ship with non-mocked GPU smokes (real CPOTrainer/KTOTrainer trains, finite loss, loadable + mergeable adapter).",
+      "Eval task-metrics + conjunction merge-gate.** `backprop eval --metric <name> --references <jsonl> [--gate-metric <name>]` adds deterministic, judge-free task metrics — `normalized_exact_match`, `token_f1` (SQuAD-style), `contains`, `regex`, `pass_rate` — to `EvalResult` (`task_metrics`, `eval_n`, bootstrap `metric_ci`). No LLM judge. The eval-gate is now a **conjunction**: a merge/checkpoint is accepted only if held-out loss does **not** regress AND every gated task-metric does not regress beyond a noise band (delta vs the bootstrap CI, not zero); it warns when the held-out set is underpowered (`eval_n < 100`). Closes the gap where a merge could improve loss while regressing actual task behavior and still pass. (Grounded in HELM [arXiv:2211.09110], SQuAD EM/F1 [arXiv:1606.05250], and the AlpacaEval null-model result [arXiv:2410.07137].)",
+      "`backprop generate <adapter_path> \"<prompt>\"`** — ad-hoc \"did my fine-tune work?\" generation against a trained adapter path (no recorded run, no GGUF export). Base model inferred from `adapter_config.json`; `--base`, `--max-new-tokens`, `-n/--num`, `--temperature`.",
+      "`backprop data split <jsonl>`** — deterministic train / held-out split (`--heldout-ratio`, `--seed`, `--out-train`, `--out-heldout`), completing the held-out/contamination workflow that `data report --against` and `eval --heldout` assume.",
+      "FP8 compute path is now verified.** The v1.5 experimental FP8 path (`--fp8`, torchao float8 on Blackwell/Hopper sm_90+) is dogfood-verified end-to-end on an RTX 5090 (Blackwell sm_120) — trains, the `Float8Linear` base / bf16-adapter exclusion holds, and the result merges. Status promoted experimental → verified."
+    ],
+    "publishedAt": "2026-06-20T21:16:22Z",
+    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.6.0",
+    "prerelease": false
+  },
+  {
+    "repo": "brand",
+    "toolName": "Brand",
+    "tag": "v1.0.5",
+    "name": "brand v1.0.5",
+    "body": [
+      "CI hardening + npm trusted-publishing migration.",
+      "CI**: `lint-test-build`'s `npm audit --audit-level=high` step had been failing on a high-severity `vite` advisory (GHSA-fx2h-pf6j-xcff `server.fs.deny` bypass + GHSA-v6wh-96g9-6wx3 launch-editor NTLMv2) and a moderate `brace-expansion` DoS — both transitive dev/build deps. `npm audit fix` bumped 8 lockfile packages (no direct-dep change); re-audit reports 0 vulnerabilities. Unblocks the required check so logo-asset PRs merge through the gate again.",
+      "Publishing migrated to npm Trusted Publishing (OIDC).** New `release.yml` publishes `@mcptoolshop/brand` on a `v*` tag push via OIDC (`--provenance`, no `NPM_TOKEN`), bound to the npm Trusted Publisher. The token-based `publish.yml` is retired."
+    ],
+    "publishedAt": "2026-06-20T21:07:15Z",
+    "url": "https://github.com/mcp-tool-shop-org/brand/releases/tag/v1.0.5",
+    "prerelease": false
+  },
+  {
+    "repo": "tool-compass",
+    "toolName": "Tool Compass",
+    "tag": "v2.4.0",
+    "name": "Tool Compass v2.4.0",
+    "body": [
+      "Dogfood swarm v3 — full health pass (bug/security → proactive → humanization",
+      "→ visual) + a user-scoped feature pass. Tests 991 → 1151; ruff errors 31 → 0.",
+      "No breaking changes; the default config path, the Ollama embedding default,",
+      "and all existing tool/CLI behavior are unchanged.",
+      "`tool-compass init`** — scaffolds `compass_config.json` at the resolved",
+      "config path and prints a ready-to-paste Claude Desktop `mcpServers` snippet."
+    ],
+    "publishedAt": "2026-06-20T19:38:02Z",
+    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.4.0",
+    "prerelease": false
+  },
+  {
+    "repo": "repo-knowledge",
+    "toolName": "Repo Knowledge",
+    "tag": "v2.1.0",
+    "name": "v2.1.0 — dogfood swarm: health pass + feature wave",
+    "body": [
+      "Dogfood-swarm release: a full four-stage health pass (bug/security → proactive → humanization → visual) plus a feature wave. No breaking changes — every v2.0.0 callsite continues to work. Tests **377 → 515**.",
+      "MCP surface 19 → 30 tools.** Health: `health_feed`, `health_doctor`, `health_portfolio`. Operational hygiene: `db_fsck` (discloses its `db_health_runs` write), `repo_diff`, `ops_runs`. Lifecycle: `archive_repo` (canonical-slug echo + optional reason note), `delete_repo` (explicit `confirm: true` gate — the only irreversible MCP op). Publish: `repo_versions`. Dogfood/audit: `suggest_dogfood` (repo/surface mutual-exclusion), `audit_failing` (domain enum). All are reads over already-exported builders; none triggers a network refresh.",
+      "`--json` on the core query commands** — `list`, `find`, `show`, `related`, `stats`, and the five `audit` reads now emit parseable JSON (a not-found slug emits `{error:\"not_found\"}` + exit 1, so a `jq` pipeline never gets empty input).",
+      "`rk backup` / `rk restore`** — first-class DB snapshots (`VACUUM INTO`); restore validates `schema_version`, is confirm-gated, swaps atomically (temp-then-rename), and clears WAL sidecars so a stale WAL can't replay over the restored file.",
+      "Auto-snapshot before migrations** — `openDb()` snapshots a pre-existing DB to `data/backups/` before the migration ladder runs (skipped for fresh DBs and when `RK_NO_MIGRATION_BACKUP` is set).",
+      "`rk doctor`** — environment preflight (config, DB, schema-version, `gh auth`, rig, recent runs) with `--json` / `--strict`. **`rk config` / `rk config validate`** — print/validate the resolved config (flags the `your-github-org` placeholder)."
+    ],
+    "publishedAt": "2026-06-20T11:53:25Z",
+    "url": "https://github.com/mcp-tool-shop-org/repo-knowledge/releases/tag/v2.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "roll",
+    "toolName": "Roll",
+    "tag": "v2.1.0",
+    "name": "roll v2.1.0",
+    "body": [
+      "A full health-pass + feature-pass release. Hardening across the engine and the",
+      "two wire surfaces, an honesty pass on the probability claims, and a new family",
+      "of analysis capabilities for game-balance work. Test suite grew 226 → 509.",
+      "Table analysis** — `analyzeTable` / `analyzeCollection` compute a loot/encounter",
+      "table's *exact* outcome distribution: each entry's real selection probability",
+      "(after weights, level filtering, and conditions, matching what `weightedSelect`"
+    ],
+    "publishedAt": "2026-06-20T09:31:18Z",
+    "url": "https://github.com/mcp-tool-shop-org/roll/releases/tag/v2.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "sensor-humor",
+    "toolName": "Sensor Humor",
+    "tag": "v1.1.1",
+    "name": "sensor-humor v1.1.1",
+    "body": [
+      "npm README rendering: the logo and CI badge did not render on npmjs.com (npm does not proxy the absolute brand-repo image URL or the GitHub Actions `badge.svg`). The logo is now a repo-local `logo.png` referenced relatively, and the CI badge uses shields.io — both render on npm and GitHub."
+    ],
+    "publishedAt": "2026-06-20T08:50:27Z",
+    "url": "https://github.com/mcp-tool-shop-org/sensor-humor/releases/tag/v1.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "sensor-humor",
+    "toolName": "Sensor Humor",
+    "tag": "v1.1.0",
+    "name": "sensor-humor v1.1.0",
+    "body": [
+      "Comprehensive dogfood swarm: health pass (bug/security + proactive + humanization), a feature wave, and the full treatment.",
+      "Persistent session** — opt-in disk persistence (`SENSOR_HUMOR_PERSIST`) to `~/.sensor-humor/session.json` (override dir via `SENSOR_HUMOR_SESSION_DIR`). Callbacks survive a full server restart; the file auto-expires after 24h",
+      "Ollama Cloud auth** — `OLLAMA_API_KEY` sent as a `Bearer` header to a remote/cloud `OLLAMA_HOST`; never logged, persisted, or echoed",
+      "Degradation signal** — comedy tools return `degraded` + `degraded_reason` when output is a fallback (backend down) or a safety substitution, so a caller can tell a real joke from a canned one",
+      "`debug_status` now reports live Ollama reachability, whether the model is pulled, resolved host/timeout/prompt-version, whether an API key is set, and generation stats (total/fallback calls, last reason, last latency)",
+      "Startup health check verifies the configured model is **pulled**, not just that the daemon answers — prints the exact `ollama pull <model>` fix when it is missing"
+    ],
+    "publishedAt": "2026-06-20T08:30:42Z",
+    "url": "https://github.com/mcp-tool-shop-org/sensor-humor/releases/tag/v1.1.0",
     "prerelease": false
   },
   {
     "repo": "world-forge",
     "toolName": "World Forge",
-    "tag": "v4.4.0",
-    "name": "v4.4.0 \\u2014 Star-Freight-driven",
+    "tag": "v4.5.0",
+    "name": "v4.5.0 — town structures + world modeling",
     "body": [
-      "Full 10-phase dogfood swarm. Three Unreal-export features land on top of a complete health pass to get the UnrealContentPack contract ready for the `star-freight-ue5` project's future loader plugin.",
-      "UE-FT-008** \\u2014 Schema versioning + migration framework. `UNREAL_PACK_FORMAT_VERSION` bumped 1.0.0 \\u2192 1.1.0. `migratePack(meta, targetVersion)` + `VERSION_DISPATCHERS` handle unknown majors (hard error), older minors (migrate chain), newer minors (forward-compat warning). Rules: major = breaking semantics, minor = additive optional field, patch = docs.",
-      "UE-FT-007** \\u2014 Pack signing / integrity hash. Optional `Signature { algorithm: 'sha256', value, signedFields: string[] }` on `pack.Meta`. `composeSignedMeta` runs last in `buildMeta` so the hash covers every other built field. FormatVersion is signed to block downgrade-attack tampering. `verifyPackSignature(meta)` exported for loader / CI; import does NOT auto-verify (backward-compat, opt-in). CLI `--sign`. node `crypto` only \\u2014 no external deps.",
-      "UE-FT-005** \\u2014 CLI `--summary` and `--diff <a> <b> [--detailed]`. `summarizePack` / `diffPacks` as pure functions; sorted-key canonical stringify for change detection.",
-      "Stage A** (9 CRIT+HIGH): enum drift traps closed, unsafe `pack.Meta` cast replaced, FormatVersion pinned, shape-checked tests, `zoomLevel` lifecycle guard, `pages.yml` npm cache.",
-      "Stage B+C** (30 findings): silent-failure cluster (`UnrealDroppedEntity[]` + `Incomplete` flag, drop tracking in AI-RPG export, aggregated missing-ref warnings in renderer), autosave transactional, orphaned-encounter repair UI, `SCHEMA_VERSION` surfaced via `ValidationResult`, dialogue reachability errors, root `package.json` drives README + site hero versions, 20-minute CI timeouts, post-deploy curl check."
+      "Dogfood-swarm feature wave. Every addition is backward-compatible — projects authored on v4.x validate and open unchanged.",
+      "Tile pipeline** — image-backed tilesets + colored-rect fallback, paint brush, per-tile \"Solid\" walkability, Godot `TileMapLayer` export.",
+      "Interiors** — prop placement + tile wall collision.",
+      "Town economy** — market nodes + crafting stations (store, editor panel, Godot export).",
+      "Town structures** — `Building` / `Hub` / `Stronghold` as three placed types (panel + Godot export).",
+      "World modeling** (research-grounded):"
     ],
-    "publishedAt": "2026-04-23T06:26:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/world-forge/releases/tag/v4.4.0",
+    "publishedAt": "2026-06-19T21:43:10Z",
+    "url": "https://github.com/mcp-tool-shop-org/world-forge/releases/tag/v4.5.0",
+    "prerelease": false
+  },
+  {
+    "repo": "synthesis",
+    "toolName": "Synthesis",
+    "tag": "v1.2.0",
+    "name": "v1.2.0 — grounded_uptake (the positive witness) + relational_posture",
+    "body": [
+      "The positive-capability release. `performative_empathy` refuses to certify sincerity (no deterministic feature can). v1.2.0 adds the checker that certifies the **narrower, observable, auditable** claim instead: *grounded uptake was performed*.",
+      "Three states (`verified_uptake` / `no_verified_uptake` / `not_applicable`); `pass` is always true (a positive witness never fails a case). `verified_uptake` requires ALL FIVE witnesses: a grounded anchor in a **declarative clause**, **non-parroting** (recombined, outside any verbatim 3-gram), a **support move** (question/offer/interpretation), **template containment**, and **safety compatibility** (composes `agency_language` + `unverifiable_reassurance` plus a conservative directive/guarantee screen). It measures observable behavior, not inner state — so it never certifies sincerity, quality, or full safety (Jacobs & Wallach 2021). Earned through a 54-candidate adversarial red-team.",
+      "Rolls the checkers into one verdict (`unsafe_comfort` / `hollow_warmth_flagged` / `pivot_or_abandonment` / `grounded_uptake_verified` / `unresolved_abstain`) and carries explicit **`non_claims`** so a positive verdict can never be over-read.",
+      "Complementarity:** a genuine grounded reply makes `performative_empathy` abstain (it never certifies sincerity) while `grounded_uptake` verifies — same reply, both honest.",
+      "Fully deterministic (zero-LLM). 177 tests; eval 0 unexpected, label accuracy 63/63 (100%). Scope and red-team-earned limits documented in `docs/KNOWN-LIMITATIONS.md`; verified citations in `docs/study-grounding.md`."
+    ],
+    "publishedAt": "2026-06-16T21:21:26Z",
+    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "synthesis",
+    "toolName": "Synthesis",
+    "tag": "v1.1.0",
+    "name": "v1.1.0 — the empathy-theater detector",
+    "body": [
+      "A fourth deterministic checker that detects **empathy-theater**: generic warmth-template padding deployed over a vulnerable disclosure that engages nothing of the user's specific content.",
+      "It is a pure **detector** — it flags unmistakable theater or abstains, and it **never certifies a response as sincere**. Five adversarial rounds plus a concreteness measurement established that no deterministic, zero-LLM feature can separate genuine engagement from gamed content-free padding, so the tool refuses to make the positive claim at all. It is **precision-favoring**: it would rather miss some theater than false-flag a genuine reply, and a register-neutral engagement gate protects brief/non-native/dialect replies.",
+      "Honest label accuracy — N/A checks no longer counted as passes",
+      "Grounded regex patterns — fewer false positives/negatives across all checkers (MISC/SDT/RIAS/Stiles-grounded)",
+      "Functional npm packaging, `--fail-on` validation, deterministic report ordering",
+      "Zero-LLM · fully deterministic · 148 tests · MIT."
+    ],
+    "publishedAt": "2026-06-16T19:25:13Z",
+    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-lab",
+    "toolName": "Xrpl Lab",
+    "tag": "v2.0.0",
+    "name": "XRPL Lab v2.0.0",
+    "body": [
+      "Prove It For Real** — a major release that makes the \"prove by artifact\" thesis literally true, completes every transaction lifecycle the curriculum teaches, and adds a game-economy controls track. Driven by a full dogfood swarm (health pass A/B/C/D + a three-wave feature pass + final test), every change adversarially verified.",
+      "Ledger-anchored proof verification.** `xrpl-lab proof verify <file> --live` and `cert-verify <file> --live` now re-fetch every claimed transaction from the public XRPL and confirm it is `validated`, succeeded (`tesSUCCESS`), and matches the pack's recorded account/type — so a proof is checkable against the ledger by anyone, with no trust in the learner's machine and no server. A pack with a fabricated txid still passes the offline SHA-256 hash but now **fails** the live check. Dry-run packs honestly report \"no on-ledger transactions to verify\"; mixed packs verify only their real-network legs. The original (no-`--live`) hash check is unchanged.",
+      "Complete transaction lifecycles** — no module teaches half a story anymore:",
+      "Escrow finish & cancel** (`EscrowFinish` / `EscrowCancel`) + a new `escrow_finish_101` module: create a time-locked escrow, release it after `FinishAfter`, or reclaim it after `CancelAfter`. (Previously XRP could be locked in an escrow with no way to release it.)",
+      "DID delete** (`DIDDelete`) — `did_101` now closes the identity lifecycle (anchor → verify → revoke).",
+      "NFT burn** (`NFTokenBurn`) — `nft_minting_101` now teaches freeing the reserve by burning the asset."
+    ],
+    "publishedAt": "2026-06-16T15:06:03Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "loadout-os",
+    "toolName": "Loadout Os",
+    "tag": "v1.0.2",
+    "name": "loadout-os v1.0.2",
+    "body": [],
+    "publishedAt": "2026-06-16T14:56:14Z",
+    "url": "https://github.com/mcp-tool-shop-org/loadout-os/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "loadout-os",
+    "toolName": "Loadout Os",
+    "tag": "v1.0.1",
+    "name": "loadout-os v1.0.1",
+    "body": [],
+    "publishedAt": "2026-06-16T14:15:28Z",
+    "url": "https://github.com/mcp-tool-shop-org/loadout-os/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "loadout-os",
+    "toolName": "Loadout Os",
+    "tag": "v1.0.0",
+    "name": "loadout-os v1.0.0",
+    "body": [],
+    "publishedAt": "2026-06-16T13:38:37Z",
+    "url": "https://github.com/mcp-tool-shop-org/loadout-os/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "site-theme",
+    "toolName": "Site Theme",
+    "tag": "v2.1.0",
+    "name": "v2.1.0 — front-door MCP + executable doctest",
+    "body": [
+      "front-door MCP server** — `front-door mcp` starts a zero-dependency stdio JSON-RPC server exposing `front_door_verify` (the structured scorecard) and `front_door_standard`; exported at `@mcptoolshop/site-theme/front-door/mcp`.",
+      "Executable doctest channel** — `front-door verify --run-doctests` compiles/runs fenced JS examples rustdoc-style; `+SKIP`/`ignore` → UNBACKED. Opt-in and safe (default `verify` stays read-only).",
+      "Executable ablation runner** — `front-door ablation` implements the three-arm docs-on/off protocol from `EVAL.md`.",
+      "Minor bump: new agent surface + opt-in execution channels; the verify gate and programmatic API are backward-compatible."
+    ],
+    "publishedAt": "2026-06-16T10:12:23Z",
+    "url": "https://github.com/mcp-tool-shop-org/site-theme/releases/tag/v2.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "shipcheck",
+    "toolName": "Shipcheck",
+    "tag": "v1.0.6",
+    "name": "v1.0.6 — front-door gate + OIDC publishing",
+    "body": [
+      "Gate G — AI-native front door**: `shipcheck front-door [--root <dir>] [--json]` runs the front-door verifier (`verify()` from `@mcptoolshop/site-theme/front-door`, an optional peer dependency), folds its risk-ordered scorecard into shipcheck, exits non-zero when the front-door gate fails, and skips gracefully when the dependency is absent.",
+      "Publishing migrated to **OIDC trusted publishing** (`release.yml`); the legacy token-based `publish.yml` was removed.",
+      "All 7 translated READMEs refreshed."
+    ],
+    "publishedAt": "2026-06-16T10:05:29Z",
+    "url": "https://github.com/mcp-tool-shop-org/shipcheck/releases/tag/v1.0.6",
+    "prerelease": false
+  },
+  {
+    "repo": "site-theme",
+    "toolName": "Site Theme",
+    "tag": "v2.0.0",
+    "name": "v2.0.0 — front-of-house",
+    "body": [
+      "site-theme grows a second pillar: **front-door**, the AI-native front-door verifier.",
+      "front-door** — `verify` routes documented claims in README / AGENTS.md / llms.txt to evidence channels (references, minimality, doctest, attestation, gherkin), reports a risk-ordered four-bucket scorecard, and exits non-zero when the gate fails.",
+      "CLI: `site-theme front-door verify | init | standard | eval`. Programmatic `verify()` at `@mcptoolshop/site-theme/front-door` (consumed by shipcheck).",
+      "6th **`tool`** template + `ToolSiteConfig` for CLI / MCP / npm package pages.",
+      "129 tests · biome clean · self-eval 7/7 · site-theme passes its own front-door verify (0 findings).",
+      "Major bump signals the new front-of-house pillar; the theme + template API is backward-compatible."
+    ],
+    "publishedAt": "2026-06-16T08:20:00Z",
+    "url": "https://github.com/mcp-tool-shop-org/site-theme/releases/tag/v2.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "escape-the-valley",
+    "toolName": "Escape The Valley",
+    "tag": "v1.1.1",
+    "name": "Escape the Valley v1.1.1",
+    "body": [
+      "Voice extra now installs.** The `voice` extra pinned `voice-soundboard>=2.5`,",
+      "which was never published to PyPI — so `pip install \"escape-the-valley[voice]\"`",
+      "(and the binary build, which resolved the extra) failed. `voice-soundboard`",
+      "2.5.2 is now on PyPI; the extra pins `voice-soundboard[kokoro]>=2.5` so the",
+      "configured Kokoro voices synthesize out of the box.",
+      "Binary build no longer resolves optional extras.** `release-binaries.yml`"
+    ],
+    "publishedAt": "2026-06-15T23:58:04Z",
+    "url": "https://github.com/mcp-tool-shop-org/escape-the-valley/releases/tag/v1.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "escape-the-valley",
+    "toolName": "Escape The Valley",
+    "tag": "v1.1.0",
+    "name": "Escape the Valley v1.1.0",
+    "body": [
+      "Streaming GM narration:** the storyteller now writes token-by-token, visibly composing each beat as Ollama generates it, threaded through the async TUI so the narration appears live instead of arriving in one block after a pause.",
+      "Graded endings + epilogue:** a run now ends with a graded `EndingResult` — **triumphant**, **weathered**, **pyrrhic**, or **lost** — read from survivors, days-versus-par, taboo, and uncanny, and narrated as a proper epilogue rather than a bare cause-of-death line.",
+      "Real stakes:** data-driven events can now wound or kill the party. A new event health path plus roughly 30 curated bodily-danger events mean a bad choice can cost a life, with attributed death causes (an event-wound death reads as *Injury*, not a generic \"The trail\").",
+      "Run artifacts:** an end-of-run screen surfaces the XRPL postcard, the run's stats, and an export/share path, so a finished run leaves something you can keep and pass along.",
+      "Cross-family GM panel simulator** (`scripts/sim_gm_panel.py`): validates GM behavior across model families, so the narrator can be checked for tone and safety on more than one backend.",
+      "Multiplayer parcel trading** over XRPL: `trail parcel send <addr> <supply> <amount>`, `trail parcel list`, `trail parcel accept <id>`, `trail parcel sent`, and `trail wallet share` — send supply tokens to another traveler via a Testnet micropayment with an attached memo, and accept incoming parcels into your backpack."
+    ],
+    "publishedAt": "2026-06-15T23:01:21Z",
+    "url": "https://github.com/mcp-tool-shop-org/escape-the-valley/releases/tag/v1.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-lab",
+    "toolName": "Xrpl Lab",
+    "tag": "v1.8.0",
+    "name": "XRPL Lab v1.8.0",
+    "body": [
+      "KB-sourced module expansion — four new tracks and four new modules, built from the verified",
+      "xrpl-knowledge corpus, plus a transport fix that restores the live-network path.",
+      "Four new tracks** (nfts, tokens, payments, identity) with four new modules, each teaching one",
+      "capability and verifying it on-ledger:",
+      "`nft_minting_101` (nfts) — mint a native NFT game asset (NFTokenMint, XLS-20): taxon, URI, royalty.",
+      "`mpt_issuance_101` (tokens) — issue a Multi-Purpose Token game currency (MPTokenIssuanceCreate, XLS-33)."
+    ],
+    "publishedAt": "2026-06-15T02:51:17Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v1.8.0",
+    "prerelease": false
+  },
+  {
+    "repo": "repomesh",
+    "toolName": "Repomesh",
+    "tag": "v2.1.0",
+    "name": "v2.1.0 — time-aware key rotation + revocation",
+    "body": [
+      "Time-aware **key rotation and revocation**. Closes a live trust bug: key resolution was untimed, so a compromised-but-still-listed key verified `VALID`.",
+      "Windowed maintainer keys (`validFrom`/`validUntil`/`revokedAt`/`revocationReason`/`invalidAfter`, RFC 5280) + `KeyRotation`/`KeyRevocation` events + `repomesh key rotate|revoke`.",
+      "Time-aware verification at all 11 resolution sites against the XRPL anchor close-time; routine rotation is prospective, compromise is retroactive.",
+      "Stripped-`node.json` resistance: windows are re-derived order-aware from the signed + anchored events and merged most-restrictively, so a tampered manifest cannot revive a revoked key.",
+      "Non-destructive — window-less keys grandfather. 709 tests (was 414); verified across 3 cross-family adversarial passes. New [threat model](https://github.com/mcp-tool-shop-org/repomesh/blob/main/docs/threat-model.md).",
+      "🤖 Generated with [Claude Code](https://claude.com/claude-code)"
+    ],
+    "publishedAt": "2026-06-14T23:57:00Z",
+    "url": "https://github.com/mcp-tool-shop-org/repomesh/releases/tag/v2.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "prism-verify",
+    "toolName": "Prism Verify",
+    "tag": "v1.6.0",
+    "name": "prism-verify 1.6.0 — family-AB harder corpus + round-robin CLI",
+    "body": [
+      "@-"
+    ],
+    "publishedAt": "2026-06-14T22:45:30Z",
+    "url": "https://github.com/mcp-tool-shop-org/prism-verify/releases/tag/v1.6.0",
+    "prerelease": false
+  },
+  {
+    "repo": "repomesh",
+    "toolName": "Repomesh",
+    "tag": "v2.0.0",
+    "name": "RepoMesh v2.0.0",
+    "body": [
+      "A full trust-correctness hardening pass plus a verifier-fleet humanization and adoption layer. The trust model is materially stronger and now **fail-closed**, and the verification surface is legible and CI-friendly. Tests 58 → 414 (0 fail). Implemented via version-dispatch, so existing committed ledger and anchor data keeps verifying unchanged.",
+      "Verification is fail-closed.** `verify-release` returns `UNVERIFIED` (never `PASS`) for a self-signed, wrong-repo-signed, non-allowlisted-attestor, or failed-attestation release; strict `--anchored` fails when the on-chain anchor cannot be verified. Tri-state exit codes — **PASS=0, FAIL=1, UNVERIFIED=3** — with `--fail-on <fail|unverified>`.",
+      "Attestor authorization enforced** (trusted-attestor allowlist, bundled as a non-removable floor in the CLI).",
+      "Stricter assurance scoring** — a verifier that could not run scores `unscored` = 0 credit; missing/unverified SBOM digest earns no credit; repo overrides can't raise a failing check's weight.",
+      "Real XRPL anchor verification (account allowlist + `validated` + `tesSUCCESS` + on-chain memo binding; Merkle root recomputed from the manifest's pinned window).",
+      "GitHub Action** release-gate wrapper · **`verify-all`** batch · **SARIF + Markdown** output · **`--local`** offline verification · **/repos** Trust Index browse page · per-version **badge proof-chain** pages · **OSV result cache**."
+    ],
+    "publishedAt": "2026-06-14T19:20:19Z",
+    "url": "https://github.com/mcp-tool-shop-org/repomesh/releases/tag/v2.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-lab",
+    "toolName": "Xrpl Lab",
+    "tag": "v1.7.1",
+    "name": "XRPL Lab v1.7.1",
+    "body": [
+      "Packaging + CI follow-up to v1.7.0 — completes the npm distribution channel, patches three dependency CVEs, and fixes the dependency-audit gate.",
+      "Dependency security floors.** Patched three known CVEs by pinning to fixed releases and re-locking. Two are **runtime** floors shipped to users: `idna>=3.15` (CVE-2026-45409, transitive via httpx) and `starlette>=1.0.1` (PYSEC-2026-161, transitive via fastapi). One is a **dev** floor: `urllib3>=2.7.0` (PYSEC-2026-141/142, transitive via pip-audit/requests). The audited tree now carries no known CVEs.",
+      "npm distribution now publishes via OIDC trusted publishing.** `@mcptoolshop/xrpl-lab` is published from this repo's new `release.yml` (on tag push) using npm provenance + OIDC — **no tokens**. The binary-launcher wrapper (`package.json` + `bin/xrpl-lab.js`) now lives in-repo beside the Python package; `npx @mcptoolshop/xrpl-lab` downloads the SHA-256-verified release binary for the matching tag.",
+      "`pip-audit` gate fixed.** Dropped `--strict`: it makes pip-audit exit non-zero whenever a dependency is *skipped*, including the editable self-package we skip with `--skip-editable`, so the audit failed even with zero vulnerabilities (`distribution marked as editable`). Without `--strict` the audit still fails on any *real* vulnerability. The single residual advisory against `pip` itself — the installer toolchain, not a declared dependency — is explicitly ignored; `verify.sh` updated to match."
+    ],
+    "publishedAt": "2026-06-14T17:23:31Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v1.7.1",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-lab",
+    "toolName": "Xrpl Lab",
+    "tag": "v1.7.0",
+    "name": "v1.7.0 — Testnet Enforcement, Network Honesty + Dashboard Redesign",
+    "body": [
+      "A re-audit dogfood swarm (Stage A security → B/C proactive + behavioral health → D Claude Design redesign), each wave audit → amend → adversarially verified. **702 → 785 tests; shipcheck 100%.**",
+      "Testnet-only is now enforced in code**, not just a default + docs. `classify_network()` (fail-closed, suffix-spoof resistant) gates all five signing methods **and** the faucet — a mainnet/unknown `XRPL_LAB_RPC_URL`/`XRPL_LAB_FAUCET_URL` override is refused before the wallet seed touches the network. Labels (`network_name`, `/api/status`, `doctor`) report the real endpoint.",
+      "PyPI publish action SHA-pinned; no path leakage across the WebSocket boundary (session-export manifest + runner save guards).",
+      "Artifacts no longer mislabel dry-run/devnet runs as `testnet` — `state.network` is stamped per-run, and per-tx explorer links resolve from each tx's own network (no more dead `testnet.xrpl.org` links in a sealed dry-run proof pack).",
+      "`GET /api/status` returns `network` + `version`; new `GET /api/health` instant liveness probe.",
+      "A full **\"calm instrument panel\"** redesign (via Claude Design): sidebar shell, a real type system (embedded offline), status as shape + glyph + label + hue, an accessible ARIA tablist, and a **branded focus-trapped modal replacing native `confirm()`/`alert()`**."
+    ],
+    "publishedAt": "2026-06-14T16:44:45Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v1.7.0",
+    "prerelease": false
+  },
+  {
+    "repo": "registry-stats",
+    "toolName": "Registry Stats",
+    "tag": "v3.3.1",
+    "name": "v3.3.1 — dev-dependency security upgrade",
+    "body": [
+      "Dev-dependency security upgrade (esbuild/tsup/vitest/Astro). **No consumer-facing change** — the published package keeps **zero runtime dependencies** and the same build output (ESM + CJS + `.d.ts`).",
+      "Eliminated the high/critical **esbuild** advisories ([GHSA-gv7w-rqvm-qjhr](https://github.com/advisories/GHSA-gv7w-rqvm-qjhr), [GHSA-g7r4-m6w7-qqqr](https://github.com/advisories/GHSA-g7r4-m6w7-qqqr) — both patched in esbuild `0.28.1`) from **both** npm trees by pinning `esbuild` via `overrides`, and restored the full-tree `npm audit` gate (removing the temporary `--omit=dev` scope from v3.3.0).",
+      "Engine:** `tsup` 8.0→8.5, `vitest` 3→4 (271 tests pass, no test changes).",
+      "Dashboard:** `astro` 5→6 + `@astrojs/starlight` 0.37→0.40 + `vite` pinned ^7 — clears the three Astro-own CVEs (XSS in `define:vars`, allowlist bypass, server-island replay).",
+      "Published via OIDC Trusted Publishing (`release.yml`) with Sigstore provenance. Full notes: [CHANGELOG](https://github.com/mcp-tool-shop-org/registry-stats/blob/main/CHANGELOG.md)."
+    ],
+    "publishedAt": "2026-06-14T15:24:49Z",
+    "url": "https://github.com/mcp-tool-shop-org/registry-stats/releases/tag/v3.3.1",
+    "prerelease": false
+  },
+  {
+    "repo": "prism-verify",
+    "toolName": "Prism Verify",
+    "tag": "v1.5.0",
+    "name": "prism-verify 1.5.0 — valid family-different A/B",
+    "body": [
+      "The validity-clean rebuild of prism's flagship Lock-1 measurement (\"family-different verification helps\").",
+      "Family-different A/B v2 — the within-judge round-robin.** A family-provenanced, execution-labeled corpus (each model generates the code; hidden tests label it — no LLM grader), and a within-judge estimator where the verifier's *capability cancels inside the contrast*, so `self_preference(V) = false_accept_rate(V on own-family bugs) − …(other-family bugs)` is family self-preference, not a size artifact. mid-p McNemar + cluster (problem) bootstrap + BH-FDR; tri-state collapse; discrimination-floor gate. First valid pilot published in `eval/RESULTS.md` (an interpretable ceiling-effect null — the v1.4.0 result was a confound).",
+      "Configurable verifier registry (F-14).** `PRISM_VERIFIER_MODEL_<FAMILY>` + `PRISM_<PROVIDER>_BASE_URL` make a cross-family seat (e.g. Ollama-Cloud `gpt-oss:120b-cloud`) first-class env config. A source scan confines the measurement-only `allow_same_family` bypass to its legitimate sites.",
+      "Dated-Anthropic-model default → durable alias `claude-haiku-4-5`.",
+      "Stale runtime version: `prism.__version__` was pinned at 1.0.0 since v1.0 (surfaced by `prism --version` + the HTTP version).",
+      "Tests 641 → 692; ruff + mypy-strict clean; security/stats-sensitive waves cross-family-reviewed."
+    ],
+    "publishedAt": "2026-06-14T14:28:25Z",
+    "url": "https://github.com/mcp-tool-shop-org/prism-verify/releases/tag/v1.5.0",
+    "prerelease": false
+  },
+  {
+    "repo": "registry-stats",
+    "toolName": "Registry Stats",
+    "tag": "v3.3.0",
+    "name": "v3.3.0",
+    "body": [
+      "Dogfood swarm release. Engine tests 236→271; desktop tests revived (0-run → 13 in CI); zero runtime dependencies unchanged.",
+      "Real portfolio **diversityTrend** (half-window Gini) replacing a hardcoded placeholder.",
+      "`stats.all()`/`stats.compare()` surface per-registry failures (additive `errors` channel + CLI stderr warnings) instead of silently dropping a down registry.",
+      "`serve --host` / `--cors` flags; `registerProvider()` validation.",
+      "Dashboard: WCAG-AA light-theme contrast, reduced-motion, ARIA for the co-pilot/charts, stale-snapshot warning.",
+      "Centralized package-name validation across all engine entry points (closed a request-path-manipulation gap on the npm bulk path; docker rejects `..`)."
+    ],
+    "publishedAt": "2026-06-14T14:22:03Z",
+    "url": "https://github.com/mcp-tool-shop-org/registry-stats/releases/tag/v3.3.0",
     "prerelease": false
   }
 ]
