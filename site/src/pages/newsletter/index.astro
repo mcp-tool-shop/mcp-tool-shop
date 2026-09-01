@@ -1,6 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import post from "../../data/newsletter.json";
+import NewsletterInteractive from "../../components/NewsletterInteractive.astro";
 
 function formatDate(iso: string) {
   if (!iso) return "";
@@ -32,9 +33,18 @@ function formatDate(iso: string) {
               <p>{p}</p>
             ))}
             </div>
+            {s.interactive && <NewsletterInteractive {...s.interactive} />}
           </section>
         ))}
       </div>
+
+      {(post as any).signoff && (
+        <footer class="signoff">
+          <span class="signoff-dash">—</span>
+          <span class="signoff-name">{(post as any).signoff.name}</span>
+          {(post as any).signoff.note && <span class="signoff-note">{(post as any).signoff.note}</span>}
+        </footer>
+      )}
     </article>
   </div>
 </Base>
@@ -75,4 +85,9 @@ function formatDate(iso: string) {
   .section h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-text); }
   .section-content p { margin-bottom: 1rem; line-height: 1.7; color: var(--color-text-muted); font-size: 1.05rem; }
   .section-content p:last-child { margin-bottom: 0; }
+
+  .signoff { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1rem; }
+  .signoff-dash { color: var(--color-fg-subtle); }
+  .signoff-name { font-family: var(--font-mono); font-weight: 600; color: var(--color-text); }
+  .signoff-note { font-size: .9rem; color: var(--color-text-muted); }
 </style>

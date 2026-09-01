@@ -1,0 +1,337 @@
+---
+/**
+ * NewsletterInteractive — small, dependency-free interactive widgets for the
+ * living newsletter. A section in newsletter.json may carry an `interactive`
+ * block: { kind, title, caption, ...params }. Each kind lets the reader feel one
+ * specific finding from the issue. Markup is generated client-side from the
+ * params, so the JSON stays the single source of truth for content.
+ *
+ * kinds: working-set | forgetting-curve | needle | poison | quiz
+ */
+interface Props {
+  kind: string;
+  title: string;
+  caption?: string;
+  [key: string]: any;
+}
+const { kind, title, caption = '', ...params } = Astro.props;
+---
+
+<figure class="nw" data-widget={kind} data-params={JSON.stringify(params)}>
+  <figcaption class="nw-head">
+    <span class="nw-kicker">Try it</span>
+    <span class="nw-title">{title}</span>
+  </figcaption>
+  <div class="nw-body" aria-live="polite">
+    <noscript>This demo needs JavaScript.</noscript>
+  </div>
+  {caption && <p class="nw-caption">{caption}</p>}
+</figure>
+
+<style is:global>
+  .nw { margin: 1.75rem 0 0.5rem; border: 1px solid var(--color-border); border-radius: var(--radius); background: var(--color-surface); overflow: hidden; }
+  .nw-head { display: flex; align-items: baseline; gap: .75rem; padding: .75rem 1rem; border-bottom: 1px solid var(--color-border-muted); background: var(--color-canvas-overlay); }
+  .nw-kicker { font-family: var(--font-mono); font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--color-accent); }
+  .nw-title { font-weight: 600; color: var(--color-text); }
+  .nw-body { padding: 1rem; }
+  .nw-caption { padding: 0 1rem 1rem; margin: 0; font-size: .9rem; color: var(--color-fg-subtle); line-height: 1.5; }
+  .nw-row { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; align-items: center; margin-bottom: .75rem; }
+  .nw-ctl { display: flex; flex-direction: column; gap: .25rem; min-width: 160px; flex: 1; }
+  .nw-ctl label { font-size: .8rem; color: var(--color-text-muted); font-family: var(--font-mono); }
+  .nw-ctl input[type=range] { width: 100%; accent-color: var(--color-accent); }
+  .nw-btn { font: inherit; font-size: .85rem; padding: .4rem .8rem; border-radius: 6px; border: 1px solid var(--color-border); background: var(--color-canvas-overlay); color: var(--color-text); cursor: pointer; }
+  .nw-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+  .nw-btn.primary { background: var(--color-accent-emphasis); border-color: var(--color-accent-emphasis); color: #fff; }
+  .nw-btn.primary:hover { color: #fff; filter: brightness(1.1); }
+  .nw-btn:disabled { opacity: .5; cursor: default; }
+  .nw-stat { font-family: var(--font-mono); font-size: .85rem; color: var(--color-text-muted); }
+  .nw-stat b { color: var(--color-text); font-weight: 600; }
+  .nw-badge { display: inline-block; padding: .15rem .55rem; border-radius: 999px; font-family: var(--font-mono); font-size: .75rem; font-weight: 600; letter-spacing: .04em; }
+  .nw-badge.ok { background: var(--color-success-subtle); color: var(--color-success-fg); }
+  .nw-badge.warn { background: var(--color-attention-subtle); color: var(--color-attention-fg); }
+  .nw-badge.bad { background: var(--color-danger-subtle); color: var(--color-danger-fg); }
+  .nw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(18px, 1fr)); gap: 3px; margin: .5rem 0; }
+  .nw-cell { aspect-ratio: 1; border-radius: 3px; background: var(--color-canvas-default); border: 1px solid var(--color-border-muted); transition: background .15s; }
+  .nw-cell.hot { background: var(--color-success-emphasis); border-color: var(--color-success-fg); }
+  .nw-cell.junk { background: var(--color-border-default); }
+  .nw-cell.fault { background: var(--color-danger-emphasis); border-color: var(--color-danger-fg); }
+  .nw-legend { display: flex; gap: 1rem; flex-wrap: wrap; font-size: .75rem; color: var(--color-fg-subtle); font-family: var(--font-mono); }
+  .nw-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: .35rem; vertical-align: middle; }
+  .nw canvas { width: 100%; height: auto; display: block; border-radius: 6px; background: var(--color-canvas-default); }
+  .nw-slots { display: grid; grid-template-columns: repeat(20, 1fr); gap: 4px; margin: .5rem 0; }
+  .nw-slot { aspect-ratio: 1 / 1.4; border-radius: 4px; border: 1px solid var(--color-border); background: var(--color-canvas-default); cursor: pointer; position: relative; font-family: var(--font-mono); font-size: .65rem; color: var(--color-fg-subtle); display: flex; align-items: flex-end; justify-content: center; padding-bottom: 2px; }
+  .nw-slot:hover { border-color: var(--color-accent); }
+  .nw-slot.needle { background: var(--color-accent-subtle); border-color: var(--color-accent-fg); color: var(--color-accent-fg); }
+  .nw-slot .bar { position: absolute; left: 3px; right: 3px; bottom: 16px; background: var(--color-accent-muted); border-radius: 2px; }
+  .nw-tries { display: flex; gap: 3px; flex-wrap: wrap; margin: .5rem 0; }
+  .nw-try { width: 14px; height: 14px; border-radius: 3px; }
+  .nw-try.hit { background: var(--color-success-fg); }
+  .nw-try.miss { background: var(--color-danger-fg); }
+  .nw-notes { display: grid; gap: .4rem; margin: .5rem 0; }
+  .nw-note { display: grid; grid-template-columns: auto 1fr auto; gap: .6rem; align-items: center; padding: .45rem .7rem; border-radius: 6px; border: 1px solid var(--color-border-muted); background: var(--color-canvas-default); font-size: .85rem; }
+  .nw-note .src { font-family: var(--font-mono); font-size: .7rem; color: var(--color-fg-subtle); white-space: nowrap; }
+  .nw-note .score { font-family: var(--font-mono); font-size: .75rem; color: var(--color-text-muted); }
+  .nw-note.winner { border-color: var(--color-success-fg); background: var(--color-success-subtle); }
+  .nw-note.poison { border-color: var(--color-danger-muted); }
+  .nw-note.poison.winner { border-color: var(--color-danger-fg); background: var(--color-danger-subtle); }
+  .nw-note.gated { opacity: .45; text-decoration: line-through; }
+  .nw-answer { margin-top: .75rem; padding: .75rem .9rem; border-left: 3px solid var(--color-accent); background: var(--color-canvas-default); border-radius: 0 6px 6px 0; font-size: .95rem; }
+  .nw-q { font-size: 1.05rem; line-height: 1.5; color: var(--color-text); min-height: 3.2em; margin-bottom: .75rem; }
+  .nw-reveal { margin-top: .6rem; font-size: .85rem; color: var(--color-text-muted); }
+  .nw-reveal b { color: var(--color-text); }
+  .nw-check { display: flex; align-items: center; gap: .5rem; font-size: .85rem; color: var(--color-text-muted); cursor: pointer; }
+  .nw-check input { accent-color: var(--color-accent); }
+  .nw-select { font: inherit; font-size: .85rem; padding: .4rem .6rem; border-radius: 6px; border: 1px solid var(--color-border); background: var(--color-canvas-overlay); color: var(--color-text); max-width: 100%; }
+  @media (max-width: 600px) { .nw-slots { grid-template-columns: repeat(10, 1fr); } .nw-note { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  const h = (tag: string, attrs: Record<string, any> = {}, ...kids: any[]) => {
+    const el = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (k === 'class') el.className = v;
+      else if (k.startsWith('on')) el.addEventListener(k.slice(2), v);
+      else if (v !== undefined && v !== null) el.setAttribute(k, String(v));
+    }
+    for (const kid of kids.flat()) if (kid != null) el.append(kid instanceof Node ? kid : document.createTextNode(String(kid)));
+    return el;
+  };
+  const cssVar = (n: string) => getComputedStyle(document.documentElement).getPropertyValue(n).trim() || '#888';
+  const pct = (x: number) => `${Math.round(x * 100)}%`;
+
+  /* ------------------------------------------------------------------ */
+  /* 1. Working set / thrashing — Denning 1968                            */
+  /* ------------------------------------------------------------------ */
+  function workingSet(root: HTMLElement) {
+    let window_ = 24, ws = 12, junk = 2, running = true;
+    let resident: string[] = [];         // LRU order: index 0 = least recent
+    let junkSeq = 0;
+    const history: number[] = [];
+    const grid = h('div', { class: 'nw-grid' });
+    const status = h('span', { class: 'nw-badge ok' }, 'COMFORTABLE');
+    const faults = h('span', { class: 'nw-stat' });
+    const useful = h('span', { class: 'nw-stat' });
+    const mk = (label: string, min: number, max: number, val: number, on: (v: number) => void) => {
+      const out = h('span', {}, String(val));
+      const inp = h('input', { type: 'range', min, max, value: val, oninput: (e: Event) => { const v = +(e.target as HTMLInputElement).value; out.textContent = String(v); on(v); } });
+      return h('div', { class: 'nw-ctl' }, h('label', {}, label, ' ', out), inp);
+    };
+    const toggle = h('button', { class: 'nw-btn', onclick: () => { running = !running; toggle.textContent = running ? 'Pause' : 'Run'; } }, 'Pause');
+    root.append(
+      h('div', { class: 'nw-row' },
+        mk('context window (slots)', 8, 64, window_, v => { window_ = v; }),
+        mk('working set (facts the step needs)', 2, 64, ws, v => { ws = v; }),
+        mk('junk per step (tool noise)', 0, 12, junk, v => { junk = v; }),
+      ),
+      grid,
+      h('div', { class: 'nw-legend' },
+        h('span', {}, h('i', { style: `background:${cssVar('--color-success-emphasis')}` }), 'needed & resident'),
+        h('span', {}, h('i', { style: `background:${cssVar('--color-border-default')}` }), 'junk still resident'),
+        h('span', {}, h('i', { style: `background:${cssVar('--color-danger-emphasis')}` }), 'fault: had to fetch'),
+      ),
+      h('div', { class: 'nw-row', style: 'margin-top:.75rem' }, status, faults, useful, toggle),
+    );
+    function step() {
+      if (!running) return;
+      // Each step touches every fact in the working set plus fresh junk (never reused).
+      const needed = Array.from({ length: ws }, (_, i) => `f${i}`);
+      const touched = [...needed, ...Array.from({ length: junk }, () => `j${junkSeq++}`)];
+      let f = 0; const faulted = new Set<string>();
+      for (const id of touched) {
+        const i = resident.indexOf(id);
+        if (i >= 0) { resident.splice(i, 1); resident.push(id); }
+        else { f++; faulted.add(id); resident.push(id); if (resident.length > window_) resident.shift(); }
+      }
+      while (resident.length > window_) resident.shift();
+      history.push(f); if (history.length > 12) history.shift();
+      const avg = history.reduce((a, b) => a + b, 0) / history.length;
+      const factFaults = Math.max(0, avg - junk);          // faults on facts we actually needed (junk always faults)
+      const ratio = ws ? factFaults / ws : 0;
+      faults.replaceChildren('faults/step ', h('b', {}, avg.toFixed(1)));
+      useful.replaceChildren('useful work ', h('b', {}, pct(Math.max(0, 1 - (avg * 2) / (ws + avg * 2)))));
+      const s = ratio < 0.05 ? ['ok', 'COMFORTABLE'] : ratio < 0.5 ? ['warn', 'TIGHT'] : ['bad', 'THRASHING'];
+      status.className = `nw-badge ${s[0]}`; status.textContent = s[1];
+      // paint
+      const cells: HTMLElement[] = [];
+      for (let i = 0; i < window_; i++) {
+        const id = resident[i];
+        const cls = !id ? '' : faulted.has(id) ? 'fault' : id.startsWith('f') ? 'hot' : 'junk';
+        cells.push(h('div', { class: `nw-cell ${cls}`, title: id ?? 'empty' }));
+      }
+      grid.replaceChildren(...cells);
+    }
+    setInterval(step, 350);
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* 2. Forgetting curve — Ebbinghaus 1885, MemoryBank 2023               */
+  /* ------------------------------------------------------------------ */
+  function forgettingCurve(root: HTMLElement, p: any) {
+    const ref: [number, number][] = p.points ?? [[0.0139, .58], [0.0417, .41], [0.375, .26], [1, .25], [2, .17], [6, .13], [31, .08]];
+    let S = 0.72, t = 0, abs = 0, rehearsals = 0;
+    const trace: [number, number][] = [[0, 1]];
+    const cv = h('canvas', { width: 720, height: 260 }) as HTMLCanvasElement;
+    const stat = h('div', { class: 'nw-row' });
+    root.append(cv, stat, h('div', { class: 'nw-row' },
+      h('button', { class: 'nw-btn', onclick: () => { advance(1); } }, 'Wait a day'),
+      h('button', { class: 'nw-btn', onclick: () => { advance(7); } }, 'Wait a week'),
+      h('button', { class: 'nw-btn primary', onclick: rehearse }, 'Rehearse now'),
+      h('button', { class: 'nw-btn', onclick: reset }, 'Reset'),
+    ));
+    function R(dt: number, s: number) { return Math.exp(-dt / s); }
+    function advance(d: number) { for (let i = 0; i < d * 4; i++) { t += .25; abs += .25; trace.push([abs, R(t, S)]); } draw(); }
+    function rehearse() {
+      const r = R(t, S);
+      // Bjork: a successful recall when retrieval strength is low earns the biggest stability gain.
+      S = Math.min(120, S * (1.6 + 2.4 * (1 - r)));
+      t = 0; rehearsals++; trace.push([abs, 1]); draw();
+    }
+    function reset() { S = 0.72; t = 0; abs = 0; rehearsals = 0; trace.length = 0; trace.push([0, 1]); draw(); }
+    function draw() {
+      const ctx = cv.getContext('2d')!; const W = cv.width, H = cv.height, L = 44, B = 30, T = 12, Rr = 12;
+      const span = Math.max(31, abs + 4);
+      const X = (d: number) => L + (d / span) * (W - L - Rr), Y = (r: number) => T + (1 - r) * (H - T - B);
+      ctx.clearRect(0, 0, W, H);
+      ctx.strokeStyle = cssVar('--color-border-muted'); ctx.lineWidth = 1; ctx.font = '11px ' + cssVar('--font-mono'); ctx.fillStyle = cssVar('--color-fg-subtle');
+      for (const g of [0, .25, .5, .75, 1]) { ctx.beginPath(); ctx.moveTo(L, Y(g)); ctx.lineTo(W - Rr, Y(g)); ctx.stroke(); ctx.fillText(pct(g), 4, Y(g) + 4); }
+      const stepD = span > 60 ? 14 : 7;
+      for (let d = 0; d <= span; d += stepD) { ctx.fillText(d + 'd', X(d) - 6, H - 10); }
+      // Ebbinghaus reference dots (only meaningful on the first, un-rehearsed curve)
+      ctx.fillStyle = cssVar('--color-attention-fg');
+      for (const [d, r] of ref) { ctx.beginPath(); ctx.arc(X(d), Y(r), 3.5, 0, Math.PI * 2); ctx.fill(); }
+      ctx.fillText('● Ebbinghaus 1885 (savings)', W - 190, T + 12);
+      // trace
+      ctx.strokeStyle = cssVar('--color-accent-fg'); ctx.lineWidth = 2.5; ctx.beginPath();
+      trace.forEach(([d, r], i) => { const x = X(d), y = Y(r); if (i === 0) ctx.moveTo(x, y); else if (r === 1 && trace[i - 1][1] < 1) { ctx.lineTo(x, y); } else ctx.lineTo(x, y); });
+      ctx.stroke();
+      // projection from now
+      ctx.setLineDash([4, 4]); ctx.strokeStyle = cssVar('--color-accent-muted'); ctx.beginPath();
+      for (let d = 0; abs + d <= span; d += .25) { const x = X(abs + d), y = Y(R(t + d, S)); d === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); }
+      ctx.stroke(); ctx.setLineDash([]);
+      const now = R(t, S);
+      stat.replaceChildren(
+        h('span', { class: 'nw-stat' }, 'retention now ', h('b', {}, pct(now))),
+        h('span', { class: 'nw-stat' }, 'stability S ', h('b', {}, S.toFixed(1) + ' days')),
+        h('span', { class: 'nw-stat' }, 'elapsed ', h('b', {}, abs + 'd')),
+        h('span', { class: 'nw-stat' }, 'rehearsals ', h('b', {}, String(rehearsals))),
+        h('span', { class: `nw-badge ${now > .6 ? 'ok' : now > .3 ? 'warn' : 'bad'}` }, now > .6 ? 'RETRIEVABLE' : now > .3 ? 'FADING' : 'EVICTED'),
+      );
+    }
+    draw();
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* 3. Needle placement — Liu et al. 2023 "Lost in the Middle"           */
+  /* ------------------------------------------------------------------ */
+  function needle(root: HTMLElement, p: any) {
+    const curve: number[] = p.curve ?? [];
+    const baseline: number = p.baseline ?? 0.561;
+    let pos = 9; const tally: { hit: number; n: number }[] = curve.map(() => ({ hit: 0, n: 0 }));
+    const slots = h('div', { class: 'nw-slots' });
+    const tries = h('div', { class: 'nw-tries' });
+    const stat = h('div', { class: 'nw-row' });
+    const ask = h('button', { class: 'nw-btn primary', onclick: () => run(10) }, 'Ask the model ×10');
+    const ask100 = h('button', { class: 'nw-btn', onclick: () => run(100) }, '×100');
+    root.append(h('p', { class: 'nw-stat', style: 'margin-bottom:.5rem' }, 'Click a document slot to put the one fact that answers the question there. Then ask.'), slots, stat, tries, h('div', { class: 'nw-row' }, ask, ask100));
+    function paint() {
+      slots.replaceChildren(...curve.map((c, i) => h('div', { class: `nw-slot ${i === pos ? 'needle' : ''}`, title: `position ${i + 1}: ${pct(c)} recall`, onclick: () => { pos = i; paint(); } },
+        h('div', { class: 'bar', style: `height:${Math.round(c * 60)}%` }), String(i + 1))));
+      const t = tally[pos];
+      stat.replaceChildren(
+        h('span', { class: 'nw-stat' }, 'needle at ', h('b', {}, `#${pos + 1} of ${curve.length}`)),
+        h('span', { class: 'nw-stat' }, 'expected recall ', h('b', {}, pct(curve[pos]))),
+        h('span', { class: 'nw-stat' }, 'no documents at all ', h('b', {}, pct(baseline))),
+        t.n ? h('span', { class: 'nw-stat' }, 'your runs here ', h('b', {}, `${t.hit}/${t.n}`)) : null,
+        curve[pos] < baseline ? h('span', { class: 'nw-badge bad' }, 'WORSE THAN CLOSED-BOOK') : h('span', { class: 'nw-badge ok' }, 'BETTER THAN CLOSED-BOOK'),
+      );
+    }
+    function run(n: number) {
+      const out: HTMLElement[] = [];
+      for (let i = 0; i < n; i++) { const hit = Math.random() < curve[pos]; tally[pos].n++; if (hit) tally[pos].hit++; out.push(h('div', { class: `nw-try ${hit ? 'hit' : 'miss'}` })); }
+      tries.replaceChildren(...out); paint();
+    }
+    paint();
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* 4. Memory poisoning — AgentPoison 2024, MINJA 2025, MemGhost 2026    */
+  /* ------------------------------------------------------------------ */
+  function poison(root: HTMLElement, p: any) {
+    type Note = { text: string; src: string; poison?: boolean };
+    const base: Note[] = (p.notes ?? []).map((n: any) => ({ ...n }));
+    const injections: { label: string; note: Note }[] = p.injections ?? [];
+    const question: string = p.question ?? '';
+    let notes = [...base]; let gate = false;
+    const list = h('div', { class: 'nw-notes' });
+    const answer = h('div', { class: 'nw-answer' });
+    const sel = h('select', { class: 'nw-select' }, h('option', { value: '' }, 'Pick something the agent reads…'), ...injections.map((inj, i) => h('option', { value: i }, inj.label))) as HTMLSelectElement;
+    const inject = h('button', { class: 'nw-btn', onclick: () => { const i = sel.value; if (i === '') return; notes = [...notes, { ...injections[+i].note, poison: true }]; sel.value = ''; render(); } }, 'Let the agent read it');
+    const gateBox = h('input', { type: 'checkbox', onchange: (e: Event) => { gate = (e.target as HTMLInputElement).checked; render(); } });
+    root.append(
+      h('p', { class: 'nw-stat', style: 'margin-bottom:.5rem' }, 'The agent’s memory store. The question is: ', h('b', {}, question)),
+      list,
+      h('div', { class: 'nw-row' }, sel, inject, h('button', { class: 'nw-btn', onclick: () => { notes = [...base]; render(); } }, 'Wipe the poison')),
+      h('label', { class: 'nw-check' }, gateBox, 'Write-gate: only remember things the user actually said'),
+      answer,
+    );
+    const words = (s: string) => new Set(s.toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(w => w.length > 2));
+    function render() {
+      const q = words(question);
+      const scored = notes.map((n, i) => { const w = words(n.text); let s = 0; for (const x of w) if (q.has(x)) s++; return { n, i, s: s + i * 0.01, gated: gate && n.src !== 'user' }; });
+      const live = scored.filter(x => !x.gated);
+      const win = live.length ? live.reduce((a, b) => (b.s > a.s ? b : a)) : null;
+      list.replaceChildren(...scored.map(x => h('div', { class: `nw-note ${x.n.poison ? 'poison' : ''} ${win && x.i === win.i ? 'winner' : ''} ${x.gated ? 'gated' : ''}` },
+        h('span', { class: 'src' }, x.n.src), h('span', {}, x.n.text), h('span', { class: 'score' }, x.gated ? 'blocked' : `match ${x.s.toFixed(0)}`))));
+      const poisoned = notes.filter(n => n.poison).length;
+      answer.replaceChildren(
+        h('div', { class: 'nw-stat', style: 'margin-bottom:.35rem' }, 'retrieved: ', h('b', {}, win ? win.n.src : 'nothing'), poisoned ? ` · poison rate ${poisoned}/${notes.length} = ${pct(poisoned / notes.length)}` : ''),
+        h('div', {}, win ? (win.n.poison ? `“${(p.poisonedAnswer ?? 'Sure — going with the injected note.')}”` : `“${p.cleanAnswer ?? 'Answering from what you told me.'}”`) : 'No memory matched; the agent answers from nothing.'),
+        win && win.n.poison ? h('div', { style: 'margin-top:.35rem' }, h('span', { class: 'nw-badge bad' }, 'HIJACKED')) : h('div', { style: 'margin-top:.35rem' }, h('span', { class: 'nw-badge ok' }, 'CLEAN')),
+      );
+    }
+    render();
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* 5. Then or now? quiz                                                 */
+  /* ------------------------------------------------------------------ */
+  function quiz(root: HTMLElement, p: any) {
+    const items: { text: string; answer: string; source: string }[] = p.items ?? [];
+    const labels: string[] = p.labels ?? ['Before 1995', 'After 2020'];
+    let i = 0, score = 0, answered = false;
+    const q = h('div', { class: 'nw-q' });
+    const reveal = h('div', { class: 'nw-reveal' });
+    const prog = h('span', { class: 'nw-stat' });
+    const btns = labels.map(l => h('button', { class: 'nw-btn', onclick: () => pick(l) }, l));
+    const next = h('button', { class: 'nw-btn primary', onclick: () => { i++; answered = false; render(); } }, 'Next');
+    root.append(q, h('div', { class: 'nw-row' }, ...btns, next, prog), reveal);
+    function pick(l: string) {
+      if (answered || i >= items.length) return; answered = true;
+      const it = items[i]; const ok = l === it.answer; if (ok) score++;
+      reveal.replaceChildren(h('span', { class: `nw-badge ${ok ? 'ok' : 'bad'}` }, ok ? 'RIGHT' : 'WRONG'), ' ', h('b', {}, it.answer), ' — ', it.source);
+      render(false);
+    }
+    function render(clear = true) {
+      if (i >= items.length) {
+        q.textContent = `${score} of ${items.length}. ` + (score === items.length ? 'You have read Denning. Or you cheated. Either is fine.' : score >= items.length * .7 ? 'Solid. The overlap is the point.' : 'Which is the point: you cannot tell the decades apart.');
+        btns.forEach(b => (b.hidden = true)); next.hidden = true; prog.textContent = ''; if (clear) reveal.replaceChildren();
+        return;
+      }
+      q.textContent = `“${items[i].text}”`;
+      prog.textContent = `${i + 1} / ${items.length} · score ${score}`;
+      btns.forEach(b => { b.hidden = false; (b as HTMLButtonElement).disabled = answered; });
+      next.hidden = !answered; if (clear) reveal.replaceChildren();
+    }
+    render();
+  }
+
+  const registry: Record<string, (root: HTMLElement, p: any) => void> = {
+    'working-set': workingSet, 'forgetting-curve': forgettingCurve, needle, poison, quiz,
+  };
+  for (const fig of document.querySelectorAll<HTMLElement>('.nw[data-widget]')) {
+    const kind = fig.dataset.widget!; const body = fig.querySelector<HTMLElement>('.nw-body')!;
+    let params: any = {}; try { params = JSON.parse(fig.dataset.params || '{}'); } catch {}
+    const init = registry[kind];
+    if (init) { body.replaceChildren(); try { init(body, params); } catch (e) { body.textContent = 'This demo failed to start.'; console.error(e); } }
+  }
+</script>
