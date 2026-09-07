@@ -65,6 +65,22 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
+  "ai-eyes-mcp": {
+    "tags": [
+      "computer-vision",
+      "fastmcp",
+      "honest-ai",
+      "image-evaluation",
+      "mcp",
+      "mcp-server"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "pip install ai-eyes-mcp",
+    "tagline": "Grounded visual evaluator MCP server — honest image judgment via SigLIP2 on a pinned...",
+    "needsHumanReview": true
+  },
   "ai-jam-sessions": {
     "tags": [
       "music"
@@ -110,6 +126,22 @@
     "tagline": "A simulation-first terminal RPG engine for worlds shaped by perception, cognition, and...",
     "lane": "internal",
     "surfaceEligible": false
+  },
+  "armature": {
+    "tags": [
+      "ai-video",
+      "blender",
+      "character-consistency",
+      "comfyui",
+      "controlnet",
+      "cutscenes"
+    ],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "library",
+    "install": "pip install armature",
+    "tagline": "Image-to-video with a GLB instead of an image.",
+    "needsHumanReview": true
   },
   "asset-forge": {
     "lane": "internal",
@@ -306,6 +338,22 @@
     "tagline": "Adoption control plane for GitHub repos.",
     "needsHumanReview": true
   },
+  "fx-dub": {
+    "tags": [
+      "audio",
+      "comfyui",
+      "diarization",
+      "dubbing",
+      "ebu-r128",
+      "loudness"
+    ],
+    "category": "voice",
+    "stability": "stable",
+    "kind": "library",
+    "install": "pip install fx-dub",
+    "tagline": "Verify a generated dub before anyone hears it — container receipts and spoken-content...",
+    "needsHumanReview": true
+  },
   "game-foundry-os": {
     "lane": "active_lab",
     "surfaceEligible": true
@@ -421,6 +469,22 @@
     "tagline": "The local intern for Claude Code — 28 job-shaped tools, evidence-first briefs, durable...",
     "needsHumanReview": true
   },
+  "plain-sight": {
+    "tags": [
+      "cli",
+      "computer-vision",
+      "dataset-tools",
+      "florence-2",
+      "image-captioning",
+      "mcp"
+    ],
+    "category": "mcp-core",
+    "stability": "stable",
+    "kind": "mcp-server",
+    "install": "pip install plain-sight",
+    "tagline": "Point it at an image, an AI says what it sees.",
+    "needsHumanReview": true
+  },
   "polyglot-mcp": {
     "tags": [
       "gpu",
@@ -454,6 +518,22 @@
     "tagline": "Trade-first maritime strategy CLI â€” route arbitrage, contracts, infrastructure,...",
     "lane": "shipped",
     "surfaceEligible": true
+  },
+  "prompt-craft": {
+    "tags": [
+      "cli",
+      "comfyui",
+      "contract-driven",
+      "diffusion-models",
+      "dspy",
+      "generative-ai"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pipx install prompt-craft",
+    "tagline": "Say what the picture must contain, check that it does, and refuse when it does not.",
+    "needsHumanReview": true
   },
   "prototypes": {
     "lane": "seed_vault",
