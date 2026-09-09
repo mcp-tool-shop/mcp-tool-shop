@@ -21,16 +21,23 @@ afterEach(() => {
   resetConfigCache();
 });
 
-// Helper: run selftest against a temp dir and capture output
+// Helper: run selftest against a temp dir and capture output.
+//
+// Every assertion in this file reads the [Config] / [Data] / [Git] sections,
+// which print before the invariant suite and the site build. Those two steps
+// take several seconds each and, when node --test runs this file alongside
+// the rest of the suite, pushed the child past its timeout — the child was
+// killed mid-run, stdout was truncated, and the "config typo detection" case
+// failed only under the full suite. Skip them; they are covered elsewhere.
 function runSelftest(dir) {
   const script = join(import.meta.dirname, "..", "..", "scripts", "kit-selftest.mjs");
   try {
-    const output = execSync(`node "${script}"`, {
+    const output = execSync(`node "${script}" --skip-build --skip-invariants`, {
       cwd: dir,
       env: { ...process.env, KIT_CONFIG: join(dir, "kit.config.json") },
       encoding: "utf8",
       stdio: ["pipe", "pipe", "pipe"],
-      timeout: 15000,
+      timeout: 60000,
     });
     return { code: 0, stdout: output, stderr: "" };
   } catch (err) {
