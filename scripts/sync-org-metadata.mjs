@@ -268,10 +268,23 @@ function buildProject({ registryTool, ghRepo, override, registered, aliases, isA
   return base;
 }
 
+// Segments that read as acronyms or brand tokens when a repo has no registry name.
+const NAME_TOKENS = {
+  ai: "AI", mcp: "MCP", xrpl: "XRPL", rpg: "RPG", os: "OS", db: "DB", gpu: "GPU", fx: "FX",
+  ir: "IR", ue5: "UE5", "2d": "2D", "3d": "3D", npm: "npm", vscode: "VS Code", codecomfy: "CodeComfy",
+  runforge: "RunForge", websketch: "WebSketch", comfyui: "ComfyUI", tts: "TTS", llm: "LLM", cli: "CLI",
+};
+
 function formatName(slug) {
   return slug
     .split("-")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .map((w) => {
+      const key = w.toLowerCase();
+      if (NAME_TOKENS[key]) return NAME_TOKENS[key];
+      // Preserve deliberate mixed case (LeaseGate, ClaimLedger) instead of flattening it.
+      if (/[a-z][A-Z]/.test(w)) return w;
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    })
     .join(" ");
 }
 
@@ -288,21 +301,79 @@ function toRelease(release, repoName) {
   };
 }
 
-/** Extract first ~6 bullet points from a release body */
+const LIST_MARKER = /^(\s*)([-*•]|\d+[.)])\s+/;
+
+function stripMarkdown(s) {
+  return s
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "") // images
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1") // links -> link text
+    .replace(/\*\*([^*]+)\*\*/g, "$1") // bold
+    .replace(/__([^_]+)__/g, "$1")
+    .replace(/`([^`]+)`/g, "$1") // inline code
+    .replace(/\*\*/g, "") // emphasis markers orphaned by paragraph splits
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * Extract the first few plain-text bullet points from a release body.
+ *
+ * Release bodies are markdown with soft-wrapped paragraphs, so the unit of
+ * extraction is the block (paragraph or list item), not the line. Headings,
+ * blockquotes, HTML, tables, code fences and rules are dropped; emphasis and
+ * links are flattened to text.
+ */
 function summarizeBody(body) {
   if (!body) return [];
-  const lines = body.split("\n");
   const bullets = [];
-  for (const line of lines) {
-    const trimmed = line.replace(/^[\s*\-•]+/, "").trim();
-    if (!trimmed) continue;
-    if (trimmed.startsWith("#")) continue;
-    if (trimmed.toLowerCase().includes("full changelog")) continue;
-    if (/^\[.*\]\(.*\)$/.test(trimmed)) continue;
-    bullets.push(trimmed);
-    if (bullets.length >= 6) break;
+  const blocks = body.replace(/\r\n?/g, "\n").split(/\n\s*\n/);
+  let inFence = false;
+
+  const push = (text) => {
+    let t = stripMarkdown(text);
+    if (!t) return;
+    if (t.toLowerCase().includes("full changelog")) return;
+    if (/^https?:\/\/\S+$/.test(t)) return; // bare URLs
+    if (t.length > 220) t = t.slice(0, 217).replace(/\s+\S*$/, "") + "…";
+    bullets.push(t);
+  };
+
+  for (const block of blocks) {
+    if (bullets.length >= 5) break;
+    const lines = block.split("\n").filter((l) => l.trim());
+    if (lines.length === 0) continue;
+
+    // Code fences can span blank lines; track them across blocks.
+    if (lines.some((l) => l.trim().startsWith("```"))) {
+      const fenceCount = lines.filter((l) => l.trim().startsWith("```")).length;
+      if (fenceCount % 2 === 1) inFence = !inFence;
+      continue;
+    }
+    if (inFence) continue;
+
+    const first = lines[0].trim();
+    if (/^(#|>|<|\||!\[)/.test(first)) continue; // heading, quote, HTML, table, image
+    if (/^(-{3,}|\*{3,}|_{3,})$/.test(first)) continue; // horizontal rule
+
+    if (LIST_MARKER.test(first)) {
+      // A list: each marker starts an item; indented lines continue the previous one.
+      let current = "";
+      for (const line of lines) {
+        if (LIST_MARKER.test(line)) {
+          if (current) push(current);
+          if (bullets.length >= 5) break;
+          current = line.replace(LIST_MARKER, "");
+        } else {
+          current += " " + line.trim();
+        }
+      }
+      if (current && bullets.length < 5) push(current);
+    } else {
+      // A paragraph: soft-wrapped lines are one sentence group.
+      push(lines.map((l) => l.trim()).join(" "));
+    }
   }
-  return bullets;
+  return bullets.slice(0, 5);
 }
 
 function stableSort(projects) {

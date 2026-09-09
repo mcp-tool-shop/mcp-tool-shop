@@ -1,51 +1,90 @@
 [
   {
-    "id": "game-dev",
-    "title": "Game Development",
-    "description": "Turn-based RPGs, adaptive soundtracks, and sprite production pipelines.",
+    "id": "mcp-servers",
+    "title": "MCP servers",
+    "description": "Tool discovery, local-model delegation, speech, translation, and vision for any MCP client.",
     "repos": [
-      "sprite-foundry",
-      "saints-mile",
-      "motif",
-      "game-foundry-os"
+      "tool-compass",
+      "ollama-intern-mcp",
+      "mcp-voice-soundboard",
+      "polyglot-mcp",
+      "plain-sight",
+      "ai-eyes-mcp"
     ]
   },
   {
-    "id": "ml-pipeline",
-    "title": "ML & Dataset Pipeline",
-    "description": "Local model training, fine-tuning, and dataset engineering.",
+    "id": "training-datasets",
+    "title": "Training and datasets",
+    "description": "Headless fine-tuning, canon-bound visual datasets, contamination checks, and training-step verification.",
     "repos": [
       "backpropagate",
-      "comfy-headless",
+      "style-dataset-lab",
       "repo-dataset",
-      "style-dataset-lab"
+      "backprop-trace",
+      "runforge-vscode"
     ]
   },
   {
-    "id": "developer-tools",
-    "title": "Developer Tools",
-    "description": "Product standards, knowledge routing, and agent coordination.",
+    "id": "media-pipelines",
+    "title": "Image and media pipelines",
+    "description": "Programmatic ComfyUI, pre-submission gates, sprite generation, GLB-driven video, and audiobooks.",
+    "repos": [
+      "comfy-headless",
+      "comfy-preflight",
+      "sprite-foundry",
+      "armature",
+      "audiobooker",
+      "codecomfy-vscode"
+    ]
+  },
+  {
+    "id": "agent-infrastructure",
+    "title": "Agent infrastructure",
+    "description": "Multi-agent orchestration, context routing, cross-family verification, and runtime health.",
     "repos": [
       "role-os",
-      "multi-claude"
+      "loadout-os",
+      "prism-verify",
+      "claude-guardian",
+      "research-os"
     ]
   },
   {
-    "id": "blockchain",
-    "title": "Blockchain & XRPL",
-    "description": "XRPL education, creator tools, and trust infrastructure.",
+    "id": "developer-tooling",
+    "title": "Developer tooling",
+    "description": "Release quality gates, site templates, repo knowledge, package stats, and verified binary launchers.",
     "repos": [
+      "shipcheck",
+      "site-theme",
+      "repo-knowledge",
+      "registry-stats",
+      "npm-launcher",
+      "forkctl"
+    ]
+  },
+  {
+    "id": "games",
+    "title": "Games and game tooling",
+    "description": "Deterministic RPG simulation, world authoring, adaptive soundtracks, and playable titles.",
+    "repos": [
+      "ai-rpg-engine",
+      "world-forge",
+      "motif",
+      "saints-mile",
+      "roll",
+      "star-freight"
+    ]
+  },
+  {
+    "id": "ledger-verification",
+    "title": "Ledger and verification",
+    "description": "Financial truth infrastructure, XRPL training, creator release systems, and repo-network verification.",
+    "repos": [
+      "attestia",
+      "xrpl-lab",
       "xrpl-camp",
-      "Attestia",
-      "xrpl-creator-capsule"
-    ]
-  },
-  {
-    "id": "creative",
-    "title": "Creative Tools",
-    "description": "Voice synthesis, sprite editing, audiobooks, and ambient sound.",
-    "repos": [
-      "mcp-voice-soundboard"
+      "xrpl-creator-capsule",
+      "repomesh"
     ]
   }
 ]

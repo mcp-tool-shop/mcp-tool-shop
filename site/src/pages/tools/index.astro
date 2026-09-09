@@ -1,149 +1,143 @@
 ---
 import Base from '../../layouts/Base.astro';
 import projects from '../../data/projects.json';
-import RealityPills from '../../components/RealityPills.astro';
-import proofs from '../../data/audit/proofs.json';
+import { kindLabel, laneLabel, ecosystemOf, shortDate } from '../../lib/labels';
 
-const languages = [...new Set((projects as any[]).map((p: any) => p.language).filter(Boolean))].sort();
-const categories = [...new Set((projects as any[]).map((p: any) => p.category).filter(Boolean))].sort();
+// Registry entries whose repository no longer exists carry no GitHub data.
+// They are catalog ghosts, not tools, so they are not rendered at all.
+const catalog = (projects as any[]).filter((p: any) => p.updatedAt);
+
+// Default view: shipped and in-development repositories. Internal and archived
+// repositories are reachable through the lane filter.
+const isDefault = (p: any) => !p.deprecated && (p.lane === 'shipped' || p.lane === 'active_lab' || (p.registered && !p.lane));
+const defaultCount = catalog.filter(isDefault).length;
+
+const languages = [...new Set(catalog.map((p: any) => p.language).filter(Boolean))].sort();
+const kinds = [...new Set(catalog.map((p: any) => p.kind).filter(Boolean))].sort();
+const ecosystems = [...new Set(catalog.map((p: any) => ecosystemOf(p.install)).filter(Boolean))].sort();
 const stabilities = ['stable', 'beta', 'experimental'];
-const kinds = [...new Set((projects as any[]).map((p: any) => p.kind).filter(Boolean))].sort();
-const registeredCount = (projects as any[]).filter((p: any) => p.registered).length;
 ---
 
 <Base
-  title="Tools - mcp-tool-shop"
-  description="Browse MCP servers, desktop apps, and AI tooling from mcp-tool-shop."
+  title="Tools"
+  description="Browse MCP servers, command-line tools, libraries, and applications from MCP Tool Shop, with install commands for every published package."
   currentPath="/tools/"
 >
-  <div class="page-content" style="max-width: none;">
+  <div class="page-content tools-intro">
     <h1>Tools</h1>
-    <p style="max-width: 680px;">
-      {registeredCount} registry-listed tools and {(projects as any[]).length - registeredCount} org-only repos in the
+    <p>
+      {defaultCount} tools and libraries from the
       <a href="https://github.com/mcp-tool-shop-org" rel="noopener">mcp-tool-shop-org</a>
-      organization. Toggle "Show org-only" to see everything.
+      organization. Install commands are shown wherever a package is published to npm or PyPI.
+      Everything is open source under the MIT License.
     </p>
   </div>
 
-  <div class="toolbar">
+  <div class="toolbar" role="search">
     <div class="search-wrapper">
+      <label for="search" class="visually-hidden">Search tools</label>
       <input
         type="text"
         id="search"
         class="search-input"
-        placeholder="Search tools..."
+        placeholder="Search by name, description, or topic"
         autocomplete="off"
       />
       <button id="search-clear" class="search-clear" aria-label="Clear search" hidden>&times;</button>
     </div>
     <div class="filter-group">
-      <select id="filter-status" class="filter-select">
-        <option value="">All statuses</option>
-        <option value="verified">✅ Verified Only</option>
-        <option value="concept">🚧 Concepts Only</option>
-        <option value="needs-copy">📝 Needs Copy</option>
+      <select id="filter-lane" class="filter-select" aria-label="Status">
+        <option value="">Shipped and in development</option>
+        <option value="shipped">Shipped only</option>
+        <option value="active_lab">In development only</option>
+        <option value="all">All repositories</option>
       </select>
-      <select id="filter-build" class="filter-select">
-        <option value="">All builds</option>
-        <option value="npm">NPM / Node.js</option>
-        <option value="python">Python</option>
-        <option value="dotnet">.NET</option>
-        <option value="cargo">Rust / Cargo</option>
-        <option value="docker">Container</option>
+      <select id="filter-eco" class="filter-select" aria-label="Package ecosystem">
+        <option value="">Any ecosystem</option>
+        {ecosystems.map((e: string) => <option value={e}>{e}</option>)}
       </select>
-      <select id="filter-lang" class="filter-select">
-        <option value="">All languages</option>
+      <select id="filter-lang" class="filter-select" aria-label="Language">
+        <option value="">Any language</option>
         {languages.map((lang: string) => <option value={lang}>{lang}</option>)}
       </select>
-      <select id="filter-kind" class="filter-select">
-        <option value="">All types</option>
-        {kinds.map((k: string) => <option value={k}>{k}</option>)}
+      <select id="filter-kind" class="filter-select" aria-label="Type">
+        <option value="">Any type</option>
+        {kinds.map((k: string) => <option value={k}>{kindLabel(k)}</option>)}
       </select>
-      <select id="filter-stability" class="filter-select">
-        <option value="">All stability</option>
+      <select id="filter-stability" class="filter-select" aria-label="Stability">
+        <option value="">Any stability</option>
         {stabilities.map((s: string) => <option value={s}>{s}</option>)}
       </select>
-      <select id="sort-by" class="filter-select">
+      <select id="sort-by" class="filter-select" aria-label="Sort">
         <option value="featured">Featured first</option>
         <option value="updated">Recently updated</option>
-        <option value="stars">Most stars</option>
-        <option value="name">Name A-Z</option>
+        <option value="name">Name A to Z</option>
+        <option value="stars">Most starred</option>
       </select>
-      <label class="toggle-label" title="Show tools not yet listed in the registry">
-        <input type="checkbox" id="show-orgonly" />
-        <span>Show org-only</span>
-      </label>
     </div>
   </div>
 
-  <div class="results-count" id="results-count"></div>
+  <div class="results-count" id="results-count" aria-live="polite"></div>
 
   <div class="project-grid" id="project-grid">
-    {(projects as any[]).map((project: any) => (
-      <div
+    {catalog.map((project: any) => (
+      <article
         class={`project-card${project.deprecated ? ' card-deprecated' : ''}`}
         data-name={project.name.toLowerCase()}
-        data-desc={project.description.toLowerCase()}
+        data-desc={(project.tagline || project.description || '').toLowerCase()}
         data-repo={project.repo}
         data-lang={project.language || ''}
         data-kind={project.kind || ''}
         data-stability={project.stability || ''}
+        data-lane={project.deprecated ? 'archived' : (project.lane || (project.registered ? 'shipped' : 'unlaned'))}
+        data-eco={ecosystemOf(project.install)}
         data-featured={project.featured ? '1' : '0'}
         data-stars={project.stars || 0}
         data-updated={project.updatedAt || ''}
         data-tags={(project.tags || []).join(' ').toLowerCase()}
-        data-registered={project.registered ? '1' : '0'}
-        data-deprecated={project.deprecated ? '1' : '0'}
-        data-verified={proofs.find((p: any) => p.repo === project.repo)?.verified ? '1' : '0'}
-        data-concept={proofs.find((p: any) => p.repo === project.repo)?.concept ? '1' : '0'}
-        data-build={(proofs.find((p: any) => p.repo === project.repo)?.proofs || []).join(' ')}
-        data-needs-copy={(project.tags || []).includes('needs-copy') ? '1' : '0'}
       >
         <div class="card-header">
           <h3>
-            <a href={`/tools/${project.repo}/`}>
-              {project.name}
-            </a>
+            <a href={`/tools/${project.repo}/`}>{project.name}</a>
           </h3>
           <div class="card-badges">
-            {project.deprecated && (
-              <span class="badge badge-deprecated">Deprecated</span>
-            )}
-            {project.registered && !project.deprecated && (
-              <span class="badge badge-registered">Registry</span>
-            )}
-            {project.stability && (
+            {project.deprecated && <span class="badge badge-deprecated">Archived</span>}
+            {!project.deprecated && project.stability && (
               <span class={`badge badge-${project.stability}`}>{project.stability}</span>
             )}
-            {project.kind && (
-              <span class="badge badge-kind">{project.kind}</span>
+            {!project.deprecated && project.lane === 'active_lab' && (
+              <span class="badge badge-lane">{laneLabel('active_lab')}</span>
             )}
           </div>
-          <RealityPills
-            verified={proofs.find((p: any) => p.repo === project.repo)?.verified || false}
-            concept={proofs.find((p: any) => p.repo === project.repo)?.concept || false}
-            proofs={proofs.find((p: any) => p.repo === project.repo)?.proofs || []}
-          />
         </div>
         <p>{project.tagline || project.description}</p>
-        {project.install && (
-          <code class="install-line">{project.install}</code>
-        )}
+        {project.install && <code class="install-line">{project.install}</code>}
         <div class="card-meta">
-          {project.stars > 0 && <span class="meta-item">{project.stars} stars</span>}
+          {kindLabel(project.kind) && <span class="meta-item">{kindLabel(project.kind)}</span>}
           {project.language && <span class="meta-item">{project.language}</span>}
+          {project.updatedAt && <span class="meta-item">Updated {shortDate(project.updatedAt)}</span>}
         </div>
-        <div class="tags">
-          {(project.tags || []).map((tag: string) => (
-            <span class="tag">{tag}</span>
-          ))}
-        </div>
-      </div>
+      </article>
     ))}
   </div>
+
+  <p class="empty-state" id="empty-state" hidden>No tools match these filters.</p>
 </Base>
 
 <style>
+  .tools-intro {
+    max-width: 720px;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
   .toolbar {
     display: flex;
     gap: 1rem;
@@ -155,7 +149,7 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
   .search-wrapper {
     position: relative;
     flex: 1;
-    min-width: 200px;
+    min-width: 240px;
   }
 
   .search-input {
@@ -241,6 +235,8 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
     display: flex;
     gap: 0.375rem;
     flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   .badge {
@@ -255,61 +251,37 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
 
   .badge-stable {
     color: var(--color-success);
-    background: rgba(63, 185, 80, 0.1);
+    background: var(--color-success-subtle);
   }
 
   .badge-beta {
-    color: #d29922;
-    background: rgba(210, 153, 34, 0.1);
+    color: var(--color-attention-fg);
+    background: var(--color-attention-subtle);
   }
 
   .badge-experimental {
-    color: #f85149;
-    background: rgba(248, 81, 73, 0.1);
+    color: var(--color-danger-fg);
+    background: var(--color-danger-subtle);
   }
 
-  .badge-kind {
+  .badge-lane {
     color: var(--color-text-muted);
-    background: rgba(139, 148, 158, 0.1);
-  }
-
-  .badge-registered {
-    color: var(--color-accent);
-    background: rgba(88, 166, 255, 0.1);
+    background: rgba(139, 148, 158, 0.12);
   }
 
   .badge-deprecated {
-    color: #f85149;
-    background: rgba(248, 81, 73, 0.1);
+    color: var(--color-danger-fg);
+    background: var(--color-danger-subtle);
   }
 
   .card-deprecated {
-    opacity: 0.55;
+    opacity: 0.6;
     border-style: dashed;
-  }
-
-  .card-deprecated:hover {
-    opacity: 0.8;
-  }
-
-  .toggle-label {
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-    font-size: 0.8125rem;
-    color: var(--color-text-muted);
-    cursor: pointer;
-    white-space: nowrap;
-    user-select: none;
-  }
-
-  .toggle-label input {
-    accent-color: var(--color-accent);
   }
 
   .install-line {
     display: block;
-    margin: 0.5rem 0;
+    margin: 0.5rem 0 1rem;
     padding: 0.375rem 0.625rem;
     font-size: 0.75rem;
     background: var(--color-bg);
@@ -323,17 +295,15 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
     display: none;
   }
 
+  .empty-state {
+    color: var(--color-text-muted);
+    margin-top: 2rem;
+  }
+
   @media (max-width: 640px) {
     .toolbar {
       flex-direction: column;
-    }
-
-    .search-wrapper {
-      width: 100%;
-    }
-
-    .filter-group {
-      width: 100%;
+      align-items: stretch;
     }
 
     .filter-select {
@@ -348,70 +318,63 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
   const cards = Array.from(grid.querySelectorAll('.project-card')) as HTMLElement[];
   const search = document.getElementById('search') as HTMLInputElement;
   const clearBtn = document.getElementById('search-clear') as HTMLButtonElement;
+  const laneFilter = document.getElementById('filter-lane') as HTMLSelectElement;
+  const ecoFilter = document.getElementById('filter-eco') as HTMLSelectElement;
   const langFilter = document.getElementById('filter-lang') as HTMLSelectElement;
   const kindFilter = document.getElementById('filter-kind') as HTMLSelectElement;
   const stabilityFilter = document.getElementById('filter-stability') as HTMLSelectElement;
-  const statusFilter = document.getElementById('filter-status') as HTMLSelectElement;
-  const buildFilter = document.getElementById('filter-build') as HTMLSelectElement;
   const sortBy = document.getElementById('sort-by') as HTMLSelectElement;
-  const showOrgOnly = document.getElementById('show-orgonly') as HTMLInputElement;
   const resultsCount = document.getElementById('results-count')!;
+  const emptyState = document.getElementById('empty-state')!;
+
+  const DEFAULT_LANES = new Set(['shipped', 'active_lab']);
+
+  function laneMatches(cardLane: string, selected: string, hasQuery: boolean): boolean {
+    if (selected === 'all') return true;
+    if (selected) return cardLane === selected;
+    // Default: shipped + in development. A search query widens to everything so
+    // a visitor looking for a specific repo always finds it.
+    return DEFAULT_LANES.has(cardLane) || hasQuery;
+  }
 
   function applyFilters() {
     const q = search.value.toLowerCase().trim();
+    const lane = laneFilter.value;
+    const eco = ecoFilter.value;
     const lang = langFilter.value;
     const kind = kindFilter.value;
     const stability = stabilityFilter.value;
-    const status = statusFilter.value;
-    const build = buildFilter.value;
-    const includeOrgOnly = showOrgOnly.checked;
 
     clearBtn.hidden = !q;
 
     let visible = 0;
-    let hiddenDeprecated = 0;
     for (const card of cards) {
+      const d = card.dataset;
       const matchSearch = !q ||
-        card.dataset.name!.includes(q) ||
-        card.dataset.desc!.includes(q) ||
-        card.dataset.repo!.includes(q) ||
-        card.dataset.tags!.includes(q);
-      const matchLang = !lang || card.dataset.lang === lang;
-      const matchKind = !kind || card.dataset.kind === kind;
-      const matchStability = !stability || card.dataset.stability === stability;
-      
-      const matchStatus = !status || 
-        (status === 'verified' && card.dataset.verified === '1') ||
-        (status === 'concept' && card.dataset.concept === '1') ||
-        (status === 'needs-copy' && card.dataset.needsCopy === '1');
-        
-      const matchBuild = !build || (card.dataset.build || '').includes(build);
-      
-      const matchRegistered = includeOrgOnly || card.dataset.registered === '1';
-      // Deprecated tools hidden unless org-only toggle is on or search matches
-      const isDeprecated = card.dataset.deprecated === '1';
-      const matchDeprecated = !isDeprecated || includeOrgOnly || Boolean(q);
-
-      const show = matchSearch && matchLang && matchKind && matchStability && matchStatus && matchBuild && matchRegistered && matchDeprecated;
+        d.name!.includes(q) ||
+        d.desc!.includes(q) ||
+        d.repo!.includes(q) ||
+        d.tags!.includes(q);
+      const show = matchSearch &&
+        laneMatches(d.lane || '', lane, Boolean(q)) &&
+        (!eco || d.eco === eco) &&
+        (!lang || d.lang === lang) &&
+        (!kind || d.kind === kind) &&
+        (!stability || d.stability === stability);
       card.hidden = !show;
       if (show) visible++;
-      // Count deprecated tools that passed all filters except the deprecated filter
-      if (!show && isDeprecated && matchSearch && matchLang && matchKind && matchStability) {
-        hiddenDeprecated++;
-      }
     }
 
-    let countText = `${visible} of ${cards.length} tools`;
-    if (hiddenDeprecated > 0 && !includeOrgOnly) {
-      countText += ` · ${hiddenDeprecated} deprecated hidden`;
-    }
-    resultsCount.textContent = countText;
+    resultsCount.textContent = visible === cards.length
+      ? `${visible} tools`
+      : `${visible} of ${cards.length} tools`;
+    emptyState.hidden = visible > 0;
     applySort();
   }
 
   function applySort() {
     const mode = sortBy.value;
-    const visibleCards = cards.filter(c => !c.hidden);
+    const visibleCards = cards.filter((c) => !c.hidden);
 
     visibleCards.sort((a, b) => {
       switch (mode) {
@@ -419,7 +382,7 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
           const af = a.dataset.featured === '1' ? 1 : 0;
           const bf = b.dataset.featured === '1' ? 1 : 0;
           if (af !== bf) return bf - af;
-          return (b.dataset.stars ? +b.dataset.stars : 0) - (a.dataset.stars ? +a.dataset.stars : 0);
+          return (b.dataset.updated || '').localeCompare(a.dataset.updated || '');
         }
         case 'updated':
           return (b.dataset.updated || '').localeCompare(a.dataset.updated || '');
@@ -432,22 +395,15 @@ const registeredCount = (projects as any[]).filter((p: any) => p.registered).len
       }
     });
 
-    for (const card of visibleCards) {
-      grid.appendChild(card);
-    }
+    for (const card of visibleCards) grid.appendChild(card);
   }
 
   search.addEventListener('input', applyFilters);
   clearBtn.addEventListener('click', () => { search.value = ''; applyFilters(); search.focus(); });
-  langFilter.addEventListener('change', applyFilters);
-  kindFilter.addEventListener('change', applyFilters);
-  stabilityFilter.addEventListener('change', applyFilters);
-  statusFilter.addEventListener('change', applyFilters);
-  buildFilter.addEventListener('change', applyFilters);
-  sortBy.addEventListener('change', applyFilters);
-  showOrgOnly.addEventListener('change', applyFilters);
+  for (const el of [laneFilter, ecoFilter, langFilter, kindFilter, stabilityFilter, sortBy]) {
+    el.addEventListener('change', applyFilters);
+  }
 
-  // Keyboard shortcut: / focuses search
   document.addEventListener('keydown', (e) => {
     if (e.key === '/' && document.activeElement !== search) {
       e.preventDefault();

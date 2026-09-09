@@ -6,9 +6,9 @@
     "url": "https://github.com/mcp-tool-shop-org"
   },
   "site": {
-    "title": "mcp-tool-shop",
+    "title": "MCP Tool Shop",
     "url": "https://mcptoolshop.com",
-    "description": "Weekly spotlights on MCP tools that actually help."
+    "description": "Open-source tooling for local-first AI development: MCP servers, command-line tools, training and dataset pipelines, and game-production tooling that run on your own hardware."
   },
   "repo": {
     "marketing": "mcp-tool-shop/mcp-tool-shop"

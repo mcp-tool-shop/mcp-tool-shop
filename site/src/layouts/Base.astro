@@ -9,9 +9,11 @@ interface Props {
   ogImage?: string;
 }
 
+const siteName = kit.site.title || 'MCP Tool Shop';
+
 const {
   title,
-  description = kit.site.description || 'Building the tools that AI agents use to get real work done.',
+  description = kit.site.description || 'Open-source tooling for local-first AI development.',
   currentPath = '',
   ogImage,
 } = Astro.props;
@@ -19,9 +21,12 @@ const {
 const siteUrl = kit.site.url || 'https://mcptoolshop.com';
 const canonicalUrl = new URL(currentPath || '/', siteUrl).href;
 const ogImageUrl = ogImage ? new URL(ogImage, siteUrl).href : undefined;
+const orgUrl = kit.org.url || 'https://github.com/mcp-tool-shop-org';
+
+// Pages that already carry the site name keep their title verbatim.
+const pageTitle = /mcp[- ]tool[- ]shop/i.test(title) ? title : `${title} · ${siteName}`;
 
 const navLinks = [
-  { href: '/', label: 'Home' },
   { href: '/tools/', label: 'Tools' },
   { href: '/releases/', label: 'Releases' },
   { href: '/newsletter/', label: 'Newsletter' },
@@ -29,12 +34,10 @@ const navLinks = [
   { href: '/support/', label: 'Support' },
 ];
 
-// Registry meta for footer
 const meta = registryMeta as any;
-const schemaLabel = meta.schemaVersion ? `v${meta.schemaVersion}` : null;
-const refLabel = meta.registryTag || meta.registryRef || null;
-const syncDate = meta.lastSyncAt ? new Date(meta.lastSyncAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : null;
-const cleanupUrl = meta.cleanupIssueUrl || null;
+const syncDate = meta.lastSyncAt
+  ? new Date(meta.lastSyncAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+  : null;
 ---
 
 <!doctype html>
@@ -43,23 +46,27 @@ const cleanupUrl = meta.cleanupIssueUrl || null;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#0d1117" />
     <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:title" content={title} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
     <meta name="twitter:card" content={ogImageUrl ? 'summary_large_image' : 'summary'} />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
-    <nav class="site-nav">
-      <div class="container relative"> {/* Added relative for positioning */}
-        <a href="/" class="logo">{kit.site.title || 'mcp-tool-shop'}</a>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <nav class="site-nav" aria-label="Primary">
+      <div class="container">
+        <a href="/" class="logo" aria-label={`${siteName} home`}>{siteName}</a>
         <ul class="nav-links">
           {navLinks.map((link) => (
             <li>
@@ -71,25 +78,27 @@ const cleanupUrl = meta.cleanupIssueUrl || null;
               </a>
             </li>
           ))}
-          {/* Admin Nav Injection Point */}
+          <li>
+            <a href={orgUrl} rel="noopener" class="nav-external">GitHub</a>
+          </li>
+          {/* Lab navigation is opt-in for operators; see the toggle script below. */}
           <li id="admin-nav-item" style="display: none;">
-            <a href="/lab/" style="color: #a78bfa; font-weight: 600;">Lab ⚡</a>
+            <a href="/lab/" style="color: #a78bfa; font-weight: 600;">Lab</a>
           </li>
         </ul>
       </div>
     </nav>
 
-    <main>
+    <main id="main">
       <div class="container">
         <slot />
       </div>
     </main>
-    
+
     <script is:inline>
       (function() {
         const KEY = "mcptoolshop_admin_nav";
-        
-        // Check for enable command
+
         if (typeof window !== "undefined") {
             const url = new URL(window.location.href);
             if (url.searchParams.get("admin") === "1") {
@@ -97,8 +106,7 @@ const cleanupUrl = meta.cleanupIssueUrl || null;
                 url.searchParams.delete("admin");
                 window.history.replaceState({}, "", url.toString());
             }
-            
-            // Toggle key chord
+
             window.addEventListener("keydown", (e) => {
                 if (e.ctrlKey && e.shiftKey && (e.key === "L" || e.key === "l")) {
                     const current = localStorage.getItem(KEY);
@@ -112,8 +120,7 @@ const cleanupUrl = meta.cleanupIssueUrl || null;
                     window.location.reload();
                 }
             });
-            
-            // Render if enabled
+
             if (localStorage.getItem(KEY) === "1") {
                 const el = document.getElementById("admin-nav-item");
                 if (el) el.style.display = "block";
@@ -125,22 +132,18 @@ const cleanupUrl = meta.cleanupIssueUrl || null;
     <footer class="site-footer">
       <div class="container">
         <div class="footer-top">
-          <span>&copy; {new Date().getFullYear()} {kit.site.title || 'mcp-tool-shop'}</span>
+          <span>&copy; {new Date().getFullYear()} {siteName}. Open source under the MIT License.</span>
           <ul class="footer-links">
-            <li><a href={kit.org.url || 'https://github.com/mcp-tool-shop-org'}>Org on GitHub</a></li>
-            <li><a href={`https://github.com/${kit.org.account || 'mcp-tool-shop'}`}>Profile</a></li>
+            <li><a href={orgUrl} rel="noopener">GitHub</a></li>
+            <li><a href="https://www.npmjs.com/search?q=%40mcptoolshop" rel="noopener">npm</a></li>
             <li><a href="/trust/">Trust Center</a></li>
+            <li><a href="/support/">Support</a></li>
+            <li><a href="https://github.com/mcp-tool-shop-org/.github/blob/main/SECURITY.md" rel="noopener">Security</a></li>
           </ul>
         </div>
         <div class="footer-meta">
-          {schemaLabel && <span>Registry schema {schemaLabel}</span>}
-          {refLabel && <span>ref: {refLabel}</span>}
-          {syncDate && <span>Last sync: {syncDate}</span>}
-          {cleanupUrl && <a href={cleanupUrl} rel="noopener">Cleanup issue</a>}
-        </div>
-        <div class="footer-powered">
-          Powered by <a href="https://www.npmjs.com/package/@mcptoolshop/promo-kit" rel="noopener">promo-kit</a>
-          &mdash; the engine behind the Weekly Spotlight
+          <span>Catalog generated from the mcp-tool-shop-org organization on GitHub.</span>
+          {syncDate && <span>Data refreshed {syncDate}</span>}
         </div>
       </div>
     </footer>
@@ -149,4 +152,28 @@ const cleanupUrl = meta.cleanupIssueUrl || null;
 
 <style is:global>
   @import '../styles/global.css';
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--color-accent);
+    color: var(--color-canvas-default);
+    border-radius: var(--radius);
+    z-index: 100;
+  }
+
+  .skip-link:focus {
+    left: 0.75rem;
+  }
+
+  .site-nav .logo {
+    font-family: var(--font-sans);
+    letter-spacing: -0.02em;
+  }
+
+  .nav-external {
+    color: var(--color-text-muted);
+  }
 </style>

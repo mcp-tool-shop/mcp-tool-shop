@@ -2,7 +2,7 @@
 
 <img src="https://raw.githubusercontent.com/mcp-tool-shop-org/brand/main/logos/mcp-tool-shop.github.io/readme.png" alt="MCP Tool Shop" width="400">
 
-**Weekly spotlights on MCP tools that actually help.**
+**The catalog and publishing engine behind [mcptoolshop.com](https://mcptoolshop.com/).**
 
 [![CI](https://github.com/mcp-tool-shop/mcp-tool-shop/actions/workflows/site-quality.yml/badge.svg)](https://github.com/mcp-tool-shop/mcp-tool-shop/actions/workflows/site-quality.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -64,11 +64,9 @@ MCP · FastMCP · Ollama · HNSW · CUDA
 Windows-first · RTX 5080 · Local-only
 ```
 
-## Philosophy
+## Principles
 
-Everything runs locally. No cloud dependencies for core functionality. Tools compose through the Model Context Protocol. Append-only where it matters. Accessibility baked in, not bolted on.
-
-*Syntropy above all else.*
+Everything runs locally; no cloud dependency for core functionality. Tools compose through the Model Context Protocol. Data files are generated from the GitHub organization, never hand-edited, and every published claim links to something you can verify. Accessibility is built in, not bolted on.
 
 ---
 

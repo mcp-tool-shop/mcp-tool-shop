@@ -1,53 +1,91 @@
 ---
 import Base from '../layouts/Base.astro';
+import stats from '../data/org-stats.json';
 ---
 
 <Base
-  title="About - mcp-tool-shop"
-  description="What MCP Tool Shop does: a weekly spotlight on tools worth trying."
+  title="About"
+  description="MCP Tool Shop is an independent software studio building open-source tooling for local-first AI development and game production."
   currentPath="/about/"
 >
   <div class="page-content">
     <h1>About</h1>
-    <p>
-      Every week we spotlight the MCP tools getting real work done &mdash; clear install steps, honest tradeoffs, and verification if you want it.
+    <p class="lede">
+      MCP Tool Shop is an independent software studio. We build the tools we use to develop
+      AI-assisted software and games, and we publish them as open source under the MIT License.
     </p>
     <p>
-      mcp-tool-shop builds MCP servers, desktop apps, and AI infrastructure.
-      Everything runs locally. No cloud dependencies for core functionality.
+      The work spans {(stats as any).repoCount} public repositories in the
+      <a href="https://github.com/mcp-tool-shop-org" rel="noopener">mcp-tool-shop-org</a>
+      organization: servers for the Model Context Protocol, command-line tools, model training and
+      dataset pipelines, image and audio production tooling, agent infrastructure, and the games
+      that tooling exists to make. All of it is designed to run on a workstation you own.
     </p>
 
-    <h2>Philosophy</h2>
-    <p>
-      Tools compose through the Model Context Protocol. Append-only where it matters.
-      Accessibility baked in, not bolted on.
-    </p>
+    <h2>What we build</h2>
     <ul>
-      <li><strong>Local-first:</strong> Your data stays on your machine. Every tool works offline.</li>
-      <li><strong>Composable:</strong> MCP-native from day one. Tools talk to each other through a shared protocol.</li>
-      <li><strong>Deterministic:</strong> Same input, same output. No hidden randomness in critical paths.</li>
-      <li><strong>Windows-first:</strong> Built and tested on Windows. Linux and macOS supported where applicable.</li>
+      <li><strong>MCP servers</strong> for tool discovery, local-model job delegation, speech, translation, and vision. They work with Claude Code, Claude Desktop, Cursor, VS Code, and any other MCP client.</li>
+      <li><strong>Training and dataset pipelines:</strong> headless fine-tuning with GGUF export, canon-bound visual datasets, contamination-checked code datasets, and verifiers for training steps.</li>
+      <li><strong>Image and media tooling:</strong> programmatic ComfyUI, pre-submission workflow gates, sprite generation, GLB-driven video, and audiobook production.</li>
+      <li><strong>Agent infrastructure:</strong> multi-agent orchestration, context routing, cross-family output verification, and runtime health for coding agents.</li>
+      <li><strong>Developer tooling:</strong> a release quality gate, Astro site templates, a repo knowledge base, and package download analytics.</li>
+      <li><strong>Games and game tooling:</strong> a deterministic RPG simulation engine, world authoring, adaptive soundtracks, and playable titles.</li>
+    </ul>
+    <p>
+      The <a href="/tools/">catalog</a> lists every repository with its status, install command, and
+      release history.
+    </p>
+
+    <h2>How we work</h2>
+    <ul>
+      <li><strong>Local-first.</strong> Core functionality never requires an API key or a hosted service. Where a tool offers cloud routing, it is opt-in and falls back to local execution.</li>
+      <li><strong>MCP-native.</strong> Tools compose through the Model Context Protocol rather than bespoke integrations.</li>
+      <li><strong>Gated releases.</strong> Every tagged release passes the <a href="/tools/shipcheck/">shipcheck</a> gate: a security policy and threat model, structured errors with exit codes, current documentation and changelog, and clean packaging. Versions follow semantic versioning and publish to npm or PyPI from CI.</li>
+      <li><strong>Deterministic where it matters.</strong> Same input, same output in critical paths. Simulation engines, verifiers, and dataset builders are reproducible by design.</li>
+      <li><strong>Documented in eight languages.</strong> Most repositories ship READMEs in English, Japanese, Chinese, Spanish, French, Hindi, Italian, and Brazilian Portuguese, translated locally with our own translation server.</li>
+      <li><strong>Accessible by default.</strong> Low-vision-first CLI output and WCAG tooling, built in rather than bolted on.</li>
     </ul>
 
     <h2>Stack</h2>
     <ul class="stack-list">
       <li><span class="tag">Python</span></li>
       <li><span class="tag">TypeScript</span></li>
+      <li><span class="tag">Rust</span></li>
       <li><span class="tag">C#</span></li>
-      <li><span class="tag">.NET MAUI</span></li>
-      <li><span class="tag">WinUI 3</span></li>
+      <li><span class="tag">Godot 4</span></li>
+      <li><span class="tag">Astro</span></li>
       <li><span class="tag">MCP</span></li>
-      <li><span class="tag">FastMCP</span></li>
       <li><span class="tag">Ollama</span></li>
-      <li><span class="tag">HNSW</span></li>
+      <li><span class="tag">ComfyUI</span></li>
+      <li><span class="tag">SQLite</span></li>
       <li><span class="tag">CUDA</span></li>
     </ul>
+    <p>
+      Developed on Windows with NVIDIA hardware. Most tools are cross-platform; where a tool is
+      Windows-only, its README says so.
+    </p>
 
     <h2>Who</h2>
     <p>
-      One developer, shipping tools under the
-      <a href="https://github.com/mcp-tool-shop-org" rel="noopener">mcp-tool-shop-org</a>
-      GitHub organization. All code is open source.
+      MCP Tool Shop is a one-person studio. Most of what is published here is built with the same
+      local AI tooling it ships, which is the point: tools are used in production before they are
+      released. Development happens in the open, and every repository accepts issues and pull requests.
+    </p>
+
+    <h2>This site</h2>
+    <p>
+      The catalog is generated from the GitHub organization by a scheduled sync; editorial fields
+      such as taglines and install commands are reviewed by hand. Spotlight picks and their receipts
+      are documented in the <a href="/trust/">Trust Center</a>. The site's source is public at
+      <a href="https://github.com/mcp-tool-shop/mcp-tool-shop" rel="noopener">mcp-tool-shop/mcp-tool-shop</a>.
     </p>
   </div>
 </Base>
+
+<style>
+  .lede {
+    font-size: 1.2rem;
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+</style>

@@ -48,7 +48,7 @@ const graphNodes = (projects as any[]).map((p: any) => ({
   tags: p.tags || []
 }));
 
-// Generate Links based on shared tags (simple syntropy)
+// Generate links based on shared tags
 const graphLinks: { source: string; target: string }[] = [];
 // Limit links to avoid hairball - link if share > 1 tag or specific ecosystem tags?
 // For demo, let's link randomly within groups or just 1-2 based on index for structure?
@@ -118,9 +118,9 @@ for (let i = 0; i < graphNodes.length; i++) {
 
       <!-- Graph Panel -->
       <div class="panel graph-panel">
-        <canvas id="syntropy-graph"></canvas>
+        <canvas id="connection-graph"></canvas>
         <div class="graph-overlay">
-          <h2>Syntropy Map</h2>
+          <h2>Connection map</h2>
           <p>Real-time ecosystem connectivity</p>
         </div>
       </div>
@@ -155,7 +155,7 @@ for (let i = 0; i < graphNodes.length; i++) {
   }, 1000);
 
   // Force Graph Implementation (Vanilla JS)
-  const canvas = document.getElementById('syntropy-graph');
+  const canvas = document.getElementById('connection-graph');
   const ctx = canvas.getContext('2d');
   
   let width, height;
@@ -414,7 +414,7 @@ for (let i = 0; i < graphNodes.length; i++) {
     padding: 0; 
     border-color: var(--sl-color-gray-5);
   }
-  #syntropy-graph {
+  #connection-graph {
     width: 100%;
     height: 100%;
     background: radial-gradient(circle at center, rgba(30,30,35,1) 0%, rgba(13,17,23,1) 70%);

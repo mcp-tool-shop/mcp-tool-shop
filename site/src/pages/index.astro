@@ -4,109 +4,120 @@ import projects from '../data/projects.json';
 import collections from '../data/collections.json';
 import releases from '../data/releases.json';
 import stats from '../data/org-stats.json';
-import todaysPicks from '../data/todays-picks.json';
+import { kindLabel, relativeDate } from '../lib/labels';
 
-const projectsByRepo = new Map((projects as any[]).map((p: any) => [p.repo, p]));
-const featuredRaw = (projects as any[]).filter((p: any) => p.featured);
-const recentReleases = (releases as any[]).slice(0, 5);
+const all = projects as any[];
+const byRepo = new Map(all.map((p: any) => [p.repo, p]));
 
-// Deterministic rotation for spotlight (based on day of year) so it doesn't flicker on refresh but rotates daily
-const dayOfYear = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) / 86400000);
-const spotlightIndex = dayOfYear % featuredRaw.length;
-const spotlight = featuredRaw[spotlightIndex];
+// Editorial order for the featured grid; anything else flagged featured follows.
+const FEATURED_ORDER = [
+  'tool-compass',
+  'comfy-headless',
+  'backpropagate',
+  'mcp-voice-soundboard',
+  'ollama-intern-mcp',
+  'shipcheck',
+];
+const rank = (p: any) => {
+  const i = FEATURED_ORDER.indexOf(p.repo);
+  return i === -1 ? 99 : i;
+};
+const featured = all
+  .filter((p: any) => p.featured && !p.deprecated)
+  .sort((a: any, b: any) => rank(a) - rank(b))
+  .slice(0, 6);
 
-// Grid is exact 6 items from daily picks generator
-const gridProjects = todaysPicks.picks.map(pick => projectsByRepo.get(pick.slug)).filter(Boolean);
+const installable = all.filter((p: any) => p.install && !p.deprecated).length;
 
-function relativeDate(iso: string) {
-  if (!iso) return '';
-  const diff = Date.now() - new Date(iso).getTime();
-  const days = Math.floor(diff / 86400000);
-  if (days === 0) return 'today';
-  if (days === 1) return 'yesterday';
-  if (days < 30) return `${days}d ago`;
-  const months = Math.floor(days / 30);
-  return months === 1 ? '1mo ago' : `${months}mo ago`;
-}
+const allReleases = releases as any[];
+const ninetyDaysAgo = Date.now() - 90 * 86400000;
+const recentCount = allReleases.filter((r: any) => new Date(r.publishedAt).getTime() > ninetyDaysAgo).length;
+// releases.json is capped by the sync script; if every entry is recent, the true count is higher.
+const releases90 = recentCount === allReleases.length && allReleases.length >= 50 ? `${allReleases.length}+` : String(recentCount);
+const releaseStrip = allReleases.slice(0, 6);
 
-const newestRelease = recentReleases[0];
-const daysSinceRelease = newestRelease 
-  ? Math.floor((Date.now() - new Date(newestRelease.publishedAt).getTime()) / 86400000)
-  : 999;
-const releaseHeading = daysSinceRelease > 14 ? 'Recent releases' : 'Recently shipped';
+const areas = (collections as any[])
+  .map((c: any) => ({
+    ...c,
+    items: c.repos.map((r: string) => byRepo.get(r)).filter(Boolean),
+  }))
+  .filter((c: any) => c.items.length > 0);
 ---
 
-<Base title="mcp-tool-shop" currentPath="/">
+<Base title="MCP Tool Shop" currentPath="/">
   <section class="hero">
-    <h1>MCP Tool Shop</h1>
+    <p class="eyebrow">Open source · MIT licensed · Local-first</p>
+    <h1>Tooling for local-first AI development.</h1>
     <p class="tagline">
-      Weekly spotlights on MCP tools that actually help.
-    </p>
-    <p class="subhead">
-      Short, honest picks for people building agent workflows &mdash; clear install steps, real tradeoffs, and a link to verify anything we claim.
+      MCP servers, command-line tools, training and dataset pipelines, and game-production
+      tooling from MCP Tool Shop. Built to run on your own hardware.
     </p>
     <div class="cta-group">
-      <a href="/tools/" class="btn btn-primary">Browse tools</a>
-      <a href="/now/" class="btn btn-secondary">This Week's Spotlight</a>
+      <a href="/tools/" class="btn btn-primary">Browse the catalog</a>
+      <a href="https://github.com/mcp-tool-shop-org" class="btn btn-secondary" rel="noopener">View on GitHub</a>
     </div>
-    <p class="trust-footnote">
-      Prefer vibes? Cool. Prefer receipts? Also cool. <a href="/trust/">See how verification works &rarr;</a>
-    </p>
     <div class="proof-points">
       <div class="proof-point">
-        <span class="number">{stats.repoCount}</span>
-        <span class="label">public repos</span>
+        <span class="number">{(stats as any).repoCount}</span>
+        <span class="label">public repositories</span>
       </div>
       <div class="proof-point">
-        <span class="number">100%</span>
-        <span class="label">local-first</span>
+        <span class="number">{installable}</span>
+        <span class="label">installable packages</span>
       </div>
       <div class="proof-point">
-        <span class="number">MCP</span>
-        <span class="label">native</span>
+        <span class="number">{releases90}</span>
+        <span class="label">releases in the last 90 days</span>
       </div>
       <div class="proof-point">
-        <span class="number">Weekly</span>
-        <span class="label">spotlights</span>
+        <span class="number">MIT</span>
+        <span class="label">every repository</span>
       </div>
     </div>
   </section>
 
-  {spotlight && (
-    <section class="spotlight-section">
-      <div class="spotlight-card">
-        <div class="spotlight-content">
-          <span class="spotlight-label">Spotlight</span>
-          <h3><a href={`/tools/${spotlight.repo}/`}>{spotlight.name}</a></h3>
-          <p class="spotlight-desc">{spotlight.description || spotlight.tagline}</p>
-          <div class="spotlight-meta">
-             {spotlight.language && <span>{spotlight.language}</span>}
-             {spotlight.stars > 0 && <span>• {spotlight.stars} stars</span>}
-          </div>
-        </div>
-        <div class="spotlight-media">
-           <img 
-             src={`/screenshots/${spotlight.repo}.png`} 
-             alt={`Screenshot of ${spotlight.name}`}
-             width="600"
-             height="300"
-             loading="eager"
-             onerror="this.style.display='none'"
-           />
-        </div>
+  <section class="home-section">
+    <div class="section-header">
+      <div>
+        <h2 class="section-heading">Featured tools</h2>
+        <p class="section-subheading">Installable today. Each has tagged releases, CI, and a support policy.</p>
       </div>
-    </section>
-  )}
+      <a href="/tools/" class="see-all">All tools</a>
+    </div>
+    <div class="project-grid">
+      {featured.map((project: any) => (
+        <article class="project-card">
+          <div class="card-header-home">
+            <h3>
+              <a href={`/tools/${project.repo}/`}>{project.name}</a>
+            </h3>
+            {project.stability && (
+              <span class={`badge badge-${project.stability}`}>{project.stability}</span>
+            )}
+          </div>
+          <p>{project.tagline || project.description}</p>
+          {project.install && <code class="install-line">{project.install}</code>}
+          <div class="card-meta">
+            {kindLabel(project.kind) && <span class="meta-item">{kindLabel(project.kind)}</span>}
+            {project.language && <span class="meta-item">{project.language}</span>}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
 
-  {recentReleases.length > 0 && (
-    <section class="recent-releases">
-      <div class="recent-header">
-        <h2 class="section-heading">{releaseHeading}</h2>
+  {releaseStrip.length > 0 && (
+    <section class="home-section recent-releases">
+      <div class="section-header">
+        <div>
+          <h2 class="section-heading">Recent releases</h2>
+          <p class="section-subheading">Tagged on GitHub and published to npm or PyPI from CI.</p>
+        </div>
         <a href="/releases/" class="see-all">All releases</a>
       </div>
       <div class="release-strip">
-        {recentReleases.map((rel: any) => (
-          <a href={`/tools/${rel.repo}/`} class="release-chip">
+        {releaseStrip.map((rel: any) => (
+          <a href={byRepo.has(rel.repo) ? `/tools/${rel.repo}/` : rel.url} class="release-chip" rel={byRepo.has(rel.repo) ? undefined : 'noopener'}>
             <span class="release-chip-name">{rel.toolName}</span>
             <span class="release-chip-tag">{rel.tag}</span>
             <span class="release-chip-date">{relativeDate(rel.publishedAt)}</span>
@@ -116,113 +127,146 @@ const releaseHeading = daysSinceRelease > 14 ? 'Recent releases' : 'Recently shi
     </section>
   )}
 
-  <section>
-    <h2 class="section-heading">In the spotlight</h2>
-    <p class="section-subheading">Tools selected this week.</p>
-    <div class="project-grid">
-      {gridProjects.map((project: any) => (
-        <div class="project-card">
-          <div class="card-header-home">
-            <h3>
-              <a href={`/tools/${project.repo}/`}>
-                {project.name}
-              </a>
-            </h3>
-            {project.stability && (
-              <span class={`badge badge-${project.stability}`}>{project.stability}</span>
-            )}
-          </div>
-          <p>{project.tagline || project.description}</p>
-          {project.install && (
-            <code class="install-line">{project.install}</code>
-          )}
-          <div class="card-meta">
-            {project.stars > 0 && <span class="meta-item">{project.stars} stars</span>}
-            {project.language && <span class="meta-item">{project.language}</span>}
-          </div>
-          <div class="tags">
-            {project.tags.map((tag: string) => (
-              <span class="tag">{tag}</span>
+  <section class="home-section">
+    <h2 class="section-heading">What we build</h2>
+    <p class="section-subheading">Seven areas of work. Every repository is developed in the open.</p>
+    <div class="area-grid">
+      {areas.map((area: any) => (
+        <div class="area-card">
+          <h3>{area.title}</h3>
+          <p class="area-desc">{area.description}</p>
+          <ul class="area-list">
+            {area.items.map((p: any) => (
+              <li>
+                <a href={`/tools/${p.repo}/`}>{p.name}</a>
+                <span class="area-item-desc">{p.tagline || p.description}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       ))}
     </div>
   </section>
 
-  {(collections as any[]).map((collection: any) => {
-    const items = collection.repos
-      .map((repo: string) => projectsByRepo.get(repo))
-      .filter(Boolean);
-    if (items.length === 0) return null;
-    return (
-      <section class="collection-section">
-        <h2 class="section-heading">{collection.title}</h2>
-        <p class="section-subheading">{collection.description}</p>
-        <div class="collection-grid">
-          {items.map((project: any) => (
-            <a href={`/tools/${project.repo}/`} class="collection-item">
-              <span class="collection-item-name">{project.name}</span>
-              <span class="collection-item-desc">{project.tagline || project.description}</span>
-            </a>
-          ))}
-        </div>
-      </section>
-    );
-  })}
+  <section class="home-section principles">
+    <h2 class="section-heading">How we ship</h2>
+    <div class="principle-grid">
+      <div class="principle">
+        <h3>Local-first</h3>
+        <p>Core functionality never needs an API key or a hosted service. Where cloud routing exists it is opt-in and falls back to local.</p>
+      </div>
+      <div class="principle">
+        <h3>MCP-native</h3>
+        <p>Servers work with Claude Code, Claude Desktop, Cursor, VS Code, and any other Model Context Protocol client.</p>
+      </div>
+      <div class="principle">
+        <h3>Gated releases</h3>
+        <p>Every tagged release passes the <a href="/tools/shipcheck/">shipcheck</a> gate: security policy, structured errors, current docs, clean packaging.</p>
+      </div>
+      <div class="principle">
+        <h3>Verifiable</h3>
+        <p>Catalog data is generated from GitHub, and editorial picks carry receipts you can check in the <a href="/trust/">Trust Center</a>.</p>
+      </div>
+    </div>
+  </section>
 </Base>
 
 <style>
-  .subhead {
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--color-text-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0.25rem 0 0;
-    max-width: 540px;
+    margin-bottom: 1.25rem;
   }
 
-  .trust-footnote {
-    font-size: 0.8rem;
-    color: var(--color-text-muted);
-    margin: 0.75rem 0 0;
+  .hero .tagline {
+    max-width: 62ch;
   }
 
-  .trust-footnote a {
-    color: var(--color-text-muted);
-    text-decoration: none;
+  .home-section {
+    margin: 0 0 4rem;
   }
 
-  .trust-footnote a:hover {
-    color: var(--color-accent);
-    text-decoration: underline;
-  }
-
-  .recent-releases {
-    margin: 2rem 0 3rem;
-  }
-
-  .recent-header {
+  .section-header {
     display: flex;
-    align-items: baseline;
+    align-items: flex-end;
     justify-content: space-between;
     gap: 1rem;
-    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .section-header .section-subheading {
+    margin-bottom: 0;
   }
 
   .see-all {
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     color: var(--color-text-muted);
+    white-space: nowrap;
+    padding-bottom: 0.25rem;
   }
 
   .see-all:hover {
     color: var(--color-accent);
   }
 
+  .card-header-home {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-header-home h3 {
+    margin: 0;
+  }
+
+  .badge {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    padding: 0.125em 0.5em;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .badge-stable {
+    color: var(--color-success);
+    background: var(--color-success-subtle);
+  }
+
+  .badge-beta {
+    color: var(--color-attention-fg);
+    background: var(--color-attention-subtle);
+  }
+
+  .badge-experimental {
+    color: var(--color-danger-fg);
+    background: var(--color-danger-subtle);
+  }
+
+  .install-line {
+    display: block;
+    margin: 0.5rem 0 1rem;
+    padding: 0.375rem 0.625rem;
+    font-size: 0.75rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
   .release-strip {
     display: flex;
     gap: 0.75rem;
     overflow-x: auto;
-    padding-bottom: 0.5rem;
+    padding: 1.25rem 0 0.5rem;
   }
 
   .release-chip {
@@ -265,95 +309,92 @@ const releaseHeading = daysSinceRelease > 14 ? 'Recent releases' : 'Recently shi
     color: var(--color-text-muted);
   }
 
-  .card-header-home {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .card-header-home h3 {
-    margin: 0;
-  }
-
-  .badge {
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    padding: 0.125em 0.5em;
-    border-radius: 3px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .badge-stable {
-    color: var(--color-success);
-    background: rgba(63, 185, 80, 0.1);
-  }
-
-  .badge-beta {
-    color: #d29922;
-    background: rgba(210, 153, 34, 0.1);
-  }
-
-  .badge-experimental {
-    color: #f85149;
-    background: rgba(248, 81, 73, 0.1);
-  }
-
-  .install-line {
-    display: block;
-    margin: 0.5rem 0;
-    padding: 0.375rem 0.625rem;
-    font-size: 0.75rem;
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 3px;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  .collection-section {
-    margin-top: 3rem;
-  }
-
-  .collection-grid {
+  .area-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 0.75rem;
-    margin-top: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
   }
 
-  .collection-item {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    padding: 0.875rem 1rem;
+  .area-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
-    text-decoration: none;
-    transition: border-color 0.15s;
+    padding: 1.5rem;
   }
 
-  .collection-item:hover {
-    border-color: var(--color-accent);
-    text-decoration: none;
+  .area-card h3 {
+    font-size: 1.0625rem;
+    margin-bottom: 0.375rem;
   }
 
-  .collection-item-name {
+  .area-desc {
     font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-accent);
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 1rem;
   }
 
-  .collection-item-desc {
-    font-size: 0.75rem;
+  .area-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .area-list li {
+    display: grid;
+    grid-template-columns: minmax(9rem, auto) 1fr;
+    gap: 0.75rem;
+    font-size: 0.8125rem;
+    align-items: baseline;
+  }
+
+  .area-list a {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .area-item-desc {
     color: var(--color-text-muted);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  .principles {
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .principle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem 2.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .principle h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .principle p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
+    .area-list li {
+      grid-template-columns: 1fr;
+      gap: 0.125rem;
+    }
+
+    .area-item-desc {
+      white-space: normal;
+    }
   }
 </style>

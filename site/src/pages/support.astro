@@ -3,46 +3,62 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base
-  title="Support - mcp-tool-shop"
-  description="How to get help with mcp-tool-shop projects."
+  title="Support"
+  description="How to get help with MCP Tool Shop projects: issues, discussions, security reporting, and what to include in a report."
   currentPath="/support/"
 >
   <div class="page-content">
     <h1>Support</h1>
     <p>
-      All projects are maintained in the
+      Every project is maintained in the
       <a href="https://github.com/mcp-tool-shop-org" rel="noopener">mcp-tool-shop-org</a>
-      GitHub organization. Issues are the primary support channel.
+      GitHub organization. Issues on the relevant repository are the primary support channel,
+      and every repository accepts them.
     </p>
 
-    <h2>Filing an issue</h2>
-    <p>
-      Open an issue on the relevant repo. Include the following so we can help faster:
-    </p>
+    <h2>Reporting a bug</h2>
+    <p>Open an issue on the repository for the tool. Reports that include the following get resolved fastest:</p>
     <ol>
       <li><strong>What you expected</strong> to happen.</li>
-      <li><strong>What actually happened</strong>, including any error messages.</li>
-      <li><strong>Steps to reproduce</strong> the problem.</li>
-      <li><strong>Environment:</strong> OS, runtime version (Python/Node/.NET), and tool version.</li>
+      <li><strong>What actually happened</strong>, including the full error message.</li>
+      <li><strong>Steps to reproduce</strong> the problem, or the exact command you ran.</li>
+      <li><strong>Environment:</strong> operating system, runtime version (Python, Node, or .NET), and the tool version.</li>
+      <li><strong>Logs</strong>, with any secrets redacted.</li>
     </ol>
+    <p>
+      Most tools print a structured error with a code and a hint. Include that code in the issue title.
+    </p>
 
     <h2>Feature requests</h2>
     <p>
-      Open an issue with the <code>enhancement</code> label. Describe the use case, not just the solution.
-      Knowing <em>why</em> you need something helps us design the right thing.
+      Open an issue with the <code>enhancement</code> label. Describe the use case rather than only
+      the proposed solution; knowing why you need something helps us design the right thing.
     </p>
 
     <h2>Security</h2>
     <p>
-      If you find a security vulnerability, <strong>do not open a public issue</strong>.
-      Instead, use GitHub's private vulnerability reporting on the affected repo.
+      If you find a security vulnerability, <strong>do not open a public issue</strong>. Use
+      GitHub's private vulnerability reporting on the affected repository. The organization-wide
+      policy is in
+      <a href="https://github.com/mcp-tool-shop-org/.github/blob/main/SECURITY.md" rel="noopener">SECURITY.md</a>.
     </p>
 
-    <h2>General questions</h2>
+    <h2>Questions</h2>
     <p>
-      For questions that don't fit into an issue, open a
-      <a href="https://github.com/orgs/mcp-tool-shop-org/discussions" rel="noopener">Discussion</a>
-      in the org.
+      For usage questions and ideas that are not bug reports, start a thread in
+      <a href="https://github.com/orgs/mcp-tool-shop-org/discussions" rel="noopener">GitHub Discussions</a>.
+    </p>
+
+    <h2>Response expectations</h2>
+    <p>
+      This is a small open-source studio. We read every issue, and clear, reproducible reports are
+      handled first. There is no paid support tier and no service-level agreement.
+    </p>
+
+    <h2>Problems with this site</h2>
+    <p>
+      Broken links, stale catalog data, or incorrect install commands belong in the
+      <a href="https://github.com/mcp-tool-shop/mcp-tool-shop/issues" rel="noopener">site repository's issues</a>.
     </p>
   </div>
 </Base>
