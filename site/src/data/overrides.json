@@ -1,13 +1,69 @@
 {
+  "ClaimLedger": {
+    "tags": [
+      "provenance",
+      "cryptography",
+      "dotnet"
+    ],
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "library",
+    "tagline": "Scientific claim provenance and verification ledger.",
+    "lane": "internal",
+    "surfaceEligible": false
+  },
+  "CreatorLedger": {
+    "tags": [
+      "provenance",
+      "attestation",
+      "dotnet"
+    ],
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "library",
+    "tagline": "Creator attestation proofs and authorship verification.",
+    "lane": "internal",
+    "surfaceEligible": false
+  },
+  "LeaseGate-Lite": {
+    "tags": [
+      "ai",
+      "concurrency",
+      "csharp",
+      "daemon",
+      "dotnet",
+      "llm"
+    ],
+    "category": "desktop",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "A one-tab MAUI control surface and local daemon for throttling AI workloads on Windows …",
+    "screenshot": "/screenshots/LeaseGate-Lite.png",
+    "screenshotType": "placeholder",
+    "lane": "active_lab",
+    "surfaceEligible": true
+  },
   "accessibility-suite": {
+    "tags": [
+      "accessibility",
+      "wcag",
+      "compliance",
+      "monorepo"
+    ],
+    "category": "devtools",
+    "stability": "stable",
+    "kind": "library",
+    "install": "pip install accessibility-suite",
+    "tagline": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance...",
     "screenshot": "/screenshots/accessibility-suite.png",
     "screenshotType": "placeholder",
+    "needsHumanReview": true,
     "lane": "shipped",
     "surfaceEligible": true
   },
   "ai-eyes-mcp": {
-    "lane": "shipped",
-    "kind": "mcp-server"
+    "kind": "mcp-server",
+    "lane": "shipped"
   },
   "ai-jam-sessions": {
     "tags": [
@@ -41,9 +97,21 @@
     "lane": "active_lab"
   },
   "armature": {
-    "lane": "shipped",
+    "tags": [
+      "ai-video",
+      "blender",
+      "character-consistency",
+      "comfyui",
+      "controlnet",
+      "cutscenes"
+    ],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "cli",
     "install": "pip install armature-studio",
-    "kind": "cli"
+    "tagline": "Image-to-video with a GLB instead of an image.",
+    "needsHumanReview": true,
+    "lane": "shipped"
   },
   "asset-forge": {
     "lane": "internal",
@@ -58,12 +126,12 @@
     "category": "infrastructure",
     "stability": "beta",
     "kind": "library",
+    "install": "npm install @mcptoolshop/attestia",
     "tagline": "Financial truth infrastructure for decentralized systems.",
     "screenshot": "/screenshots/Attestia.png",
     "screenshotType": "placeholder",
     "lane": "active_lab",
-    "surfaceEligible": true,
-    "install": "npm install @mcptoolshop/attestia"
+    "surfaceEligible": true
   },
   "audiobooker": {
     "tags": [
@@ -96,6 +164,7 @@
     "lane": "shipped"
   },
   "backpropagate": {
+    "featured": true,
     "tags": [
       "ml",
       "fine-tuning",
@@ -109,8 +178,7 @@
     "screenshot": "/screenshots/backpropagate.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true,
-    "featured": true
+    "surfaceEligible": true
   },
   "brand": {
     "tags": [
@@ -129,22 +197,9 @@
     "surfaceEligible": true
   },
   "bytefit": {
-    "lane": "shipped",
+    "kind": "cli",
     "install": "npx @mcptoolshop/bytefit",
-    "kind": "cli"
-  },
-  "ClaimLedger": {
-    "tags": [
-      "provenance",
-      "cryptography",
-      "dotnet"
-    ],
-    "category": "infrastructure",
-    "stability": "stable",
-    "kind": "library",
-    "tagline": "Scientific claim provenance and verification ledger.",
-    "lane": "internal",
-    "surfaceEligible": false
+    "lane": "shipped"
   },
   "claude-guardian": {
     "tags": [
@@ -180,9 +235,9 @@
     "surfaceEligible": true
   },
   "claude-synergy": {
-    "lane": "shipped",
+    "kind": "mcp-server",
     "install": "npm install -g @mcptoolshop/claude-synergy",
-    "kind": "mcp-server"
+    "lane": "shipped"
   },
   "codecomfy-vscode": {
     "tags": [
@@ -198,6 +253,7 @@
     "surfaceEligible": true
   },
   "comfy-headless": {
+    "featured": true,
     "tags": [
       "comfyui",
       "image-gen"
@@ -219,13 +275,12 @@
     "screenshot": "/screenshots/comfy-headless.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true,
-    "featured": true
+    "surfaceEligible": true
   },
   "comfy-preflight": {
-    "lane": "shipped",
+    "kind": "cli",
     "install": "pip install comfy-preflight",
-    "kind": "cli"
+    "lane": "shipped"
   },
   "commandui": {
     "tags": [
@@ -242,28 +297,15 @@
     "lane": "active_lab",
     "surfaceEligible": true
   },
-  "CreatorLedger": {
-    "tags": [
-      "provenance",
-      "attestation",
-      "dotnet"
-    ],
-    "category": "infrastructure",
-    "stability": "stable",
-    "kind": "library",
-    "tagline": "Creator attestation proofs and authorship verification.",
-    "lane": "internal",
-    "surfaceEligible": false
-  },
   "db-cluster": {
-    "lane": "shipped",
+    "kind": "mcp-server",
     "install": "npx @mcptoolshop/db-cluster",
-    "kind": "mcp-server"
+    "lane": "shipped"
   },
   "engine-room": {
-    "lane": "shipped",
+    "kind": "cli",
     "install": "npx @mcptoolshop/engine-room",
-    "kind": "cli"
+    "lane": "shipped"
   },
   "escape-the-valley": {
     "category": "infrastructure",
@@ -275,9 +317,9 @@
     "surfaceEligible": true
   },
   "facet": {
-    "lane": "shipped",
+    "kind": "cli",
     "install": "npx @mcptoolshop/facet",
-    "kind": "cli"
+    "lane": "shipped"
   },
   "forkctl": {
     "tags": [
@@ -296,9 +338,9 @@
     "lane": "shipped"
   },
   "fx-dub": {
-    "lane": "shipped",
+    "kind": "cli",
     "install": "pip install fx-dub",
-    "kind": "cli"
+    "lane": "shipped"
   },
   "glyphstudio": {
     "tags": [
@@ -317,36 +359,30 @@
     "surfaceEligible": true
   },
   "gpu-container": {
-    "lane": "shipped",
+    "kind": "cli",
     "install": "pip install gpu-container",
-    "kind": "cli"
+    "lane": "shipped"
   },
   "knowledge-core": {
     "lane": "active_lab",
     "surfaceEligible": true
   },
-  "LeaseGate-Lite": {
-    "tags": [
-      "ai",
-      "concurrency",
-      "csharp",
-      "daemon",
-      "dotnet",
-      "llm"
-    ],
-    "category": "desktop",
-    "stability": "stable",
-    "kind": "desktop-app",
-    "tagline": "A one-tab MAUI control surface and local daemon for throttling AI workloads on Windows …",
-    "screenshot": "/screenshots/LeaseGate-Lite.png",
-    "screenshotType": "placeholder",
-    "lane": "active_lab",
-    "surfaceEligible": true
-  },
   "loadout-os": {
-    "lane": "shipped",
+    "tags": [
+      "ai-agents",
+      "claude-code",
+      "cli",
+      "context-management",
+      "dispatch-table",
+      "knowledge-os"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "cli",
     "install": "npm install -g @mcptoolshop/loadout-os",
-    "kind": "cli"
+    "tagline": "Knowledge OS for AI coding agents — one CLI that routes the right context (memories +...",
+    "needsHumanReview": true,
+    "lane": "shipped"
   },
   "mcp-stress-test": {
     "tags": [
@@ -357,14 +393,15 @@
     "category": "security",
     "stability": "beta",
     "kind": "cli",
+    "install": "pip install mcp-stress-test",
     "tagline": "Red team toolkit for MCP security scanners.",
     "screenshot": "/screenshots/mcp-stress-test.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true,
-    "install": "pip install mcp-stress-test"
+    "surfaceEligible": true
   },
   "mcp-voice-soundboard": {
+    "featured": true,
     "tags": [
       "tts",
       "mcp",
@@ -380,10 +417,23 @@
     "smithery": "https://smithery.ai/servers/mcp-tool-shop/voice-soundboard",
     "flyio": "https://voice-soundboard-mcp.fly.dev",
     "lane": "shipped",
-    "surfaceEligible": true,
-    "featured": true
+    "surfaceEligible": true
   },
   "motif": {
+    "tags": [
+      "adaptive-music",
+      "game-audio",
+      "game-dev",
+      "music-composition",
+      "soundtrack",
+      "typescript"
+    ],
+    "category": "voice",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install motif",
+    "tagline": "Adaptive soundtrack studio for composing, arranging, scoring, and exporting interactive...",
+    "needsHumanReview": true,
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -423,6 +473,7 @@
     "surfaceEligible": true
   },
   "ollama-intern-mcp": {
+    "featured": true,
     "tags": [
       "anthropic",
       "claude",
@@ -436,12 +487,11 @@
     "kind": "mcp-server",
     "install": "npx ollama-intern-mcp",
     "tagline": "Delegate bulk analysis from Claude Code to a local Ollama model. 42 job-shaped tools.",
-    "featured": true,
     "lane": "shipped"
   },
   "plain-sight": {
-    "lane": "shipped",
-    "kind": "mcp-server"
+    "kind": "mcp-server",
+    "lane": "shipped"
   },
   "polyglot-mcp": {
     "tags": [
@@ -481,32 +531,44 @@
     "lane": "active_lab"
   },
   "prism-verify": {
-    "lane": "shipped",
+    "kind": "cli",
     "install": "pip install prism-verify",
-    "kind": "cli"
+    "lane": "shipped"
   },
   "prompt-craft": {
-    "lane": "shipped",
+    "tags": [
+      "cli",
+      "comfyui",
+      "contract-driven",
+      "diffusion-models",
+      "dspy",
+      "generative-ai"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "cli",
     "install": "pip install prompt-crafter",
-    "kind": "cli"
+    "tagline": "Say what the picture must contain, check that it does, and refuse when it does not.",
+    "needsHumanReview": true,
+    "lane": "shipped"
   },
   "prototypes": {
     "lane": "seed_vault",
     "surfaceEligible": false
   },
   "record-index": {
-    "lane": "shipped",
+    "kind": "cli",
     "install": "pip install record-index",
-    "kind": "cli"
+    "lane": "shipped"
   },
   "registry-stats": {
     "category": "infrastructure",
     "stability": "experimental",
     "kind": "meta",
+    "install": "npx @mcptoolshop/registry-stats",
     "tagline": "Multi-registry download stats for npm, PyPI, NuGet, VS Code Marketplace, and Docker Hub.",
     "lane": "active_lab",
-    "surfaceEligible": true,
-    "install": "npx @mcptoolshop/registry-stats"
+    "surfaceEligible": true
   },
   "registry-sync": {
     "tags": [
@@ -624,10 +686,10 @@
     "lane": "shipped"
   },
   "role-os": {
-    "lane": "shipped",
-    "surfaceEligible": true,
     "install": "npm install -g role-os",
-    "tagline": "Multi-Claude orchestration: 61 roles, team packs, missions, and structured evidence."
+    "tagline": "Multi-Claude orchestration: 61 roles, team packs, missions, and structured evidence.",
+    "lane": "shipped",
+    "surfaceEligible": true
   },
   "roll": {
     "tags": [
@@ -668,17 +730,18 @@
     "category": "games",
     "stability": "stable",
     "kind": "library",
+    "install": "npx @mcptoolshop/saints-mile",
     "tagline": "A frontier JRPG for the adults who loved those games first",
     "lane": "shipped",
-    "surfaceEligible": true,
-    "install": "npx @mcptoolshop/saints-mile"
+    "surfaceEligible": true
   },
   "sensor-humor": {
+    "install": "npx @mcptoolshop/sensor-humor",
     "lane": "active_lab",
-    "surfaceEligible": true,
-    "install": "npx @mcptoolshop/sensor-humor"
+    "surfaceEligible": true
   },
   "shipcheck": {
+    "featured": true,
     "tags": [
       "checklist",
       "developer-tools",
@@ -693,8 +756,7 @@
     "install": "npx @mcptoolshop/shipcheck audit",
     "tagline": "Release quality gate: Ship Gate checklist, error contract, templates, and audit.",
     "lane": "shipped",
-    "surfaceEligible": true,
-    "featured": true
+    "surfaceEligible": true
   },
   "site-theme": {
     "tags": [
@@ -703,10 +765,10 @@
     "category": "mcp-core",
     "stability": "experimental",
     "kind": "library",
+    "install": "npx @mcptoolshop/site-theme",
     "tagline": "Shared Astro theme for MCP Tool Shop org repo landing pages.",
     "lane": "active_lab",
-    "surfaceEligible": true,
-    "install": "npx @mcptoolshop/site-theme"
+    "surfaceEligible": true
   },
   "sovereign": {
     "tags": [
@@ -720,8 +782,8 @@
     "category": "web",
     "stability": "stable",
     "kind": "library",
-    "tagline": "Sovereign — a Hamilton-system economic board game and its solo / digital adaptation.",
     "install": "npx @mcptoolshop/sovereign",
+    "tagline": "Sovereign — a Hamilton-system economic board game and its solo / digital adaptation.",
     "lane": "shipped"
   },
   "sovereignty": {
@@ -754,18 +816,18 @@
     "surfaceEligible": true
   },
   "sprite-foundry": {
+    "tagline": "Headless sprite generation pipeline: ComfyUI, SQLite, and a Godot finish lab.",
     "lane": "active_lab",
-    "surfaceEligible": true,
-    "tagline": "Headless sprite generation pipeline: ComfyUI, SQLite, and a Godot finish lab."
+    "surfaceEligible": true
   },
   "sprite-foundry-packs": {
     "lane": "internal",
     "surfaceEligible": false
   },
   "star-freight": {
+    "install": "npx @mcptoolshop/star-freight",
     "lane": "shipped",
-    "surfaceEligible": true,
-    "install": "npx @mcptoolshop/star-freight"
+    "surfaceEligible": true
   },
   "star-freight-client": {
     "lane": "internal",
@@ -833,11 +895,12 @@
     "surfaceEligible": true
   },
   "taste-engine": {
+    "install": "npx @mcptoolshop/taste-engine",
     "lane": "active_lab",
-    "surfaceEligible": true,
-    "install": "npx @mcptoolshop/taste-engine"
+    "surfaceEligible": true
   },
   "tool-compass": {
+    "featured": true,
     "tags": [
       "mcp",
       "discovery"
@@ -861,8 +924,7 @@
     "smithery": "https://smithery.ai/servers/mcp-tool-shop/tool-compass",
     "flyio": "https://tool-compass-gateway.fly.dev",
     "lane": "shipped",
-    "surfaceEligible": true,
-    "featured": true
+    "surfaceEligible": true
   },
   "vocal-synth-engine": {
     "tags": [
@@ -881,9 +943,9 @@
     "lane": "shipped"
   },
   "websketch-ir": {
-    "lane": "shipped",
+    "kind": "library",
     "install": "npm install @mcptoolshop/websketch-ir",
-    "kind": "library"
+    "lane": "shipped"
   },
   "world-forge": {
     "tags": [

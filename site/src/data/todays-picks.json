@@ -1,30 +1,9 @@
 {
-  "date": "2026-05-20",
+  "date": "2026-09-09",
   "picks": [
     {
       "slug": "websketch-ir",
-      "reason": "Featured Tool",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "synthesis",
-      "reason": "Composable tool framework for building complex AI workflows",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "backpropagate",
-      "reason": "Structured feedback loops for improving AI behavior through iteration",
-      "signals": [
-        "featured"
-      ]
-    },
-    {
-      "slug": "accessibility-suite",
-      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "reason": "Grammar-based intermediate representation that compiles messy DOM into a small, fixed vocabulary of semantic UI primitives — built for LLMs. Zero runtime deps.",
       "signals": [
         "popular"
       ]
@@ -37,8 +16,29 @@
       ]
     },
     {
-      "slug": "audiobooker",
-      "reason": "Audio book generation and management system",
+      "slug": "codecomfy-vscode",
+      "reason": "VS Code extension for code analysis and coverage display",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "comfy-headless",
+      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
+      "signals": [
+        "featured"
+      ]
+    },
+    {
+      "slug": "synthesis",
+      "reason": "Composable tool framework for building complex AI workflows",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "accessibility-suite",
+      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
       "signals": [
         "popular"
       ]
