@@ -66,7 +66,10 @@ const syncDate = meta.lastSyncAt
     <a class="skip-link" href="#main">Skip to content</a>
     <nav class="site-nav" aria-label="Primary">
       <div class="container">
-        <a href="/" class="logo" aria-label={`${siteName} home`}>{siteName}</a>
+        <a href="/" class="logo" aria-label={`${siteName} home`}>
+          <img src="/mark.svg" alt="" width="22" height="22" class="logo-mark" />
+          <span>{siteName}</span>
+        </a>
         <ul class="nav-links">
           {navLinks.map((link) => (
             <li>
@@ -171,6 +174,15 @@ const syncDate = meta.lastSyncAt
   .site-nav .logo {
     font-family: var(--font-sans);
     letter-spacing: -0.02em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .site-nav .logo-mark {
+    display: block;
+    width: 22px;
+    height: 22px;
   }
 
   .nav-external {
