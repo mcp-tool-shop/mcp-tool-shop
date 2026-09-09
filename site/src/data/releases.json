@@ -1,5 +1,43 @@
 [
   {
+    "repo": "ai-jam-sessions",
+    "toolName": "AI Jam Sessions",
+    "tag": "v2.6.0",
+    "name": "v2.6.0 — the release that stops shipping what it had no licence to ship",
+    "body": [
+      "A per-file provenance audit of the song library found that of its 108 MIDI arrangements, 14 carry a licence that permits redistribution and 94 do not, and that twelve files were a different piece than their name.…",
+      "See CHANGELOG.md and docs/findings/library-provenance-audit.md."
+    ],
+    "publishedAt": "2026-09-09T08:53:03Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v2.6.0",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-camp",
+    "toolName": "XRPL Camp",
+    "tag": "v1.4.1",
+    "name": "v1.4.1",
+    "body": [],
+    "publishedAt": "2026-09-09T08:09:02Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.4.1",
+    "prerelease": false
+  },
+  {
+    "repo": "tool-compass",
+    "toolName": "Tool Compass",
+    "tag": "v2.5.2",
+    "name": "Tool Compass v2.5.2",
+    "body": [
+      "The container now warns when /app/tool_compass/db is not a mounted volume. The semantic index lives there, and building it means embedding every tool in every configured server — without a volume that work is…",
+      "The warning goes to stderr, so it cannot corrupt anything piping the container's output. publish.yml's post-publish handshake uses --entrypoint tool-compass, which overrides the entrypoint entirely and is unaffected;…",
+      "README documents running the published image directly with a volume, not only the clone-and-compose path.",
+      ".gitattributes pins LF on *.sh, the Dockerfile and the entrypoint. A shell script checked out with CRLF on Windows makes the shebang #!/bin/sh , and Linux then fails with \"no such file or directory\" naming the script…"
+    ],
+    "publishedAt": "2026-09-09T07:40:56Z",
+    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.5.2",
+    "prerelease": false
+  },
+  {
     "repo": "xrpl-camp",
     "toolName": "XRPL Camp",
     "tag": "v1.4.0",
@@ -665,54 +703,6 @@
     ],
     "publishedAt": "2026-08-21T16:27:33Z",
     "url": "https://github.com/mcp-tool-shop-org/comfy-headless/releases/tag/v3.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "comfy-headless",
-    "toolName": "Comfy Headless",
-    "tag": "v3.0.0",
-    "name": "v3.0.0 — correctness release",
-    "body": [
-      "comfy-headless builds ComfyUI API-format graphs and runs them. That means a node name ComfyUI has renamed or removed is a shipped bug: the graph is rejected at submit with an opaque error, and nothing warns you first.",
-      "This release took that seriously. Every node type the library emits was audited against the live ComfyUI catalog. Nine no longer existed.",
-      "init_image is now a server-side filename, not base64 data. Upload first, then pass the name the server returns:",
-      "Read name back from the response — ComfyUI renames on collision.",
-      "Nine presets emit different node chains: mochi, mochi_short, hunyuan, hunyuan_fast, cogvideo, hunyuan15_720p, hunyuan15_quality, hunyuan15_fast, hunyuan15_1080p."
-    ],
-    "publishedAt": "2026-08-21T16:09:29Z",
-    "url": "https://github.com/mcp-tool-shop-org/comfy-headless/releases/tag/v3.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-eyes-mcp",
-    "toolName": "AI Eyes MCP",
-    "tag": "v1.2.0",
-    "name": "v1.2.0 — pinned weights, honest fields, relative verdicts",
-    "body": [
-      "A score is only worth something if you know what produced it, what it read, and when it should have declined. This release is about those three.",
-      "Landing page + handbook: https://mcp-tool-shop-org.github.io/ai-eyes-mcp/",
-      "The model revision is pinned to a commit SHA, passed to every load, and reported in every payload that contains a number.",
-      "Before this, the model resolved to whatever the HuggingFace default branch pointed at *at download time* — so two installs made weeks apart could return different scores for identical input, with no signal and no way…",
-      "AI_EYES_MODEL_REVISION is honoured only as a different 40-character SHA. main, a tag, or an empty string is a hard load failure, not a fallback — falling back would reintroduce exactly the ambiguity the pin removes."
-    ],
-    "publishedAt": "2026-08-20T21:42:38Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-eyes-mcp/releases/tag/v1.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "plain-sight",
-    "toolName": "Plain Sight",
-    "tag": "v1.1.0",
-    "name": "v1.1.0 — the dataset lane can no longer mislabel silently",
-    "body": [
-      "Dogfood swarm: health pass (bugs, proactive, humanization) plus a pre-Phase-9 wave. 39 tests → 88. Two CRITICALs closed, both of the same shape — output a downstream consumer would trust, wrong, with no signal.",
-      "Sidecar collisions are refused, not merged. Sidecar paths derived from the image stem alone, so img.png and img.jpg in one folder both claimed img.txt. The second was reported as skip (exists) and the run exited 0 —…",
-      "OCR can no longer present invented text as extracted text. Florence-2 emits a decoded string for every image, including images with no text — a photograph returns '2', lexically indistinguishable from a correct…",
-      "Sidecar writes are atomic — temp file plus os.replace, so an interrupt cannot leave a partial caption at the final path. An existing but empty sidecar is treated as unfinished and re-captioned.",
-      "A mid-batch failure no longer aborts the run. The batch loop caught only FileNotFoundError/ValueError, so a CUDA OOM killed the job and swallowed the JSON summary. It now records the failure and continues; exit 3 on…"
-    ],
-    "publishedAt": "2026-08-20T20:25:46Z",
-    "url": "https://github.com/mcp-tool-shop-org/plain-sight/releases/tag/v1.1.0",
     "prerelease": false
   }
 ]

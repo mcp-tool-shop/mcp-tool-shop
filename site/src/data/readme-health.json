@@ -1,9 +1,9 @@
 {
   "meta": {
-    "generatedAt": "2026-09-09T00:07:00.746Z",
-    "runId": "5c60343c-8d54-4155-a619-1bcfc1d93dda",
+    "generatedAt": "2026-09-09T13:11:11.510Z",
+    "runId": "09c6b78f-fb11-45b3-b369-ef8c12649a4a",
     "version": "2.0",
-    "checkedCount": 10,
+    "checkedCount": 9,
     "strategy": {
       "recentDays": 7,
       "sampleSize": 10,
@@ -11,34 +11,6 @@
     }
   },
   "results": [
-    {
-      "repo": "CreatorLedger",
-      "score": 0,
-      "checkStatus": "missing_readme",
-      "capReason": "no_readme",
-      "missing": [
-        "README file"
-      ],
-      "evidence": {
-        "hasReadme": false
-      },
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
-    },
-    {
-      "repo": "ClaimLedger",
-      "score": 0,
-      "checkStatus": "missing_readme",
-      "capReason": "no_readme",
-      "missing": [
-        "README file"
-      ],
-      "evidence": {
-        "hasReadme": false
-      },
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
-    },
     {
       "repo": "audiobooker",
       "score": 90,
@@ -54,8 +26,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
+      "checkedAt": "2026-09-09T13:11:11.510Z",
+      "lastCheckedAt": "2026-09-09T13:11:11.510Z"
     },
     {
       "repo": "codecomfy-vscode",
@@ -72,8 +44,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
+      "checkedAt": "2026-09-09T13:11:11.510Z",
+      "lastCheckedAt": "2026-09-09T13:11:11.510Z"
     },
     {
       "repo": "mcp-stress-test",
@@ -90,8 +62,26 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
+      "checkedAt": "2026-09-09T13:11:11.510Z",
+      "lastCheckedAt": "2026-09-09T13:11:11.510Z"
+    },
+    {
+      "repo": "xrpl-camp",
+      "score": 90,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": false,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-09-09T13:11:11.510Z",
+      "lastCheckedAt": "2026-09-09T13:11:11.510Z"
     },
     {
       "repo": "comfy-headless",
@@ -108,8 +98,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
+      "checkedAt": "2026-09-09T13:11:11.510Z",
+      "lastCheckedAt": "2026-09-09T13:11:11.510Z"
     },
     {
       "repo": "backpropagate",
@@ -126,8 +116,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
+      "checkedAt": "2026-09-09T13:11:11.510Z",
+      "lastCheckedAt": "2026-09-09T13:11:11.510Z"
     },
     {
       "repo": "tool-compass",
@@ -144,8 +134,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
+      "checkedAt": "2026-09-09T13:11:11.510Z",
+      "lastCheckedAt": "2026-09-09T13:11:11.510Z"
     },
     {
       "repo": "accessibility-suite",
@@ -162,8 +152,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
+      "checkedAt": "2026-09-09T13:11:11.510Z",
+      "lastCheckedAt": "2026-09-09T13:11:11.510Z"
     },
     {
       "repo": "synthesis",
@@ -180,8 +170,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
+      "checkedAt": "2026-09-09T13:11:11.510Z",
+      "lastCheckedAt": "2026-09-09T13:11:11.510Z"
     }
   ]
 }
