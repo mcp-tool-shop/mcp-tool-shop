@@ -26,9 +26,17 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { escapeXml } from "./lib/sanitize.mjs";
+import { getConfig } from "./lib/config.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
+
+// Footer host for the generated card. kit.config.json is the single source of
+// truth (site/public/CNAME points at the same domain); this used to be the
+// hardcoded pre-CNAME mcp-tool-shop.github.io, which every placeholder showed.
+const SITE_HOST = (getConfig().site?.url ?? "https://mcptoolshop.com")
+  .replace(/^https?:\/\//, "")
+  .replace(/\/+$/, "");
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 
@@ -115,7 +123,7 @@ function generateSvg(project) {
   const stability = project.stability || "experimental";
   const stabColor = stabilityColor(stability);
   const kind = project.kind ? escapeXml(project.kind) : null;
-  const url = escapeXml(`mcp-tool-shop.github.io/tools/${project.repo}/`);
+  const url = escapeXml(`${SITE_HOST}/tools/${project.repo}/`);
 
   // Build elements
   let y = 180; // starting y after top padding

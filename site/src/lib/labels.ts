@@ -79,3 +79,27 @@ export function plainText(s: string): string {
     .replace(/\s+/g, ' ')
     .trim();
 }
+
+/**
+ * The catalog as /tools/ renders it. Registry entries whose repository no
+ * longer exists carry no GitHub data — they are catalog ghosts, not tools.
+ */
+export function catalogTools<T extends { updatedAt?: string }>(projects: T[]): T[] {
+  return projects.filter((p) => p.updatedAt);
+}
+
+/**
+ * The default /tools/ view: shipped and in-development repositories. Shared so
+ * that any page quoting "browse all N tools" quotes the number /tools/ shows;
+ * start.astro previously hardcoded it and drifted.
+ */
+export function isDefaultTool(p: any): boolean {
+  return (
+    !p.deprecated &&
+    (p.lane === 'shipped' || p.lane === 'active_lab' || (p.registered && !p.lane))
+  );
+}
+
+export function defaultToolCount(projects: any[]): number {
+  return catalogTools(projects).filter(isDefaultTool).length;
+}

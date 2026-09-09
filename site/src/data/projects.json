@@ -83,6 +83,8 @@
     "kind": "mcp-server",
     "install": "npx ollama-intern-mcp",
     "tagline": "Delegate bulk analysis from Claude Code to a local Ollama model. 42 job-shaped tools.",
+    "screenshot": "/screenshots/ollama-intern-mcp.png",
+    "screenshotType": "placeholder",
     "lane": "shipped"
   },
   {
@@ -173,6 +175,8 @@
     "kind": "cli",
     "install": "npx @mcptoolshop/shipcheck audit",
     "tagline": "Release quality gate: Ship Gate checklist, error contract, templates, and audit.",
+    "screenshot": "/screenshots/shipcheck.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -199,6 +203,8 @@
     "stability": "experimental",
     "kind": "library",
     "tagline": "Simulation-native toolkit for building, analyzing, and balancing deterministic RPG worlds.",
+    "screenshot": "/screenshots/ai-rpg-engine.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": false
   },
@@ -225,6 +231,8 @@
     "stability": "experimental",
     "kind": "library",
     "tagline": "2D world authoring studio for AI RPG Engine.",
+    "screenshot": "/screenshots/world-forge.png",
+    "screenshotType": "placeholder",
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -238,7 +246,7 @@
     "featured": false,
     "stars": 3,
     "language": "TypeScript",
-    "updatedAt": "2026-09-09T00:30:22Z",
+    "updatedAt": "2026-09-09T02:04:56Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -247,6 +255,8 @@
     "kind": "library",
     "install": "npx @mcptoolshop/ai-jam-sessions",
     "tagline": "Teach your AI to play, sing, and listen. 53 MCP tools over symbolic and acoustic music.",
+    "screenshot": "/screenshots/ai-jam-sessions.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -274,6 +284,8 @@
     "kind": "cli",
     "install": "pip install armature-studio",
     "tagline": "Image-to-video with a GLB instead of an image.",
+    "screenshot": "/screenshots/armature.png",
+    "screenshotType": "placeholder",
     "needsHumanReview": true,
     "lane": "shipped"
   },
@@ -298,6 +310,8 @@
     "kind": "library",
     "install": "npx @mcptoolshop/audiobooker",
     "tagline": "EPUB, TXT, PDF, or DOCX to multi-voice narrated audiobooks with mastering.",
+    "screenshot": "/screenshots/audiobooker.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -322,6 +336,8 @@
     "stability": "beta",
     "kind": "vscode-extension",
     "tagline": "VS Code extension for code analysis and coverage display.",
+    "screenshot": "/screenshots/codecomfy-vscode.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -349,6 +365,8 @@
     "kind": "library",
     "install": "npm install -g @mcptoolshop/research-os",
     "tagline": "Local-first research control plane for gated source packs, claim truth, contradiction…",
+    "screenshot": "/screenshots/research-os.png",
+    "screenshotType": "placeholder",
     "lane": "shipped"
   },
   {
@@ -370,6 +388,8 @@
     "kind": "library",
     "install": "npx @mcptoolshop/site-theme",
     "tagline": "Shared Astro theme for MCP Tool Shop org repo landing pages.",
+    "screenshot": "/screenshots/site-theme.png",
+    "screenshotType": "placeholder",
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -422,7 +442,7 @@
     "kind": "library",
     "install": "npm install @mcptoolshop/attestia",
     "tagline": "Financial truth infrastructure for decentralized systems.",
-    "screenshot": "/screenshots/Attestia.png",
+    "screenshot": "/screenshots/attestia.png",
     "screenshotType": "placeholder",
     "lane": "active_lab",
     "surfaceEligible": true
@@ -592,6 +612,8 @@
     "unlisted": true,
     "deprecated": false,
     "kind": "mcp-server",
+    "screenshot": "/screenshots/ai-eyes-mcp.png",
+    "screenshotType": "placeholder",
     "lane": "shipped"
   },
   {
@@ -664,6 +686,8 @@
     "kind": "cli",
     "install": "npx @mcptoolshop/backprop-trace",
     "tagline": "Deterministic 26-rule verifier for neural-network training steps.",
+    "screenshot": "/screenshots/backprop-trace.png",
+    "screenshotType": "placeholder",
     "lane": "shipped"
   },
   {
@@ -716,6 +740,8 @@
     "kind": "library",
     "install": "npx @mcptoolshop/claude-guardian",
     "tagline": "Flight computer for Claude Code — log rotation, watchdog, crash bundles, and MCP…",
+    "screenshot": "/screenshots/claude-guardian.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -772,6 +798,8 @@
     "deprecated": false,
     "kind": "cli",
     "install": "pip install comfy-preflight",
+    "screenshot": "/screenshots/comfy-preflight.png",
+    "screenshotType": "placeholder",
     "lane": "shipped"
   },
   {
@@ -938,6 +966,8 @@
     "kind": "mcp-server",
     "install": "npx @mcptoolshop/forkctl",
     "tagline": "Adoption control plane for GitHub repos.",
+    "screenshot": "/screenshots/forkctl.png",
+    "screenshotType": "placeholder",
     "lane": "shipped"
   },
   {
@@ -1065,6 +1095,8 @@
     "kind": "cli",
     "install": "npm install -g @mcptoolshop/loadout-os",
     "tagline": "Knowledge OS for AI coding agents — one CLI that routes the right context (memories +...",
+    "screenshot": "/screenshots/loadout-os.png",
+    "screenshotType": "placeholder",
     "needsHumanReview": true,
     "lane": "shipped"
   },
@@ -1091,6 +1123,8 @@
     "stability": "stable",
     "kind": "library",
     "tagline": "Adaptive soundtrack studio for composing, arranging, scoring, and exporting interactive...",
+    "screenshot": "/screenshots/motif.png",
+    "screenshotType": "placeholder",
     "needsHumanReview": true,
     "lane": "active_lab",
     "surfaceEligible": true
@@ -1154,6 +1188,8 @@
     "kind": "cli",
     "install": "npm install -g @mcptoolshop/npm-launcher",
     "tagline": "Generic GitHub-release binary launcher with cache + SHA256 verification.",
+    "screenshot": "/screenshots/npm-launcher.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -1179,6 +1215,8 @@
     "unlisted": true,
     "deprecated": false,
     "kind": "mcp-server",
+    "screenshot": "/screenshots/plain-sight.png",
+    "screenshotType": "placeholder",
     "lane": "shipped"
   },
   {
@@ -1205,6 +1243,8 @@
     "kind": "mcp-server",
     "install": "npx @mcptoolshop/polyglot-mcp",
     "tagline": "Local GPU translation MCP server. TranslateGemma via Ollama, 55 languages.",
+    "screenshot": "/screenshots/polyglot-mcp.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -1283,6 +1323,8 @@
     "deprecated": false,
     "kind": "cli",
     "install": "pip install prism-verify",
+    "screenshot": "/screenshots/prism-verify.png",
+    "screenshotType": "placeholder",
     "lane": "shipped"
   },
   {
@@ -1389,6 +1431,8 @@
     "kind": "meta",
     "install": "npx @mcptoolshop/registry-stats",
     "tagline": "Multi-registry download stats for npm, PyPI, NuGet, VS Code Marketplace, and Docker Hub.",
+    "screenshot": "/screenshots/registry-stats.png",
+    "screenshotType": "placeholder",
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -1443,6 +1487,8 @@
     "kind": "cli",
     "install": "npx @mcptoolshop/repo-dataset",
     "tagline": "Turn code repos and curated visual repos into contamination-checked training datasets…",
+    "screenshot": "/screenshots/repo-dataset.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -1470,6 +1516,8 @@
     "kind": "mcp-server",
     "install": "npm install -g @mcptoolshop/repo-knowledge",
     "tagline": "Repo knowledge system — relational catalog with full-text search, audit evidence, and…",
+    "screenshot": "/screenshots/repo-knowledge.png",
+    "screenshotType": "placeholder",
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -1497,6 +1545,8 @@
     "kind": "library",
     "install": "npx @mcptoolshop/repomesh",
     "tagline": "Trust infrastructure for repo networks — verify releases, check anchors, and onboard…",
+    "screenshot": "/screenshots/repomesh.png",
+    "screenshotType": "placeholder",
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -1576,6 +1626,8 @@
     "deprecated": false,
     "install": "npm install -g role-os",
     "tagline": "Multi-Claude orchestration: 61 roles, team packs, missions, and structured evidence.",
+    "screenshot": "/screenshots/role-os.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -1603,6 +1655,8 @@
     "kind": "cli",
     "install": "npx @mcptoolshop/roll",
     "tagline": "RPG dice engine — expression parser, probability analyzer, loot tables, beautiful…",
+    "screenshot": "/screenshots/roll.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -1624,6 +1678,8 @@
     "stability": "beta",
     "kind": "vscode-extension",
     "tagline": "Push-button ML training with presets, indexed runs, and artifact inspection — all…",
+    "screenshot": "/screenshots/runforge-vscode.png",
+    "screenshotType": "placeholder",
     "lane": "shipped"
   },
   {
@@ -1650,6 +1706,8 @@
     "kind": "library",
     "install": "npx @mcptoolshop/saints-mile",
     "tagline": "A frontier JRPG for the adults who loved those games first",
+    "screenshot": "/screenshots/saints-mile.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -1739,8 +1797,6 @@
       "Production XRPL wallets or real-money transactions",
       "Replacing formal governance or voting systems"
     ],
-    "screenshot": "/screenshots/sovereignty.png",
-    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -1768,6 +1824,8 @@
     "unlisted": true,
     "deprecated": false,
     "tagline": "Headless sprite generation pipeline: ComfyUI, SQLite, and a Godot finish lab.",
+    "screenshot": "/screenshots/sprite-foundry.png",
+    "screenshotType": "placeholder",
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -1818,6 +1876,8 @@
     "unlisted": true,
     "deprecated": false,
     "install": "npx @mcptoolshop/star-freight",
+    "screenshot": "/screenshots/star-freight.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -1894,6 +1954,8 @@
     "kind": "library",
     "install": "npm install -g @mcptoolshop/style-dataset-lab",
     "tagline": "Canon-aligned visual dataset production: snapshots, splits, training packs, evals.",
+    "screenshot": "/screenshots/style-dataset-lab.png",
+    "screenshotType": "placeholder",
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -2060,6 +2122,8 @@
     "registered": false,
     "unlisted": true,
     "deprecated": false,
+    "screenshot": "/screenshots/xrpl-creator-capsule.png",
+    "screenshotType": "placeholder",
     "lane": "active_lab",
     "surfaceEligible": true
   },
@@ -2082,6 +2146,8 @@
     "kind": "library",
     "install": "pip install xrpl-lab",
     "tagline": "XRPL training workbook. Learn by doing, prove by artifact.",
+    "screenshot": "/screenshots/xrpl-lab.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   }

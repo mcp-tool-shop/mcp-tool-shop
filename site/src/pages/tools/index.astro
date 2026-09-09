@@ -1,15 +1,16 @@
 ---
 import Base from '../../layouts/Base.astro';
 import projects from '../../data/projects.json';
-import { kindLabel, laneLabel, ecosystemOf, shortDate } from '../../lib/labels';
+import { kindLabel, laneLabel, ecosystemOf, shortDate, catalogTools, isDefaultTool } from '../../lib/labels';
 
 // Registry entries whose repository no longer exists carry no GitHub data.
 // They are catalog ghosts, not tools, so they are not rendered at all.
-const catalog = (projects as any[]).filter((p: any) => p.updatedAt);
+const catalog = catalogTools(projects as any[]);
 
 // Default view: shipped and in-development repositories. Internal and archived
-// repositories are reachable through the lane filter.
-const isDefault = (p: any) => !p.deprecated && (p.lane === 'shipped' || p.lane === 'active_lab' || (p.registered && !p.lane));
+// repositories are reachable through the lane filter. Shared with start.astro
+// so the two pages cannot quote different totals.
+const isDefault = isDefaultTool;
 const defaultCount = catalog.filter(isDefault).length;
 
 const languages = [...new Set(catalog.map((p: any) => p.language).filter(Boolean))].sort();

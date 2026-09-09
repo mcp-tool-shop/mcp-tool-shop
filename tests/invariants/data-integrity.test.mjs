@@ -10,6 +10,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { execSync } from "node:child_process";
 import { validateUrl } from "../../scripts/lib/sanitize.mjs";
 import { KIT_VERSION_SUPPORTED } from "../../scripts/lib/config.mjs";
 
@@ -1090,5 +1091,76 @@ describe("kit.config.json", () => {
       raw.kitVersion >= KIT_VERSION_SUPPORTED[0] && raw.kitVersion <= KIT_VERSION_SUPPORTED[1],
       `kitVersion ${raw.kitVersion} not in [${KIT_VERSION_SUPPORTED.join(", ")}]`
     );
+  });
+});
+
+describe("start.astro curated stacks", () => {
+  // The page filters its stacks against projects.json at build time, so a
+  // recommendation for a deleted repo renders nothing rather than erroring.
+  // That silence let the list decay to eight dead repos and emptied one whole
+  // stack before anyone noticed, so assert the references here instead.
+  const startPage = path.resolve(__dirname, "../../site/src/pages/start.astro");
+
+  it("every recommended repo exists in projects.json", () => {
+    const src = fs.readFileSync(startPage, "utf8");
+    const header = src.slice(0, src.indexOf("---", 3));
+    const repos = [...header.matchAll(/repo:\s*"([^"]+)"/g)].map((m) => m[1]);
+    assert.ok(repos.length > 0, "should find recommended repos in start.astro");
+
+    const projects = loadJson("projects.json") ?? [];
+    const known = new Set(projects.map((p) => p.repo));
+    const dead = [...new Set(repos)].filter((r) => !known.has(r));
+    assert.deepEqual(dead, [], `start.astro recommends repos with no project: ${dead.join(", ")}`);
+  });
+
+  it("no stack is left empty once dead repos are filtered", () => {
+    const src = fs.readFileSync(startPage, "utf8");
+    const projects = loadJson("projects.json") ?? [];
+    const known = new Set(projects.map((p) => p.repo));
+    const empties = [...src.matchAll(/question:\s*"([^"]+)",\s*tools:\s*\[([\s\S]*?)\]/g)]
+      .map(([, question, body]) => ({
+        question,
+        live: [...body.matchAll(/repo:\s*"([^"]+)"/g)].filter((m) => known.has(m[1])).length,
+      }))
+      .filter((s) => s.live === 0)
+      .map((s) => s.question);
+    assert.deepEqual(empties, [], `stacks that would render empty: ${empties.join(" | ")}`);
+  });
+});
+
+describe("screenshot assets", () => {
+  // Pages serves from a case-sensitive filesystem; this repo is developed on a
+  // case-insensitive one. A rename (Attestia -> attestia) left overrides
+  // pointing at a path that differed only in case, which resolves locally and
+  // 404s once deployed. Compare against git's index, not the working tree,
+  // because the index is what actually gets served.
+  const listTracked = () =>
+    new Set(
+      execSync("git ls-files site/public/screenshots", {
+        cwd: path.resolve(__dirname, "../.."),
+      })
+        .toString()
+        .trim()
+        .split("\n")
+        .filter(Boolean)
+        .map((p) => p.split("/").pop())
+    );
+
+  it("every referenced screenshot is tracked with matching case", () => {
+    const projects = loadJson("projects.json") ?? [];
+    const tracked = listTracked();
+    const missing = projects
+      .filter((p) => p.screenshot && !tracked.has(p.screenshot.split("/").pop()))
+      .map((p) => `${p.repo} -> ${p.screenshot}`);
+    assert.deepEqual(missing, [], `screenshot references with no tracked file: ${missing.join(", ")}`);
+  });
+
+  it("no tracked screenshot is left unreferenced", () => {
+    const projects = loadJson("projects.json") ?? [];
+    const referenced = new Set(
+      projects.filter((p) => p.screenshot).map((p) => p.screenshot.split("/").pop())
+    );
+    const orphans = [...listTracked()].filter((f) => f !== ".gitkeep" && !referenced.has(f));
+    assert.deepEqual(orphans, [], `screenshot files nothing references: ${orphans.join(", ")}`);
   });
 });

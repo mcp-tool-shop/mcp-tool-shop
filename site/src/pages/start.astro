@@ -1,47 +1,54 @@
 ---
 import Base from '../layouts/Base.astro';
 import projects from '../data/projects.json';
+import { defaultToolCount } from '../lib/labels';
 
 const validSlugs = new Set((projects as any[]).map((p: any) => p.repo));
+const toolCount = defaultToolCount(projects as any[]);
 
+// Every repo named here must be live in the org. Dead entries do not break the
+// page — the validSlugs filter below drops them — they just quietly shrink it,
+// which is how this list came to name eight deleted repos and how the "build
+// MCP tools" stack disappeared entirely without anyone seeing an error.
 const stacksSource = [
   {
     question: "I want to find and use MCP tools",
     tools: [
       { name: "Tool Compass", repo: "tool-compass", why: "Find tools by describing what you need" },
-      { name: "mcpt", repo: "mcpt", why: "CLI for discovering and running MCP tools" },
-      { name: "File Compass", repo: "file-compass", why: "Semantic search across your codebase" },
+      { name: "Repo Knowledge", repo: "repo-knowledge", why: "Full-text search over your own repos" },
+      { name: "Ollama Intern MCP", repo: "ollama-intern-mcp", why: "Hand bulk analysis to a local model" },
     ],
   },
   {
     question: "I want to build MCP tools",
     tools: [
-      { name: "Brain-Dev", repo: "brain-dev", why: "Code analysis patterns to learn from" },
-      { name: "Tool Scan", repo: "tool-scan", why: "Security-test your tool before shipping" },
+      { name: "Synthesis", repo: "synthesis", why: "Composable framework for AI workflows" },
+      { name: "MCP Stress Test", repo: "mcp-stress-test", why: "Red-team your server before shipping" },
+      { name: "Shipcheck", repo: "shipcheck", why: "Release gate that defines done" },
     ],
   },
   {
-    question: "I want to add voice to Claude Code",
+    question: "I want to add speech and audio",
     tools: [
-      { name: "Soundboard Plugin", repo: "soundboard-plugin", why: "Drop-in TTS for Claude Code" },
-      { name: "MCP Voice Soundboard", repo: "mcp-voice-soundboard", why: "MCP-native voice server" },
-      { name: "Voice Soundboard", repo: "voice-soundboard", why: "Underlying TTS library" },
+      { name: "MCP Voice Soundboard", repo: "mcp-voice-soundboard", why: "TTS server: 48 voices, 9 languages" },
+      { name: "Audiobooker", repo: "audiobooker", why: "EPUB, PDF or DOCX to narrated audio" },
+      { name: "AI Jam Sessions", repo: "ai-jam-sessions", why: "Teach your AI to play, sing, and listen" },
     ],
   },
   {
     question: "I want to train or fine-tune models locally",
     tools: [
       { name: "Backpropagate", repo: "backpropagate", why: "Headless fine-tuning with smart defaults" },
-      { name: "Comfy-Headless", repo: "comfy-headless", why: "Batch image generation without the UI" },
-      { name: "Aspire AI", repo: "aspire-ai", why: "Adversarial training engine" },
+      { name: "Comfy Headless", repo: "comfy-headless", why: "Batch image generation without the UI" },
+      { name: "Backprop Trace", repo: "backprop-trace", why: "Verify a training step, rule by rule" },
     ],
   },
   {
     question: "I want to audit MCP security",
     tools: [
-      { name: "Tool Scan", repo: "tool-scan", why: "Security scanner for MCP tools" },
       { name: "MCP Stress Test", repo: "mcp-stress-test", why: "Red team toolkit" },
-      { name: "Stresskit MCP", repo: "stresskit-mcp", why: "Load testing for MCP servers" },
+      { name: "Prism Verify", repo: "prism-verify", why: "Family-different verification with signed receipts" },
+      { name: "Repomesh", repo: "repomesh", why: "Verify releases and anchors across repos" },
     ],
   },
 ];
@@ -77,7 +84,7 @@ const stacks = stacksSource
     </div>
 
     <div class="start-fallback">
-      <p>Don't see what you need? <a href="/tools/">Browse all {80} tools</a> or <a href="https://github.com/orgs/mcp-tool-shop-org/discussions" rel="noopener">ask in Discussions</a>.</p>
+      <p>Don't see what you need? <a href="/tools/">Browse all {toolCount} tools</a> or <a href="https://github.com/orgs/mcp-tool-shop-org/discussions" rel="noopener">ask in Discussions</a>.</p>
     </div>
   </div>
 </Base>

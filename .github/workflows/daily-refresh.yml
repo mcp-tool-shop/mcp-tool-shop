@@ -44,6 +44,13 @@ jobs:
         run: npm run enrich
         continue-on-error: true
 
+      # gen-placeholders.mjs resolves sharp from the repo root and then from
+      # site/node_modules. This job only runs `npm ci` at the root, so neither
+      # path existed and the step below failed every day behind its
+      # continue-on-error. screenshots-weekly.yml installs it the same way.
+      - name: Install sharp (needed for PNG generation)
+        run: cd site && npm install sharp --no-save
+
       - name: Generate placeholders
         run: npm run placeholders
         continue-on-error: true
