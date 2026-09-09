@@ -158,6 +158,27 @@
       "defaults": {
         "safe_run": true
       }
+    },
+    {
+      "id": "xrpl-camp",
+      "name": "XRPL Camp",
+      "description": "Learn the XRP Ledger in one sitting - six guided lessons on Testnet, ending in a record anyone can verify against the ledger",
+      "repo": "https://github.com/mcp-tool-shop-org/xrpl-camp",
+      "install": {
+        "type": "git",
+        "url": "https://github.com/mcp-tool-shop-org/xrpl-camp.git",
+        "default_ref": "main"
+      },
+      "tags": [
+        "xrpl",
+        "education",
+        "blockchain",
+        "workshop",
+        "cli"
+      ],
+      "defaults": {
+        "safe_run": true
+      }
     }
   ],
   "archived": [

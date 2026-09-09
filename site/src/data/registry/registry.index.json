@@ -216,5 +216,44 @@
       "core"
     ],
     "capabilities": []
+  },
+  {
+    "id": "xrpl-camp",
+    "name": "XRPL Camp",
+    "description": "Learn the XRP Ledger in one sitting - six guided lessons on Testnet, ending in a record anyone can verify against the ledger",
+    "verification": "none",
+    "keywords": [
+      "against",
+      "anyone",
+      "blockchain",
+      "camp",
+      "can",
+      "cli",
+      "education",
+      "ending",
+      "guided",
+      "learn",
+      "ledger",
+      "lessons",
+      "one",
+      "record",
+      "sitting",
+      "six",
+      "testnet",
+      "the",
+      "verify",
+      "workshop",
+      "xrp",
+      "xrpl"
+    ],
+    "tags": [
+      "blockchain",
+      "cli",
+      "education",
+      "workshop",
+      "xrpl"
+    ],
+    "bundle_membership": [],
+    "capabilities": []
   }
 ]
