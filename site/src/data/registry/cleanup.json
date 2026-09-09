@@ -1,20 +1,7 @@
 {
-  "generatedAt": "2026-09-09T00:07:00.107Z",
+  "generatedAt": "2026-09-09T01:48:25.347Z",
   "archived": [],
-  "missing": [
-    {
-      "registryId": "claim-ledger",
-      "repoName": "ClaimLedger",
-      "repo": "https://github.com/mcp-tool-shop-org/ClaimLedger",
-      "action": "verify repo exists or remove from registry"
-    },
-    {
-      "registryId": "creator-ledger",
-      "repoName": "CreatorLedger",
-      "repo": "https://github.com/mcp-tool-shop-org/CreatorLedger",
-      "action": "verify repo exists or remove from registry"
-    }
-  ],
+  "missing": [],
   "aliases": [
     {
       "registryId": "claim-ledger",
@@ -27,5 +14,5 @@
       "reason": "case-mismatch or rename"
     }
   ],
-  "totalIssues": 2
+  "totalIssues": 0
 }

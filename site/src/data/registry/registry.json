@@ -1,6 +1,6 @@
 {
   "schema_version": "0.3",
-  "generated_at": "2026-04-16",
+  "generated_at": "2026-09-08",
   "organization": "mcp-tool-shop-org",
   "tools": [
     {
@@ -14,7 +14,12 @@
         "default_ref": "main"
       },
       "ecosystem": "accessibility",
-      "tags": ["accessibility", "wcag", "compliance", "monorepo"],
+      "tags": [
+        "accessibility",
+        "wcag",
+        "compliance",
+        "monorepo"
+      ],
       "defaults": {
         "safe_run": true
       }
@@ -29,7 +34,11 @@
         "url": "https://github.com/mcp-tool-shop-org/audiobooker.git",
         "default_ref": "main"
       },
-      "tags": ["audio", "ebook", "generation"],
+      "tags": [
+        "audio",
+        "ebook",
+        "generation"
+      ],
       "defaults": {
         "safe_run": true
       }
@@ -44,23 +53,11 @@
         "url": "https://github.com/mcp-tool-shop-org/backpropagate.git",
         "default_ref": "main"
       },
-      "tags": ["evaluation", "feedback", "iteration"],
-      "defaults": {
-        "safe_run": true
-      }
-    },
-    {
-      "id": "claim-ledger",
-      "name": "ClaimLedger",
-      "description": "Scientific claim provenance and verification ledger",
-      "repo": "https://github.com/mcp-tool-shop-org/ClaimLedger",
-      "install": {
-        "type": "git",
-        "url": "https://github.com/mcp-tool-shop-org/ClaimLedger.git",
-        "default_ref": "main"
-      },
-      "ecosystem": "ledger",
-      "tags": ["provenance", "cryptography", "dotnet"],
+      "tags": [
+        "evaluation",
+        "feedback",
+        "iteration"
+      ],
       "defaults": {
         "safe_run": true
       }
@@ -76,7 +73,11 @@
         "default_ref": "main"
       },
       "ecosystem": "codeteam",
-      "tags": ["vscode", "extension", "coverage"],
+      "tags": [
+        "vscode",
+        "extension",
+        "coverage"
+      ],
       "defaults": {
         "safe_run": true
       }
@@ -91,23 +92,12 @@
         "url": "https://github.com/mcp-tool-shop-org/comfy-headless.git",
         "default_ref": "main"
       },
-      "tags": ["comfyui", "headless", "automation", "image"],
-      "defaults": {
-        "safe_run": true
-      }
-    },
-    {
-      "id": "creator-ledger",
-      "name": "CreatorLedger",
-      "description": "Creator attestation proofs and authorship verification",
-      "repo": "https://github.com/mcp-tool-shop-org/CreatorLedger",
-      "install": {
-        "type": "git",
-        "url": "https://github.com/mcp-tool-shop-org/CreatorLedger.git",
-        "default_ref": "main"
-      },
-      "ecosystem": "ledger",
-      "tags": ["provenance", "attestation", "dotnet"],
+      "tags": [
+        "comfyui",
+        "headless",
+        "automation",
+        "image"
+      ],
       "defaults": {
         "safe_run": true
       }
@@ -122,7 +112,11 @@
         "url": "https://github.com/mcp-tool-shop-org/mcp-stress-test.git",
         "default_ref": "main"
       },
-      "tags": ["performance", "load-testing", "concurrency"],
+      "tags": [
+        "performance",
+        "load-testing",
+        "concurrency"
+      ],
       "defaults": {
         "safe_run": true
       }
@@ -137,7 +131,11 @@
         "url": "https://github.com/mcp-tool-shop-org/synthesis.git",
         "default_ref": "main"
       },
-      "tags": ["workflow", "composition", "tools"],
+      "tags": [
+        "workflow",
+        "composition",
+        "tools"
+      ],
       "defaults": {
         "safe_run": true
       }
@@ -152,7 +150,11 @@
         "url": "https://github.com/mcp-tool-shop-org/tool-compass.git",
         "default_ref": "main"
       },
-      "tags": ["discovery", "ranking", "catalog"],
+      "tags": [
+        "discovery",
+        "ranking",
+        "catalog"
+      ],
       "defaults": {
         "safe_run": true
       }
@@ -218,6 +220,16 @@
       "id": "nexus-router-adapter-stdout",
       "note": "Consolidated into nexus-suite",
       "repo": "https://github.com/mcp-tool-shop-org/nexus-router-adapter-stdout"
+    },
+    {
+      "id": "claim-ledger",
+      "note": "Repository deleted from the organization",
+      "repo": "https://github.com/mcp-tool-shop-org/ClaimLedger"
+    },
+    {
+      "id": "creator-ledger",
+      "note": "Repository deleted from the organization",
+      "repo": "https://github.com/mcp-tool-shop-org/CreatorLedger"
     }
   ],
   "ecosystems": {

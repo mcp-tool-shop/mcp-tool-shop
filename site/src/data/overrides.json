@@ -1,30 +1,4 @@
 {
-  "ClaimLedger": {
-    "tags": [
-      "provenance",
-      "cryptography",
-      "dotnet"
-    ],
-    "category": "infrastructure",
-    "stability": "stable",
-    "kind": "library",
-    "tagline": "Scientific claim provenance and verification ledger.",
-    "lane": "internal",
-    "surfaceEligible": false
-  },
-  "CreatorLedger": {
-    "tags": [
-      "provenance",
-      "attestation",
-      "dotnet"
-    ],
-    "category": "infrastructure",
-    "stability": "stable",
-    "kind": "library",
-    "tagline": "Creator attestation proofs and authorship verification.",
-    "lane": "internal",
-    "surfaceEligible": false
-  },
   "LeaseGate-Lite": {
     "tags": [
       "ai",
@@ -53,7 +27,6 @@
     "category": "devtools",
     "stability": "stable",
     "kind": "library",
-    "install": "pip install accessibility-suite",
     "tagline": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance...",
     "screenshot": "/screenshots/accessibility-suite.png",
     "screenshotType": "placeholder",
@@ -431,7 +404,6 @@
     "category": "voice",
     "stability": "stable",
     "kind": "library",
-    "install": "npm install motif",
     "tagline": "Adaptive soundtrack studio for composing, arranging, scoring, and exporting interactive...",
     "needsHumanReview": true,
     "lane": "active_lab",
