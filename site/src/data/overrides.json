@@ -1004,22 +1004,24 @@
       "web3",
       "blockchain",
       "python",
-      "cli"
+      "cli",
+      "docker"
     ],
     "category": "games",
     "stability": "stable",
     "kind": "cli",
-    "install": "pipx install xrpl-camp",
-    "tagline": "Learn the XRP Ledger in one sitting — wallet, payment, verification, certificate.",
+    "install": "npx @mcptoolshop/xrpl-camp start",
+    "tagline": "Learn the XRP Ledger in one sitting — real transactions, portable proof, 10 minutes.",
     "goodFor": [
-      "First contact with the XRP Ledger — four lessons, ten minutes",
-      "Classrooms and workshops that need zero-setup blockchain labs",
-      "Earning verifiable round proofs with optional XRPL Testnet anchoring",
-      "Offline-capable learning — no API keys, no cloud, no telemetry"
+      "First contact with the XRP Ledger — six lessons, about ten minutes",
+      "Classrooms and workshops: npx, pipx or a container, no shared setup",
+      "Learning the failure modes for free — `try` simulates them, costs nothing",
+      "A completion record anyone can check against the ledger, not just a hash"
     ],
     "notFor": [
-      "Production XRPL wallets or mainnet transactions",
-      "Full Testnet node operation or validator setup"
+      "Production XRPL wallets or Mainnet transactions",
+      "Running a Testnet node or validator",
+      "Anything needing funds of real value — Testnet only, by design"
     ],
     "screenshot": "/screenshots/xrpl-camp.png",
     "screenshotType": "placeholder",
