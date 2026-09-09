@@ -1,5 +1,27 @@
 [
   {
+    "repo": "xrpl-camp",
+    "toolName": "XRPL Camp",
+    "tag": "v1.4.0",
+    "name": "v1.4.0",
+    "body": [],
+    "publishedAt": "2026-09-09T07:10:50Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.4.0",
+    "prerelease": false
+  },
+  {
+    "repo": "tool-compass",
+    "toolName": "Tool Compass",
+    "tag": "v2.5.1",
+    "name": "Tool Compass v2.5.1",
+    "body": [
+      "Dogfood swarm swarm-1788918264-9859 — health Stages A–D, a 23-item feature pass (1 CRITICAL + 22 HIGH), then Phase 9 verify. No breaking API changes. Coverage floor held at 77% while the new surfaces are covered back…"
+    ],
+    "publishedAt": "2026-09-09T06:25:53Z",
+    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.5.1",
+    "prerelease": false
+  },
+  {
     "repo": "ai-jam-sessions",
     "toolName": "AI Jam Sessions",
     "tag": "v2.5.0",
@@ -691,34 +713,6 @@
     ],
     "publishedAt": "2026-08-20T20:25:46Z",
     "url": "https://github.com/mcp-tool-shop-org/plain-sight/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "plain-sight",
-    "toolName": "Plain Sight",
-    "tag": "v1.0.0",
-    "name": "plain-sight v1.0.0",
-    "body": [
-      "An AI says what it sees. First shipped release: Florence-2 describer (MCP server + CLI), three detail tiers, OCR, LoRA-dataset caption sidecars with exact basename pairing and deterministic decoding. Model pinned to…"
-    ],
-    "publishedAt": "2026-08-20T05:31:09Z",
-    "url": "https://github.com/mcp-tool-shop-org/plain-sight/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-jam-sessions",
-    "toolName": "AI Jam Sessions",
-    "tag": "v2.2.0",
-    "name": "v2.2.0 — ears and a listening room",
-    "body": [
-      "The release where the instrument got real ears and a listening room. Every prior release played through synthesized approximations; this one ships a sampled Concert Grand as the default piano and a blind listening…",
-      "sample is a first-class server engine and the default when a pack is installed (samples/AccurateSalamander or AI_JAM_SAMPLES_DIR); the npm tarball stays sample-free by design. The oscillator piano remains the…",
-      "The cockpit ships its own pruned pack — 90 OGGs (30 roots at minor-third spacing × 3 velocity layers, ~8 MB) regenerable via a deterministic pruner script with a full provenance manifest (source archive sha256,…",
-      "By ear — blind pairwise A/B auditions of the composition engine's voicings over real library melodies: reference/A/B clips offline-rendered through the *real* voice path and loudness-matched (attenuate-only, ≤0.5 dB…",
-      "Local models — the same ranking run by locally installed cross-family LLM judges (one seat per model family; the generator's whole lineage, embedding models, and cloud-routed tags never judge), with per-seat failure…"
-    ],
-    "publishedAt": "2026-08-20T04:44:12Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v2.2.0",
     "prerelease": false
   }
 ]
