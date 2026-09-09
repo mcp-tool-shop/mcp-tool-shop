@@ -4,6 +4,7 @@ import projects from '../data/projects.json';
 import collections from '../data/collections.json';
 import releases from '../data/releases.json';
 import stats from '../data/org-stats.json';
+import dogfoodLab from '../data/dogfood-lab.json';
 import { kindLabel, relativeDate } from '../lib/labels';
 
 const all = projects as any[];
@@ -148,6 +149,34 @@ const areas = (collections as any[])
     </div>
   </section>
 
+  <section class="home-section sister-org">
+    <div class="section-header">
+      <div>
+        <h2 class="section-heading">Testing, from {dogfoodLab.org}</h2>
+        <p class="section-subheading">{dogfoodLab.description}</p>
+      </div>
+      <a href={dogfoodLab.url} class="see-all" rel="noopener">All {dogfoodLab.org} repositories</a>
+    </div>
+    <div class="project-grid sister-grid">
+      {dogfoodLab.repos.map((repo: any) => (
+        <article class="project-card">
+          <div class="card-header-home">
+            <h3>
+              <a href={repo.url} rel="noopener">{repo.name}</a>
+            </h3>
+            <span class="badge badge-version">{repo.version}</span>
+          </div>
+          <p>{repo.tagline}</p>
+          {repo.install && <code class="install-line">{repo.install}</code>}
+          <div class="card-meta">
+            {repo.language && <span class="meta-item">{repo.language}</span>}
+            {repo.handbook && <a class="meta-item" href={repo.handbook} rel="noopener">Handbook</a>}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
   <section class="home-section principles">
     <h2 class="section-heading">How we ship</h2>
     <div class="principle-grid">
@@ -248,6 +277,22 @@ const areas = (collections as any[])
   .badge-experimental {
     color: var(--color-danger-fg);
     background: var(--color-danger-subtle);
+  }
+
+  .badge-version {
+    color: var(--color-text-muted);
+    background: rgba(139, 148, 158, 0.12);
+    text-transform: none;
+  }
+
+  .sister-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 640px) {
+    .sister-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   .install-line {

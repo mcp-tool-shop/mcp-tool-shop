@@ -1,0 +1,25 @@
+{
+  "org": "dogfood-lab",
+  "url": "https://github.com/dogfood-lab",
+  "description": "An open workshop for testing in the AI era: methods, operating systems, and showcases for how AI-assisted software should be verified.",
+  "repos": [
+    {
+      "name": "testing-os",
+      "url": "https://github.com/dogfood-lab/testing-os",
+      "handbook": "https://dogfood-lab.github.io/testing-os/",
+      "tagline": "Operating system for testing in the AI era: protocols, evidence stores, and learning loops for AI-assisted software.",
+      "install": "npx @dogfood-lab/dogfood-swarm",
+      "version": "v1.12.0",
+      "language": "TypeScript"
+    },
+    {
+      "name": "study-swarm",
+      "url": "https://github.com/dogfood-lab/study-swarm",
+      "handbook": "https://dogfood-lab.github.io/study-swarm/",
+      "tagline": "Ground design decisions in cited research, then verify every citation with a different model family before it becomes canon.",
+      "install": "npx @dogfood-lab/study-swarm",
+      "version": "v2.0.0",
+      "language": "TypeScript"
+    }
+  ]
+}

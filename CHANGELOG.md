@@ -20,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Release notes are summarized as plain text: blockquotes, HTML, tables, markdown emphasis and
   links are stripped by the sync script and again at render time for existing data.
 - Site title is "MCP Tool Shop"; page titles are suffixed consistently.
+- Homepage and About now present the sister organization dogfood-lab (testing-os, study-swarm)
+  from a curated `site/src/data/dogfood-lab.json`; the sync pipeline is unchanged.
 
 ### Fixed
 
