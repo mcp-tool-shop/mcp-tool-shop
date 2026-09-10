@@ -1,5 +1,34 @@
 [
   {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.2.0",
+    "name": "v0.2.0 — Ghost on the Menu",
+    "body": [
+      "The first release. Ghost on the Menu is playable in a browser and from a terminal.",
+      "Ghost on the Menu, a replay shooter over mcp-arcade.tape/v1 tapes. Every atom the instrument ran is a wave, opened by a card naming its kind and staged as the wire ran: handshake, menu, calls, answers, and the atom's…",
+      "Bosses, one per atom kind (the Whisperer, the Menu, the Doorman), with phase scripts as data, guard phases, rage below half health, aimed fire at seat and live, and a burst when they go down.",
+      "Threat as data: entry paths, formations, fire rhythms, dives that aim then commit, fog banks, three lamps with a grace period, and a difficulty ladder (as recorded, seat, live) under packages/ghost-on-the-menu/patterns/.",
+      "Sound: synthesized effects and a procedural chiptune soundtrack with a motif per wave kind; mute, three feel presets and a shake-off toggle."
+    ],
+    "publishedAt": "2026-09-10T11:00:05Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade",
+    "toolName": "MCP Arcade",
+    "tag": "v0.1.0",
+    "name": "v0.1.0",
+    "body": [
+      "First public version. A brand-new repo.",
+      "Three atoms, a wire oracle, fail-closed --allow-live. Not 1.0.0."
+    ],
+    "publishedAt": "2026-09-09T18:20:14Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
     "repo": "ai-jam-sessions",
     "toolName": "AI Jam Sessions",
     "tag": "v2.6.0",
@@ -673,36 +702,6 @@
     ],
     "publishedAt": "2026-08-22T05:04:18Z",
     "url": "https://github.com/mcp-tool-shop-org/fx-dub/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "comfy-headless",
-    "toolName": "Comfy Headless",
-    "tag": "v3.1.0",
-    "name": "v3.1.0 — the six profiles",
-    "body": [
-      "The six-profile release: Image, Video, 3D, Inference, Metadata, Audio, on a shared addressing/typing layer. Every emitted class_type verified against the live ComfyUI catalog (2026-08-21).",
-      "Full details: CHANGELOG.md",
-      "🤖 Generated with Claude Code"
-    ],
-    "publishedAt": "2026-08-21T22:26:53Z",
-    "url": "https://github.com/mcp-tool-shop-org/comfy-headless/releases/tag/v3.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "comfy-headless",
-    "toolName": "Comfy Headless",
-    "tag": "v3.0.1",
-    "name": "v3.0.1 — correctness release (first 3.x on PyPI)",
-    "body": [
-      "This is the first 3.x release to reach PyPI. v3.0.0 was tagged but its publish run failed at the build stage on a packaging defect, fixed here — see the note on that release.",
-      "comfy-headless builds ComfyUI API-format graphs and runs them. That means a node name ComfyUI has renamed or removed is a shipped bug: the graph is rejected at submit with an opaque error, and nothing warns you…",
-      "A core-only pip install comfy-headless could not be imported on Python 3.10–3.13. http_client.py annotated a method -> httpx.Response at class level; on a core install httpx is absent, so the module sets httpx = None…",
-      "Two things hid it, and both are now guarded against: the test suite runs where every extra *is* installed, and the maintainer's interpreter is Python 3.14, which defers annotation evaluation under PEP 649. A new…",
-      "init_image is now a server-side filename, not base64 data:"
-    ],
-    "publishedAt": "2026-08-21T16:27:33Z",
-    "url": "https://github.com/mcp-tool-shop-org/comfy-headless/releases/tag/v3.0.1",
     "prerelease": false
   }
 ]

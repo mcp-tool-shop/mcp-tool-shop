@@ -380,6 +380,38 @@
     "needsHumanReview": true,
     "lane": "shipped"
   },
+  "mcp-arcade": {
+    "tags": [
+      "adversarial-testing",
+      "gameday",
+      "mcp",
+      "model-context-protocol",
+      "python",
+      "security"
+    ],
+    "category": "security",
+    "stability": "beta",
+    "kind": "mcp-server",
+    "install": "pip install mcp-arcade",
+    "tagline": "GameDay testing for MCP servers. The oracle is the wire, not the scoreboard.",
+    "needsHumanReview": true
+  },
+  "mcp-arcade-cabinets": {
+    "tags": [
+      "arcade",
+      "game",
+      "mcp",
+      "model-context-protocol",
+      "pnpm",
+      "replay"
+    ],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "mcp-server",
+    "install": "npx mcp-arcade-cabinets",
+    "tagline": "Ghost on the Menu: an arcade shooter that replays what your MCP server said on the wire.",
+    "needsHumanReview": true
+  },
   "mcp-stress-test": {
     "tags": [
       "mcp",
@@ -563,6 +595,13 @@
   "prototypes": {
     "lane": "seed_vault",
     "surfaceEligible": false
+  },
+  "readouts": {
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Ten verified, ai-loadout-routed SQLite knowledge bases — 1,771 entries with per-wave...",
+    "needsHumanReview": true
   },
   "record-index": {
     "kind": "cli",

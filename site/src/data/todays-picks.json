@@ -1,9 +1,30 @@
 {
-  "date": "2026-09-09",
+  "date": "2026-09-10",
   "picks": [
     {
       "slug": "websketch-ir",
       "reason": "Grammar-based intermediate representation that compiles messy DOM into a small, fixed vocabulary of semantic UI primitives — built for LLMs. Zero runtime deps.",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "audiobooker",
+      "reason": "Audio book generation and management system",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "xrpl-camp",
+      "reason": "Learn the XRP Ledger in one sitting - six guided lessons on Testnet, ending in a record anyone can verify against the ledger",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "synthesis",
+      "reason": "Composable tool framework for building complex AI workflows",
       "signals": [
         "popular"
       ]
@@ -16,31 +37,10 @@
       ]
     },
     {
-      "slug": "codecomfy-vscode",
-      "reason": "VS Code extension for code analysis and coverage display",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "comfy-headless",
-      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
+      "slug": "tool-compass",
+      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
       "signals": [
         "featured"
-      ]
-    },
-    {
-      "slug": "synthesis",
-      "reason": "Composable tool framework for building complex AI workflows",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "accessibility-suite",
-      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
-      "signals": [
-        "popular"
       ]
     }
   ]
