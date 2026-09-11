@@ -219,6 +219,8 @@
     "notFor": [
       "Casual chatbot RPGs — this is a full simulation engine, not a prompt wrapper"
     ],
+    "screenshot": "/screenshots/claude-rpg.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -410,6 +412,16 @@
     "kind": "mcp-server",
     "install": "npx mcp-arcade-cabinets",
     "tagline": "Ghost on the Menu: an arcade shooter that replays what your MCP server said on the wire.",
+    "needsHumanReview": true
+  },
+  "mcp-registry": {
+    "tags": [
+      "mcp"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "mcp-server",
+    "tagline": "Official Docker MCP registry.",
     "needsHumanReview": true
   },
   "mcp-stress-test": {

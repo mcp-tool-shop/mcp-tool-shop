@@ -2,7 +2,7 @@
   "title": "AI: Memory",
   "subtitle": "A short, no-fluff newsletter for curious minds",
   "issue": "September 2026 | Issue 7",
-  "updatedAt": "2026-09-10T13:11:12.136Z",
+  "updatedAt": "2026-09-11T13:11:32.439Z",
   "lede": "Every agent framework shipping this year has a memory layer, and every memory layer is a page-replacement policy wearing a lanyard. The context window is RAM. The vector store is disk. The thing that decides what stays resident is a working-set heuristic, and the failure mode everyone is currently naming with fresh vocabulary is thrashing. Peter Denning named it in 1968, in nine pages, and told you how to prevent it. Hermann Ebbinghaus measured the other half of the problem in 1885. The field has arrived at both, independently, without reading either. This issue is interactive: five small machines let you feel each of the numbers below instead of taking my word for them.",
   "sections": [
     {

@@ -246,7 +246,7 @@
     "featured": false,
     "stars": 3,
     "language": "TypeScript",
-    "updatedAt": "2026-09-09T21:14:05Z",
+    "updatedAt": "2026-09-11T01:55:43Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -312,6 +312,41 @@
     "tagline": "EPUB, TXT, PDF, or DOCX to multi-voice narrated audiobooks with mastering.",
     "screenshot": "/screenshots/audiobooker.png",
     "screenshotType": "placeholder",
+    "lane": "shipped",
+    "surfaceEligible": true
+  },
+  {
+    "name": "Claude RPG",
+    "repo": "claude-rpg",
+    "description": "Simulation-grounded narrative RPG where worlds are generated live, but truth remains coherent",
+    "tags": [
+      "ai",
+      "claude",
+      "living-world",
+      "narrative",
+      "rpg",
+      "simulation",
+      "text-rpg"
+    ],
+    "featured": false,
+    "stars": 2,
+    "language": "TypeScript",
+    "updatedAt": "2026-09-07T12:36:35Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false,
+    "category": "games",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "npx @mcptoolshop/claude-rpg",
+    "tagline": "Simulation-grounded campaign RPG — 10 worlds, streaming narration, runtime-proofed.",
+    "goodFor": [
+      "Players who want AI narration grounded in deterministic simulation truth",
+      "Developers building on the AI RPG Engine ecosystem"
+    ],
+    "notFor": [
+      "Casual chatbot RPGs — this is a full simulation engine, not a prompt wrapper"
+    ],
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -473,41 +508,6 @@
     "kind": "cli",
     "install": "npx @mcptoolshop/bytefit",
     "lane": "shipped"
-  },
-  {
-    "name": "Claude RPG",
-    "repo": "claude-rpg",
-    "description": "Simulation-grounded narrative RPG where worlds are generated live, but truth remains coherent",
-    "tags": [
-      "ai",
-      "claude",
-      "living-world",
-      "narrative",
-      "rpg",
-      "simulation",
-      "text-rpg"
-    ],
-    "featured": false,
-    "stars": 1,
-    "language": "TypeScript",
-    "updatedAt": "2026-09-07T12:36:35Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "games",
-    "stability": "stable",
-    "kind": "cli",
-    "install": "npx @mcptoolshop/claude-rpg",
-    "tagline": "Simulation-grounded campaign RPG — 10 worlds, streaming narration, runtime-proofed.",
-    "goodFor": [
-      "Players who want AI narration grounded in deterministic simulation truth",
-      "Developers building on the AI RPG Engine ecosystem"
-    ],
-    "notFor": [
-      "Casual chatbot RPGs — this is a full simulation engine, not a prompt wrapper"
-    ],
-    "lane": "shipped",
-    "surfaceEligible": true
   },
   {
     "name": "LeaseGate Lite",
@@ -764,7 +764,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-09-10T10:44:34Z",
+    "updatedAt": "2026-09-11T10:32:23Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1163,42 +1163,64 @@
   {
     "name": "MCP Arcade",
     "repo": "mcp-arcade",
-    "description": "GameDay testing for MCP servers. The oracle is the wire, not the scoreboard.",
+    "description": "GameDay testing for MCP servers. Four named experiments over the JSON-RPC wire, in a Docker sandbox, with scripted and Ollama agent seats. Receipts, tapes and a dataset come out. The oracle is the wire, not the scoreboard.",
     "tags": [
       "adversarial-testing",
       "gameday",
       "mcp",
       "model-context-protocol",
       "python",
-      "security",
-      "testing"
+      "security"
     ],
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-09-10T11:46:55Z",
+    "updatedAt": "2026-09-11T00:33:59Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "security",
+    "stability": "beta",
+    "kind": "mcp-server",
+    "install": "pip install mcp-arcade",
+    "tagline": "GameDay testing for MCP servers. The oracle is the wire, not the scoreboard.",
+    "needsHumanReview": true
   },
   {
     "name": "MCP Arcade Cabinets",
     "repo": "mcp-arcade-cabinets",
-    "description": "Ghost on the Menu: an arcade shooter that replays what your MCP server said on the wire. A cabinet on top of mcp-arcade; it reads the tape and never touches the score.",
+    "description": "Ghost on the Menu: an arcade shooter where you are the agent, working through what MCP servers said on the wire. Take a shift of four recorded bouts with a climb in data and a four-word name. Reads mcp-arcade tapes, never the score; itself an MCP server (Docker image) whose tools a model pulls to sit in the boss.",
     "tags": [
       "arcade",
       "game",
       "mcp",
       "model-context-protocol",
       "pnpm",
-      "replay",
-      "shooter",
-      "typescript"
+      "replay"
     ],
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-09-10T13:04:48Z",
+    "updatedAt": "2026-09-11T10:37:29Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false,
+    "category": "ml",
+    "stability": "beta",
+    "kind": "mcp-server",
+    "install": "npx mcp-arcade-cabinets",
+    "tagline": "Ghost on the Menu: an arcade shooter that replays what your MCP server said on the wire.",
+    "needsHumanReview": true
+  },
+  {
+    "name": "MCP Registry",
+    "repo": "mcp-registry",
+    "description": "Official Docker MCP registry ",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "",
+    "updatedAt": "2026-09-11T10:33:08Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false
@@ -1461,7 +1483,12 @@
     "updatedAt": "2026-09-10T04:27:40Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Ten verified, ai-loadout-routed SQLite knowledge bases — 1,771 entries with per-wave...",
+    "needsHumanReview": true
   },
   {
     "name": "Record Index",

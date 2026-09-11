@@ -2,6 +2,86 @@
   {
     "repo": "mcp-arcade-cabinets",
     "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.6.0",
+    "name": "Ghost on the Menu v0.6.0",
+    "body": [
+      "You are the agent. The rig hands you the calls.",
+      "Take a shift. Press Shift and the rig draws four recorded bouts from the roster, never the same four twice running, and plays them back to back as one agent session. A card between calls names the next server, the…",
+      "The music follows the seed. A round opens on a song its seed picks from the five wave beds, holds it for a couple of minutes, then fades into the next; a boss brings its own; a shift carries the music through its…",
+      "The cabinet as a Docker image. docker run -i --rm ghcr.io/mcp-tool-shop-org/mcp-arcade-cabinets:0.6.0 is the cabinet server over stdio: six tools a model pulls, one bundled file on node:22-alpine with the tapes baked…",
+      "Reviewed by Grok: slice 6 (docs/cabinet-container.review.md) and slice 7 (docs/shift.review.md), no halt, both applied. The research grounding and the lock G19–G22 are in docs/shift.dispatch.md."
+    ],
+    "publishedAt": "2026-09-11T10:19:56Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.6.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.5.0",
+    "name": "Ghost on the Menu v0.5.0",
+    "body": [
+      "The cabinet server and the voice.",
+      "The boss can be a model. Locally, an Ollama model (a Cloud tag or a local one) sits in the boss through the cabinet's own tools: fire, one verb a beat; say, a line of its own through a gate (twelve words, one…",
+      "It speaks, and every take is receipted. With the voice worker running (pnpm voice), every boss speaks its lines in its own preset voice. Kokoro speaks, faster-whisper hears it back, and fx-dub's spoken-content…",
+      "The cabinet is an MCP server. packages/cabinet-server lists six tools over stdio with closed enums and a fact-blind boundary. The instrument played the Ghost's own menu; four of the twenty tapes are the cabinet…",
+      "The music holds. A bed plays for two minutes before it fades into the next; bursts lay the parallelism track over it instead of swapping songs."
+    ],
+    "publishedAt": "2026-09-11T08:33:55Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.5.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade",
+    "toolName": "MCP Arcade",
+    "tag": "v0.2.0",
+    "name": "mcp-arcade 0.2.0",
+    "body": [
+      "Eight waves after the 0.1.0 floor. The sentence on the tin still holds: the oracle is the JSON-RPC wire plus the sandbox, and nothing added here grades anything else. The seat is a policy, not a judge; dataset labels…",
+      "Wave 1 — the harness survives a real server: --framing auto|ndjson|content-length, protocolVersion negotiation, --task / --args, --wrap, --timeout, server requests rejected. Decisions: docs/wave-1.md.",
+      "Wave 2 — Docker is the sandbox: --target docker, one fresh container per atom, image id pinned and drift-checked, /sandbox snapshotted from inside, no host binds by default. Decisions: docs/wave-2.md.",
+      "Wave 3 — mcp-arcade dataset: one JSONL row per atom, labels from the wire, split: proof never trains. Decisions: docs/wave-3.md.",
+      "Wave 4 — the agent seat: --agent ollama:<model>, frozen template hashed onto the receipt, model text dropped before the receipt, no-call is a utility SKIP. Decisions: docs/wave-4.md."
+    ],
+    "publishedAt": "2026-09-11T00:11:54Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade/releases/tag/v0.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.4.0",
+    "name": "Ghost on the Menu v0.4.0",
+    "body": [
+      "The Ollama seats. Locally, a model sits in the boss and is felt; it picks the boss's own line; it never sees a lie. Play the published cut at /play/ (https://mcp-tool-shop-org.github.io/mcp-arcade-cabinets/play/);…",
+      "A felt boss seat. New lever patterns/fire.json → tiers.N.boss.pilot { fan, spread, lean } with a load-time schema. A seat's spread is a wide straight fan; column slides the boss up to lean toward the ship before an…",
+      "The voice seat. With the seat on, each boss picks which of its own patterns/voice.json lines it says at spawn (a letter reply; matched on wave and kind, else the seed's pick). The drafts are unchanged; the seat can…",
+      "Seat status beside the model picker: waiting, thinking, the verb it said, or why it fell back to the script. Words only, never on the field. Retired Cloud tags say so.",
+      "pnpm sit (scripts/sit.mjs): sits a model in both seats on a scripted round in wall-clock time and prints each beat's verb, what the sim made of it, each boss's line, latency and fallbacks."
+    ],
+    "publishedAt": "2026-09-10T14:40:59Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.4.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.3.0",
+    "name": "Ghost on the Menu v0.3.0",
+    "body": [
+      "The cabinet grows a fight: more classes, recorded beds, parallelism, a Cloud boss seat. Play it at the landing page (https://mcp-tool-shop-org.github.io/mcp-arcade-cabinets/) or straight at /play/…",
+      "Drops. A downed boss drops a lamp; a cleared formation drops a spread. Both fall straight down. Catching a lamp relights one; catching a spread fans the ship's fire for a few seconds. Data in patterns/drops.json.…",
+      "Voice. A dry line per wave open and per boss enter, and a closing line on the end scene. Data in patterns/voice.json, four drafts per key, picked by the round seed. They name the experiment and the creature, never a…",
+      "Tape labels. The picker is a list. Each tape carries a difficulty word (fixture, seat, or live) and an i whose hover text explains the header and the wire shape. A test flips every fact and requires the identical…",
+      "Hardcore. Selector-only fourth rung: one lamp, rage from the first shot, boss hazards (echo, band, plate)."
+    ],
+    "publishedAt": "2026-09-10T13:20:43Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
     "tag": "v0.2.0",
     "name": "v0.2.0 — Ghost on the Menu",
     "body": [
@@ -622,86 +702,6 @@
     ],
     "publishedAt": "2026-08-23T11:07:10Z",
     "url": "https://github.com/mcp-tool-shop-org/fx-dub/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "codecomfy-vscode",
-    "toolName": "CodeComfy VS Code",
-    "tag": "v1.4.0",
-    "name": "v1.4.0 — live progress, honest Cancel",
-    "body": [
-      "Two items that were verified against ComfyUI 0.23.0 source during the 1.3.0 cycle and deliberately left unimplemented rather than bolted on. Both are now done properly.",
-      "POST /interrupt aborts only the job that is running. The server then immediately promotes the next pending item. So if you had queued work — from CodeComfy or from the ComfyUI web UI in another tab — hitting Cancel…",
-      "Cancel now clears the queue first, then interrupts.",
-      "The order is load-bearing, not stylistic. Clearing afterwards leaves a window in which the next job has already been promoted to running, and a queue-clear cannot reach a running job — wipe_queue and…",
-      "/history is an in-memory ring, evicted by count (MAXIMUM_HISTORY_SIZE = 10000), that does not survive a server restart. Polling an id that had been evicted — or that vanished when the server bounced — timed out, and…"
-    ],
-    "publishedAt": "2026-08-23T02:33:35Z",
-    "url": "https://github.com/mcp-tool-shop-org/codecomfy-vscode/releases/tag/v1.4.0",
-    "prerelease": false
-  },
-  {
-    "repo": "codecomfy-vscode",
-    "toolName": "CodeComfy VS Code",
-    "tag": "v1.3.0",
-    "name": "v1.3.0 — the six profiles",
-    "body": [
-      "The first release since v1.1.0. It covers the v1.2.0 work as well, which was merged but never published, so everything below is new to anyone upgrading from the Marketplace build.",
-      "Two of these are corrections to defects that shipped. Both are described plainly rather than folded into a feature list.",
-      "Through v1.1.0 the hq-video preset was an SDXL text-to-image graph with EmptyLatentImage.batch_size set to the frame count, decoded to N PNGs and assembled by FFmpeg. There was no temporal model anywhere in that…",
-      "hq-video is now Wan 2.2 TI2V-5B, taken verbatim from ComfyUI's own video_wan2_2_5B_ti2v template. Wan 2.2 is Apache-2.0, so output is commercial-safe. It needs three model files, named with download links in the…",
-      "The /history response validator preserved only the images key. ComfyUI does not use a uniform key: VHS_VideoCombine reports under gifs, SaveAudioAdvanced under audio, SaveGLB under 3d, and SaveText under text + files."
-    ],
-    "publishedAt": "2026-08-23T02:15:41Z",
-    "url": "https://github.com/mcp-tool-shop-org/codecomfy-vscode/releases/tag/v1.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "motif",
-    "toolName": "Motif",
-    "tag": "v1.3.0",
-    "name": "v1.3.0 — the library release",
-    "body": [
-      "Adds the generation lane's missing half: an ingest that doesn't redo work it has already done.",
-      "Ingest already hashed every input FLAC into the record it persists, then threw the hashes away and re-decoded, re-resampled and rewrote ~86 MB per take on every run. It now reuses a matching previous ingest.",
-      "A take is reused only when its input files still hash the same, the loudness target, generation identity and resampler all match, and every master is still on disk. Anything else falls through to a full rebuild, so…",
-      "--force re-decodes everything even when the cache would hit, to prove the pipeline still reproduces its own output.",
-      "--skip-defective narrows the andon from the run to the take. A malformed artifact is still refused and never folded, but the remaining packs finish, every failure is listed, and the process exits non-zero so a run…"
-    ],
-    "publishedAt": "2026-08-22T05:17:37Z",
-    "url": "https://github.com/mcp-tool-shop-org/motif/releases/tag/v1.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "fx-dub",
-    "toolName": "FX Dub",
-    "tag": "v1.0.1",
-    "name": "v1.0.1 — the correction that keeps a working route",
-    "body": [
-      "A documentation and archive-integrity release. No behaviour change to the verifiers.",
-      "The round-11 dialog archive carried a false impossibility, unmarked.",
-      "The Comfy Cloud in-app agent answered our cloning question with *\"DEFINITIVE: No. You cannot wire LoadAudio into the ElevenLabs clone node\"* and recommended dropping voice cloning entirely.",
-      "Cloning works. Job 920dc2e0-e420-473a-9cb9-45b84b0fea65 completed, producing 48 kHz / 3.520 s of speech through exactly that path. The runtime slot is files.audio0 — not the files.item_1 the node schema advertises —…",
-      "The reply had never been archived at all; only the outbound brief had. It is now written to the record with a correction banner, paired with a verification that refutes it from measurement. Preserved rather than…"
-    ],
-    "publishedAt": "2026-08-22T05:16:09Z",
-    "url": "https://github.com/mcp-tool-shop-org/fx-dub/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "fx-dub",
-    "toolName": "FX Dub",
-    "tag": "v1.0.0",
-    "name": "v1.0.0 — verify a generated dub before anyone hears it",
-    "body": [
-      "pip install fx-dub",
-      "Your text-to-speech model returned 48 kHz stereo at exactly the right duration and a textbook −18 LUFS. It also said a line you never wrote, in a voice that isn't your character's, with a two-second hole in the middle.",
-      "None of that is visible to sample rate and duration. fx-dub gives you two receipts — one for the container, one for what was actually said — and exits non-zero when either fails.",
-      "Both failures the content receipt exists for are real, and both passed every container check before it existed.",
-      "Zero runtime dependencies, no network egress, no telemetry — and CI fails the build if the dependency list ever becomes non-empty, so the claim can't silently rot."
-    ],
-    "publishedAt": "2026-08-22T05:04:18Z",
-    "url": "https://github.com/mcp-tool-shop-org/fx-dub/releases/tag/v1.0.0",
     "prerelease": false
   }
 ]

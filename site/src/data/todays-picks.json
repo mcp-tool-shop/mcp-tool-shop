@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-10",
+  "date": "2026-09-11",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,24 +9,10 @@
       ]
     },
     {
-      "slug": "audiobooker",
-      "reason": "Audio book generation and management system",
+      "slug": "comfy-headless",
+      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
       "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "xrpl-camp",
-      "reason": "Learn the XRP Ledger in one sitting - six guided lessons on Testnet, ending in a record anyone can verify against the ledger",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "synthesis",
-      "reason": "Composable tool framework for building complex AI workflows",
-      "signals": [
-        "popular"
+        "featured"
       ]
     },
     {
@@ -37,10 +23,24 @@
       ]
     },
     {
-      "slug": "tool-compass",
-      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
+      "slug": "codecomfy-vscode",
+      "reason": "VS Code extension for code analysis and coverage display",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "backpropagate",
+      "reason": "Structured feedback loops for improving AI behavior through iteration",
       "signals": [
         "featured"
+      ]
+    },
+    {
+      "slug": "xrpl-camp",
+      "reason": "Learn the XRP Ledger in one sitting - six guided lessons on Testnet, ending in a record anyone can verify against the ledger",
+      "signals": [
+        "popular"
       ]
     }
   ]
