@@ -1,30 +1,9 @@
 {
-  "date": "2026-09-11",
+  "date": "2026-09-12",
   "picks": [
     {
       "slug": "websketch-ir",
       "reason": "Grammar-based intermediate representation that compiles messy DOM into a small, fixed vocabulary of semantic UI primitives — built for LLMs. Zero runtime deps.",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "comfy-headless",
-      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
-      "signals": [
-        "featured"
-      ]
-    },
-    {
-      "slug": "mcp-stress-test",
-      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "codecomfy-vscode",
-      "reason": "VS Code extension for code analysis and coverage display",
       "signals": [
         "popular"
       ]
@@ -37,8 +16,29 @@
       ]
     },
     {
-      "slug": "xrpl-camp",
-      "reason": "Learn the XRP Ledger in one sitting - six guided lessons on Testnet, ending in a record anyone can verify against the ledger",
+      "slug": "audiobooker",
+      "reason": "Audio book generation and management system",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "mcp-stress-test",
+      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "tool-compass",
+      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
+      "signals": [
+        "featured"
+      ]
+    },
+    {
+      "slug": "codecomfy-vscode",
+      "reason": "VS Code extension for code analysis and coverage display",
       "signals": [
         "popular"
       ]

@@ -1,5 +1,21 @@
 [
   {
+    "repo": "ollama-intern-mcp",
+    "toolName": "Ollama Intern MCP",
+    "tag": "v2.10.0",
+    "name": "v2.10.0",
+    "body": [
+      "The cloud-honesty release. v2.9.0 shipped per-call cloud escalation and the README advertised it as \"escalate one high-stakes review to a 600B model\" — but the backend input existed on exactly one of 44 tools, and it…",
+      "Local-first is unchanged and still the default: no key means zero egress and no startup probe, embeddings never leave the box, and every new knob defaults to today's behavior.",
+      "Per-call cloud escalation on 15 tools (was 1). backend: \"cloud\" | \"local\" is now an optional input on research, summarize_deep, code_review, code_citation, corpus_answer, hypothesis_drill,…",
+      "INTERN_CLOUD_STANDBY_TIERS — a declared standby escalation policy. A comma list of instant|workhorse|deep (or none) naming which tiers escalate under standby without a per-call directive. Empty by default, so a key…",
+      "doctor --cloud-check — the first in-product proof that a cloud key works. The existing probe hits /api/tags, which returns 200 for an invalid key, so auth could only ever report \"unverified\". This runs one 8-token…"
+    ],
+    "publishedAt": "2026-09-12T00:12:26Z",
+    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.10.0",
+    "prerelease": false
+  },
+  {
     "repo": "mcp-arcade-cabinets",
     "toolName": "MCP Arcade Cabinets",
     "tag": "v0.6.0",
@@ -686,22 +702,6 @@
     ],
     "publishedAt": "2026-08-23T11:56:09Z",
     "url": "https://github.com/mcp-tool-shop-org/fx-dub/releases/tag/v1.1.1",
-    "prerelease": false
-  },
-  {
-    "repo": "fx-dub",
-    "toolName": "FX Dub",
-    "tag": "v1.1.0",
-    "name": "v1.1.0 — the caption check, the scene contract's eyes, and lip-sync in post",
-    "body": [
-      "fx-dub captions a frame and feeds that caption to the audio prompt. Nothing ever compared it back to the picture — so on the delivered run, a captioner wrote *\"two men standing in a city at night, facing each other\"*…",
-      "A package with zero dependencies cannot look at pixels. It does not have to: the scene contract already states who is visible.",
-      "caption:person_count_matches_cast counts the people the caption claims and compares that against the cast members marked on_frame. Deliberately shallow — it reads \"<count> <person-word>\" and nothing cleverer — and…",
-      "The delivered run now scores 19/20 and exits 1. That is a finding, not a regression.",
-      "cast entries used to be free-form notes. They still can be, but the explicit form is read:"
-    ],
-    "publishedAt": "2026-08-23T11:07:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/fx-dub/releases/tag/v1.1.0",
     "prerelease": false
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-11",
+  "asOf": "2026-09-12",
   "windowDays": 7,
   "items": [
     {
@@ -10,17 +10,17 @@
     {
       "slug": "audiobooker",
       "reason": "Top 10 starred repo",
-      "deltaStars": 0
+      "deltaStars": 2
     },
     {
       "slug": "codecomfy-vscode",
       "reason": "Top 10 starred repo",
-      "deltaStars": 2
+      "deltaStars": 4
     },
     {
       "slug": "backpropagate",
       "reason": "Top 2 starred repo",
-      "deltaStars": 4
+      "deltaStars": 2
     },
     {
       "slug": "tool-compass",
