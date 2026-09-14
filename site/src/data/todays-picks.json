@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-13",
+  "date": "2026-09-14",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,17 +9,10 @@
       ]
     },
     {
-      "slug": "tool-compass",
-      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
+      "slug": "accessibility-suite",
+      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
       "signals": [
-        "featured"
-      ]
-    },
-    {
-      "slug": "comfy-headless",
-      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
-      "signals": [
-        "featured"
+        "popular"
       ]
     },
     {
@@ -30,15 +23,22 @@
       ]
     },
     {
-      "slug": "xrpl-camp",
-      "reason": "Learn the XRP Ledger in one sitting - six guided lessons on Testnet, ending in a record anyone can verify against the ledger",
+      "slug": "tool-compass",
+      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
+      "signals": [
+        "featured"
+      ]
+    },
+    {
+      "slug": "codecomfy-vscode",
+      "reason": "VS Code extension for code analysis and coverage display",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "accessibility-suite",
-      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "slug": "synthesis",
+      "reason": "Composable tool framework for building complex AI workflows",
       "signals": [
         "popular"
       ]
