@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generatedAt": "2026-09-14T13:12:16.004Z",
-    "runId": "9ddaad5e-17f1-4aef-b82f-c9a0e9fd1a63",
+    "generatedAt": "2026-09-15T13:12:21.360Z",
+    "runId": "6e03c1c0-0f6b-4688-806e-447f1fe4cad6",
     "version": "2.0",
     "checkedCount": 9,
     "strategy": {
       "recentDays": 7,
       "sampleSize": 10,
-      "seed": "2026-09-14"
+      "seed": "2026-09-15"
     }
   },
   "results": [
@@ -26,26 +26,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-14T13:12:16.004Z",
-      "lastCheckedAt": "2026-09-14T13:12:16.004Z"
-    },
-    {
-      "repo": "mcp-stress-test",
-      "score": 90,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": false,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-09-14T13:12:16.004Z",
-      "lastCheckedAt": "2026-09-14T13:12:16.004Z"
+      "checkedAt": "2026-09-15T13:12:21.360Z",
+      "lastCheckedAt": "2026-09-15T13:12:21.360Z"
     },
     {
       "repo": "xrpl-camp",
@@ -62,8 +44,26 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-14T13:12:16.004Z",
-      "lastCheckedAt": "2026-09-14T13:12:16.004Z"
+      "checkedAt": "2026-09-15T13:12:21.360Z",
+      "lastCheckedAt": "2026-09-15T13:12:21.360Z"
+    },
+    {
+      "repo": "mcp-stress-test",
+      "score": 90,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": false,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-09-15T13:12:21.360Z",
+      "lastCheckedAt": "2026-09-15T13:12:21.360Z"
     },
     {
       "repo": "codecomfy-vscode",
@@ -80,8 +80,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-14T13:12:16.004Z",
-      "lastCheckedAt": "2026-09-14T13:12:16.004Z"
+      "checkedAt": "2026-09-15T13:12:21.360Z",
+      "lastCheckedAt": "2026-09-15T13:12:21.360Z"
     },
     {
       "repo": "comfy-headless",
@@ -98,8 +98,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-14T13:12:16.004Z",
-      "lastCheckedAt": "2026-09-14T13:12:16.004Z"
+      "checkedAt": "2026-09-15T13:12:21.360Z",
+      "lastCheckedAt": "2026-09-15T13:12:21.360Z"
     },
     {
       "repo": "backpropagate",
@@ -116,8 +116,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-14T13:12:16.004Z",
-      "lastCheckedAt": "2026-09-14T13:12:16.004Z"
+      "checkedAt": "2026-09-15T13:12:21.360Z",
+      "lastCheckedAt": "2026-09-15T13:12:21.360Z"
     },
     {
       "repo": "tool-compass",
@@ -134,26 +134,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-14T13:12:16.004Z",
-      "lastCheckedAt": "2026-09-14T13:12:16.004Z"
-    },
-    {
-      "repo": "accessibility-suite",
-      "score": 100,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": true,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-09-14T13:12:16.004Z",
-      "lastCheckedAt": "2026-09-14T13:12:16.004Z"
+      "checkedAt": "2026-09-15T13:12:21.360Z",
+      "lastCheckedAt": "2026-09-15T13:12:21.360Z"
     },
     {
       "repo": "synthesis",
@@ -170,8 +152,26 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-14T13:12:16.004Z",
-      "lastCheckedAt": "2026-09-14T13:12:16.004Z"
+      "checkedAt": "2026-09-15T13:12:21.360Z",
+      "lastCheckedAt": "2026-09-15T13:12:21.360Z"
+    },
+    {
+      "repo": "accessibility-suite",
+      "score": 100,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": true,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-09-15T13:12:21.360Z",
+      "lastCheckedAt": "2026-09-15T13:12:21.360Z"
     }
   ]
 }

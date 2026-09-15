@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-14",
+  "date": "2026-09-15",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,17 +9,10 @@
       ]
     },
     {
-      "slug": "accessibility-suite",
-      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "slug": "synthesis",
+      "reason": "Composable tool framework for building complex AI workflows",
       "signals": [
         "popular"
-      ]
-    },
-    {
-      "slug": "backpropagate",
-      "reason": "Structured feedback loops for improving AI behavior through iteration",
-      "signals": [
-        "featured"
       ]
     },
     {
@@ -30,15 +23,22 @@
       ]
     },
     {
-      "slug": "codecomfy-vscode",
-      "reason": "VS Code extension for code analysis and coverage display",
+      "slug": "accessibility-suite",
+      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "synthesis",
-      "reason": "Composable tool framework for building complex AI workflows",
+      "slug": "mcp-stress-test",
+      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "xrpl-camp",
+      "reason": "Learn the XRP Ledger in one sitting - six guided lessons on Testnet, ending in a record anyone can verify against the ledger",
       "signals": [
         "popular"
       ]

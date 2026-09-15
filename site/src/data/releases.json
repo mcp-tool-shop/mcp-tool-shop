@@ -1,5 +1,188 @@
 [
   {
+    "repo": "role-os",
+    "toolName": "Role OS",
+    "tag": "v2.11.0",
+    "name": "v2.11.0 — health pass and harness-agnostic copy",
+    "body": [
+      "Dogfood swarm health pass (Stages A–D) plus harness-agnostic public copy. Feature-audit is collected and parked (Law 8); leftover MED/LOW are not in this release.",
+      "Public copy is harness-agnostic: GitHub/npm/README/handbook lead with a repo-native operating layer. Claude Code adapter ships; the contracts are markdown any harness can consume.",
+      "roleos <verb> --help / -h prints that verb's usage and exits 0 — it no longer mutates.",
+      "Capability-gate deny hints branch missing vs expired vs bad date.",
+      "Handbook light mode is readable. Landing ships OG tags, favicon, robots.txt, and an on-brand 404."
+    ],
+    "publishedAt": "2026-09-15T07:48:03Z",
+    "url": "https://github.com/mcp-tool-shop-org/role-os/releases/tag/v2.11.0",
+    "prerelease": false
+  },
+  {
+    "repo": "audiobooker",
+    "toolName": "Audiobooker",
+    "tag": "v3.0.0",
+    "name": "audiobooker v3.0.0",
+    "body": [
+      "Major, because five things that used to be accepted now fail instead — the m4a whole-book format, a make over an existing project, a render whose attribution is mostly guesswork, a compile() where every chapter…",
+      "A dogfood swarm in two passes — five health waves, then a feature pass of four build agents with disjoint file ownership. 200+ findings, tests 1468 → 1955. A confirming re-swarm (2026-09-15) closed remaining sibling…",
+      "The through-line is worth stating, because it shaped what got found: defect after defect was hiding behind something that reported success. A quality metric that improved as quality degraded. A cache that printed…",
+      "make destroyed a hand-tuned project without asking. Re-running it overwrote hand-cast voices, pronunciation overrides and edited chapter titles with a fresh auto-cast parse — and batch *.epub did it to every project…",
+      "compile() returned normally when every chapter failed. It recorded each per-chapter exception, set status='error', then unconditionally overwrote that with 'idle' ninety lines later and returned None exactly as a…"
+    ],
+    "publishedAt": "2026-09-15T07:16:05Z",
+    "url": "https://github.com/mcp-tool-shop-org/audiobooker/releases/tag/v3.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-playtest",
+    "toolName": "AI Playtest",
+    "tag": "v0.1.0",
+    "name": "v0.1.0 — family-diverse AI playtesting",
+    "body": [
+      "First public GitHub release. Dogfood swarm #2, 2026-09-14. 84 -> 182 tests, then the Law 8 execute set. First live run against claude-rpg (proof-01, 8 turns, mistral). Stage B: 24 HIGH. Stage C: remaining MED/LOW…",
+      "Not on npm (package.json stays \"private\": true).",
+      "Typed actions from Observation.actions. Player replies map onto choose / key / line. A closed-set miss is a harness event (illegal-action); the runner does not step. describeActions() is appended to the player prompt.",
+      "Serial RPC reuses one driver. --serial on driver.kind === \"rpc\" starts once, calls reset() between seats, and stops once. A missing or throwing reset fails that next seat with E_RESET (no silent second client).…",
+      "PTY viewport grid. grid.lines is viewportY .. viewportY+rows-1, not the scrollback buffer. Prompt matching uses baseY+cursorY. kind:key writes without a trailing CR."
+    ],
+    "publishedAt": "2026-09-15T06:23:21Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-playtest/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "synthesis",
+    "toolName": "Synthesis",
+    "tag": "v1.3.1",
+    "name": "v1.3.1 — library contract, fairness FPR, planted-RED",
+    "body": [
+      "Patch over v1.3.0 (that tag never reached npm): tests/exports.test.ts no longer import('@mcptoolshop/synthesis'). Vite resolved that specifier at collect time, before dist/ exists, so Linux CI failed.",
+      "v1.3.1 is the publishable cut of the 1.3 feature pass: public library contract, fairness FPR pack, planted-RED inverted oracle, closed report schema. Checkers stay frozen. Node >=22."
+    ],
+    "publishedAt": "2026-09-15T06:08:42Z",
+    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.1",
+    "prerelease": false
+  },
+  {
+    "repo": "synthesis",
+    "toolName": "Synthesis",
+    "tag": "v1.3.0",
+    "name": "v1.3.0 — library contract, fairness FPR, planted-RED",
+    "body": [
+      "Dogfood-swarm feature pass: a published library contract, a fairness FPR audit pack, a planted-RED inverted oracle, and a closed report schema. Checkers stay frozen and zero-LLM.",
+      "See CHANGELOG.md for the full list."
+    ],
+    "publishedAt": "2026-09-15T06:04:29Z",
+    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "storyboard-os",
+    "toolName": "Storyboard OS",
+    "tag": "v1.3.0",
+    "name": "v1.3.0 — Feature Pass",
+    "body": [
+      "Gold templates, cinematic playlist, nest, and one-way engine adapters.",
+      "Identity scan of the git tree and all six packed tarballs: RESULT CLEAN."
+    ],
+    "publishedAt": "2026-09-15T03:15:02Z",
+    "url": "https://github.com/mcp-tool-shop-org/storyboard-os/releases/tag/v1.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.8.2",
+    "name": "v0.8.2 — launcher play lights the local seats",
+    "body": [
+      "The npm play path lights the local seats. Grok's review of v0.8.0/v0.8.1 found that npx served the Pages chrome: PROD stripped the Ollama / Voice / model picker, so the proxies sat unused. --mcp was already fine.",
+      "Launcher play mode mounts the local seats. VITE_LOCAL_SEATS=true at pack time. Pages still omits them (cannot reach a daemon). The pack andons if the play bundle is missing data-local-seats, /ollama/api/tags,…",
+      "Archivist can sit the say seat. BOSS_KINDS in the launcher and the Vite say route includes the fourth boss, in step with the sim.",
+      "Next-verb reaches the daemon. POST /api/generate is on both allowlists (the fire seat stays on /api/chat). Pull, delete and create still 404 before a socket opens.",
+      "0.8.1 keeps the Pages chrome on npm; 0.8.0 keeps the wrong handshake — 0.8.2 is the one to install."
+    ],
+    "publishedAt": "2026-09-15T01:10:37Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.8.2",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.8.1",
+    "name": "v0.8.1 — SERVER_VERSION fix and the npm hero",
+    "body": [
+      "A patch for the one defect v0.8.0 shipped, plus the art the npm page was missing.",
+      "The MCP seat announces its real version. v0.8.0 handshook as 0.7.0 — SERVER_VERSION is a hand-written constant in cabinet-server, and the release gate compared only package.json against the tag, even though…",
+      "0.8.0 keeps the wrong handshake on npm permanently — after 72 hours a version can only be deprecated, never unpublished — so 0.8.1 is the one to install.",
+      "Hero art on the npm README. The package page had no image at all. The art is the spread: the player craft firing a fan of amber tracers through teal shockwave rings. It lives in the brand repo beside icon.png and…",
+      "The repo README and its eight translations are untouched — only the npm-only package README changed, so no translations were owed for this tag."
+    ],
+    "publishedAt": "2026-09-15T00:43:42Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.8.1",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.8.0",
+    "name": "v0.8.0 — the npm launcher",
+    "body": [
+      "You are the agent. The rig hands you the calls.",
+      "One command, nothing to clone:",
+      "packages/launcher publishes as @mcptoolshop/ghost-on-the-menu — the first package in this repo to reach a registry. tape-core, ghost-on-the-menu, cabinet-server and cabinets stay private; the launcher declares no…",
+      "Two ways to run it. With no arguments it serves the built shell on 127.0.0.1 and opens it, carrying the two allowlisted proxies and the say route that the dev server gives a developer, minus Vite. That is the…",
+      "With --mcp it hands stdio to the cabinet server, so npx joins the Docker image as an install path for the MCP seat:"
+    ],
+    "publishedAt": "2026-09-15T00:21:23Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.8.0",
+    "prerelease": false
+  },
+  {
+    "repo": "fx-dub",
+    "toolName": "FX Dub",
+    "tag": "v1.2.0",
+    "name": "v1.2.0 — the declared public API, and two defects the gates could not see",
+    "body": [
+      "The alignment core that answers *was this script actually spoken* is now an exported, documented, stable surface. Everything else in fxdub remains a console script or an internal that may move.",
+      "A line the script asked for must be spoken, a line it did not ask for must not be, and a character must be rendered by one voice, their own. Those three transfer to any pipeline that turns authored text into…",
+      "Proven against a second codebase before being declared. A dogfood swarm on an EPUB→audiobook renderer — no video, no music bed, no concurrent speakers — found 3 CRITICAL and 34 HIGH defects behind 1235 passing tests.…",
+      "dialogue_receipt is reimplemented on verify, not beside it, enforced by tests that sabotage verify and require the CLI to break with it. tests/test_dialogue_receipt.py passes unedited, which is the proof the CLI…",
+      "Zero runtime dependencies, unchanged."
+    ],
+    "publishedAt": "2026-09-14T23:08:47Z",
+    "url": "https://github.com/mcp-tool-shop-org/fx-dub/releases/tag/v1.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-jam-sessions",
+    "toolName": "AI Jam Sessions",
+    "tag": "v2.6.1",
+    "name": "v2.6.1 — train your own adapter",
+    "body": [
+      "The repo already contained a working verifier-rewarded RL loop. Nothing told anyone how to run it.",
+      "New handbook chapter: Train your own adapter. Three real commands — bridge, train, unconditioned eval — taken from the runners that actually executed, with measured costs rather than estimates: 22,946 MiB peak, ~50…",
+      "It also carries six traps, each of which cost this project something:",
+      "--seed does not control LoRA initialisation — two runs at one seed are independent draws, not replicates",
+      "One run tells you nothing: the same configuration produced +0.6 and +10.1 points"
+    ],
+    "publishedAt": "2026-09-14T21:29:17Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v2.6.1",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.7.0",
+    "name": "Ghost on the Menu v0.7.0",
+    "body": [
+      "You are the agent. The rig hands you the calls.",
+      "Take a shift. Four flavored calls — pressure, area-deny, a rest, then a peak. A card names the next room in words. Lamps refill. Fire still climbs as data. Four-word code to replay.",
+      "Inspect-wave cast. Probe, shelf, ledger. On a shift, inspect closes with the Archivist. Lies still share honest sprites until you hit them.",
+      "Music. Named beds play as themselves and hold one loop (36s) before the next wanted song. Beds sit under the shots.",
+      "Asides. A large gated offline pool, drawn without replacement. Not an Ollama seat."
+    ],
+    "publishedAt": "2026-09-14T13:43:57Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.7.0",
+    "prerelease": false
+  },
+  {
     "repo": "ollama-intern-mcp",
     "toolName": "Ollama Intern MCP",
     "tag": "v2.10.0",
@@ -32,22 +215,6 @@
     "prerelease": false
   },
   {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.5.0",
-    "name": "Ghost on the Menu v0.5.0",
-    "body": [
-      "The cabinet server and the voice.",
-      "The boss can be a model. Locally, an Ollama model (a Cloud tag or a local one) sits in the boss through the cabinet's own tools: fire, one verb a beat; say, a line of its own through a gate (twelve words, one…",
-      "It speaks, and every take is receipted. With the voice worker running (pnpm voice), every boss speaks its lines in its own preset voice. Kokoro speaks, faster-whisper hears it back, and fx-dub's spoken-content…",
-      "The cabinet is an MCP server. packages/cabinet-server lists six tools over stdio with closed enums and a fact-blind boundary. The instrument played the Ghost's own menu; four of the twenty tapes are the cabinet…",
-      "The music holds. A bed plays for two minutes before it fades into the next; bursts lay the parallelism track over it instead of swapping songs."
-    ],
-    "publishedAt": "2026-09-11T08:33:55Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.5.0",
-    "prerelease": false
-  },
-  {
     "repo": "mcp-arcade",
     "toolName": "MCP Arcade",
     "tag": "v0.2.0",
@@ -61,54 +228,6 @@
     ],
     "publishedAt": "2026-09-11T00:11:54Z",
     "url": "https://github.com/mcp-tool-shop-org/mcp-arcade/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.4.0",
-    "name": "Ghost on the Menu v0.4.0",
-    "body": [
-      "The Ollama seats. Locally, a model sits in the boss and is felt; it picks the boss's own line; it never sees a lie. Play the published cut at /play/ (https://mcp-tool-shop-org.github.io/mcp-arcade-cabinets/play/);…",
-      "A felt boss seat. New lever patterns/fire.json → tiers.N.boss.pilot { fan, spread, lean } with a load-time schema. A seat's spread is a wide straight fan; column slides the boss up to lean toward the ship before an…",
-      "The voice seat. With the seat on, each boss picks which of its own patterns/voice.json lines it says at spawn (a letter reply; matched on wave and kind, else the seed's pick). The drafts are unchanged; the seat can…",
-      "Seat status beside the model picker: waiting, thinking, the verb it said, or why it fell back to the script. Words only, never on the field. Retired Cloud tags say so.",
-      "pnpm sit (scripts/sit.mjs): sits a model in both seats on a scripted round in wall-clock time and prints each beat's verb, what the sim made of it, each boss's line, latency and fallbacks."
-    ],
-    "publishedAt": "2026-09-10T14:40:59Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.4.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.3.0",
-    "name": "Ghost on the Menu v0.3.0",
-    "body": [
-      "The cabinet grows a fight: more classes, recorded beds, parallelism, a Cloud boss seat. Play it at the landing page (https://mcp-tool-shop-org.github.io/mcp-arcade-cabinets/) or straight at /play/…",
-      "Drops. A downed boss drops a lamp; a cleared formation drops a spread. Both fall straight down. Catching a lamp relights one; catching a spread fans the ship's fire for a few seconds. Data in patterns/drops.json.…",
-      "Voice. A dry line per wave open and per boss enter, and a closing line on the end scene. Data in patterns/voice.json, four drafts per key, picked by the round seed. They name the experiment and the creature, never a…",
-      "Tape labels. The picker is a list. Each tape carries a difficulty word (fixture, seat, or live) and an i whose hover text explains the header and the wire shape. A test flips every fact and requires the identical…",
-      "Hardcore. Selector-only fourth rung: one lamp, rage from the first shot, boss hazards (echo, band, plate)."
-    ],
-    "publishedAt": "2026-09-10T13:20:43Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.2.0",
-    "name": "v0.2.0 — Ghost on the Menu",
-    "body": [
-      "The first release. Ghost on the Menu is playable in a browser and from a terminal.",
-      "Ghost on the Menu, a replay shooter over mcp-arcade.tape/v1 tapes. Every atom the instrument ran is a wave, opened by a card naming its kind and staged as the wire ran: handshake, menu, calls, answers, and the atom's…",
-      "Bosses, one per atom kind (the Whisperer, the Menu, the Doorman), with phase scripts as data, guard phases, rage below half health, aimed fire at seat and live, and a burst when they go down.",
-      "Threat as data: entry paths, formations, fire rhythms, dives that aim then commit, fog banks, three lamps with a grace period, and a difficulty ladder (as recorded, seat, live) under packages/ghost-on-the-menu/patterns/.",
-      "Sound: synthesized effects and a procedural chiptune soundtrack with a motif per wave kind; mute, three feel presets and a shake-off toggle."
-    ],
-    "publishedAt": "2026-09-10T11:00:05Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.2.0",
     "prerelease": false
   },
   {
@@ -588,120 +707,6 @@
     "body": [],
     "publishedAt": "2026-08-27T20:40:48Z",
     "url": "https://github.com/mcp-tool-shop-org/claude-rpg/releases/tag/v1.6.2",
-    "prerelease": false
-  },
-  {
-    "repo": "claude-rpg",
-    "toolName": "Claude RPG",
-    "tag": "v1.6.1",
-    "name": "claude-rpg v1.6.1",
-    "body": [],
-    "publishedAt": "2026-08-27T00:32:26Z",
-    "url": "https://github.com/mcp-tool-shop-org/claude-rpg/releases/tag/v1.6.1",
-    "prerelease": false
-  },
-  {
-    "repo": "claude-rpg",
-    "toolName": "Claude RPG",
-    "tag": "v1.6.0",
-    "name": "v1.6.0 — Ten Worlds",
-    "body": [
-      "Ten worlds. One narrator. The engine keeps the truth.",
-      "v1.6 makes the ten-world roster real, gives defeat real weight, and makes the narrator resilient when the network isn't.",
-      "Ten playable worlds — Iron Colosseum (gladiator), Jade Veil (ronin), and Crimson Court (vampire) join the roster, with the chooser grouped by difficulty.",
-      "--world flag — npx @mcptoolshop/claude-rpg play --world gladiator skips the menu straight into a named world; unknown names exit with a structured error before anything interactive.",
-      "Death is a setback — falling in combat fades to a distinct death screen and gates your actions until you rise. Campaigns end deliberately through /conclude, never by one bad fight — and the death presentation fires…"
-    ],
-    "publishedAt": "2026-08-26T23:06:22Z",
-    "url": "https://github.com/mcp-tool-shop-org/claude-rpg/releases/tag/v1.6.0",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-creator-capsule",
-    "toolName": "XRPL Creator Capsule",
-    "tag": "v1.1.0",
-    "name": "v1.1.0 — hardening and humanization",
-    "body": [
-      "See CHANGELOG.md for the full 1.1.0 entry: nine-wave dogfood swarm, 102 findings dispositioned, tests 421 to 767, error boundary, universal timeouts, humanized errors, worker lifecycle, per-edition verification, and…"
-    ],
-    "publishedAt": "2026-08-26T17:36:37Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-creator-capsule/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "escape-the-valley",
-    "toolName": "Escape The Valley",
-    "tag": "v1.3.0",
-    "name": "Escape the Valley v1.3.0",
-    "body": [
-      "Four live endings. A skilled GM-off seed set hits triumphant, weathered, pyrrhic, and lost. Weathered is intact-and-late; a broken vow is a fact, not the pyrrhic knife.",
-      "Early Winter slows travel (−1 mile/day) when that twist is on the run. Bandit Year and Flood Year still boost event tags. Good Hunting and Sick Season stay tag-boosts (physics yield/chance moved the four-tier pins…",
-      "JSON river/ford events no longer fire in the desert.",
-      "Wagon breakdown damage is 8–16 (was 10–25). Starting parts are 4 (was 3). Par is 8 miles/day (was 4).",
-      "Hunt injury names who was wounded. TUI journal death lines carry the cause. Empty journal says so. CLI game-over prints the headline, a short closer, and the named fallen."
-    ],
-    "publishedAt": "2026-08-26T09:29:05Z",
-    "url": "https://github.com/mcp-tool-shop-org/escape-the-valley/releases/tag/v1.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "escape-the-valley",
-    "toolName": "Escape The Valley",
-    "tag": "v1.2.1",
-    "name": "Escape the Valley v1.2.1",
-    "body": [
-      "PyPI wheel metadata. Hatchling's SPDX license = \"MIT\" emitted Metadata-Version 2.5, which pypa/gh-action-pypi-publish v1.14.0 rejected ('2.5' is not a valid metadata version). Use core-metadata {text = \"MIT\"} so the…"
-    ],
-    "publishedAt": "2026-08-25T20:51:55Z",
-    "url": "https://github.com/mcp-tool-shop-org/escape-the-valley/releases/tag/v1.2.1",
-    "prerelease": false
-  },
-  {
-    "repo": "escape-the-valley",
-    "toolName": "Escape The Valley",
-    "tag": "v1.2.0",
-    "name": "Escape the Valley v1.2.0",
-    "body": [
-      "Classic CLI (trail new / trail play) now runs graded endings, food spoilage, escape valves, the rest/repair maintenance window, and town ledger settle — same helpers StepEngine already used. Not a merge.",
-      "Hand-authored events that advertise rope/parts/food/tools now gate or debit instead of applying an empty supplies_delta.",
-      "TUI start/HUD shows seed, doctrine, twists, taboo, and morale 0–100. c cycles pace via existing CHANGE_PACE.",
-      "trail ledger proof proves the loaded save (PASS/FAIL/INCONCLUSIVE). Named in README Commands and the handbook.",
-      "TUI Ledger ON menu R proofs this save (PASS/FAIL/INCONCLUSIVE). It does not Rest. Same proof_player_save as the CLI. Parcel R still refuses."
-    ],
-    "publishedAt": "2026-08-25T20:47:40Z",
-    "url": "https://github.com/mcp-tool-shop-org/escape-the-valley/releases/tag/v1.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-lab",
-    "toolName": "XRPL Lab",
-    "tag": "v2.5.0",
-    "name": "XRPL Lab v2.5.0",
-    "body": [
-      "Fifth dogfood re-swarm — health pass (Stages A–C) plus two feature waves on the shipped v2.4.0 surface. 1663 → 1897 tests (skipped 26 → 24), plus 17 vitest in CI. Dashboard JS coverage is no longer a laptop-only…",
-      "The dominant defect class was not missing features — it was fixes whose tests could not fail, then incomplete generalization of the fix to every call site.",
-      "Issuer reuse is no longer silent. Reuse prints a cleanup hint; remove_trust_line / verify_trust_line_removed take optional issuer=. All 14 create_issuer_wallet modules say reuse/orphan and point at account_hygiene…",
-      "xrpl-lab audit-verify calls existing verify_audit_pack (non-zero on mismatch). Support-bundle doctor icons distinguish [WARN] vs [FAIL]. cohort-status exposes all_verified.",
-      "vitest + jsdom for esc, openModal, runBadge. Artifacts panels read live proof/cert keys (completed_modules / sha256 / address), pinned in JS. CI site-test job runs npm test in site/."
-    ],
-    "publishedAt": "2026-08-25T14:59:16Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.5.0",
-    "prerelease": false
-  },
-  {
-    "repo": "fx-dub",
-    "toolName": "FX Dub",
-    "tag": "v1.1.1",
-    "name": "v1.1.1 — a retraction, and the two tests that should have caught it",
-    "body": [
-      "A correction release. The interesting part is the mistake, not the fix.",
-      "The 1.1.0 notes claimed HANDOFF.md named the wrong take as the one in the delivered mix. It did not — the handoff was right. Proven by byte-identity:",
-      "The whole run rebuilds from three storage keys, exactly.",
-      "How the error happened, because that is the part worth keeping. Diarized word timings put the line at 2.279–3.959 s (~1.68 s), and that was read as a *measurement of the clip's extent* and used to rule out a 1.415 s…",
-      "Word timings gate content. They do not establish extent. For extent, decode the file. FLAC carries an md5 of the decoded audio in STREAMINFO bytes 18–34 — free, exact, no decoder — and it is strictly better than the…"
-    ],
-    "publishedAt": "2026-08-23T11:56:09Z",
-    "url": "https://github.com/mcp-tool-shop-org/fx-dub/releases/tag/v1.1.1",
     "prerelease": false
   }
 ]
