@@ -1,5 +1,53 @@
 [
   {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.10.0",
+    "name": "v0.10.0 — Vibe Typer slice 3, one npm package per cabinet",
+    "body": [
+      "Slice 3 of Vibe Typer, and one package per cabinet. Builds and reviews in docs/vibe-typer.slice3.md and the docs/vibe-typer.slice3*.review.md files beside it.",
+      "Sixteen story levels. Each level is one product, four pieces of real code pinned in order (the setup, two escalations, the deploy with a twist) and a premise the standup shows; two per corpus stack, a third for…",
+      "Check-ins. During the code the user asks \"is it live yet\" at a seeded interval; the agent answers once the line in hand is out. No context cost, no streak change, no value; the band proves it with a run compared byte…",
+      "Reactions that know what shipped, reviews that name the product, and every pool three times its slice-1 size, written by kimi-k2.6:cloud from two voice sheets (packages/vibe-typer/patterns/voice/) through the word…",
+      "Endless on a model (G28 amended). With a local daemon, a seated model writes the product, the asks and the code the player types, behind a mechanical code gate (packages/vibe-typer/src/codegate.ts) and the word gate;…"
+    ],
+    "publishedAt": "2026-09-16T12:09:23Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.10.0",
+    "prerelease": false
+  },
+  {
+    "repo": "synthesis",
+    "toolName": "Synthesis",
+    "tag": "v1.3.2",
+    "name": "v1.3.2 — retract the grounded_uptake \"robust by construction\" claim",
+    "body": [
+      "Documentation-only release. No checker logic changed — behavior is byte-identical to v1.3.1. All 198 tests, the GREEN eval pack and the planted inverted oracle are unaffected.",
+      "The checker source, HANDBOOK.md, the landing page and the test header all stated that *\"the only way to earn verified_uptake is to actually perform the observable work.\"* That claim was false.",
+      "Measured against the 41 user-bearing cases in data/evals.jsonl:",
+      "The template performs no comprehension. It emits strings like *\"It sounds like fired and today are part of what you're carrying right now. What do you need most at this point?\"* — not grammatical English — and earns…",
+      "The controls are the important half. Each witness genuinely binds: content-free warmth cannot earn the verdict, and neither can grounded content without a support move. What the measurement establishes is narrower…"
+    ],
+    "publishedAt": "2026-09-16T02:32:06Z",
+    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.2",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.9.0",
+    "name": "v0.9.0 — Vibe Typer",
+    "body": [
+      "The second cabinet. Vibe Typer is a typing arcade game: you are a hard-working, sycophantic coding agent, your user is a vibe coder whose requests are absurd, and the thing gets built while you type. A real…",
+      "It rides inside this package beside Ghost on the Menu: npx @mcptoolshop/ghost-on-the-menu serves both cabinets on a switch. --mcp is still Ghost's stdio server.",
+      "Design, research grounding and the lock G23–G30: docs/vibe-typer.dispatch.md. Each slice's build and its outside review: docs/vibe-typer.slice1.md, docs/vibe-typer.slice2.md and the two .review.md files.",
+      "Also: the root README is now the arcade's entrance; the landing page and handbook cover both cabinets; README translations regenerated in seven languages; the repo logo is the cabinet render. Full list in CHANGELOG.md.",
+      "Still 0.x, and the version says what it means."
+    ],
+    "publishedAt": "2026-09-15T21:32:09Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.9.0",
+    "prerelease": false
+  },
+  {
     "repo": "role-os",
     "toolName": "Role OS",
     "tag": "v2.11.0",
@@ -167,22 +215,6 @@
     "prerelease": false
   },
   {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.7.0",
-    "name": "Ghost on the Menu v0.7.0",
-    "body": [
-      "You are the agent. The rig hands you the calls.",
-      "Take a shift. Four flavored calls — pressure, area-deny, a rest, then a peak. A card names the next room in words. Lamps refill. Fire still climbs as data. Four-word code to replay.",
-      "Inspect-wave cast. Probe, shelf, ledger. On a shift, inspect closes with the Archivist. Lies still share honest sprites until you hit them.",
-      "Music. Named beds play as themselves and hold one loop (36s) before the next wanted song. Beds sit under the shots.",
-      "Asides. A large gated offline pool, drawn without replacement. Not an Ollama seat."
-    ],
-    "publishedAt": "2026-09-14T13:43:57Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.7.0",
-    "prerelease": false
-  },
-  {
     "repo": "ollama-intern-mcp",
     "toolName": "Ollama Intern MCP",
     "tag": "v2.10.0",
@@ -196,22 +228,6 @@
     ],
     "publishedAt": "2026-09-12T00:12:26Z",
     "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.10.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.6.0",
-    "name": "Ghost on the Menu v0.6.0",
-    "body": [
-      "You are the agent. The rig hands you the calls.",
-      "Take a shift. Press Shift and the rig draws four recorded bouts from the roster, never the same four twice running, and plays them back to back as one agent session. A card between calls names the next server, the…",
-      "The music follows the seed. A round opens on a song its seed picks from the five wave beds, holds it for a couple of minutes, then fades into the next; a boss brings its own; a shift carries the music through its…",
-      "The cabinet as a Docker image. docker run -i --rm ghcr.io/mcp-tool-shop-org/mcp-arcade-cabinets:0.6.0 is the cabinet server over stdio: six tools a model pulls, one bundled file on node:22-alpine with the tapes baked…",
-      "Reviewed by Grok: slice 6 (docs/cabinet-container.review.md) and slice 7 (docs/shift.review.md), no halt, both applied. The research grounding and the lock G19–G22 are in docs/shift.dispatch.md."
-    ],
-    "publishedAt": "2026-09-11T10:19:56Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.6.0",
     "prerelease": false
   },
   {
@@ -697,16 +713,6 @@
     ],
     "publishedAt": "2026-08-27T21:27:48Z",
     "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "claude-rpg",
-    "toolName": "Claude RPG",
-    "tag": "v1.6.2",
-    "name": "claude-rpg v1.6.2",
-    "body": [],
-    "publishedAt": "2026-08-27T20:40:48Z",
-    "url": "https://github.com/mcp-tool-shop-org/claude-rpg/releases/tag/v1.6.2",
     "prerelease": false
   }
 ]
