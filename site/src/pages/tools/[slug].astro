@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import PublicProof from '../../components/marketir/PublicProof.astro';
 import RealityPanel from '../../components/RealityPanel.astro';
 import TryItNow from '../../components/TryItNow.astro';
+import { shouldMountTryItNow } from '../../../../scripts/lib/try-now.mjs';
 import projects from '../../data/projects.json';
 import proofs from '../../data/audit/proofs.json';
 import releases from '../../data/releases.json';
@@ -106,12 +107,12 @@ const notFor: string[] | null = project.notFor ? (Array.isArray(project.notFor) 
       />
     )}
 
-    {toolProof && (
+    {shouldMountTryItNow(project, toolProof) && (
       <TryItNow
         project={project}
-        verified={toolProof.verified}
-        concept={toolProof.concept}
-        proofs={toolProof.proofs}
+        verified={toolProof?.verified ?? false}
+        concept={toolProof?.concept ?? false}
+        proofs={toolProof?.proofs ?? []}
       />
     )}
 

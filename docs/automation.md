@@ -28,6 +28,14 @@
 | `site/src/data/worthy.json` | **Human-curated** | Repo worthiness rubric — criteria, scores, assessment |
 | `site/src/data/recommendation-patch.json` | **Generated** | `scripts/gen-recommendation-patch.mjs` — audit artifact for recommendation patches |
 
+### Overrides schema on Daily Refresh
+
+`node scripts/validate-overrides.mjs` runs in `site-quality.yml` (PRs) **and**
+in `daily-refresh.yml` before the commit step, as a hard fail. Site quality is
+pull-request-only; without this, a hand-edit that breaks the schema (a seventh
+tag, an overlong tagline) can land on `main` via Daily Refresh and sit on the
+front door until some other PR happens to look.
+
 ### Install-command authority
 
 `ecosystem.json` wins over `overrides.json` for `install`, `lane`, and `area`.
