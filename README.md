@@ -8,7 +8,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Live Site](https://img.shields.io/badge/Live%20Site-mcptoolshop.com-blue)](https://mcptoolshop.com/)
 
-[Live Site](https://mcptoolshop.com/) · [Trust Center](https://mcptoolshop.com/trust/) · [Browse Tools](https://mcptoolshop.com/tools/) · [This Week's Spotlight](https://mcptoolshop.com/now/)
+[Live Site](https://mcptoolshop.com/) · [Get started](https://mcptoolshop.com/start/) · [Browse Tools](https://mcptoolshop.com/tools/) · [Ecosystem spec](https://github.com/mcp-tool-shop-org/.github/blob/main/docs/ECOSYSTEM.md)
 
 </div>
 
@@ -16,11 +16,11 @@
 
 ## Who this is for
 
-- **Tool authors** in [mcp-tool-shop-org](https://github.com/mcp-tool-shop-org) who want their project listed, spotlighted, and verified.
-- **Journalists and reviewers** looking for press kits with receipt-backed spotlight picks. See the [Presskit Handbook](docs/presskit-handbook.md).
-- **Other orgs** who want to run the spotlight engine for their own catalog. See [Portable Core](docs/portable-core.md).
+- **Contributors and tool authors** in [mcp-tool-shop-org](https://github.com/mcp-tool-shop-org) who want a repository listed with a verified install command and an area.
+- **Visitors** looking for local-first MCP servers, training pipelines, media tooling, agent infrastructure, or game tooling. Start at [mcptoolshop.com/start](https://mcptoolshop.com/start/).
+- **Other orgs** who want to run the catalog engine for their own organization. See [Portable Core](docs/portable-core.md).
 
-**Not for**: End users of individual tools -- go to the [tool pages](https://mcptoolshop.com/tools/) instead.
+**Not for**: end users of a single tool — go to that tool's [catalog page](https://mcptoolshop.com/tools/) or its own README.
 
 ## 60-Second Quickstart
 
@@ -33,35 +33,30 @@ npm run dev          # localhost:4321
 
 To add a tool: push a repo to [mcp-tool-shop-org](https://github.com/mcp-tool-shop-org), then run Actions > "Sync org metadata". The tool appears on the next deploy.
 
-## Featured Tools
+## Featured tools
 
-- **[File Compass](https://github.com/mcp-tool-shop-org/file-compass)** -- Semantic file search with HNSW indexing and local Ollama embeddings. Multi-language AST chunking, <100ms queries over 10K+ files.
-- **[Tool Compass](https://github.com/mcp-tool-shop-org/tool-compass)** -- Find MCP tools by describing what you need. 115+ indexed tools, progressive disclosure pattern.
-- **[Soundboard Plugin](https://github.com/mcp-tool-shop-org/soundboard-plugin)** -- Give Claude Code a voice. 12 voices, emotion-aware speech, multi-speaker dialogue.
-- **[Brain-Dev](https://github.com/mcp-tool-shop-org/brain-dev)** -- MCP server for code analysis: test generation, security audits, health scoring.
-- **[Comfy-Headless](https://github.com/mcp-tool-shop-org/comfy-headless)** -- Headless ComfyUI with prompt intelligence and video generation.
+Install commands name packages this organization owns. Unrelated packages that share a repository name (`motif`, `roll`, `shipcheck` unscoped) are never listed.
+
+- **[Tool Compass](https://github.com/mcp-tool-shop-org/tool-compass)** — find MCP tools by describing what you need. `npx @mcptoolshop/tool-compass`
+- **[Comfy Headless](https://github.com/mcp-tool-shop-org/comfy-headless)** — drive ComfyUI from Python, no node canvas. `pip install comfy-headless`
+- **[Backpropagate](https://github.com/mcp-tool-shop-org/backpropagate)** — headless fine-tuning with GGUF export. `pip install backpropagate`
+- **[Ollama Intern MCP](https://github.com/mcp-tool-shop-org/ollama-intern-mcp)** — delegate bulk analysis to a local Ollama model. `npx ollama-intern-mcp`
+- **[Shipcheck](https://github.com/mcp-tool-shop-org/shipcheck)** — the release quality gate. `npx @mcptoolshop/shipcheck audit`
+
+The full classified catalog is the [ecosystem specification](https://github.com/mcp-tool-shop-org/.github/blob/main/docs/ECOSYSTEM.md).
 
 ## Proof
 
-Every spotlight pick is backed by receipts, not promises.
-
-- **566 tests** (449 unit + 117 invariant), all passing
-- **Zero runtime deps** -- nothing to audit, nothing to break
-- **Receipt-verified spotlight picks** -- every promo week has hashed inputs and a commit SHA ([browse receipts](https://mcptoolshop.com/receipts/))
-- **Freeze modes** -- automation pauses when frozen; humans must intervene ([Trust Center](https://mcptoolshop.com/trust/))
-- **Decision drift detection** -- week-over-week changes are flagged automatically
-- **Proven claims** -- MarketIR claims are evidence-backed and independently verifiable ([view proofs](https://mcptoolshop.com/proof/))
-
-Verify any week yourself: visit a [spotlight page](https://mcptoolshop.com/receipts/), copy the commit SHA, checkout that commit, and compare `sha256sum` on each input file.
-
-Example outputs: [trust receipt](docs/examples/trust-receipt.json) · [drift report](docs/examples/decision-drift.json) · [recommendations](docs/examples/recommendations.json)
+- Catalog data is generated from the GitHub organization and the [ecosystem catalog](https://github.com/mcp-tool-shop-org/.github/blob/main/docs/catalog.yaml). Editorial taglines are reviewed by hand. Install commands are not guessed from the repository name.
+- Tests cover the merge rules, including the invariant that an install command is only published when this organization owns the package.
+- Zero runtime dependencies in the catalog engine besides `yazl`.
 
 ## Stack
 
 ```
-Python · TypeScript · C# · .NET MAUI · WinUI 3
-MCP · FastMCP · Ollama · HNSW · CUDA
-Windows-first · RTX 5080 · Local-only
+Python · TypeScript · Rust · C# · Godot 4 · Astro
+MCP · Ollama · ComfyUI · SQLite · CUDA
+Windows-first · NVIDIA · local-first
 ```
 
 ## Principles
@@ -111,7 +106,6 @@ See [SECURITY.md](SECURITY.md) and [docs/SECURITY-MODEL.md](docs/SECURITY-MODEL.
 ## Support
 
 - **Issues**: [github.com/mcp-tool-shop/mcp-tool-shop/issues](https://github.com/mcp-tool-shop/mcp-tool-shop/issues)
-- **Trust verification**: [Trust Center](https://mcptoolshop.com/trust/)
 - **Press inquiries**: [Presskit Handbook](docs/presskit-handbook.md)
 
 <div align="center">

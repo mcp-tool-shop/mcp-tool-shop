@@ -20,8 +20,34 @@ const KIND_LABELS: Record<string, string> = {
 const LANE_LABELS: Record<string, string> = {
   shipped: 'Shipped',
   active_lab: 'In development',
+  'in-development': 'In development',
   internal: 'Internal',
   seed_vault: 'Archive',
+  archive: 'Archive',
+};
+
+const AREA_LABELS: Record<string, string> = {
+  'mcp-servers': 'MCP servers',
+  'training-and-datasets': 'Training and datasets',
+  'image-and-media-pipelines': 'Image and media pipelines',
+  'agent-infrastructure': 'Agent infrastructure',
+  'developer-tooling': 'Developer tooling',
+  'games-and-game-tooling': 'Games and game tooling',
+  'ledger-and-verification': 'Ledger and verification',
+};
+
+export function areaLabel(area?: string): string {
+  if (!area) return '';
+  return AREA_LABELS[area] ?? area;
+}
+
+/** Contributor-path questions. Ids match catalog.yaml `paths`. */
+export const PATH_QUESTIONS: Record<string, string> = {
+  'a-mcp-servers': 'I want to build MCP servers',
+  'b-ai-agents': 'I want to build AI agents',
+  'c-game-tooling': 'I want to build game tooling',
+  'd-verification': 'I want verification and testing',
+  'e-local-ai': 'I want local AI workflows',
 };
 
 export function kindLabel(kind?: string): string {
@@ -96,7 +122,10 @@ export function catalogTools<T extends { updatedAt?: string }>(projects: T[]): T
 export function isDefaultTool(p: any): boolean {
   return (
     !p.deprecated &&
-    (p.lane === 'shipped' || p.lane === 'active_lab' || (p.registered && !p.lane))
+    (p.lane === 'shipped' ||
+      p.lane === 'active_lab' ||
+      p.lane === 'in-development' ||
+      (p.registered && !p.lane))
   );
 }
 

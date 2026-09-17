@@ -4,7 +4,9 @@
   "type": "module",
   "scripts": {
     "fetch:registry": "node scripts/fetch-registry.mjs",
+    "fetch:ecosystem": "node scripts/fetch-ecosystem.mjs",
     "sync": "node scripts/sync-org-metadata.mjs",
+    "apply:ecosystem": "node scripts/apply-ecosystem.mjs",
     "enrich": "node scripts/draft-overrides.mjs",
     "placeholders": "node scripts/gen-placeholders.mjs",
     "suggest": "node scripts/suggest-collections.mjs",

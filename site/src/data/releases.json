@@ -1,5 +1,303 @@
 [
   {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.12.0",
+    "name": "v0.12.0 — the dogfood swarm whole, both cabinets on a phone",
+    "body": [
+      "The dogfood swarm, whole, in one day on the Director's word: four health stages and the feature pass framed as polish, with the player's pass on every wave and his read on the served bundle between them. The record…",
+      "Play on a phone. Ghost's field takes a finger (hold its sides to move, the band under it to fire); the typing cabinet raises the soft keyboard on a tap of the editor; each cabinet card says how it plays on glass.…",
+      "A run code for the typing cabinet that replays a run on any browser, and an end card that goes on to the next product or the same one again.",
+      "The hosted tier is opt-in. The shooter's launcher spends an Anthropic key only when CABINET_SAY_CLAUDE=on, says which tier writes the lines and that it costs money, and stops at a ceiling. An older Node is refused in…",
+      "The image answers --help and --version, stops on docker stop at once, and treats an unset VOICE_URL as no voice. The tapes tool marks baked and operator cards and names the one playing; both views say what a client…"
+    ],
+    "publishedAt": "2026-09-17T16:40:54Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.12.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.11.1",
+    "name": "v0.11.1 — read by the Director: the lines make sense, and one image for both cabinets",
+    "body": [
+      "A patch on the Director's read of 0.11.0, all three parts on the published page before this tag. Details in docs/vibe-typer.slice4.md (the last section) and docs/cabinet-container.md.",
+      "The lines that are drawn blind no longer name a piece. The agent's replies, ship lines and check-in answers, and the user's check-ins, one-more-things and generic reviews are picked with no knowledge of the request,…",
+      "The agent's face heads the editor pane, beside the beat word; the chat header keeps the user's face before the product.",
+      "One image, both cabinets. ghcr.io/mcp-tool-shop-org/mcp-arcade-cabinets:0.11.1 carries Vibe Typer's stdio server beside Ghost's; CABINET=vibe selects it and everything else stays the shooter. amd64 and arm64; both…",
+      "Both packages: Node 22, MIT, still 0.x."
+    ],
+    "publishedAt": "2026-09-16T21:33:11Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.11.1",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.11.0",
+    "name": "v0.11.0 — Vibe Typer slice 4, an MCP cabinet with a face and a voice",
+    "body": [
+      "Slice 4 of Vibe Typer. Builds, numbers, receipts and the outside reviews in docs/vibe-typer.slice4.md and docs/vibe-typer.slice4*.review.md.",
+      "Vibe Typer as an MCP server. npx @mcptoolshop/vibe-typer --mcp speaks MCP on stdio: an endless run plays inside it under a typist at a human pace, and any MCP client sits in the user's chair through four tools, view,…",
+      "The rest of the look. Fifty-six painted piece tiles, one set a stack; the user (a man with an overgrown beard and messy hair) and Sprocket in the chat header; milestone cards for seed, series A and unicorn drawn over…",
+      "The voice on the user's lines. With the local voice worker running, the user says his asks, one-more-things, check-ins, reactions and reviews in a preset voice, every take receipted by fx-dub before it plays; two…",
+      "Beds per stack. Seven ACE-Step loops behind music: on; soft keeps the procedural hat; the pack and the release check require all seven by name."
+    ],
+    "publishedAt": "2026-09-16T20:47:49Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.11.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.10.0",
+    "name": "v0.10.0 — Vibe Typer slice 3, one npm package per cabinet",
+    "body": [
+      "Slice 3 of Vibe Typer, and one package per cabinet. Builds and reviews in docs/vibe-typer.slice3.md and the docs/vibe-typer.slice3*.review.md files beside it.",
+      "Sixteen story levels. Each level is one product, four pieces of real code pinned in order (the setup, two escalations, the deploy with a twist) and a premise the standup shows; two per corpus stack, a third for…",
+      "Check-ins. During the code the user asks \"is it live yet\" at a seeded interval; the agent answers once the line in hand is out. No context cost, no streak change, no value; the band proves it with a run compared byte…",
+      "Reactions that know what shipped, reviews that name the product, and every pool three times its slice-1 size, written by kimi-k2.6:cloud from two voice sheets (packages/vibe-typer/patterns/voice/) through the word…",
+      "Endless on a model (G28 amended). With a local daemon, a seated model writes the product, the asks and the code the player types, behind a mechanical code gate (packages/vibe-typer/src/codegate.ts) and the word gate;…"
+    ],
+    "publishedAt": "2026-09-16T12:09:23Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.10.0",
+    "prerelease": false
+  },
+  {
+    "repo": "synthesis",
+    "toolName": "Synthesis",
+    "tag": "v1.3.2",
+    "name": "v1.3.2 — retract the grounded_uptake \"robust by construction\" claim",
+    "body": [
+      "Documentation-only release. No checker logic changed — behavior is byte-identical to v1.3.1. All 198 tests, the GREEN eval pack and the planted inverted oracle are unaffected.",
+      "The checker source, HANDBOOK.md, the landing page and the test header all stated that *\"the only way to earn verified_uptake is to actually perform the observable work.\"* That claim was false.",
+      "Measured against the 41 user-bearing cases in data/evals.jsonl:",
+      "The template performs no comprehension. It emits strings like *\"It sounds like fired and today are part of what you're carrying right now. What do you need most at this point?\"* — not grammatical English — and earns…",
+      "The controls are the important half. Each witness genuinely binds: content-free warmth cannot earn the verdict, and neither can grounded content without a support move. What the measurement establishes is narrower…"
+    ],
+    "publishedAt": "2026-09-16T02:32:06Z",
+    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.2",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.9.0",
+    "name": "v0.9.0 — Vibe Typer",
+    "body": [
+      "The second cabinet. Vibe Typer is a typing arcade game: you are a hard-working, sycophantic coding agent, your user is a vibe coder whose requests are absurd, and the thing gets built while you type. A real…",
+      "It rides inside this package beside Ghost on the Menu: npx @mcptoolshop/ghost-on-the-menu serves both cabinets on a switch. --mcp is still Ghost's stdio server.",
+      "Design, research grounding and the lock G23–G30: docs/vibe-typer.dispatch.md. Each slice's build and its outside review: docs/vibe-typer.slice1.md, docs/vibe-typer.slice2.md and the two .review.md files.",
+      "Also: the root README is now the arcade's entrance; the landing page and handbook cover both cabinets; README translations regenerated in seven languages; the repo logo is the cabinet render. Full list in CHANGELOG.md.",
+      "Still 0.x, and the version says what it means."
+    ],
+    "publishedAt": "2026-09-15T21:32:09Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.9.0",
+    "prerelease": false
+  },
+  {
+    "repo": "role-os",
+    "toolName": "Role OS",
+    "tag": "v2.11.0",
+    "name": "v2.11.0 — health pass and harness-agnostic copy",
+    "body": [
+      "Dogfood swarm health pass (Stages A–D) plus harness-agnostic public copy. Feature-audit is collected and parked (Law 8); leftover MED/LOW are not in this release.",
+      "Public copy is harness-agnostic: GitHub/npm/README/handbook lead with a repo-native operating layer. Claude Code adapter ships; the contracts are markdown any harness can consume.",
+      "roleos <verb> --help / -h prints that verb's usage and exits 0 — it no longer mutates.",
+      "Capability-gate deny hints branch missing vs expired vs bad date.",
+      "Handbook light mode is readable. Landing ships OG tags, favicon, robots.txt, and an on-brand 404."
+    ],
+    "publishedAt": "2026-09-15T07:48:03Z",
+    "url": "https://github.com/mcp-tool-shop-org/role-os/releases/tag/v2.11.0",
+    "prerelease": false
+  },
+  {
+    "repo": "audiobooker",
+    "toolName": "Audiobooker",
+    "tag": "v3.0.0",
+    "name": "audiobooker v3.0.0",
+    "body": [
+      "Major, because five things that used to be accepted now fail instead — the m4a whole-book format, a make over an existing project, a render whose attribution is mostly guesswork, a compile() where every chapter…",
+      "A dogfood swarm in two passes — five health waves, then a feature pass of four build agents with disjoint file ownership. 200+ findings, tests 1468 → 1955. A confirming re-swarm (2026-09-15) closed remaining sibling…",
+      "The through-line is worth stating, because it shaped what got found: defect after defect was hiding behind something that reported success. A quality metric that improved as quality degraded. A cache that printed…",
+      "make destroyed a hand-tuned project without asking. Re-running it overwrote hand-cast voices, pronunciation overrides and edited chapter titles with a fresh auto-cast parse — and batch *.epub did it to every project…",
+      "compile() returned normally when every chapter failed. It recorded each per-chapter exception, set status='error', then unconditionally overwrote that with 'idle' ninety lines later and returned None exactly as a…"
+    ],
+    "publishedAt": "2026-09-15T07:16:05Z",
+    "url": "https://github.com/mcp-tool-shop-org/audiobooker/releases/tag/v3.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-playtest",
+    "toolName": "AI Playtest",
+    "tag": "v0.1.0",
+    "name": "v0.1.0 — family-diverse AI playtesting",
+    "body": [
+      "First public GitHub release. Dogfood swarm #2, 2026-09-14. 84 -> 182 tests, then the Law 8 execute set. First live run against claude-rpg (proof-01, 8 turns, mistral). Stage B: 24 HIGH. Stage C: remaining MED/LOW…",
+      "Not on npm (package.json stays \"private\": true).",
+      "Typed actions from Observation.actions. Player replies map onto choose / key / line. A closed-set miss is a harness event (illegal-action); the runner does not step. describeActions() is appended to the player prompt.",
+      "Serial RPC reuses one driver. --serial on driver.kind === \"rpc\" starts once, calls reset() between seats, and stops once. A missing or throwing reset fails that next seat with E_RESET (no silent second client).…",
+      "PTY viewport grid. grid.lines is viewportY .. viewportY+rows-1, not the scrollback buffer. Prompt matching uses baseY+cursorY. kind:key writes without a trailing CR."
+    ],
+    "publishedAt": "2026-09-15T06:23:21Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-playtest/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "synthesis",
+    "toolName": "Synthesis",
+    "tag": "v1.3.1",
+    "name": "v1.3.1 — library contract, fairness FPR, planted-RED",
+    "body": [
+      "Patch over v1.3.0 (that tag never reached npm): tests/exports.test.ts no longer import('@mcptoolshop/synthesis'). Vite resolved that specifier at collect time, before dist/ exists, so Linux CI failed.",
+      "v1.3.1 is the publishable cut of the 1.3 feature pass: public library contract, fairness FPR pack, planted-RED inverted oracle, closed report schema. Checkers stay frozen. Node >=22."
+    ],
+    "publishedAt": "2026-09-15T06:08:42Z",
+    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.1",
+    "prerelease": false
+  },
+  {
+    "repo": "synthesis",
+    "toolName": "Synthesis",
+    "tag": "v1.3.0",
+    "name": "v1.3.0 — library contract, fairness FPR, planted-RED",
+    "body": [
+      "Dogfood-swarm feature pass: a published library contract, a fairness FPR audit pack, a planted-RED inverted oracle, and a closed report schema. Checkers stay frozen and zero-LLM.",
+      "See CHANGELOG.md for the full list."
+    ],
+    "publishedAt": "2026-09-15T06:04:29Z",
+    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "storyboard-os",
+    "toolName": "Storyboard OS",
+    "tag": "v1.3.0",
+    "name": "v1.3.0 — Feature Pass",
+    "body": [
+      "Gold templates, cinematic playlist, nest, and one-way engine adapters.",
+      "Identity scan of the git tree and all six packed tarballs: RESULT CLEAN."
+    ],
+    "publishedAt": "2026-09-15T03:15:02Z",
+    "url": "https://github.com/mcp-tool-shop-org/storyboard-os/releases/tag/v1.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "fx-dub",
+    "toolName": "FX Dub",
+    "tag": "v1.2.0",
+    "name": "v1.2.0 — the declared public API, and two defects the gates could not see",
+    "body": [
+      "The alignment core that answers *was this script actually spoken* is now an exported, documented, stable surface. Everything else in fxdub remains a console script or an internal that may move.",
+      "A line the script asked for must be spoken, a line it did not ask for must not be, and a character must be rendered by one voice, their own. Those three transfer to any pipeline that turns authored text into…",
+      "Proven against a second codebase before being declared. A dogfood swarm on an EPUB→audiobook renderer — no video, no music bed, no concurrent speakers — found 3 CRITICAL and 34 HIGH defects behind 1235 passing tests.…",
+      "dialogue_receipt is reimplemented on verify, not beside it, enforced by tests that sabotage verify and require the CLI to break with it. tests/test_dialogue_receipt.py passes unedited, which is the proof the CLI…",
+      "Zero runtime dependencies, unchanged."
+    ],
+    "publishedAt": "2026-09-14T23:08:47Z",
+    "url": "https://github.com/mcp-tool-shop-org/fx-dub/releases/tag/v1.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-jam-sessions",
+    "toolName": "AI Jam Sessions",
+    "tag": "v2.6.1",
+    "name": "v2.6.1 — train your own adapter",
+    "body": [
+      "The repo already contained a working verifier-rewarded RL loop. Nothing told anyone how to run it.",
+      "New handbook chapter: Train your own adapter. Three real commands — bridge, train, unconditioned eval — taken from the runners that actually executed, with measured costs rather than estimates: 22,946 MiB peak, ~50…",
+      "It also carries six traps, each of which cost this project something:",
+      "--seed does not control LoRA initialisation — two runs at one seed are independent draws, not replicates",
+      "One run tells you nothing: the same configuration produced +0.6 and +10.1 points"
+    ],
+    "publishedAt": "2026-09-14T21:29:17Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v2.6.1",
+    "prerelease": false
+  },
+  {
+    "repo": "ollama-intern-mcp",
+    "toolName": "Ollama Intern MCP",
+    "tag": "v2.10.0",
+    "name": "v2.10.0",
+    "body": [
+      "The cloud-honesty release. v2.9.0 shipped per-call cloud escalation and the README advertised it as \"escalate one high-stakes review to a 600B model\" — but the backend input existed on exactly one of 44 tools, and it…",
+      "Local-first is unchanged and still the default: no key means zero egress and no startup probe, embeddings never leave the box, and every new knob defaults to today's behavior.",
+      "Per-call cloud escalation on 15 tools (was 1). backend: \"cloud\" | \"local\" is now an optional input on research, summarize_deep, code_review, code_citation, corpus_answer, hypothesis_drill,…",
+      "INTERN_CLOUD_STANDBY_TIERS — a declared standby escalation policy. A comma list of instant|workhorse|deep (or none) naming which tiers escalate under standby without a per-call directive. Empty by default, so a key…",
+      "doctor --cloud-check — the first in-product proof that a cloud key works. The existing probe hits /api/tags, which returns 200 for an invalid key, so auth could only ever report \"unverified\". This runs one 8-token…"
+    ],
+    "publishedAt": "2026-09-12T00:12:26Z",
+    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.10.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade",
+    "toolName": "MCP Arcade",
+    "tag": "v0.2.0",
+    "name": "mcp-arcade 0.2.0",
+    "body": [
+      "Eight waves after the 0.1.0 floor. The sentence on the tin still holds: the oracle is the JSON-RPC wire plus the sandbox, and nothing added here grades anything else. The seat is a policy, not a judge; dataset labels…",
+      "Wave 1 — the harness survives a real server: --framing auto|ndjson|content-length, protocolVersion negotiation, --task / --args, --wrap, --timeout, server requests rejected. Decisions: docs/wave-1.md.",
+      "Wave 2 — Docker is the sandbox: --target docker, one fresh container per atom, image id pinned and drift-checked, /sandbox snapshotted from inside, no host binds by default. Decisions: docs/wave-2.md.",
+      "Wave 3 — mcp-arcade dataset: one JSONL row per atom, labels from the wire, split: proof never trains. Decisions: docs/wave-3.md.",
+      "Wave 4 — the agent seat: --agent ollama:<model>, frozen template hashed onto the receipt, model text dropped before the receipt, no-call is a utility SKIP. Decisions: docs/wave-4.md."
+    ],
+    "publishedAt": "2026-09-11T00:11:54Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade/releases/tag/v0.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade",
+    "toolName": "MCP Arcade",
+    "tag": "v0.1.0",
+    "name": "v0.1.0",
+    "body": [
+      "First public version. A brand-new repo.",
+      "Three atoms, a wire oracle, fail-closed --allow-live. Not 1.0.0."
+    ],
+    "publishedAt": "2026-09-09T18:20:14Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-jam-sessions",
+    "toolName": "AI Jam Sessions",
+    "tag": "v2.6.0",
+    "name": "v2.6.0 — the release that stops shipping what it had no licence to ship",
+    "body": [
+      "A per-file provenance audit of the song library found that of its 108 MIDI arrangements, 14 carry a licence that permits redistribution and 94 do not, and that twelve files were a different piece than their name.…",
+      "See CHANGELOG.md and docs/findings/library-provenance-audit.md."
+    ],
+    "publishedAt": "2026-09-09T08:53:03Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v2.6.0",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-camp",
+    "toolName": "XRPL Camp",
+    "tag": "v1.4.1",
+    "name": "v1.4.1",
+    "body": [],
+    "publishedAt": "2026-09-09T08:09:02Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.4.1",
+    "prerelease": false
+  },
+  {
+    "repo": "tool-compass",
+    "toolName": "Tool Compass",
+    "tag": "v2.5.2",
+    "name": "Tool Compass v2.5.2",
+    "body": [
+      "The container now warns when /app/tool_compass/db is not a mounted volume. The semantic index lives there, and building it means embedding every tool in every configured server — without a volume that work is…",
+      "The warning goes to stderr, so it cannot corrupt anything piping the container's output. publish.yml's post-publish handshake uses --entrypoint tool-compass, which overrides the entrypoint entirely and is unaffected;…",
+      "README documents running the published image directly with a volume, not only the clone-and-compose path.",
+      ".gitattributes pins LF on *.sh, the Dockerfile and the entrypoint. A shell script checked out with CRLF on Windows makes the shebang #!/bin/sh , and Linux then fails with \"no such file or directory\" naming the script…"
+    ],
+    "publishedAt": "2026-09-09T07:40:56Z",
+    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.5.2",
+    "prerelease": false
+  },
+  {
     "repo": "xrpl-camp",
     "toolName": "XRPL Camp",
     "tag": "v1.4.0",
@@ -415,304 +713,6 @@
     ],
     "publishedAt": "2026-08-27T21:27:48Z",
     "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "claude-rpg",
-    "toolName": "Claude RPG",
-    "tag": "v1.6.2",
-    "name": "claude-rpg v1.6.2",
-    "body": [],
-    "publishedAt": "2026-08-27T20:40:48Z",
-    "url": "https://github.com/mcp-tool-shop-org/claude-rpg/releases/tag/v1.6.2",
-    "prerelease": false
-  },
-  {
-    "repo": "claude-rpg",
-    "toolName": "Claude RPG",
-    "tag": "v1.6.1",
-    "name": "claude-rpg v1.6.1",
-    "body": [],
-    "publishedAt": "2026-08-27T00:32:26Z",
-    "url": "https://github.com/mcp-tool-shop-org/claude-rpg/releases/tag/v1.6.1",
-    "prerelease": false
-  },
-  {
-    "repo": "claude-rpg",
-    "toolName": "Claude RPG",
-    "tag": "v1.6.0",
-    "name": "v1.6.0 — Ten Worlds",
-    "body": [
-      "Ten worlds. One narrator. The engine keeps the truth.",
-      "v1.6 makes the ten-world roster real, gives defeat real weight, and makes the narrator resilient when the network isn't.",
-      "Ten playable worlds — Iron Colosseum (gladiator), Jade Veil (ronin), and Crimson Court (vampire) join the roster, with the chooser grouped by difficulty.",
-      "--world flag — npx @mcptoolshop/claude-rpg play --world gladiator skips the menu straight into a named world; unknown names exit with a structured error before anything interactive.",
-      "Death is a setback — falling in combat fades to a distinct death screen and gates your actions until you rise. Campaigns end deliberately through /conclude, never by one bad fight — and the death presentation fires…"
-    ],
-    "publishedAt": "2026-08-26T23:06:22Z",
-    "url": "https://github.com/mcp-tool-shop-org/claude-rpg/releases/tag/v1.6.0",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-creator-capsule",
-    "toolName": "XRPL Creator Capsule",
-    "tag": "v1.1.0",
-    "name": "v1.1.0 — hardening and humanization",
-    "body": [
-      "See CHANGELOG.md for the full 1.1.0 entry: nine-wave dogfood swarm, 102 findings dispositioned, tests 421 to 767, error boundary, universal timeouts, humanized errors, worker lifecycle, per-edition verification, and…"
-    ],
-    "publishedAt": "2026-08-26T17:36:37Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-creator-capsule/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "escape-the-valley",
-    "toolName": "Escape The Valley",
-    "tag": "v1.3.0",
-    "name": "Escape the Valley v1.3.0",
-    "body": [
-      "Four live endings. A skilled GM-off seed set hits triumphant, weathered, pyrrhic, and lost. Weathered is intact-and-late; a broken vow is a fact, not the pyrrhic knife.",
-      "Early Winter slows travel (−1 mile/day) when that twist is on the run. Bandit Year and Flood Year still boost event tags. Good Hunting and Sick Season stay tag-boosts (physics yield/chance moved the four-tier pins…",
-      "JSON river/ford events no longer fire in the desert.",
-      "Wagon breakdown damage is 8–16 (was 10–25). Starting parts are 4 (was 3). Par is 8 miles/day (was 4).",
-      "Hunt injury names who was wounded. TUI journal death lines carry the cause. Empty journal says so. CLI game-over prints the headline, a short closer, and the named fallen."
-    ],
-    "publishedAt": "2026-08-26T09:29:05Z",
-    "url": "https://github.com/mcp-tool-shop-org/escape-the-valley/releases/tag/v1.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "escape-the-valley",
-    "toolName": "Escape The Valley",
-    "tag": "v1.2.1",
-    "name": "Escape the Valley v1.2.1",
-    "body": [
-      "PyPI wheel metadata. Hatchling's SPDX license = \"MIT\" emitted Metadata-Version 2.5, which pypa/gh-action-pypi-publish v1.14.0 rejected ('2.5' is not a valid metadata version). Use core-metadata {text = \"MIT\"} so the…"
-    ],
-    "publishedAt": "2026-08-25T20:51:55Z",
-    "url": "https://github.com/mcp-tool-shop-org/escape-the-valley/releases/tag/v1.2.1",
-    "prerelease": false
-  },
-  {
-    "repo": "escape-the-valley",
-    "toolName": "Escape The Valley",
-    "tag": "v1.2.0",
-    "name": "Escape the Valley v1.2.0",
-    "body": [
-      "Classic CLI (trail new / trail play) now runs graded endings, food spoilage, escape valves, the rest/repair maintenance window, and town ledger settle — same helpers StepEngine already used. Not a merge.",
-      "Hand-authored events that advertise rope/parts/food/tools now gate or debit instead of applying an empty supplies_delta.",
-      "TUI start/HUD shows seed, doctrine, twists, taboo, and morale 0–100. c cycles pace via existing CHANGE_PACE.",
-      "trail ledger proof proves the loaded save (PASS/FAIL/INCONCLUSIVE). Named in README Commands and the handbook.",
-      "TUI Ledger ON menu R proofs this save (PASS/FAIL/INCONCLUSIVE). It does not Rest. Same proof_player_save as the CLI. Parcel R still refuses."
-    ],
-    "publishedAt": "2026-08-25T20:47:40Z",
-    "url": "https://github.com/mcp-tool-shop-org/escape-the-valley/releases/tag/v1.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-lab",
-    "toolName": "XRPL Lab",
-    "tag": "v2.5.0",
-    "name": "XRPL Lab v2.5.0",
-    "body": [
-      "Fifth dogfood re-swarm — health pass (Stages A–C) plus two feature waves on the shipped v2.4.0 surface. 1663 → 1897 tests (skipped 26 → 24), plus 17 vitest in CI. Dashboard JS coverage is no longer a laptop-only…",
-      "The dominant defect class was not missing features — it was fixes whose tests could not fail, then incomplete generalization of the fix to every call site.",
-      "Issuer reuse is no longer silent. Reuse prints a cleanup hint; remove_trust_line / verify_trust_line_removed take optional issuer=. All 14 create_issuer_wallet modules say reuse/orphan and point at account_hygiene…",
-      "xrpl-lab audit-verify calls existing verify_audit_pack (non-zero on mismatch). Support-bundle doctor icons distinguish [WARN] vs [FAIL]. cohort-status exposes all_verified.",
-      "vitest + jsdom for esc, openModal, runBadge. Artifacts panels read live proof/cert keys (completed_modules / sha256 / address), pinned in JS. CI site-test job runs npm test in site/."
-    ],
-    "publishedAt": "2026-08-25T14:59:16Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.5.0",
-    "prerelease": false
-  },
-  {
-    "repo": "fx-dub",
-    "toolName": "FX Dub",
-    "tag": "v1.1.1",
-    "name": "v1.1.1 — a retraction, and the two tests that should have caught it",
-    "body": [
-      "A correction release. The interesting part is the mistake, not the fix.",
-      "The 1.1.0 notes claimed HANDOFF.md named the wrong take as the one in the delivered mix. It did not — the handoff was right. Proven by byte-identity:",
-      "The whole run rebuilds from three storage keys, exactly.",
-      "How the error happened, because that is the part worth keeping. Diarized word timings put the line at 2.279–3.959 s (~1.68 s), and that was read as a *measurement of the clip's extent* and used to rule out a 1.415 s…",
-      "Word timings gate content. They do not establish extent. For extent, decode the file. FLAC carries an md5 of the decoded audio in STREAMINFO bytes 18–34 — free, exact, no decoder — and it is strictly better than the…"
-    ],
-    "publishedAt": "2026-08-23T11:56:09Z",
-    "url": "https://github.com/mcp-tool-shop-org/fx-dub/releases/tag/v1.1.1",
-    "prerelease": false
-  },
-  {
-    "repo": "fx-dub",
-    "toolName": "FX Dub",
-    "tag": "v1.1.0",
-    "name": "v1.1.0 — the caption check, the scene contract's eyes, and lip-sync in post",
-    "body": [
-      "fx-dub captions a frame and feeds that caption to the audio prompt. Nothing ever compared it back to the picture — so on the delivered run, a captioner wrote *\"two men standing in a city at night, facing each other\"*…",
-      "A package with zero dependencies cannot look at pixels. It does not have to: the scene contract already states who is visible.",
-      "caption:person_count_matches_cast counts the people the caption claims and compares that against the cast members marked on_frame. Deliberately shallow — it reads \"<count> <person-word>\" and nothing cleverer — and…",
-      "The delivered run now scores 19/20 and exits 1. That is a finding, not a regression.",
-      "cast entries used to be free-form notes. They still can be, but the explicit form is read:"
-    ],
-    "publishedAt": "2026-08-23T11:07:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/fx-dub/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "codecomfy-vscode",
-    "toolName": "CodeComfy VS Code",
-    "tag": "v1.4.0",
-    "name": "v1.4.0 — live progress, honest Cancel",
-    "body": [
-      "Two items that were verified against ComfyUI 0.23.0 source during the 1.3.0 cycle and deliberately left unimplemented rather than bolted on. Both are now done properly.",
-      "POST /interrupt aborts only the job that is running. The server then immediately promotes the next pending item. So if you had queued work — from CodeComfy or from the ComfyUI web UI in another tab — hitting Cancel…",
-      "Cancel now clears the queue first, then interrupts.",
-      "The order is load-bearing, not stylistic. Clearing afterwards leaves a window in which the next job has already been promoted to running, and a queue-clear cannot reach a running job — wipe_queue and…",
-      "/history is an in-memory ring, evicted by count (MAXIMUM_HISTORY_SIZE = 10000), that does not survive a server restart. Polling an id that had been evicted — or that vanished when the server bounced — timed out, and…"
-    ],
-    "publishedAt": "2026-08-23T02:33:35Z",
-    "url": "https://github.com/mcp-tool-shop-org/codecomfy-vscode/releases/tag/v1.4.0",
-    "prerelease": false
-  },
-  {
-    "repo": "codecomfy-vscode",
-    "toolName": "CodeComfy VS Code",
-    "tag": "v1.3.0",
-    "name": "v1.3.0 — the six profiles",
-    "body": [
-      "The first release since v1.1.0. It covers the v1.2.0 work as well, which was merged but never published, so everything below is new to anyone upgrading from the Marketplace build.",
-      "Two of these are corrections to defects that shipped. Both are described plainly rather than folded into a feature list.",
-      "Through v1.1.0 the hq-video preset was an SDXL text-to-image graph with EmptyLatentImage.batch_size set to the frame count, decoded to N PNGs and assembled by FFmpeg. There was no temporal model anywhere in that…",
-      "hq-video is now Wan 2.2 TI2V-5B, taken verbatim from ComfyUI's own video_wan2_2_5B_ti2v template. Wan 2.2 is Apache-2.0, so output is commercial-safe. It needs three model files, named with download links in the…",
-      "The /history response validator preserved only the images key. ComfyUI does not use a uniform key: VHS_VideoCombine reports under gifs, SaveAudioAdvanced under audio, SaveGLB under 3d, and SaveText under text + files."
-    ],
-    "publishedAt": "2026-08-23T02:15:41Z",
-    "url": "https://github.com/mcp-tool-shop-org/codecomfy-vscode/releases/tag/v1.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "motif",
-    "toolName": "Motif",
-    "tag": "v1.3.0",
-    "name": "v1.3.0 — the library release",
-    "body": [
-      "Adds the generation lane's missing half: an ingest that doesn't redo work it has already done.",
-      "Ingest already hashed every input FLAC into the record it persists, then threw the hashes away and re-decoded, re-resampled and rewrote ~86 MB per take on every run. It now reuses a matching previous ingest.",
-      "A take is reused only when its input files still hash the same, the loudness target, generation identity and resampler all match, and every master is still on disk. Anything else falls through to a full rebuild, so…",
-      "--force re-decodes everything even when the cache would hit, to prove the pipeline still reproduces its own output.",
-      "--skip-defective narrows the andon from the run to the take. A malformed artifact is still refused and never folded, but the remaining packs finish, every failure is listed, and the process exits non-zero so a run…"
-    ],
-    "publishedAt": "2026-08-22T05:17:37Z",
-    "url": "https://github.com/mcp-tool-shop-org/motif/releases/tag/v1.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "fx-dub",
-    "toolName": "FX Dub",
-    "tag": "v1.0.1",
-    "name": "v1.0.1 — the correction that keeps a working route",
-    "body": [
-      "A documentation and archive-integrity release. No behaviour change to the verifiers.",
-      "The round-11 dialog archive carried a false impossibility, unmarked.",
-      "The Comfy Cloud in-app agent answered our cloning question with *\"DEFINITIVE: No. You cannot wire LoadAudio into the ElevenLabs clone node\"* and recommended dropping voice cloning entirely.",
-      "Cloning works. Job 920dc2e0-e420-473a-9cb9-45b84b0fea65 completed, producing 48 kHz / 3.520 s of speech through exactly that path. The runtime slot is files.audio0 — not the files.item_1 the node schema advertises —…",
-      "The reply had never been archived at all; only the outbound brief had. It is now written to the record with a correction banner, paired with a verification that refutes it from measurement. Preserved rather than…"
-    ],
-    "publishedAt": "2026-08-22T05:16:09Z",
-    "url": "https://github.com/mcp-tool-shop-org/fx-dub/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "fx-dub",
-    "toolName": "FX Dub",
-    "tag": "v1.0.0",
-    "name": "v1.0.0 — verify a generated dub before anyone hears it",
-    "body": [
-      "pip install fx-dub",
-      "Your text-to-speech model returned 48 kHz stereo at exactly the right duration and a textbook −18 LUFS. It also said a line you never wrote, in a voice that isn't your character's, with a two-second hole in the middle.",
-      "None of that is visible to sample rate and duration. fx-dub gives you two receipts — one for the container, one for what was actually said — and exits non-zero when either fails.",
-      "Both failures the content receipt exists for are real, and both passed every container check before it existed.",
-      "Zero runtime dependencies, no network egress, no telemetry — and CI fails the build if the dependency list ever becomes non-empty, so the claim can't silently rot."
-    ],
-    "publishedAt": "2026-08-22T05:04:18Z",
-    "url": "https://github.com/mcp-tool-shop-org/fx-dub/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "comfy-headless",
-    "toolName": "Comfy Headless",
-    "tag": "v3.1.0",
-    "name": "v3.1.0 — the six profiles",
-    "body": [
-      "The six-profile release: Image, Video, 3D, Inference, Metadata, Audio, on a shared addressing/typing layer. Every emitted class_type verified against the live ComfyUI catalog (2026-08-21).",
-      "Full details: CHANGELOG.md",
-      "🤖 Generated with Claude Code"
-    ],
-    "publishedAt": "2026-08-21T22:26:53Z",
-    "url": "https://github.com/mcp-tool-shop-org/comfy-headless/releases/tag/v3.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "comfy-headless",
-    "toolName": "Comfy Headless",
-    "tag": "v3.0.1",
-    "name": "v3.0.1 — correctness release (first 3.x on PyPI)",
-    "body": [
-      "This is the first 3.x release to reach PyPI. v3.0.0 was tagged but its publish run failed at the build stage on a packaging defect, fixed here — see the note on that release.",
-      "comfy-headless builds ComfyUI API-format graphs and runs them. That means a node name ComfyUI has renamed or removed is a shipped bug: the graph is rejected at submit with an opaque error, and nothing warns you…",
-      "A core-only pip install comfy-headless could not be imported on Python 3.10–3.13. http_client.py annotated a method -> httpx.Response at class level; on a core install httpx is absent, so the module sets httpx = None…",
-      "Two things hid it, and both are now guarded against: the test suite runs where every extra *is* installed, and the maintainer's interpreter is Python 3.14, which defers annotation evaluation under PEP 649. A new…",
-      "init_image is now a server-side filename, not base64 data:"
-    ],
-    "publishedAt": "2026-08-21T16:27:33Z",
-    "url": "https://github.com/mcp-tool-shop-org/comfy-headless/releases/tag/v3.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "comfy-headless",
-    "toolName": "Comfy Headless",
-    "tag": "v3.0.0",
-    "name": "v3.0.0 — correctness release",
-    "body": [
-      "comfy-headless builds ComfyUI API-format graphs and runs them. That means a node name ComfyUI has renamed or removed is a shipped bug: the graph is rejected at submit with an opaque error, and nothing warns you first.",
-      "This release took that seriously. Every node type the library emits was audited against the live ComfyUI catalog. Nine no longer existed.",
-      "init_image is now a server-side filename, not base64 data. Upload first, then pass the name the server returns:",
-      "Read name back from the response — ComfyUI renames on collision.",
-      "Nine presets emit different node chains: mochi, mochi_short, hunyuan, hunyuan_fast, cogvideo, hunyuan15_720p, hunyuan15_quality, hunyuan15_fast, hunyuan15_1080p."
-    ],
-    "publishedAt": "2026-08-21T16:09:29Z",
-    "url": "https://github.com/mcp-tool-shop-org/comfy-headless/releases/tag/v3.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-eyes-mcp",
-    "toolName": "AI Eyes MCP",
-    "tag": "v1.2.0",
-    "name": "v1.2.0 — pinned weights, honest fields, relative verdicts",
-    "body": [
-      "A score is only worth something if you know what produced it, what it read, and when it should have declined. This release is about those three.",
-      "Landing page + handbook: https://mcp-tool-shop-org.github.io/ai-eyes-mcp/",
-      "The model revision is pinned to a commit SHA, passed to every load, and reported in every payload that contains a number.",
-      "Before this, the model resolved to whatever the HuggingFace default branch pointed at *at download time* — so two installs made weeks apart could return different scores for identical input, with no signal and no way…",
-      "AI_EYES_MODEL_REVISION is honoured only as a different 40-character SHA. main, a tag, or an empty string is a hard load failure, not a fallback — falling back would reintroduce exactly the ambiguity the pin removes."
-    ],
-    "publishedAt": "2026-08-20T21:42:38Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-eyes-mcp/releases/tag/v1.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "plain-sight",
-    "toolName": "Plain Sight",
-    "tag": "v1.1.0",
-    "name": "v1.1.0 — the dataset lane can no longer mislabel silently",
-    "body": [
-      "Dogfood swarm: health pass (bugs, proactive, humanization) plus a pre-Phase-9 wave. 39 tests → 88. Two CRITICALs closed, both of the same shape — output a downstream consumer would trust, wrong, with no signal.",
-      "Sidecar collisions are refused, not merged. Sidecar paths derived from the image stem alone, so img.png and img.jpg in one folder both claimed img.txt. The second was reported as skip (exists) and the run exited 0 —…",
-      "OCR can no longer present invented text as extracted text. Florence-2 emits a decoded string for every image, including images with no text — a photograph returns '2', lexically indistinguishable from a correct…",
-      "Sidecar writes are atomic — temp file plus os.replace, so an interrupt cannot leave a partial caption at the final path. An existing but empty sidecar is treated as unfinished and re-captioned.",
-      "A mid-batch failure no longer aborts the run. The batch loop caught only FileNotFoundError/ValueError, so a CUDA OOM killed the job and swallowed the JSON summary. It now records the failure and continues; exit 3 on…"
-    ],
-    "publishedAt": "2026-08-20T20:25:46Z",
-    "url": "https://github.com/mcp-tool-shop-org/plain-sight/releases/tag/v1.1.0",
     "prerelease": false
   }
 ]

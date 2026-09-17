@@ -1,7 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import projects from '../../data/projects.json';
-import { kindLabel, laneLabel, ecosystemOf, shortDate, catalogTools, isDefaultTool } from '../../lib/labels';
+import ecosystem from '../../data/ecosystem.json';
+import { kindLabel, laneLabel, areaLabel, ecosystemOf, shortDate, catalogTools, isDefaultTool } from '../../lib/labels';
 
 // Registry entries whose repository no longer exists carry no GitHub data.
 // They are catalog ghosts, not tools, so they are not rendered at all.
@@ -17,6 +18,8 @@ const languages = [...new Set(catalog.map((p: any) => p.language).filter(Boolean
 const kinds = [...new Set(catalog.map((p: any) => p.kind).filter(Boolean))].sort();
 const ecosystems = [...new Set(catalog.map((p: any) => ecosystemOf(p.install)).filter(Boolean))].sort();
 const stabilities = ['stable', 'beta', 'experimental'];
+const areas = ((ecosystem as any).areas || []) as { id: string; title: string }[];
+const SPEC_URL = 'https://github.com/mcp-tool-shop-org/.github/blob/main/docs/ECOSYSTEM.md';
 ---
 
 <Base
@@ -29,7 +32,9 @@ const stabilities = ['stable', 'beta', 'experimental'];
     <p>
       {defaultCount} tools and libraries from the
       <a href="https://github.com/mcp-tool-shop-org" rel="noopener">mcp-tool-shop-org</a>
-      organization. Install commands are shown wherever a package is published to npm or PyPI.
+      organization. Install commands are shown only for packages this organization owns.
+      Classification lives in the
+      <a href={SPEC_URL} rel="noopener">ecosystem specification</a>.
       Everything is open source under the MIT License.
     </p>
   </div>
@@ -47,6 +52,10 @@ const stabilities = ['stable', 'beta', 'experimental'];
       <button id="search-clear" class="search-clear" aria-label="Clear search" hidden>&times;</button>
     </div>
     <div class="filter-group">
+      <select id="filter-area" class="filter-select" aria-label="Area">
+        <option value="">Any area</option>
+        {areas.map((a) => <option value={a.id}>{a.title}</option>)}
+      </select>
       <select id="filter-lane" class="filter-select" aria-label="Status">
         <option value="">Shipped and in development</option>
         <option value="shipped">Shipped only</option>
@@ -91,6 +100,7 @@ const stabilities = ['stable', 'beta', 'experimental'];
         data-kind={project.kind || ''}
         data-stability={project.stability || ''}
         data-lane={project.deprecated ? 'archived' : (project.lane || (project.registered ? 'shipped' : 'unlaned'))}
+        data-area={project.area || ''}
         data-eco={ecosystemOf(project.install)}
         data-featured={project.featured ? '1' : '0'}
         data-stars={project.stars || 0}
@@ -115,6 +125,7 @@ const stabilities = ['stable', 'beta', 'experimental'];
         {project.install && <code class="install-line">{project.install}</code>}
         <div class="card-meta">
           {kindLabel(project.kind) && <span class="meta-item">{kindLabel(project.kind)}</span>}
+          {project.area && <span class="meta-item">{areaLabel(project.area)}</span>}
           {project.language && <span class="meta-item">{project.language}</span>}
           {project.updatedAt && <span class="meta-item">Updated {shortDate(project.updatedAt)}</span>}
         </div>
@@ -319,6 +330,7 @@ const stabilities = ['stable', 'beta', 'experimental'];
   const cards = Array.from(grid.querySelectorAll('.project-card')) as HTMLElement[];
   const search = document.getElementById('search') as HTMLInputElement;
   const clearBtn = document.getElementById('search-clear') as HTMLButtonElement;
+  const areaFilter = document.getElementById('filter-area') as HTMLSelectElement;
   const laneFilter = document.getElementById('filter-lane') as HTMLSelectElement;
   const ecoFilter = document.getElementById('filter-eco') as HTMLSelectElement;
   const langFilter = document.getElementById('filter-lang') as HTMLSelectElement;
@@ -340,6 +352,7 @@ const stabilities = ['stable', 'beta', 'experimental'];
 
   function applyFilters() {
     const q = search.value.toLowerCase().trim();
+    const area = areaFilter.value;
     const lane = laneFilter.value;
     const eco = ecoFilter.value;
     const lang = langFilter.value;
@@ -357,6 +370,7 @@ const stabilities = ['stable', 'beta', 'experimental'];
         d.repo!.includes(q) ||
         d.tags!.includes(q);
       const show = matchSearch &&
+        (!area || d.area === area) &&
         laneMatches(d.lane || '', lane, Boolean(q)) &&
         (!eco || d.eco === eco) &&
         (!lang || d.lang === lang) &&
@@ -401,8 +415,14 @@ const stabilities = ['stable', 'beta', 'experimental'];
 
   search.addEventListener('input', applyFilters);
   clearBtn.addEventListener('click', () => { search.value = ''; applyFilters(); search.focus(); });
-  for (const el of [laneFilter, ecoFilter, langFilter, kindFilter, stabilityFilter, sortBy]) {
+  for (const el of [areaFilter, laneFilter, ecoFilter, langFilter, kindFilter, stabilityFilter, sortBy]) {
     el.addEventListener('change', applyFilters);
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const areaParam = params.get('area');
+  if (areaParam && [...areaFilter.options].some((o) => o.value === areaParam)) {
+    areaFilter.value = areaParam;
   }
 
   document.addEventListener('keydown', (e) => {

@@ -13,7 +13,7 @@
     ]
   },
   {
-    "id": "training-datasets",
+    "id": "training-and-datasets",
     "title": "Training and datasets",
     "description": "Headless fine-tuning, canon-bound visual datasets, contamination checks, and training-step verification.",
     "repos": [
@@ -25,7 +25,7 @@
     ]
   },
   {
-    "id": "media-pipelines",
+    "id": "image-and-media-pipelines",
     "title": "Image and media pipelines",
     "description": "Programmatic ComfyUI, pre-submission gates, sprite generation, GLB-driven video, and audiobooks.",
     "repos": [
@@ -63,7 +63,7 @@
     ]
   },
   {
-    "id": "games",
+    "id": "games-and-game-tooling",
     "title": "Games and game tooling",
     "description": "Deterministic RPG simulation, world authoring, adaptive soundtracks, and playable titles.",
     "repos": [
@@ -76,7 +76,7 @@
     ]
   },
   {
-    "id": "ledger-verification",
+    "id": "ledger-and-verification",
     "title": "Ledger and verification",
     "description": "Financial truth infrastructure, XRPL training, creator release systems, and repo-network verification.",
     "repos": [
