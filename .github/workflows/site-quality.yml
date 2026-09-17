@@ -205,7 +205,12 @@ jobs:
               if (href.startsWith('/#') || href.startsWith('/_astro/')) continue;
 
               // Normalize: /tools/ → /tools/index.html
-              let target = href;
+              // A query string or fragment never changes which file serves the
+              // URL: /tools/?area=mcp-servers is served by /tools/index.html and
+              // filtered client-side. Strip both before resolving to a path, or
+              // every filter link reads as broken.
+              let target = href.split('#')[0].split('?')[0];
+              if (!target) continue;
               if (target.endsWith('/')) target += 'index.html';
               if (!path.extname(target)) target += '/index.html';
 
