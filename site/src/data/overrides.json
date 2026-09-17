@@ -27,6 +27,7 @@
     "category": "devtools",
     "stability": "stable",
     "kind": "library",
+    "install": "pip install accessibility-suite",
     "tagline": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance...",
     "screenshot": "/screenshots/accessibility-suite.png",
     "screenshotType": "placeholder",
@@ -53,6 +54,22 @@
     "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
+  },
+  "ai-playtest": {
+    "tags": [
+      "cli",
+      "games",
+      "llm",
+      "openrouter",
+      "playtest",
+      "typescript"
+    ],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "npx ai-playtest",
+    "tagline": "Family-diverse AI playtesting for turn-based games: model players, an author-off jury,...",
+    "needsHumanReview": true
   },
   "ai-rpg-engine": {
     "tags": [
@@ -218,6 +235,8 @@
     "notFor": [
       "Casual chatbot RPGs — this is a full simulation engine, not a prompt wrapper"
     ],
+    "screenshot": "/screenshots/claude-rpg.png",
+    "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
   },
@@ -331,8 +350,20 @@
     "lane": "shipped"
   },
   "fx-dub": {
+    "tags": [
+      "audio",
+      "audiobook",
+      "comfyui",
+      "diarization",
+      "dubbing",
+      "ebu-r128"
+    ],
+    "category": "voice",
+    "stability": "stable",
     "kind": "cli",
     "install": "pip install fx-dub",
+    "tagline": "Verify a generated dub before anyone hears it — container receipts and spoken-content...",
+    "needsHumanReview": true,
     "lane": "shipped"
   },
   "glyphstudio": {
@@ -378,6 +409,48 @@
     "screenshotType": "placeholder",
     "needsHumanReview": true,
     "lane": "shipped"
+  },
+  "mcp-arcade": {
+    "tags": [
+      "adversarial-testing",
+      "gameday",
+      "mcp",
+      "model-context-protocol",
+      "python",
+      "security"
+    ],
+    "category": "security",
+    "stability": "beta",
+    "kind": "mcp-server",
+    "install": "pip install mcp-arcade",
+    "tagline": "GameDay testing for MCP servers. The oracle is the wire, not the scoreboard.",
+    "needsHumanReview": true
+  },
+  "mcp-arcade-cabinets": {
+    "tags": [
+      "arcade",
+      "game",
+      "mcp",
+      "model-context-protocol",
+      "pnpm",
+      "replay"
+    ],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "mcp-server",
+    "install": "npx mcp-arcade-cabinets",
+    "tagline": "Ghost on the Menu: an arcade shooter that replays what your MCP server said on the wire.",
+    "needsHumanReview": true
+  },
+  "mcp-registry": {
+    "tags": [
+      "mcp"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "mcp-server",
+    "tagline": "Official Docker MCP registry.",
+    "needsHumanReview": true
   },
   "mcp-stress-test": {
     "tags": [
@@ -426,6 +499,7 @@
     "category": "voice",
     "stability": "stable",
     "kind": "library",
+    "install": "npm install motif",
     "tagline": "Adaptive soundtrack studio for composing, arranging, scoring, and exporting interactive...",
     "screenshot": "/screenshots/motif.png",
     "screenshotType": "placeholder",
@@ -561,6 +635,13 @@
   "prototypes": {
     "lane": "seed_vault",
     "surfaceEligible": false
+  },
+  "readouts": {
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Ten verified, ai-loadout-routed SQLite knowledge bases — 1,771 entries with per-wave...",
+    "needsHumanReview": true
   },
   "record-index": {
     "kind": "cli",
@@ -702,10 +783,22 @@
     "lane": "shipped"
   },
   "role-os": {
+    "tags": [
+      "agents",
+      "ai-workflow",
+      "code-review",
+      "coding-agents",
+      "contracts",
+      "developer-tools"
+    ],
+    "category": "devtools",
+    "stability": "stable",
+    "kind": "library",
     "install": "npm install -g role-os",
     "tagline": "Multi-Claude orchestration: 61 roles, team packs, missions, and structured evidence.",
     "screenshot": "/screenshots/role-os.png",
     "screenshotType": "placeholder",
+    "needsHumanReview": true,
     "lane": "shipped",
     "surfaceEligible": true
   },

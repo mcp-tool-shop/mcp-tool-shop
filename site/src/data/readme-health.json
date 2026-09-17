@@ -1,44 +1,16 @@
 {
   "meta": {
-    "generatedAt": "2026-09-09T00:07:00.746Z",
-    "runId": "5c60343c-8d54-4155-a619-1bcfc1d93dda",
+    "generatedAt": "2026-09-17T13:11:38.082Z",
+    "runId": "0d31eec9-51d9-46e3-b212-0765635c8492",
     "version": "2.0",
-    "checkedCount": 10,
+    "checkedCount": 9,
     "strategy": {
       "recentDays": 7,
       "sampleSize": 10,
-      "seed": "2026-09-09"
+      "seed": "2026-09-17"
     }
   },
   "results": [
-    {
-      "repo": "CreatorLedger",
-      "score": 0,
-      "checkStatus": "missing_readme",
-      "capReason": "no_readme",
-      "missing": [
-        "README file"
-      ],
-      "evidence": {
-        "hasReadme": false
-      },
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
-    },
-    {
-      "repo": "ClaimLedger",
-      "score": 0,
-      "checkStatus": "missing_readme",
-      "capReason": "no_readme",
-      "missing": [
-        "README file"
-      ],
-      "evidence": {
-        "hasReadme": false
-      },
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
-    },
     {
       "repo": "audiobooker",
       "score": 90,
@@ -54,11 +26,11 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
+      "checkedAt": "2026-09-17T13:11:38.082Z",
+      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
     },
     {
-      "repo": "codecomfy-vscode",
+      "repo": "xrpl-camp",
       "score": 90,
       "status": "great",
       "capReason": null,
@@ -72,8 +44,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
+      "checkedAt": "2026-09-17T13:11:38.082Z",
+      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
     },
     {
       "repo": "mcp-stress-test",
@@ -90,8 +62,26 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
+      "checkedAt": "2026-09-17T13:11:38.082Z",
+      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
+    },
+    {
+      "repo": "codecomfy-vscode",
+      "score": 90,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": false,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-09-17T13:11:38.082Z",
+      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
     },
     {
       "repo": "comfy-headless",
@@ -108,8 +98,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
+      "checkedAt": "2026-09-17T13:11:38.082Z",
+      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
     },
     {
       "repo": "backpropagate",
@@ -126,8 +116,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
+      "checkedAt": "2026-09-17T13:11:38.082Z",
+      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
     },
     {
       "repo": "tool-compass",
@@ -144,26 +134,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
-    },
-    {
-      "repo": "accessibility-suite",
-      "score": 100,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": true,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
+      "checkedAt": "2026-09-17T13:11:38.082Z",
+      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
     },
     {
       "repo": "synthesis",
@@ -180,8 +152,26 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-09T00:07:00.746Z",
-      "lastCheckedAt": "2026-09-09T00:07:00.746Z"
+      "checkedAt": "2026-09-17T13:11:38.082Z",
+      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
+    },
+    {
+      "repo": "accessibility-suite",
+      "score": 100,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": true,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-09-17T13:11:38.082Z",
+      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
     }
   ]
 }
