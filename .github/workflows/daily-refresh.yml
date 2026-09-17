@@ -66,6 +66,9 @@ jobs:
         continue-on-error: true
 
       # ── Quality Gate ──────────────────────────────────────────
+      - name: Validate overrides.json
+        run: node scripts/validate-overrides.mjs
+
       - name: Readiness check
         run: npm run readiness
 

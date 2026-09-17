@@ -7,6 +7,7 @@
     "fetch:ecosystem": "node scripts/fetch-ecosystem.mjs",
     "sync": "node scripts/sync-org-metadata.mjs",
     "apply:ecosystem": "node scripts/apply-ecosystem.mjs",
+    "validate:overrides": "node scripts/validate-overrides.mjs",
     "enrich": "node scripts/draft-overrides.mjs",
     "placeholders": "node scripts/gen-placeholders.mjs",
     "suggest": "node scripts/suggest-collections.mjs",

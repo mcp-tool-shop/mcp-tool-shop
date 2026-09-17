@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+
+- Tool detail pages show a catalog-verified install command even when the tool is
+  not in the MCP registry. Registry membership was proxying "do we own this
+  package"; the catalog now answers that directly. 55 pages can render the command,
+  not 7.
+- Daily Refresh now runs the overrides schema validator before it commits to
+  `main`, so a seventh tag cannot sit on the front door until an unrelated PR
+  notices.
+
 ### Added
 
 - The site consumes the org [ecosystem catalog](https://github.com/mcp-tool-shop-org/.github/blob/main/docs/catalog.yaml)

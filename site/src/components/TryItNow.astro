@@ -1,4 +1,6 @@
 ---
+import { shouldShowInstall } from '../../../scripts/lib/try-now.mjs';
+
 interface Props {
   project: any;
   verified: boolean;
@@ -6,16 +8,16 @@ interface Props {
   proofs: string[];
 }
 
-const { project, verified, concept, proofs = [] } = Astro.props;
-const isCLI = project.kind === 'cli';
+const { project, concept, proofs = [] } = Astro.props;
+
 const isMCPServer = project.kind === 'mcp-server';
 const installCmd = project.install;
 const repoUrl = `https://github.com/mcp-tool-shop-org/${project.repo}`;
 
-// Determine context
-const showInstall = verified && (isCLI || isMCPServer) && installCmd;
-const showManual = verified && isMCPServer && !installCmd;
-const showConcept = concept;
+// Catalog overlay is the trust signal: install exists only if we own the package.
+const showInstall = shouldShowInstall(project);
+const showManual = isMCPServer && !installCmd;
+const showConcept = concept && !installCmd;
 
 ---
 
