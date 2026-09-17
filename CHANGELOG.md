@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Added
+
+- The site consumes the org [ecosystem catalog](https://github.com/mcp-tool-shop-org/.github/blob/main/docs/catalog.yaml)
+  (`site/src/data/ecosystem.json`). Area, lane, and install commands are applied from that file;
+  guessed install commands for packages this organization does not own are stripped.
+- Homepage "Start here" paths and `/start/` now follow the five contributor paths in the spec.
+- Tools catalog can filter by area (`/tools/?area=mcp-servers`). Area counts on the homepage
+  come from the catalog, not the showcase list.
+- Start is in the primary navigation.
+
+### Changed
+
+- Homepage proof point is classified repositories (83), not a raw public-repo count that
+  included org config and an upstream fork.
+- "How we ship" points at the ecosystem specification instead of the Trust Center.
+- README featured tools and stack match the live catalog. Dead names (File Compass, Brain-Dev,
+  Soundboard Plugin) and the weekly-spotlight header link are gone.
+
 ## [1.1.0] - 2026-09-08
 
 ### Changed

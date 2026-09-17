@@ -13,6 +13,7 @@
 | `site/src/data/projects.json` | **Generated** | `scripts/sync-org-metadata.mjs` via Sync workflow |
 | `site/src/data/org-stats.json` | **Generated** | same sync script |
 | `site/src/data/releases.json` | **Generated** | same sync script |
+| `site/src/data/ecosystem.json` | **Generated** | `scripts/fetch-ecosystem.mjs` from `mcp-tool-shop-org/.github` `docs/catalog.yaml`. Canonical for area, lane, and install. |
 | `site/src/data/overrides.json` | **Human-curated** | Hand-edited; automation may append drafts |
 | `site/src/data/collections.json` | **Human-curated** | Hand-edited only |
 | `site/src/data/automation.ignore.json` | **Human-curated** | Hand-edited only |
@@ -26,6 +27,14 @@
 | `site/src/data/promo-queue.json` | **Human-curated** | Weekly promotion queue — slugs + channels + type |
 | `site/src/data/worthy.json` | **Human-curated** | Repo worthiness rubric — criteria, scores, assessment |
 | `site/src/data/recommendation-patch.json` | **Generated** | `scripts/gen-recommendation-patch.mjs` — audit artifact for recommendation patches |
+
+### Install-command authority
+
+`ecosystem.json` wins over `overrides.json` for `install`, `lane`, and `area`.
+An override may still propose an install (with `needsHumanReview: true`), but
+sync will not publish it unless the catalog lists that command as owned by this
+organization. Catalog `install: null` clears a guessed command. That is how
+`npm install motif` (justinvdm/motif) is kept off the site.
 
 ### Draft override rule
 

@@ -26,7 +26,7 @@ function loadJson(relPath) {
 }
 
 // Load all data files once
-let projects, overrides, collections, orgStats, links, releases, promo, promoQueue, worthy, baseline, partners, feedbackSummary, experiments, governance, promoDecisions, experimentDecisions;
+let projects, overrides, collections, orgStats, links, releases, promo, promoQueue, worthy, baseline, partners, feedbackSummary, experiments, governance, promoDecisions, experimentDecisions, ecosystem;
 
 before(() => {
   projects = loadJson("projects.json");
@@ -45,6 +45,7 @@ before(() => {
   governance = loadJson("governance.json");
   promoDecisions = loadJson("promo-decisions.json");
   experimentDecisions = loadJson("experiment-decisions.json");
+  ecosystem = loadJson("ecosystem.json");
 });
 
 describe("projects.json", () => {
@@ -125,6 +126,56 @@ describe("collections.json", () => {
     const ids = collections.map((c) => c.id);
     const dupes = ids.filter((id, i) => ids.indexOf(id) !== i);
     assert.equal(dupes.length, 0, `duplicate collection IDs: ${dupes.join(", ")}`);
+  });
+
+  it("collection ids match ecosystem catalog areas", () => {
+    const areaIds = new Set((ecosystem?.areas || []).map((a) => a.id));
+    const unknown = collections.map((c) => c.id).filter((id) => !areaIds.has(id));
+    assert.equal(unknown.length, 0, `collection ids not in catalog: ${unknown.join(", ")}`);
+  });
+});
+
+describe("ecosystem.json", () => {
+  it("classifies a non-empty public catalog", () => {
+    assert.ok(ecosystem, "ecosystem.json must exist");
+    assert.ok(Array.isArray(ecosystem.repos) && ecosystem.repos.length > 0);
+    assert.equal(ecosystem.repos.length, ecosystem.counts.catalogued);
+    assert.equal(ecosystem.areas.length, 7);
+    assert.equal(ecosystem.paths.length, 5);
+  });
+
+  it("never publishes an install command the catalog does not own", () => {
+    const byName = new Map(ecosystem.repos.map((r) => [r.name, r]));
+    const violations = [];
+    for (const p of projects) {
+      const entry = byName.get(p.repo);
+      if (!entry) continue;
+      if (entry.install) {
+        if (p.install !== entry.install) {
+          violations.push(`${p.repo}: site "${p.install}" != catalog "${entry.install}"`);
+        }
+      } else if (p.install) {
+        violations.push(`${p.repo}: site has "${p.install}" but catalog install is null`);
+      }
+    }
+    assert.equal(violations.length, 0, violations.join("\n"));
+  });
+
+  it("does not name stranger packages as install commands", () => {
+    const forbidden = [
+      /^npm install motif$/,
+      /^npm install roll$/,
+      /^npm install shipcheck$/,
+      /^npm install npm-launcher$/,
+    ];
+    const hits = [];
+    for (const p of projects) {
+      if (!p.install) continue;
+      if (forbidden.some((re) => re.test(p.install.trim()))) {
+        hits.push(`${p.repo}: ${p.install}`);
+      }
+    }
+    assert.equal(hits.length, 0, hits.join(", "));
   });
 });
 
@@ -1095,36 +1146,21 @@ describe("kit.config.json", () => {
 });
 
 describe("start.astro curated stacks", () => {
-  // The page filters its stacks against projects.json at build time, so a
-  // recommendation for a deleted repo renders nothing rather than erroring.
-  // That silence let the list decay to eight dead repos and emptied one whole
-  // stack before anyone noticed, so assert the references here instead.
-  const startPage = path.resolve(__dirname, "../../site/src/pages/start.astro");
-
+  // Paths come from ecosystem.json, not a hardcoded list in the page.
   it("every recommended repo exists in projects.json", () => {
-    const src = fs.readFileSync(startPage, "utf8");
-    const header = src.slice(0, src.indexOf("---", 3));
-    const repos = [...header.matchAll(/repo:\s*"([^"]+)"/g)].map((m) => m[1]);
-    assert.ok(repos.length > 0, "should find recommended repos in start.astro");
-
-    const projects = loadJson("projects.json") ?? [];
-    const known = new Set(projects.map((p) => p.repo));
+    const repos = (ecosystem?.paths || []).flatMap((p) => p.starters || []);
+    assert.ok(repos.length > 0, "catalog should name path starters");
+    const known = new Set((projects ?? []).map((p) => p.repo));
     const dead = [...new Set(repos)].filter((r) => !known.has(r));
-    assert.deepEqual(dead, [], `start.astro recommends repos with no project: ${dead.join(", ")}`);
+    assert.deepEqual(dead, [], `path starters with no project: ${dead.join(", ")}`);
   });
 
-  it("no stack is left empty once dead repos are filtered", () => {
-    const src = fs.readFileSync(startPage, "utf8");
-    const projects = loadJson("projects.json") ?? [];
-    const known = new Set(projects.map((p) => p.repo));
-    const empties = [...src.matchAll(/question:\s*"([^"]+)",\s*tools:\s*\[([\s\S]*?)\]/g)]
-      .map(([, question, body]) => ({
-        question,
-        live: [...body.matchAll(/repo:\s*"([^"]+)"/g)].filter((m) => known.has(m[1])).length,
-      }))
-      .filter((s) => s.live === 0)
-      .map((s) => s.question);
-    assert.deepEqual(empties, [], `stacks that would render empty: ${empties.join(" | ")}`);
+  it("no path is left empty once missing repos are filtered", () => {
+    const known = new Set((projects ?? []).map((p) => p.repo));
+    const empties = (ecosystem?.paths || [])
+      .filter((p) => !(p.starters || []).some((r) => known.has(r)))
+      .map((p) => p.id);
+    assert.deepEqual(empties, [], `paths that would render empty: ${empties.join(" | ")}`);
   });
 });
 

@@ -7,6 +7,7 @@
  *   1. Registry  — canonical tool list + curated names/descriptions
  *   2. GitHub    — live signals (stars, language, updatedAt)
  *   3. Overrides — editorial polish (tagline, goodFor, screenshots)
+ *   4. Ecosystem catalog — area, lane, verified install (wins over guessed installs)
  *
  * Outputs:
  *   projects.json   — all tools + org repos, merged
@@ -16,6 +17,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { applyEcosystem, loadEcosystem } from "./lib/ecosystem.mjs";
 
 const ORG = process.env.ORG || "mcp-tool-shop-org";
 const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
@@ -489,6 +491,17 @@ async function main() {
   }
 
   const sorted = stableSort(projects);
+
+  try {
+    const ecosystem = loadEcosystem(DATA_DIR);
+    const report = applyEcosystem(sorted, ecosystem);
+    console.log(
+      `Ecosystem catalog: ${report.applied}/${report.catalogued} classified, ` +
+        `${report.installsSet} installs set, ${report.installsCleared} stranger/guessed installs cleared`
+    );
+  } catch (err) {
+    console.log(`Ecosystem catalog not applied: ${err.message}`);
+  }
 
   // Summary counts
   const registeredCount = sorted.filter((p) => p.registered).length;

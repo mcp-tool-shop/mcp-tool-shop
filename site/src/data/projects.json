@@ -31,7 +31,13 @@
     "screenshot": "/screenshots/comfy-headless.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "image-and-media-pipelines",
+    "catalogLane": "shipped",
+    "package": {
+      "pypi": "comfy-headless"
+    },
+    "catalogued": true
   },
   {
     "name": "Backpropagate",
@@ -52,12 +58,19 @@
     "category": "ml",
     "stability": "beta",
     "kind": "library",
-    "install": "pip install backpropagate",
+    "install": "npx @mcptoolshop/backpropagate",
     "tagline": "Headless LLM fine-tuning in three lines, with VRAM-aware defaults and GGUF export.",
     "screenshot": "/screenshots/backpropagate.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "training-and-datasets",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/backpropagate",
+      "pypi": "backpropagate"
+    },
+    "catalogued": true
   },
   {
     "name": "Ollama Intern MCP",
@@ -85,7 +98,13 @@
     "tagline": "Delegate bulk analysis from Claude Code to a local Ollama model. 42 job-shaped tools.",
     "screenshot": "/screenshots/ollama-intern-mcp.png",
     "screenshotType": "placeholder",
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "mcp-servers",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "ollama-intern-mcp"
+    },
+    "catalogued": true
   },
   {
     "name": "Tool Compass",
@@ -121,7 +140,14 @@
     "smithery": "https://smithery.ai/servers/mcp-tool-shop/tool-compass",
     "flyio": "https://tool-compass-gateway.fly.dev",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "mcp-servers",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/tool-compass",
+      "pypi": "tool-compass"
+    },
+    "catalogued": true
   },
   {
     "name": "MCP Voice Soundboard",
@@ -148,8 +174,17 @@
     "screenshotType": "placeholder",
     "smithery": "https://smithery.ai/servers/mcp-tool-shop/voice-soundboard",
     "flyio": "https://voice-soundboard-mcp.fly.dev",
-    "lane": "shipped",
-    "surfaceEligible": true
+    "lane": "active_lab",
+    "surfaceEligible": true,
+    "area": "mcp-servers",
+    "also": [
+      "image-and-media-pipelines"
+    ],
+    "catalogLane": "in-development",
+    "package": {
+      "pypi": "voice-soundboard"
+    },
+    "catalogued": true
   },
   {
     "name": "Shipcheck",
@@ -173,12 +208,18 @@
     "category": "devtools",
     "stability": "stable",
     "kind": "cli",
-    "install": "npx @mcptoolshop/shipcheck audit",
+    "install": "npx @mcptoolshop/shipcheck",
     "tagline": "Release quality gate: Ship Gate checklist, error contract, templates, and audit.",
     "screenshot": "/screenshots/shipcheck.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "developer-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/shipcheck"
+    },
+    "catalogued": true
   },
   {
     "name": "AI RPG Engine",
@@ -206,7 +247,10 @@
     "screenshot": "/screenshots/ai-rpg-engine.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": false
+    "surfaceEligible": false,
+    "area": "games-and-game-tooling",
+    "catalogLane": "shipped",
+    "catalogued": true
   },
   {
     "name": "World Forge",
@@ -233,8 +277,11 @@
     "tagline": "2D world authoring studio for AI RPG Engine.",
     "screenshot": "/screenshots/world-forge.png",
     "screenshotType": "placeholder",
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "games-and-game-tooling",
+    "catalogLane": "shipped",
+    "catalogued": true
   },
   {
     "name": "AI Jam Sessions",
@@ -258,7 +305,16 @@
     "screenshot": "/screenshots/ai-jam-sessions.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "image-and-media-pipelines",
+    "also": [
+      "mcp-servers"
+    ],
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/ai-jam-sessions"
+    },
+    "catalogued": true
   },
   {
     "name": "Armature",
@@ -287,7 +343,13 @@
     "screenshot": "/screenshots/armature.png",
     "screenshotType": "placeholder",
     "needsHumanReview": true,
-    "lane": "shipped"
+    "lane": "active_lab",
+    "area": "image-and-media-pipelines",
+    "catalogLane": "in-development",
+    "package": {
+      "pypi": "armature-studio"
+    },
+    "catalogued": true
   },
   {
     "name": "Audiobooker",
@@ -313,7 +375,14 @@
     "screenshot": "/screenshots/audiobooker.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "image-and-media-pipelines",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/audiobooker",
+      "pypi": "audiobooker-ai"
+    },
+    "catalogued": true
   },
   {
     "name": "Claude RPG",
@@ -350,7 +419,13 @@
     "screenshot": "/screenshots/claude-rpg.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "games-and-game-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/claude-rpg"
+    },
+    "catalogued": true
   },
   {
     "name": "CodeComfy VS Code",
@@ -376,7 +451,13 @@
     "screenshot": "/screenshots/codecomfy-vscode.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "image-and-media-pipelines",
+    "also": [
+      "developer-tooling"
+    ],
+    "catalogLane": "shipped",
+    "catalogued": true
   },
   {
     "name": "Research OS",
@@ -400,11 +481,17 @@
     "category": "mcp-core",
     "stability": "beta",
     "kind": "library",
-    "install": "npm install -g @mcptoolshop/research-os",
+    "install": "npx @mcptoolshop/research-os",
     "tagline": "Local-first research control plane for gated source packs, claim truth, contradiction…",
     "screenshot": "/screenshots/research-os.png",
     "screenshotType": "placeholder",
-    "lane": "shipped"
+    "lane": "active_lab",
+    "area": "agent-infrastructure",
+    "catalogLane": "in-development",
+    "package": {
+      "npm": "@mcptoolshop/research-os"
+    },
+    "catalogued": true
   },
   {
     "name": "Site Theme",
@@ -427,8 +514,14 @@
     "tagline": "Shared Astro theme for MCP Tool Shop org repo landing pages.",
     "screenshot": "/screenshots/site-theme.png",
     "screenshotType": "placeholder",
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "developer-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/site-theme"
+    },
+    "catalogued": true
   },
   {
     "name": "Accessibility Suite",
@@ -451,13 +544,15 @@
     "category": "devtools",
     "stability": "stable",
     "kind": "library",
-    "install": "pip install accessibility-suite",
     "tagline": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance...",
     "screenshot": "/screenshots/accessibility-suite.png",
     "screenshotType": "placeholder",
     "needsHumanReview": true,
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "developer-tooling",
+    "catalogLane": "shipped",
+    "catalogued": true
   },
   {
     "name": "Attestia",
@@ -478,12 +573,18 @@
     "category": "infrastructure",
     "stability": "beta",
     "kind": "library",
-    "install": "npm install @mcptoolshop/attestia",
+    "install": "npx @mcptoolshop/attestia",
     "tagline": "Financial truth infrastructure for decentralized systems.",
     "screenshot": "/screenshots/attestia.png",
     "screenshotType": "placeholder",
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "ledger-and-verification",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/attestia"
+    },
+    "catalogued": true
   },
   {
     "name": "Bytefit",
@@ -509,7 +610,13 @@
     "deprecated": false,
     "kind": "cli",
     "install": "npx @mcptoolshop/bytefit",
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "training-and-datasets",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/bytefit"
+    },
+    "catalogued": true
   },
   {
     "name": "LeaseGate Lite",
@@ -536,8 +643,11 @@
     "tagline": "A one-tab MAUI control surface and local daemon for throttling AI workloads on Windows …",
     "screenshot": "/screenshots/LeaseGate-Lite.png",
     "screenshotType": "placeholder",
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "developer-tooling",
+    "catalogLane": "shipped",
+    "catalogued": true
   },
   {
     "name": "MCP Stress Test",
@@ -562,8 +672,14 @@
     "tagline": "Red team toolkit for MCP security scanners.",
     "screenshot": "/screenshots/mcp-stress-test.png",
     "screenshotType": "placeholder",
-    "lane": "shipped",
-    "surfaceEligible": true
+    "lane": "active_lab",
+    "surfaceEligible": true,
+    "area": "mcp-servers",
+    "catalogLane": "in-development",
+    "package": {
+      "pypi": "mcp-stress-test"
+    },
+    "catalogued": true
   },
   {
     "name": "Motif",
@@ -587,13 +703,15 @@
     "category": "voice",
     "stability": "stable",
     "kind": "library",
-    "install": "npm install motif",
     "tagline": "Adaptive soundtrack studio for composing, arranging, scoring, and exporting interactive...",
     "screenshot": "/screenshots/motif.png",
     "screenshotType": "placeholder",
     "needsHumanReview": true,
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "games-and-game-tooling",
+    "catalogLane": "shipped",
+    "catalogued": true
   },
   {
     "name": "Saints Mile",
@@ -622,7 +740,13 @@
     "screenshot": "/screenshots/saints-mile.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "games-and-game-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/saints-mile"
+    },
+    "catalogued": true
   },
   {
     "name": "Sprite Foundry Packs",
@@ -646,8 +770,14 @@
     "registered": false,
     "unlisted": true,
     "deprecated": false,
-    "lane": "internal",
-    "surfaceEligible": false
+    "lane": "shipped",
+    "surfaceEligible": false,
+    "area": "image-and-media-pipelines",
+    "also": [
+      "games-and-game-tooling"
+    ],
+    "catalogLane": "shipped",
+    "catalogued": true
   },
   {
     "name": "Storyboard OS",
@@ -672,7 +802,10 @@
     "stability": "stable",
     "kind": "library",
     "tagline": "Visual story-structure platform.",
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "games-and-game-tooling",
+    "catalogLane": "shipped",
+    "catalogued": true
   },
   {
     "name": "AI Eyes MCP",
@@ -701,7 +834,13 @@
     "kind": "mcp-server",
     "screenshot": "/screenshots/ai-eyes-mcp.png",
     "screenshotType": "placeholder",
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "mcp-servers",
+    "also": [
+      "image-and-media-pipelines"
+    ],
+    "catalogLane": "shipped",
+    "catalogued": true
   },
   {
     "name": "AI Playtest",
@@ -725,9 +864,15 @@
     "category": "ml",
     "stability": "beta",
     "kind": "cli",
-    "install": "npx ai-playtest",
     "tagline": "Family-diverse AI playtesting for turn-based games: model players, an author-off jury,...",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "area": "games-and-game-tooling",
+    "also": [
+      "agent-infrastructure"
+    ],
+    "lane": "active_lab",
+    "catalogLane": "in-development",
+    "catalogued": true
   },
   {
     "name": "AI RPG Stage",
@@ -750,7 +895,10 @@
     "registered": false,
     "unlisted": true,
     "deprecated": false,
-    "lane": "active_lab"
+    "lane": "active_lab",
+    "area": "games-and-game-tooling",
+    "catalogLane": "in-development",
+    "catalogued": true
   },
   {
     "name": "Asset Forge",
@@ -772,8 +920,14 @@
     "registered": false,
     "unlisted": true,
     "deprecated": false,
-    "lane": "internal",
-    "surfaceEligible": false
+    "lane": "active_lab",
+    "surfaceEligible": false,
+    "area": "image-and-media-pipelines",
+    "also": [
+      "games-and-game-tooling"
+    ],
+    "catalogLane": "in-development",
+    "catalogued": true
   },
   {
     "name": "Backprop Trace",
@@ -801,7 +955,16 @@
     "tagline": "Deterministic 26-rule verifier for neural-network training steps.",
     "screenshot": "/screenshots/backprop-trace.png",
     "screenshotType": "placeholder",
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "training-and-datasets",
+    "also": [
+      "ledger-and-verification"
+    ],
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/backprop-trace"
+    },
+    "catalogued": true
   },
   {
     "name": "Brand",
@@ -826,8 +989,14 @@
     "kind": "cli",
     "install": "npx @mcptoolshop/brand",
     "tagline": "Centralized brand asset management — migration, audit, org reconciliation, and integrity…",
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "developer-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/brand"
+    },
+    "catalogued": true
   },
   {
     "name": "Claude Guardian",
@@ -856,7 +1025,13 @@
     "screenshot": "/screenshots/claude-guardian.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "agent-infrastructure",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/claude-guardian"
+    },
+    "catalogued": true
   },
   {
     "name": "Claude Synergy",
@@ -885,8 +1060,17 @@
     "unlisted": true,
     "deprecated": false,
     "kind": "mcp-server",
-    "install": "npm install -g @mcptoolshop/claude-synergy",
-    "lane": "shipped"
+    "install": "npx @mcptoolshop/claude-synergy",
+    "lane": "shipped",
+    "area": "agent-infrastructure",
+    "also": [
+      "training-and-datasets"
+    ],
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/claude-synergy"
+    },
+    "catalogued": true
   },
   {
     "name": "Comfy Preflight",
@@ -910,10 +1094,17 @@
     "unlisted": true,
     "deprecated": false,
     "kind": "cli",
-    "install": "pip install comfy-preflight",
+    "install": "npx @mcptoolshop/comfy-preflight",
     "screenshot": "/screenshots/comfy-preflight.png",
     "screenshotType": "placeholder",
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "image-and-media-pipelines",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/comfy-preflight",
+      "pypi": "comfy-preflight"
+    },
+    "catalogued": true
   },
   {
     "name": "Commandui",
@@ -937,8 +1128,11 @@
     "stability": "experimental",
     "kind": "library",
     "tagline": "AI-native shell environment with semantic command review.",
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "developer-tooling",
+    "catalogLane": "shipped",
+    "catalogued": true
   },
   {
     "name": "DB Cluster",
@@ -969,7 +1163,16 @@
     "deprecated": false,
     "kind": "mcp-server",
     "install": "npx @mcptoolshop/db-cluster",
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "agent-infrastructure",
+    "also": [
+      "ledger-and-verification"
+    ],
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/db-cluster"
+    },
+    "catalogued": true
   },
   {
     "name": "Engine Room",
@@ -994,7 +1197,13 @@
     "deprecated": false,
     "kind": "cli",
     "install": "npx @mcptoolshop/engine-room",
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "training-and-datasets",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/engine-room"
+    },
+    "catalogued": true
   },
   {
     "name": "Escape The Valley",
@@ -1023,10 +1232,17 @@
     "category": "infrastructure",
     "stability": "stable",
     "kind": "library",
-    "install": "pip install escape-the-valley",
+    "install": "npx @mcptoolshop/escape-the-valley",
     "tagline": "Oregon Trail-style survival game powered by Ollama GM with XRPL ledger-backed inventory.",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "games-and-game-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/escape-the-valley",
+      "pypi": "escape-the-valley"
+    },
+    "catalogued": true
   },
   {
     "name": "Facet",
@@ -1053,7 +1269,17 @@
     "deprecated": false,
     "kind": "cli",
     "install": "npx @mcptoolshop/facet",
-    "lane": "shipped"
+    "lane": "active_lab",
+    "area": "image-and-media-pipelines",
+    "also": [
+      "games-and-game-tooling"
+    ],
+    "catalogLane": "in-development",
+    "package": {
+      "npm": "@mcptoolshop/facet",
+      "pypi": "facet-mcp"
+    },
+    "catalogued": true
   },
   {
     "name": "Forkctl",
@@ -1081,7 +1307,16 @@
     "tagline": "Adoption control plane for GitHub repos.",
     "screenshot": "/screenshots/forkctl.png",
     "screenshotType": "placeholder",
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "developer-tooling",
+    "also": [
+      "mcp-servers"
+    ],
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/forkctl"
+    },
+    "catalogued": true
   },
   {
     "name": "FX Dub",
@@ -1108,7 +1343,16 @@
     "install": "pip install fx-dub",
     "tagline": "Verify a generated dub before anyone hears it — container receipts and spoken-content...",
     "needsHumanReview": true,
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "image-and-media-pipelines",
+    "also": [
+      "ledger-and-verification"
+    ],
+    "catalogLane": "shipped",
+    "package": {
+      "pypi": "fx-dub"
+    },
+    "catalogued": true
   },
   {
     "name": "Glyphstudio",
@@ -1133,8 +1377,14 @@
     "stability": "experimental",
     "kind": "library",
     "tagline": "Craft-first sprite studio for deterministic pixel editing, frame-by-frame animation, and…",
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "games-and-game-tooling",
+    "also": [
+      "image-and-media-pipelines"
+    ],
+    "catalogLane": "shipped",
+    "catalogued": true
   },
   {
     "name": "GPU Container",
@@ -1160,7 +1410,13 @@
     "deprecated": false,
     "kind": "cli",
     "install": "pip install gpu-container",
-    "lane": "shipped"
+    "lane": "active_lab",
+    "area": "training-and-datasets",
+    "catalogLane": "in-development",
+    "package": {
+      "pypi": "gpu-container"
+    },
+    "catalogued": true
   },
   {
     "name": "Knowledge Core",
@@ -1182,7 +1438,10 @@
     "unlisted": true,
     "deprecated": false,
     "lane": "active_lab",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "agent-infrastructure",
+    "catalogLane": "in-development",
+    "catalogued": true
   },
   {
     "name": "Loadout OS",
@@ -1206,12 +1465,18 @@
     "category": "ml",
     "stability": "stable",
     "kind": "cli",
-    "install": "npm install -g @mcptoolshop/loadout-os",
+    "install": "npx @mcptoolshop/loadout-os",
     "tagline": "Knowledge OS for AI coding agents — one CLI that routes the right context (memories +...",
     "screenshot": "/screenshots/loadout-os.png",
     "screenshotType": "placeholder",
     "needsHumanReview": true,
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "agent-infrastructure",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/loadout-os"
+    },
+    "catalogued": true
   },
   {
     "name": "MCP Arcade",
@@ -1237,7 +1502,17 @@
     "kind": "mcp-server",
     "install": "pip install mcp-arcade",
     "tagline": "GameDay testing for MCP servers. The oracle is the wire, not the scoreboard.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "area": "mcp-servers",
+    "also": [
+      "games-and-game-tooling"
+    ],
+    "lane": "active_lab",
+    "catalogLane": "in-development",
+    "package": {
+      "pypi": "mcp-arcade"
+    },
+    "catalogued": true
   },
   {
     "name": "MCP Arcade Cabinets",
@@ -1261,9 +1536,15 @@
     "category": "ml",
     "stability": "beta",
     "kind": "mcp-server",
-    "install": "npx mcp-arcade-cabinets",
     "tagline": "Ghost on the Menu: an arcade shooter that replays what your MCP server said on the wire.",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "area": "games-and-game-tooling",
+    "also": [
+      "mcp-servers"
+    ],
+    "lane": "active_lab",
+    "catalogLane": "in-development",
+    "catalogued": true
   },
   {
     "name": "MCP Registry",
@@ -1317,8 +1598,11 @@
       "sequential tasks"
     ],
     "needsHumanReview": false,
-    "lane": "shipped",
-    "surfaceEligible": true
+    "lane": "active_lab",
+    "surfaceEligible": true,
+    "area": "agent-infrastructure",
+    "catalogLane": "in-development",
+    "catalogued": true
   },
   {
     "name": "npm Launcher",
@@ -1342,12 +1626,18 @@
     "category": "devtools",
     "stability": "experimental",
     "kind": "cli",
-    "install": "npm install -g @mcptoolshop/npm-launcher",
+    "install": "npx @mcptoolshop/npm-launcher",
     "tagline": "Generic GitHub-release binary launcher with cache + SHA256 verification.",
     "screenshot": "/screenshots/npm-launcher.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "developer-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/npm-launcher"
+    },
+    "catalogued": true
   },
   {
     "name": "Plain Sight",
@@ -1373,7 +1663,13 @@
     "kind": "mcp-server",
     "screenshot": "/screenshots/plain-sight.png",
     "screenshotType": "placeholder",
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "mcp-servers",
+    "also": [
+      "image-and-media-pipelines"
+    ],
+    "catalogLane": "shipped",
+    "catalogued": true
   },
   {
     "name": "Polyglot MCP",
@@ -1402,7 +1698,13 @@
     "screenshot": "/screenshots/polyglot-mcp.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "mcp-servers",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/polyglot-mcp"
+    },
+    "catalogued": true
   },
   {
     "name": "Portlight",
@@ -1426,10 +1728,17 @@
     "category": "games",
     "stability": "stable",
     "kind": "cli",
-    "install": "pipx install portlight",
+    "install": "npx @mcptoolshop/portlight",
     "tagline": "Trade-first maritime strategy game for the terminal.",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "games-and-game-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/portlight",
+      "pypi": "portlight"
+    },
+    "catalogued": true
   },
   {
     "name": "Portlight Ships",
@@ -1452,7 +1761,13 @@
     "registered": false,
     "unlisted": true,
     "deprecated": false,
-    "lane": "active_lab"
+    "lane": "active_lab",
+    "area": "training-and-datasets",
+    "also": [
+      "image-and-media-pipelines"
+    ],
+    "catalogLane": "in-development",
+    "catalogued": true
   },
   {
     "name": "Prism Verify",
@@ -1478,10 +1793,20 @@
     "unlisted": true,
     "deprecated": false,
     "kind": "cli",
-    "install": "pip install prism-verify",
+    "install": "npx @mcptoolshop/prism-verify",
     "screenshot": "/screenshots/prism-verify.png",
     "screenshotType": "placeholder",
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "agent-infrastructure",
+    "also": [
+      "ledger-and-verification"
+    ],
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/prism-verify",
+      "pypi": "prism-verify"
+    },
+    "catalogued": true
   },
   {
     "name": "Prompt Craft",
@@ -1508,7 +1833,13 @@
     "install": "pip install prompt-crafter",
     "tagline": "Say what the picture must contain, check that it does, and refuse when it does not.",
     "needsHumanReview": true,
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "image-and-media-pipelines",
+    "catalogLane": "shipped",
+    "package": {
+      "pypi": "prompt-crafter"
+    },
+    "catalogued": true
   },
   {
     "name": "Prototypes",
@@ -1530,7 +1861,10 @@
     "unlisted": true,
     "deprecated": false,
     "lane": "seed_vault",
-    "surfaceEligible": false
+    "surfaceEligible": false,
+    "area": "developer-tooling",
+    "catalogLane": "archive",
+    "catalogued": true
   },
   {
     "name": "Readouts",
@@ -1548,7 +1882,11 @@
     "stability": "experimental",
     "kind": "library",
     "tagline": "Ten verified, ai-loadout-routed SQLite knowledge bases — 1,771 entries with per-wave...",
-    "needsHumanReview": true
+    "needsHumanReview": true,
+    "area": "agent-infrastructure",
+    "lane": "active_lab",
+    "catalogLane": "in-development",
+    "catalogued": true
   },
   {
     "name": "Record Index",
@@ -1573,7 +1911,13 @@
     "deprecated": false,
     "kind": "cli",
     "install": "pip install record-index",
-    "lane": "shipped"
+    "lane": "active_lab",
+    "area": "agent-infrastructure",
+    "catalogLane": "in-development",
+    "package": {
+      "pypi": "record-index"
+    },
+    "catalogued": true
   },
   {
     "name": "Registry Stats",
@@ -1607,8 +1951,14 @@
     "tagline": "Multi-registry download stats for npm, PyPI, NuGet, VS Code Marketplace, and Docker Hub.",
     "screenshot": "/screenshots/registry-stats.png",
     "screenshotType": "placeholder",
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "developer-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/registry-stats"
+    },
+    "catalogued": true
   },
   {
     "name": "Registry Sync",
@@ -1634,8 +1984,14 @@
     "kind": "cli",
     "install": "npx @mcptoolshop/registry-sync",
     "tagline": "Desired-state sync engine for multi-registry package publishing.",
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "developer-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/registry-sync"
+    },
+    "catalogued": true
   },
   {
     "name": "Repo Dataset",
@@ -1664,7 +2020,13 @@
     "screenshot": "/screenshots/repo-dataset.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "training-and-datasets",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/repo-dataset"
+    },
+    "catalogued": true
   },
   {
     "name": "Repo Knowledge",
@@ -1688,12 +2050,21 @@
     "category": "security",
     "stability": "experimental",
     "kind": "mcp-server",
-    "install": "npm install -g @mcptoolshop/repo-knowledge",
+    "install": "npx @mcptoolshop/repo-knowledge",
     "tagline": "Repo knowledge system — relational catalog with full-text search, audit evidence, and…",
     "screenshot": "/screenshots/repo-knowledge.png",
     "screenshotType": "placeholder",
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "developer-tooling",
+    "also": [
+      "agent-infrastructure"
+    ],
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/repo-knowledge"
+    },
+    "catalogued": true
   },
   {
     "name": "Repomesh",
@@ -1721,8 +2092,14 @@
     "tagline": "Trust infrastructure for repo networks — verify releases, check anchors, and onboard…",
     "screenshot": "/screenshots/repomesh.png",
     "screenshotType": "placeholder",
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "ledger-and-verification",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/repomesh"
+    },
+    "catalogued": true
   },
   {
     "name": "Research Packs",
@@ -1747,7 +2124,10 @@
     "stability": "experimental",
     "kind": "cli",
     "tagline": "Frozen research packs with source truth, claim traceability, and audit receipts.",
-    "lane": "active_lab"
+    "lane": "active_lab",
+    "area": "agent-infrastructure",
+    "catalogLane": "in-development",
+    "catalogued": true
   },
   {
     "name": "Rig Bridge",
@@ -1771,9 +2151,15 @@
     "category": "mcp-core",
     "stability": "stable",
     "kind": "cli",
-    "install": "npm install -g @mcptoolshop/rig-bridge",
+    "install": "npx @mcptoolshop/rig-bridge",
     "tagline": "Cross-rig sync tool for paired dev machines",
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "developer-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/rig-bridge"
+    },
+    "catalogued": true
   },
   {
     "name": "Role OS",
@@ -1797,13 +2183,19 @@
     "category": "devtools",
     "stability": "stable",
     "kind": "library",
-    "install": "npm install -g role-os",
+    "install": "npx role-os",
     "tagline": "Multi-Claude orchestration: 61 roles, team packs, missions, and structured evidence.",
     "screenshot": "/screenshots/role-os.png",
     "screenshotType": "placeholder",
     "needsHumanReview": true,
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "agent-infrastructure",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "role-os"
+    },
+    "catalogued": true
   },
   {
     "name": "Roll",
@@ -1832,7 +2224,13 @@
     "screenshot": "/screenshots/roll.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "games-and-game-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/roll"
+    },
+    "catalogued": true
   },
   {
     "name": "RunForge VS Code",
@@ -1854,7 +2252,13 @@
     "tagline": "Push-button ML training with presets, indexed runs, and artifact inspection — all…",
     "screenshot": "/screenshots/runforge-vscode.png",
     "screenshotType": "placeholder",
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "training-and-datasets",
+    "also": [
+      "developer-tooling"
+    ],
+    "catalogLane": "shipped",
+    "catalogued": true
   },
   {
     "name": "Sensor Humor",
@@ -1879,8 +2283,14 @@
     "unlisted": true,
     "deprecated": false,
     "install": "npx @mcptoolshop/sensor-humor",
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "mcp-servers",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/sensor-humor"
+    },
+    "catalogued": true
   },
   {
     "name": "Sovereign",
@@ -1906,7 +2316,13 @@
     "kind": "library",
     "install": "npx @mcptoolshop/sovereign",
     "tagline": "Sovereign — a Hamilton-system economic board game and its solo / digital adaptation.",
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "games-and-game-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/sovereign"
+    },
+    "catalogued": true
   },
   {
     "name": "Sovereignty",
@@ -1930,7 +2346,7 @@
     "category": "games",
     "stability": "stable",
     "kind": "cli",
-    "install": "pipx install sovereignty-game",
+    "install": "npx @mcptoolshop/sovereignty",
     "tagline": "A strategy game about governance, trust, and trade — tabletop + XRPL verification.",
     "goodFor": [
       "Teaching governance, negotiation, and trust through gameplay",
@@ -1943,7 +2359,14 @@
       "Replacing formal governance or voting systems"
     ],
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "games-and-game-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/sovereignty",
+      "pypi": "sovereignty-game"
+    },
+    "catalogued": true
   },
   {
     "name": "Sprite Foundry",
@@ -1972,7 +2395,13 @@
     "screenshot": "/screenshots/sprite-foundry.png",
     "screenshotType": "placeholder",
     "lane": "active_lab",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "image-and-media-pipelines",
+    "also": [
+      "games-and-game-tooling"
+    ],
+    "catalogLane": "in-development",
+    "catalogued": true
   },
   {
     "name": "Star Freight",
@@ -1999,7 +2428,14 @@
     "screenshot": "/screenshots/star-freight.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "games-and-game-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/star-freight",
+      "pypi": "star-freight"
+    },
+    "catalogued": true
   },
   {
     "name": "Star Freight Client",
@@ -2022,8 +2458,11 @@
     "registered": false,
     "unlisted": true,
     "deprecated": false,
-    "lane": "internal",
-    "surfaceEligible": false
+    "lane": "active_lab",
+    "surfaceEligible": false,
+    "area": "games-and-game-tooling",
+    "catalogLane": "in-development",
+    "catalogued": true
   },
   {
     "name": "Stillpoint",
@@ -2047,8 +2486,11 @@
     "stability": "experimental",
     "kind": "library",
     "tagline": "Ambient sound mixer for focus and regulation — 50 layered sounds, per-layer volume…",
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "image-and-media-pipelines",
+    "catalogLane": "shipped",
+    "catalogued": true
   },
   {
     "name": "Style Dataset Lab",
@@ -2072,12 +2514,21 @@
     "category": "ml",
     "stability": "stable",
     "kind": "library",
-    "install": "npm install -g @mcptoolshop/style-dataset-lab",
+    "install": "npx @mcptoolshop/style-dataset-lab",
     "tagline": "Canon-aligned visual dataset production: snapshots, splits, training packs, evals.",
     "screenshot": "/screenshots/style-dataset-lab.png",
     "screenshotType": "placeholder",
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "training-and-datasets",
+    "also": [
+      "image-and-media-pipelines"
+    ],
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/style-dataset-lab"
+    },
+    "catalogued": true
   },
   {
     "name": "Synthesis",
@@ -2101,7 +2552,13 @@
     "install": "npx @mcptoolshop/synthesis",
     "tagline": "Composable tool framework for building complex AI workflows.",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "agent-infrastructure",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/synthesis"
+    },
+    "catalogued": true
   },
   {
     "name": "Taste Engine",
@@ -2124,7 +2581,13 @@
     "deprecated": false,
     "install": "npx @mcptoolshop/taste-engine",
     "lane": "active_lab",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "agent-infrastructure",
+    "catalogLane": "in-development",
+    "package": {
+      "npm": "@mcptoolshop/taste-engine"
+    },
+    "catalogued": true
   },
   {
     "name": "Vocal Synth Engine",
@@ -2148,9 +2611,15 @@
     "category": "devtools",
     "stability": "experimental",
     "kind": "library",
-    "install": "npm install @mcptoolshop/vocal-synth-engine",
+    "install": "npx @mcptoolshop/vocal-synth-engine",
     "tagline": "Deterministic vocal instrument engine — additive synthesis with formant control…",
-    "lane": "shipped"
+    "lane": "shipped",
+    "area": "image-and-media-pipelines",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/vocal-synth-engine"
+    },
+    "catalogued": true
   },
   {
     "name": "WebSketch IR",
@@ -2176,8 +2645,14 @@
     "unlisted": true,
     "deprecated": false,
     "kind": "library",
-    "install": "npm install @mcptoolshop/websketch-ir",
-    "lane": "shipped"
+    "install": "npx @mcptoolshop/websketch-ir",
+    "lane": "shipped",
+    "area": "agent-infrastructure",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/websketch-ir"
+    },
+    "catalogued": true
   },
   {
     "name": "XRPL Camp",
@@ -2202,7 +2677,7 @@
     "category": "games",
     "stability": "stable",
     "kind": "cli",
-    "install": "npx @mcptoolshop/xrpl-camp start",
+    "install": "npx @mcptoolshop/xrpl-camp",
     "tagline": "Learn the XRP Ledger in one sitting — real transactions, portable proof, 10 minutes.",
     "goodFor": [
       "First contact with the XRP Ledger — six lessons, about ten minutes",
@@ -2218,7 +2693,14 @@
     "screenshot": "/screenshots/xrpl-camp.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "ledger-and-verification",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/xrpl-camp",
+      "pypi": "xrpl-camp"
+    },
+    "catalogued": true
   },
   {
     "name": "XRPL Creator Capsule",
@@ -2246,8 +2728,11 @@
     "deprecated": false,
     "screenshot": "/screenshots/xrpl-creator-capsule.png",
     "screenshotType": "placeholder",
-    "lane": "active_lab",
-    "surfaceEligible": true
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "ledger-and-verification",
+    "catalogLane": "shipped",
+    "catalogued": true
   },
   {
     "name": "XRPL Lab",
@@ -2266,11 +2751,18 @@
     "category": "infrastructure",
     "stability": "experimental",
     "kind": "library",
-    "install": "pip install xrpl-lab",
+    "install": "npx @mcptoolshop/xrpl-lab",
     "tagline": "XRPL training workbook. Learn by doing, prove by artifact.",
     "screenshot": "/screenshots/xrpl-lab.png",
     "screenshotType": "placeholder",
     "lane": "shipped",
-    "surfaceEligible": true
+    "surfaceEligible": true,
+    "area": "ledger-and-verification",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/xrpl-lab",
+      "pypi": "xrpl-lab"
+    },
+    "catalogued": true
   }
 ]

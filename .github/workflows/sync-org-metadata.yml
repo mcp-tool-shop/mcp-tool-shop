@@ -26,6 +26,10 @@ jobs:
           REGISTRY_FETCH_NONFATAL: "1"
         run: node scripts/fetch-registry.mjs
 
+      - name: Fetch ecosystem catalog
+        run: node scripts/fetch-ecosystem.mjs
+        continue-on-error: true
+
       - name: Sync org metadata
         env:
           ORG: mcp-tool-shop-org
@@ -38,7 +42,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add site/src/data/projects.json site/src/data/org-stats.json site/src/data/releases.json
-          git add site/src/data/registry/
+          git add site/src/data/registry/ site/src/data/ecosystem.json
           git commit -m "chore: sync org metadata"
           git push
 

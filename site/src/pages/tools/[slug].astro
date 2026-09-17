@@ -8,6 +8,7 @@ import proofs from '../../data/audit/proofs.json';
 import releases from '../../data/releases.json';
 import overrides from '../../data/overrides.json';
 import { getProofData, getPressData, loadSnapshot } from '../../lib/marketir/loader.mjs';
+import { areaLabel, laneLabel } from '../../lib/labels';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -76,6 +77,12 @@ const notFor: string[] | null = project.notFor ? (Array.isArray(project.notFor) 
         )}
         {project.stability && (
           <span class={`badge badge-${project.stability}`}>{project.stability}</span>
+        )}
+        {project.area && (
+          <a class="badge badge-kind" href={`/tools/?area=${project.area}`}>{areaLabel(project.area)}</a>
+        )}
+        {project.lane && (
+          <span class="badge badge-kind">{laneLabel(project.lane)}</span>
         )}
         {project.kind && (
           <span class="badge badge-kind">{project.kind}</span>

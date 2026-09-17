@@ -1,61 +1,30 @@
 ---
 import Base from '../layouts/Base.astro';
 import projects from '../data/projects.json';
-import { defaultToolCount } from '../lib/labels';
+import ecosystem from '../data/ecosystem.json';
+import { defaultToolCount, PATH_QUESTIONS } from '../lib/labels';
 
-const validSlugs = new Set((projects as any[]).map((p: any) => p.repo));
+const byRepo = new Map((projects as any[]).map((p: any) => [p.repo, p]));
 const toolCount = defaultToolCount(projects as any[]);
+const SPEC_URL = 'https://github.com/mcp-tool-shop-org/.github/blob/main/docs/ECOSYSTEM.md';
 
-// Every repo named here must be live in the org. Dead entries do not break the
-// page — the validSlugs filter below drops them — they just quietly shrink it,
-// which is how this list came to name eight deleted repos and how the "build
-// MCP tools" stack disappeared entirely without anyone seeing an error.
-const stacksSource = [
-  {
-    question: "I want to find and use MCP tools",
-    tools: [
-      { name: "Tool Compass", repo: "tool-compass", why: "Find tools by describing what you need" },
-      { name: "Repo Knowledge", repo: "repo-knowledge", why: "Full-text search over your own repos" },
-      { name: "Ollama Intern MCP", repo: "ollama-intern-mcp", why: "Hand bulk analysis to a local model" },
-    ],
-  },
-  {
-    question: "I want to build MCP tools",
-    tools: [
-      { name: "Synthesis", repo: "synthesis", why: "Composable framework for AI workflows" },
-      { name: "MCP Stress Test", repo: "mcp-stress-test", why: "Red-team your server before shipping" },
-      { name: "Shipcheck", repo: "shipcheck", why: "Release gate that defines done" },
-    ],
-  },
-  {
-    question: "I want to add speech and audio",
-    tools: [
-      { name: "MCP Voice Soundboard", repo: "mcp-voice-soundboard", why: "TTS server: 48 voices, 9 languages" },
-      { name: "Audiobooker", repo: "audiobooker", why: "EPUB, PDF or DOCX to narrated audio" },
-      { name: "AI Jam Sessions", repo: "ai-jam-sessions", why: "Teach your AI to play, sing, and listen" },
-    ],
-  },
-  {
-    question: "I want to train or fine-tune models locally",
-    tools: [
-      { name: "Backpropagate", repo: "backpropagate", why: "Headless fine-tuning with smart defaults" },
-      { name: "Comfy Headless", repo: "comfy-headless", why: "Batch image generation without the UI" },
-      { name: "Backprop Trace", repo: "backprop-trace", why: "Verify a training step, rule by rule" },
-    ],
-  },
-  {
-    question: "I want to audit MCP security",
-    tools: [
-      { name: "MCP Stress Test", repo: "mcp-stress-test", why: "Red team toolkit" },
-      { name: "Prism Verify", repo: "prism-verify", why: "Family-different verification with signed receipts" },
-      { name: "Repomesh", repo: "repomesh", why: "Verify releases and anchors across repos" },
-    ],
-  },
-];
-
-const stacks = stacksSource
-  .map((s) => ({ ...s, tools: s.tools.filter((t) => validSlugs.has(t.repo)) }))
-  .filter((s) => s.tools.length > 0);
+const stacks = ((ecosystem as any).paths || [])
+  .map((p: any) => ({
+    question: PATH_QUESTIONS[p.id] || p.title,
+    tools: (p.starters || [])
+      .map((repo: string) => {
+        const proj: any = byRepo.get(repo);
+        if (!proj) return null;
+        return {
+          name: proj.name,
+          repo,
+          why: proj.tagline || proj.description || '',
+          install: proj.install || null,
+        };
+      })
+      .filter(Boolean),
+  }))
+  .filter((s: any) => s.tools.length > 0);
 ---
 
 <Base
@@ -65,17 +34,22 @@ const stacks = stacksSource
 >
   <div class="start-page">
     <h1>Get started</h1>
-    <p class="start-intro">Pick what you're trying to do. Each stack is a curated set of tools that work well together.</p>
+    <p class="start-intro">
+      Pick what you are trying to do. Each path is three or four repositories from the
+      <a href={SPEC_URL} rel="noopener">ecosystem specification</a>.
+      The catalog has {toolCount} tools; you do not need all of them.
+    </p>
 
     <div class="stack-list">
       {stacks.map((stack) => (
         <details class="stack-card">
           <summary class="stack-question">{stack.question}</summary>
           <div class="stack-tools">
-            {stack.tools.map((tool) => (
+            {stack.tools.map((tool: any) => (
               <a href={`/tools/${tool.repo}/`} class="stack-tool">
                 <span class="stack-tool-name">{tool.name}</span>
                 <span class="stack-tool-why">{tool.why}</span>
+                {tool.install && <code class="stack-tool-install">{tool.install}</code>}
               </a>
             ))}
           </div>
@@ -181,6 +155,19 @@ const stacks = stacksSource
   .stack-tool-why {
     font-size: 0.75rem;
     color: var(--color-text-muted);
+  }
+
+  .stack-tool-install {
+    display: block;
+    grid-column: 1 / -1;
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+    padding: 0.2rem 0.4rem;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 
   .start-fallback {

@@ -5,7 +5,8 @@ import collections from '../data/collections.json';
 import releases from '../data/releases.json';
 import stats from '../data/org-stats.json';
 import dogfoodLab from '../data/dogfood-lab.json';
-import { kindLabel, relativeDate } from '../lib/labels';
+import ecosystem from '../data/ecosystem.json';
+import { kindLabel, relativeDate, PATH_QUESTIONS } from '../lib/labels';
 
 const all = projects as any[];
 const byRepo = new Map(all.map((p: any) => [p.repo, p]));
@@ -28,7 +29,10 @@ const featured = all
   .sort((a: any, b: any) => rank(a) - rank(b))
   .slice(0, 6);
 
-const installable = all.filter((p: any) => p.install && !p.deprecated).length;
+const catalogRepos = ((ecosystem as any).repos || []) as any[];
+const installable = catalogRepos.filter((r: any) => r.install).length ||
+  all.filter((p: any) => p.install && !p.deprecated).length;
+const classified = (ecosystem as any).counts?.catalogued ?? (stats as any).repoCount;
 
 const allReleases = releases as any[];
 const ninetyDaysAgo = Date.now() - 90 * 86400000;
@@ -37,12 +41,26 @@ const recentCount = allReleases.filter((r: any) => new Date(r.publishedAt).getTi
 const releases90 = recentCount === allReleases.length && allReleases.length >= 50 ? `${allReleases.length}+` : String(recentCount);
 const releaseStrip = allReleases.slice(0, 6);
 
+const catalogArea = new Map(((ecosystem as any).areas || []).map((a: any) => [a.id, a]));
 const areas = (collections as any[])
-  .map((c: any) => ({
-    ...c,
-    items: c.repos.map((r: string) => byRepo.get(r)).filter(Boolean),
-  }))
+  .map((c: any) => {
+    const cat: any = catalogArea.get(c.id);
+    return {
+      ...c,
+      count: cat?.count ?? c.repos.length,
+      description: cat?.description || c.description,
+      items: c.repos.map((r: string) => byRepo.get(r)).filter(Boolean),
+    };
+  })
   .filter((c: any) => c.items.length > 0);
+
+const paths = ((ecosystem as any).paths || []).map((p: any) => ({
+  id: p.id,
+  question: PATH_QUESTIONS[p.id] || p.title,
+  starters: (p.starters || []).map((n: string) => byRepo.get(n)).filter(Boolean),
+}));
+
+const SPEC_URL = 'https://github.com/mcp-tool-shop-org/.github/blob/main/docs/ECOSYSTEM.md';
 ---
 
 <Base title="MCP Tool Shop" currentPath="/">
@@ -59,8 +77,8 @@ const areas = (collections as any[])
     </div>
     <div class="proof-points">
       <div class="proof-point">
-        <span class="number">{(stats as any).repoCount}</span>
-        <span class="label">public repositories</span>
+        <span class="number">{classified}</span>
+        <span class="label">classified repositories</span>
       </div>
       <div class="proof-point">
         <span class="number">{installable}</span>
@@ -128,13 +146,41 @@ const areas = (collections as any[])
     </section>
   )}
 
+  {paths.length > 0 && (
+    <section class="home-section">
+      <div class="section-header">
+        <div>
+          <h2 class="section-heading">Start here</h2>
+          <p class="section-subheading">Five paths. Each names three or four repositories. You do not need the rest.</p>
+        </div>
+        <a href="/start/" class="see-all">All paths</a>
+      </div>
+      <div class="path-grid">
+        {paths.map((path: any) => (
+          <a href="/start/" class="path-card">
+            <h3>{path.question}</h3>
+            <p class="path-starters">{path.starters.map((s: any) => s.name).join(' · ')}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
   <section class="home-section">
-    <h2 class="section-heading">What we build</h2>
-    <p class="section-subheading">Seven areas of work. Every repository is developed in the open.</p>
+    <div class="section-header">
+      <div>
+        <h2 class="section-heading">What we build</h2>
+        <p class="section-subheading">Seven areas. The names below are starting points; every public repository is classified.</p>
+      </div>
+      <a href={SPEC_URL} class="see-all" rel="noopener">Ecosystem spec</a>
+    </div>
     <div class="area-grid">
       {areas.map((area: any) => (
         <div class="area-card">
-          <h3>{area.title}</h3>
+          <div class="area-card-head">
+            <h3>{area.title}</h3>
+            <a href={`/tools/?area=${area.id}`} class="area-count">{area.count}</a>
+          </div>
           <p class="area-desc">{area.description}</p>
           <ul class="area-list">
             {area.items.map((p: any) => (
@@ -193,8 +239,8 @@ const areas = (collections as any[])
         <p>Every tagged release passes the <a href="/tools/shipcheck/">shipcheck</a> gate: security policy, structured errors, current docs, clean packaging.</p>
       </div>
       <div class="principle">
-        <h3>Verifiable</h3>
-        <p>Catalog data is generated from GitHub, and editorial picks carry receipts you can check in the <a href="/trust/">Trust Center</a>.</p>
+        <h3>Classified</h3>
+        <p>Every public repository has an area, a lane, and a verified install command in the <a href={SPEC_URL} rel="noopener">ecosystem specification</a>.</p>
       </div>
     </div>
   </section>
@@ -368,9 +414,63 @@ const areas = (collections as any[])
     padding: 1.5rem;
   }
 
+  .area-card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.375rem;
+  }
+
   .area-card h3 {
     font-size: 1.0625rem;
-    margin-bottom: 0.375rem;
+    margin: 0;
+  }
+
+  .area-count {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+  }
+
+  .area-count:hover {
+    color: var(--color-accent);
+  }
+
+  .path-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .path-card {
+    display: block;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.125rem 1.25rem;
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+
+  .path-card:hover {
+    border-color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .path-card h3 {
+    font-size: 0.9375rem;
+    margin: 0 0 0.375rem;
+    color: var(--color-text);
+  }
+
+  .path-starters {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
+    margin: 0;
   }
 
   .area-desc {
