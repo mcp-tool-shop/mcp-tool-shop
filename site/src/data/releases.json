@@ -2,6 +2,38 @@
   {
     "repo": "mcp-arcade-cabinets",
     "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.11.1",
+    "name": "v0.11.1 — read by the Director: the lines make sense, and one image for both cabinets",
+    "body": [
+      "A patch on the Director's read of 0.11.0, all three parts on the published page before this tag. Details in docs/vibe-typer.slice4.md (the last section) and docs/cabinet-container.md.",
+      "The lines that are drawn blind no longer name a piece. The agent's replies, ship lines and check-in answers, and the user's check-ins, one-more-things and generic reviews are picked with no knowledge of the request,…",
+      "The agent's face heads the editor pane, beside the beat word; the chat header keeps the user's face before the product.",
+      "One image, both cabinets. ghcr.io/mcp-tool-shop-org/mcp-arcade-cabinets:0.11.1 carries Vibe Typer's stdio server beside Ghost's; CABINET=vibe selects it and everything else stays the shooter. amd64 and arm64; both…",
+      "Both packages: Node 22, MIT, still 0.x."
+    ],
+    "publishedAt": "2026-09-16T21:33:11Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.11.1",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.11.0",
+    "name": "v0.11.0 — Vibe Typer slice 4, an MCP cabinet with a face and a voice",
+    "body": [
+      "Slice 4 of Vibe Typer. Builds, numbers, receipts and the outside reviews in docs/vibe-typer.slice4.md and docs/vibe-typer.slice4*.review.md.",
+      "Vibe Typer as an MCP server. npx @mcptoolshop/vibe-typer --mcp speaks MCP on stdio: an endless run plays inside it under a typist at a human pace, and any MCP client sits in the user's chair through four tools, view,…",
+      "The rest of the look. Fifty-six painted piece tiles, one set a stack; the user (a man with an overgrown beard and messy hair) and Sprocket in the chat header; milestone cards for seed, series A and unicorn drawn over…",
+      "The voice on the user's lines. With the local voice worker running, the user says his asks, one-more-things, check-ins, reactions and reviews in a preset voice, every take receipted by fx-dub before it plays; two…",
+      "Beds per stack. Seven ACE-Step loops behind music: on; soft keeps the procedural hat; the pack and the release check require all seven by name."
+    ],
+    "publishedAt": "2026-09-16T20:47:49Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.11.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
     "tag": "v0.10.0",
     "name": "v0.10.0 — Vibe Typer slice 3, one npm package per cabinet",
     "body": [
@@ -148,38 +180,6 @@
     ],
     "publishedAt": "2026-09-15T01:10:37Z",
     "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.8.2",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.8.1",
-    "name": "v0.8.1 — SERVER_VERSION fix and the npm hero",
-    "body": [
-      "A patch for the one defect v0.8.0 shipped, plus the art the npm page was missing.",
-      "The MCP seat announces its real version. v0.8.0 handshook as 0.7.0 — SERVER_VERSION is a hand-written constant in cabinet-server, and the release gate compared only package.json against the tag, even though…",
-      "0.8.0 keeps the wrong handshake on npm permanently — after 72 hours a version can only be deprecated, never unpublished — so 0.8.1 is the one to install.",
-      "Hero art on the npm README. The package page had no image at all. The art is the spread: the player craft firing a fan of amber tracers through teal shockwave rings. It lives in the brand repo beside icon.png and…",
-      "The repo README and its eight translations are untouched — only the npm-only package README changed, so no translations were owed for this tag."
-    ],
-    "publishedAt": "2026-09-15T00:43:42Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.8.1",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.8.0",
-    "name": "v0.8.0 — the npm launcher",
-    "body": [
-      "You are the agent. The rig hands you the calls.",
-      "One command, nothing to clone:",
-      "packages/launcher publishes as @mcptoolshop/ghost-on-the-menu — the first package in this repo to reach a registry. tape-core, ghost-on-the-menu, cabinet-server and cabinets stay private; the launcher declares no…",
-      "Two ways to run it. With no arguments it serves the built shell on 127.0.0.1 and opens it, carrying the two allowlisted proxies and the say route that the dev server gives a developer, minus Vite. That is the…",
-      "With --mcp it hands stdio to the cabinet server, so npx joins the Docker image as an install path for the MCP seat:"
-    ],
-    "publishedAt": "2026-09-15T00:21:23Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.8.0",
     "prerelease": false
   },
   {
