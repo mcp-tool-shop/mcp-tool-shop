@@ -2,22 +2,6 @@
   {
     "repo": "mcp-arcade-cabinets",
     "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.12.0",
-    "name": "v0.12.0 — the dogfood swarm whole, both cabinets on a phone",
-    "body": [
-      "The dogfood swarm, whole, in one day on the Director's word: four health stages and the feature pass framed as polish, with the player's pass on every wave and his read on the served bundle between them. The record…",
-      "Play on a phone. Ghost's field takes a finger (hold its sides to move, the band under it to fire); the typing cabinet raises the soft keyboard on a tap of the editor; each cabinet card says how it plays on glass.…",
-      "A run code for the typing cabinet that replays a run on any browser, and an end card that goes on to the next product or the same one again.",
-      "The hosted tier is opt-in. The shooter's launcher spends an Anthropic key only when CABINET_SAY_CLAUDE=on, says which tier writes the lines and that it costs money, and stops at a ceiling. An older Node is refused in…",
-      "The image answers --help and --version, stops on docker stop at once, and treats an unset VOICE_URL as no voice. The tapes tool marks baked and operator cards and names the one playing; both views say what a client…"
-    ],
-    "publishedAt": "2026-09-17T16:40:54Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.12.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
     "tag": "v0.11.1",
     "name": "v0.11.1 — read by the Director: the lines make sense, and one image for both cabinets",
     "body": [
@@ -180,6 +164,22 @@
     ],
     "publishedAt": "2026-09-15T03:15:02Z",
     "url": "https://github.com/mcp-tool-shop-org/storyboard-os/releases/tag/v1.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.8.2",
+    "name": "v0.8.2 — launcher play lights the local seats",
+    "body": [
+      "The npm play path lights the local seats. Grok's review of v0.8.0/v0.8.1 found that npx served the Pages chrome: PROD stripped the Ollama / Voice / model picker, so the proxies sat unused. --mcp was already fine.",
+      "Launcher play mode mounts the local seats. VITE_LOCAL_SEATS=true at pack time. Pages still omits them (cannot reach a daemon). The pack andons if the play bundle is missing data-local-seats, /ollama/api/tags,…",
+      "Archivist can sit the say seat. BOSS_KINDS in the launcher and the Vite say route includes the fourth boss, in step with the sim.",
+      "Next-verb reaches the daemon. POST /api/generate is on both allowlists (the fire seat stays on /api/chat). Pull, delete and create still 404 before a socket opens.",
+      "0.8.1 keeps the Pages chrome on npm; 0.8.0 keeps the wrong handshake — 0.8.2 is the one to install."
+    ],
+    "publishedAt": "2026-09-15T01:10:37Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.8.2",
     "prerelease": false
   },
   {
