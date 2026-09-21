@@ -90,6 +90,19 @@
     "surfaceEligible": false
   },
   "ai-rpg-stage": {
+    "tags": [
+      "client",
+      "game-client",
+      "game-development",
+      "gdscript",
+      "godot",
+      "godot4"
+    ],
+    "category": "mcp-core",
+    "stability": "beta",
+    "kind": "cli",
+    "tagline": "Godot 4 client for AI RPG Engine. Renders a sim it does not own.",
+    "needsHumanReview": true,
     "lane": "active_lab"
   },
   "armature": {

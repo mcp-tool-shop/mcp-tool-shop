@@ -1,5 +1,65 @@
 [
   {
+    "repo": "ai-rpg-stage",
+    "toolName": "AI RPG Stage",
+    "tag": "v0.2.0",
+    "name": "v0.2.0 — the felt harbour",
+    "body": [
+      "The felt harbour is playable. The stage walks one continuous 2:1 dimetric town, the named cast stands on cells an author chose rather than cells the client guessed, the quay is wet under the light, and the sim can…",
+      "Full treatment (public surfaces). Brand logo in the README, trust and threat-model section, keys and launcher flags, verify.sh (import + suite + plate re-gate + site build), landing page and Starlight handbook under…",
+      "CI's \"every expected suite ran\" manifest lists all eleven suites (it had drifted to six).",
+      "Felt harbour runtime. Mixer loads res://assets/felt/<cueId>.wav when present (sine stand-in otherwise). Named cast stands on occupancy cells (fixtures/harbour-occupancy.json); FrontProof/BehindProof are not the play…",
+      "World Forge presentation on the fixture. fixtures/pack.json carries the additive presentation block (six occupancy rows, zone anchors, stone_wet on the quay) and packFormat 1.1.0. The harbour prefers pack occupancy…"
+    ],
+    "publishedAt": "2026-09-21T06:44:34Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-stage/releases/tag/v0.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "world-forge",
+    "toolName": "World Forge",
+    "tag": "v4.9.0",
+    "name": "v4.9.0 — the drawing contract",
+    "body": [
+      "The harbour a client draws is now authored in the Forge. A world may carry a presentation block — the dimetric cells, zone anchors, floor plates, and who stands where — instead of a client measuring it by hand on the…",
+      "WorldProject.presentation — an optional WorldPresentation block (view, tile, span, zoneCells, floor, occupancy) describing how a client DRAWS an authored world. Additive: projects without it validate unchanged.…",
+      "presentationAdvisories(project) — eight advisory rules over the block: unknown zoneCells zone, occupancy zone with no anchor, cell outside its zone's span x span box, no player row, a drawn actor the sim never…",
+      "Salt Road carries the harbour occupancy the stage plays — six anchored zones, a wet-stone plate on the long quay, and six actors (the merchant player plus Corvane, Halle, Drell, the tally boy, and the stair…",
+      "export-stage-fixture.ts --strict — exits 1 *before* writing if any presentation advisory reached the export warnings. Non-presentation warnings do not trip it. The script now reports the number of self-checks it…"
+    ],
+    "publishedAt": "2026-09-21T06:44:32Z",
+    "url": "https://github.com/mcp-tool-shop-org/world-forge/releases/tag/v4.9.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-rpg-engine",
+    "toolName": "AI RPG Engine",
+    "tag": "v3.12.0",
+    "name": "v3.12.0 — a host that draws can hear the world",
+    "body": [
+      "A host that draws can hear the world. The sidecar learns one more negotiated capability, and it is the one a pixel client needs: with capabilities.audio on, every submit, advance and matching tick carries the felt of…"
+    ],
+    "publishedAt": "2026-09-21T06:44:29Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v3.12.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.12.0",
+    "name": "v0.12.0 — the dogfood swarm whole, both cabinets on a phone",
+    "body": [
+      "The dogfood swarm, whole, in one day on the Director's word: four health stages and the feature pass framed as polish, with the player's pass on every wave and his read on the served bundle between them. The record…",
+      "Play on a phone. Ghost's field takes a finger (hold its sides to move, the band under it to fire); the typing cabinet raises the soft keyboard on a tap of the editor; each cabinet card says how it plays on glass.…",
+      "A run code for the typing cabinet that replays a run on any browser, and an end card that goes on to the next product or the same one again.",
+      "The hosted tier is opt-in. The shooter's launcher spends an Anthropic key only when CABINET_SAY_CLAUDE=on, says which tier writes the lines and that it costs money, and stops at a ceiling. An older Node is refused in…",
+      "The image answers --help and --version, stops on docker stop at once, and treats an unset VOICE_URL as no voice. The tapes tool marks baked and operator cards and names the one playing; both views say what a client…"
+    ],
+    "publishedAt": "2026-09-17T16:40:54Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.12.0",
+    "prerelease": false
+  },
+  {
     "repo": "mcp-arcade-cabinets",
     "toolName": "MCP Arcade Cabinets",
     "tag": "v0.11.1",
@@ -164,22 +224,6 @@
     ],
     "publishedAt": "2026-09-15T03:15:02Z",
     "url": "https://github.com/mcp-tool-shop-org/storyboard-os/releases/tag/v1.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.8.2",
-    "name": "v0.8.2 — launcher play lights the local seats",
-    "body": [
-      "The npm play path lights the local seats. Grok's review of v0.8.0/v0.8.1 found that npx served the Pages chrome: PROD stripped the Ollama / Voice / model picker, so the proxies sat unused. --mcp was already fine.",
-      "Launcher play mode mounts the local seats. VITE_LOCAL_SEATS=true at pack time. Pages still omits them (cannot reach a daemon). The pack andons if the play bundle is missing data-local-seats, /ollama/api/tags,…",
-      "Archivist can sit the say seat. BOSS_KINDS in the launcher and the Vite say route includes the fourth boss, in step with the sim.",
-      "Next-verb reaches the daemon. POST /api/generate is on both allowlists (the fire seat stays on /api/chat). Pull, delete and create still 404 before a socket opens.",
-      "0.8.1 keeps the Pages chrome on npm; 0.8.0 keeps the wrong handshake — 0.8.2 is the one to install."
-    ],
-    "publishedAt": "2026-09-15T01:10:37Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.8.2",
     "prerelease": false
   },
   {
@@ -665,54 +709,6 @@
     ],
     "publishedAt": "2026-08-28T01:39:43Z",
     "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.3.1",
-    "prerelease": false
-  },
-  {
-    "repo": "world-forge",
-    "toolName": "World Forge",
-    "tag": "v4.8.0",
-    "name": "v4.8.0 — leftover pack/export and editor-deep",
-    "body": [
-      "v4.8.0 leftover MED/LOW pass after v4.7.0.",
-      "Leftover MED/LOW pass after v4.7.0. Not a new health swarm — the 32 HIGH leftover class already shipped. Operator-facing editor and CI gates land first; pack/export leftovers follow. 3424 tests.",
-      "Ctrl+S saves the project. The File System Access handle is kept so a second Save overwrites the same file; Save As… re-opens the picker. Load / New drop the handle. (F-bde2ece7, F-8680d2f9)",
-      "Encounter and Item tools are on the Tool Palette (N / I). (F-1db1d1d7)",
-      "Review Project Info edits name, mode, genre, version, description, tones, difficulty, and narrator tone after New Project. (F-b97d277c)"
-    ],
-    "publishedAt": "2026-08-28T00:47:28Z",
-    "url": "https://github.com/mcp-tool-shop-org/world-forge/releases/tag/v4.8.0",
-    "prerelease": false
-  },
-  {
-    "repo": "world-forge",
-    "toolName": "World Forge",
-    "tag": "v4.7.0",
-    "name": "v4.7.0 — connected authoring and export",
-    "body": [
-      "Advertised authoring and export surfaces that the store already named are now connected. Dogfood swarm Pick A closed 32 HIGH leftovers after a four-stage health pass (283 closed, 27 MED/LOW still deferred). 3385 tests.",
-      "Canvas place + inspect. Landmark, item, town-marker, and encounter-place tools actually place; items have canvas CRUD; town markers render; entity, item, loot, transition, landmark, and spawn inspectors author the…",
-      "AI RPG Engine lane. Typed connections converter; dialogueId survives; item placements keep zone/grid; town, economy, and spawn points export; CLI --out keeps fidelity sidecars; world-forge-export --import round-trips…",
-      "Godot 4 lane. world-forge-export-godot --out writes a loadable Godot 4 project (project.godot, world.tscn ExtResource .tres, player pawn, copied authored textures, scripts/player.gd).",
-      "Unreal 2.5D lane. Strata converter; tiles and props emit; entryGate and hazardRefs survive; ParallaxRenderer in @world-forge/renderer-2d."
-    ],
-    "publishedAt": "2026-08-27T22:07:03Z",
-    "url": "https://github.com/mcp-tool-shop-org/world-forge/releases/tag/v4.7.0",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v2.3.0",
-    "name": "sovereignty v2.3.0",
-    "body": [
-      "sov undo — reverse the last turn on the active game (proof + pending-anchor index stay consistent).",
-      "Mainnet wallet seed prefers the OS credential store via PyPI keyring (Windows Credential Manager / macOS Keychain / libsecret). Tests use a fake backend only. Seed is never logged.",
-      "Additive daemon route GET /games/{id}/verify/{round} returns chain lookup found / not_found / lookup_failed. Browse GET /anchor-status/{round} stays local-index (no per-row XRPL hit). Audit \"Verify all rounds\" uses…",
-      "Linux AppImage wiring in publish.yml (--bundles deb,appimage). Not attached to GitHub Release v2.3.0 (empty assets). Do not pin pip install sovereignty-game==2.3.0.",
-      "Tauri updater plugin: public minisign key in tauri.conf.json; CI injects TAURI_SIGNING_PRIVATE_KEY and TAURI_SIGNING_PRIVATE_KEY_PASSWORD from GitHub Actions secrets by name."
-    ],
-    "publishedAt": "2026-08-27T21:27:48Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.3.0",
     "prerelease": false
   }
 ]
