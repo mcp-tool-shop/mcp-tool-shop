@@ -2,6 +2,212 @@
   {
     "repo": "mcp-arcade-cabinets",
     "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.13.0",
+    "name": "v0.13.0",
+    "body": [
+      "PWA basics, /status route, --check mode, shared launcher core, version sync."
+    ],
+    "publishedAt": "2026-09-28T07:36:22Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.13.0",
+    "prerelease": false
+  },
+  {
+    "repo": "roll",
+    "toolName": "Roll",
+    "tag": "v2.1.1",
+    "name": "roll v2.1.1",
+    "body": [
+      "At-most-for target solver — CLI --at-most-for P, bridge at_most_for, and MCP analyze_dice at_most_for. Returns the smallest T with P(result ≤ T) ≥ p. --target-for is unchanged."
+    ],
+    "publishedAt": "2026-09-28T00:54:08Z",
+    "url": "https://github.com/mcp-tool-shop-org/roll/releases/tag/v2.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "si-rpg-engine",
+    "toolName": "Si RPG Engine",
+    "tag": "v0.3.0",
+    "name": "0.3.0 — a driven body does not solve against a dynamic body",
+    "body": [
+      "The suite from 0.2.0, with dispatch 128's law slice on it. A driven body and a dynamic body do not share a solver contact. test-instrument stays frozen. The package is not published to npm.",
+      "A model proposer in the bench. bench run --model --diff <file> runs one seat session per world beside the grammar, starting where the grammar goes eight admitted candidates with nothing new or runs out of budget. The…",
+      "A driven body does not solve against a dynamic body. A driven collider is solver group 3 and excludes group 2. A dynamic collider is group 2 and excludes group 3. Statics keep Rapier's default. Collision groups are…",
+      "The step-up boxes stay under 1 m/s. On the room from #121, a dynamic box that overlaps the walker, or meets its head and is not carried, used to leave near 16 m/s. That 16 m/s is the walker's own step: 0.25 m in one…",
+      "The refusals sweep no longer records a thrown walker or a thrown crate. At tick 356 the walker's vertical speed goes from 0 to -0.125 and its rise is 0.750, under the climb rule. The other worlds in the sweep did not…"
+    ],
+    "publishedAt": "2026-09-27T20:31:23Z",
+    "url": "https://github.com/mcp-tool-shop-org/si-rpg-engine/releases/tag/v0.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "si-jam-sessions",
+    "toolName": "Si Jam Sessions",
+    "tag": "v0.1.0",
+    "name": "si-jam-sessions 0.1.0",
+    "body": [
+      "The first release of si-jam-sessions: a music engine where an AI's playing can be graded exactly, replayed exactly, and trained on with a clean conscience. What changed is in the CHANGELOG.",
+      "Two arrangements of *Battle Hymn of the Republic*, one by glm-5.3 and one by kimi-k3. Both follow this project's transcription of the anonymous 1862 Ditson edition, both are dedicated CC0 1.0, and both are admitted…",
+      "The MP3 (192 kb/s) and Opus (128 kb/s) copies are what the landing page plays.",
+      "The .notes.json files are the notes the law committed (host notes).",
+      "sections.json holds where each section begins."
+    ],
+    "publishedAt": "2026-09-26T16:25:41Z",
+    "url": "https://github.com/mcp-tool-shop-org/si-jam-sessions/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "si-rpg-engine",
+    "toolName": "Si RPG Engine",
+    "tag": "v0.2.0",
+    "name": "0.2.0 — the suite, the law's fixes, and the bench",
+    "body": [
+      "Phase 2 so far: the suite that measures the engine, the fixes to the law it found, and the bench that measures a change against its parent. Every change below merged from a written dispatch in docs/, was verified on…",
+      "A trace and the first difference. harness/trace.mjs prints one line per step with every body's numbers as exact bit patterns, under node and the three engine shells. harness/first-difference.js names the first step,…",
+      "Behaviour numbers beside the golden. fixtures/golden-behaviour.json records each dynamic body's sleep step, every final position, the walker's zone, and the snapshot's length and digest. npm run check verifies them,…",
+      "Save and restore. A world restores by replaying its inputs to a step (harness/replay-to.mjs) or by copying the physics module's memory (imageSolver, restoreImage). Both are proven to continue exactly from several…",
+      "An ARM64 job in CI. It runs the pinned x64 binary under node on an ARM64 runner and requires both goldens and an identical trace."
+    ],
+    "publishedAt": "2026-09-26T15:32:20Z",
+    "url": "https://github.com/mcp-tool-shop-org/si-rpg-engine/releases/tag/v0.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "polyglot-mcp",
+    "toolName": "Polyglot MCP",
+    "tag": "v1.8.0",
+    "name": "v1.8.0 — translate_readme, Ollama Cloud, and stale-translation fixes",
+    "body": [
+      "translate_readme MCP tool — translates a README.md *file* into all 7 languages and writes the README.<lang>.md files to disk, refreshing the language nav bar in the source and each translation. Returns a per-language…",
+      "Ollama Cloud support — OllamaClient reads OLLAMA_HOST for its base URL and attaches an OLLAMA_API_KEY Bearer header, so translation can run against https://ollama.com with no change to local use. The header is…",
+      "Edited segments came back with their previous translation — the fuzzy translation memory reused a cached translation verbatim for any segment more than 85% similar to a cached source, and its only guard compared…",
+      "The invariant-token guard is kept as a floor under that rule. It now covers every run of digits with its separators (174, 1,000, 0.2105) and inline-code placeholders as well as version tokens, and compares them in…",
+      "scripts/translate-readme.mjs now counts fuzzy reuses in its summary line. Before this, a segment reused through the fuzzy cache appeared in neither the cached nor the to-translate count. A reproduction of the…"
+    ],
+    "publishedAt": "2026-09-25T16:22:42Z",
+    "url": "https://github.com/mcp-tool-shop-org/polyglot-mcp/releases/tag/v1.8.0",
+    "prerelease": false
+  },
+  {
+    "repo": "si-rpg-engine",
+    "toolName": "Si RPG Engine",
+    "tag": "v0.1.0",
+    "name": "0.1.0 — the first release",
+    "body": [
+      "The first release. Version numbers before 0.1.0 were internal slice counters and were never tagged or published.",
+      "The tick. A fixed timestep of 1/64 s, every quantum hashed with a two-lane FNV-1a over little-endian f64 words, NaN refused, signed zero canonicalized. Replay is the seed plus the admitted-input log; play writes one,…",
+      "The law in Rust. The physics step is solver/, a Rust crate on rapier3d-f64 with enhanced-determinism, compiled to one WebAssembly binary with relaxed SIMD off and source paths remapped, delivered as an ES module the…",
+      "Bodies in three dimensions. Position, linear velocity, a canonical unit quaternion, angular velocity, and half-extents on three axes. Dynamic boxes rotate under contact. The character is a kinematic box driven by…",
+      "World files validated at load. worlds/<name>.json holds bodies, static colliders that may carry an orientation, a heightfield, zones as a half-open partition, and a host-only goal. Twelve refusal reasons, each…"
+    ],
+    "publishedAt": "2026-09-25T08:57:05Z",
+    "url": "https://github.com/mcp-tool-shop-org/si-rpg-engine/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-stress-test",
+    "toolName": "MCP Stress Test",
+    "tag": "v1.0.2",
+    "name": "v1.0.2",
+    "body": [
+      "The installed mcp-stress command can run a stress test, list patterns, and serve a demo MCP server.",
+      "Docker keeps checkpoints and stress reports on /var/lib/mcp-stress. Mount a named volume (-v mcp-stress-data:/var/lib/mcp-stress) so that memory survives docker run --rm.",
+      "The pattern library loads 68 templates. That count matches the files in the package. It is not the MCPTox paper's 1,312."
+    ],
+    "publishedAt": "2026-09-23T17:07:30Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-stress-test/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "repomesh",
+    "toolName": "Repomesh",
+    "tag": "v2.3.1",
+    "name": "v2.3.1",
+    "body": [
+      "Current XRPL client, a published container image, and two CI fixes. The anchor network stays testnet."
+    ],
+    "publishedAt": "2026-09-23T13:18:47Z",
+    "url": "https://github.com/mcp-tool-shop-org/repomesh/releases/tag/v2.3.1",
+    "prerelease": false
+  },
+  {
+    "repo": "facet",
+    "toolName": "Facet",
+    "tag": "v0.8.1",
+    "name": "facet v0.8.1",
+    "body": [
+      "A prop gets a real size, a rig gets read rather than assumed, and the interesting result is a negative one.",
+      "v0.8.0 closed on a painted subject. This release is about what happens *after* paint — a character that has to be posed, and objects that have to be held. Nothing here touches the texture route.",
+      "A sixth subject went in to test the after-paint stage. It reconstructs cleanly and then fails auto-rigging. Four candidate causes were eliminated by measurement rather than by argument:",
+      "The discriminator is unidentified, and canon/BASE-FIGURE.md carries the table while declining to name a cause. That refusal is the load-bearing part: this repo *did* name a cause — arm-to-torso separation — and it…",
+      "Where a rig does exist, posing has a measured ceiling rather than a fix: roughly 20° of arm rotation stays clean, roughly 110° shreds the shoulders. Rigid plate binding was built to repair that and does not — all…"
+    ],
+    "publishedAt": "2026-09-22T09:26:11Z",
+    "url": "https://github.com/mcp-tool-shop-org/facet/releases/tag/v0.8.1",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-rpg-stage",
+    "toolName": "AI RPG Stage",
+    "tag": "v0.2.0",
+    "name": "v0.2.0 — the felt harbour",
+    "body": [
+      "The felt harbour is playable. The stage walks one continuous 2:1 dimetric town, the named cast stands on cells an author chose rather than cells the client guessed, the quay is wet under the light, and the sim can…",
+      "Full treatment (public surfaces). Brand logo in the README, trust and threat-model section, keys and launcher flags, verify.sh (import + suite + plate re-gate + site build), landing page and Starlight handbook under…",
+      "CI's \"every expected suite ran\" manifest lists all eleven suites (it had drifted to six).",
+      "Felt harbour runtime. Mixer loads res://assets/felt/<cueId>.wav when present (sine stand-in otherwise). Named cast stands on occupancy cells (fixtures/harbour-occupancy.json); FrontProof/BehindProof are not the play…",
+      "World Forge presentation on the fixture. fixtures/pack.json carries the additive presentation block (six occupancy rows, zone anchors, stone_wet on the quay) and packFormat 1.1.0. The harbour prefers pack occupancy…"
+    ],
+    "publishedAt": "2026-09-21T06:44:34Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-stage/releases/tag/v0.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "world-forge",
+    "toolName": "World Forge",
+    "tag": "v4.9.0",
+    "name": "v4.9.0 — the drawing contract",
+    "body": [
+      "The harbour a client draws is now authored in the Forge. A world may carry a presentation block — the dimetric cells, zone anchors, floor plates, and who stands where — instead of a client measuring it by hand on the…",
+      "WorldProject.presentation — an optional WorldPresentation block (view, tile, span, zoneCells, floor, occupancy) describing how a client DRAWS an authored world. Additive: projects without it validate unchanged.…",
+      "presentationAdvisories(project) — eight advisory rules over the block: unknown zoneCells zone, occupancy zone with no anchor, cell outside its zone's span x span box, no player row, a drawn actor the sim never…",
+      "Salt Road carries the harbour occupancy the stage plays — six anchored zones, a wet-stone plate on the long quay, and six actors (the merchant player plus Corvane, Halle, Drell, the tally boy, and the stair…",
+      "export-stage-fixture.ts --strict — exits 1 *before* writing if any presentation advisory reached the export warnings. Non-presentation warnings do not trip it. The script now reports the number of self-checks it…"
+    ],
+    "publishedAt": "2026-09-21T06:44:32Z",
+    "url": "https://github.com/mcp-tool-shop-org/world-forge/releases/tag/v4.9.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-rpg-engine",
+    "toolName": "AI RPG Engine",
+    "tag": "v3.12.0",
+    "name": "v3.12.0 — a host that draws can hear the world",
+    "body": [
+      "A host that draws can hear the world. The sidecar learns one more negotiated capability, and it is the one a pixel client needs: with capabilities.audio on, every submit, advance and matching tick carries the felt of…"
+    ],
+    "publishedAt": "2026-09-21T06:44:29Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v3.12.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.12.0",
+    "name": "v0.12.0 — the dogfood swarm whole, both cabinets on a phone",
+    "body": [
+      "The dogfood swarm, whole, in one day on the Director's word: four health stages and the feature pass framed as polish, with the player's pass on every wave and his read on the served bundle between them. The record…",
+      "Play on a phone. Ghost's field takes a finger (hold its sides to move, the band under it to fire); the typing cabinet raises the soft keyboard on a tap of the editor; each cabinet card says how it plays on glass.…",
+      "A run code for the typing cabinet that replays a run on any browser, and an end card that goes on to the next product or the same one again.",
+      "The hosted tier is opt-in. The shooter's launcher spends an Anthropic key only when CABINET_SAY_CLAUDE=on, says which tier writes the lines and that it costs money, and stops at a ceiling. An older Node is refused in…",
+      "The image answers --help and --version, stops on docker stop at once, and treats an unset VOICE_URL as no voice. The tapes tool marks baked and operator cards and names the one playing; both views say what a client…"
+    ],
+    "publishedAt": "2026-09-17T16:40:54Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.12.0",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
     "tag": "v0.11.1",
     "name": "v0.11.1 — read by the Director: the lines make sense, and one image for both cabinets",
     "body": [
@@ -61,22 +267,6 @@
     ],
     "publishedAt": "2026-09-16T02:32:06Z",
     "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.2",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.9.0",
-    "name": "v0.9.0 — Vibe Typer",
-    "body": [
-      "The second cabinet. Vibe Typer is a typing arcade game: you are a hard-working, sycophantic coding agent, your user is a vibe coder whose requests are absurd, and the thing gets built while you type. A real…",
-      "It rides inside this package beside Ghost on the Menu: npx @mcptoolshop/ghost-on-the-menu serves both cabinets on a switch. --mcp is still Ghost's stdio server.",
-      "Design, research grounding and the lock G23–G30: docs/vibe-typer.dispatch.md. Each slice's build and its outside review: docs/vibe-typer.slice1.md, docs/vibe-typer.slice2.md and the two .review.md files.",
-      "Also: the root README is now the arcade's entrance; the landing page and handbook cover both cabinets; README translations regenerated in seven languages; the repo logo is the cabinet render. Full list in CHANGELOG.md.",
-      "Still 0.x, and the version says what it means."
-    ],
-    "publishedAt": "2026-09-15T21:32:09Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.9.0",
     "prerelease": false
   },
   {
@@ -164,22 +354,6 @@
     ],
     "publishedAt": "2026-09-15T03:15:02Z",
     "url": "https://github.com/mcp-tool-shop-org/storyboard-os/releases/tag/v1.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.8.2",
-    "name": "v0.8.2 — launcher play lights the local seats",
-    "body": [
-      "The npm play path lights the local seats. Grok's review of v0.8.0/v0.8.1 found that npx served the Pages chrome: PROD stripped the Ollama / Voice / model picker, so the proxies sat unused. --mcp was already fine.",
-      "Launcher play mode mounts the local seats. VITE_LOCAL_SEATS=true at pack time. Pages still omits them (cannot reach a daemon). The pack andons if the play bundle is missing data-local-seats, /ollama/api/tags,…",
-      "Archivist can sit the say seat. BOSS_KINDS in the launcher and the Vite say route includes the fourth boss, in step with the sim.",
-      "Next-verb reaches the daemon. POST /api/generate is on both allowlists (the fire seat stays on /api/chat). Pull, delete and create still 404 before a socket opens.",
-      "0.8.1 keeps the Pages chrome on npm; 0.8.0 keeps the wrong handshake — 0.8.2 is the one to install."
-    ],
-    "publishedAt": "2026-09-15T01:10:37Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.8.2",
     "prerelease": false
   },
   {
@@ -540,179 +714,6 @@
     ],
     "publishedAt": "2026-09-05T13:05:52Z",
     "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v2.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "claude-rpg",
-    "toolName": "Claude RPG",
-    "tag": "v2.0.0",
-    "name": "claude-rpg v2.0.0",
-    "body": [
-      "The living-world release: the world runs on the engine's own tick, the street reacts to what you do, and every save you ever wrote still loads. Eleven feature waves and three tuning waves on engine 3.11, each landed…"
-    ],
-    "publishedAt": "2026-09-02T07:56:23Z",
-    "url": "https://github.com/mcp-tool-shop-org/claude-rpg/releases/tag/v2.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "portlight",
-    "toolName": "Portlight",
-    "tag": "v2.1.0",
-    "name": "portlight 2.1.0",
-    "body": [
-      "Trade-first maritime strategy game. TUI is a full play path. CLI is the same save.",
-      "Harbor, contracts, infra, shipyard, fleet, campaign in the TUI",
-      "bounty hunt spawns the accepted live captain",
-      "Brokers and regional licenses in all five regions",
-      "1,853 tests"
-    ],
-    "publishedAt": "2026-09-02T04:26:02Z",
-    "url": "https://github.com/mcp-tool-shop-org/portlight/releases/tag/v2.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-rpg-engine",
-    "toolName": "AI RPG Engine",
-    "tag": "v3.11.0",
-    "name": "v3.11.0 — tuning and depth",
-    "body": [
-      "Tuning and depth. v3.10 put the strategic layer on the player's senses and recorded what still did not reach a natural session. This release retunes the bounty on-ramp, tells the truth when a fight ends in a flee,…"
-    ],
-    "publishedAt": "2026-09-01T07:04:31Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v3.11.0",
-    "prerelease": false
-  },
-  {
-    "repo": "claude-rpg",
-    "toolName": "Claude RPG",
-    "tag": "v1.7.0",
-    "name": "claude-rpg v1.7.0",
-    "body": [
-      "The engine-alignment release: @ai-rpg-engine 2.9 → 3.9 in one behavior-preserving migration slice, a full four-stage health pass on the migrated tree, and a Director-ruled feature pass — 13 waves, 149 findings filed,…"
-    ],
-    "publishedAt": "2026-08-31T21:02:02Z",
-    "url": "https://github.com/mcp-tool-shop-org/claude-rpg/releases/tag/v1.7.0",
-    "prerelease": false
-  },
-  {
-    "repo": "prompt-craft",
-    "toolName": "Prompt Craft",
-    "tag": "v1.0.1",
-    "name": "v1.0.1 — the healed tree reaches the registries",
-    "body": [
-      "The first 1.x that actually reaches the registries. v1.0.0 was tagged 2026-08-18 and its publish was never approved — both registries stayed at 0.4.0, and the docs that said otherwise have been corrected in place.…",
-      "Calibration workflow (S1): labelled-holdout format, band fitting that emits a sprite.cal.v2 table (never silently adopts), and pcraft regrade — the offline \"what would this table have decided about everything already…",
-      "The Cloud quick-start works again (S2): a shipped method=reference pair (faction:ashen-pact-cloud + char:ashen-reaver-cloud); bare pcraft recipe writes a real graph.",
-      "Cloud-spend guards (S3) and release hardening (S4): --image-name refusals that name what they refused, a wheel-smoke verify leg, RELEASING.md, and a release workflow with two free dry-run rungs.",
-      "Contract authoring at volume (S5): pcraft new scaffolds loadable faction/character skeletons; diff, lint, explain; the \"Binding real canon\" handbook tutorial."
-    ],
-    "publishedAt": "2026-08-31T20:40:00Z",
-    "url": "https://github.com/mcp-tool-shop-org/prompt-craft/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-rpg-engine",
-    "toolName": "AI RPG Engine",
-    "tag": "v3.10.0",
-    "name": "v3.10.0 — the world reaches the player",
-    "body": [
-      "The consumer-surface cycle. All eight narrator hints render in the dialogue frame and event log; the always-on HUD carries the party line; combat.encounter.cleared maps victory to the sting exactly once (a mutual…",
-      "Recorded honestly: bounty lost natural reachability to the listener cleanup — its synthetic control passes, and retuning its on-ramp is the named P1 for the next cycle.",
-      "8223 tests across 385 files. Full details in the CHANGELOG.",
-      "🤖 Generated with Claude Code"
-    ],
-    "publishedAt": "2026-08-31T19:27:47Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v3.10.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-rpg-engine",
-    "toolName": "AI RPG Engine",
-    "tag": "v3.9.0",
-    "name": "v3.9.0",
-    "body": [
-      "The pack you author is the game you play. The studio authors rulesets, rule profiles, and item placements; guided builds end by emitting content/pack.json; applyContentPack stamps player identity, lands faction…",
-      "See CHANGELOG.md for the full release notes."
-    ],
-    "publishedAt": "2026-08-31T10:13:43Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v3.9.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-rpg-engine",
-    "toolName": "AI RPG Engine",
-    "tag": "v3.8.1",
-    "name": "v3.8.1",
-    "body": [
-      "The host no longer invents the Engine. hash / present / preview / getAvailableActions / advanceRound, sidecar listActions + save/load + ADVANCE default, studio emit-pack, JSON pack catalogs and ruleProfiles. 7893 tests.",
-      "Starter pack versions lockstep with package.json 3.8.1. See CHANGELOG.md for the full 3.8.1 notes."
-    ],
-    "publishedAt": "2026-08-31T05:52:40Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v3.8.1",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v2.3.1",
-    "name": "v2.3.1 — Health A publish",
-    "body": [
-      "Health A publish of the 2.3.0 source that failed to ship. Do not retag v2.3.0.",
-      "publish.yml Stage-artifact glob and PyPI no longer waits on Tauri",
-      "publish.yml recovery: require-release-tag, concurrency on RELEASE_TAG, import sov_daemon",
-      "Daemon handshake/health, STALE pid, readonly spawn, proofs list, pending flush per chunk",
-      "Engine RNG persist; CLI chunked anchor; ProofFormatError on IO/unknown version/missing envelope_hash; proof_anchor_status txid wins"
-    ],
-    "publishedAt": "2026-08-28T01:39:43Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.3.1",
-    "prerelease": false
-  },
-  {
-    "repo": "world-forge",
-    "toolName": "World Forge",
-    "tag": "v4.8.0",
-    "name": "v4.8.0 — leftover pack/export and editor-deep",
-    "body": [
-      "v4.8.0 leftover MED/LOW pass after v4.7.0.",
-      "Leftover MED/LOW pass after v4.7.0. Not a new health swarm — the 32 HIGH leftover class already shipped. Operator-facing editor and CI gates land first; pack/export leftovers follow. 3424 tests.",
-      "Ctrl+S saves the project. The File System Access handle is kept so a second Save overwrites the same file; Save As… re-opens the picker. Load / New drop the handle. (F-bde2ece7, F-8680d2f9)",
-      "Encounter and Item tools are on the Tool Palette (N / I). (F-1db1d1d7)",
-      "Review Project Info edits name, mode, genre, version, description, tones, difficulty, and narrator tone after New Project. (F-b97d277c)"
-    ],
-    "publishedAt": "2026-08-28T00:47:28Z",
-    "url": "https://github.com/mcp-tool-shop-org/world-forge/releases/tag/v4.8.0",
-    "prerelease": false
-  },
-  {
-    "repo": "world-forge",
-    "toolName": "World Forge",
-    "tag": "v4.7.0",
-    "name": "v4.7.0 — connected authoring and export",
-    "body": [
-      "Advertised authoring and export surfaces that the store already named are now connected. Dogfood swarm Pick A closed 32 HIGH leftovers after a four-stage health pass (283 closed, 27 MED/LOW still deferred). 3385 tests.",
-      "Canvas place + inspect. Landmark, item, town-marker, and encounter-place tools actually place; items have canvas CRUD; town markers render; entity, item, loot, transition, landmark, and spawn inspectors author the…",
-      "AI RPG Engine lane. Typed connections converter; dialogueId survives; item placements keep zone/grid; town, economy, and spawn points export; CLI --out keeps fidelity sidecars; world-forge-export --import round-trips…",
-      "Godot 4 lane. world-forge-export-godot --out writes a loadable Godot 4 project (project.godot, world.tscn ExtResource .tres, player pawn, copied authored textures, scripts/player.gd).",
-      "Unreal 2.5D lane. Strata converter; tiles and props emit; entryGate and hazardRefs survive; ParallaxRenderer in @world-forge/renderer-2d."
-    ],
-    "publishedAt": "2026-08-27T22:07:03Z",
-    "url": "https://github.com/mcp-tool-shop-org/world-forge/releases/tag/v4.7.0",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v2.3.0",
-    "name": "sovereignty v2.3.0",
-    "body": [
-      "sov undo — reverse the last turn on the active game (proof + pending-anchor index stay consistent).",
-      "Mainnet wallet seed prefers the OS credential store via PyPI keyring (Windows Credential Manager / macOS Keychain / libsecret). Tests use a fake backend only. Seed is never logged.",
-      "Additive daemon route GET /games/{id}/verify/{round} returns chain lookup found / not_found / lookup_failed. Browse GET /anchor-status/{round} stays local-index (no per-row XRPL hit). Audit \"Verify all rounds\" uses…",
-      "Linux AppImage wiring in publish.yml (--bundles deb,appimage). Not attached to GitHub Release v2.3.0 (empty assets). Do not pin pip install sovereignty-game==2.3.0.",
-      "Tauri updater plugin: public minisign key in tauri.conf.json; CI injects TAURI_SIGNING_PRIVATE_KEY and TAURI_SIGNING_PRIVATE_KEY_PASSWORD from GitHub Actions secrets by name."
-    ],
-    "publishedAt": "2026-08-27T21:27:48Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.3.0",
     "prerelease": false
   }
 ]
