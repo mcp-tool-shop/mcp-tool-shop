@@ -877,6 +877,37 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
+  "si-jam-sessions": {
+    "tags": [
+      "datasets",
+      "deterministic-simulation",
+      "lilypond",
+      "machine-learning",
+      "mcp",
+      "music"
+    ],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "A deterministic, hashed music law: a model proposes, a checker admits, every take is...",
+    "needsHumanReview": true
+  },
+  "si-rpg-engine": {
+    "tags": [
+      "3d",
+      "deterministic",
+      "differential-testing",
+      "game-engine",
+      "nodejs",
+      "physics-engine"
+    ],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "library",
+    "install": "npm install si-rpg-engine",
+    "tagline": "A deterministic, hashed, replayable 3D simulation engine: a fixed-timestep tick with a...",
+    "needsHumanReview": true
+  },
   "site-theme": {
     "tags": [
       "mcp"
