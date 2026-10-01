@@ -1,5 +1,21 @@
 [
   {
+    "repo": "backpropagate",
+    "toolName": "Backpropagate",
+    "tag": "v1.8.0",
+    "name": "Backpropagate v1.8.0",
+    "body": [
+      "Experimental: block-coordinate full fine-tuning (--full-ft-engine block, #237). One block trains at a time with AdamW while the rest stay frozen on the GPU, so a 7B model full-fine-tunes on a 32 GB card without…",
+      "ui_security.SecureSessionHandler: one CSRF slot per session, and logout now revokes. It keyed CSRF tokens and its session registry on the first 32 characters of the access token. Every HS256 JWT starts with the same…",
+      "CSRFProtection.validate_token returns invalid for a non-ASCII or non-string token instead of raising TypeError.",
+      "FileValidator.validate() given a pathlib.Path now runs the size cap and magic-byte checks (it looked up the bare file name and skipped them).",
+      "validate_numeric_input and the UI's numeric fields reject NaN and infinity."
+    ],
+    "publishedAt": "2026-10-01T09:06:14Z",
+    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.8.0",
+    "prerelease": false
+  },
+  {
     "repo": "housekeeping",
     "toolName": "Housekeeping",
     "tag": "v1.3.1",
@@ -688,16 +704,6 @@
     ],
     "publishedAt": "2026-09-09T07:40:56Z",
     "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.5.2",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-camp",
-    "toolName": "XRPL Camp",
-    "tag": "v1.4.0",
-    "name": "v1.4.0",
-    "body": [],
-    "publishedAt": "2026-09-09T07:10:50Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.4.0",
     "prerelease": false
   }
 ]
