@@ -7,6 +7,9 @@ on:
 
 permissions:
   contents: write
+  # A push made with GITHUB_TOKEN never triggers another workflow, so the
+  # refresh commit cannot start pages.yml by itself. Dispatching it can.
+  actions: write
 
 concurrency:
   group: daily-refresh
@@ -83,6 +86,7 @@ jobs:
 
       # ── Commit ────────────────────────────────────────────────
       - name: Commit changes if any
+        id: commit
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git config user.name "mcpt-bot"
@@ -90,6 +94,13 @@ jobs:
             git add -A
             git commit -m "chore(site): daily refresh"
             git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
           else
             echo "No changes to commit."
           fi
+
+      - name: Deploy the refreshed site
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref main
