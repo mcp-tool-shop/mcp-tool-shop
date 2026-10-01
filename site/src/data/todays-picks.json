@@ -1,11 +1,18 @@
 {
-  "date": "2026-09-17",
+  "date": "2026-10-01",
   "picks": [
     {
       "slug": "websketch-ir",
       "reason": "Grammar-based intermediate representation that compiles messy DOM into a small, fixed vocabulary of semantic UI primitives — built for LLMs. Zero runtime deps.",
       "signals": [
         "popular"
+      ]
+    },
+    {
+      "slug": "comfy-headless",
+      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
+      "signals": [
+        "featured"
       ]
     },
     {
@@ -27,13 +34,6 @@
       "reason": "Learn the XRP Ledger in one sitting - six guided lessons on Testnet, ending in a record anyone can verify against the ledger",
       "signals": [
         "popular"
-      ]
-    },
-    {
-      "slug": "comfy-headless",
-      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
-      "signals": [
-        "featured"
       ]
     },
     {

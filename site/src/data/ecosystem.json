@@ -1,17 +1,17 @@
 {
   "schema": 1,
   "org": "mcp-tool-shop-org",
-  "generated": "2026-09-17",
+  "generated": "2026-10-01",
   "provenance": {
     "repos": "live gh repo list of mcp-tool-shop-org",
     "releases": "GitHub GraphQL latestRelease and releases.totalCount",
     "packages": "registry.npmjs.org and pypi.org probed per repository, and again from each repository manifest. Ownership is confirmed against the @mcptoolshop npm scope and maintainer account, and against the PyPI publishing identity of this organization. A package name that exists on a registry but belongs to someone else carries no install command."
   },
   "counts": {
-    "public_total": 88,
-    "public_unarchived": 85,
+    "public_total": 92,
+    "public_unarchived": 89,
     "public_archived": 3,
-    "catalogued": 83,
+    "catalogued": 87,
     "forks_excluded": 1,
     "org_config_excluded": 1
   },
@@ -56,7 +56,7 @@
       "id": "image-and-media-pipelines",
       "title": "Image and media pipelines",
       "description": "Programmatic generation and verification of images, 3D, video and audio.",
-      "count": 14
+      "count": 15
     },
     {
       "id": "agent-infrastructure",
@@ -68,19 +68,19 @@
       "id": "developer-tooling",
       "title": "Developer tooling",
       "description": "Release gates, registries, site scaffolding and the machinery of shipping.",
-      "count": 13
+      "count": 14
     },
     {
       "id": "games-and-game-tooling",
       "title": "Games and game tooling",
       "description": "Shipped games and the authoring tools that produce them.",
-      "count": 17
+      "count": 18
     },
     {
       "id": "ledger-and-verification",
       "title": "Ledger and verification",
       "description": "Attestation, receipts and on-ledger proof for releases and financial truth.",
-      "count": 5
+      "count": 6
     }
   ],
   "paths": [
@@ -191,8 +191,8 @@
       "summary": "Teach your AI to play piano and guitar, sing, and now LISTEN. 53 MCP tools, 120 songs, 6 engines, a browser cockpit, and an audio inspector that measures a recording: onsets, pitch in cents, transcription, and grading a performance by ear. Ships two public tool-use datasets over symbolic and acoustic music.",
       "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions",
       "docs": "https://mcp-tool-shop-org.github.io/ai-jam-sessions/",
-      "releases": 19,
-      "latest_release": "v2.6.1 (2026-09-14)",
+      "releases": 20,
+      "latest_release": "v2.7.0 (2026-09-29)",
       "package": {
         "npm": "@mcptoolshop/ai-jam-sessions"
       },
@@ -226,8 +226,8 @@
       "summary": "Simulation-native toolkit for building, analyzing, and balancing deterministic RPG worlds",
       "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine",
       "docs": "https://mcp-tool-shop-org.github.io/ai-rpg-engine/",
-      "releases": 26,
-      "latest_release": "v3.11.0 (2026-09-01)",
+      "releases": 27,
+      "latest_release": "v3.12.0 (2026-09-21)",
       "package": null,
       "install": null,
       "classification_note": "Ratified 2026-09-17. It is the simulation, not a title. Contributors looking for RPG tooling look under Games, so it stays here."
@@ -239,10 +239,11 @@
       "visibility": "public",
       "language": "GDScript",
       "license": "MIT",
-      "summary": "The studio's visual client seat — a Godot 4 stage that renders ai-rpg-engine's authoritative sim over a JSON-RPC wire.",
+      "summary": "Godot 4 client for AI RPG Engine. Renders a sim it does not own.",
       "url": "https://github.com/mcp-tool-shop-org/ai-rpg-stage",
-      "releases": 0,
-      "latest_release": null,
+      "docs": "https://mcp-tool-shop-org.github.io/ai-rpg-stage/",
+      "releases": 1,
+      "latest_release": "v0.2.0 (2026-09-21)",
       "package": null,
       "install": null
     },
@@ -290,8 +291,8 @@
       "summary": "Financial truth infrastructure for the decentralized world.",
       "url": "https://github.com/mcp-tool-shop-org/attestia",
       "docs": "https://mcp-tool-shop-org.github.io/attestia/",
-      "releases": 4,
-      "latest_release": "v2.0.2 (2026-06-21)",
+      "releases": 5,
+      "latest_release": "v2.0.3 (2026-09-28)",
       "package": {
         "npm": "@mcptoolshop/attestia"
       },
@@ -349,8 +350,8 @@
       "summary": "Headless LLM fine-tuning in 3 lines — smart defaults, VRAM-aware batch sizing, multi-run SLAO, GGUF export for Ollama.",
       "url": "https://github.com/mcp-tool-shop-org/backpropagate",
       "docs": "https://mcp-tool-shop-org.github.io/backpropagate/",
-      "releases": 20,
-      "latest_release": "v1.7.1 (2026-09-07)",
+      "releases": 21,
+      "latest_release": "v1.7.2 (2026-09-30)",
       "package": {
         "npm": "@mcptoolshop/backpropagate",
         "pypi": "backpropagate"
@@ -469,6 +470,26 @@
       "latest_release": "v1.4.0 (2026-08-23)",
       "package": null,
       "install": null
+    },
+    {
+      "name": "cognate",
+      "area": "ledger-and-verification",
+      "also": [
+        "agent-infrastructure"
+      ],
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "TypeScript",
+      "license": "MIT",
+      "summary": "AI governance attestation layer — structural truth for autonomous systems",
+      "url": "https://github.com/mcp-tool-shop-org/cognate",
+      "docs": "https://mcp-tool-shop-org.github.io/cognate/",
+      "releases": 5,
+      "latest_release": "v0.1.4 (2026-09-28)",
+      "package": {
+        "npm": "@mcptoolshop/cognate"
+      },
+      "install": "npx @mcptoolshop/cognate"
     },
     {
       "name": "comfy-headless",
@@ -598,8 +619,8 @@
       "summary": "A styled 2D concept becomes a textured 3D asset - style applied on the asset in texture space. Four accepted subject classes, local and licence-clean.",
       "url": "https://github.com/mcp-tool-shop-org/facet",
       "docs": "https://mcp-tool-shop-org.github.io/facet/",
-      "releases": 10,
-      "latest_release": "v0.8.0 (2026-08-20)",
+      "releases": 11,
+      "latest_release": "v0.8.1 (2026-09-22)",
       "package": {
         "npm": "@mcptoolshop/facet",
         "pypi": "facet-mcp"
@@ -681,6 +702,23 @@
       },
       "install": "pip install gpu-container",
       "note": "Five releases, all pre-release; no stable tag yet."
+    },
+    {
+      "name": "housekeeping",
+      "area": "developer-tooling",
+      "lane": "shipped",
+      "visibility": "public",
+      "language": "JavaScript",
+      "license": "MIT",
+      "summary": "Operational-health warehouse for a GitHub organization: CI, pull requests, releases, Actions cost and repo hygiene, collected into SQLite and audited against written rules.",
+      "url": "https://github.com/mcp-tool-shop-org/housekeeping",
+      "docs": "https://mcp-tool-shop-org.github.io/housekeeping/",
+      "releases": 3,
+      "latest_release": "v1.3.1 (2026-09-30)",
+      "package": {
+        "npm": "@mcptoolshop/housekeeping"
+      },
+      "install": "npx @mcptoolshop/housekeeping"
     },
     {
       "name": "knowledge-core",
@@ -770,8 +808,8 @@
       "summary": "The arcade: games made from what MCP servers said on the wire. Ghost on the Menu (a replay shooter) and Vibe Typer (a typing game where you are the coding agent), both playable on a phone, from npx, or as MCP servers. Cabinets read mcp-arcade tapes and never touch the score.",
       "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets",
       "docs": "https://mcp-tool-shop-org.github.io/mcp-arcade-cabinets/",
-      "releases": 14,
-      "latest_release": "v0.12.0 (2026-09-17)",
+      "releases": 17,
+      "latest_release": "v0.13.2 (2026-09-30)",
       "package": null,
       "install": null,
       "classification_note": "Dual-use, ratified 2026-09-17. Playable cabinets that speak MCP because they replay tapes, not because they are a test harness. Games, also MCP servers."
@@ -779,15 +817,15 @@
     {
       "name": "mcp-stress-test",
       "area": "mcp-servers",
-      "lane": "in-development",
+      "lane": "shipped",
       "visibility": "public",
       "language": "Python",
       "license": "MIT",
-      "summary": "Red team toolkit for stress-testing MCP security scanners — find detection gaps before attackers do",
+      "summary": "Stress testing framework for MCP security tools - simulating attacks, temporal degradation, and edge cases",
       "url": "https://github.com/mcp-tool-shop-org/mcp-stress-test",
       "docs": "https://mcp-tool-shop-org.github.io/mcp-stress-test/",
-      "releases": 1,
-      "latest_release": "v0.1.2 (2026-02-26)",
+      "releases": 2,
+      "latest_release": "v1.0.2 (2026-09-23)",
       "package": {
         "pypi": "mcp-stress-test"
       },
@@ -934,8 +972,8 @@
       "summary": "Local GPU translation MCP server — TranslateGemma via Ollama, 55 languages, zero cloud dependency",
       "url": "https://github.com/mcp-tool-shop-org/polyglot-mcp",
       "docs": "https://mcp-tool-shop-org.github.io/polyglot-mcp/",
-      "releases": 2,
-      "latest_release": "v1.7.2 (2026-05-15)",
+      "releases": 3,
+      "latest_release": "v1.8.0 (2026-09-25)",
       "package": {
         "npm": "@mcptoolshop/polyglot-mcp"
       },
@@ -1046,8 +1084,9 @@
       "visibility": "public",
       "language": "HTML",
       "license": "MIT",
-      "summary": "Ten verified, ai-loadout-routed SQLite knowledge bases — 1,771 entries with per-wave provenance, adversarial verification, and progressive-disclosure routing so an agent reads only the slice it needs.",
+      "summary": "Verified, source-backed SQLite knowledge bases on game development and local AI tooling. Every entry cites its sources, records its research wave, and carries a verified flag that only a separate verifier can set.",
       "url": "https://github.com/mcp-tool-shop-org/readouts",
+      "docs": "https://mcp-tool-shop-org.github.io/readouts/",
       "releases": 0,
       "latest_release": null,
       "package": null,
@@ -1158,8 +1197,8 @@
       "summary": "Trust infrastructure for repo networks — verify releases, check anchors, and onboard repos from anywhere.",
       "url": "https://github.com/mcp-tool-shop-org/repomesh",
       "docs": "https://mcp-tool-shop-org.github.io/repomesh/",
-      "releases": 4,
-      "latest_release": "v2.3.0 (2026-06-21)",
+      "releases": 5,
+      "latest_release": "v2.3.1 (2026-09-23)",
       "package": {
         "npm": "@mcptoolshop/repomesh"
       },
@@ -1256,8 +1295,8 @@
       "summary": "RPG dice engine — expression parser, probability analyzer, loot tables, beautiful terminal output",
       "url": "https://github.com/mcp-tool-shop-org/roll",
       "docs": "https://mcp-tool-shop-org.github.io/roll/",
-      "releases": 3,
-      "latest_release": "v2.1.0 (2026-06-20)",
+      "releases": 4,
+      "latest_release": "v2.1.1 (2026-09-28)",
       "package": {
         "npm": "@mcptoolshop/roll"
       },
@@ -1344,6 +1383,38 @@
       ]
     },
     {
+      "name": "si-jam-sessions",
+      "area": "image-and-media-pipelines",
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "Rust",
+      "license": "MIT",
+      "summary": "A deterministic, hashed music law: a model proposes, a checker admits, every take is graded exactly and replays from its log. Rust to WebAssembly.",
+      "url": "https://github.com/mcp-tool-shop-org/si-jam-sessions",
+      "docs": "https://mcp-tool-shop-org.github.io/si-jam-sessions/",
+      "releases": 2,
+      "latest_release": "v0.2.1 (2026-09-29)",
+      "package": {
+        "npm": "@si-jam-sessions/si-jam-sessions"
+      },
+      "install": "npx @si-jam-sessions/si-jam-sessions"
+    },
+    {
+      "name": "si-rpg-engine",
+      "area": "games-and-game-tooling",
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "JavaScript",
+      "license": "MIT",
+      "summary": "A deterministic, hashed, replayable 3D simulation engine: a fixed-timestep tick with a Rust-to-WebAssembly physics law, worlds swept before they run, a bench that measures each change against its parent, and a checker that admits what a model proposes.",
+      "url": "https://github.com/mcp-tool-shop-org/si-rpg-engine",
+      "docs": "https://mcp-tool-shop-org.github.io/si-rpg-engine/",
+      "releases": 4,
+      "latest_release": "v0.4.0 (2026-09-30)",
+      "package": null,
+      "install": null
+    },
+    {
       "name": "site-theme",
       "area": "developer-tooling",
       "lane": "shipped",
@@ -1387,8 +1458,8 @@
       "summary": "A board game about trust, trade, and keeping your word. Offline tabletop with optional XRPL proof-of-play anchoring.",
       "url": "https://github.com/mcp-tool-shop-org/sovereignty",
       "docs": "https://mcp-tool-shop-org.github.io/sovereignty/",
-      "releases": 19,
-      "latest_release": "v2.3.1 (2026-08-28)",
+      "releases": 23,
+      "latest_release": "v2.3.5 (2026-09-30)",
       "package": {
         "npm": "@mcptoolshop/sovereignty",
         "pypi": "sovereignty-game"
@@ -1633,8 +1704,8 @@
       "summary": "2D / 2.5D world authoring studio with peer export lanes for AI RPG Engine, Unreal Engine 5, and Godot 4.",
       "url": "https://github.com/mcp-tool-shop-org/world-forge",
       "docs": "https://mcp-tool-shop-org.github.io/world-forge/",
-      "releases": 7,
-      "latest_release": "v4.8.0 (2026-08-28)",
+      "releases": 8,
+      "latest_release": "v4.9.0 (2026-09-21)",
       "package": null,
       "install": null,
       "starter": true,

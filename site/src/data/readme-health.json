@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generatedAt": "2026-09-17T13:11:38.082Z",
-    "runId": "0d31eec9-51d9-46e3-b212-0765635c8492",
+    "generatedAt": "2026-10-01T00:18:15.277Z",
+    "runId": "f14ec7f4-844e-4587-878f-270102052ae2",
     "version": "2.0",
     "checkedCount": 9,
     "strategy": {
       "recentDays": 7,
       "sampleSize": 10,
-      "seed": "2026-09-17"
+      "seed": "2026-10-01"
     }
   },
   "results": [
@@ -26,44 +26,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-17T13:11:38.082Z",
-      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
-    },
-    {
-      "repo": "xrpl-camp",
-      "score": 90,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": false,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-09-17T13:11:38.082Z",
-      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
-    },
-    {
-      "repo": "mcp-stress-test",
-      "score": 90,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": false,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-09-17T13:11:38.082Z",
-      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
+      "checkedAt": "2026-10-01T00:18:15.277Z",
+      "lastCheckedAt": "2026-10-01T00:18:15.277Z"
     },
     {
       "repo": "codecomfy-vscode",
@@ -80,8 +44,44 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-17T13:11:38.082Z",
-      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
+      "checkedAt": "2026-10-01T00:18:15.277Z",
+      "lastCheckedAt": "2026-10-01T00:18:15.277Z"
+    },
+    {
+      "repo": "mcp-stress-test",
+      "score": 90,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": false,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-10-01T00:18:15.277Z",
+      "lastCheckedAt": "2026-10-01T00:18:15.277Z"
+    },
+    {
+      "repo": "xrpl-camp",
+      "score": 90,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": false,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-10-01T00:18:15.277Z",
+      "lastCheckedAt": "2026-10-01T00:18:15.277Z"
     },
     {
       "repo": "comfy-headless",
@@ -98,8 +98,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-17T13:11:38.082Z",
-      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
+      "checkedAt": "2026-10-01T00:18:15.277Z",
+      "lastCheckedAt": "2026-10-01T00:18:15.277Z"
     },
     {
       "repo": "backpropagate",
@@ -116,8 +116,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-17T13:11:38.082Z",
-      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
+      "checkedAt": "2026-10-01T00:18:15.277Z",
+      "lastCheckedAt": "2026-10-01T00:18:15.277Z"
     },
     {
       "repo": "tool-compass",
@@ -134,26 +134,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-17T13:11:38.082Z",
-      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
-    },
-    {
-      "repo": "synthesis",
-      "score": 100,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": true,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-09-17T13:11:38.082Z",
-      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
+      "checkedAt": "2026-10-01T00:18:15.277Z",
+      "lastCheckedAt": "2026-10-01T00:18:15.277Z"
     },
     {
       "repo": "accessibility-suite",
@@ -170,8 +152,26 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-09-17T13:11:38.082Z",
-      "lastCheckedAt": "2026-09-17T13:11:38.082Z"
+      "checkedAt": "2026-10-01T00:18:15.277Z",
+      "lastCheckedAt": "2026-10-01T00:18:15.277Z"
+    },
+    {
+      "repo": "synthesis",
+      "score": 100,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": true,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-10-01T00:18:15.277Z",
+      "lastCheckedAt": "2026-10-01T00:18:15.277Z"
     }
   ]
 }
