@@ -97,6 +97,20 @@ describe("overrides.json", () => {
       `override keys with no project: ${orphans.join(", ")}`
     );
   });
+
+  // Adding a repo to automation.ignore.json drops it from projects.json on the
+  // next sync, which turns its override into an orphan and fails the test above
+  // on the Daily Refresh cron rather than on the PR that made the change.
+  it("no override key is on the automation skip list (except registry)", () => {
+    const ignored = loadJson("automation.ignore.json") ?? [];
+    const ALLOWED = new Set(["mcp-tool-registry"]);
+    const clash = ignored.filter((r) => r in overrides && !ALLOWED.has(r));
+    assert.equal(
+      clash.length,
+      0,
+      `ignored repos that still carry an override: ${clash.join(", ")}`
+    );
+  });
 });
 
 describe("collections.json", () => {
