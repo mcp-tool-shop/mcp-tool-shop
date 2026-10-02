@@ -6,7 +6,7 @@
  * specific finding from the issue. Markup is generated client-side from the
  * params, so the JSON stays the single source of truth for content.
  *
- * kinds: working-set | forgetting-curve | needle | poison | quiz
+ * kinds: working-set | forgetting-curve | needle | poison | quiz | bets | ship-it | dream-walk
  */
 interface Props {
   kind: string;
@@ -82,7 +82,27 @@ const { kind, title, caption = '', ...params } = Astro.props;
   .nw-check { display: flex; align-items: center; gap: .5rem; font-size: .85rem; color: var(--color-text-muted); cursor: pointer; }
   .nw-check input { accent-color: var(--color-accent); }
   .nw-select { font: inherit; font-size: .85rem; padding: .4rem .6rem; border-radius: 6px; border: 1px solid var(--color-border); background: var(--color-canvas-overlay); color: var(--color-text); max-width: 100%; }
-  @media (max-width: 600px) { .nw-slots { grid-template-columns: repeat(10, 1fr); } .nw-note { grid-template-columns: 1fr; } }
+  .nw-bet { padding: .7rem 0; border-top: 1px solid var(--color-border-muted); }
+  .nw-bet:first-of-type { border-top: 0; padding-top: 0; }
+  .nw-bet-text { color: var(--color-text); line-height: 1.45; margin-bottom: .4rem; }
+  .nw-bet-ctl { display: grid; grid-template-columns: 7rem 1fr 3rem; gap: .6rem; align-items: center; font-family: var(--font-mono); font-size: .75rem; color: var(--color-fg-subtle); margin-top: .25rem; }
+  .nw-bet-ctl input[type=range] { width: 100%; accent-color: var(--color-accent); }
+  .nw-bet-ctl .val { text-align: right; color: var(--color-text); font-weight: 600; }
+  .nw-bet-ctl .track { height: 8px; border-radius: 4px; background: var(--color-canvas-default); border: 1px solid var(--color-border-muted); overflow: hidden; }
+  .nw-bet-ctl .track i { display: block; height: 100%; }
+  .nw-bet-ctl .track i.you { background: var(--color-accent-fg); }
+  .nw-bet-ctl .track i.house { background: var(--color-attention-fg); }
+  .nw-shelf { display: flex; flex-wrap: wrap; gap: 4px; margin: .6rem 0; min-height: 22px; }
+  .nw-game { width: 22px; height: 22px; border-radius: 4px; background: var(--color-border-default); }
+  .nw-game.mid { background: var(--color-attention-fg); }
+  .nw-game.hit { background: var(--color-success-fg); }
+  .nw-dream { max-width: 528px; margin: 0 auto; }
+  .nw-dream canvas { image-rendering: pixelated; cursor: pointer; outline-offset: 2px; }
+  .nw-dream canvas:focus-visible { outline: 2px solid var(--color-accent); }
+  .nw-pad { display: grid; grid-template-columns: repeat(3, 2.4rem); grid-template-rows: repeat(2, 2.2rem); gap: 4px; }
+  .nw-pad .nw-btn { padding: 0; font-size: 1rem; }
+  .nw-btn.on { border-color: var(--color-accent); color: var(--color-accent); }
+  @media (max-width: 600px) { .nw-slots { grid-template-columns: repeat(10, 1fr); } .nw-note { grid-template-columns: 1fr; } .nw-bet-ctl { grid-template-columns: 5.5rem 1fr 2.6rem; } }
 </style>
 
 <script>
@@ -313,7 +333,8 @@ const { kind, title, caption = '', ...params } = Astro.props;
     }
     function render(clear = true) {
       if (i >= items.length) {
-        q.textContent = `${score} of ${items.length}. ` + (score === items.length ? 'You have read Denning. Or you cheated. Either is fine.' : score >= items.length * .7 ? 'Solid. The overlap is the point.' : 'Which is the point: you cannot tell the decades apart.');
+        const [perfect, good, low] = p.endings ?? ['You have read Denning. Or you cheated. Either is fine.', 'Solid. The overlap is the point.', 'Which is the point: you cannot tell the decades apart.'];
+        q.textContent = `${score} of ${items.length}. ` + (score === items.length ? perfect : score >= items.length * .7 ? good : low);
         btns.forEach(b => (b.hidden = true)); next.hidden = true; prog.textContent = ''; if (clear) reveal.replaceChildren();
         return;
       }
@@ -325,8 +346,204 @@ const { kind, title, caption = '', ...params } = Astro.props;
     render();
   }
 
+  /* ------------------------------------------------------------------ */
+  /* 6. Place your bets — the reader's odds against the house's           */
+  /* ------------------------------------------------------------------ */
+  type Bets = { first?: Record<string, number>; after?: Record<string, number> };
+  const betMem: Record<string, Bets> = {};                 // fallback when localStorage is blocked
+  function bets(root: HTMLElement, p: any) {
+    const claims: { id: string; text: string; house?: number; why?: string }[] = p.claims ?? [];
+    const key = `nw-bets-${p.id ?? 'issue'}`;
+    const load = (): Bets => { try { return JSON.parse(localStorage.getItem(key) || 'null') ?? betMem[key] ?? {}; } catch { return betMem[key] ?? {}; } };
+    const save = (s: Bets, notify = true) => { betMem[key] = s; try { localStorage.setItem(key, JSON.stringify(s)); } catch {} if (notify) window.dispatchEvent(new CustomEvent('nw-bets', { detail: key })); };
+    const draft: Record<string, number> = {};
+    let peek = false;
+    const bar = (label: string, v: number, cls: string) => h('div', { class: 'nw-bet-ctl' }, h('span', {}, label), h('span', { class: 'track' }, h('i', { class: cls, style: `width:${v}%` })), h('span', { class: 'val' }, v + '%'));
+    function place() {
+      const s = load(); const locked = !!s.first;
+      const rows = claims.map(c => {
+        const v = locked ? s.first![c.id] ?? 50 : (draft[c.id] ??= 50);
+        const out = h('span', { class: 'val' }, v + '%');
+        const inp = h('input', { type: 'range', min: 0, max: 100, step: 5, value: v, 'aria-label': c.text, oninput: (e: Event) => { draft[c.id] = +(e.target as HTMLInputElement).value; out.textContent = draft[c.id] + '%'; } }) as HTMLInputElement;
+        inp.disabled = locked;
+        return h('div', { class: 'nw-bet' }, h('div', { class: 'nw-bet-text' }, c.text), h('div', { class: 'nw-bet-ctl' }, h('span', {}, 'your odds'), inp, out));
+      });
+      root.replaceChildren(...rows, h('div', { class: 'nw-row', style: 'margin:.75rem 0 0' },
+        locked ? h('span', { class: 'nw-badge ok' }, 'LOCKED IN') : h('button', { class: 'nw-btn primary', onclick: () => save({ first: { ...draft } }) }, 'Lock in my bets'),
+        locked ? h('span', { class: 'nw-stat' }, 'The house shows its odds at the bottom of the issue.') : null,
+        locked ? h('button', { class: 'nw-btn', onclick: () => save({}) }, 'Start over') : null,
+      ));
+    }
+    function reveal() {
+      const s = load(); const first = s.first;
+      if (!first && !peek) {
+        root.replaceChildren(
+          h('p', { class: 'nw-stat' }, 'You have not placed your bets. The first widget in this issue takes thirty seconds, and the comparison only means something if you commit before you look.'),
+          h('div', { class: 'nw-row', style: 'margin:.75rem 0 0' }, h('button', { class: 'nw-btn', onclick: () => { peek = true; reveal(); } }, 'Show me the house odds anyway')));
+        return;
+      }
+      const after: Record<string, number> = { ...(first ?? {}), ...(s.after ?? {}) };
+      const summary = h('div', { class: 'nw-row', style: 'margin:.75rem 0 0' });
+      const sum = () => {
+        if (!first) { summary.replaceChildren(h('span', { class: 'nw-stat' }, 'House odds only. Bet first next time.')); return; }
+        const house = (c: any) => Math.round((c.house ?? .5) * 100);
+        const gap = claims.reduce((a, c) => a + Math.abs((first[c.id] ?? 50) - house(c)), 0) / claims.length;
+        const moved = claims.reduce((a, c) => a + Math.abs((after[c.id] ?? 50) - (first[c.id] ?? 50)), 0) / claims.length;
+        const far = claims.reduce((a, c) => (Math.abs((after[c.id] ?? 50) - house(c)) > Math.abs((after[a.id] ?? 50) - house(a)) ? c : a), claims[0]);
+        summary.replaceChildren(
+          h('span', { class: 'nw-stat' }, 'you started ', h('b', {}, gap.toFixed(0) + ' pts'), ' from the house'),
+          h('span', { class: 'nw-stat' }, 'reading moved you ', h('b', {}, moved.toFixed(0) + ' pts')),
+          h('span', { class: 'nw-stat' }, 'we disagree most on #', h('b', {}, String(claims.indexOf(far) + 1))),
+        );
+      };
+      const rows = claims.map((c, i) => {
+        const kids: any[] = [h('div', { class: 'nw-bet-text' }, `${i + 1}. ${c.text}`)];
+        if (first) kids.push(bar('you, before', first[c.id] ?? 50, 'you'));
+        kids.push(bar('the house', Math.round((c.house ?? .5) * 100), 'house'));
+        if (first) {
+          const out = h('span', { class: 'val' }, (after[c.id] ?? 50) + '%');
+          kids.push(h('div', { class: 'nw-bet-ctl' }, h('span', {}, 'you, now'), h('input', { type: 'range', min: 0, max: 100, step: 5, value: after[c.id] ?? 50, 'aria-label': `Your odds now: ${c.text}`, oninput: (e: Event) => { after[c.id] = +(e.target as HTMLInputElement).value; out.textContent = after[c.id] + '%'; save({ first, after }, false); sum(); } }), out));
+        }
+        if (c.why) kids.push(h('div', { class: 'nw-reveal' }, c.why));
+        return h('div', { class: 'nw-bet' }, ...kids);
+      });
+      root.replaceChildren(...rows, summary); sum();
+    }
+    const render = p.mode === 'reveal' ? reveal : place;
+    window.addEventListener('nw-bets', (e: Event) => { if ((e as CustomEvent).detail === key) render(); });
+    render();
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* 7. Ship it — more tickets, same lottery (the Red Queen shelf)        */
+  /* ------------------------------------------------------------------ */
+  function shipIt(root: HTMLElement, p: any) {
+    // Toy model, one assumption: players' hours are fixed, so the number of games that find an
+    // audience each year does not grow when the shelf does. A title's odds divide by the field's leverage.
+    const base: number = p.gamesPerDecade ?? 4, shelf: number = p.shelfPerYear ?? 20000;
+    const tiers: { key: string; label: string; p: number }[] = p.tiers ?? [];
+    const pAny = tiers.reduce((a, t) => a + t.p, 0);
+    let you = 1, field = 1;
+    const odds = (y: number, f: number) => 1 - Math.pow(1 - Math.min(1, pAny / f), Math.round(base * y));
+    const baseline = odds(1, 1);
+    const stat = h('div', { class: 'nw-row' });
+    const strip = h('div', { class: 'nw-shelf' });
+    const story = h('div', { class: 'nw-reveal', style: 'min-height:2.6em' }, 'Set the two sliders, then play a decade.');
+    const mk = (label: string, val: number, on: (v: number) => void) => {
+      const out = h('span', {}, val + '×');
+      return h('div', { class: 'nw-ctl' }, h('label', {}, label, ' ', out), h('input', { type: 'range', min: 1, max: 10, step: 1, value: val, 'aria-label': label, oninput: (e: Event) => { const v = +(e.target as HTMLInputElement).value; out.textContent = v + '×'; on(v); paint(); } }));
+    };
+    function paint() {
+      const o = odds(you, field); const d = o - baseline;
+      const b = d > 0.03 ? ['ok', 'AHEAD'] : d < -0.03 ? ['bad', 'BEHIND'] : ['warn', 'RUNNING IN PLACE'];
+      stat.replaceChildren(
+        h('span', { class: 'nw-stat' }, 'you ship ', h('b', {}, String(Math.round(base * you))), ' games a decade'),
+        h('span', { class: 'nw-stat' }, 'the shelf takes ', h('b', {}, Math.round(shelf * field).toLocaleString('en-US')), ' a year'),
+        h('span', { class: 'nw-stat' }, 'odds one of yours finds an audience ', h('b', {}, pct(o))),
+        h('span', { class: `nw-badge ${b[0]}` }, b[1]),
+      );
+    }
+    function play() {
+      const games: string[] = [];
+      for (let g = 0; g < Math.round(base * you); g++) {
+        let r = Math.random(), tier = '';
+        for (const t of tiers) { const q = Math.min(1, t.p / field); if (r < q) { tier = t.key; break; } r -= q; }
+        games.push(tier);
+      }
+      const found = games.filter(Boolean).length;
+      strip.replaceChildren(...games.map(g => h('div', { class: `nw-game ${g}`, title: tiers.find(t => t.key === g)?.label ?? 'sank without a trace' })));
+      story.replaceChildren(`Shipped ${games.length}. `, ...tiers.map(t => `${games.filter(g => g === t.key).length} ${t.label}. `), `${games.length - found} sank. `, h('span', { class: `nw-badge ${found ? 'ok' : 'bad'}` }, found ? 'STILL A STUDIO' : 'OUT OF RUNWAY'));
+    }
+    root.append(
+      h('div', { class: 'nw-row' }, mk('your leverage', you, v => { you = v; }), mk('everyone else’s leverage', field, v => { field = v; })),
+      stat, strip, story,
+      h('div', { class: 'nw-legend' },
+        h('span', {}, h('i', { style: `background:${cssVar('--color-border-default')}` }), 'sank'),
+        ...tiers.map(t => h('span', {}, h('i', { style: `background:${cssVar(t.key === 'hit' ? '--color-success-fg' : '--color-attention-fg')}` }), t.label))),
+      h('div', { class: 'nw-row', style: 'margin:.75rem 0 0' }, h('button', { class: 'nw-btn primary', onclick: play }, 'Play a decade')),
+    );
+    paint();
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* 8. Dream walk — a world that only remembers what it saw recently     */
+  /* ------------------------------------------------------------------ */
+  function dreamWalk(root: HTMLElement, p: any) {
+    const presets: { label: string; seconds: number | null }[] = p.horizons ?? [{ label: 'short memory', seconds: 3 }, { label: 'game engine', seconds: null }];
+    const COLS = 11, ROWS = 7, T = 48, CX = (COLS - 1) / 2, CY = (ROWS - 1) / 2;
+    let px = 0, py = 0, clock = 0, redreamed = 0, horizon: number | null = presets[0].seconds;
+    let flag: { x: number; y: number } | null = null, lost = false;
+    const seen = new Map<string, { seed: number; last: number; flash: number }>();
+    const cv = h('canvas', { width: COLS * T, height: ROWS * T, tabindex: 0, role: 'img', 'aria-label': 'A small generated world. Use the arrow keys or the buttons to walk.' }) as HTMLCanvasElement;
+    const stat = h('div', { class: 'nw-row', style: 'margin-top:.75rem' });
+    const hash = (x: number, y: number, s: number) => { let n = Math.imul(x, 374761393) ^ Math.imul(y, 668265263) ^ Math.imul(s + 1, 1274126177); n = Math.imul(n ^ (n >>> 13), 1274126177); return ((n ^ (n >>> 16)) >>> 0) / 4294967296; };
+    const inView = (fn: (x: number, y: number, k: string) => void) => { for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) { const x = px + c - CX, y = py + r - CY; fn(x, y, `${x},${y}`); } };
+    function observe() {
+      inView((x, y, k) => {
+        const rec = seen.get(k);
+        if (!rec) { seen.set(k, { seed: 0, last: clock, flash: 0 }); return; }
+        if (horizon !== null && clock - rec.last > horizon) { rec.seed++; rec.flash = performance.now(); redreamed++; if (flag && flag.x === x && flag.y === y) { flag = null; lost = true; } }
+        rec.last = clock;
+      });
+    }
+    function draw() {
+      const ctx = cv.getContext('2d')!; const now = performance.now();
+      inView((x, y, k) => {
+        const rec = seen.get(k)!; const X = (x - px + CX) * T, Y = (y - py + CY) * T; const v = hash(x, y, rec.seed), w = hash(y, x, rec.seed + 7);
+        ctx.fillStyle = v < .93 ? ((x + y) & 1 ? '#3c7a47' : '#417f4c') : '#2f6fa8'; ctx.fillRect(X, Y, T, T);
+        if (v >= .93) { ctx.strokeStyle = '#8fc3ee'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X + 8, Y + 18 + w * 10); ctx.lineTo(X + 22, Y + 18 + w * 10); ctx.moveTo(X + 24, Y + 32 - w * 8); ctx.lineTo(X + 40, Y + 32 - w * 8); ctx.stroke(); }
+        else if (v >= .80) { ctx.fillStyle = '#6b4a2b'; ctx.fillRect(X + 21, Y + 28, 6, 14); ctx.fillStyle = '#1f5a2e'; ctx.beginPath(); ctx.arc(X + 24, Y + 20, 13 + w * 3, 0, Math.PI * 2); ctx.fill(); }
+        else if (v >= .72) { ctx.fillStyle = '#8b8f98'; ctx.beginPath(); ctx.ellipse(X + 24, Y + 30, 13 + w * 4, 9 + w * 3, 0, 0, Math.PI * 2); ctx.fill(); }
+        else if (v >= .60) { ctx.fillStyle = ['#f4d35e', '#ee6c8a', '#f2f2f2'][Math.floor(w * 3)]; for (const [dx, dy] of [[12, 14], [30, 22], [18, 34]]) { ctx.beginPath(); ctx.arc(X + dx + w * 6, Y + dy, 3, 0, Math.PI * 2); ctx.fill(); } }
+        const age = now - rec.flash;
+        if (rec.flash && age < 1400) { ctx.strokeStyle = `rgba(255,255,255,${(1 - age / 1400).toFixed(2)})`; ctx.lineWidth = 3; ctx.strokeRect(X + 2, Y + 2, T - 4, T - 4); }
+        if (flag && flag.x === x && flag.y === y) { ctx.fillStyle = '#e8e8e8'; ctx.fillRect(X + 14, Y + 8, 3, 32); ctx.fillStyle = '#e5484d'; ctx.beginPath(); ctx.moveTo(X + 17, Y + 8); ctx.lineTo(X + 37, Y + 15); ctx.lineTo(X + 17, Y + 22); ctx.fill(); }
+      });
+      const X = CX * T, Y = CY * T;                          // the walker, always centre
+      ctx.fillStyle = '#1b1f24'; ctx.fillRect(X + 15, Y + 20, 18, 20); ctx.fillStyle = '#f1c27d'; ctx.beginPath(); ctx.arc(X + 24, Y + 14, 9, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#f5a623'; ctx.fillRect(X + 15, Y + 24, 18, 8);
+    }
+    const clockText = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+    function paint() {
+      draw();
+      const rec = flag ? seen.get(`${flag.x},${flag.y}`) : null;
+      const away = rec ? clock - rec.last : 0;
+      const f = flag ? (away < .5 ? ['ok', 'FLAG IN SIGHT'] : ['warn', `FLAG UNSEEN FOR ${clockText(away)}`]) : lost ? ['bad', 'FLAG GONE: THE WORLD FORGOT IT'] : ['warn', 'NO FLAG PLANTED'];
+      stat.replaceChildren(
+        h('span', { class: 'nw-stat' }, 'world clock ', h('b', {}, clockText(clock))),
+        h('span', { class: 'nw-stat' }, 'memory ', h('b', {}, horizon === null ? 'everything, forever' : horizon < 60 ? `${horizon} s` : `${horizon / 60} min`)),
+        h('span', { class: 'nw-stat' }, 'tiles re-dreamed ', h('b', {}, String(redreamed))),
+        h('span', { class: `nw-badge ${f[0]}` }, f[1]),
+      );
+    }
+    const move = (dx: number, dy: number) => { px += dx; py += dy; observe(); paint(); };
+    const wait = (s: number) => { clock += s; inView((_x, _y, k) => { const rec = seen.get(k); if (rec) rec.last = clock; }); paint(); };
+    cv.addEventListener('keydown', (e: KeyboardEvent) => {
+      const d: Record<string, [number, number]> = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1], a: [-1, 0], d: [1, 0], w: [0, -1], s: [0, 1] };
+      const m = d[e.key]; if (m) { e.preventDefault(); move(m[0], m[1]); }
+    });
+    const pad = (label: string, name: string, dx: number, dy: number, col: number, row: number) => h('button', { class: 'nw-btn', 'aria-label': `Walk ${name}`, style: `grid-column:${col};grid-row:${row}`, onclick: () => move(dx, dy) }, label);
+    const chips = presets.map(pr => h('button', { class: 'nw-btn', onclick: () => { horizon = pr.seconds; chips.forEach(c => c.classList.remove('on')); chip(pr).classList.add('on'); paint(); } }, pr.label));
+    const chip = (pr: { label: string }) => chips[presets.findIndex(x => x.label === pr.label)];
+    chips[0].classList.add('on');
+    root.append(
+      h('div', { class: 'nw-row' }, ...chips),
+      h('div', { class: 'nw-dream' }, cv),
+      stat,
+      h('div', { class: 'nw-row' },
+        h('div', { class: 'nw-pad' }, pad('↑', 'up', 0, -1, 2, 1), pad('←', 'left', -1, 0, 1, 2), pad('↓', 'down', 0, 1, 2, 2), pad('→', 'right', 1, 0, 3, 2)),
+        h('button', { class: 'nw-btn primary', onclick: () => { flag = { x: px, y: py }; lost = false; paint(); } }, 'Plant a flag here'),
+        h('button', { class: 'nw-btn', onclick: () => wait(10) }, 'Wait 10 s'),
+        h('button', { class: 'nw-btn', onclick: () => wait(60) }, 'Wait 1 min'),
+        h('button', { class: 'nw-btn', onclick: () => wait(600) }, 'Wait 10 min'),
+      ),
+    );
+    observe(); paint();
+    setInterval(() => { clock += .25; observe(); paint(); }, 250);
+  }
+
   const registry: Record<string, (root: HTMLElement, p: any) => void> = {
-    'working-set': workingSet, 'forgetting-curve': forgettingCurve, needle, poison, quiz,
+    'working-set': workingSet, 'forgetting-curve': forgettingCurve, needle, poison, quiz, bets, 'ship-it': shipIt, 'dream-walk': dreamWalk,
   };
   for (const fig of document.querySelectorAll<HTMLElement>('.nw[data-widget]')) {
     const kind = fig.dataset.widget!; const body = fig.querySelector<HTMLElement>('.nw-body')!;
