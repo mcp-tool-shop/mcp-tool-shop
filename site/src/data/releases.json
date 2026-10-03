@@ -2,6 +2,21 @@
   {
     "repo": "incontrol",
     "toolName": "Incontrol",
+    "tag": "v2.0.1",
+    "name": "InControl 2.0.1",
+    "body": [
+      "InControl 2.0.1: Ollama chat for Windows, on this PC or over SSH to a GPU you rented.",
+      "New in this release: file and image attachments, web search behind a Web toggle, markdown replies, a reasoning model's live thinking, settings that persist, Launch at startup, and minimize to tray.",
+      "Install: Microsoft Store — InControl-Desktop (Windows 10 version 2004 or later, x64). The 2.0.1.0 package is in Store certification; until it is published, the Store serves the previous version. To build from source,…",
+      "No installer is attached to this release. The Store package is signed by Microsoft."
+    ],
+    "publishedAt": "2026-10-03T03:09:02Z",
+    "url": "https://github.com/mcp-tool-shop-org/incontrol/releases/tag/v2.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "incontrol",
+    "toolName": "Incontrol",
     "tag": "v2.0.0",
     "name": "InControl 2.0.0",
     "body": [
@@ -673,19 +688,6 @@
     ],
     "publishedAt": "2026-09-15T06:08:42Z",
     "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.1",
-    "prerelease": false
-  },
-  {
-    "repo": "synthesis",
-    "toolName": "Synthesis",
-    "tag": "v1.3.0",
-    "name": "v1.3.0 — library contract, fairness FPR, planted-RED",
-    "body": [
-      "Dogfood-swarm feature pass: a published library contract, a fairness FPR audit pack, a planted-RED inverted oracle, and a closed report schema. Checkers stay frozen and zero-LLM.",
-      "See CHANGELOG.md for the full list."
-    ],
-    "publishedAt": "2026-09-15T06:04:29Z",
-    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.0",
     "prerelease": false
   }
 ]
