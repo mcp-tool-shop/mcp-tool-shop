@@ -8,10 +8,10 @@
     "packages": "registry.npmjs.org and pypi.org probed per repository, and again from each repository manifest. Ownership is confirmed against the @mcptoolshop npm scope and maintainer account, and against the PyPI publishing identity of this organization. A package name that exists on a registry but belongs to someone else carries no install command."
   },
   "counts": {
-    "public_total": 92,
-    "public_unarchived": 89,
+    "public_total": 91,
+    "public_unarchived": 88,
     "public_archived": 3,
-    "catalogued": 87,
+    "catalogued": 86,
     "forks_excluded": 1,
     "org_config_excluded": 1
   },
@@ -68,7 +68,7 @@
       "id": "developer-tooling",
       "title": "Developer tooling",
       "description": "Release gates, registries, site scaffolding and the machinery of shipping.",
-      "count": 14
+      "count": 13
     },
     {
       "id": "games-and-game-tooling",
@@ -288,11 +288,11 @@
       "visibility": "public",
       "language": "TypeScript",
       "license": "MIT",
-      "summary": "Financial truth infrastructure for the decentralized world.",
+      "summary": "Proves an event, transaction, or state transition happened and binds that proof to a chain. Ships the financial domain: vault, treasury, and registrum.",
       "url": "https://github.com/mcp-tool-shop-org/attestia",
       "docs": "https://mcp-tool-shop-org.github.io/attestia/",
-      "releases": 5,
-      "latest_release": "v2.0.3 (2026-09-28)",
+      "releases": 7,
+      "latest_release": "v2.0.5 (2026-10-01)",
       "package": {
         "npm": "@mcptoolshop/attestia"
       },
@@ -350,8 +350,8 @@
       "summary": "Headless LLM fine-tuning in 3 lines — smart defaults, VRAM-aware batch sizing, multi-run SLAO, GGUF export for Ollama.",
       "url": "https://github.com/mcp-tool-shop-org/backpropagate",
       "docs": "https://mcp-tool-shop-org.github.io/backpropagate/",
-      "releases": 21,
-      "latest_release": "v1.7.2 (2026-09-30)",
+      "releases": 23,
+      "latest_release": "v1.8.1 (2026-10-01)",
       "package": {
         "npm": "@mcptoolshop/backpropagate",
         "pypi": "backpropagate"
@@ -481,11 +481,11 @@
       "visibility": "public",
       "language": "TypeScript",
       "license": "MIT",
-      "summary": "AI governance attestation layer — structural truth for autonomous systems",
+      "summary": "AI governance attestation on Attestia's proof primitives — model lineage, policy, agent identity, and prompt integrity — with RepoMesh release checks.",
       "url": "https://github.com/mcp-tool-shop-org/cognate",
       "docs": "https://mcp-tool-shop-org.github.io/cognate/",
-      "releases": 5,
-      "latest_release": "v0.1.4 (2026-09-28)",
+      "releases": 6,
+      "latest_release": "v0.1.5 (2026-10-01)",
       "package": {
         "npm": "@mcptoolshop/cognate"
       },
@@ -713,8 +713,8 @@
       "summary": "Operational-health warehouse for a GitHub organization: CI, pull requests, releases, Actions cost and repo hygiene, collected into SQLite and audited against written rules.",
       "url": "https://github.com/mcp-tool-shop-org/housekeeping",
       "docs": "https://mcp-tool-shop-org.github.io/housekeeping/",
-      "releases": 3,
-      "latest_release": "v1.3.1 (2026-09-30)",
+      "releases": 4,
+      "latest_release": "v1.4.0 (2026-10-01)",
       "package": {
         "npm": "@mcptoolshop/housekeeping"
       },
@@ -1062,22 +1062,6 @@
       "install": "pip install prompt-crafter"
     },
     {
-      "name": "prototypes",
-      "area": "developer-tooling",
-      "lane": "archive",
-      "visibility": "public",
-      "language": "Python",
-      "license": "MIT",
-      "summary": "Seed Vault — archived prototypes, reusable patterns, testing inputs, and resurrection candidates.",
-      "url": "https://github.com/mcp-tool-shop-org/prototypes",
-      "docs": "https://mcp-tool-shop-org.github.io/prototypes/",
-      "releases": 0,
-      "latest_release": null,
-      "package": null,
-      "install": null,
-      "note": "The Archive lane itself: retired prototypes and reusable patterns."
-    },
-    {
       "name": "readouts",
       "area": "agent-infrastructure",
       "lane": "in-development",
@@ -1194,11 +1178,11 @@
       "visibility": "public",
       "language": "JavaScript",
       "license": "MIT",
-      "summary": "Trust infrastructure for repo networks — verify releases, check anchors, and onboard repos from anywhere.",
+      "summary": "Release ledger and XRPL-anchored trust clock for a repo network: signed events, node manifests, and verification. Separate from Attestia's event store.",
       "url": "https://github.com/mcp-tool-shop-org/repomesh",
       "docs": "https://mcp-tool-shop-org.github.io/repomesh/",
-      "releases": 5,
-      "latest_release": "v2.3.1 (2026-09-23)",
+      "releases": 6,
+      "latest_release": "v2.3.2 (2026-10-01)",
       "package": {
         "npm": "@mcptoolshop/repomesh"
       },

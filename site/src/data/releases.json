@@ -1,5 +1,149 @@
 [
   {
+    "repo": "incontrol",
+    "toolName": "Incontrol",
+    "tag": "v2.0.0",
+    "name": "InControl 2.0.0",
+    "body": [
+      "InControl 2.0.0: Ollama chat for Windows, on this PC or over SSH to a GPU you rented.",
+      "Install: Microsoft Store — InControl-Desktop (Windows 10 version 2004 or later, x64). The 2.0.0 package goes through Store certification first; until it passes, the Store serves the previous version. To build from…",
+      "No installer is attached to this release. The Store package is signed by Microsoft."
+    ],
+    "publishedAt": "2026-10-03T01:43:49Z",
+    "url": "https://github.com/mcp-tool-shop-org/incontrol/releases/tag/v2.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "incontrol",
+    "toolName": "Incontrol",
+    "tag": "v0.3.0",
+    "name": "v0.3.0",
+    "body": [
+      "Source release of the Windows app at 0.3.0. There is no MSIX installer. Clone this tag and build with the .NET 9 SDK.",
+      "The rental forward listens on 127.0.0.1:11436 and stays off this PC's Ollama port. The chat stays here until /api/version answers through that forward. Look up my RunPod pods fills a direct SSH command from…",
+      "Codecov is connected. The failing bar is patch coverage at 90%. The repository-wide percentage is informational, and the WinUI project is outside that report. On the code commit it measured 84.25% line coverage and a…",
+      "NuGet is unchanged: InControl.Core 1.2.2 and InControl.Inference 1.0.2.",
+      "The window was not launched for this release. dotnet build of the app compiles the assembly, then Windows App SDK packaging fails on a plain .NET SDK because the Appx task is missing."
+    ],
+    "publishedAt": "2026-10-02T17:57:14Z",
+    "url": "https://github.com/mcp-tool-shop-org/incontrol/releases/tag/v0.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "db-cluster",
+    "toolName": "DB Cluster",
+    "tag": "v3.0.0",
+    "name": "db-cluster v3.0.0",
+    "body": [],
+    "publishedAt": "2026-10-02T00:04:16Z",
+    "url": "https://github.com/mcp-tool-shop-org/db-cluster/releases/tag/v3.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "runforge-vscode",
+    "toolName": "RunForge VS Code",
+    "tag": "v1.2.2",
+    "name": "v1.2.2",
+    "body": [],
+    "publishedAt": "2026-10-01T23:52:10Z",
+    "url": "https://github.com/mcp-tool-shop-org/runforge-vscode/releases/tag/v1.2.2",
+    "prerelease": false
+  },
+  {
+    "repo": "cognate",
+    "toolName": "Cognate",
+    "tag": "v0.1.7",
+    "name": "@mcptoolshop/cognate v0.1.7",
+    "body": [],
+    "publishedAt": "2026-10-01T20:49:39Z",
+    "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.7",
+    "prerelease": false
+  },
+  {
+    "repo": "cognate",
+    "toolName": "Cognate",
+    "tag": "v0.1.6",
+    "name": "@mcptoolshop/cognate v0.1.6",
+    "body": [],
+    "publishedAt": "2026-10-01T20:20:08Z",
+    "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.6",
+    "prerelease": false
+  },
+  {
+    "repo": "housekeeping",
+    "toolName": "Housekeeping",
+    "tag": "v1.4.0",
+    "name": "v1.4.0",
+    "body": [
+      "The README and handbook show how to run one AI agent over a whole organization through hk-mcp, and how housekeeping and Atlas work together.",
+      "homeOrgs in the config: the organizations whose projects count as your own. Unset, it is the swept organization.",
+      "A fork of another organization's project is exempt from ATLAS_MAP_MISSING and ATLAS_CHECK_NOT_IN_CI, as the rule now says: its workflows are the upstream's. The collector reads each fork's parent owner (collector…",
+      "ATLAS_ENGINE_BEHIND measures maps and CI pins against the fleet's own pin (the atlas check version most repositories pin), not npm's latest. A new Atlas release on npm no longer makes every map \"behind\" before a…",
+      "CI_REQUIRED_CHECK_GATED names the repair: a workflow that emits a required check takes no paths filter on pull_request; push stays gated."
+    ],
+    "publishedAt": "2026-10-01T19:03:29Z",
+    "url": "https://github.com/mcp-tool-shop-org/housekeeping/releases/tag/v1.4.0",
+    "prerelease": false
+  },
+  {
+    "repo": "cognate",
+    "toolName": "Cognate",
+    "tag": "v0.1.5",
+    "name": "@mcptoolshop/cognate v0.1.5",
+    "body": [],
+    "publishedAt": "2026-10-01T18:45:31Z",
+    "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.5",
+    "prerelease": false
+  },
+  {
+    "repo": "repomesh",
+    "toolName": "Repomesh",
+    "tag": "v2.3.2",
+    "name": "v2.3.2",
+    "body": [
+      "The public description, README, and handbook state RepoMesh's job: the release ledger and XRPL trust clock, separate from Attestia's event store. Cognate is the AI governance domain that calls both."
+    ],
+    "publishedAt": "2026-10-01T18:39:17Z",
+    "url": "https://github.com/mcp-tool-shop-org/repomesh/releases/tag/v2.3.2",
+    "prerelease": false
+  },
+  {
+    "repo": "attestia",
+    "toolName": "Attestia",
+    "tag": "v2.0.5",
+    "name": "@mcptoolshop/attestia v2.0.5",
+    "body": [],
+    "publishedAt": "2026-10-01T18:28:08Z",
+    "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.0.5",
+    "prerelease": false
+  },
+  {
+    "repo": "attestia",
+    "toolName": "Attestia",
+    "tag": "v2.0.4",
+    "name": "@mcptoolshop/attestia v2.0.4",
+    "body": [],
+    "publishedAt": "2026-10-01T18:20:36Z",
+    "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.0.4",
+    "prerelease": false
+  },
+  {
+    "repo": "backpropagate",
+    "toolName": "Backpropagate",
+    "tag": "v1.8.1",
+    "name": "Backpropagate v1.8.1",
+    "body": [
+      "backprop ui starts again. On Reflex 0.9.x (0.9.3, 0.9.5 and 0.9.12 checked), reflex run in development mode raised RuntimeError: There should not be an init.py file in your app root directory, because the app root is…",
+      "The SSH port-forwarding examples in the README and handbook forwarded port 7860 while backprop ui listens on 7862; they now use 7862 and the banner URL.",
+      "Ctrl+C reliably stops backprop ui on Windows. About 1 launch in 5 to 10, Reflex's own shutdown hung, and the CLI sat in an uninterruptible wait on it, so Ctrl+C did nothing. The CLI now polls the Reflex process;…",
+      "docker compose up starts the web UI. It never could: compose.yaml ran ui --host 0.0.0.0 without --auth, which backprop ui refuses, and the image had no Reflex in it. The image now carries the [ui] extra and a pinned,…",
+      "The pass_rate eval metric no longer runs model output inside your process, and needs an explicit opt-in. It used exec on the generated code in the eval process, behind a \"restricted builtins\" list that is easy to…"
+    ],
+    "publishedAt": "2026-10-01T16:50:48Z",
+    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.8.1",
+    "prerelease": false
+  },
+  {
     "repo": "backpropagate",
     "toolName": "Backpropagate",
     "tag": "v1.8.0",
@@ -223,26 +367,6 @@
     "prerelease": false
   },
   {
-    "repo": "cognate",
-    "toolName": "Cognate",
-    "tag": "v0.1.2",
-    "name": "@mcptoolshop/cognate v0.1.2",
-    "body": [],
-    "publishedAt": "2026-09-28T22:20:36Z",
-    "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.2",
-    "prerelease": false
-  },
-  {
-    "repo": "cognate",
-    "toolName": "Cognate",
-    "tag": "v0.1.1",
-    "name": "@mcptoolshop/cognate v0.1.1",
-    "body": [],
-    "publishedAt": "2026-09-28T19:51:58Z",
-    "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.1",
-    "prerelease": false
-  },
-  {
     "repo": "attestia",
     "toolName": "Attestia",
     "tag": "v2.0.3",
@@ -250,20 +374,6 @@
     "body": [],
     "publishedAt": "2026-09-28T19:19:16Z",
     "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.0.3",
-    "prerelease": false
-  },
-  {
-    "repo": "cognate",
-    "toolName": "Cognate",
-    "tag": "v0.1.0",
-    "name": "v0.1.0",
-    "body": [
-      "First published cut of the Cognate libraries.",
-      "The five packages are in the repo at v0.1.0. They are not on npm. The container image publishes to GHCR from this release and serves a placeholder health endpoint on port 4000. The governance HTTP API is not in this…",
-      "Shipcheck is 16/16. The handbook and landing page ship with this tag."
-    ],
-    "publishedAt": "2026-09-28T19:17:29Z",
-    "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.0",
     "prerelease": false
   },
   {
@@ -576,134 +686,6 @@
     ],
     "publishedAt": "2026-09-15T06:04:29Z",
     "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "storyboard-os",
-    "toolName": "Storyboard OS",
-    "tag": "v1.3.0",
-    "name": "v1.3.0 — Feature Pass",
-    "body": [
-      "Gold templates, cinematic playlist, nest, and one-way engine adapters.",
-      "Identity scan of the git tree and all six packed tarballs: RESULT CLEAN."
-    ],
-    "publishedAt": "2026-09-15T03:15:02Z",
-    "url": "https://github.com/mcp-tool-shop-org/storyboard-os/releases/tag/v1.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "fx-dub",
-    "toolName": "FX Dub",
-    "tag": "v1.2.0",
-    "name": "v1.2.0 — the declared public API, and two defects the gates could not see",
-    "body": [
-      "The alignment core that answers *was this script actually spoken* is now an exported, documented, stable surface. Everything else in fxdub remains a console script or an internal that may move.",
-      "A line the script asked for must be spoken, a line it did not ask for must not be, and a character must be rendered by one voice, their own. Those three transfer to any pipeline that turns authored text into…",
-      "Proven against a second codebase before being declared. A dogfood swarm on an EPUB→audiobook renderer — no video, no music bed, no concurrent speakers — found 3 CRITICAL and 34 HIGH defects behind 1235 passing tests.…",
-      "dialogue_receipt is reimplemented on verify, not beside it, enforced by tests that sabotage verify and require the CLI to break with it. tests/test_dialogue_receipt.py passes unedited, which is the proof the CLI…",
-      "Zero runtime dependencies, unchanged."
-    ],
-    "publishedAt": "2026-09-14T23:08:47Z",
-    "url": "https://github.com/mcp-tool-shop-org/fx-dub/releases/tag/v1.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-jam-sessions",
-    "toolName": "AI Jam Sessions",
-    "tag": "v2.6.1",
-    "name": "v2.6.1 — train your own adapter",
-    "body": [
-      "The repo already contained a working verifier-rewarded RL loop. Nothing told anyone how to run it.",
-      "New handbook chapter: Train your own adapter. Three real commands — bridge, train, unconditioned eval — taken from the runners that actually executed, with measured costs rather than estimates: 22,946 MiB peak, ~50…",
-      "It also carries six traps, each of which cost this project something:",
-      "--seed does not control LoRA initialisation — two runs at one seed are independent draws, not replicates",
-      "One run tells you nothing: the same configuration produced +0.6 and +10.1 points"
-    ],
-    "publishedAt": "2026-09-14T21:29:17Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v2.6.1",
-    "prerelease": false
-  },
-  {
-    "repo": "ollama-intern-mcp",
-    "toolName": "Ollama Intern MCP",
-    "tag": "v2.10.0",
-    "name": "v2.10.0",
-    "body": [
-      "The cloud-honesty release. v2.9.0 shipped per-call cloud escalation and the README advertised it as \"escalate one high-stakes review to a 600B model\" — but the backend input existed on exactly one of 44 tools, and it…",
-      "Local-first is unchanged and still the default: no key means zero egress and no startup probe, embeddings never leave the box, and every new knob defaults to today's behavior.",
-      "Per-call cloud escalation on 15 tools (was 1). backend: \"cloud\" | \"local\" is now an optional input on research, summarize_deep, code_review, code_citation, corpus_answer, hypothesis_drill,…",
-      "INTERN_CLOUD_STANDBY_TIERS — a declared standby escalation policy. A comma list of instant|workhorse|deep (or none) naming which tiers escalate under standby without a per-call directive. Empty by default, so a key…",
-      "doctor --cloud-check — the first in-product proof that a cloud key works. The existing probe hits /api/tags, which returns 200 for an invalid key, so auth could only ever report \"unverified\". This runs one 8-token…"
-    ],
-    "publishedAt": "2026-09-12T00:12:26Z",
-    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.10.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade",
-    "toolName": "MCP Arcade",
-    "tag": "v0.2.0",
-    "name": "mcp-arcade 0.2.0",
-    "body": [
-      "Eight waves after the 0.1.0 floor. The sentence on the tin still holds: the oracle is the JSON-RPC wire plus the sandbox, and nothing added here grades anything else. The seat is a policy, not a judge; dataset labels…",
-      "Wave 1 — the harness survives a real server: --framing auto|ndjson|content-length, protocolVersion negotiation, --task / --args, --wrap, --timeout, server requests rejected. Decisions: docs/wave-1.md.",
-      "Wave 2 — Docker is the sandbox: --target docker, one fresh container per atom, image id pinned and drift-checked, /sandbox snapshotted from inside, no host binds by default. Decisions: docs/wave-2.md.",
-      "Wave 3 — mcp-arcade dataset: one JSONL row per atom, labels from the wire, split: proof never trains. Decisions: docs/wave-3.md.",
-      "Wave 4 — the agent seat: --agent ollama:<model>, frozen template hashed onto the receipt, model text dropped before the receipt, no-call is a utility SKIP. Decisions: docs/wave-4.md."
-    ],
-    "publishedAt": "2026-09-11T00:11:54Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade",
-    "toolName": "MCP Arcade",
-    "tag": "v0.1.0",
-    "name": "v0.1.0",
-    "body": [
-      "First public version. A brand-new repo.",
-      "Three atoms, a wire oracle, fail-closed --allow-live. Not 1.0.0."
-    ],
-    "publishedAt": "2026-09-09T18:20:14Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-jam-sessions",
-    "toolName": "AI Jam Sessions",
-    "tag": "v2.6.0",
-    "name": "v2.6.0 — the release that stops shipping what it had no licence to ship",
-    "body": [
-      "A per-file provenance audit of the song library found that of its 108 MIDI arrangements, 14 carry a licence that permits redistribution and 94 do not, and that twelve files were a different piece than their name.…",
-      "See CHANGELOG.md and docs/findings/library-provenance-audit.md."
-    ],
-    "publishedAt": "2026-09-09T08:53:03Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v2.6.0",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-camp",
-    "toolName": "XRPL Camp",
-    "tag": "v1.4.1",
-    "name": "v1.4.1",
-    "body": [],
-    "publishedAt": "2026-09-09T08:09:02Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.4.1",
-    "prerelease": false
-  },
-  {
-    "repo": "tool-compass",
-    "toolName": "Tool Compass",
-    "tag": "v2.5.2",
-    "name": "Tool Compass v2.5.2",
-    "body": [
-      "The container now warns when /app/tool_compass/db is not a mounted volume. The semantic index lives there, and building it means embedding every tool in every configured server — without a volume that work is…",
-      "The warning goes to stderr, so it cannot corrupt anything piping the container's output. publish.yml's post-publish handshake uses --entrypoint tool-compass, which overrides the entrypoint entirely and is unaffected;…",
-      "README documents running the published image directly with a volume, not only the clone-and-compose path.",
-      ".gitattributes pins LF on *.sh, the Dockerfile and the entrypoint. A shell script checked out with CRLF on Windows makes the shebang #!/bin/sh , and Linux then fails with \"no such file or directory\" naming the script…"
-    ],
-    "publishedAt": "2026-09-09T07:40:56Z",
-    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.5.2",
     "prerelease": false
   }
 ]
