@@ -1,5 +1,309 @@
 [
   {
+    "repo": "offrig",
+    "toolName": "Offrig",
+    "tag": "v1.1.1",
+    "name": "offrig 1.1.1",
+    "body": [
+      "Draft. Windows x64 only. Verify the zip against SHA256SUMS before use; see CHANGELOG.md for what changed."
+    ],
+    "publishedAt": "2026-10-12T06:59:24Z",
+    "url": "https://github.com/mcp-tool-shop-org/offrig/releases/tag/v1.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "role-set",
+    "toolName": "Role Set",
+    "tag": "v0.1.0",
+    "name": "role-set 0.1.0",
+    "body": [
+      "First release. Prototype. Interfaces and data shapes can change without notice. Nothing this version writes is in a training set.",
+      "plan fixes every slot for a batch from a seed. It does not call a model.",
+      "cost estimates pod hours and dollars for a plan (two-card or frontier) before anything is launched. The figure is an estimate.",
+      "pack sync and pack verify take the role pack from a local aspire-si clone at a commit, and check the copy on disk.",
+      "harvest copies licence-checked excerpts into a local pool."
+    ],
+    "publishedAt": "2026-10-11T21:24:45Z",
+    "url": "https://github.com/mcp-tool-shop-org/role-set/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "offrig",
+    "toolName": "Offrig",
+    "tag": "v1.1.0",
+    "name": "offrig 1.1.0",
+    "body": [
+      "Draft. Windows x64 only. Verify the zip against SHA256SUMS before use; see CHANGELOG.md for what changed."
+    ],
+    "publishedAt": "2026-10-11T21:23:19Z",
+    "url": "https://github.com/mcp-tool-shop-org/offrig/releases/tag/v1.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "portlight-bounty",
+    "toolName": "Portlight Bounty",
+    "tag": "v0.1.0",
+    "name": "v0.1.0",
+    "body": [
+      "First GitHub release of the Rust port and the Godot chart.",
+      "The simulation is the rules. The chart is what you play. Rust 1.98.1, Godot 4.7.2.",
+      "The repository is MIT, pictures included. The barrel, bollard, cart, crate, and torch are built by build_prop() in ai-rpg-stage, commit 55ac9b2. This tag's archive still has an older preface that said otherwise. The…",
+      "Patch coverage fails under 90%. The repository-wide percentage aims at 90% and stays informational. The Godot crate is outside that report.",
+      "Play: https://mcp-tool-shop-org.github.io/portlight-bounty/"
+    ],
+    "publishedAt": "2026-10-09T21:22:32Z",
+    "url": "https://github.com/mcp-tool-shop-org/portlight-bounty/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "role-os",
+    "toolName": "Role OS",
+    "tag": "v2.12.0",
+    "name": "role-os 2.12.0",
+    "body": [
+      "English README, handbook, and landing page cover recipe cards, the jury, and pack calibration. Recorded outcomes boost packs only. Role weights and confidence thresholds do not change. The README translations (ja,…",
+      "A recipe control may carry a measure: metric, point, CI, n, cluster unit, and p and nulls for a permutation test. A free-text result stays valid. A passed control without a measure is a gap. An inconsistent measure…",
+      "shuffled-labels must record method balanced-permutation (exactly half of each cluster's labels flipped; Ojala & Garriga 2010). A plain shuffle is a gap, because a consistent edit direction lets the imbalance set the…",
+      "same-generator-no-error must record method word-swap or sentence-rewrite, plus the paraphrase and error-edit medians. A paraphrase median above 2× the error median is a gap. A pass needs the edit-rate CI to include…",
+      "New standard control reversed-correction: the edited copy is the corrected, stronger one, so the critic is not just an edit detector. A pass needs the accuracy CI entirely above 0.5. Touching 0.5 is not above. Cards…"
+    ],
+    "publishedAt": "2026-10-08T22:26:40Z",
+    "url": "https://github.com/mcp-tool-shop-org/role-os/releases/tag/v2.12.0",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.3.0.0",
+    "name": "v1.1.3.0.0",
+    "body": [
+      "Name-clash fix: the code moves to mcptoolshop_rnd (the import name that always works); rnd stays as a compatibility shim that aliases every submodule, and the rnd command runs mcptoolshop_rnd.cli:main, so an…",
+      "tests/test_packaging.py and a CI clash check (a raising rnd/ stub after a clean install) prove it",
+      "Install: pip install mcptoolshop-rnd · import mcptoolshop_rnd"
+    ],
+    "publishedAt": "2026-10-08T04:42:08Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.3.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.2.0.0",
+    "name": "v1.1.2.0.0",
+    "body": [
+      "Packaged for PyPI as mcptoolshop-rnd (pyproject.toml, uv.lock); the rnd command finds its library via --library, $RND_ROOT or the nearest folder with entries/ and instruments/, else stops with NO_LIBRARY",
+      "release.yml: publishes to PyPI by trusted publishing when a GitHub release is published; refuses a tag that differs from the package version",
+      "CI: build, twine check, clean-install smoke and pip-audit; README and handbook document the install",
+      "Install: pip install mcptoolshop-rnd"
+    ],
+    "publishedAt": "2026-10-08T04:28:24Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.2.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "offrig",
+    "toolName": "Offrig",
+    "tag": "v1.0.0",
+    "name": "offrig 1.0.0",
+    "body": [
+      "The first release. offrig has run real work since 2026-10-02, and since 2026-10-07 two projects have used it at once, each in its own lane: training runs on job pods and singing renders on jam pods. This release adds…",
+      "Windows release binaries. Each version tag builds offrig.exe, offrig-mcp.exe and offrig-app.exe in CI into offrig-<version>-windows-x64.zip, with SHA256SUMS. The workflow stages a draft release and never publishes…",
+      "Side-car errors carry a code. Every tool failure, including bad arguments and an unknown tool, returns ok:false, a stable code, the error text, a next_action and retryable. error and next_action are unchanged, so…",
+      "CLI exit codes: 0 success, 1 something to fix on your side, 2 a runtime failure. Bad arguments now exit 1 instead of clap's 2.",
+      "CLI log levels: -q (errors and a command's own results only), -v (each RunPod call and its timing, on stderr) and --debug (failed response bodies and full error chains). The API key and any Bearer token are redacted…"
+    ],
+    "publishedAt": "2026-10-08T00:26:25Z",
+    "url": "https://github.com/mcp-tool-shop-org/offrig/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.1.0.0",
+    "name": "rnd 1.1.1.0.0",
+    "body": [
+      "Coverage bar raised to 90%: CI fails under 90% and Codecov's project and patch targets are 90%",
+      "45 tests (was 25), including end-to-end CLI tests of every command, catalogue sync with gh mocked, and rnd bump in a real git repo; rnd/ coverage 96% (was 63%)"
+    ],
+    "publishedAt": "2026-10-07T22:30:27Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.0.0.0",
+    "name": "rnd 1.1.0.0.0",
+    "body": [
+      "Added rnd bump: five-segment versions (MAJOR.MINOR.PATCH.MICRO.NANO) with a CHANGELOG section written from the files changed since the last tag",
+      "Kev-4B and Kev-9B measured against hosted Jev and OpenJev on sense-si's 124 phrases, 0-shot and with knowledge in context",
+      "Added 2026-10-07-open-jev-style-decision-models: Open Jev-style decision models — the landscape, checked against primary sources",
+      "Updated 2026-10-07-openjev-and-open-jev-alternatives: OpenJev and the other open \"Jev\" models — what each one is",
+      "Updated experiment openjev-vs-jev"
+    ],
+    "publishedAt": "2026-10-07T21:55:22Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.0.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.0.0",
+    "name": "rnd 1.0.0",
+    "body": [
+      "rnd CLI over a Markdown research library: build, check, search, show, list, tools, stats, new, catalog, readouts, sql, each listing with --json.",
+      "Entry format with source tiers (primary, secondary, aggregator, user, rig) and claim confidence (unverified, verified, disputed, wrong; verified needs a via: note).",
+      "SQLite FTS5 index (rnd.db), rebuilt automatically when files change; the previous index is kept when a rebuild meets errors.",
+      "Instrument registry (instruments/) of the studio tools research can call.",
+      "NVIDIA skills catalogue mirror (398 skills, 18 lanes) with a studio-fit review."
+    ],
+    "publishedAt": "2026-10-07T21:13:32Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-jam-sessions",
+    "toolName": "AI Jam Sessions",
+    "tag": "v2.8.0",
+    "name": "v2.8.0 — two hymns, sung",
+    "body": [
+      "Two hymns, sung. Amazing Grace and America the Beautiful are sung whole, every verse, on the piano's clock, and both passed by ear: - a sound check first; - sixteen takes of a score-conditioned singer (SoulX-Singer),…",
+      "The landing page is rewritten around the two performances, with a three.js view of the voice over the piano. The library's America the Beautiful is now Ward's own Materna melody."
+    ],
+    "publishedAt": "2026-10-07T20:33:08Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v2.8.0",
+    "prerelease": false
+  },
+  {
+    "repo": "loadout-os",
+    "toolName": "Loadout OS",
+    "tag": "v1.0.4",
+    "name": "loadout-os v1.0.4",
+    "body": [],
+    "publishedAt": "2026-10-07T19:44:56Z",
+    "url": "https://github.com/mcp-tool-shop-org/loadout-os/releases/tag/v1.0.4",
+    "prerelease": false
+  },
+  {
+    "repo": "scalarscope",
+    "toolName": "Scalarscope",
+    "tag": "v3.1.1.0",
+    "name": "v3.1.1.0",
+    "body": [
+      "All notable changes to ScalarScope will be documented in this file.",
+      "The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.",
+      "3.1.1 is about geometry reviews of drift exports, and about trusting a saved review. A drift export's steps are checkpoints × items, not time, so readings that depend on step order are now held back. A saved review…",
+      "Vector Field Grid: Background arrows showing local flow directions",
+      "12x12 grid with contextual velocity indicators"
+    ],
+    "publishedAt": "2026-10-07T17:24:00Z",
+    "url": "https://github.com/mcp-tool-shop-org/scalarscope/releases/tag/v3.1.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "scalarscope",
+    "toolName": "Scalarscope",
+    "tag": "v3.1.0.0",
+    "name": "ScalarScope 3.1.0",
+    "body": [
+      "ScalarScope 3.1 is a rewrite in Rust. It is the same product, name and publisher, and 2.0's files, bundles and settings carry over. It ships to the Microsoft Store as package 3.1.0.0, an update of 9P3HT1PHBKQK.",
+      "Inference comparisons say how sure they are. The headline gives B/A at p50, p90 and p99, each with an interval. A percentile without enough samples behind it is not printed, and several runs per side measure…",
+      "Deltas give their reasons. Each tile says whether it fired, stayed quiet or was withheld, with the rule and this pair's numbers. Show me moves to the evidence.",
+      "Six views: series, warmup, distribution with a threshold, difference by percentile, tail spectrum and heat map.",
+      "ASPIRE training geometry. Readings are withheld, with the reason, when an export says its steps are not time or its scores were replayed (aspire-si schema 1.1)."
+    ],
+    "publishedAt": "2026-10-07T06:00:27Z",
+    "url": "https://github.com/mcp-tool-shop-org/scalarscope/releases/tag/v3.1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "aspire-si",
+    "toolName": "Aspire Si",
+    "tag": "v1.2.0",
+    "name": "aspire-si 1.2.0",
+    "body": [
+      "The first release tested end to end on real models. A 1.5B student was trained against 32B teachers on a rented GPU; the run report is in docs/runs/2026-10-06-pod-run.md.",
+      "Fixed - Twelve bugs that the real runs exposed, each with a test: - Checkpoints could not be loaded, and aspire evaluate ignored the trained LoRA. - The critic read the prompt without the response it was judging. -…",
+      "Added - aspire judge and aspire.judge score responses with a trained critic. No teacher is needed. - Local and composite teachers work from the config and the CLI. The Claude teacher defaults to claude-sonnet-5-5,…",
+      "Honest docs: the critic learns the teacher's score, but the student is not yet trained toward better answers. That work is tracked in #11. The README, the handbook and all seven translations say so.",
+      "Full details are in CHANGELOG.md."
+    ],
+    "publishedAt": "2026-10-07T03:55:58Z",
+    "url": "https://github.com/mcp-tool-shop-org/aspire-si/releases/tag/v1.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "aspire-si",
+    "toolName": "Aspire Si",
+    "tag": "v1.1.0",
+    "name": "aspire-si 1.1.0",
+    "body": [],
+    "publishedAt": "2026-10-07T00:42:26Z",
+    "url": "https://github.com/mcp-tool-shop-org/aspire-si/releases/tag/v1.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "lokey-typer",
+    "toolName": "Lokey Typer",
+    "tag": "v2.0.0",
+    "name": "LoKey Typer 2.0.0",
+    "body": [
+      "LoKey Typer 2.0.0. The version now matches the Microsoft Store package, 2.0.0.0.",
+      "Then open http://localhost:8080/. Your progress is kept by your browser for that address, not inside the container, so stopping, upgrading or replacing the container keeps it. Open the same host and port each time. -…",
+      "Full list: CHANGELOG."
+    ],
+    "publishedAt": "2026-10-05T06:06:45Z",
+    "url": "https://github.com/mcp-tool-shop-org/lokey-typer/releases/tag/v2.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "commandui",
+    "toolName": "Commandui",
+    "tag": "v1.0.2",
+    "name": "CommandUI 1.0.2",
+    "body": [
+      "CommandUI 1.0.2 is the functional update: a Windows shell where every command ends in one plain sentence, you can ask for a command in plain words, and nothing runs until you approve it.",
+      "This release makes no claim of tested accessibility. Testing with Narrator, NVDA and Windows contrast themes comes in a later update.",
+      "Full list: CHANGELOG.",
+      "Ask needs Ollama on the same computer with the qwen2.5:14b model. Everything else works without it."
+    ],
+    "publishedAt": "2026-10-05T05:58:38Z",
+    "url": "https://github.com/mcp-tool-shop-org/commandui/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "backpropagate",
+    "toolName": "Backpropagate",
+    "tag": "v1.8.3",
+    "name": "Backpropagate v1.8.3",
+    "body": [
+      "GGUF export works without Unsloth. llama.cpp's converter imports sentencepiece for every model family (Llama, Qwen, Mistral, SmolLM), and only Unsloth brought it in. A plain pip install backpropagate, the [ui] extra…",
+      "The default q4_k_m export to Ollama works on Ollama 0.35. Ollama 0.35 no longer quantizes GGUF files, so without a compiled llama-quantize the registration failed. It now registers the f16 model, says why, and names…",
+      "Store build: GGUF export. The package copied llama.cpp's convert_hf_to_gguf.py without the conversion/ package it imports, so the converter could not start. The package now carries conversion/ and llama-quantize from…",
+      "The converter runs under an isolated Python. The Store's embedded CPython (and python -I / -P) leaves a script's own folder off sys.path, so the converter could not import conversion/ even when it was there. Export…",
+      "Found by running 1.8.2 on a rented RTX 5090 with the Store build's exact Python stack (torch 2.12.1+cu130). Training, ORPO, KTO, SimPO, FSDP2 full fine-tuning with offload and FP8 all passed there; with these fixes…"
+    ],
+    "publishedAt": "2026-10-04T14:28:30Z",
+    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.8.3",
+    "prerelease": false
+  },
+  {
+    "repo": "backpropagate",
+    "toolName": "Backpropagate",
+    "tag": "v1.8.2",
+    "name": "Backpropagate v1.8.2",
+    "body": [
+      "Microsoft Store packaging (scripts/build_msix.py, #273). Builds a self-contained MSIX: embedded CPython 3.12, PyTorch 2.12.1 with CUDA 13 (needs an NVIDIA driver 580 or newer; older drivers train on the CPU), the web…",
+      "backprop ui --open-browser (#272): opens your browser at the startup URL, token included, once the UI is ready.",
+      "The UI can start with no network when a prebuilt frontend ships with it (the Store package, #272). Its archive and bun are checked by SHA-256 before use. Pip installs are unchanged.",
+      "Handbook privacy page: what the app stores, what it sends and when, and how to remove it all.",
+      "Train, multi-run and export from the web UI (ui-v2, #281 and the P2 PR). Each job runs as its own process (backprop train / multi-run / export), one at a time, with live steps, raw and smoothed loss, time left, a…"
+    ],
+    "publishedAt": "2026-10-03T07:43:55Z",
+    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.8.2",
+    "prerelease": false
+  },
+  {
     "repo": "incontrol",
     "toolName": "Incontrol",
     "tag": "v2.0.1",
@@ -379,315 +683,6 @@
     "body": [],
     "publishedAt": "2026-09-28T23:07:23Z",
     "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.3",
-    "prerelease": false
-  },
-  {
-    "repo": "attestia",
-    "toolName": "Attestia",
-    "tag": "v2.0.3",
-    "name": "@mcptoolshop/attestia v2.0.3",
-    "body": [],
-    "publishedAt": "2026-09-28T19:19:16Z",
-    "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.0.3",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.13.0",
-    "name": "v0.13.0",
-    "body": [
-      "PWA basics, /status route, --check mode, shared launcher core, version sync."
-    ],
-    "publishedAt": "2026-09-28T07:36:22Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.13.0",
-    "prerelease": false
-  },
-  {
-    "repo": "roll",
-    "toolName": "Roll",
-    "tag": "v2.1.1",
-    "name": "roll v2.1.1",
-    "body": [
-      "At-most-for target solver — CLI --at-most-for P, bridge at_most_for, and MCP analyze_dice at_most_for. Returns the smallest T with P(result ≤ T) ≥ p. --target-for is unchanged."
-    ],
-    "publishedAt": "2026-09-28T00:54:08Z",
-    "url": "https://github.com/mcp-tool-shop-org/roll/releases/tag/v2.1.1",
-    "prerelease": false
-  },
-  {
-    "repo": "si-rpg-engine",
-    "toolName": "Si RPG Engine",
-    "tag": "v0.3.0",
-    "name": "0.3.0 — a driven body does not solve against a dynamic body",
-    "body": [
-      "The suite from 0.2.0, with dispatch 128's law slice on it. A driven body and a dynamic body do not share a solver contact. test-instrument stays frozen. The package is not published to npm.",
-      "A model proposer in the bench. bench run --model --diff <file> runs one seat session per world beside the grammar, starting where the grammar goes eight admitted candidates with nothing new or runs out of budget. The…",
-      "A driven body does not solve against a dynamic body. A driven collider is solver group 3 and excludes group 2. A dynamic collider is group 2 and excludes group 3. Statics keep Rapier's default. Collision groups are…",
-      "The step-up boxes stay under 1 m/s. On the room from #121, a dynamic box that overlaps the walker, or meets its head and is not carried, used to leave near 16 m/s. That 16 m/s is the walker's own step: 0.25 m in one…",
-      "The refusals sweep no longer records a thrown walker or a thrown crate. At tick 356 the walker's vertical speed goes from 0 to -0.125 and its rise is 0.750, under the climb rule. The other worlds in the sweep did not…"
-    ],
-    "publishedAt": "2026-09-27T20:31:23Z",
-    "url": "https://github.com/mcp-tool-shop-org/si-rpg-engine/releases/tag/v0.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "si-jam-sessions",
-    "toolName": "Si Jam Sessions",
-    "tag": "v0.1.0",
-    "name": "si-jam-sessions 0.1.0",
-    "body": [
-      "The first release of si-jam-sessions: a music engine where an AI's playing can be graded exactly, replayed exactly, and trained on with a clean conscience. What changed is in the CHANGELOG.",
-      "Two arrangements of *Battle Hymn of the Republic*, one by glm-5.3 and one by kimi-k3. Both follow this project's transcription of the anonymous 1862 Ditson edition, both are dedicated CC0 1.0, and both are admitted…",
-      "The MP3 (192 kb/s) and Opus (128 kb/s) copies are what the landing page plays.",
-      "The .notes.json files are the notes the law committed (host notes).",
-      "sections.json holds where each section begins."
-    ],
-    "publishedAt": "2026-09-26T16:25:41Z",
-    "url": "https://github.com/mcp-tool-shop-org/si-jam-sessions/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "si-rpg-engine",
-    "toolName": "Si RPG Engine",
-    "tag": "v0.2.0",
-    "name": "0.2.0 — the suite, the law's fixes, and the bench",
-    "body": [
-      "Phase 2 so far: the suite that measures the engine, the fixes to the law it found, and the bench that measures a change against its parent. Every change below merged from a written dispatch in docs/, was verified on…",
-      "A trace and the first difference. harness/trace.mjs prints one line per step with every body's numbers as exact bit patterns, under node and the three engine shells. harness/first-difference.js names the first step,…",
-      "Behaviour numbers beside the golden. fixtures/golden-behaviour.json records each dynamic body's sleep step, every final position, the walker's zone, and the snapshot's length and digest. npm run check verifies them,…",
-      "Save and restore. A world restores by replaying its inputs to a step (harness/replay-to.mjs) or by copying the physics module's memory (imageSolver, restoreImage). Both are proven to continue exactly from several…",
-      "An ARM64 job in CI. It runs the pinned x64 binary under node on an ARM64 runner and requires both goldens and an identical trace."
-    ],
-    "publishedAt": "2026-09-26T15:32:20Z",
-    "url": "https://github.com/mcp-tool-shop-org/si-rpg-engine/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "polyglot-mcp",
-    "toolName": "Polyglot MCP",
-    "tag": "v1.8.0",
-    "name": "v1.8.0 — translate_readme, Ollama Cloud, and stale-translation fixes",
-    "body": [
-      "translate_readme MCP tool — translates a README.md *file* into all 7 languages and writes the README.<lang>.md files to disk, refreshing the language nav bar in the source and each translation. Returns a per-language…",
-      "Ollama Cloud support — OllamaClient reads OLLAMA_HOST for its base URL and attaches an OLLAMA_API_KEY Bearer header, so translation can run against https://ollama.com with no change to local use. The header is…",
-      "Edited segments came back with their previous translation — the fuzzy translation memory reused a cached translation verbatim for any segment more than 85% similar to a cached source, and its only guard compared…",
-      "The invariant-token guard is kept as a floor under that rule. It now covers every run of digits with its separators (174, 1,000, 0.2105) and inline-code placeholders as well as version tokens, and compares them in…",
-      "scripts/translate-readme.mjs now counts fuzzy reuses in its summary line. Before this, a segment reused through the fuzzy cache appeared in neither the cached nor the to-translate count. A reproduction of the…"
-    ],
-    "publishedAt": "2026-09-25T16:22:42Z",
-    "url": "https://github.com/mcp-tool-shop-org/polyglot-mcp/releases/tag/v1.8.0",
-    "prerelease": false
-  },
-  {
-    "repo": "si-rpg-engine",
-    "toolName": "Si RPG Engine",
-    "tag": "v0.1.0",
-    "name": "0.1.0 — the first release",
-    "body": [
-      "The first release. Version numbers before 0.1.0 were internal slice counters and were never tagged or published.",
-      "The tick. A fixed timestep of 1/64 s, every quantum hashed with a two-lane FNV-1a over little-endian f64 words, NaN refused, signed zero canonicalized. Replay is the seed plus the admitted-input log; play writes one,…",
-      "The law in Rust. The physics step is solver/, a Rust crate on rapier3d-f64 with enhanced-determinism, compiled to one WebAssembly binary with relaxed SIMD off and source paths remapped, delivered as an ES module the…",
-      "Bodies in three dimensions. Position, linear velocity, a canonical unit quaternion, angular velocity, and half-extents on three axes. Dynamic boxes rotate under contact. The character is a kinematic box driven by…",
-      "World files validated at load. worlds/<name>.json holds bodies, static colliders that may carry an orientation, a heightfield, zones as a half-open partition, and a host-only goal. Twelve refusal reasons, each…"
-    ],
-    "publishedAt": "2026-09-25T08:57:05Z",
-    "url": "https://github.com/mcp-tool-shop-org/si-rpg-engine/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-stress-test",
-    "toolName": "MCP Stress Test",
-    "tag": "v1.0.2",
-    "name": "v1.0.2",
-    "body": [
-      "The installed mcp-stress command can run a stress test, list patterns, and serve a demo MCP server.",
-      "Docker keeps checkpoints and stress reports on /var/lib/mcp-stress. Mount a named volume (-v mcp-stress-data:/var/lib/mcp-stress) so that memory survives docker run --rm.",
-      "The pattern library loads 68 templates. That count matches the files in the package. It is not the MCPTox paper's 1,312."
-    ],
-    "publishedAt": "2026-09-23T17:07:30Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-stress-test/releases/tag/v1.0.2",
-    "prerelease": false
-  },
-  {
-    "repo": "repomesh",
-    "toolName": "Repomesh",
-    "tag": "v2.3.1",
-    "name": "v2.3.1",
-    "body": [
-      "Current XRPL client, a published container image, and two CI fixes. The anchor network stays testnet."
-    ],
-    "publishedAt": "2026-09-23T13:18:47Z",
-    "url": "https://github.com/mcp-tool-shop-org/repomesh/releases/tag/v2.3.1",
-    "prerelease": false
-  },
-  {
-    "repo": "facet",
-    "toolName": "Facet",
-    "tag": "v0.8.1",
-    "name": "facet v0.8.1",
-    "body": [
-      "A prop gets a real size, a rig gets read rather than assumed, and the interesting result is a negative one.",
-      "v0.8.0 closed on a painted subject. This release is about what happens *after* paint — a character that has to be posed, and objects that have to be held. Nothing here touches the texture route.",
-      "A sixth subject went in to test the after-paint stage. It reconstructs cleanly and then fails auto-rigging. Four candidate causes were eliminated by measurement rather than by argument:",
-      "The discriminator is unidentified, and canon/BASE-FIGURE.md carries the table while declining to name a cause. That refusal is the load-bearing part: this repo *did* name a cause — arm-to-torso separation — and it…",
-      "Where a rig does exist, posing has a measured ceiling rather than a fix: roughly 20° of arm rotation stays clean, roughly 110° shreds the shoulders. Rigid plate binding was built to repair that and does not — all…"
-    ],
-    "publishedAt": "2026-09-22T09:26:11Z",
-    "url": "https://github.com/mcp-tool-shop-org/facet/releases/tag/v0.8.1",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-rpg-stage",
-    "toolName": "AI RPG Stage",
-    "tag": "v0.2.0",
-    "name": "v0.2.0 — the felt harbour",
-    "body": [
-      "The felt harbour is playable. The stage walks one continuous 2:1 dimetric town, the named cast stands on cells an author chose rather than cells the client guessed, the quay is wet under the light, and the sim can…",
-      "Full treatment (public surfaces). Brand logo in the README, trust and threat-model section, keys and launcher flags, verify.sh (import + suite + plate re-gate + site build), landing page and Starlight handbook under…",
-      "CI's \"every expected suite ran\" manifest lists all eleven suites (it had drifted to six).",
-      "Felt harbour runtime. Mixer loads res://assets/felt/<cueId>.wav when present (sine stand-in otherwise). Named cast stands on occupancy cells (fixtures/harbour-occupancy.json); FrontProof/BehindProof are not the play…",
-      "World Forge presentation on the fixture. fixtures/pack.json carries the additive presentation block (six occupancy rows, zone anchors, stone_wet on the quay) and packFormat 1.1.0. The harbour prefers pack occupancy…"
-    ],
-    "publishedAt": "2026-09-21T06:44:34Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-stage/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "world-forge",
-    "toolName": "World Forge",
-    "tag": "v4.9.0",
-    "name": "v4.9.0 — the drawing contract",
-    "body": [
-      "The harbour a client draws is now authored in the Forge. A world may carry a presentation block — the dimetric cells, zone anchors, floor plates, and who stands where — instead of a client measuring it by hand on the…",
-      "WorldProject.presentation — an optional WorldPresentation block (view, tile, span, zoneCells, floor, occupancy) describing how a client DRAWS an authored world. Additive: projects without it validate unchanged.…",
-      "presentationAdvisories(project) — eight advisory rules over the block: unknown zoneCells zone, occupancy zone with no anchor, cell outside its zone's span x span box, no player row, a drawn actor the sim never…",
-      "Salt Road carries the harbour occupancy the stage plays — six anchored zones, a wet-stone plate on the long quay, and six actors (the merchant player plus Corvane, Halle, Drell, the tally boy, and the stair…",
-      "export-stage-fixture.ts --strict — exits 1 *before* writing if any presentation advisory reached the export warnings. Non-presentation warnings do not trip it. The script now reports the number of self-checks it…"
-    ],
-    "publishedAt": "2026-09-21T06:44:32Z",
-    "url": "https://github.com/mcp-tool-shop-org/world-forge/releases/tag/v4.9.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-rpg-engine",
-    "toolName": "AI RPG Engine",
-    "tag": "v3.12.0",
-    "name": "v3.12.0 — a host that draws can hear the world",
-    "body": [
-      "A host that draws can hear the world. The sidecar learns one more negotiated capability, and it is the one a pixel client needs: with capabilities.audio on, every submit, advance and matching tick carries the felt of…"
-    ],
-    "publishedAt": "2026-09-21T06:44:29Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v3.12.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.12.0",
-    "name": "v0.12.0 — the dogfood swarm whole, both cabinets on a phone",
-    "body": [
-      "The dogfood swarm, whole, in one day on the Director's word: four health stages and the feature pass framed as polish, with the player's pass on every wave and his read on the served bundle between them. The record…",
-      "Play on a phone. Ghost's field takes a finger (hold its sides to move, the band under it to fire); the typing cabinet raises the soft keyboard on a tap of the editor; each cabinet card says how it plays on glass.…",
-      "A run code for the typing cabinet that replays a run on any browser, and an end card that goes on to the next product or the same one again.",
-      "The hosted tier is opt-in. The shooter's launcher spends an Anthropic key only when CABINET_SAY_CLAUDE=on, says which tier writes the lines and that it costs money, and stops at a ceiling. An older Node is refused in…",
-      "The image answers --help and --version, stops on docker stop at once, and treats an unset VOICE_URL as no voice. The tapes tool marks baked and operator cards and names the one playing; both views say what a client…"
-    ],
-    "publishedAt": "2026-09-17T16:40:54Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.12.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.11.1",
-    "name": "v0.11.1 — read by the Director: the lines make sense, and one image for both cabinets",
-    "body": [
-      "A patch on the Director's read of 0.11.0, all three parts on the published page before this tag. Details in docs/vibe-typer.slice4.md (the last section) and docs/cabinet-container.md.",
-      "The lines that are drawn blind no longer name a piece. The agent's replies, ship lines and check-in answers, and the user's check-ins, one-more-things and generic reviews are picked with no knowledge of the request,…",
-      "The agent's face heads the editor pane, beside the beat word; the chat header keeps the user's face before the product.",
-      "One image, both cabinets. ghcr.io/mcp-tool-shop-org/mcp-arcade-cabinets:0.11.1 carries Vibe Typer's stdio server beside Ghost's; CABINET=vibe selects it and everything else stays the shooter. amd64 and arm64; both…",
-      "Both packages: Node 22, MIT, still 0.x."
-    ],
-    "publishedAt": "2026-09-16T21:33:11Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.11.1",
-    "prerelease": false
-  },
-  {
-    "repo": "synthesis",
-    "toolName": "Synthesis",
-    "tag": "v1.3.2",
-    "name": "v1.3.2 — retract the grounded_uptake \"robust by construction\" claim",
-    "body": [
-      "Documentation-only release. No checker logic changed — behavior is byte-identical to v1.3.1. All 198 tests, the GREEN eval pack and the planted inverted oracle are unaffected.",
-      "The checker source, HANDBOOK.md, the landing page and the test header all stated that *\"the only way to earn verified_uptake is to actually perform the observable work.\"* That claim was false.",
-      "Measured against the 41 user-bearing cases in data/evals.jsonl:",
-      "The template performs no comprehension. It emits strings like *\"It sounds like fired and today are part of what you're carrying right now. What do you need most at this point?\"* — not grammatical English — and earns…",
-      "The controls are the important half. Each witness genuinely binds: content-free warmth cannot earn the verdict, and neither can grounded content without a support move. What the measurement establishes is narrower…"
-    ],
-    "publishedAt": "2026-09-16T02:32:06Z",
-    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.2",
-    "prerelease": false
-  },
-  {
-    "repo": "role-os",
-    "toolName": "Role OS",
-    "tag": "v2.11.0",
-    "name": "v2.11.0 — health pass and harness-agnostic copy",
-    "body": [
-      "Dogfood swarm health pass (Stages A–D) plus harness-agnostic public copy. Feature-audit is collected and parked (Law 8); leftover MED/LOW are not in this release.",
-      "Public copy is harness-agnostic: GitHub/npm/README/handbook lead with a repo-native operating layer. Claude Code adapter ships; the contracts are markdown any harness can consume.",
-      "roleos <verb> --help / -h prints that verb's usage and exits 0 — it no longer mutates.",
-      "Capability-gate deny hints branch missing vs expired vs bad date.",
-      "Handbook light mode is readable. Landing ships OG tags, favicon, robots.txt, and an on-brand 404."
-    ],
-    "publishedAt": "2026-09-15T07:48:03Z",
-    "url": "https://github.com/mcp-tool-shop-org/role-os/releases/tag/v2.11.0",
-    "prerelease": false
-  },
-  {
-    "repo": "audiobooker",
-    "toolName": "Audiobooker",
-    "tag": "v3.0.0",
-    "name": "audiobooker v3.0.0",
-    "body": [
-      "Major, because five things that used to be accepted now fail instead — the m4a whole-book format, a make over an existing project, a render whose attribution is mostly guesswork, a compile() where every chapter…",
-      "A dogfood swarm in two passes — five health waves, then a feature pass of four build agents with disjoint file ownership. 200+ findings, tests 1468 → 1955. A confirming re-swarm (2026-09-15) closed remaining sibling…",
-      "The through-line is worth stating, because it shaped what got found: defect after defect was hiding behind something that reported success. A quality metric that improved as quality degraded. A cache that printed…",
-      "make destroyed a hand-tuned project without asking. Re-running it overwrote hand-cast voices, pronunciation overrides and edited chapter titles with a fresh auto-cast parse — and batch *.epub did it to every project…",
-      "compile() returned normally when every chapter failed. It recorded each per-chapter exception, set status='error', then unconditionally overwrote that with 'idle' ninety lines later and returned None exactly as a…"
-    ],
-    "publishedAt": "2026-09-15T07:16:05Z",
-    "url": "https://github.com/mcp-tool-shop-org/audiobooker/releases/tag/v3.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-playtest",
-    "toolName": "AI Playtest",
-    "tag": "v0.1.0",
-    "name": "v0.1.0 — family-diverse AI playtesting",
-    "body": [
-      "First public GitHub release. Dogfood swarm #2, 2026-09-14. 84 -> 182 tests, then the Law 8 execute set. First live run against claude-rpg (proof-01, 8 turns, mistral). Stage B: 24 HIGH. Stage C: remaining MED/LOW…",
-      "Not on npm (package.json stays \"private\": true).",
-      "Typed actions from Observation.actions. Player replies map onto choose / key / line. A closed-set miss is a harness event (illegal-action); the runner does not step. describeActions() is appended to the player prompt.",
-      "Serial RPC reuses one driver. --serial on driver.kind === \"rpc\" starts once, calls reset() between seats, and stops once. A missing or throwing reset fails that next seat with E_RESET (no silent second client).…",
-      "PTY viewport grid. grid.lines is viewportY .. viewportY+rows-1, not the scrollback buffer. Prompt matching uses baseY+cursorY. kind:key writes without a trailing CR."
-    ],
-    "publishedAt": "2026-09-15T06:23:21Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-playtest/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "synthesis",
-    "toolName": "Synthesis",
-    "tag": "v1.3.1",
-    "name": "v1.3.1 — library contract, fairness FPR, planted-RED",
-    "body": [
-      "Patch over v1.3.0 (that tag never reached npm): tests/exports.test.ts no longer import('@mcptoolshop/synthesis'). Vite resolved that specifier at collect time, before dist/ exists, so Linux CI failed.",
-      "v1.3.1 is the publishable cut of the 1.3 feature pass: public library contract, fairness FPR pack, planted-RED inverted oracle, closed report schema. Checkers stay frozen. Node >=22."
-    ],
-    "publishedAt": "2026-09-15T06:08:42Z",
-    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.1",
     "prerelease": false
   }
 ]

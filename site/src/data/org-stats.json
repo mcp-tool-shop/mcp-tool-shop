@@ -1,7 +1,7 @@
 {
-  "repoCount": 86,
+  "repoCount": 94,
   "registeredCount": 9,
-  "totalStars": 48,
+  "totalStars": 62,
   "languages": [
     "Python",
     "TypeScript",
@@ -9,15 +9,14 @@
     "HTML",
     "C#",
     "Rust",
-    "GDScript",
-    "Astro"
+    "GDScript"
   ],
   "recentReleases": 50,
-  "updatedAt": "2026-10-01T00:18:08.085Z",
+  "updatedAt": "2026-10-12T08:31:25.758Z",
   "registryHealth": {
     "registryToolCount": 9,
     "registeredInProjects": 9,
-    "orgOnlyRepos": 77,
+    "orgOnlyRepos": 85,
     "registryArchived": 0,
     "registryMissing": 0,
     "ignoredRepos": 6,
