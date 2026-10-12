@@ -111,6 +111,22 @@
     "needsHumanReview": true,
     "lane": "shipped"
   },
+  "aspire-si": {
+    "tags": [
+      "adversarial-training",
+      "critic",
+      "fine-tuning",
+      "llm",
+      "machine-learning",
+      "python"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "library",
+    "install": "pip install aspire-si",
+    "tagline": "Train language models to internalize a teacher's judgment through adversarial dialogue,...",
+    "needsHumanReview": true
+  },
   "asset-forge": {
     "lane": "internal",
     "surfaceEligible": false
@@ -566,6 +582,21 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
+  "offrig": {
+    "tags": [
+      "ai-agents",
+      "cli",
+      "egui",
+      "gpu",
+      "llm",
+      "mcp"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "cli",
+    "tagline": "Run big models and GPU jobs on rented RunPod GPUs, never your own.",
+    "needsHumanReview": true
+  },
   "ollama-intern-mcp": {
     "featured": true,
     "tags": [
@@ -804,6 +835,22 @@
     "tagline": "Cross-rig sync tool for paired dev machines",
     "lane": "shipped"
   },
+  "rnd": {
+    "tags": [
+      "cli",
+      "experiments",
+      "fts5",
+      "knowledge-base",
+      "llm-agents",
+      "mcp-tool-shop"
+    ],
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pipx install rnd",
+    "tagline": "The studio's research bench: tiered-source Markdown entries, rig experiments, a...",
+    "needsHumanReview": true
+  },
   "role-os": {
     "tags": [
       "agents",
@@ -823,6 +870,19 @@
     "needsHumanReview": true,
     "lane": "shipped",
     "surfaceEligible": true
+  },
+  "role-set": {
+    "tags": [
+      "cli",
+      "prototype",
+      "python"
+    ],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "pipx install role-set",
+    "tagline": "Prototype.",
+    "needsHumanReview": true
   },
   "roll": {
     "tags": [
@@ -873,6 +933,19 @@
     "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
+  },
+  "scalarscope": {
+    "tags": [
+      "inference",
+      "machine-learning",
+      "rust",
+      "windows"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Windows review of two machine-learning runs.",
+    "needsHumanReview": true
   },
   "sensor-humor": {
     "install": "npx @mcptoolshop/sensor-humor",
