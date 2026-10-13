@@ -35,12 +35,6 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
-  "ai-eyes-mcp": {
-    "kind": "mcp-server",
-    "screenshot": "/screenshots/ai-eyes-mcp.png",
-    "screenshotType": "placeholder",
-    "lane": "shipped"
-  },
   "ai-jam-sessions": {
     "tags": [
       "music"
@@ -653,10 +647,6 @@
     "tagline": "Say what the picture must contain, check that it does, and refuse when it does not.",
     "needsHumanReview": true,
     "lane": "shipped"
-  },
-  "prototypes": {
-    "lane": "seed_vault",
-    "surfaceEligible": false
   },
   "readouts": {
     "category": "infrastructure",
