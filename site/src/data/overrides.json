@@ -105,6 +105,22 @@
     "needsHumanReview": true,
     "lane": "shipped"
   },
+  "aspire-si": {
+    "tags": [
+      "adversarial-training",
+      "critic",
+      "fine-tuning",
+      "llm",
+      "machine-learning",
+      "python"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "library",
+    "install": "pip install aspire-si",
+    "tagline": "Train language models to internalize a teacher's judgment through adversarial dialogue,...",
+    "needsHumanReview": true
+  },
   "asset-forge": {
     "lane": "internal",
     "surfaceEligible": false
@@ -413,6 +429,22 @@
     "tagline": "Operational-health warehouse for a GitHub organization: CI, pull requests, releases,...",
     "needsHumanReview": true
   },
+  "interlock": {
+    "tags": [
+      "device-router",
+      "gpu",
+      "local-ai",
+      "npu",
+      "ollama",
+      "openvino"
+    ],
+    "category": "devtools",
+    "stability": "beta",
+    "kind": "library",
+    "install": "pip install interlock",
+    "tagline": "Prototype: local AI device router (RTX 5090 + Intel NPU/iGPU) that measures before it...",
+    "needsHumanReview": true
+  },
   "knowledge-core": {
     "lane": "active_lab",
     "surfaceEligible": true
@@ -621,6 +653,20 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
+  "portlight-bounty": {
+    "tags": [
+      "game",
+      "godot",
+      "rust",
+      "simulation",
+      "trading"
+    ],
+    "category": "games",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "A trade game. The Rust simulation is the rules. The Godot chart is what you play.",
+    "needsHumanReview": true
+  },
   "portlight-ships": {
     "lane": "active_lab"
   },
@@ -794,6 +840,22 @@
     "tagline": "Cross-rig sync tool for paired dev machines",
     "lane": "shipped"
   },
+  "rnd": {
+    "tags": [
+      "cli",
+      "experiments",
+      "fts5",
+      "knowledge-base",
+      "llm-agents",
+      "mcp-tool-shop"
+    ],
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pipx install rnd",
+    "tagline": "The studio's research bench: tiered-source Markdown entries, rig experiments, a...",
+    "needsHumanReview": true
+  },
   "role-os": {
     "tags": [
       "agents",
@@ -813,6 +875,19 @@
     "needsHumanReview": true,
     "lane": "shipped",
     "surfaceEligible": true
+  },
+  "role-set": {
+    "tags": [
+      "cli",
+      "prototype",
+      "python"
+    ],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "pipx install role-set",
+    "tagline": "Prototype.",
+    "needsHumanReview": true
   },
   "roll": {
     "tags": [

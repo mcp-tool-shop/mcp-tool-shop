@@ -1,5 +1,21 @@
 [
   {
+    "repo": "interlock",
+    "toolName": "Interlock",
+    "tag": "v0.1.0",
+    "name": "interlock v0.1.0 (prototype)",
+    "body": [
+      "Prototype. interlock is a local AI device router for one rig. It suggests a model, an engine and a device for each job (embed, rerank, NLI, verify, generate) from measured receipts, and it never serves traffic. Every…",
+      "or uv tool install mcptoolshop-interlock. Python 3.12 only. The command and the import are interlock.",
+      "interlock route answers from a routing table of committed receipts. It ranks by the worst repeat, not the median, and refuses, naming the experiment behind the gap, when no measured row meets the constraints.",
+      "interlock check validates every receipt and the routing table. It refuses home paths, hosts, URLs and token-shaped values.",
+      "The measurement harness: device guards for the 5090, NPU and iGPU, a watcher that writes the receipt before stopping on a compile timeout, RAM or a stop file, and the E3–E5 experiments behind the table."
+    ],
+    "publishedAt": "2026-10-14T05:36:38Z",
+    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
     "repo": "offrig",
     "toolName": "Offrig",
     "tag": "v1.1.1",
@@ -673,16 +689,6 @@
     "body": [],
     "publishedAt": "2026-09-28T23:22:49Z",
     "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.4",
-    "prerelease": false
-  },
-  {
-    "repo": "cognate",
-    "toolName": "Cognate",
-    "tag": "v0.1.3",
-    "name": "@mcptoolshop/cognate v0.1.3",
-    "body": [],
-    "publishedAt": "2026-09-28T23:07:23Z",
-    "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.3",
     "prerelease": false
   }
 ]
