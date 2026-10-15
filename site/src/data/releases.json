@@ -1,5 +1,48 @@
 [
   {
+    "repo": "cognate",
+    "toolName": "Cognate",
+    "tag": "v0.1.8",
+    "name": "@mcptoolshop/cognate v0.1.8",
+    "body": [],
+    "publishedAt": "2026-10-15T02:06:20Z",
+    "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.8",
+    "prerelease": false
+  },
+  {
+    "repo": "websketch-ir",
+    "toolName": "WebSketch IR",
+    "tag": "v2.3.1",
+    "name": "v2.3.1",
+    "body": [],
+    "publishedAt": "2026-10-15T02:06:03Z",
+    "url": "https://github.com/mcp-tool-shop-org/websketch-ir/releases/tag/v2.3.1",
+    "prerelease": false
+  },
+  {
+    "repo": "engine-room",
+    "toolName": "Engine Room",
+    "tag": "v1.0.1",
+    "name": "engine-room v1.0.1",
+    "body": [],
+    "publishedAt": "2026-10-15T02:05:35Z",
+    "url": "https://github.com/mcp-tool-shop-org/engine-room/releases/tag/v1.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "taste-engine",
+    "toolName": "Taste Engine",
+    "tag": "v1.0.3",
+    "name": "v1.0.3",
+    "body": [
+      "The package manifest is complete for a CI publish. package.json gains repository, homepage and bugs: npm's provenance check requires repository.url to match the repository, and refused 1.0.2 without it. The taste bin…",
+      "1.0.2 was tagged but never reached npm. 1.0.3 carries its path-confinement fix."
+    ],
+    "publishedAt": "2026-10-15T02:04:30Z",
+    "url": "https://github.com/mcp-tool-shop-org/taste-engine/releases/tag/v1.0.3",
+    "prerelease": false
+  },
+  {
     "repo": "taste-engine",
     "toolName": "Taste Engine",
     "tag": "v1.0.2",
@@ -618,67 +661,6 @@
     ],
     "publishedAt": "2026-10-05T05:58:38Z",
     "url": "https://github.com/mcp-tool-shop-org/commandui/releases/tag/v1.0.2",
-    "prerelease": false
-  },
-  {
-    "repo": "backpropagate",
-    "toolName": "Backpropagate",
-    "tag": "v1.8.3",
-    "name": "Backpropagate v1.8.3",
-    "body": [
-      "GGUF export works without Unsloth. llama.cpp's converter imports sentencepiece for every model family (Llama, Qwen, Mistral, SmolLM), and only Unsloth brought it in. A plain pip install backpropagate, the [ui] extra…",
-      "The default q4_k_m export to Ollama works on Ollama 0.35. Ollama 0.35 no longer quantizes GGUF files, so without a compiled llama-quantize the registration failed. It now registers the f16 model, says why, and names…",
-      "Store build: GGUF export. The package copied llama.cpp's convert_hf_to_gguf.py without the conversion/ package it imports, so the converter could not start. The package now carries conversion/ and llama-quantize from…",
-      "The converter runs under an isolated Python. The Store's embedded CPython (and python -I / -P) leaves a script's own folder off sys.path, so the converter could not import conversion/ even when it was there. Export…",
-      "Found by running 1.8.2 on a rented RTX 5090 with the Store build's exact Python stack (torch 2.12.1+cu130). Training, ORPO, KTO, SimPO, FSDP2 full fine-tuning with offload and FP8 all passed there; with these fixes…"
-    ],
-    "publishedAt": "2026-10-04T14:28:30Z",
-    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.8.3",
-    "prerelease": false
-  },
-  {
-    "repo": "backpropagate",
-    "toolName": "Backpropagate",
-    "tag": "v1.8.2",
-    "name": "Backpropagate v1.8.2",
-    "body": [
-      "Microsoft Store packaging (scripts/build_msix.py, #273). Builds a self-contained MSIX: embedded CPython 3.12, PyTorch 2.12.1 with CUDA 13 (needs an NVIDIA driver 580 or newer; older drivers train on the CPU), the web…",
-      "backprop ui --open-browser (#272): opens your browser at the startup URL, token included, once the UI is ready.",
-      "The UI can start with no network when a prebuilt frontend ships with it (the Store package, #272). Its archive and bun are checked by SHA-256 before use. Pip installs are unchanged.",
-      "Handbook privacy page: what the app stores, what it sends and when, and how to remove it all.",
-      "Train, multi-run and export from the web UI (ui-v2, #281 and the P2 PR). Each job runs as its own process (backprop train / multi-run / export), one at a time, with live steps, raw and smoothed loss, time left, a…"
-    ],
-    "publishedAt": "2026-10-03T07:43:55Z",
-    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.8.2",
-    "prerelease": false
-  },
-  {
-    "repo": "incontrol",
-    "toolName": "Incontrol",
-    "tag": "v2.0.1",
-    "name": "InControl 2.0.1",
-    "body": [
-      "InControl 2.0.1: Ollama chat for Windows, on this PC or over SSH to a GPU you rented.",
-      "New in this release: file and image attachments, web search behind a Web toggle, markdown replies, a reasoning model's live thinking, settings that persist, Launch at startup, and minimize to tray.",
-      "Install: Microsoft Store — InControl-Desktop (Windows 10 version 2004 or later, x64). The 2.0.1.0 package is in Store certification; until it is published, the Store serves the previous version. To build from source,…",
-      "No installer is attached to this release. The Store package is signed by Microsoft."
-    ],
-    "publishedAt": "2026-10-03T03:09:02Z",
-    "url": "https://github.com/mcp-tool-shop-org/incontrol/releases/tag/v2.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "incontrol",
-    "toolName": "Incontrol",
-    "tag": "v2.0.0",
-    "name": "InControl 2.0.0",
-    "body": [
-      "InControl 2.0.0: Ollama chat for Windows, on this PC or over SSH to a GPU you rented.",
-      "Install: Microsoft Store — InControl-Desktop (Windows 10 version 2004 or later, x64). The 2.0.0 package goes through Store certification first; until it passes, the Store serves the previous version. To build from…",
-      "No installer is attached to this release. The Store package is signed by Microsoft."
-    ],
-    "publishedAt": "2026-10-03T01:43:49Z",
-    "url": "https://github.com/mcp-tool-shop-org/incontrol/releases/tag/v2.0.0",
     "prerelease": false
   }
 ]

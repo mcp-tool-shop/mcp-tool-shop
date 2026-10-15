@@ -339,8 +339,20 @@
     "lane": "shipped"
   },
   "engine-room": {
+    "tags": [
+      "cli",
+      "gpu",
+      "llama-cpp",
+      "llm-inference",
+      "local-ai",
+      "provisioner"
+    ],
+    "category": "ml",
+    "stability": "stable",
     "kind": "cli",
     "install": "npx @mcptoolshop/engine-room",
+    "tagline": "Recipe-driven provisioner for local AI engines — the executor over the tensor-engine...",
+    "needsHumanReview": true,
     "lane": "shipped"
   },
   "escape-the-valley": {
@@ -1293,8 +1305,20 @@
     "lane": "shipped"
   },
   "websketch-ir": {
+    "tags": [
+      "ai-agents",
+      "browser-automation",
+      "dom",
+      "intermediate-representation",
+      "llm",
+      "llm-tools"
+    ],
+    "category": "web",
+    "stability": "stable",
     "kind": "library",
     "install": "npm install @mcptoolshop/websketch-ir",
+    "tagline": "Grammar-based intermediate representation that compiles messy DOM into a small, fixed...",
+    "needsHumanReview": true,
     "lane": "shipped"
   },
   "world-forge": {
