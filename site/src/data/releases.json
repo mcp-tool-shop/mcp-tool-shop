@@ -1,5 +1,17 @@
 [
   {
+    "repo": "mcp-voice-soundboard",
+    "toolName": "MCP Voice Soundboard",
+    "tag": "v2.5.4",
+    "name": "v2.5.4",
+    "body": [
+      "A GitHub release no longer re-publishes the npm packages. npm.yml runs on every published release, and the releases here are for the Python package, so it re-published @mcptoolshop/voice-soundboard-core and -mcp at…"
+    ],
+    "publishedAt": "2026-10-15T01:06:29Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-voice-soundboard/releases/tag/v2.5.4",
+    "prerelease": false
+  },
+  {
     "repo": "backpropagate",
     "toolName": "Backpropagate",
     "tag": "v1.8.5",
@@ -657,22 +669,6 @@
     "body": [],
     "publishedAt": "2026-10-01T20:20:08Z",
     "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.6",
-    "prerelease": false
-  },
-  {
-    "repo": "housekeeping",
-    "toolName": "Housekeeping",
-    "tag": "v1.4.0",
-    "name": "v1.4.0",
-    "body": [
-      "The README and handbook show how to run one AI agent over a whole organization through hk-mcp, and how housekeeping and Atlas work together.",
-      "homeOrgs in the config: the organizations whose projects count as your own. Unset, it is the swept organization.",
-      "A fork of another organization's project is exempt from ATLAS_MAP_MISSING and ATLAS_CHECK_NOT_IN_CI, as the rule now says: its workflows are the upstream's. The collector reads each fork's parent owner (collector…",
-      "ATLAS_ENGINE_BEHIND measures maps and CI pins against the fleet's own pin (the atlas check version most repositories pin), not npm's latest. A new Atlas release on npm no longer makes every map \"behind\" before a…",
-      "CI_REQUIRED_CHECK_GATED names the repair: a workflow that emits a required check takes no paths filter on pull_request; push stays gated."
-    ],
-    "publishedAt": "2026-10-01T19:03:29Z",
-    "url": "https://github.com/mcp-tool-shop-org/housekeeping/releases/tag/v1.4.0",
     "prerelease": false
   }
 ]
