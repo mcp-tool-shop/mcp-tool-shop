@@ -1,5 +1,18 @@
 [
   {
+    "repo": "taste-engine",
+    "toolName": "Taste Engine",
+    "tag": "v1.0.2",
+    "name": "v1.0.2",
+    "body": [
+      "The workbench cannot write outside the portfolio. The repo value in the body of the workbench's org-action routes was joined onto the portfolio directory without a check, so a value such as ../x made applyAction…",
+      "Releases publish from CI. release.yml publishes to npm through Trusted Publishing (OIDC, with provenance) when a GitHub Release is published; 1.0.1 was published by hand."
+    ],
+    "publishedAt": "2026-10-15T01:50:37Z",
+    "url": "https://github.com/mcp-tool-shop-org/taste-engine/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
     "repo": "research-os",
     "toolName": "Research OS",
     "tag": "v0.15.1",
@@ -666,22 +679,6 @@
     ],
     "publishedAt": "2026-10-03T01:43:49Z",
     "url": "https://github.com/mcp-tool-shop-org/incontrol/releases/tag/v2.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "incontrol",
-    "toolName": "Incontrol",
-    "tag": "v0.3.0",
-    "name": "v0.3.0",
-    "body": [
-      "Source release of the Windows app at 0.3.0. There is no MSIX installer. Clone this tag and build with the .NET 9 SDK.",
-      "The rental forward listens on 127.0.0.1:11436 and stays off this PC's Ollama port. The chat stays here until /api/version answers through that forward. Look up my RunPod pods fills a direct SSH command from…",
-      "Codecov is connected. The failing bar is patch coverage at 90%. The repository-wide percentage is informational, and the WinUI project is outside that report. On the code commit it measured 84.25% line coverage and a…",
-      "NuGet is unchanged: InControl.Core 1.2.2 and InControl.Inference 1.0.2.",
-      "The window was not launched for this release. dotnet build of the app compiles the assembly, then Windows App SDK packaging fails on a plain .NET SDK because the Appx task is missing."
-    ],
-    "publishedAt": "2026-10-02T17:57:14Z",
-    "url": "https://github.com/mcp-tool-shop-org/incontrol/releases/tag/v0.3.0",
     "prerelease": false
   }
 ]

@@ -1232,7 +1232,20 @@
     "surfaceEligible": true
   },
   "taste-engine": {
+    "tags": [
+      "canon",
+      "cli",
+      "code-quality",
+      "drift-detection",
+      "governance",
+      "ollama"
+    ],
+    "category": "infrastructure",
+    "stability": "stable",
+    "kind": "cli",
     "install": "npx @mcptoolshop/taste-engine",
+    "tagline": "Canon-and-judgment system for creative and product work.",
+    "needsHumanReview": true,
     "lane": "active_lab",
     "surfaceEligible": true
   },
