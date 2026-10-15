@@ -717,10 +717,22 @@
     "lane": "active_lab"
   },
   "prism-verify": {
+    "tags": [
+      "adjudication",
+      "ai-agents",
+      "ai-safety",
+      "cli",
+      "llm",
+      "llm-as-judge"
+    ],
+    "category": "mcp-core",
+    "stability": "stable",
     "kind": "cli",
     "install": "pip install prism-verify",
+    "tagline": "Runtime LLM verifier — family-different, reasoning-stripped, multi-lens adjudication...",
     "screenshot": "/screenshots/prism-verify.png",
     "screenshotType": "placeholder",
+    "needsHumanReview": true,
     "lane": "shipped"
   },
   "prompt-craft": {

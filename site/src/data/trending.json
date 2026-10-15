@@ -5,17 +5,17 @@
     {
       "slug": "comfy-headless",
       "reason": "Top 1 starred repo",
-      "deltaStars": 2
+      "deltaStars": 0
     },
     {
       "slug": "audiobooker",
       "reason": "Top 10 starred repo",
-      "deltaStars": 4
+      "deltaStars": 2
     },
     {
       "slug": "codecomfy-vscode",
       "reason": "Top 10 starred repo",
-      "deltaStars": 2
+      "deltaStars": 3
     },
     {
       "slug": "backpropagate",
@@ -25,7 +25,7 @@
     {
       "slug": "tool-compass",
       "reason": "Top 4 starred repo",
-      "deltaStars": 2
+      "deltaStars": 3
     }
   ]
 }

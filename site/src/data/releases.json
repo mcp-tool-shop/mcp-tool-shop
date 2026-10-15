@@ -1,5 +1,58 @@
 [
   {
+    "repo": "research-os",
+    "toolName": "Research OS",
+    "tag": "v0.15.1",
+    "name": "v0.15.1",
+    "body": [
+      "Release workflow: dependency install scripts run again. The workflow installed the newest npm before npm ci, and that npm blocks dependency install scripts by default, so better-sqlite3 had no native binding and the…",
+      "Source types match a domain, not the end of a host name. deriveSourceType decided a source's type with host.endsWith('arxiv.org') and the same test for eight more domains, so a look-alike host such as fakearxiv.org…",
+      "Stripping HTML from a fetched page takes linear time. The patterns that removed tags and <script> or <style> blocks from fetched pages were quadratic: on the old tag pattern, 100,000 < characters took 1.7 s and…"
+    ],
+    "publishedAt": "2026-10-15T01:38:51Z",
+    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.15.1",
+    "prerelease": false
+  },
+  {
+    "repo": "attestia",
+    "toolName": "Attestia",
+    "tag": "v2.1.0",
+    "name": "@mcptoolshop/attestia v2.1.0",
+    "body": [],
+    "publishedAt": "2026-10-15T01:38:34Z",
+    "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "prism-verify",
+    "toolName": "Prism Verify",
+    "tag": "v1.7.1",
+    "name": "v1.7.1",
+    "body": [
+      "Release workflow: the PyPI upload accepts core metadata 2.5. The 1.7.0 release published the npm wrapper and the binaries, but the PyPI step refused the wheel: the pinned upload action (v1.14.0) carries a Twine that…",
+      "/verify-receipt no longer opens the request's public_key as a file. The HTTP route passed the body's public_key to code that accepts either inline PEM or a file path, so an authenticated caller could learn whether a…"
+    ],
+    "publishedAt": "2026-10-15T01:34:35Z",
+    "url": "https://github.com/mcp-tool-shop-org/prism-verify/releases/tag/v1.7.1",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-voice-soundboard",
+    "toolName": "MCP Voice Soundboard",
+    "tag": "v2.5.5",
+    "name": "v2.5.5",
+    "body": [
+      "Three text scans take linear time, and entity decoding no longer double-decodes. The emotion-span, dialogue speaker-line and SSML tag-stripping patterns backtracked quadratically on long runs of <, tags or…",
+      "The first npm release of both packages (1.0.2 was never published to npm).",
+      "@mcptoolshop/voice-soundboard-core and @mcptoolshop/voice-soundboard-mcp publish from CI through npm Trusted Publishing, with provenance.",
+      "Each package has its own README. The core package's README described the server; both now match the code: 46 voices (not 48), the eight emotions and their {emotion} syntax, the six sound-effect tags, the presets, and…",
+      "voice-soundboard-mcp --help lists the environment variables the server reads (VOICE_SOUNDBOARD_TTS_URL, not _HTTP_URL) and its real defaults (backend chosen automatically, 1 concurrent synthesis, a 20,000 ms timeout)."
+    ],
+    "publishedAt": "2026-10-15T01:34:25Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-voice-soundboard/releases/tag/v2.5.5",
+    "prerelease": false
+  },
+  {
     "repo": "mcp-voice-soundboard",
     "toolName": "MCP Voice Soundboard",
     "tag": "v2.5.4",
@@ -629,46 +682,6 @@
     ],
     "publishedAt": "2026-10-02T17:57:14Z",
     "url": "https://github.com/mcp-tool-shop-org/incontrol/releases/tag/v0.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "db-cluster",
-    "toolName": "DB Cluster",
-    "tag": "v3.0.0",
-    "name": "db-cluster v3.0.0",
-    "body": [],
-    "publishedAt": "2026-10-02T00:04:16Z",
-    "url": "https://github.com/mcp-tool-shop-org/db-cluster/releases/tag/v3.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "runforge-vscode",
-    "toolName": "RunForge VS Code",
-    "tag": "v1.2.2",
-    "name": "v1.2.2",
-    "body": [],
-    "publishedAt": "2026-10-01T23:52:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/runforge-vscode/releases/tag/v1.2.2",
-    "prerelease": false
-  },
-  {
-    "repo": "cognate",
-    "toolName": "Cognate",
-    "tag": "v0.1.7",
-    "name": "@mcptoolshop/cognate v0.1.7",
-    "body": [],
-    "publishedAt": "2026-10-01T20:49:39Z",
-    "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.7",
-    "prerelease": false
-  },
-  {
-    "repo": "cognate",
-    "toolName": "Cognate",
-    "tag": "v0.1.6",
-    "name": "@mcptoolshop/cognate v0.1.6",
-    "body": [],
-    "publishedAt": "2026-10-01T20:20:08Z",
-    "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.6",
     "prerelease": false
   }
 ]
