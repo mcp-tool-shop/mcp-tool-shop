@@ -1,5 +1,107 @@
 [
   {
+    "repo": "offrig",
+    "toolName": "Offrig",
+    "tag": "v1.1.3",
+    "name": "v1.1.3",
+    "body": [
+      "The embed server cannot take the GPU without offrig refusing. On Ollama 0.40 a server started with only CUDA_VISIBLE_DEVICES=-1 still reaches an NVIDIA card through Vulkan, so the documented start line could load the…"
+    ],
+    "publishedAt": "2026-10-15T04:13:00Z",
+    "url": "https://github.com/mcp-tool-shop-org/offrig/releases/tag/v1.1.3",
+    "prerelease": false
+  },
+  {
+    "repo": "tool-compass",
+    "toolName": "Tool Compass",
+    "tag": "v2.5.5",
+    "name": "Tool Compass v2.5.5",
+    "body": [
+      "The Docker image no longer crashes with \"Illegal instruction\" on a CPU older than the one that built it. hnswlib has no wheel for the image's Python, so the build compiles it, and its setup.py adds -march=native…",
+      "The CI Docker smoke waits up to 3 minutes instead of 90 seconds, fails at once if the container exits, and on a timeout sends SIGABRT so Python writes its stack to the log. No effect on the published package."
+    ],
+    "publishedAt": "2026-10-15T04:09:00Z",
+    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.5.5",
+    "prerelease": false
+  },
+  {
+    "repo": "research-os",
+    "toolName": "Research OS",
+    "tag": "v0.15.2",
+    "name": "v0.15.2",
+    "body": [
+      "Dependency updates; no code changed. Lockfile only, within the declared ranges: @modelcontextprotocol/sdk 1.30.0 to 1.32.1 (a high advisory, fixed in 1.31.0), fast-uri 3.1.8, ip-address 10.7.4, proxy-addr 2.0.8 and…"
+    ],
+    "publishedAt": "2026-10-15T03:29:39Z",
+    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.15.2",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-arcade-cabinets",
+    "toolName": "MCP Arcade Cabinets",
+    "tag": "v0.13.3",
+    "name": "v0.13.3",
+    "body": [
+      "A dependency patch. Nothing a player sees changes.",
+      "The MCP SDK moves to 1.32.1. @modelcontextprotocol/sdk 1.30.0 had a high advisory fixed in 1.31.0 (GHSA-6qxp-vccf-f47h); cabinet-server, which the launchers bundle, declares it, so the floor in…",
+      "Two transitive packages in the root lockfile are raised. proxy-addr 2.0.8 (a critical IP-spoofing advisory, GHSA-jqcg-44mw-7w3h; it arrives through express under the MCP SDK that cabinet-server bundles) and…",
+      "The docs site's lockfile is updated. sharp 0.35.5, source-map-js 1.2.2, http-cache-semantics 4.3.0 and smol-toml 1.9.1 (three high, one moderate; site/ is not in any published package). Ten moderate advisories in one…"
+    ],
+    "publishedAt": "2026-10-15T03:29:28Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.13.3",
+    "prerelease": false
+  },
+  {
+    "repo": "ollama-intern-mcp",
+    "toolName": "Ollama Intern MCP",
+    "tag": "v2.10.1",
+    "name": "v2.10.1",
+    "body": [
+      "Dependency updates; no code changed. Lockfile only, within the declared ranges: @modelcontextprotocol/sdk 1.29.0 to 1.32.1 (a high advisory, fixed in 1.31.0), fast-uri 3.1.8, ip-address 10.7.4, proxy-addr 2.0.8 and…"
+    ],
+    "publishedAt": "2026-10-15T03:26:03Z",
+    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.10.1",
+    "prerelease": false
+  },
+  {
+    "repo": "synthesis",
+    "toolName": "Synthesis",
+    "tag": "v1.3.4",
+    "name": "v1.3.4",
+    "body": [
+      "Dev-only dependency update; no code changed and nothing in the published package moves. vitest and @vitest/ui are raised from ^3.2.7 to ^4.1.11, which clears the last two moderate advisories in vitest and…"
+    ],
+    "publishedAt": "2026-10-15T03:23:57Z",
+    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.4",
+    "prerelease": false
+  },
+  {
+    "repo": "synthesis",
+    "toolName": "Synthesis",
+    "tag": "v1.3.3",
+    "name": "v1.3.3",
+    "body": [
+      "Dependency updates; no code changed. npm audit fix within the declared ranges, plus vitest and @vitest/ui raised to ^3.2.7: fast-uri 3.1.8 (a runtime dependency, eight advisories), postcss 8.5.30, nanoid 3.3.20,…"
+    ],
+    "publishedAt": "2026-10-15T02:36:05Z",
+    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.3",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-rpg-engine",
+    "toolName": "AI RPG Engine",
+    "tag": "v3.12.1",
+    "name": "v3.12.1",
+    "body": [
+      "A security patch on 3.12.0. Nothing about the engine's behaviour, wire format or hashes changes.",
+      "The CLI image runs on a patched base. The ai-rpg-engine image moves to node:24-bookworm-slim at Node 24.22.0 (digest sha256:a5f4366e…) and upgrades perl-base in place to 5.36.0-7+deb12u4, which the new base still…",
+      "applyPatches no longer follows a patch path into Object.prototype. The sidecar's client half applies patches that arrive over the wire, and it walked each path with plain property reads, so ['proto', 'x'], or…"
+    ],
+    "publishedAt": "2026-10-15T02:21:17Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v3.12.1",
+    "prerelease": false
+  },
+  {
     "repo": "cognate",
     "toolName": "Cognate",
     "tag": "v0.1.8",
@@ -551,116 +653,6 @@
     ],
     "publishedAt": "2026-10-07T21:13:32Z",
     "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-jam-sessions",
-    "toolName": "AI Jam Sessions",
-    "tag": "v2.8.0",
-    "name": "v2.8.0 — two hymns, sung",
-    "body": [
-      "Two hymns, sung. Amazing Grace and America the Beautiful are sung whole, every verse, on the piano's clock, and both passed by ear: - a sound check first; - sixteen takes of a score-conditioned singer (SoulX-Singer),…",
-      "The landing page is rewritten around the two performances, with a three.js view of the voice over the piano. The library's America the Beautiful is now Ward's own Materna melody."
-    ],
-    "publishedAt": "2026-10-07T20:33:08Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v2.8.0",
-    "prerelease": false
-  },
-  {
-    "repo": "loadout-os",
-    "toolName": "Loadout OS",
-    "tag": "v1.0.4",
-    "name": "loadout-os v1.0.4",
-    "body": [],
-    "publishedAt": "2026-10-07T19:44:56Z",
-    "url": "https://github.com/mcp-tool-shop-org/loadout-os/releases/tag/v1.0.4",
-    "prerelease": false
-  },
-  {
-    "repo": "scalarscope",
-    "toolName": "Scalarscope",
-    "tag": "v3.1.1.0",
-    "name": "v3.1.1.0",
-    "body": [
-      "All notable changes to ScalarScope will be documented in this file.",
-      "The format is based on Keep a Changelog, and this project adheres to Semantic Versioning.",
-      "3.1.1 is about geometry reviews of drift exports, and about trusting a saved review. A drift export's steps are checkpoints × items, not time, so readings that depend on step order are now held back. A saved review…",
-      "Vector Field Grid: Background arrows showing local flow directions",
-      "12x12 grid with contextual velocity indicators"
-    ],
-    "publishedAt": "2026-10-07T17:24:00Z",
-    "url": "https://github.com/mcp-tool-shop-org/scalarscope/releases/tag/v3.1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "scalarscope",
-    "toolName": "Scalarscope",
-    "tag": "v3.1.0.0",
-    "name": "ScalarScope 3.1.0",
-    "body": [
-      "ScalarScope 3.1 is a rewrite in Rust. It is the same product, name and publisher, and 2.0's files, bundles and settings carry over. It ships to the Microsoft Store as package 3.1.0.0, an update of 9P3HT1PHBKQK.",
-      "Inference comparisons say how sure they are. The headline gives B/A at p50, p90 and p99, each with an interval. A percentile without enough samples behind it is not printed, and several runs per side measure…",
-      "Deltas give their reasons. Each tile says whether it fired, stayed quiet or was withheld, with the rule and this pair's numbers. Show me moves to the evidence.",
-      "Six views: series, warmup, distribution with a threshold, difference by percentile, tail spectrum and heat map.",
-      "ASPIRE training geometry. Readings are withheld, with the reason, when an export says its steps are not time or its scores were replayed (aspire-si schema 1.1)."
-    ],
-    "publishedAt": "2026-10-07T06:00:27Z",
-    "url": "https://github.com/mcp-tool-shop-org/scalarscope/releases/tag/v3.1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "aspire-si",
-    "toolName": "Aspire Si",
-    "tag": "v1.2.0",
-    "name": "aspire-si 1.2.0",
-    "body": [
-      "The first release tested end to end on real models. A 1.5B student was trained against 32B teachers on a rented GPU; the run report is in docs/runs/2026-10-06-pod-run.md.",
-      "Fixed - Twelve bugs that the real runs exposed, each with a test: - Checkpoints could not be loaded, and aspire evaluate ignored the trained LoRA. - The critic read the prompt without the response it was judging. -…",
-      "Added - aspire judge and aspire.judge score responses with a trained critic. No teacher is needed. - Local and composite teachers work from the config and the CLI. The Claude teacher defaults to claude-sonnet-5-5,…",
-      "Honest docs: the critic learns the teacher's score, but the student is not yet trained toward better answers. That work is tracked in #11. The README, the handbook and all seven translations say so.",
-      "Full details are in CHANGELOG.md."
-    ],
-    "publishedAt": "2026-10-07T03:55:58Z",
-    "url": "https://github.com/mcp-tool-shop-org/aspire-si/releases/tag/v1.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "aspire-si",
-    "toolName": "Aspire Si",
-    "tag": "v1.1.0",
-    "name": "aspire-si 1.1.0",
-    "body": [],
-    "publishedAt": "2026-10-07T00:42:26Z",
-    "url": "https://github.com/mcp-tool-shop-org/aspire-si/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "lokey-typer",
-    "toolName": "Lokey Typer",
-    "tag": "v2.0.0",
-    "name": "LoKey Typer 2.0.0",
-    "body": [
-      "LoKey Typer 2.0.0. The version now matches the Microsoft Store package, 2.0.0.0.",
-      "Then open http://localhost:8080/. Your progress is kept by your browser for that address, not inside the container, so stopping, upgrading or replacing the container keeps it. Open the same host and port each time. -…",
-      "Full list: CHANGELOG."
-    ],
-    "publishedAt": "2026-10-05T06:06:45Z",
-    "url": "https://github.com/mcp-tool-shop-org/lokey-typer/releases/tag/v2.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "commandui",
-    "toolName": "Commandui",
-    "tag": "v1.0.2",
-    "name": "CommandUI 1.0.2",
-    "body": [
-      "CommandUI 1.0.2 is the functional update: a Windows shell where every command ends in one plain sentence, you can ask for a command in plain words, and nothing runs until you approve it.",
-      "This release makes no claim of tested accessibility. Testing with Narrator, NVDA and Windows contrast themes comes in a later update.",
-      "Full list: CHANGELOG.",
-      "Ask needs Ollama on the same computer with the qwen2.5:14b model. Everything else works without it."
-    ],
-    "publishedAt": "2026-10-05T05:58:38Z",
-    "url": "https://github.com/mcp-tool-shop-org/commandui/releases/tag/v1.0.2",
     "prerelease": false
   }
 ]
