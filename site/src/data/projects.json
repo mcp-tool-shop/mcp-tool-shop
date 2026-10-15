@@ -51,7 +51,7 @@
     "featured": true,
     "stars": 1,
     "language": "Python",
-    "updatedAt": "2026-10-15T00:23:28Z",
+    "updatedAt": "2026-10-15T00:45:11Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -1663,12 +1663,7 @@
       "gpu-rental",
       "llm-chat",
       "local-ai",
-      "microsoft-store",
-      "msix",
-      "ollama",
-      "ssh",
-      "windows",
-      "winui"
+      "microsoft-store"
     ],
     "featured": false,
     "stars": 0,
@@ -1676,7 +1671,12 @@
     "updatedAt": "2026-10-11T19:38:46Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "desktop",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Ollama chat for Windows. On this PC by default, or a GPU you rented, over SSH.",
+    "needsHumanReview": true
   },
   {
     "name": "Interlock",
@@ -1782,7 +1782,13 @@
     "updatedAt": "2026-10-11T19:38:55Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "games",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install lokey-typer",
+    "tagline": "Calm ambient typing practice. Music first, with mechanical and other keyboard sounds.",
+    "needsHumanReview": true
   },
   {
     "name": "MCP Arcade",
@@ -1935,14 +1941,7 @@
       "egui",
       "gpu",
       "llm",
-      "mcp",
-      "model-context-protocol",
-      "ollama",
-      "runpod",
-      "rust",
-      "sglang",
-      "windows",
-      "zed"
+      "mcp"
     ],
     "featured": false,
     "stars": 0,
@@ -1950,7 +1949,12 @@
     "updatedAt": "2026-10-14T22:57:50Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "ml",
+    "stability": "stable",
+    "kind": "cli",
+    "tagline": "Run big models and GPU jobs on rented RunPod GPUs, never your own.",
+    "needsHumanReview": true
   },
   {
     "name": "Plain Sight",
@@ -2443,7 +2447,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-10-15T00:35:48Z",
+    "updatedAt": "2026-10-15T00:42:01Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2522,13 +2526,7 @@
       "egui",
       "fine-tuning",
       "hypothesis-testing",
-      "local-llm",
-      "lora",
-      "machine-learning",
-      "ollama",
-      "rust",
-      "statistics",
-      "windows"
+      "local-llm"
     ],
     "featured": false,
     "stars": 0,
@@ -2536,7 +2534,12 @@
     "updatedAt": "2026-10-11T19:42:31Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "ml",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Windows instrument for fine-tuning runs: every sample drawn, a report that leads with...",
+    "needsHumanReview": true
   },
   {
     "name": "RunForge VS Code",
@@ -2582,7 +2585,12 @@
     "updatedAt": "2026-10-11T19:42:58Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "ml",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Windows review of two machine-learning runs.",
+    "needsHumanReview": true
   },
   {
     "name": "Sense Si",

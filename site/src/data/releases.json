@@ -1,5 +1,17 @@
 [
   {
+    "repo": "backpropagate",
+    "toolName": "Backpropagate",
+    "tag": "v1.8.5",
+    "name": "Backpropagate v1.8.5",
+    "body": [
+      "Release workflows no longer interpolate the triggering ref into shell. publish.yml (Resolve release version) and post-publish-smoke.yml (Resolve tag to smoke) put github.event.workflow_run.head_branch, the release…"
+    ],
+    "publishedAt": "2026-10-15T00:45:41Z",
+    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.8.5",
+    "prerelease": false
+  },
+  {
     "repo": "xrpl-lab",
     "toolName": "XRPL Lab",
     "tag": "v2.5.1",
@@ -661,16 +673,6 @@
     ],
     "publishedAt": "2026-10-01T19:03:29Z",
     "url": "https://github.com/mcp-tool-shop-org/housekeeping/releases/tag/v1.4.0",
-    "prerelease": false
-  },
-  {
-    "repo": "cognate",
-    "toolName": "Cognate",
-    "tag": "v0.1.5",
-    "name": "@mcptoolshop/cognate v0.1.5",
-    "body": [],
-    "publishedAt": "2026-10-01T18:45:31Z",
-    "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.5",
     "prerelease": false
   }
 ]

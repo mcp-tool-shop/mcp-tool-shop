@@ -1013,6 +1013,14 @@
     "tagline": "Windows review of two machine-learning runs.",
     "needsHumanReview": true
   },
+  "sense-si": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install sense-si",
+    "tagline": "Python instruments for seeing and hearing.",
+    "needsHumanReview": true
+  },
   "sensor-humor": {
     "install": "npx @mcptoolshop/sensor-humor",
     "lane": "active_lab",
