@@ -429,6 +429,21 @@
     "tagline": "Operational-health warehouse for a GitHub organization: CI, pull requests, releases,...",
     "needsHumanReview": true
   },
+  "incontrol": {
+    "tags": [
+      "desktop",
+      "dotnet",
+      "gpu-rental",
+      "llm-chat",
+      "local-ai",
+      "microsoft-store"
+    ],
+    "category": "desktop",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Ollama chat for Windows. On this PC by default, or a GPU you rented, over SSH.",
+    "needsHumanReview": true
+  },
   "interlock": {
     "tags": [
       "device-router",
@@ -467,6 +482,22 @@
     "screenshotType": "placeholder",
     "needsHumanReview": true,
     "lane": "shipped"
+  },
+  "lokey-typer": {
+    "tags": [
+      "accessibility",
+      "pwa",
+      "react",
+      "typescript",
+      "typing",
+      "windows"
+    ],
+    "category": "games",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npm install lokey-typer",
+    "tagline": "Calm ambient typing practice. Music first, with mechanical and other keyboard sounds.",
+    "needsHumanReview": true
   },
   "mcp-arcade": {
     "tags": [
@@ -591,6 +622,21 @@
     "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
+  },
+  "offrig": {
+    "tags": [
+      "ai-agents",
+      "cli",
+      "egui",
+      "gpu",
+      "llm",
+      "mcp"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "cli",
+    "tagline": "Run big models and GPU jobs on rented RunPod GPUs, never your own.",
+    "needsHumanReview": true
   },
   "ollama-intern-mcp": {
     "featured": true,
@@ -908,6 +954,21 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
+  "runforge": {
+    "tags": [
+      "desktop",
+      "e-values",
+      "egui",
+      "fine-tuning",
+      "hypothesis-testing",
+      "local-llm"
+    ],
+    "category": "ml",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Windows instrument for fine-tuning runs: every sample drawn, a report that leads with...",
+    "needsHumanReview": true
+  },
   "runforge-vscode": {
     "tags": [
       "ml"
@@ -938,6 +999,19 @@
     "screenshotType": "placeholder",
     "lane": "shipped",
     "surfaceEligible": true
+  },
+  "scalarscope": {
+    "tags": [
+      "inference",
+      "machine-learning",
+      "rust",
+      "windows"
+    ],
+    "category": "ml",
+    "stability": "stable",
+    "kind": "desktop-app",
+    "tagline": "Windows review of two machine-learning runs.",
+    "needsHumanReview": true
   },
   "sensor-humor": {
     "install": "npx @mcptoolshop/sensor-humor",

@@ -1,5 +1,248 @@
 [
   {
+    "repo": "xrpl-lab",
+    "toolName": "XRPL Lab",
+    "tag": "v2.5.1",
+    "name": "XRPL Lab v2.5.1",
+    "body": [
+      "The binary-release workflow no longer interpolates the triggering ref into shell. release-binaries.yml (Build binary, Generate checksums) put github.event.workflow_run.head_branch, the dispatch tag input and the…",
+      "Test fixtures build their fake Windows home paths from parts at run time, and a comment in xrpl_lab/api/runner_ws.py uses a placeholder user, so the studio identity scan reads the tree clean. Every test receives the…"
+    ],
+    "publishedAt": "2026-10-15T00:32:37Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.5.1",
+    "prerelease": false
+  },
+  {
+    "repo": "comfy-headless",
+    "toolName": "Comfy Headless",
+    "tag": "v3.1.1",
+    "name": "v3.1.1",
+    "body": [
+      "Workflow jobs run with a read-only token by default. ci.yml and publish.yml had jobs with no permissions block, so they inherited the repository default token. A top-level permissions: contents: read now applies to…"
+    ],
+    "publishedAt": "2026-10-15T00:13:08Z",
+    "url": "https://github.com/mcp-tool-shop-org/comfy-headless/releases/tag/v3.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "aspire-si",
+    "toolName": "Aspire Si",
+    "tag": "v1.3.0",
+    "name": "v1.3.0",
+    "body": [
+      "examples/sft-experiment/: the fine-tune-then-ASPIRE experiment (#11) and its run report. It holds:",
+      "a dataset builder that keeps evaluation prompts out by word overlap and embeddings;",
+      "a judge set of one-sentence planted errors;",
+      "a cleaning step that records every drop;",
+      "QLoRA fine-tuning;"
+    ],
+    "publishedAt": "2026-10-15T00:12:07Z",
+    "url": "https://github.com/mcp-tool-shop-org/aspire-si/releases/tag/v1.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "tool-compass",
+    "toolName": "Tool Compass",
+    "tag": "v2.5.4",
+    "name": "Tool Compass v2.5.4",
+    "body": [
+      "Workflow jobs run with a read-only token by default. publish.yml had jobs with no permissions block, so they inherited the repository default token. A top-level permissions: contents: read now applies to every job…"
+    ],
+    "publishedAt": "2026-10-15T00:09:20Z",
+    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.5.4",
+    "prerelease": false
+  },
+  {
+    "repo": "mcp-stress-test",
+    "toolName": "MCP Stress Test",
+    "tag": "v1.0.3",
+    "name": "v1.0.3",
+    "body": [
+      "Workflow jobs run with a read-only token by default. ci.yml and publish.yml had jobs with no permissions block, so they inherited the repository default token. A top-level permissions: contents: read now applies to…"
+    ],
+    "publishedAt": "2026-10-15T00:04:52Z",
+    "url": "https://github.com/mcp-tool-shop-org/mcp-stress-test/releases/tag/v1.0.3",
+    "prerelease": false
+  },
+  {
+    "repo": "backpropagate",
+    "toolName": "Backpropagate",
+    "tag": "v1.8.4",
+    "name": "Backpropagate v1.8.4",
+    "body": [
+      "Training works on a CPU-only machine again with a fresh install. trl 1.15.0 (2026-10-08) runs every SFT loss through a Triton-only kernel, so pip install backpropagate on a machine without a GPU resolved to it and…",
+      "Build fake credentials at runtime in CLI and logging tests so secret scanners do not flag test fixtures."
+    ],
+    "publishedAt": "2026-10-15T00:04:47Z",
+    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.8.4",
+    "prerelease": false
+  },
+  {
+    "repo": "role-set",
+    "toolName": "Role Set",
+    "tag": "v0.2.0",
+    "name": "v0.2.0",
+    "body": [
+      "Prototype. Interfaces and data shapes can change without notice. Nothing this version writes is training data until a person checks it. The headline is the T10 generator: puzzles on the strict size words are now…",
+      "The puzzle generator (role_set.generate). Code builds a kind B puzzle and proves it, and a model only words it. The builder samples a hidden solution, adds clues that are true in it until the answer is fixed, deletes…",
+      "The T10 cell table (#53). Each pack, question and seed maps to a structural cell: entity count (3 to 5), count word, k, and 0 to 2 if clues. The usable cells are probed once and committed as t10_cells.json by…",
+      "The trait-clue test (#54). A T10 puzzle carries one count clue, and it is kept only when one of R&D's four readings (\"exactly\" as \"at least\", \"exactly\" as \"at most\", \"at least\" as \"exactly\", \"at most\" as \"exactly\"),…",
+      "The allocator (#49). For one question and one value count, a file of 20 seeds is assigned once, before anything is built, by a min-cost flow. Each pack's 20 seeds take 20 different cells. A cell with no if clue is…"
+    ],
+    "publishedAt": "2026-10-14T23:43:16Z",
+    "url": "https://github.com/mcp-tool-shop-org/role-set/releases/tag/v0.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "research-os",
+    "toolName": "Research OS",
+    "tag": "v0.15.0",
+    "name": "v0.15.0",
+    "body": [
+      "Ingestion redacts third-party personal data, not only client keys. Scraped pages quote strangers' tracebacks and issue threads, so the raw evidence carried other people's home-path account names and personal mailbox…",
+      "redaction_count covers all of it, and the card says so. The receipt and the source card count every key, account name and address replaced, and a card whose count is above zero carries a dated redaction_note unless…",
+      "fetched_sha256 on the fetch receipt. When redaction_count is above zero the receipt keeps the hash of the bytes as fetched, so sha256 always names the stored file and the provenance of what the server sent survives.…"
+    ],
+    "publishedAt": "2026-10-14T23:21:28Z",
+    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.15.0",
+    "prerelease": false
+  },
+  {
+    "repo": "vocal-synth-engine",
+    "toolName": "Vocal Synth Engine",
+    "tag": "v1.1.1",
+    "name": "v1.1.1",
+    "body": [
+      "Test fixtures build fake credentials at runtime so secret scanners do not flag them."
+    ],
+    "publishedAt": "2026-10-14T23:17:08Z",
+    "url": "https://github.com/mcp-tool-shop-org/vocal-synth-engine/releases/tag/v1.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "role-os",
+    "toolName": "Role OS",
+    "tag": "v2.12.1",
+    "name": "v2.12.1",
+    "body": [
+      "Test fixtures build fake credentials at runtime so secret scanners do not flag them."
+    ],
+    "publishedAt": "2026-10-14T23:05:10Z",
+    "url": "https://github.com/mcp-tool-shop-org/role-os/releases/tag/v2.12.1",
+    "prerelease": false
+  },
+  {
+    "repo": "registry-stats",
+    "toolName": "Registry Stats",
+    "tag": "v3.5.0",
+    "name": "v3.5.0",
+    "body": [],
+    "publishedAt": "2026-10-14T23:05:08Z",
+    "url": "https://github.com/mcp-tool-shop-org/registry-stats/releases/tag/v3.5.0",
+    "prerelease": false
+  },
+  {
+    "repo": "offrig",
+    "toolName": "Offrig",
+    "tag": "v1.1.2",
+    "name": "v1.1.2",
+    "body": [
+      "Build fake credentials at runtime in trace.rs unit tests so secret scanners do not flag test fixtures."
+    ],
+    "publishedAt": "2026-10-14T23:04:55Z",
+    "url": "https://github.com/mcp-tool-shop-org/offrig/releases/tag/v1.1.2",
+    "prerelease": false
+  },
+  {
+    "repo": "sensor-humor",
+    "toolName": "Sensor Humor",
+    "tag": "v1.3.2",
+    "name": "sensor-humor v1.3.2",
+    "body": [
+      "Build fake credentials at runtime in tests/dataset-pii-scrub.test.ts so secret scanners do not flag test fixtures."
+    ],
+    "publishedAt": "2026-10-14T23:03:10Z",
+    "url": "https://github.com/mcp-tool-shop-org/sensor-humor/releases/tag/v1.3.2",
+    "prerelease": false
+  },
+  {
+    "repo": "repomesh",
+    "toolName": "Repomesh",
+    "tag": "v2.3.3",
+    "name": "v2.3.3",
+    "body": [
+      "Test fixtures build fake credentials at runtime so secret scanners do not flag them."
+    ],
+    "publishedAt": "2026-10-14T23:02:27Z",
+    "url": "https://github.com/mcp-tool-shop-org/repomesh/releases/tag/v2.3.3",
+    "prerelease": false
+  },
+  {
+    "repo": "shipcheck",
+    "toolName": "Shipcheck",
+    "tag": "v1.0.9",
+    "name": "v1.0.9",
+    "body": [
+      "Test fixtures build fake credentials at runtime so secret scanners do not flag them."
+    ],
+    "publishedAt": "2026-10-14T23:02:12Z",
+    "url": "https://github.com/mcp-tool-shop-org/shipcheck/releases/tag/v1.0.9",
+    "prerelease": false
+  },
+  {
+    "repo": "tool-compass",
+    "toolName": "Tool Compass",
+    "tag": "v2.5.3",
+    "name": "Tool Compass v2.5.3",
+    "body": [
+      "Build fake credentials at runtime in config and HTTP backend tests so secret scanners do not flag test fixtures."
+    ],
+    "publishedAt": "2026-10-14T23:00:35Z",
+    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.5.3",
+    "prerelease": false
+  },
+  {
+    "repo": "interlock",
+    "toolName": "Interlock",
+    "tag": "v0.2.0",
+    "name": "v0.2.0",
+    "body": [
+      "--trace relay|events: an opt-in debug tracer for interlock runs, built on NeMo Relay 0.10.1 (optional relay extra; the base install imports nothing from Relay). Every adapter request is counted, the card guard's…",
+      "The README and its translations show a PyPI badge for mcptoolshop-interlock, now that 0.1.0 is published."
+    ],
+    "publishedAt": "2026-10-14T23:00:17Z",
+    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v0.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "sovereignty",
+    "toolName": "Sovereignty",
+    "tag": "v2.3.6",
+    "name": "v2.3.6",
+    "body": [
+      "Build fake credentials at runtime in daemon and client tests so secret scanners do not flag test fixtures."
+    ],
+    "publishedAt": "2026-10-14T23:00:16Z",
+    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.3.6",
+    "prerelease": false
+  },
+  {
+    "repo": "prism-verify",
+    "toolName": "Prism Verify",
+    "tag": "v1.7.0",
+    "name": "v1.7.0",
+    "body": [
+      "Build fake credentials at runtime in tests/unit/test_eval_harvest.py and tests/integration/test_http.py so secret scanners do not flag test fixtures.",
+      "Split one source constant, the RFC 6598 shared-address range in the webhook SSRF blocklist (src/prism/http/webhook.py), into two string pieces, so the studio identity scanner doesn't read it as a tailnet address. The…",
+      "--older-than 0s was the deeper problem: a zero cutoff makes *every* receipt a candidate, so the test could not express the other half of the contract — a receipt newer than the cutoff must survive. Fixed by giving…",
+      "Scope note: an earlier draft of this entry blamed a ~15.6ms Windows datetime.now tick and a ~2-in-3 failure rate. Neither reproduced under review — 20k datetime.now(UTC) reads on the Windows rig gave 5,813 distinct…",
+      "OpenRouter cross-family verifier seat (F-14) — a new OPENROUTER model family + OpenRouterProvider (OpenAI-compatible gateway) makes the whole OpenRouter catalog available as a cross-family verifier through one key.…"
+    ],
+    "publishedAt": "2026-10-14T22:49:58Z",
+    "url": "https://github.com/mcp-tool-shop-org/prism-verify/releases/tag/v1.7.0",
+    "prerelease": false
+  },
+  {
     "repo": "interlock",
     "toolName": "Interlock",
     "tag": "v0.1.0",
@@ -428,267 +671,6 @@
     "body": [],
     "publishedAt": "2026-10-01T18:45:31Z",
     "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.5",
-    "prerelease": false
-  },
-  {
-    "repo": "repomesh",
-    "toolName": "Repomesh",
-    "tag": "v2.3.2",
-    "name": "v2.3.2",
-    "body": [
-      "The public description, README, and handbook state RepoMesh's job: the release ledger and XRPL trust clock, separate from Attestia's event store. Cognate is the AI governance domain that calls both."
-    ],
-    "publishedAt": "2026-10-01T18:39:17Z",
-    "url": "https://github.com/mcp-tool-shop-org/repomesh/releases/tag/v2.3.2",
-    "prerelease": false
-  },
-  {
-    "repo": "attestia",
-    "toolName": "Attestia",
-    "tag": "v2.0.5",
-    "name": "@mcptoolshop/attestia v2.0.5",
-    "body": [],
-    "publishedAt": "2026-10-01T18:28:08Z",
-    "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.0.5",
-    "prerelease": false
-  },
-  {
-    "repo": "attestia",
-    "toolName": "Attestia",
-    "tag": "v2.0.4",
-    "name": "@mcptoolshop/attestia v2.0.4",
-    "body": [],
-    "publishedAt": "2026-10-01T18:20:36Z",
-    "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.0.4",
-    "prerelease": false
-  },
-  {
-    "repo": "backpropagate",
-    "toolName": "Backpropagate",
-    "tag": "v1.8.1",
-    "name": "Backpropagate v1.8.1",
-    "body": [
-      "backprop ui starts again. On Reflex 0.9.x (0.9.3, 0.9.5 and 0.9.12 checked), reflex run in development mode raised RuntimeError: There should not be an init.py file in your app root directory, because the app root is…",
-      "The SSH port-forwarding examples in the README and handbook forwarded port 7860 while backprop ui listens on 7862; they now use 7862 and the banner URL.",
-      "Ctrl+C reliably stops backprop ui on Windows. About 1 launch in 5 to 10, Reflex's own shutdown hung, and the CLI sat in an uninterruptible wait on it, so Ctrl+C did nothing. The CLI now polls the Reflex process;…",
-      "docker compose up starts the web UI. It never could: compose.yaml ran ui --host 0.0.0.0 without --auth, which backprop ui refuses, and the image had no Reflex in it. The image now carries the [ui] extra and a pinned,…",
-      "The pass_rate eval metric no longer runs model output inside your process, and needs an explicit opt-in. It used exec on the generated code in the eval process, behind a \"restricted builtins\" list that is easy to…"
-    ],
-    "publishedAt": "2026-10-01T16:50:48Z",
-    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.8.1",
-    "prerelease": false
-  },
-  {
-    "repo": "backpropagate",
-    "toolName": "Backpropagate",
-    "tag": "v1.8.0",
-    "name": "Backpropagate v1.8.0",
-    "body": [
-      "Experimental: block-coordinate full fine-tuning (--full-ft-engine block, #237). One block trains at a time with AdamW while the rest stay frozen on the GPU, so a 7B model full-fine-tunes on a 32 GB card without…",
-      "ui_security.SecureSessionHandler: one CSRF slot per session, and logout now revokes. It keyed CSRF tokens and its session registry on the first 32 characters of the access token. Every HS256 JWT starts with the same…",
-      "CSRFProtection.validate_token returns invalid for a non-ASCII or non-string token instead of raising TypeError.",
-      "FileValidator.validate() given a pathlib.Path now runs the size cap and magic-byte checks (it looked up the bare file name and skipped them).",
-      "validate_numeric_input and the UI's numeric fields reject NaN and infinity."
-    ],
-    "publishedAt": "2026-10-01T09:06:14Z",
-    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.8.0",
-    "prerelease": false
-  },
-  {
-    "repo": "housekeeping",
-    "toolName": "Housekeeping",
-    "tag": "v1.3.1",
-    "name": "v1.3.1",
-    "body": [
-      "CI_FAILING no longer fires on a default branch whose only non-green checks are cancelled runs replaced by a green run of the same check on the same commit. GitHub's check rollup counts a cancelled run as a failure,…"
-    ],
-    "publishedAt": "2026-09-30T23:51:15Z",
-    "url": "https://github.com/mcp-tool-shop-org/housekeeping/releases/tag/v1.3.1",
-    "prerelease": false
-  },
-  {
-    "repo": "backpropagate",
-    "toolName": "Backpropagate",
-    "tag": "v1.7.2",
-    "name": "Backpropagate v1.7.2",
-    "body": [
-      "BREAKING (security default): trust_remote_code is now off. Loading a model no longer runs Python code from the model's Hugging Face repository unless you opt in. Through v1.7.1 the default was on, and nothing in the…",
-      "Unsloth can no longer install system software unasked. On a machine without a built llama.cpp, Unsloth's GGUF export runs winget install (or apt / brew) for CMake, compilers and OpenSSL and accepts their licence…",
-      "PyJWT 2.13.0 → 2.15.1 in uv.lock; the [security] floor rises to >=2.14.0. CVE-2026-102268 (critical, fixed in 2.14.0) tripped Trivy's CRITICAL floor on main and on every open PR. The re-lock moved PyJWT only.",
-      "20 Dependabot alerts fixed on 2026-09-23 (1 critical, 12 high, 7 medium). Each re-lock moved only its own package:",
-      "anyio 4.14.0 → 4.14.2 (#211): CVE-2026-63374 (critical) plus one high and one medium. Trivy's CRITICAL floor had turned every open PR red, including the Atlas adoption PR #212, which touched no dependencies. The same…"
-    ],
-    "publishedAt": "2026-09-30T23:33:32Z",
-    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.7.2",
-    "prerelease": false
-  },
-  {
-    "repo": "housekeeping",
-    "toolName": "Housekeeping",
-    "tag": "v1.3.0",
-    "name": "v1.3.0",
-    "body": [
-      "The first release on npm, as @mcptoolshop/housekeeping.",
-      "Publishable to npm as @mcptoolshop/housekeeping, with the hk and hk-mcp commands. A release workflow publishes it with provenance when a GitHub release is published, through npm Trusted Publishing.",
-      "HK_HOME: where data, reports and the config live. Unset, a clone keeps them in itself as before, and an installed package keeps them in the directory it runs from, never inside node_modules.",
-      "The default-branch CI findings say where a red run broke: the failed job and step, matched to the workflow file by name. One REST call per red run.",
-      "With an Atlas map, the failed step is joined to the map's entry for it, and a map finding recorded against that same step is cited as a prediction."
-    ],
-    "publishedAt": "2026-09-30T23:32:16Z",
-    "url": "https://github.com/mcp-tool-shop-org/housekeeping/releases/tag/v1.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "si-rpg-engine",
-    "toolName": "Si RPG Engine",
-    "tag": "v0.4.0",
-    "name": "0.4.0 — the four packages",
-    "body": [
-      "The first publish of the four packages. v0.3.0 remains the 27 September release.",
-      "Four packages publish under the npm org. @si-rpg-engine/frame, @si-rpg-engine/tick, @si-rpg-engine/host, and @si-rpg-engine/load are workspaces at 0.4.0. The root package stays private. .github/workflows/release.yml…",
-      "A host binds to a written socket. The world record is version 1. The frame stream, the intent door, and the blend rule are docs/host-binding.md. The session's driven actor is the world file's goal actor. A collider's…",
-      "A scene may name a mesh. Load accepts { positions, indices } up to 999,474 triangles and refuses a repeated index, a non-finite position, or an index out of range. The law builds one fixed trimesh. Worlds that do not…",
-      "A bad mesh is refused before it is built. createWorld runs the same mesh check as load and throws that reason. A refused load or step does not hold that world and does not copy bodies back."
-    ],
-    "publishedAt": "2026-09-30T21:22:01Z",
-    "url": "https://github.com/mcp-tool-shop-org/si-rpg-engine/releases/tag/v0.4.0",
-    "prerelease": false
-  },
-  {
-    "repo": "housekeeping",
-    "toolName": "Housekeeping",
-    "tag": "v1.2.0",
-    "name": "v1.2.0",
-    "body": [
-      "The first public release of housekeeping: an operational-health warehouse for a GitHub organization. One sweep, one SQLite database, findings you can argue with.",
-      "Landing page: https://mcp-tool-shop-org.github.io/housekeeping/ · Handbook: https://mcp-tool-shop-org.github.io/housekeeping/handbook/",
-      "Keep the data private. A snapshot records private repository names, open security alerts and Actions billing. Run the tool from a private repository of your own; data/ and reports/ are ignored here for that reason."
-    ],
-    "publishedAt": "2026-09-30T18:08:39Z",
-    "url": "https://github.com/mcp-tool-shop-org/housekeeping/releases/tag/v1.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.13.2",
-    "name": "v0.13.2 — fast-uri 3.1.8 in what ships",
-    "body": [
-      "A dependency patch. Nothing a player sees changes, and no path from the cabinets reached either advisory; this release puts the patched code in what ships.",
-      "fast-uri 3.1.8 (GHSA-hrr3-gc8f-f4qj), bundled into both launchers, both cabinet servers and the image through the MCP SDK's ajv. The advisory is host case folding on scheme-relative URLs, which could let a…",
-      "ip-address 10.7.2 (GHSA-h3mg-xc3c-68pw, GHSA-j6r3-76f7-8jcv), in the lockfile only. It comes through express-rate-limit, which only the SDK's HTTP transport uses; the cabinets speak stdio and it is in no bundle."
-    ],
-    "publishedAt": "2026-09-30T14:39:04Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.13.2",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.13.1",
-    "name": "v0.13.1 — the image's build stage on the native platform",
-    "body": [
-      "A build fix for the image and a coverage upload in CI. Nothing a player sees changes; the image is rebuilt so its arm64 half no longer runs Node under emulation to get made.",
-      "The image's build stage runs on the builder's own platform (FROM --platform=$BUILDPLATFORM). It only emits esbuild's plain-JS bundle, so the arm64 image no longer runs pnpm install under QEMU, which died with SIGILL…",
-      "CI uploads coverage and test results to Codecov over OIDC, with 20 seconds per test on the coverage run only."
-    ],
-    "publishedAt": "2026-09-30T14:12:56Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.13.1",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v2.3.5",
-    "name": "v2.3.5 — Linux desktop safety fix",
-    "body": [
-      "Linux desktop app: a timed-out sov daemon command could SIGKILL every process the user owns. The Tauri shell killed a timed-out child's process group by running kill -KILL -<pid>. procps-ng kill (Debian, Ubuntu, and…",
-      "The daemon's body-size cap now answers 413 on a streamed oversized body. With no Content-Length, the cap trips while a handler reads the body; Starlette's error middleware caught that and sent a 500 before the cap…",
-      "Linux desktop app users: upgrade now. In 2.3.2–2.3.4, a sov daemon command that timed out could SIGKILL every process you own. macOS and Windows builds, the CLI, PyPI, npm and Docker users were not exposed to that bug."
-    ],
-    "publishedAt": "2026-09-30T06:19:49Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.3.5",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v2.3.4",
-    "name": "v2.3.4 — doctor warns on a corrupt season.json",
-    "body": [
-      "sov doctor now warns about a corrupt season.json. The season reader deliberately treats a corrupt file as an empty season so sov game-end can keep recording, and doctor used that same reader, so it reported \"Season…"
-    ],
-    "publishedAt": "2026-09-30T04:51:44Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.3.4",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v2.3.3",
-    "name": "v2.3.3 — tutorial fixed, npx current, 99.9% coverage",
-    "body": [
-      "npx launcher source in npm/, published by .github/workflows/release.yml after the Release carries the CLI binaries, with npm provenance and a post-publish npx smoke. The launcher had been hand-published and stopped…",
-      "Code coverage on Codecov (OIDC, no token): the 3.12 CI cell collects coverage and JUnit results; a separate codecov job uploads them. Baseline 72.5% line coverage.",
-      "sov --version crashed in every PyInstaller binary. The frozen app has no package metadata, and the --version fallback read pyproject.toml unguarded. --version now uses the same guarded resolver as self-check, the…",
-      "sov tutorial always crashed at step 4. Two lines each carried half of one [dim]...[/dim] span and Rich raised MarkupError, so the first command a new player runs exited 1. Every CLI print now has balanced markup…",
-      "Postcards never showed \"Treaty kept\". The matcher \"Treaty.*honored\" was a regex compared as a plain substring. It now matches honored, which only treaty completions log."
-    ],
-    "publishedAt": "2026-09-30T04:10:21Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.3.3",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v2.3.2",
-    "name": "v2.3.2 — container image, daemon wheel fix",
-    "body": [
-      "Container image. ghcr.io/mcp-tool-shop-org/sovereignty (linux/amd64 + linux/arm64) carries the sov CLI and the audit/anchor daemon. Game state lives under /data/.sov; mount a volume there. The bundled compose.yaml…",
-      "SOV_DAEMON_HOST sets the daemon's bind address for python -m sov_daemon. Default stays 127.0.0.1. It is not forwarded to sov daemon start spawns, so a desktop daemon cannot inherit a widened bind.",
-      "Docker page in the handbook.",
-      "The PyPI wheel now ships sov_daemon. Every wheel through 2.3.1 left the package out, so pip install 'sovereignty-game[daemon]' followed by sov daemon start failed with an import error. The release smoke gate missed…",
-      "Settings.test.tsx \"pending-anchors 500\" waited for the error text, then queried the mode button once; on slower CI runners the button rendered a tick later. The lookup now sits inside the waitFor."
-    ],
-    "publishedAt": "2026-09-30T01:23:26Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.3.2",
-    "prerelease": false
-  },
-  {
-    "repo": "ai-jam-sessions",
-    "toolName": "AI Jam Sessions",
-    "tag": "v2.7.0",
-    "name": "v2.7.0 — America the Beautiful",
-    "body": [
-      "America the Beautiful is the folk exemplar: a public-domain arrangement in F major, melody F4–C5. The library is 109 songs. Fifteen MIDI files ship; 94 stay fetch-only.",
-      "SoulX-Singer sings it (four takes). Timing and pitch gates pass. The landing page keeps the three pitch warnings, and Order / one-voice / fits-timeline stay fail without a Comfy Cloud transcript. The CLI and MCP…",
-      "This release also records the dataset-licence fix that was already on main: jam-actions-v0 public subset 0.6.0 and jam-actions-acoustic-v0 1.1.0 no longer carry arrangements whose licence could not be established.",
-      "America the Beautiful does not enter the frozen jam-actions-v1 1.1.0 corpus."
-    ],
-    "publishedAt": "2026-09-29T10:31:17Z",
-    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v2.7.0",
-    "prerelease": false
-  },
-  {
-    "repo": "si-jam-sessions",
-    "toolName": "Si Jam Sessions",
-    "tag": "v0.2.1",
-    "name": "si-jam-sessions v0.2.1",
-    "body": [
-      "The same product as 0.2.0, published by Trusted Publishing so the registry copy carries a provenance attestation. 0.2.0 was published from a local npm session and has no attestation. The law, the goldens and the…"
-    ],
-    "publishedAt": "2026-09-29T01:57:21Z",
-    "url": "https://github.com/mcp-tool-shop-org/si-jam-sessions/releases/tag/v0.2.1",
-    "prerelease": false
-  },
-  {
-    "repo": "cognate",
-    "toolName": "Cognate",
-    "tag": "v0.1.4",
-    "name": "@mcptoolshop/cognate v0.1.4",
-    "body": [],
-    "publishedAt": "2026-09-28T23:22:49Z",
-    "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.4",
     "prerelease": false
   }
 ]
