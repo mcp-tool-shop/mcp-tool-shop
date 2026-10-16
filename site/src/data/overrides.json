@@ -333,6 +333,22 @@
     "lane": "active_lab",
     "surfaceEligible": true
   },
+  "dataset-desk": {
+    "tags": [
+      "cli",
+      "computer-vision",
+      "dataset-curation",
+      "embeddinggemma",
+      "embeddings",
+      "image-captioning"
+    ],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "pipx install dataset-desk",
+    "tagline": "Make and review visual datasets: duplicates, outliers, search by words or picture, and...",
+    "needsHumanReview": true
+  },
   "db-cluster": {
     "kind": "mcp-server",
     "install": "npx @mcptoolshop/db-cluster",

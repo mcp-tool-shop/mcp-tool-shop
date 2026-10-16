@@ -1,5 +1,5 @@
 {
-  "repoCount": 95,
+  "repoCount": 96,
   "registeredCount": 9,
   "totalStars": 63,
   "languages": [
@@ -12,11 +12,11 @@
     "GDScript"
   ],
   "recentReleases": 50,
-  "updatedAt": "2026-10-15T00:36:43.499Z",
+  "updatedAt": "2026-10-16T13:11:35.922Z",
   "registryHealth": {
     "registryToolCount": 9,
     "registeredInProjects": 9,
-    "orgOnlyRepos": 86,
+    "orgOnlyRepos": 87,
     "registryArchived": 0,
     "registryMissing": 0,
     "ignoredRepos": 6,

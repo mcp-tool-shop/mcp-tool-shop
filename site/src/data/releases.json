@@ -1,5 +1,127 @@
 [
   {
+    "repo": "dataset-desk",
+    "toolName": "Dataset Desk",
+    "tag": "v0.1.2",
+    "name": "dataset-desk v0.1.2",
+    "body": [
+      "report --count-tokens runs the gate's 64-token test with the cached SigLIP2 tokenizer, offline. Before it, the command line never passed a token counter, so a record that passed every other test stayed unchecked.",
+      "Error code DEP_TOKENIZER_MISSING (exit 1) when --count-tokens can't find the tokenizer.",
+      "report no longer stops when --out and the project are on different Windows drives: links fall back to file:// URIs where a relative path can't cross drives.",
+      "The tokenizer load no longer logs the bos/eos config warning, like the model load in 0.1.1.",
+      "152 offline tests; line coverage 96%, CI floor 90."
+    ],
+    "publishedAt": "2026-10-15T23:33:15Z",
+    "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.1.2",
+    "prerelease": false
+  },
+  {
+    "repo": "dataset-desk",
+    "toolName": "Dataset Desk",
+    "tag": "v0.1.1",
+    "name": "dataset-desk v0.1.1",
+    "body": [
+      "Model loads pass dtype instead of the deprecated torch_dtype (SigLIP2, and EmbeddingGemma 2's model_kwargs).",
+      "SigLIP2 loads no longer log transformers' bos/eos token-id warning. Its published config sets those ids outside the text vocabulary, and the desk never uses them. Errors still show.",
+      "The models extra now needs transformers>=4.56 (the first with dtype) and sentence-transformers>=5.",
+      "145 offline tests; line coverage 96%, CI floor 90."
+    ],
+    "publishedAt": "2026-10-15T23:14:52Z",
+    "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "dataset-desk",
+    "toolName": "Dataset Desk",
+    "tag": "v0.1.0",
+    "name": "dataset-desk v0.1.0",
+    "body": [
+      "The first public release: a prototype, tested offline and not yet calibrated on real data.",
+      "dataset-desk command with index, dupes, search, coverage and report.",
+      "Backends: EmbeddingGemma 2 (eg2), SigLIP2 so400m (siglip2), and none, the torch-free lite tier.",
+      "Duplicates in three tiers: byte-identical (sha256), near (256-bit dHash) and semantic (embedding cosine).",
+      "A 30-number look channel (palette, tone, native-resolution texture), and outliers ranked by content and by look."
+    ],
+    "publishedAt": "2026-10-15T23:00:24Z",
+    "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "claude-guardian",
+    "toolName": "Claude Guardian",
+    "tag": "v1.2.2",
+    "name": "claude-guardian v1.2.2",
+    "body": [
+      "Stopping the watchdog and hang recovery now end the supervised command's whole process tree on Windows (taskkill /T /F). The watchdog starts the command under cmd.exe (shell: true) and kill() ended only that shell,…",
+      "tests/watchdog-kill-tree.test.ts: stop() and hang recovery end a grandchild that shares the command's stdio (Windows), hang recovery restarts the command, and killTree sends the signal it is given and leaves an…",
+      "tests/kill-tree.test.ts: every branch of killTree with the platform and taskkill faked, so the Windows branch is tested on any machine."
+    ],
+    "publishedAt": "2026-10-15T20:37:04Z",
+    "url": "https://github.com/mcp-tool-shop-org/claude-guardian/releases/tag/v1.2.2",
+    "prerelease": false
+  },
+  {
+    "repo": "ollama-intern-mcp",
+    "toolName": "Ollama Intern MCP",
+    "tag": "v2.10.2",
+    "name": "v2.10.2",
+    "body": [
+      "Command timeouts are enforced on Windows. The ollama_draft compile check (15 s) and ollama_batch_proof_check (your timeout_ms, 60 s by default) both run their command through cmd.exe on Windows. On timeout they…",
+      "Found by a CI timeout: the Windows compile-check regression test ran past its 30 s limit on a cold runner, though the check's own limit is 15 s."
+    ],
+    "publishedAt": "2026-10-15T19:47:56Z",
+    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.10.2",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.10.0.0",
+    "name": "rnd 1.1.10.0.0",
+    "body": [
+      "Fixed rnd abmine (parse_log): a forced FlashAttention setting is now its own resolution. With --flash-attn off (or on), llama.cpp logs flash_attn = disabled (or enabled) and prints no resolve_fused_ops line, so…",
+      "Updated experiment ollama-cuda-backend with the diagnosis of the CUDA 13.4 Update 2 backend:",
+      "the frozen harness v6 (byte for byte), its diffs, the run record, and the analysis;",
+      "the result: the difference from stock is cuBLAS, and the build is ELIGIBLE;",
+      "the record of v5's aborted run."
+    ],
+    "publishedAt": "2026-10-15T19:46:06Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.10.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.9.0.0",
+    "name": "v1.1.9.0.0",
+    "body": [
+      "This is the first PyPI release since 1.1.3.0.0, so it also carries the tool changes from 1.1.4 to 1.1.8. Those versions were tagged but never published.",
+      "From 1.1.4 to 1.1.8: - 1.1.4: rnd datapack build|list|verify, for data packs hosted outside the clone, with a per-file SHA-256, licences and model pins. - 1.1.5: rnd collect, which copies an experiment's trimmed…",
+      "In 1.1.9.0.0:",
+      "rnd abmine analyze (ab_dataminer), the analysis half of the A/B template for runs that compare backends, builds or settings of one model. It reads a JSON-lines record of greedy generations with top-K logprobs and…",
+      "per pair of arms and prompt: the fork, Δz = (ℓR(t1) − ℓR(t2)) − (ℓT(t1) − ℓT(t2)) at every matched-prefix step (censored and flagged when a reference candidate is outside the test arm's top-K), the step-0 Δz, the…"
+    ],
+    "publishedAt": "2026-10-15T18:42:13Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.9.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "offrig",
+    "toolName": "Offrig",
+    "tag": "v1.2.0",
+    "name": "v1.2.0",
+    "body": [
+      "The project index embeds with EmbeddingGemma 2. The default model is now embeddinggemma-2:f32: Google DeepMind's google/embeddinggemma-2 at revision 914f7f8, an open model under Apache-2.0 with no gate, text only,…",
+      "Documents are sent with title: none | text: and queries with task: search result | query: . The code-retrieval prefix scored no better on code queries (−0.008), so one query prefix serves every kind.",
+      "tools/embed-serve, the CPU embed server. Ollama on Windows can't run EmbeddingGemma 2, so this small loopback server answers the part of Ollama's API that offrig's embed client uses, on the same default embed_url…",
+      "It serves one name and answers 404 for any other, so no store can silently mix models.",
+      "It refuses to start when torch can see CUDA, and /api/ps reports size_vram: 0."
+    ],
+    "publishedAt": "2026-10-15T17:17:14Z",
+    "url": "https://github.com/mcp-tool-shop-org/offrig/releases/tag/v1.2.0",
+    "prerelease": false
+  },
+  {
     "repo": "offrig",
     "toolName": "Offrig",
     "tag": "v1.1.3",
@@ -531,128 +653,6 @@
     ],
     "publishedAt": "2026-10-11T21:23:19Z",
     "url": "https://github.com/mcp-tool-shop-org/offrig/releases/tag/v1.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "portlight-bounty",
-    "toolName": "Portlight Bounty",
-    "tag": "v0.1.0",
-    "name": "v0.1.0",
-    "body": [
-      "First GitHub release of the Rust port and the Godot chart.",
-      "The simulation is the rules. The chart is what you play. Rust 1.98.1, Godot 4.7.2.",
-      "The repository is MIT, pictures included. The barrel, bollard, cart, crate, and torch are built by build_prop() in ai-rpg-stage, commit 55ac9b2. This tag's archive still has an older preface that said otherwise. The…",
-      "Patch coverage fails under 90%. The repository-wide percentage aims at 90% and stays informational. The Godot crate is outside that report.",
-      "Play: https://mcp-tool-shop-org.github.io/portlight-bounty/"
-    ],
-    "publishedAt": "2026-10-09T21:22:32Z",
-    "url": "https://github.com/mcp-tool-shop-org/portlight-bounty/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "role-os",
-    "toolName": "Role OS",
-    "tag": "v2.12.0",
-    "name": "role-os 2.12.0",
-    "body": [
-      "English README, handbook, and landing page cover recipe cards, the jury, and pack calibration. Recorded outcomes boost packs only. Role weights and confidence thresholds do not change. The README translations (ja,…",
-      "A recipe control may carry a measure: metric, point, CI, n, cluster unit, and p and nulls for a permutation test. A free-text result stays valid. A passed control without a measure is a gap. An inconsistent measure…",
-      "shuffled-labels must record method balanced-permutation (exactly half of each cluster's labels flipped; Ojala & Garriga 2010). A plain shuffle is a gap, because a consistent edit direction lets the imbalance set the…",
-      "same-generator-no-error must record method word-swap or sentence-rewrite, plus the paraphrase and error-edit medians. A paraphrase median above 2× the error median is a gap. A pass needs the edit-rate CI to include…",
-      "New standard control reversed-correction: the edited copy is the corrected, stronger one, so the critic is not just an edit detector. A pass needs the accuracy CI entirely above 0.5. Touching 0.5 is not above. Cards…"
-    ],
-    "publishedAt": "2026-10-08T22:26:40Z",
-    "url": "https://github.com/mcp-tool-shop-org/role-os/releases/tag/v2.12.0",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "v1.1.3.0.0",
-    "name": "v1.1.3.0.0",
-    "body": [
-      "Name-clash fix: the code moves to mcptoolshop_rnd (the import name that always works); rnd stays as a compatibility shim that aliases every submodule, and the rnd command runs mcptoolshop_rnd.cli:main, so an…",
-      "tests/test_packaging.py and a CI clash check (a raising rnd/ stub after a clean install) prove it",
-      "Install: pip install mcptoolshop-rnd · import mcptoolshop_rnd"
-    ],
-    "publishedAt": "2026-10-08T04:42:08Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.3.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "v1.1.2.0.0",
-    "name": "v1.1.2.0.0",
-    "body": [
-      "Packaged for PyPI as mcptoolshop-rnd (pyproject.toml, uv.lock); the rnd command finds its library via --library, $RND_ROOT or the nearest folder with entries/ and instruments/, else stops with NO_LIBRARY",
-      "release.yml: publishes to PyPI by trusted publishing when a GitHub release is published; refuses a tag that differs from the package version",
-      "CI: build, twine check, clean-install smoke and pip-audit; README and handbook document the install",
-      "Install: pip install mcptoolshop-rnd"
-    ],
-    "publishedAt": "2026-10-08T04:28:24Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.2.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "offrig",
-    "toolName": "Offrig",
-    "tag": "v1.0.0",
-    "name": "offrig 1.0.0",
-    "body": [
-      "The first release. offrig has run real work since 2026-10-02, and since 2026-10-07 two projects have used it at once, each in its own lane: training runs on job pods and singing renders on jam pods. This release adds…",
-      "Windows release binaries. Each version tag builds offrig.exe, offrig-mcp.exe and offrig-app.exe in CI into offrig-<version>-windows-x64.zip, with SHA256SUMS. The workflow stages a draft release and never publishes…",
-      "Side-car errors carry a code. Every tool failure, including bad arguments and an unknown tool, returns ok:false, a stable code, the error text, a next_action and retryable. error and next_action are unchanged, so…",
-      "CLI exit codes: 0 success, 1 something to fix on your side, 2 a runtime failure. Bad arguments now exit 1 instead of clap's 2.",
-      "CLI log levels: -q (errors and a command's own results only), -v (each RunPod call and its timing, on stderr) and --debug (failed response bodies and full error chains). The API key and any Bearer token are redacted…"
-    ],
-    "publishedAt": "2026-10-08T00:26:25Z",
-    "url": "https://github.com/mcp-tool-shop-org/offrig/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "v1.1.1.0.0",
-    "name": "rnd 1.1.1.0.0",
-    "body": [
-      "Coverage bar raised to 90%: CI fails under 90% and Codecov's project and patch targets are 90%",
-      "45 tests (was 25), including end-to-end CLI tests of every command, catalogue sync with gh mocked, and rnd bump in a real git repo; rnd/ coverage 96% (was 63%)"
-    ],
-    "publishedAt": "2026-10-07T22:30:27Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "v1.1.0.0.0",
-    "name": "rnd 1.1.0.0.0",
-    "body": [
-      "Added rnd bump: five-segment versions (MAJOR.MINOR.PATCH.MICRO.NANO) with a CHANGELOG section written from the files changed since the last tag",
-      "Kev-4B and Kev-9B measured against hosted Jev and OpenJev on sense-si's 124 phrases, 0-shot and with knowledge in context",
-      "Added 2026-10-07-open-jev-style-decision-models: Open Jev-style decision models — the landscape, checked against primary sources",
-      "Updated 2026-10-07-openjev-and-open-jev-alternatives: OpenJev and the other open \"Jev\" models — what each one is",
-      "Updated experiment openjev-vs-jev"
-    ],
-    "publishedAt": "2026-10-07T21:55:22Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.0.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "v1.0.0",
-    "name": "rnd 1.0.0",
-    "body": [
-      "rnd CLI over a Markdown research library: build, check, search, show, list, tools, stats, new, catalog, readouts, sql, each listing with --json.",
-      "Entry format with source tiers (primary, secondary, aggregator, user, rig) and claim confidence (unverified, verified, disputed, wrong; verified needs a via: note).",
-      "SQLite FTS5 index (rnd.db), rebuilt automatically when files change; the previous index is kept when a rebuild meets errors.",
-      "Instrument registry (instruments/) of the studio tools research can call.",
-      "NVIDIA skills catalogue mirror (398 skills, 18 lanes) with a studio-fit review."
-    ],
-    "publishedAt": "2026-10-07T21:13:32Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.0.0",
     "prerelease": false
   }
 ]
