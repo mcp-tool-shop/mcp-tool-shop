@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-17",
+  "date": "2026-10-18",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,8 +9,15 @@
       ]
     },
     {
-      "slug": "mcp-stress-test",
-      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
+      "slug": "audiobooker",
+      "reason": "Audio book generation and management system",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "synthesis",
+      "reason": "Composable tool framework for building complex AI workflows",
       "signals": [
         "popular"
       ]
@@ -23,22 +30,15 @@
       ]
     },
     {
-      "slug": "accessibility-suite",
-      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "slug": "mcp-stress-test",
+      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
       "signals": [
         "popular"
       ]
     },
     {
-      "slug": "xrpl-camp",
-      "reason": "Learn the XRP Ledger in one sitting - six guided lessons on Testnet, ending in a record anyone can verify against the ledger",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "backpropagate",
-      "reason": "Structured feedback loops for improving AI behavior through iteration",
+      "slug": "tool-compass",
+      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
       "signals": [
         "featured"
       ]

@@ -1,5 +1,51 @@
 [
   {
+    "repo": "portlight-bounty",
+    "toolName": "Portlight Bounty",
+    "tag": "v0.3.1",
+    "name": "v0.3.1",
+    "body": [
+      "Hardened CI workflows (ci.yml, pages.yml, codeql.yml): pinned all runner images to ubuntu-24.04 and set explicit top-level permissions: contents: read.",
+      "Synchronized canon status tables across docs/canon/ for DF-34 through DF-48 and updated the handbook for first-time headless Godot asset import (godot --headless --path godot --import --quit) and manifest 0.3.0.",
+      "Clarified LICENSE with the canonical MIT License header at line 1 ahead of the deck-prop provenance note.",
+      "Scrubbed internal studio and local playtest artifact paths from public documentation (docs/DESIGN-FIXES.md, docs/PORTING-PLAN.md, docs/UI-UX-AUDIT.md) and removed non-shipped dev artifacts…",
+      "Guarded simulation economy, bank, fleet, crew, and provision mutations against negative inputs and integer overflow (buy, sell, bank_deposit, bank_withdraw, bank_letter, deposit_to_warehouse, withdraw_from_warehouse,…"
+    ],
+    "publishedAt": "2026-10-18T08:05:11Z",
+    "url": "https://github.com/mcp-tool-shop-org/portlight-bounty/releases/tag/v0.3.1",
+    "prerelease": false
+  },
+  {
+    "repo": "portlight-bounty",
+    "toolName": "Portlight Bounty",
+    "tag": "v0.3.0",
+    "name": "v0.3.0",
+    "body": [
+      "Armoury merchant shop on the Crew desk (SECTION_GEAR): displays carried melee, ranged, and armour gear alongside the docked port merchant's name, title, personality, markup, description, greeting, and regional stock…",
+      "Style master and skill trainer port presence on the Crew desk (SECTION_TRAINING): renders resident master and trainer descriptions and dialog, gates fighting-style learning on training_port_ids or masters_at_port,…",
+      "Gear maintenance and blacksmith quality upgrades (Session::upgrade_weapon, Session::field_repair_weapon, Crew desk Maintain and Upgrade buttons, and script runner smith and field_repair verbs) (DF-39).",
+      "Companion role effects wired across voyage speed, route danger, customs inspection evasion, market buy/sell pricing, injury healing rate (including at-sea surgeon treatment), and personal combat damage/interception,…",
+      "Full companion morale trigger coverage (combat_won, combat_lost, crew_killed, profitable_trade, losing_trade, contraband_trade, spared_enemy, took_all, fled_combat, injury_sustained, long_voyage, port_arrival,…"
+    ],
+    "publishedAt": "2026-10-18T04:18:33Z",
+    "url": "https://github.com/mcp-tool-shop-org/portlight-bounty/releases/tag/v0.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "portlight-bounty",
+    "toolName": "Portlight Bounty",
+    "tag": "v0.2.0",
+    "name": "v0.2.0",
+    "body": [
+      "Version 0.2.0 of the Rust port and the Godot chart.",
+      "The simulation is the rules. The chart is what you play. Rust 1.98.1, Godot 4.7.2.",
+      "Play: https://mcp-tool-shop-org.github.io/portlight-bounty/"
+    ],
+    "publishedAt": "2026-10-18T01:13:18Z",
+    "url": "https://github.com/mcp-tool-shop-org/portlight-bounty/releases/tag/v0.2.0",
+    "prerelease": false
+  },
+  {
     "repo": "dataset-desk",
     "toolName": "Dataset Desk",
     "tag": "v0.1.2",
@@ -613,46 +659,6 @@
     ],
     "publishedAt": "2026-10-14T05:36:38Z",
     "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "offrig",
-    "toolName": "Offrig",
-    "tag": "v1.1.1",
-    "name": "offrig 1.1.1",
-    "body": [
-      "Draft. Windows x64 only. Verify the zip against SHA256SUMS before use; see CHANGELOG.md for what changed."
-    ],
-    "publishedAt": "2026-10-12T06:59:24Z",
-    "url": "https://github.com/mcp-tool-shop-org/offrig/releases/tag/v1.1.1",
-    "prerelease": false
-  },
-  {
-    "repo": "role-set",
-    "toolName": "Role Set",
-    "tag": "v0.1.0",
-    "name": "role-set 0.1.0",
-    "body": [
-      "First release. Prototype. Interfaces and data shapes can change without notice. Nothing this version writes is in a training set.",
-      "plan fixes every slot for a batch from a seed. It does not call a model.",
-      "cost estimates pod hours and dollars for a plan (two-card or frontier) before anything is launched. The figure is an estimate.",
-      "pack sync and pack verify take the role pack from a local aspire-si clone at a commit, and check the copy on disk.",
-      "harvest copies licence-checked excerpts into a local pool."
-    ],
-    "publishedAt": "2026-10-11T21:24:45Z",
-    "url": "https://github.com/mcp-tool-shop-org/role-set/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "offrig",
-    "toolName": "Offrig",
-    "tag": "v1.1.0",
-    "name": "offrig 1.1.0",
-    "body": [
-      "Draft. Windows x64 only. Verify the zip against SHA256SUMS before use; see CHANGELOG.md for what changed."
-    ],
-    "publishedAt": "2026-10-11T21:23:19Z",
-    "url": "https://github.com/mcp-tool-shop-org/offrig/releases/tag/v1.1.0",
     "prerelease": false
   }
 ]
