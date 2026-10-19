@@ -2,14 +2,30 @@
   {
     "repo": "portlight-bounty",
     "toolName": "Portlight Bounty",
+    "tag": "v0.3.2",
+    "name": "v0.3.2",
+    "body": [
+      "Source-only developer release closing the 11-seat v0.3.1 audit across simulation data safety, economy & contract balance, duel resolution, insurance & debt rules, Godot UI feedback, CLI diagnostics, canon sync, and…",
+      "Duel pay-off option (Session::pay_off_duel, script verb pay_off_duel, and Godot encounter Pay off button) and round-by-round duel exchange recaps (logic::duel_exchange_lines) in the Godot chart log.",
+      "Per-unit curved order pricing quotes (economy::quote_buy, economy::quote_sell, Session::quote_buy, Session::quote_sell) used by the Godot market affordability stepper (clamped_trade_qty).",
+      "Pending-duel freeze: A pending duel now freezes Session::advance in both sea and harbour without ticking reputation, contracts, or upkeep, holds arrival short of port when a duel triggers on the final voyage leg day,…",
+      "Duel winnability & standing: Time-out duels are now won by the player when leading by 3 or more HP ((player_hp - opponent_hp) >= 3), and Session::finish_duel applies standing_delta to standing.underworld."
+    ],
+    "publishedAt": "2026-10-18T18:04:57Z",
+    "url": "https://github.com/mcp-tool-shop-org/portlight-bounty/releases/tag/v0.3.2",
+    "prerelease": false
+  },
+  {
+    "repo": "portlight-bounty",
+    "toolName": "Portlight Bounty",
     "tag": "v0.3.1",
     "name": "v0.3.1",
     "body": [
-      "Hardened CI workflows (ci.yml, pages.yml, codeql.yml): pinned all runner images to ubuntu-24.04 and set explicit top-level permissions: contents: read.",
-      "Synchronized canon status tables across docs/canon/ for DF-34 through DF-48 and updated the handbook for first-time headless Godot asset import (godot --headless --path godot --import --quit) and manifest 0.3.0.",
-      "Clarified LICENSE with the canonical MIT License header at line 1 ahead of the deck-prop provenance note.",
-      "Scrubbed internal studio and local playtest artifact paths from public documentation (docs/DESIGN-FIXES.md, docs/PORTING-PLAN.md, docs/UI-UX-AUDIT.md) and removed non-shipped dev artifacts…",
-      "Guarded simulation economy, bank, fleet, crew, and provision mutations against negative inputs and integer overflow (buy, sell, bank_deposit, bank_withdraw, bank_letter, deposit_to_warehouse, withdraw_from_warehouse,…"
+      "Source-only developer release (1cdadb2) adding documentation, handbook, translation, and repository atlas updates on top of the re-cut v0.3.0 (f1003751).",
+      "Synchronized canon status tables across docs/canon/ for DF-34 through DF-48 and updated the handbook, landing site, and multi-language READMEs for first-time headless Godot asset import (godot --headless --path godot…",
+      "Regenerated the atlas/ codebase index and statistics against f1003751.",
+      "Hardened ci.yml by pinning runner images to ubuntu-24.04 and setting explicit top-level permissions: contents: read (note: pages.yml runner pinning and job-scoped write permissions landed after v0.3.1, and CodeQL…",
+      "Clarified LICENSE with the canonical MIT License header at line 1 ahead of the deck-prop provenance note."
     ],
     "publishedAt": "2026-10-18T08:05:11Z",
     "url": "https://github.com/mcp-tool-shop-org/portlight-bounty/releases/tag/v0.3.1",
@@ -643,22 +659,6 @@
     ],
     "publishedAt": "2026-10-14T22:49:58Z",
     "url": "https://github.com/mcp-tool-shop-org/prism-verify/releases/tag/v1.7.0",
-    "prerelease": false
-  },
-  {
-    "repo": "interlock",
-    "toolName": "Interlock",
-    "tag": "v0.1.0",
-    "name": "interlock v0.1.0 (prototype)",
-    "body": [
-      "Prototype. interlock is a local AI device router for one rig. It suggests a model, an engine and a device for each job (embed, rerank, NLI, verify, generate) from measured receipts, and it never serves traffic. Every…",
-      "or uv tool install mcptoolshop-interlock. Python 3.12 only. The command and the import are interlock.",
-      "interlock route answers from a routing table of committed receipts. It ranks by the worst repeat, not the median, and refuses, naming the experiment behind the gap, when no measured row meets the constraints.",
-      "interlock check validates every receipt and the routing table. It refuses home paths, hosts, URLs and token-shaped values.",
-      "The measurement harness: device guards for the 5090, NPU and iGPU, a watcher that writes the receipt before stopping on a compile timeout, RAM or a stop file, and the E3–E5 experiments behind the table."
-    ],
-    "publishedAt": "2026-10-14T05:36:38Z",
-    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v0.1.0",
     "prerelease": false
   }
 ]
