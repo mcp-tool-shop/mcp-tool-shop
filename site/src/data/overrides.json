@@ -942,6 +942,22 @@
     "tagline": "The studio's research bench: tiered-source Markdown entries, rig experiments, a...",
     "needsHumanReview": true
   },
+  "rnd-data": {
+    "tags": [
+      "datasets",
+      "manifests",
+      "mcp-tool-shop",
+      "open-data",
+      "open-research",
+      "provenance"
+    ],
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install rnd-data",
+    "tagline": "The raw data behind the studio's open research: every run's receipts and outputs, each...",
+    "needsHumanReview": true
+  },
   "role-os": {
     "tags": [
       "agents",

@@ -1,30 +1,9 @@
 {
-  "date": "2026-10-19",
+  "date": "2026-10-20",
   "picks": [
     {
       "slug": "websketch-ir",
       "reason": "Grammar-based intermediate representation that compiles messy DOM into a small, fixed vocabulary of semantic UI primitives — built for LLMs. Zero runtime deps.",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "comfy-headless",
-      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
-      "signals": [
-        "featured"
-      ]
-    },
-    {
-      "slug": "mcp-stress-test",
-      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "xrpl-camp",
-      "reason": "Learn the XRP Ledger in one sitting - six guided lessons on Testnet, ending in a record anyone can verify against the ledger",
       "signals": [
         "popular"
       ]
@@ -37,10 +16,31 @@
       ]
     },
     {
+      "slug": "mcp-stress-test",
+      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
       "slug": "synthesis",
       "reason": "Composable tool framework for building complex AI workflows",
       "signals": [
         "popular"
+      ]
+    },
+    {
+      "slug": "xrpl-camp",
+      "reason": "Learn the XRP Ledger in one sitting - six guided lessons on Testnet, ending in a record anyone can verify against the ledger",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "comfy-headless",
+      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
+      "signals": [
+        "featured"
       ]
     }
   ]

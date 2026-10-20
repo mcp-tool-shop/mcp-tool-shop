@@ -1,5 +1,52 @@
 [
   {
+    "repo": "dataset-desk",
+    "toolName": "Dataset Desk",
+    "tag": "v0.2.0",
+    "name": "dataset-desk 0.2.0",
+    "body": [
+      "Text and code input: text-index, text-dupes, text-search and lineage read a --source folder or an rnd-data checkout.",
+      "rnd-data's private companion and blob stores are refused.",
+      "Only relative paths are printed.",
+      "An embedder registry with six models, each pinned to a full commit, with its licence and VRAM figure:",
+      "EmbeddingGemma 2 and SigLIP2;"
+    ],
+    "publishedAt": "2026-10-20T06:40:18Z",
+    "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.2.0",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.23.0.0",
+    "name": "rnd 1.1.23.0.0",
+    "body": [
+      "This release covers every tool change since 1.1.10.0.0: thirteen patch versions, 1.1.11 through 1.1.23. They were tagged on main as they merged, but weren't released until now. Library-only bumps stay tags. Full…",
+      "rnd raw: the rnd-data store (1.1.18–1.1.23) - ingest, private and verify cover a public store (rnd-data) and a private companion. Files over 256 KB are kept once by content in a blob store. - Content is denied by…",
+      "Problems give file and line, never the matched text. - verify --json reports counts, the re-hashed files, what was skipped, and each problem with a stable rule code, so it can be compared with rnd-data's own…",
+      "Records and layout (1.1.16–1.1.17) - rnd.db gains run, budget, file and copy tables. New commands: rnd runs record, rnd runs, rnd ledger and rnd where. - rnd check enforces the layout rules: size limits with a…",
+      "Local builders (1.1.11–1.1.15) - mcptoolshop_rnd.localbuilders: the J2 harness. It has a logging proxy, a task runner, clean workspaces, a JUnit scorer, VM containment and probes, and preflight checks. - From 1.1.13,…"
+    ],
+    "publishedAt": "2026-10-20T05:49:26Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "dataset-desk",
+    "toolName": "Dataset Desk",
+    "tag": "v0.1.3",
+    "name": "dataset-desk v0.1.3",
+    "body": [
+      "dataset-desk[models] now installs sentence-transformers[image]. Without it, a fresh install couldn't load EmbeddingGemma 2's processor (found by the studio's calibration run on 2026-10-20).",
+      "Install from PyPI: pip install dataset-desk, or pip install \"dataset-desk[models]\".",
+      "release.yml: publishing a GitHub release builds the wheel and sdist, checks them with twine check, and publishes to PyPI by trusted publishing from the pypi environment, with SLSA provenance. It never fires on a push.",
+      "No NumPy upper bound. The desk doesn't use numba. An environment that adds numba-cuda beside it needs numpy>=2.4,<2.5 until numba-cuda supports NumPy 2.5 (studio smoke rung on the RTX 5090, 2026-10-20)."
+    ],
+    "publishedAt": "2026-10-20T02:25:57Z",
+    "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.1.3",
+    "prerelease": false
+  },
+  {
     "repo": "portlight-bounty",
     "toolName": "Portlight Bounty",
     "tag": "v0.3.2",
@@ -618,47 +665,6 @@
     ],
     "publishedAt": "2026-10-14T23:00:35Z",
     "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.5.3",
-    "prerelease": false
-  },
-  {
-    "repo": "interlock",
-    "toolName": "Interlock",
-    "tag": "v0.2.0",
-    "name": "v0.2.0",
-    "body": [
-      "--trace relay|events: an opt-in debug tracer for interlock runs, built on NeMo Relay 0.10.1 (optional relay extra; the base install imports nothing from Relay). Every adapter request is counted, the card guard's…",
-      "The README and its translations show a PyPI badge for mcptoolshop-interlock, now that 0.1.0 is published."
-    ],
-    "publishedAt": "2026-10-14T23:00:17Z",
-    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "sovereignty",
-    "toolName": "Sovereignty",
-    "tag": "v2.3.6",
-    "name": "v2.3.6",
-    "body": [
-      "Build fake credentials at runtime in daemon and client tests so secret scanners do not flag test fixtures."
-    ],
-    "publishedAt": "2026-10-14T23:00:16Z",
-    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.3.6",
-    "prerelease": false
-  },
-  {
-    "repo": "prism-verify",
-    "toolName": "Prism Verify",
-    "tag": "v1.7.0",
-    "name": "v1.7.0",
-    "body": [
-      "Build fake credentials at runtime in tests/unit/test_eval_harvest.py and tests/integration/test_http.py so secret scanners do not flag test fixtures.",
-      "Split one source constant, the RFC 6598 shared-address range in the webhook SSRF blocklist (src/prism/http/webhook.py), into two string pieces, so the studio identity scanner doesn't read it as a tailnet address. The…",
-      "--older-than 0s was the deeper problem: a zero cutoff makes *every* receipt a candidate, so the test could not express the other half of the contract — a receipt newer than the cutoff must survive. Fixed by giving…",
-      "Scope note: an earlier draft of this entry blamed a ~15.6ms Windows datetime.now tick and a ~2-in-3 failure rate. Neither reproduced under review — 20k datetime.now(UTC) reads on the Windows rig gave 5,813 distinct…",
-      "OpenRouter cross-family verifier seat (F-14) — a new OPENROUTER model family + OpenRouterProvider (OpenAI-compatible gateway) makes the whole OpenRouter catalog available as a cross-family verifier through one key.…"
-    ],
-    "publishedAt": "2026-10-14T22:49:58Z",
-    "url": "https://github.com/mcp-tool-shop-org/prism-verify/releases/tag/v1.7.0",
     "prerelease": false
   }
 ]
