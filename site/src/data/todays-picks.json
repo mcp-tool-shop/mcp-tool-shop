@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,22 +9,15 @@
       ]
     },
     {
-      "slug": "backpropagate",
-      "reason": "Structured feedback loops for improving AI behavior through iteration",
+      "slug": "tool-compass",
+      "reason": "Discovery, classification, and ranking utilities for MCP-compatible tools",
       "signals": [
         "featured"
       ]
     },
     {
-      "slug": "mcp-stress-test",
-      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "synthesis",
-      "reason": "Composable tool framework for building complex AI workflows",
+      "slug": "audiobooker",
+      "reason": "Audio book generation and management system",
       "signals": [
         "popular"
       ]
@@ -37,8 +30,15 @@
       ]
     },
     {
-      "slug": "comfy-headless",
-      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
+      "slug": "mcp-stress-test",
+      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "backpropagate",
+      "reason": "Structured feedback loops for improving AI behavior through iteration",
       "signals": [
         "featured"
       ]

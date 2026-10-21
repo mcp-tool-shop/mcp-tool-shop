@@ -1,5 +1,149 @@
 [
   {
+    "repo": "polyglot-mcp",
+    "toolName": "Polyglot MCP",
+    "tag": "v1.10.1",
+    "name": "polyglot-mcp 1.10.1",
+    "body": [
+      "Survival check catches broken Markdown links, leaked ⟦n⟧ placeholders, and anchor-count mismatches, and link-target masks relative and non-HTTP link targets (#50, #51).",
+      "Segment and whole-file Markdown link structure survival check (kind: \"link\") (extractRefDefinitions, extractLinks, checkLinks in src/survival.ts, checkSurvival in src/translateMarkdown.ts) — during the 1.10.0 README…",
+      "Protected non-HTTP link targets (link-target) (LINK_TARGET_PATTERN, DEFAULT_PATTERNS, linkTargetsEnabled, urlsEnabled in src/protectedTerms.ts; expectedSpans, checkLinks, checkSegment in src/survival.ts;…",
+      "Placeholder delimiter leakage check (kind: \"placeholder\") (PLACEHOLDER_LEAK_PATTERN, checkPlaceholders in src/survival.ts) — any ⟦ or ⟧ delimiter remaining outside fenced and inline code in a finished translation…",
+      "Anchor-count mismatch fails when a source-valid anchor was involved (kind: \"anchor\") (checkAnchors in src/survival.ts) — when source and translation in-page anchor counts differ and checkAnchors falls back to plain…"
+    ],
+    "publishedAt": "2026-10-21T05:28:11Z",
+    "url": "https://github.com/mcp-tool-shop-org/polyglot-mcp/releases/tag/v1.10.1",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-lab",
+    "toolName": "XRPL Lab",
+    "tag": "v2.7.0",
+    "name": "XRPL Lab v2.7.0",
+    "body": [
+      "xrpl-py 5.2 (was 4.x; #20 item 10). 5.2 serialises credential_ids as CredentialIDs itself, so 2.6.1's shim for 4.5 is gone. It needs websockets < 16, so the lock resolves websockets 15.0.1.",
+      "A seed signs as the account it's recorded under. xrpl-py 5 infers a seed's algorithm from its prefix; 4.x derived ED25519 from every seed. Every wallet xrpl-lab creates is sEd… and derives the same address on both. A…",
+      "The configured wallet is the one checked. Loading a wallet from its configured path now updates the recorded address, and a run loads and binds that wallet at its start, so signing is never left unchecked.",
+      "A seed that matches neither account fails closed. load_wallet used to log a warning and return the other account. It now raises STATE_WALLET_KEY_MISMATCH (exit 1), and nothing is signed. It raises rather than…",
+      "A time-locked escrow waits for the ledger, not the clock. On testnet, escrow_finish_101's EscrowFinish failed tecNO_PERMISSION: the wall clock read past FinishAfter while the validated ledger's close time still…"
+    ],
+    "publishedAt": "2026-10-21T05:08:06Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.7.0",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-lab",
+    "toolName": "XRPL Lab",
+    "tag": "v2.6.2",
+    "name": "XRPL Lab v2.6.2",
+    "body": [
+      "The 2.6.2 follow-ups from issue #20 (items 8, 9 and 11), found in 2.6.1's live sweeps and coverage work.",
+      "A lesson's deliberate rejection is in the record. Twelve of the 19 expected-failure steps validated their expected tec on the ledger but left it out of the transaction record, so the report's \"Transactions … failed…",
+      "Expected rejections are marked. A transaction record carries expected: true when its lesson's judge acknowledged it. The proof pack carries the flag per transaction and receipt row, with an expected_failures count;…",
+      "The xrpl-lab command writes UTF-8 on Windows. With its output redirected under cp1252, custodial_crediting_101 crashed on an arrow in its text. python -m xrpl_lab already did this.",
+      "The dry-run faucet grants testnet's 100 XRP, not 1000, so a lesson sized beyond one grant fails offline too. dex_vs_amm_risk_literacy's 100 XRP pool, which a fresh testnet wallet can't fund, is now 25/25, as module…"
+    ],
+    "publishedAt": "2026-10-21T03:34:17Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.6.2",
+    "prerelease": false
+  },
+  {
+    "repo": "polyglot-mcp",
+    "toolName": "Polyglot MCP",
+    "tag": "v1.10.0",
+    "name": "polyglot-mcp 1.10.0",
+    "body": [
+      "In-page anchor links that survive translation (#46).",
+      "Protected in-page anchor targets (anchor) — in 1.9.0, 22 of 28 in-page #slug links across the 7 translated READMEs (README.<lang>.md at 9fbe43a) did not resolve to any heading in the file they lived in. Two failure…",
+      "Post-assembly anchor rewrite to translated heading slugs (buildHeadingSlugMap, rewriteAnchors in src/translateMarkdown.ts, stripHeadingMarkup, slugifyHeadings in src/survival.ts) — after all segments are translated…",
+      "Whole-document anchor survival check (checkAnchors in src/survival.ts) — anchor spans are exempt from the segment-level exact-text survival check (since they are meant to be rewritten when the target heading changes…",
+      "Cleaned up bin.polyglot-mcp path in package.json (\"./dist/index.js\" → \"dist/index.js\")."
+    ],
+    "publishedAt": "2026-10-21T02:33:32Z",
+    "url": "https://github.com/mcp-tool-shop-org/polyglot-mcp/releases/tag/v1.10.0",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-lab",
+    "toolName": "XRPL Lab",
+    "tag": "v2.6.1",
+    "name": "XRPL Lab v2.6.1",
+    "body": [
+      "Every helper wallet waits for the validated ledger. Eleven handlers created a counterparty or second issuer and funded it from the faucet, then went on as soon as the faucet answered. That's the race that held module…",
+      "xrpl-lab fund prints the validated balance, not the faucet's reply (which read \"unknown\" on Testnet).",
+      "The report counts failed transactions from the run's transaction records, the same source as the failed-step signal. AMM deposit and withdraw failures were missing from it.",
+      "An AMM-less transport marks the pool missing, so the deposit and withdraw steps skip, and the step counts as failed.",
+      "The registry sweep asserts that the six deliberate-failure lessons record no failed transaction, instead of skipping them."
+    ],
+    "publishedAt": "2026-10-21T01:52:06Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.6.1",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-lab",
+    "toolName": "XRPL Lab",
+    "tag": "v2.6.0",
+    "name": "XRPL Lab v2.6.0",
+    "body": [
+      "External-audit pass (F1–F7, F10): packaging, curriculum accuracy, CLI surface, the long-planned AMM testnet upgrade, and a Host and Origin gate on the API.",
+      "A cross-site page can no longer start a run (F10). CORS stops a page from reading a response, not from sending a simple request, and POST /api/run/{module_id} takes no body: a no-cors POST from any page a learner…",
+      "DNS rebinding is closed. The same guard refuses any request whose Host isn't loopback or the address serve bound to, with 400 HOST_REJECTED. A wildcard bind (0.0.0.0, ::) turns the Host gate off; the Origin gate…",
+      "Module #30's first two live runs on XRPL Testnet created no AMM. Their receipts are in docs/receipts/2.6.0-amm-live-fire/. Each run reached one layer further than the last. Run 1's fixes:",
+      "Funding is decided on the validated ledger. The faucet's reply carried no usable balance, so three real fundings read as failures, and the issuer path didn't wait at all: its AccountSet went out before the new…"
+    ],
+    "publishedAt": "2026-10-20T23:10:39Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.6.0",
+    "prerelease": false
+  },
+  {
+    "repo": "polyglot-mcp",
+    "toolName": "Polyglot MCP",
+    "tag": "v1.9.0",
+    "name": "polyglot-mcp 1.9.0",
+    "body": [
+      "Protected terms, a survival check, and hand fixes that stick (#44).",
+      "Protected terms in prose — TranslateGemma respelled bare identifiers in another script, and nothing covered them because they are not in backticks. xrpl-lab's Hindi README wrote its XLS-nn spec IDs and DepositAuth /…",
+      "\"N of M\" counts restored as N/M — in Chinese, \"218 of 224\" came back as 218 首中的 224 首 (\"224 of 218\") and \"285 of 414\" as the ordinal 414个中的第285个. Both were fixed by hand to 218/224 and 285/414 (ai-jam-sessions…",
+      ".polyglot-terms.json beside the README: terms (exact, case-sensitive, whole-word), patterns (regexes), disable (default patterns by name) and nOfM (false switches counts off). Read by the scripts, by…",
+      "Survival check (src/survival.ts, checkSurvival in src/translateMarkdown.ts) — after translation, every protected span in the English must be present, character for character, in the translation of its segment, with…"
+    ],
+    "publishedAt": "2026-10-20T22:13:42Z",
+    "url": "https://github.com/mcp-tool-shop-org/polyglot-mcp/releases/tag/v1.9.0",
+    "prerelease": false
+  },
+  {
+    "repo": "dataset-desk",
+    "toolName": "Dataset Desk",
+    "tag": "v0.2.2",
+    "name": "dataset-desk 0.2.2",
+    "body": [
+      "0.2.1 was tagged on GitHub but never published to PyPI. 0.2.2 ships 0.2.1's changes, listed below, with one security update to the release pipeline.",
+      "desk.scan: about 2× faster per image on one thread, with identical results (scan.jsonl rows and SCAN_V = 2 are unchanged). The first uncached scan runs in parallel under --threads (a ProcessPoolExecutor when threads…",
+      "description_gate.audit_records: replaced the full-postings Jaccard candidate loop with rare-first prefix filtering (L - ceil(tau * L) + 1), producing identical near_pairs and near_groups.",
+      "desk.mid_rank and desk._rank_descriptions: with _RANK_TIE_EPS = 1e-6, tied image vectors now stay tied whatever the BLAS block size.",
+      "desk.lineage: keeps only the top k pairs per file name, in bounded memory."
+    ],
+    "publishedAt": "2026-10-20T19:31:01Z",
+    "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.2.2",
+    "prerelease": false
+  },
+  {
+    "repo": "dataset-desk",
+    "toolName": "Dataset Desk",
+    "tag": "v0.2.1",
+    "name": "dataset-desk 0.2.1",
+    "body": [
+      "desk.scan: about 2× faster per image on one thread, with identical results (scan.jsonl rows and SCAN_V = 2 are unchanged). The first uncached scan runs in parallel under --threads (a ProcessPoolExecutor when threads…",
+      "description_gate.audit_records: replaced the full-postings Jaccard candidate loop with rare-first prefix filtering (L - ceil(tau * L) + 1), producing identical near_pairs and near_groups.",
+      "desk.mid_rank and desk._rank_descriptions: with _RANK_TIE_EPS = 1e-6, tied image vectors now stay tied whatever the BLAS block size.",
+      "desk.lineage: keeps only the top k pairs per file name, in bounded memory.",
+      "Its cosines come from a blocked float32 matrix product."
+    ],
+    "publishedAt": "2026-10-20T19:19:05Z",
+    "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.2.1",
+    "prerelease": false
+  },
+  {
     "repo": "dataset-desk",
     "toolName": "Dataset Desk",
     "tag": "v0.2.0",
@@ -122,37 +266,6 @@
     ],
     "publishedAt": "2026-10-15T23:33:15Z",
     "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.1.2",
-    "prerelease": false
-  },
-  {
-    "repo": "dataset-desk",
-    "toolName": "Dataset Desk",
-    "tag": "v0.1.1",
-    "name": "dataset-desk v0.1.1",
-    "body": [
-      "Model loads pass dtype instead of the deprecated torch_dtype (SigLIP2, and EmbeddingGemma 2's model_kwargs).",
-      "SigLIP2 loads no longer log transformers' bos/eos token-id warning. Its published config sets those ids outside the text vocabulary, and the desk never uses them. Errors still show.",
-      "The models extra now needs transformers>=4.56 (the first with dtype) and sentence-transformers>=5.",
-      "145 offline tests; line coverage 96%, CI floor 90."
-    ],
-    "publishedAt": "2026-10-15T23:14:52Z",
-    "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.1.1",
-    "prerelease": false
-  },
-  {
-    "repo": "dataset-desk",
-    "toolName": "Dataset Desk",
-    "tag": "v0.1.0",
-    "name": "dataset-desk v0.1.0",
-    "body": [
-      "The first public release: a prototype, tested offline and not yet calibrated on real data.",
-      "dataset-desk command with index, dupes, search, coverage and report.",
-      "Backends: EmbeddingGemma 2 (eg2), SigLIP2 so400m (siglip2), and none, the torch-free lite tier.",
-      "Duplicates in three tiers: byte-identical (sha256), near (256-bit dHash) and semantic (embedding cosine).",
-      "A 30-number look channel (palette, tone, native-resolution texture), and outliers ranked by content and by look."
-    ],
-    "publishedAt": "2026-10-15T23:00:24Z",
-    "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.1.0",
     "prerelease": false
   },
   {
@@ -583,88 +696,6 @@
     ],
     "publishedAt": "2026-10-14T23:17:08Z",
     "url": "https://github.com/mcp-tool-shop-org/vocal-synth-engine/releases/tag/v1.1.1",
-    "prerelease": false
-  },
-  {
-    "repo": "role-os",
-    "toolName": "Role OS",
-    "tag": "v2.12.1",
-    "name": "v2.12.1",
-    "body": [
-      "Test fixtures build fake credentials at runtime so secret scanners do not flag them."
-    ],
-    "publishedAt": "2026-10-14T23:05:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/role-os/releases/tag/v2.12.1",
-    "prerelease": false
-  },
-  {
-    "repo": "registry-stats",
-    "toolName": "Registry Stats",
-    "tag": "v3.5.0",
-    "name": "v3.5.0",
-    "body": [],
-    "publishedAt": "2026-10-14T23:05:08Z",
-    "url": "https://github.com/mcp-tool-shop-org/registry-stats/releases/tag/v3.5.0",
-    "prerelease": false
-  },
-  {
-    "repo": "offrig",
-    "toolName": "Offrig",
-    "tag": "v1.1.2",
-    "name": "v1.1.2",
-    "body": [
-      "Build fake credentials at runtime in trace.rs unit tests so secret scanners do not flag test fixtures."
-    ],
-    "publishedAt": "2026-10-14T23:04:55Z",
-    "url": "https://github.com/mcp-tool-shop-org/offrig/releases/tag/v1.1.2",
-    "prerelease": false
-  },
-  {
-    "repo": "sensor-humor",
-    "toolName": "Sensor Humor",
-    "tag": "v1.3.2",
-    "name": "sensor-humor v1.3.2",
-    "body": [
-      "Build fake credentials at runtime in tests/dataset-pii-scrub.test.ts so secret scanners do not flag test fixtures."
-    ],
-    "publishedAt": "2026-10-14T23:03:10Z",
-    "url": "https://github.com/mcp-tool-shop-org/sensor-humor/releases/tag/v1.3.2",
-    "prerelease": false
-  },
-  {
-    "repo": "repomesh",
-    "toolName": "Repomesh",
-    "tag": "v2.3.3",
-    "name": "v2.3.3",
-    "body": [
-      "Test fixtures build fake credentials at runtime so secret scanners do not flag them."
-    ],
-    "publishedAt": "2026-10-14T23:02:27Z",
-    "url": "https://github.com/mcp-tool-shop-org/repomesh/releases/tag/v2.3.3",
-    "prerelease": false
-  },
-  {
-    "repo": "shipcheck",
-    "toolName": "Shipcheck",
-    "tag": "v1.0.9",
-    "name": "v1.0.9",
-    "body": [
-      "Test fixtures build fake credentials at runtime so secret scanners do not flag them."
-    ],
-    "publishedAt": "2026-10-14T23:02:12Z",
-    "url": "https://github.com/mcp-tool-shop-org/shipcheck/releases/tag/v1.0.9",
-    "prerelease": false
-  },
-  {
-    "repo": "tool-compass",
-    "toolName": "Tool Compass",
-    "tag": "v2.5.3",
-    "name": "Tool Compass v2.5.3",
-    "body": [
-      "Build fake credentials at runtime in config and HTTP backend tests so secret scanners do not flag test fixtures."
-    ],
-    "publishedAt": "2026-10-14T23:00:35Z",
-    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.5.3",
     "prerelease": false
   }
 ]
