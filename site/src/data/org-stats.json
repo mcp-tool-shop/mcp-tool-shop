@@ -1,18 +1,18 @@
 {
   "repoCount": 97,
   "registeredCount": 9,
-  "totalStars": 63,
+  "totalStars": 64,
   "languages": [
     "Python",
     "TypeScript",
     "JavaScript",
+    "Rust",
     "HTML",
     "C#",
-    "Rust",
     "GDScript"
   ],
   "recentReleases": 50,
-  "updatedAt": "2026-10-20T13:12:32.526Z",
+  "updatedAt": "2026-10-22T13:13:01.568Z",
   "registryHealth": {
     "registryToolCount": 9,
     "registeredInProjects": 9,
