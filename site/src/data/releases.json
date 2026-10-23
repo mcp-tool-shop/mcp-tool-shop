@@ -1,5 +1,108 @@
 [
   {
+    "repo": "xrpl-camp",
+    "toolName": "XRPL Camp",
+    "tag": "v1.5.2",
+    "name": "v1.5.2",
+    "body": [
+      "The headline: xrpl-camp no longer tells you a transaction landed when the ledger never confirmed it. If a mint or burn comes back without a result, reserve now looks it up first. When it still can't confirm the…",
+      "Signed NFT submissions no longer treat a missing TransactionResult as success. When submit_and_wait returns without a TransactionResult in meta during xrpl-camp reserve, _submit_signed now looks up the signed…",
+      "xrpl-camp reserve --json reports \"reserve_measured\" explicitly. When the ledger read right after the mint does not yet show the new owner reserve (not_yet_visible), reserve --json now sets \"reserve_measured\": false…",
+      "xrpl-camp proof verify output consistency (--online and Windows paths). summarize_online now counts every transaction lookup that received a ledger response in online.checked (not only ok lookups, so a contradicted…",
+      "Standalone binary build recipe and CI runner parity. BUILD.md now includes the direct_url.json cleanup step and uv run --no-sync pyinstaller invocation used in .github/workflows/publish.yml, publish.yml pins uv…"
+    ],
+    "publishedAt": "2026-10-23T07:34:13Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.5.2",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.23.1.28",
+    "name": "rnd 1.1.23.1.28",
+    "body": [
+      "rnd 1.1.23.1.28. Changes: see CHANGELOG.md, section [1.1.23.1.28]: the localbuilders proxy passes a client's seed through to llama-server; newsletter issue 26."
+    ],
+    "publishedAt": "2026-10-23T05:31:01Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.28",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.23.1.27",
+    "name": "rnd 1.1.23.1.27",
+    "body": [
+      "rnd 1.1.23.1.27. Changes: see CHANGELOG.md, section [1.1.23.1.27]: T10 runs, offrig --jobs measurement, distill-ladder teacher complete, licences; README translations refreshed."
+    ],
+    "publishedAt": "2026-10-23T04:54:38Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.27",
+    "prerelease": false
+  },
+  {
+    "repo": "escape-the-valley",
+    "toolName": "Escape The Valley",
+    "tag": "v1.3.1",
+    "name": "Escape the Valley v1.3.1",
+    "body": [
+      "Third-party license notices (THIRD_PARTY_NOTICES.txt & trail licenses, #28). Standalone PyInstaller binaries now bundle full third-party license and notice texts alongside the game's MIT license (also attached to the…",
+      "Clean release binaries. The release build installs Python outside any user home, strips the PEP 610 direct_url.json build record, and fails if a bundle carries either a build record or a home path in _sysconfigdata.",
+      "CLI trail new / trail continue memory parity (H-1) & canonical cause of death (M-1). Interactive CLI runs now emit memory cards (crises, health/death, wagon breakdowns, events, arrivals, escape valves, GM proposals)…",
+      "TUI Abandon Cargo toast & memory card (H-2). [V] Abandon Cargo in the TUI now displays the actual dropped supply counts instead of (dropped: nothing).",
+      "Fork route prompt timer tick (H-3). Choosing a route at a fork no longer consumes a turn of wagon maintenance or escape-valve cooldown before the travel day begins."
+    ],
+    "publishedAt": "2026-10-23T04:54:17Z",
+    "url": "https://github.com/mcp-tool-shop-org/escape-the-valley/releases/tag/v1.3.1",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-camp",
+    "toolName": "XRPL Camp",
+    "tag": "v1.5.1",
+    "name": "v1.5.1",
+    "body": [],
+    "publishedAt": "2026-10-23T04:28:05Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.5.1",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.23.1.26",
+    "name": "rnd 1.1.23.1.26",
+    "body": [
+      "rnd 1.1.23.1.26. Changes: see CHANGELOG.md, section [1.1.23.1.26]: ETV licences, runs 15u/15x/p4/p5, distill-ladder teacher window 1, outcome guard."
+    ],
+    "publishedAt": "2026-10-23T02:29:56Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.26",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-camp",
+    "toolName": "XRPL Camp",
+    "tag": "v1.5.0",
+    "name": "v1.5.0",
+    "body": [],
+    "publishedAt": "2026-10-23T00:15:07Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.5.0",
+    "prerelease": false
+  },
+  {
+    "repo": "npm-launcher",
+    "toolName": "npm Launcher",
+    "tag": "v1.2.0",
+    "name": "npm-launcher v1.2.0",
+    "body": [
+      "Through a wrapper, --version, -V, --help and -h reach the tool (#6). 1.1.1 answered them before reading the wrapper's config, so npx @mcptoolshop/<tool> --version printed mcptoolshop-launch 1.1.1 instead of the…",
+      "The tool sees its own name. The binary is started with argv[0] set to the tool's name, so a tool's help reads Usage: xrpl-lab ... rather than Usage: xrpl-lab-2.7.9-win-x64.exe ..., the cached asset's file name. That…",
+      "--launcher-version prints the launcher's version, with or without a wrapper.",
+      "Seven pass-through tests (24 total), and a CI line-coverage floor at the measured level (target 90)."
+    ],
+    "publishedAt": "2026-10-22T16:09:14Z",
+    "url": "https://github.com/mcp-tool-shop-org/npm-launcher/releases/tag/v1.2.0",
+    "prerelease": false
+  },
+  {
     "repo": "xrpl-lab",
     "toolName": "XRPL Lab",
     "tag": "v2.7.9",
@@ -321,22 +424,6 @@
     "prerelease": false
   },
   {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "v1.1.9.0.0",
-    "name": "v1.1.9.0.0",
-    "body": [
-      "This is the first PyPI release since 1.1.3.0.0, so it also carries the tool changes from 1.1.4 to 1.1.8. Those versions were tagged but never published.",
-      "From 1.1.4 to 1.1.8: - 1.1.4: rnd datapack build|list|verify, for data packs hosted outside the clone, with a per-file SHA-256, licences and model pins. - 1.1.5: rnd collect, which copies an experiment's trimmed…",
-      "In 1.1.9.0.0:",
-      "rnd abmine analyze (ab_dataminer), the analysis half of the A/B template for runs that compare backends, builds or settings of one model. It reads a JSON-lines record of greedy generations with top-K logprobs and…",
-      "per pair of arms and prompt: the fork, Δz = (ℓR(t1) − ℓR(t2)) − (ℓT(t1) − ℓT(t2)) at every matched-prefix step (censored and flagged when a reference candidate is outside the test arm's top-K), the step-0 Δz, the…"
-    ],
-    "publishedAt": "2026-10-15T18:42:13Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.9.0.0",
-    "prerelease": false
-  },
-  {
     "repo": "offrig",
     "toolName": "Offrig",
     "tag": "v1.2.0",
@@ -585,101 +672,6 @@
     ],
     "publishedAt": "2026-10-15T00:45:41Z",
     "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.8.5",
-    "prerelease": false
-  },
-  {
-    "repo": "comfy-headless",
-    "toolName": "Comfy Headless",
-    "tag": "v3.1.1",
-    "name": "v3.1.1",
-    "body": [
-      "Workflow jobs run with a read-only token by default. ci.yml and publish.yml had jobs with no permissions block, so they inherited the repository default token. A top-level permissions: contents: read now applies to…"
-    ],
-    "publishedAt": "2026-10-15T00:13:08Z",
-    "url": "https://github.com/mcp-tool-shop-org/comfy-headless/releases/tag/v3.1.1",
-    "prerelease": false
-  },
-  {
-    "repo": "aspire-si",
-    "toolName": "Aspire Si",
-    "tag": "v1.3.0",
-    "name": "v1.3.0",
-    "body": [
-      "examples/sft-experiment/: the fine-tune-then-ASPIRE experiment (#11) and its run report. It holds:",
-      "a dataset builder that keeps evaluation prompts out by word overlap and embeddings;",
-      "a judge set of one-sentence planted errors;",
-      "a cleaning step that records every drop;",
-      "QLoRA fine-tuning;"
-    ],
-    "publishedAt": "2026-10-15T00:12:07Z",
-    "url": "https://github.com/mcp-tool-shop-org/aspire-si/releases/tag/v1.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "tool-compass",
-    "toolName": "Tool Compass",
-    "tag": "v2.5.4",
-    "name": "Tool Compass v2.5.4",
-    "body": [
-      "Workflow jobs run with a read-only token by default. publish.yml had jobs with no permissions block, so they inherited the repository default token. A top-level permissions: contents: read now applies to every job…"
-    ],
-    "publishedAt": "2026-10-15T00:09:20Z",
-    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.5.4",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-stress-test",
-    "toolName": "MCP Stress Test",
-    "tag": "v1.0.3",
-    "name": "v1.0.3",
-    "body": [
-      "Workflow jobs run with a read-only token by default. ci.yml and publish.yml had jobs with no permissions block, so they inherited the repository default token. A top-level permissions: contents: read now applies to…"
-    ],
-    "publishedAt": "2026-10-15T00:04:52Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-stress-test/releases/tag/v1.0.3",
-    "prerelease": false
-  },
-  {
-    "repo": "backpropagate",
-    "toolName": "Backpropagate",
-    "tag": "v1.8.4",
-    "name": "Backpropagate v1.8.4",
-    "body": [
-      "Training works on a CPU-only machine again with a fresh install. trl 1.15.0 (2026-10-08) runs every SFT loss through a Triton-only kernel, so pip install backpropagate on a machine without a GPU resolved to it and…",
-      "Build fake credentials at runtime in CLI and logging tests so secret scanners do not flag test fixtures."
-    ],
-    "publishedAt": "2026-10-15T00:04:47Z",
-    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.8.4",
-    "prerelease": false
-  },
-  {
-    "repo": "role-set",
-    "toolName": "Role Set",
-    "tag": "v0.2.0",
-    "name": "v0.2.0",
-    "body": [
-      "Prototype. Interfaces and data shapes can change without notice. Nothing this version writes is training data until a person checks it. The headline is the T10 generator: puzzles on the strict size words are now…",
-      "The puzzle generator (role_set.generate). Code builds a kind B puzzle and proves it, and a model only words it. The builder samples a hidden solution, adds clues that are true in it until the answer is fixed, deletes…",
-      "The T10 cell table (#53). Each pack, question and seed maps to a structural cell: entity count (3 to 5), count word, k, and 0 to 2 if clues. The usable cells are probed once and committed as t10_cells.json by…",
-      "The trait-clue test (#54). A T10 puzzle carries one count clue, and it is kept only when one of R&D's four readings (\"exactly\" as \"at least\", \"exactly\" as \"at most\", \"at least\" as \"exactly\", \"at most\" as \"exactly\"),…",
-      "The allocator (#49). For one question and one value count, a file of 20 seeds is assigned once, before anything is built, by a min-cost flow. Each pack's 20 seeds take 20 different cells. A cell with no if clue is…"
-    ],
-    "publishedAt": "2026-10-14T23:43:16Z",
-    "url": "https://github.com/mcp-tool-shop-org/role-set/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "research-os",
-    "toolName": "Research OS",
-    "tag": "v0.15.0",
-    "name": "v0.15.0",
-    "body": [
-      "Ingestion redacts third-party personal data, not only client keys. Scraped pages quote strangers' tracebacks and issue threads, so the raw evidence carried other people's home-path account names and personal mailbox…",
-      "redaction_count covers all of it, and the card says so. The receipt and the source card count every key, account name and address replaced, and a card whose count is above zero carries a dated redaction_note unless…",
-      "fetched_sha256 on the fetch receipt. When redaction_count is above zero the receipt keeps the hash of the bytes as fetched, so sha256 always names the stored file and the provenance of what the server sent survives.…"
-    ],
-    "publishedAt": "2026-10-14T23:21:28Z",
-    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.15.0",
     "prerelease": false
   }
 ]

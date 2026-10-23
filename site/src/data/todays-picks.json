@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-22",
+  "date": "2026-10-23",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,22 +9,8 @@
       ]
     },
     {
-      "slug": "accessibility-suite",
-      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "comfy-headless",
-      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
-      "signals": [
-        "featured"
-      ]
-    },
-    {
-      "slug": "audiobooker",
-      "reason": "Audio book generation and management system",
+      "slug": "codecomfy-vscode",
+      "reason": "VS Code extension for code analysis and coverage display",
       "signals": [
         "popular"
       ]
@@ -37,8 +23,22 @@
       ]
     },
     {
-      "slug": "synthesis",
-      "reason": "Composable tool framework for building complex AI workflows",
+      "slug": "comfy-headless",
+      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
+      "signals": [
+        "featured"
+      ]
+    },
+    {
+      "slug": "accessibility-suite",
+      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "mcp-stress-test",
+      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
       "signals": [
         "popular"
       ]
