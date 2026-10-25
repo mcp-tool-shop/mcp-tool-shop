@@ -121,6 +121,17 @@
     "tagline": "Train language models to internalize a teacher's judgment through adversarial dialogue,...",
     "needsHumanReview": true
   },
+  "aspire-si-gates": {
+    "tags": [
+      "ml"
+    ],
+    "category": "ml",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install aspire-si-gates",
+    "tagline": "The deterministic gates for aspire-si role-training data: verdict, deciding-line,...",
+    "needsHumanReview": true
+  },
   "asset-forge": {
     "lane": "internal",
     "surfaceEligible": false
@@ -785,6 +796,14 @@
     "stability": "experimental",
     "kind": "library",
     "tagline": "Ten verified, ai-loadout-routed SQLite knowledge bases — 1,771 entries with per-wave...",
+    "needsHumanReview": true
+  },
+  "reasoning-dataset-lab": {
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install reasoning-dataset-lab",
+    "tagline": "Canon-first, proof-first datasets of puzzles, quizzes and tests: map the dataset,...",
     "needsHumanReview": true
   },
   "record-index": {

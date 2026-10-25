@@ -1,5 +1,67 @@
 [
   {
+    "repo": "interlock",
+    "toolName": "Interlock",
+    "tag": "v1.0.0",
+    "name": "v1.0.0",
+    "body": [
+      "The first release since 0.2.0. There was no separate 0.3.0 release; its changes ship in 1.0.0. From 1.0, versions follow semantic versioning.",
+      "LinuxOllamaServer and run_spec (seams[\"host\"]) refuse any non-loopback Ollama host before starting ollama serve, accepting only 127.0.0.1:<port>, [::1]:<port>, or localhost:<port> with an ASCII port when localhost…",
+      "Remote rows now refuse an unhashed account token (account:<id>, user=<id>, owner:<id>, uid:<id>, and related prefixes followed by : or =, with optional whitespace around the separator, and an identifier) anywhere in…",
+      "C2 (linux-cuda) model sources, quant labels, tokenizer-exact throughput inputs, and live source verification: every entry in experiments/c2-{fill-card,generate,throughput}/spec.yaml now names a real, verified source…",
+      "The README and handbook say what is new in 1.0.0, and drop the prototype and 0.x wording: from 1.0, a change that breaks the CLI, the receipt format or the spec format comes with a new major version, and the latest…"
+    ],
+    "publishedAt": "2026-10-25T11:08:33Z",
+    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "cognate",
+    "toolName": "Cognate",
+    "tag": "v1.0.0",
+    "name": "@mcptoolshop/cognate v1.0.0",
+    "body": [],
+    "publishedAt": "2026-10-25T09:38:54Z",
+    "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "repomesh",
+    "toolName": "Repomesh",
+    "tag": "v2.5.0",
+    "name": "v2.5.0",
+    "body": [
+      "Release docs. The README and handbook say what is new in 2.4 and 2.5, list Cognate's run attestations, note that check-policy.mjs can build a PolicyViolation though none is on the ledger yet, and describe the CI test…",
+      "CI test and coverage gate (ledger-ci.yml, registry-ci.yml): ledger-ci.yml runs all 9 repository node --test suites with --experimental-test-coverage (--test-coverage-lines=57) and production npm audit…",
+      "Fail-closed XRPL testnet guard (anchor/xrpl/scripts/post-anchor.mjs): exports KNOWN_TESTNET_WS_URLS, normalizeWsUrl, assertPostingEndpoint, and connectValidatedClient, with offline unit and subprocess tests in…",
+      "Anchor key lifecycle windows: isBundledTrustedAnchorEvent in verifiers/lib/key-window.mjs (and its CLI mirror) validates the anchor signer's maintainer entry with isKeyValidForSignature and enforces ledger order…",
+      "Authorised verdicts and anchor trust: build-trust scores only verdicts whose check kind appears in ev.attestations and is authorised for the signer via canNodeSignAttestations, and build-trust, packages/repomesh-cli…"
+    ],
+    "publishedAt": "2026-10-25T08:42:13Z",
+    "url": "https://github.com/mcp-tool-shop-org/repomesh/releases/tag/v2.5.0",
+    "prerelease": false
+  },
+  {
+    "repo": "attestia",
+    "toolName": "Attestia",
+    "tag": "v2.1.3",
+    "name": "@mcptoolshop/attestia v2.1.3",
+    "body": [],
+    "publishedAt": "2026-10-25T07:41:33Z",
+    "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.1.3",
+    "prerelease": false
+  },
+  {
+    "repo": "attestia",
+    "toolName": "Attestia",
+    "tag": "v2.1.2",
+    "name": "@mcptoolshop/attestia v2.1.2",
+    "body": [],
+    "publishedAt": "2026-10-25T04:20:59Z",
+    "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.1.2",
+    "prerelease": false
+  },
+  {
     "repo": "rnd",
     "toolName": "Rnd",
     "tag": "v1.1.23.1.31",
@@ -608,72 +670,6 @@
     ],
     "publishedAt": "2026-10-15T02:04:30Z",
     "url": "https://github.com/mcp-tool-shop-org/taste-engine/releases/tag/v1.0.3",
-    "prerelease": false
-  },
-  {
-    "repo": "taste-engine",
-    "toolName": "Taste Engine",
-    "tag": "v1.0.2",
-    "name": "v1.0.2",
-    "body": [
-      "The workbench cannot write outside the portfolio. The repo value in the body of the workbench's org-action routes was joined onto the portfolio directory without a check, so a value such as ../x made applyAction…",
-      "Releases publish from CI. release.yml publishes to npm through Trusted Publishing (OIDC, with provenance) when a GitHub Release is published; 1.0.1 was published by hand."
-    ],
-    "publishedAt": "2026-10-15T01:50:37Z",
-    "url": "https://github.com/mcp-tool-shop-org/taste-engine/releases/tag/v1.0.2",
-    "prerelease": false
-  },
-  {
-    "repo": "research-os",
-    "toolName": "Research OS",
-    "tag": "v0.15.1",
-    "name": "v0.15.1",
-    "body": [
-      "Release workflow: dependency install scripts run again. The workflow installed the newest npm before npm ci, and that npm blocks dependency install scripts by default, so better-sqlite3 had no native binding and the…",
-      "Source types match a domain, not the end of a host name. deriveSourceType decided a source's type with host.endsWith('arxiv.org') and the same test for eight more domains, so a look-alike host such as fakearxiv.org…",
-      "Stripping HTML from a fetched page takes linear time. The patterns that removed tags and <script> or <style> blocks from fetched pages were quadratic: on the old tag pattern, 100,000 < characters took 1.7 s and…"
-    ],
-    "publishedAt": "2026-10-15T01:38:51Z",
-    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.15.1",
-    "prerelease": false
-  },
-  {
-    "repo": "attestia",
-    "toolName": "Attestia",
-    "tag": "v2.1.0",
-    "name": "@mcptoolshop/attestia v2.1.0",
-    "body": [],
-    "publishedAt": "2026-10-15T01:38:34Z",
-    "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "prism-verify",
-    "toolName": "Prism Verify",
-    "tag": "v1.7.1",
-    "name": "v1.7.1",
-    "body": [
-      "Release workflow: the PyPI upload accepts core metadata 2.5. The 1.7.0 release published the npm wrapper and the binaries, but the PyPI step refused the wheel: the pinned upload action (v1.14.0) carries a Twine that…",
-      "/verify-receipt no longer opens the request's public_key as a file. The HTTP route passed the body's public_key to code that accepts either inline PEM or a file path, so an authenticated caller could learn whether a…"
-    ],
-    "publishedAt": "2026-10-15T01:34:35Z",
-    "url": "https://github.com/mcp-tool-shop-org/prism-verify/releases/tag/v1.7.1",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-voice-soundboard",
-    "toolName": "MCP Voice Soundboard",
-    "tag": "v2.5.5",
-    "name": "v2.5.5",
-    "body": [
-      "Three text scans take linear time, and entity decoding no longer double-decodes. The emotion-span, dialogue speaker-line and SSML tag-stripping patterns backtracked quadratically on long runs of <, tags or…",
-      "The first npm release of both packages (1.0.2 was never published to npm).",
-      "@mcptoolshop/voice-soundboard-core and @mcptoolshop/voice-soundboard-mcp publish from CI through npm Trusted Publishing, with provenance.",
-      "Each package has its own README. The core package's README described the server; both now match the code: 46 voices (not 48), the eight emotions and their {emotion} syntax, the six sound-effect tags, the presets, and…",
-      "voice-soundboard-mcp --help lists the environment variables the server reads (VOICE_SOUNDBOARD_TTS_URL, not _HTTP_URL) and its real defaults (backend chosen automatically, 1 concurrent synthesis, a 20,000 ms timeout)."
-    ],
-    "publishedAt": "2026-10-15T01:34:25Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-voice-soundboard/releases/tag/v2.5.5",
     "prerelease": false
   }
 ]
