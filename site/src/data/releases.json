@@ -2,17 +2,97 @@
   {
     "repo": "interlock",
     "toolName": "Interlock",
-    "tag": "v1.0.0",
-    "name": "v1.0.0",
+    "tag": "v1.0.6",
+    "name": "v1.0.6",
     "body": [
-      "The first release since 0.2.0. There was no separate 0.3.0 release; its changes ship in 1.0.0. From 1.0, versions follow semantic versioning.",
-      "LinuxOllamaServer and run_spec (seams[\"host\"]) refuse any non-loopback Ollama host before starting ollama serve, accepting only 127.0.0.1:<port>, [::1]:<port>, or localhost:<port> with an ASCII port when localhost…",
-      "Remote rows now refuse an unhashed account token (account:<id>, user=<id>, owner:<id>, uid:<id>, and related prefixes followed by : or =, with optional whitespace around the separator, and an identifier) anywhere in…",
-      "C2 (linux-cuda) model sources, quant labels, tokenizer-exact throughput inputs, and live source verification: every entry in experiments/c2-{fill-card,generate,throughput}/spec.yaml now names a real, verified source…",
-      "The README and handbook say what is new in 1.0.0, and drop the prototype and 0.x wording: from 1.0, a change that breaks the CLI, the receipt format or the spec format comes with a new major version, and the latest…"
+      "T4 rung r2 showed three defects in the generate ladder (GENERATE_LADDER_VERSION 2 and 1). All three are in Ollama v0.40.11's source and in r2's llama-server log.",
+      "The prompt could overshoot its window, and 16k and 32k came back unmeasured. The window was target + num_predict + 64, the calibration accepted a prompt within 2% of the target and landed about 1.2% high, so at 16k…",
+      "Every ttft in the ladder was a prompt-cache hit, not a prefill. Ollama sets cache_prompt: true on every completion with no per-request switch, llama-server reuses the longest common token prefix, and the ladder…",
+      "The concurrency cells ran through one slot, and their throughput read about the concurrency times too high. OLLAMA_NUM_PARALLEL defaults to 1, so the c4 and c8 requests queued, and the aggregate was sum(eval_count) /…",
+      "Each readiness poll of the harness's Ollama has a 2 s timeout inside the ready_timeout_s budget (it was a 30 s urlopen inside a 30 s budget, so one hung request used it all)."
     ],
-    "publishedAt": "2026-10-25T11:08:33Z",
-    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.0",
+    "publishedAt": "2026-10-26T14:06:42Z",
+    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.6",
+    "prerelease": false
+  },
+  {
+    "repo": "interlock",
+    "toolName": "Interlock",
+    "tag": "v1.0.5",
+    "name": "v1.0.5",
+    "body": [
+      "A looped generation and a request timeout were recorded as load_refused. classify_linux_error sent every error it did not recognise to load_refused (and still did, until this change), so Ollama's \"prediction aborted,…",
+      "The generate ladder's prompt made some models loop, and it timed a shorter prompt than it recorded. Version 1 sent \"token \" repeated; phi3.5 repeated it until Ollama aborted, so those cells timed a loop, not decode.…",
+      "load_refused is only for a recognised load or VRAM refusal (\"unable to load\", \"error loading model\", \"failed to load model\", \"insufficient memory\", \"too large for system memory\"; checked against Ollama 0.40.9 and…",
+      "generation_aborted, a failure kind for a cell that was not measured. It sits beside sampler_error: it says nothing about what the card can load, so a spec cannot pre-register it, the receipt reads it as untimed and…",
+      "The table copy of every unmeasured row (sampler_error, generation_aborted, unmeasured) no longer says \"this device can't do this setting\"."
+    ],
+    "publishedAt": "2026-10-26T08:12:55Z",
+    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.5",
+    "prerelease": false
+  },
+  {
+    "repo": "interlock",
+    "toolName": "Interlock",
+    "tag": "v1.0.4",
+    "name": "v1.0.4",
+    "body": [
+      "The wheel now carries the model family table. interlock.families read table/model-families.json relative to the source tree (parents[2]), which is not in the wheel, so family_of and stamp_family raised FamilyError on…",
+      "families_path() raises FamilyError naming both places it tried (the packaged copy and table/) when neither exists.",
+      "tests/test_packaging.py: the wheel's copy is byte-equal to table/model-families.json; a wheel installed into a clean venv, run from outside the repository with -I, answers family_of and stamp_family (it runs on every…",
+      "The file sweep names its exceptions exactly, as (file, line) pairs, and fails if a listed line stops escaping. It also flags os.path.dirname(file), parents[<variable>], / \"..\" climbs and a bound path climbed later;…",
+      "The clean-venv wheel test also runs run_linux_throughput_ladder with a stub backend, so the packaged throughput inputs are exercised from the wheel; it installs the wheel with its dependencies."
+    ],
+    "publishedAt": "2026-10-26T03:37:49Z",
+    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.4",
+    "prerelease": false
+  },
+  {
+    "repo": "interlock",
+    "toolName": "Interlock",
+    "tag": "v1.0.3",
+    "name": "v1.0.3",
+    "body": [
+      "Python: requires-python is >=3.13 (was >=3.12,<3.13). 3.13 is what Colab's default image runs, so outside users there can now install interlock; 3.14 and 3.15 are supported, 3.15 is the main target (.python-version).…",
+      "On 3.15 PyYAML 6.0.3 installs from its source distribution, because it publishes no cp315 wheel yet. Measured on Windows with uv: it installs and builds pure Python (yaml.__with_libyaml__ is False, no C extension),…",
+      "The intel extra's openvino, openvino-tokenizers and openvino-genai carry the environment marker python_version < \"3.15\": OpenVINO 2026.4.1 has cp313 and cp314 wheels and none for 3.15 (PyPI, read 2026-10-25). On 3.15…",
+      "On Python 3.15, where the intel extra installs no OpenVINO, a run that needs it says \"the Intel extra needs Python 3.13 or 3.14 (OpenVINO has no 3.15 wheels yet)\" instead of \"not installed\"; the openvino-genai step…",
+      "uv.lock is regenerated for the new range with no version changes."
+    ],
+    "publishedAt": "2026-10-26T00:59:15Z",
+    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.3",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "newsletter-issue-30",
+    "name": "25 October: a crash test, a lab for tests with proven answers, and our Colab cards measured",
+    "body": [
+      "The first daily issue. We killed a rented machine mid-write to test Attestia's event store, and the log survived, but the kill didn't test the fix, so we tore the same file by hand. We started a lab that builds tests…",
+      "A crash test that didn't test the fix. A machine killed mid-write left a log that a fresh machine opened whole, but no line was torn, so the fix never ran. We tore the same file by hand: the old code lost an event…",
+      "A lab for tests with proven answers. reasoning-dataset-lab maps a dataset before any item exists and proves each answer in code before a model writes a word. Its first pilot map has 24 cells, 12 of them buildable today.",
+      "Each Colab card, measured. From 21 windows of receipts: what each card has, what it costs per hour, how often a session was lost, and what no receipt has measured yet.",
+      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-30/"
+    ],
+    "publishedAt": "2026-10-25T20:15:25Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-30",
+    "prerelease": false
+  },
+  {
+    "repo": "interlock",
+    "toolName": "Interlock",
+    "tag": "v1.0.2",
+    "name": "v1.0.2",
+    "body": [
+      "interlock import --remote-window <file> takes the routing-row JSONL that interlock run writes on Linux (one row per line, or one row object) as well as the {run_id, date, remote_device, records} envelope. The rows…",
+      "With --remote-window and no --offers, the window rows are merged into the existing table/routing.jsonl: duplicates are refused (duplicate row id ...), the table is sorted by id and replaced atomically.…",
+      "interlock import --allow-shrink: lets a full rebuild drop the rows it owns but no longer produces. Every dropped id is printed and written to table/import-dropped.txt before the table is written.",
+      "interlock run --no-watchdog: runs a 5090 step with no VRAM watchdog heartbeat. It is never implied by an unset variable. The choice is written into the receipt's notes (and the watchdog field of an E4b pilot…",
+      "Three paths are now settings, each read from an environment variable, then from [paths] in interlock.toml in the working directory, and recorded as given: INTERLOCK_SCRATCH_ROOT / scratch_root (offrig's scratch…"
+    ],
+    "publishedAt": "2026-10-25T19:33:17Z",
+    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.2",
     "prerelease": false
   },
   {
@@ -157,18 +237,6 @@
     ],
     "publishedAt": "2026-10-23T05:31:01Z",
     "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.28",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "v1.1.23.1.27",
-    "name": "rnd 1.1.23.1.27",
-    "body": [
-      "rnd 1.1.23.1.27. Changes: see CHANGELOG.md, section [1.1.23.1.27]: T10 runs, offrig --jobs measurement, distill-ladder teacher complete, licences; README translations refreshed."
-    ],
-    "publishedAt": "2026-10-23T04:54:38Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.27",
     "prerelease": false
   },
   {
@@ -627,49 +695,6 @@
     ],
     "publishedAt": "2026-10-15T02:21:17Z",
     "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v3.12.1",
-    "prerelease": false
-  },
-  {
-    "repo": "cognate",
-    "toolName": "Cognate",
-    "tag": "v0.1.8",
-    "name": "@mcptoolshop/cognate v0.1.8",
-    "body": [],
-    "publishedAt": "2026-10-15T02:06:20Z",
-    "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v0.1.8",
-    "prerelease": false
-  },
-  {
-    "repo": "websketch-ir",
-    "toolName": "WebSketch IR",
-    "tag": "v2.3.1",
-    "name": "v2.3.1",
-    "body": [],
-    "publishedAt": "2026-10-15T02:06:03Z",
-    "url": "https://github.com/mcp-tool-shop-org/websketch-ir/releases/tag/v2.3.1",
-    "prerelease": false
-  },
-  {
-    "repo": "engine-room",
-    "toolName": "Engine Room",
-    "tag": "v1.0.1",
-    "name": "engine-room v1.0.1",
-    "body": [],
-    "publishedAt": "2026-10-15T02:05:35Z",
-    "url": "https://github.com/mcp-tool-shop-org/engine-room/releases/tag/v1.0.1",
-    "prerelease": false
-  },
-  {
-    "repo": "taste-engine",
-    "toolName": "Taste Engine",
-    "tag": "v1.0.3",
-    "name": "v1.0.3",
-    "body": [
-      "The package manifest is complete for a CI publish. package.json gains repository, homepage and bugs: npm's provenance check requires repository.url to match the repository, and refused 1.0.2 without it. The taste bin…",
-      "1.0.2 was tagged but never reached npm. 1.0.3 carries its path-confinement fix."
-    ],
-    "publishedAt": "2026-10-15T02:04:30Z",
-    "url": "https://github.com/mcp-tool-shop-org/taste-engine/releases/tag/v1.0.3",
     "prerelease": false
   }
 ]

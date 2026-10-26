@@ -1,31 +1,31 @@
 {
-  "asOf": "2026-10-25",
+  "asOf": "2026-10-26",
   "windowDays": 7,
   "items": [
     {
       "slug": "comfy-headless",
       "reason": "Top 1 starred repo",
-      "deltaStars": 0
+      "deltaStars": 1
     },
     {
       "slug": "audiobooker",
       "reason": "Top 10 starred repo",
-      "deltaStars": 4
+      "deltaStars": 3
     },
     {
       "slug": "codecomfy-vscode",
       "reason": "Top 10 starred repo",
-      "deltaStars": 4
+      "deltaStars": 2
     },
     {
       "slug": "backpropagate",
       "reason": "Top 2 starred repo",
-      "deltaStars": 2
+      "deltaStars": 0
     },
     {
       "slug": "tool-compass",
       "reason": "Top 4 starred repo",
-      "deltaStars": 0
+      "deltaStars": 3
     }
   ]
 }
