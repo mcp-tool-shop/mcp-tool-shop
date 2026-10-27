@@ -2,6 +2,86 @@
   {
     "repo": "interlock",
     "toolName": "Interlock",
+    "tag": "v1.0.10",
+    "name": "v1.0.10",
+    "body": [
+      "The TTFT scaling floor no longer gates a cell. T4 s1b (qwen3:8b Q4_K_M) lost 7 of 21 generate cells to it (c4 at 1024 to 8192 and c8 at 1024 to 4096), and T4 s1a lost 2 phi3.5 FP16 cells (c4 2048, c8 1024) the same…",
+      "The noise is recorded, not gated. Every measured generate row's settings gains prefill_ms_passes (the repeat passes' prefill, in order, without the warm-up) and prefill_spread (max over min of those passes, 3…",
+      "GENERATE_LADDER_VERSION stays 4. Nothing measured changes, only which cells are labelled unmeasured, the same reasoning that kept 1.0.8 and 1.0.9 at 4; a bump would make the router's newest-version filter split the…",
+      "The handbook's experiments page no longer says a cell is unmeasured when its prefill does not grow with the prompt; it describes the prefill ceiling and the recorded spread.",
+      "README.fr.md's version line. Since 1.0.7 the French status line kept \"Version 1.0.6\" and its correction notice read \"Correction dans la version 1.0.9\" (the release script's pattern did not match French typography's…"
+    ],
+    "publishedAt": "2026-10-27T05:20:32Z",
+    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.10",
+    "prerelease": false
+  },
+  {
+    "repo": "interlock",
+    "toolName": "Interlock",
+    "tag": "v1.0.9",
+    "name": "v1.0.9",
+    "body": [
+      "A cell epoch, and a server restart when a cell's outer deadline fires. When CELL_DEADLINE_S fires, run_linux_generate_ladder records an unmeasured row and moves on, but the abandoned cell's thread (or its pass…",
+      "The big-card projection is an expected wall time, not a worst case. The projection was (1 warmup + repeats) x (ceil(3 x concurrency x t_verify) + 60), so at c8 it refused any cell whose verify call took more than…",
+      "The TTFT scaling floor compares each cell with the previous measured step. It compared every cell with the first one at its concurrency, so T4 r5 tripped it falsely at c8 2048: the 512 cell is dominated by fixed…",
+      "A direct caller is not told the server restarted. With no recover hook (a caller of run_linux_generate_ladder that does not manage a server), a cell deadline's phase marker now says no recover hook, server not…",
+      "The epoch advances at the restart, not only at the next cell. restart_after_deadline() increments the epoch before stopping the server, so a call from the abandoned cell made after the restart and before the next…"
+    ],
+    "publishedAt": "2026-10-26T23:26:26Z",
+    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.9",
+    "prerelease": false
+  },
+  {
+    "repo": "interlock",
+    "toolName": "Interlock",
+    "tag": "v1.0.8",
+    "name": "v1.0.8",
+    "body": [
+      "A per-cell wall cap. request_timeout_s is clamped to 120 to 900 s per request, so a slow, fully resident c4 or c8 cell could take four passes of 900 s (an hour) plus up to six calibration calls, and a few such cells…",
+      "CALIBRATION_TIMEOUT_S is 300 s (was 900). A calibration call is a single request with a one-token reply. The slowest fully resident one on record is T4 r3's p16384 verify at 25.1 s (Ollama's Go side costs about 0.57…",
+      "The T4 r4 hang: a VRAM sample has a deadline. After the c4 16k cell's host-RAM oom row the run sent nothing for 56 minutes and its run record stayed closed: false; the likely place is the NVML sample at the start of…",
+      "After the first NVML timeout the run samples through nvidia-smi. An NVML call abandoned on a daemon thread can leave pynvml wedged inside the process, so every later cell could wait out the 30 s deadline again for…",
+      "Phase markers. The harness writes one line per phase to stderr ([interlock HH:MM:SSZ] cell p32768 c4: start, sampling VRAM, each probe and verify sent, calibrated, each pass sent and answered, VRAM sampled, cell…"
+    ],
+    "publishedAt": "2026-10-26T21:05:06Z",
+    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.8",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "newsletter-issue-31",
+    "name": "26 October: our speed table was timing a cache, plus three releases and a newsletter that travels",
+    "body": [
+      "Three small test runs on a rented T4 showed that interlock's generate ladder timed a prompt cache instead of the prompt, and counted queued requests as parallel ones. We fixed it in three releases and corrected the…",
+      "A correction. In interlock 1.0.5 and earlier, the generate ladder's time to first token measured a prompt cache, and its speed with several requests at once was close to the number of requests times too high. Neither…",
+      "Found cheaply. Three short runs on a rented T4 card found it, one defect at a time: a prompt that looped, prompts cut in half, a cache, a queue, and cells mislabelled when the card ran out of room.",
+      "Three releases. Attestia 2.1.3, RepoMesh 2.5.0 and Cognate 1.0.0 shipped, Cognate with signed requests.",
+      "The newsletter, everywhere. Every issue now lands on Hugging Face, npm and PyPI, and gets its own GitHub release."
+    ],
+    "publishedAt": "2026-10-26T18:05:21Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-31",
+    "prerelease": false
+  },
+  {
+    "repo": "interlock",
+    "toolName": "Interlock",
+    "tag": "v1.0.7",
+    "name": "v1.0.7",
+    "body": [
+      "T4 rung r3 (the log of its Ollama and the VM's free -m) showed that version 3 labelled some cells wrongly. GENERATE_LADDER_VERSION is now 4. The timeout and unmeasured labels that v3 gave to a partially offloaded…",
+      "A partial offload is oom, found before any timed call. In r3 three cells (p32768 c1, p8192 c4, p4096 c8) loaded 27 to 29 of 33 layers on the GPU with 1.6 to 2.6 GB of KV in host RAM, then ran on the CPU until the 120…",
+      "A SIGKILL during a load is oom (host RAM) only on the log's numbers. In r3 five cells logged 14 to 95 GB of host KV on a VM with 12,975 MiB of RAM and no swap, then llama-server process has terminated: signal:…",
+      "The request timeout is scaled from the cell's own verify call and recorded. Every call used a fixed 120 s timeout. Calibration calls now get CALIBRATION_TIMEOUT_S = 900 (single requests). Timed calls get clamp(ceil(3…",
+      "Host RAM needs all three numbers and the rounding margin. The oom (host RAM) reading requires the CPU KV, the CPU_Mapped weights and the system-memory total to have all been read (a missing one makes the cell…"
+    ],
+    "publishedAt": "2026-10-26T17:28:54Z",
+    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.7",
+    "prerelease": false
+  },
+  {
+    "repo": "interlock",
+    "toolName": "Interlock",
     "tag": "v1.0.6",
     "name": "v1.0.6",
     "body": [
@@ -13,54 +93,6 @@
     ],
     "publishedAt": "2026-10-26T14:06:42Z",
     "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.6",
-    "prerelease": false
-  },
-  {
-    "repo": "interlock",
-    "toolName": "Interlock",
-    "tag": "v1.0.5",
-    "name": "v1.0.5",
-    "body": [
-      "A looped generation and a request timeout were recorded as load_refused. classify_linux_error sent every error it did not recognise to load_refused (and still did, until this change), so Ollama's \"prediction aborted,…",
-      "The generate ladder's prompt made some models loop, and it timed a shorter prompt than it recorded. Version 1 sent \"token \" repeated; phi3.5 repeated it until Ollama aborted, so those cells timed a loop, not decode.…",
-      "load_refused is only for a recognised load or VRAM refusal (\"unable to load\", \"error loading model\", \"failed to load model\", \"insufficient memory\", \"too large for system memory\"; checked against Ollama 0.40.9 and…",
-      "generation_aborted, a failure kind for a cell that was not measured. It sits beside sampler_error: it says nothing about what the card can load, so a spec cannot pre-register it, the receipt reads it as untimed and…",
-      "The table copy of every unmeasured row (sampler_error, generation_aborted, unmeasured) no longer says \"this device can't do this setting\"."
-    ],
-    "publishedAt": "2026-10-26T08:12:55Z",
-    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.5",
-    "prerelease": false
-  },
-  {
-    "repo": "interlock",
-    "toolName": "Interlock",
-    "tag": "v1.0.4",
-    "name": "v1.0.4",
-    "body": [
-      "The wheel now carries the model family table. interlock.families read table/model-families.json relative to the source tree (parents[2]), which is not in the wheel, so family_of and stamp_family raised FamilyError on…",
-      "families_path() raises FamilyError naming both places it tried (the packaged copy and table/) when neither exists.",
-      "tests/test_packaging.py: the wheel's copy is byte-equal to table/model-families.json; a wheel installed into a clean venv, run from outside the repository with -I, answers family_of and stamp_family (it runs on every…",
-      "The file sweep names its exceptions exactly, as (file, line) pairs, and fails if a listed line stops escaping. It also flags os.path.dirname(file), parents[<variable>], / \"..\" climbs and a bound path climbed later;…",
-      "The clean-venv wheel test also runs run_linux_throughput_ladder with a stub backend, so the packaged throughput inputs are exercised from the wheel; it installs the wheel with its dependencies."
-    ],
-    "publishedAt": "2026-10-26T03:37:49Z",
-    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.4",
-    "prerelease": false
-  },
-  {
-    "repo": "interlock",
-    "toolName": "Interlock",
-    "tag": "v1.0.3",
-    "name": "v1.0.3",
-    "body": [
-      "Python: requires-python is >=3.13 (was >=3.12,<3.13). 3.13 is what Colab's default image runs, so outside users there can now install interlock; 3.14 and 3.15 are supported, 3.15 is the main target (.python-version).…",
-      "On 3.15 PyYAML 6.0.3 installs from its source distribution, because it publishes no cp315 wheel yet. Measured on Windows with uv: it installs and builds pure Python (yaml.__with_libyaml__ is False, no C extension),…",
-      "The intel extra's openvino, openvino-tokenizers and openvino-genai carry the environment marker python_version < \"3.15\": OpenVINO 2026.4.1 has cp313 and cp314 wheels and none for 3.15 (PyPI, read 2026-10-25). On 3.15…",
-      "On Python 3.15, where the intel extra installs no OpenVINO, a run that needs it says \"the Intel extra needs Python 3.13 or 3.14 (OpenVINO has no 3.15 wheels yet)\" instead of \"not installed\"; the openvino-genai step…",
-      "uv.lock is regenerated for the new range with no version changes."
-    ],
-    "publishedAt": "2026-10-26T00:59:15Z",
-    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.3",
     "prerelease": false
   },
   {
@@ -77,22 +109,6 @@
     ],
     "publishedAt": "2026-10-25T20:15:25Z",
     "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-30",
-    "prerelease": false
-  },
-  {
-    "repo": "interlock",
-    "toolName": "Interlock",
-    "tag": "v1.0.2",
-    "name": "v1.0.2",
-    "body": [
-      "interlock import --remote-window <file> takes the routing-row JSONL that interlock run writes on Linux (one row per line, or one row object) as well as the {run_id, date, remote_device, records} envelope. The rows…",
-      "With --remote-window and no --offers, the window rows are merged into the existing table/routing.jsonl: duplicates are refused (duplicate row id ...), the table is sorted by id and replaced atomically.…",
-      "interlock import --allow-shrink: lets a full rebuild drop the rows it owns but no longer produces. Every dropped id is printed and written to table/import-dropped.txt before the table is written.",
-      "interlock run --no-watchdog: runs a 5090 step with no VRAM watchdog heartbeat. It is never implied by an unset variable. The choice is written into the receipt's notes (and the watchdog field of an E4b pilot…",
-      "Three paths are now settings, each read from an environment variable, then from [paths] in interlock.toml in the working directory, and recorded as given: INTERLOCK_SCRATCH_ROOT / scratch_root (offrig's scratch…"
-    ],
-    "publishedAt": "2026-10-25T19:33:17Z",
-    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.2",
     "prerelease": false
   },
   {
@@ -225,18 +241,6 @@
     ],
     "publishedAt": "2026-10-23T07:34:13Z",
     "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.5.2",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "v1.1.23.1.28",
-    "name": "rnd 1.1.23.1.28",
-    "body": [
-      "rnd 1.1.23.1.28. Changes: see CHANGELOG.md, section [1.1.23.1.28]: the localbuilders proxy passes a client's seed through to llama-server; newsletter issue 26."
-    ],
-    "publishedAt": "2026-10-23T05:31:01Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.28",
     "prerelease": false
   },
   {
