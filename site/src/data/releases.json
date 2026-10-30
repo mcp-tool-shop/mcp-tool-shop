@@ -1,5 +1,64 @@
 [
   {
+    "repo": "reasoning-dataset-lab",
+    "toolName": "Reasoning Dataset Lab",
+    "tag": "v0.4.0",
+    "name": "reasoning-dataset-lab 0.4.0",
+    "body": [
+      "First PyPI release of reasoning-dataset-lab (alpha): pip install reasoning-dataset-lab.",
+      "The two git-URL dependencies are now PyPI packages, aspire-si-gates==1.7.6 and role-set==0.3.0 (PyPI does not accept git URLs). role-set 0.3.0's source is identical to the commit the receipts name (d29499f) apart…",
+      "See the CHANGELOG."
+    ],
+    "publishedAt": "2026-10-29T22:28:45Z",
+    "url": "https://github.com/mcp-tool-shop-org/reasoning-dataset-lab/releases/tag/v0.4.0",
+    "prerelease": false
+  },
+  {
+    "repo": "role-set",
+    "toolName": "Role Set",
+    "tag": "v0.3.0",
+    "name": "role-set 0.3.0",
+    "body": [
+      "First PyPI release of role-set (a prototype): pip install role-set.",
+      "The one runtime dependency is now aspire-si-gates==1.7.6 from PyPI, in place of the git URL PyPI does not accept; 1.7.6 is the same source, so no gate changed. Added: PyPI metadata, a release workflow with trusted…",
+      "See the CHANGELOG."
+    ],
+    "publishedAt": "2026-10-29T21:19:38Z",
+    "url": "https://github.com/mcp-tool-shop-org/role-set/releases/tag/v0.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "aspire-si-gates",
+    "toolName": "Aspire Si Gates",
+    "tag": "v1.7.6",
+    "name": "aspire-si-gates 1.7.6",
+    "body": [
+      "First PyPI release of aspire-si-gates: the Stage 1 data gates for role-training sets, one standard-library Python package with no dependencies.",
+      "pip install aspire-si-gates",
+      "The package source is unchanged from the version that lived in aspire-si, so gates_identity() reports the same hash (ff67dc9c…). Added: PyPI metadata, a release workflow with trusted publishing and provenance, a…",
+      "See the CHANGELOG."
+    ],
+    "publishedAt": "2026-10-29T19:55:17Z",
+    "url": "https://github.com/mcp-tool-shop-org/aspire-si-gates/releases/tag/v1.7.6",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "newsletter-issue-34",
+    "name": "29 October: repaired test sets certify 44 of 50, long tool lists cost a model its \"no\", and Cosmos 3 on one rented card",
+    "body": [
+      "Rewritten so that every pair is a clear contradiction, and keyed blind before any reader saw them, the reasoning-dataset-lab sets certified 44 of 50, against 26 before; the thinking setting we suspected turned out…",
+      "44 of 50 sets certified. Every pair rewritten to be a clear contradiction and keyed blind first, the sets certified 44 of 50, against 26 before. The cleaner sets, not the thinking setting, cut the length stops.",
+      "Long tool lists held; the \"no\" slipped. With 5 to 100 tools, Granite 4.2 8B and Qwen3.8-27B kept picking the right tool. Granite declined 19 of 30 no-tool requests at 40 tools and 18 on a padded 10-tool prompt;…",
+      "A world model on one rented card. Cosmos 3 Nano made an 8-second clip on one RTX PRO 6000 card in a 628-second window, about 1.55 compute units, with generation within 2% of our estimate.",
+      "Super on one card, for now in int4. Five shrunk versions of Cosmos 3 Super ran on one G4. Intel's int4 export wasn't separable from FP8 on fidelity, and ran faster in less memory, so it's our working choice for now."
+    ],
+    "publishedAt": "2026-10-29T15:15:23Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-34",
+    "prerelease": false
+  },
+  {
     "repo": "cognate",
     "toolName": "Cognate",
     "tag": "v1.1.0",
@@ -197,20 +256,6 @@
     "body": [],
     "publishedAt": "2026-10-25T04:20:59Z",
     "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.1.2",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "v1.1.23.1.31",
-    "name": "rnd 1.1.23.1.31",
-    "body": [
-      "newsletter: issue 28 (#220); the RSS feed, its CI check and the zod pin (#221-#223); the issue 28 correction with seven Antigravity-designed charts, plus issue 27's chart margin (#224)",
-      "colab-drift: compare.py in the repo, reading each reply as role-set does, with evidence_drift for DECIDING on verdict calls; the G4 counts hold (65 drifted, 28 decision, 3 verdict, 10 evidence) (#225)",
-      "stage1-regeneration: run records 18a-18e with stubs, 19s, 19a, probes p6 and p7; phase 5 cap 500, shared across experiments (#225)"
-    ],
-    "publishedAt": "2026-10-24T02:34:36Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.31",
     "prerelease": false
   },
   {
@@ -663,42 +708,6 @@
     ],
     "publishedAt": "2026-10-15T03:29:28Z",
     "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.13.3",
-    "prerelease": false
-  },
-  {
-    "repo": "ollama-intern-mcp",
-    "toolName": "Ollama Intern MCP",
-    "tag": "v2.10.1",
-    "name": "v2.10.1",
-    "body": [
-      "Dependency updates; no code changed. Lockfile only, within the declared ranges: @modelcontextprotocol/sdk 1.29.0 to 1.32.1 (a high advisory, fixed in 1.31.0), fast-uri 3.1.8, ip-address 10.7.4, proxy-addr 2.0.8 and…"
-    ],
-    "publishedAt": "2026-10-15T03:26:03Z",
-    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.10.1",
-    "prerelease": false
-  },
-  {
-    "repo": "synthesis",
-    "toolName": "Synthesis",
-    "tag": "v1.3.4",
-    "name": "v1.3.4",
-    "body": [
-      "Dev-only dependency update; no code changed and nothing in the published package moves. vitest and @vitest/ui are raised from ^3.2.7 to ^4.1.11, which clears the last two moderate advisories in vitest and…"
-    ],
-    "publishedAt": "2026-10-15T03:23:57Z",
-    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.4",
-    "prerelease": false
-  },
-  {
-    "repo": "synthesis",
-    "toolName": "Synthesis",
-    "tag": "v1.3.3",
-    "name": "v1.3.3",
-    "body": [
-      "Dependency updates; no code changed. npm audit fix within the declared ranges, plus vitest and @vitest/ui raised to ^3.2.7: fast-uri 3.1.8 (a runtime dependency, eight advisories), postcss 8.5.30, nanoid 3.3.20,…"
-    ],
-    "publishedAt": "2026-10-15T02:36:05Z",
-    "url": "https://github.com/mcp-tool-shop-org/synthesis/releases/tag/v1.3.3",
     "prerelease": false
   }
 ]

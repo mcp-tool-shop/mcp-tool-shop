@@ -203,6 +203,13 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
+  "blindpanel": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Blind, counterbalanced human-rating viewer for generated media: best/worst of three,...",
+    "needsHumanReview": true
+  },
   "brand": {
     "tags": [
       "assets",
@@ -799,6 +806,14 @@
     "needsHumanReview": true
   },
   "reasoning-dataset-lab": {
+    "tags": [
+      "data-provenance",
+      "dataset",
+      "llm-evaluation",
+      "puzzles",
+      "python",
+      "reasoning"
+    ],
     "category": "infrastructure",
     "stability": "experimental",
     "kind": "library",

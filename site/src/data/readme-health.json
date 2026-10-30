@@ -1,16 +1,34 @@
 {
   "meta": {
-    "generatedAt": "2026-10-29T13:09:06.772Z",
-    "runId": "b1e7be98-9b76-4da5-9d83-5ffee5f3585a",
+    "generatedAt": "2026-10-30T13:09:00.073Z",
+    "runId": "ef83ea07-71ae-48aa-aac3-12f271511df5",
     "version": "2.0",
     "checkedCount": 9,
     "strategy": {
       "recentDays": 7,
       "sampleSize": 10,
-      "seed": "2026-10-29"
+      "seed": "2026-10-30"
     }
   },
   "results": [
+    {
+      "repo": "audiobooker",
+      "score": 90,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": false,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-10-30T13:09:00.073Z",
+      "lastCheckedAt": "2026-10-30T13:09:00.073Z"
+    },
     {
       "repo": "codecomfy-vscode",
       "score": 90,
@@ -26,8 +44,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-10-29T13:09:06.772Z",
-      "lastCheckedAt": "2026-10-29T13:09:06.772Z"
+      "checkedAt": "2026-10-30T13:09:00.073Z",
+      "lastCheckedAt": "2026-10-30T13:09:00.073Z"
     },
     {
       "repo": "mcp-stress-test",
@@ -44,8 +62,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-10-29T13:09:06.772Z",
-      "lastCheckedAt": "2026-10-29T13:09:06.772Z"
+      "checkedAt": "2026-10-30T13:09:00.073Z",
+      "lastCheckedAt": "2026-10-30T13:09:00.073Z"
     },
     {
       "repo": "xrpl-camp",
@@ -62,26 +80,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-10-29T13:09:06.772Z",
-      "lastCheckedAt": "2026-10-29T13:09:06.772Z"
-    },
-    {
-      "repo": "audiobooker",
-      "score": 90,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": false,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-10-29T13:09:06.772Z",
-      "lastCheckedAt": "2026-10-29T13:09:06.772Z"
+      "checkedAt": "2026-10-30T13:09:00.073Z",
+      "lastCheckedAt": "2026-10-30T13:09:00.073Z"
     },
     {
       "repo": "comfy-headless",
@@ -98,8 +98,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-10-29T13:09:06.772Z",
-      "lastCheckedAt": "2026-10-29T13:09:06.772Z"
+      "checkedAt": "2026-10-30T13:09:00.073Z",
+      "lastCheckedAt": "2026-10-30T13:09:00.073Z"
     },
     {
       "repo": "backpropagate",
@@ -116,8 +116,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-10-29T13:09:06.772Z",
-      "lastCheckedAt": "2026-10-29T13:09:06.772Z"
+      "checkedAt": "2026-10-30T13:09:00.073Z",
+      "lastCheckedAt": "2026-10-30T13:09:00.073Z"
     },
     {
       "repo": "tool-compass",
@@ -134,8 +134,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-10-29T13:09:06.772Z",
-      "lastCheckedAt": "2026-10-29T13:09:06.772Z"
+      "checkedAt": "2026-10-30T13:09:00.073Z",
+      "lastCheckedAt": "2026-10-30T13:09:00.073Z"
     },
     {
       "repo": "accessibility-suite",
@@ -152,8 +152,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-10-29T13:09:06.772Z",
-      "lastCheckedAt": "2026-10-29T13:09:06.772Z"
+      "checkedAt": "2026-10-30T13:09:00.073Z",
+      "lastCheckedAt": "2026-10-30T13:09:00.073Z"
     },
     {
       "repo": "synthesis",
@@ -170,8 +170,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-10-29T13:09:06.772Z",
-      "lastCheckedAt": "2026-10-29T13:09:06.772Z"
+      "checkedAt": "2026-10-30T13:09:00.073Z",
+      "lastCheckedAt": "2026-10-30T13:09:00.073Z"
     }
   ]
 }
