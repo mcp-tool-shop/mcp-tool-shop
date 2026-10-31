@@ -1,5 +1,21 @@
 [
   {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "newsletter-issue-35",
+    "name": "30 October: a leak check that cried wolf, a perfect score on long tool lists, and Cosmos 3 on one card",
+    "body": [
+      "Our check for shortcuts in the judge bake-off's test sets was failing sets that had none; a calibrated rule now false-fails at most 0.5% of them, says plainly how small a leak it can see, and passes the repaired…",
+      "A leak check that cried wolf. The old 5-point rule failed 80% to 98.5% of test sets with no shortcut at all. The calibrated rule fails at most 0.5%, still catches all twelve planted leaks, and at 38 triads screens…",
+      "Gemma 4 31B: 170 of 170, 30 of 30. No mistakes on tool lists from 5 to 100, in all 12 conditions. Granite 4.2 8B is still the only model whose \"no\" slipped.",
+      "Cosmos 3, four versions on one card. 144 clips on one rented B200, 36 per version, for a comparison by people that is still being designed. An operations note, not a quality result.",
+      "A small model on one TPU chip. int8 weights moved the loss by 0.0005, but changed the generated text on three of four prompts."
+    ],
+    "publishedAt": "2026-10-30T16:14:11Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-35",
+    "prerelease": false
+  },
+  {
     "repo": "reasoning-dataset-lab",
     "toolName": "Reasoning Dataset Lab",
     "tag": "v0.4.0",
@@ -194,22 +210,6 @@
     ],
     "publishedAt": "2026-10-26T17:28:54Z",
     "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.7",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "newsletter-issue-30",
-    "name": "25 October: a crash test, a lab for tests with proven answers, and our Colab cards measured",
-    "body": [
-      "The first daily issue. We killed a rented machine mid-write to test Attestia's event store, and the log survived, but the kill didn't test the fix, so we tore the same file by hand. We started a lab that builds tests…",
-      "A crash test that didn't test the fix. A machine killed mid-write left a log that a fresh machine opened whole, but no line was torn, so the fix never ran. We tore the same file by hand: the old code lost an event…",
-      "A lab for tests with proven answers. reasoning-dataset-lab maps a dataset before any item exists and proves each answer in code before a model writes a word. Its first pilot map has 24 cells, 12 of them buildable today.",
-      "Each Colab card, measured. From 21 windows of receipts: what each card has, what it costs per hour, how often a session was lost, and what no receipt has measured yet.",
-      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-30/"
-    ],
-    "publishedAt": "2026-10-25T20:15:25Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-30",
     "prerelease": false
   },
   {
