@@ -8,7 +8,7 @@
       "image-gen"
     ],
     "featured": true,
-    "stars": 5,
+    "stars": 4,
     "language": "Python",
     "updatedAt": "2026-10-25T22:14:42Z",
     "registered": true,
@@ -201,7 +201,7 @@
     "featured": true,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-10-29T11:56:12Z",
+    "updatedAt": "2026-11-03T18:01:03Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -317,41 +317,6 @@
     "catalogued": true
   },
   {
-    "name": "Armature",
-    "repo": "armature",
-    "description": "Image-to-video with a GLB instead of an image. Block the shot in headless Blender - character, pose, camera - render per-frame control sequences, and the video model paints life over it: film, cutscenes, character performance, any footage, with one persistent main character.",
-    "tags": [
-      "ai-video",
-      "blender",
-      "character-consistency",
-      "comfyui",
-      "controlnet",
-      "cutscenes"
-    ],
-    "featured": false,
-    "stars": 3,
-    "language": "Python",
-    "updatedAt": "2026-11-01T21:47:33Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "ml",
-    "stability": "beta",
-    "kind": "cli",
-    "install": "pip install armature-studio",
-    "tagline": "Image-to-video with a GLB instead of an image.",
-    "screenshot": "/screenshots/armature.png",
-    "screenshotType": "placeholder",
-    "needsHumanReview": true,
-    "lane": "active_lab",
-    "area": "image-and-media-pipelines",
-    "catalogLane": "in-development",
-    "package": {
-      "pypi": "armature-studio"
-    },
-    "catalogued": true
-  },
-  {
     "name": "Audiobooker",
     "repo": "audiobooker",
     "description": "Audio book generation and management system",
@@ -428,6 +393,41 @@
     "catalogued": true
   },
   {
+    "name": "Armature",
+    "repo": "armature",
+    "description": "Image-to-video with a GLB instead of an image. Block the shot in headless Blender - character, pose, camera - render per-frame control sequences, and the video model paints life over it: film, cutscenes, character performance, any footage, with one persistent main character.",
+    "tags": [
+      "ai-video",
+      "blender",
+      "character-consistency",
+      "comfyui",
+      "controlnet",
+      "cutscenes"
+    ],
+    "featured": false,
+    "stars": 2,
+    "language": "Python",
+    "updatedAt": "2026-11-01T21:47:33Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false,
+    "category": "ml",
+    "stability": "beta",
+    "kind": "cli",
+    "install": "pip install armature-studio",
+    "tagline": "Image-to-video with a GLB instead of an image.",
+    "screenshot": "/screenshots/armature.png",
+    "screenshotType": "placeholder",
+    "needsHumanReview": true,
+    "lane": "active_lab",
+    "area": "image-and-media-pipelines",
+    "catalogLane": "in-development",
+    "package": {
+      "pypi": "armature-studio"
+    },
+    "catalogued": true
+  },
+  {
     "name": "CodeComfy VS Code",
     "repo": "codecomfy-vscode",
     "description": "VS Code extension for code analysis and coverage display",
@@ -437,7 +437,7 @@
       "coverage"
     ],
     "featured": false,
-    "stars": 3,
+    "stars": 2,
     "language": "TypeScript",
     "updatedAt": "2026-10-29T12:46:37Z",
     "registered": true,
@@ -559,41 +559,6 @@
     "catalogued": true
   },
   {
-    "name": "Sprite Foundry",
-    "repo": "sprite-foundry",
-    "description": "Headless sprite generation pipeline — ComfyUI + SQLite + Godot finish lab",
-    "tags": [
-      "8-direction",
-      "asset-pipeline",
-      "comfyui",
-      "controlnet",
-      "game-assets",
-      "godot",
-      "morphology",
-      "normal-maps",
-      "pixel-art",
-      "sprite"
-    ],
-    "featured": false,
-    "stars": 2,
-    "language": "Python",
-    "updatedAt": "2026-10-01T20:34:03Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "tagline": "Headless sprite generation pipeline: ComfyUI, SQLite, and a Godot finish lab.",
-    "screenshot": "/screenshots/sprite-foundry.png",
-    "screenshotType": "placeholder",
-    "lane": "active_lab",
-    "surfaceEligible": true,
-    "area": "image-and-media-pipelines",
-    "also": [
-      "games-and-game-tooling"
-    ],
-    "catalogLane": "in-development",
-    "catalogued": true
-  },
-  {
     "name": "Accessibility Suite",
     "repo": "accessibility-suite",
     "description": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
@@ -606,7 +571,7 @@
     "featured": false,
     "stars": 1,
     "language": "Python",
-    "updatedAt": "2026-10-30T08:06:25Z",
+    "updatedAt": "2026-11-03T18:27:24Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,
@@ -685,115 +650,6 @@
     "catalogLane": "shipped",
     "package": {
       "npm": "@mcptoolshop/bytefit"
-    },
-    "catalogued": true
-  },
-  {
-    "name": "Comfy Preflight",
-    "repo": "comfy-preflight",
-    "description": "A gate that runs on a ComfyUI workflow graph in the seconds before submission and halts a submission that would spend credits producing a known-wrong result.",
-    "tags": [
-      "cli",
-      "comfyui",
-      "guardrails",
-      "mcp",
-      "model-context-protocol",
-      "preflight",
-      "python",
-      "workflow-validation"
-    ],
-    "featured": false,
-    "stars": 1,
-    "language": "Python",
-    "updatedAt": "2026-10-20T21:03:28Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "kind": "cli",
-    "install": "npx @mcptoolshop/comfy-preflight",
-    "screenshot": "/screenshots/comfy-preflight.png",
-    "screenshotType": "placeholder",
-    "lane": "shipped",
-    "area": "image-and-media-pipelines",
-    "catalogLane": "shipped",
-    "package": {
-      "npm": "@mcptoolshop/comfy-preflight",
-      "pypi": "comfy-preflight"
-    },
-    "catalogued": true
-  },
-  {
-    "name": "Facet",
-    "repo": "facet",
-    "description": "A styled 2D concept becomes a textured 3D asset - style applied on the asset in texture space. Four accepted subject classes, local and licence-clean.",
-    "tags": [
-      "3d",
-      "blender",
-      "comfyui",
-      "diffusion",
-      "game-assets",
-      "gltf",
-      "mcp",
-      "pipeline",
-      "python",
-      "rigging",
-      "texturing",
-      "trellis"
-    ],
-    "featured": false,
-    "stars": 1,
-    "language": "Python",
-    "updatedAt": "2026-10-20T20:07:14Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "kind": "cli",
-    "install": "npx @mcptoolshop/facet",
-    "lane": "active_lab",
-    "area": "image-and-media-pipelines",
-    "also": [
-      "games-and-game-tooling"
-    ],
-    "catalogLane": "in-development",
-    "package": {
-      "npm": "@mcptoolshop/facet",
-      "pypi": "facet-mcp"
-    },
-    "catalogued": true
-  },
-  {
-    "name": "FX Dub",
-    "repo": "fx-dub",
-    "description": "Verify a generated dub before anyone hears it — container receipts and spoken-content receipts for AI dialogue pipelines.",
-    "tags": [
-      "audio",
-      "audiobook",
-      "comfyui",
-      "diarization",
-      "dubbing",
-      "ebu-r128"
-    ],
-    "featured": false,
-    "stars": 1,
-    "language": "Python",
-    "updatedAt": "2026-10-20T21:01:06Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "voice",
-    "stability": "stable",
-    "kind": "cli",
-    "install": "pip install fx-dub",
-    "tagline": "Verify a generated dub before anyone hears it — container receipts and spoken-content...",
-    "needsHumanReview": true,
-    "lane": "shipped",
-    "area": "image-and-media-pipelines",
-    "also": [
-      "ledger-and-verification"
-    ],
-    "catalogLane": "shipped",
-    "package": {
-      "pypi": "fx-dub"
     },
     "catalogued": true
   },
@@ -925,68 +781,6 @@
     "catalogued": true
   },
   {
-    "name": "Portlight Ships",
-    "repo": "portlight-ships",
-    "description": "Canon-driven pipeline that teaches a diffusion model ship anatomy — 14 sourced hulls rendered from textured 3D so rotation is true, distilled into a Qwen-Image LoRA. The base model has damage but not anatomy; only anatomy is taught.",
-    "tags": [
-      "blender",
-      "comfyui",
-      "dataset-generation",
-      "diffusion-models",
-      "game-assets",
-      "lora",
-      "qwen-image",
-      "sprite-sheets"
-    ],
-    "featured": false,
-    "stars": 1,
-    "language": "Python",
-    "updatedAt": "2026-09-08T01:09:48Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "lane": "active_lab",
-    "area": "training-and-datasets",
-    "also": [
-      "image-and-media-pipelines"
-    ],
-    "catalogLane": "in-development",
-    "catalogued": true
-  },
-  {
-    "name": "Prompt Craft",
-    "repo": "prompt-craft",
-    "description": "Say what the picture must contain, check that it does, and refuse when it does not. A typed contract of depictable claims drives both the prompt and the gate that verifies the pixels. pip install prompt-crafter",
-    "tags": [
-      "cli",
-      "comfyui",
-      "contract-driven",
-      "diffusion-models",
-      "dspy",
-      "generative-ai"
-    ],
-    "featured": false,
-    "stars": 1,
-    "language": "Python",
-    "updatedAt": "2026-10-20T21:02:17Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "ml",
-    "stability": "stable",
-    "kind": "cli",
-    "install": "pip install prompt-crafter",
-    "tagline": "Say what the picture must contain, check that it does, and refuse when it does not.",
-    "needsHumanReview": true,
-    "lane": "shipped",
-    "area": "image-and-media-pipelines",
-    "catalogLane": "shipped",
-    "package": {
-      "pypi": "prompt-crafter"
-    },
-    "catalogued": true
-  },
-  {
     "name": "Readouts",
     "repo": "readouts",
     "description": "Verified, source-backed SQLite knowledge bases on game development and local AI tooling. Every entry cites its sources, records its research wave, and carries a verified flag that only a separate verifier can set.",
@@ -1025,6 +819,39 @@
     "catalogued": true
   },
   {
+    "name": "Registry Sync",
+    "repo": "registry-sync",
+    "description": "Desired-state sync engine for multi-registry package publishing",
+    "tags": [
+      "audit",
+      "cli",
+      "drift",
+      "ghcr",
+      "mcp",
+      "npm"
+    ],
+    "featured": false,
+    "stars": 1,
+    "language": "TypeScript",
+    "updatedAt": "2026-10-11T19:40:47Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "cli",
+    "install": "npx @mcptoolshop/registry-sync",
+    "tagline": "Desired-state sync engine for multi-registry package publishing.",
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "developer-tooling",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/registry-sync"
+    },
+    "catalogued": true
+  },
+  {
     "name": "Role OS",
     "repo": "role-os",
     "description": "Role OS — a repo-native operating layer that staffs coding-agent work through 61 role contracts, packs, missions, recipe cards, and a critic jury. Claude Code adapter ships; the contracts are markdown any harness can consume.",
@@ -1058,6 +885,41 @@
     "package": {
       "npm": "role-os"
     },
+    "catalogued": true
+  },
+  {
+    "name": "Sprite Foundry",
+    "repo": "sprite-foundry",
+    "description": "Headless sprite generation pipeline — ComfyUI + SQLite + Godot finish lab",
+    "tags": [
+      "8-direction",
+      "asset-pipeline",
+      "comfyui",
+      "controlnet",
+      "game-assets",
+      "godot",
+      "morphology",
+      "normal-maps",
+      "pixel-art",
+      "sprite"
+    ],
+    "featured": false,
+    "stars": 1,
+    "language": "Python",
+    "updatedAt": "2026-10-01T20:34:03Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false,
+    "tagline": "Headless sprite generation pipeline: ComfyUI, SQLite, and a Godot finish lab.",
+    "screenshot": "/screenshots/sprite-foundry.png",
+    "screenshotType": "placeholder",
+    "lane": "active_lab",
+    "surfaceEligible": true,
+    "area": "image-and-media-pipelines",
+    "also": [
+      "games-and-game-tooling"
+    ],
+    "catalogLane": "in-development",
     "catalogued": true
   },
   {
@@ -1117,44 +979,6 @@
     "lane": "shipped",
     "area": "games-and-game-tooling",
     "catalogLane": "shipped",
-    "catalogued": true
-  },
-  {
-    "name": "Style Dataset Lab",
-    "repo": "style-dataset-lab",
-    "description": "Visual canon and dataset production pipeline — snapshots, splits, training packages, eval scorecards, implementation packs, and closed-loop re-ingest for any image production domain",
-    "tags": [
-      "comfyui",
-      "computer-vision",
-      "concept-art",
-      "curation",
-      "dataset",
-      "evaluation"
-    ],
-    "featured": false,
-    "stars": 1,
-    "language": "JavaScript",
-    "updatedAt": "2026-11-01T12:56:37Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "ml",
-    "stability": "stable",
-    "kind": "library",
-    "install": "npx @mcptoolshop/style-dataset-lab",
-    "tagline": "Canon-aligned visual dataset production: snapshots, splits, training packs, evals.",
-    "screenshot": "/screenshots/style-dataset-lab.png",
-    "screenshotType": "placeholder",
-    "lane": "shipped",
-    "surfaceEligible": true,
-    "area": "training-and-datasets",
-    "also": [
-      "image-and-media-pipelines"
-    ],
-    "catalogLane": "shipped",
-    "package": {
-      "npm": "@mcptoolshop/style-dataset-lab"
-    },
     "catalogued": true
   },
   {
@@ -1232,7 +1056,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-11-01T05:13:17Z",
+    "updatedAt": "2026-11-03T19:37:53Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1437,7 +1261,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-11-02T21:26:41Z",
+    "updatedAt": "2026-11-03T19:07:23Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1487,6 +1311,40 @@
     "catalogLane": "in-development",
     "package": {
       "npm": "@mcptoolshop/cognate"
+    },
+    "catalogued": true
+  },
+  {
+    "name": "Comfy Preflight",
+    "repo": "comfy-preflight",
+    "description": "A gate that runs on a ComfyUI workflow graph in the seconds before submission and halts a submission that would spend credits producing a known-wrong result.",
+    "tags": [
+      "cli",
+      "comfyui",
+      "guardrails",
+      "mcp",
+      "model-context-protocol",
+      "preflight",
+      "python",
+      "workflow-validation"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-10-20T21:03:28Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false,
+    "kind": "cli",
+    "install": "npx @mcptoolshop/comfy-preflight",
+    "screenshot": "/screenshots/comfy-preflight.png",
+    "screenshotType": "placeholder",
+    "lane": "shipped",
+    "area": "image-and-media-pipelines",
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/comfy-preflight",
+      "pypi": "comfy-preflight"
     },
     "catalogued": true
   },
@@ -1657,6 +1515,45 @@
     "catalogued": true
   },
   {
+    "name": "Facet",
+    "repo": "facet",
+    "description": "A styled 2D concept becomes a textured 3D asset - style applied on the asset in texture space. Four accepted subject classes, local and licence-clean.",
+    "tags": [
+      "3d",
+      "blender",
+      "comfyui",
+      "diffusion",
+      "game-assets",
+      "gltf",
+      "mcp",
+      "pipeline",
+      "python",
+      "rigging",
+      "texturing",
+      "trellis"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-10-20T20:07:14Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false,
+    "kind": "cli",
+    "install": "npx @mcptoolshop/facet",
+    "lane": "active_lab",
+    "area": "image-and-media-pipelines",
+    "also": [
+      "games-and-game-tooling"
+    ],
+    "catalogLane": "in-development",
+    "package": {
+      "npm": "@mcptoolshop/facet",
+      "pypi": "facet-mcp"
+    },
+    "catalogued": true
+  },
+  {
     "name": "Forkctl",
     "repo": "forkctl",
     "description": "Adoption control plane for GitHub repos. MCP server + CLI: assess, choose path, fork or template, bootstrap, sync.",
@@ -1694,6 +1591,42 @@
     "catalogued": true
   },
   {
+    "name": "FX Dub",
+    "repo": "fx-dub",
+    "description": "Verify a generated dub before anyone hears it — container receipts and spoken-content receipts for AI dialogue pipelines.",
+    "tags": [
+      "audio",
+      "audiobook",
+      "comfyui",
+      "diarization",
+      "dubbing",
+      "ebu-r128"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-10-20T21:01:06Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false,
+    "category": "voice",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pip install fx-dub",
+    "tagline": "Verify a generated dub before anyone hears it — container receipts and spoken-content...",
+    "needsHumanReview": true,
+    "lane": "shipped",
+    "area": "image-and-media-pipelines",
+    "also": [
+      "ledger-and-verification"
+    ],
+    "catalogLane": "shipped",
+    "package": {
+      "pypi": "fx-dub"
+    },
+    "catalogued": true
+  },
+  {
     "name": "GPU Container",
     "repo": "gpu-container",
     "description": "Model-aware inference memory-placement planner for single-GPU rigs: profile hardware + model, generate explicit VRAM/RAM/NVMe placement plans across runtimes (llama.cpp/vLLM/...), and prove them with a measured receipt. Not VRAM overflow - declared placement.",
@@ -1711,7 +1644,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-10-29T16:04:43Z",
+    "updatedAt": "2026-11-03T19:44:33Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1946,7 +1879,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-10-29T10:54:48Z",
+    "updatedAt": "2026-11-03T02:40:56Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2187,6 +2120,35 @@
     "needsHumanReview": true
   },
   {
+    "name": "Portlight Ships",
+    "repo": "portlight-ships",
+    "description": "Canon-driven pipeline that teaches a diffusion model ship anatomy — 14 sourced hulls rendered from textured 3D so rotation is true, distilled into a Qwen-Image LoRA. The base model has damage but not anatomy; only anatomy is taught.",
+    "tags": [
+      "blender",
+      "comfyui",
+      "dataset-generation",
+      "diffusion-models",
+      "game-assets",
+      "lora",
+      "qwen-image",
+      "sprite-sheets"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-09-08T01:09:48Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false,
+    "lane": "active_lab",
+    "area": "training-and-datasets",
+    "also": [
+      "image-and-media-pipelines"
+    ],
+    "catalogLane": "in-development",
+    "catalogued": true
+  },
+  {
     "name": "Prism Verify",
     "repo": "prism-verify",
     "description": "Runtime LLM verifier — family-different, reasoning-stripped, multi-lens adjudication with signed Ed25519 receipts (CLI · MCP · HTTP).",
@@ -2226,6 +2188,39 @@
     "catalogued": true
   },
   {
+    "name": "Prompt Craft",
+    "repo": "prompt-craft",
+    "description": "Say what the picture must contain, check that it does, and refuse when it does not. A typed contract of depictable claims drives both the prompt and the gate that verifies the pixels. pip install prompt-crafter",
+    "tags": [
+      "cli",
+      "comfyui",
+      "contract-driven",
+      "diffusion-models",
+      "dspy",
+      "generative-ai"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-10-20T21:02:17Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false,
+    "category": "ml",
+    "stability": "stable",
+    "kind": "cli",
+    "install": "pip install prompt-crafter",
+    "tagline": "Say what the picture must contain, check that it does, and refuse when it does not.",
+    "needsHumanReview": true,
+    "lane": "shipped",
+    "area": "image-and-media-pipelines",
+    "catalogLane": "shipped",
+    "package": {
+      "pypi": "prompt-crafter"
+    },
+    "catalogued": true
+  },
+  {
     "name": "Reasoning Dataset Lab",
     "repo": "reasoning-dataset-lab",
     "description": "A map-first lab for datasets of puzzles, quizzes and verification items, where code proves the answer key before any model words the item.",
@@ -2240,7 +2235,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-11-02T21:19:06Z",
+    "updatedAt": "2026-11-03T18:09:07Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2321,39 +2316,6 @@
     "catalogLane": "shipped",
     "package": {
       "npm": "@mcptoolshop/registry-stats"
-    },
-    "catalogued": true
-  },
-  {
-    "name": "Registry Sync",
-    "repo": "registry-sync",
-    "description": "Desired-state sync engine for multi-registry package publishing",
-    "tags": [
-      "audit",
-      "cli",
-      "drift",
-      "ghcr",
-      "mcp",
-      "npm"
-    ],
-    "featured": false,
-    "stars": 0,
-    "language": "TypeScript",
-    "updatedAt": "2026-10-11T19:40:47Z",
-    "registered": false,
-    "unlisted": true,
-    "deprecated": false,
-    "category": "infrastructure",
-    "stability": "experimental",
-    "kind": "cli",
-    "install": "npx @mcptoolshop/registry-sync",
-    "tagline": "Desired-state sync engine for multi-registry package publishing.",
-    "lane": "shipped",
-    "surfaceEligible": true,
-    "area": "developer-tooling",
-    "catalogLane": "shipped",
-    "package": {
-      "npm": "@mcptoolshop/registry-sync"
     },
     "catalogued": true
   },
@@ -2540,7 +2502,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-11-02T18:32:32Z",
+    "updatedAt": "2026-11-03T19:56:34Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2566,7 +2528,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-10-23T04:23:40Z",
+    "updatedAt": "2026-11-03T18:58:32Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2990,6 +2952,44 @@
     "catalogued": true
   },
   {
+    "name": "Style Dataset Lab",
+    "repo": "style-dataset-lab",
+    "description": "Visual canon and dataset production pipeline — snapshots, splits, training packages, eval scorecards, implementation packs, and closed-loop re-ingest for any image production domain",
+    "tags": [
+      "comfyui",
+      "computer-vision",
+      "concept-art",
+      "curation",
+      "dataset",
+      "evaluation"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-11-01T12:56:37Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false,
+    "category": "ml",
+    "stability": "stable",
+    "kind": "library",
+    "install": "npx @mcptoolshop/style-dataset-lab",
+    "tagline": "Canon-aligned visual dataset production: snapshots, splits, training packs, evals.",
+    "screenshot": "/screenshots/style-dataset-lab.png",
+    "screenshotType": "placeholder",
+    "lane": "shipped",
+    "surfaceEligible": true,
+    "area": "training-and-datasets",
+    "also": [
+      "image-and-media-pipelines"
+    ],
+    "catalogLane": "shipped",
+    "package": {
+      "npm": "@mcptoolshop/style-dataset-lab"
+    },
+    "catalogued": true
+  },
+  {
     "name": "Synthesis",
     "repo": "synthesis",
     "description": "Composable tool framework for building complex AI workflows",
@@ -3001,7 +3001,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-11-01T02:23:56Z",
+    "updatedAt": "2026-11-03T06:35:07Z",
     "registered": true,
     "unlisted": false,
     "deprecated": false,

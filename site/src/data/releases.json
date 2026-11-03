@@ -1,5 +1,53 @@
 [
   {
+    "repo": "rnd-data",
+    "toolName": "Rnd Data",
+    "tag": "v0.1.0",
+    "name": "rnd-data 0.1.0",
+    "body": [
+      "The first PyPI release of rnd-data: a stdlib-only, read-only reader and schema validator for the rnd-data research store.",
+      "README translations (ja, zh, es, fr, hi, it, pt-BR), made locally with TranslateGemma.",
+      "CI: a pip-audit --strict dependency audit (pinned 2.10.1).",
+      "CLI: an internal error now prints error: INTERNAL: … with a hint and exits 70, never a traceback.",
+      "Release workflow (.github/workflows/release.yml): publishes rnd-data to PyPI via OIDC trusted publishing (pypa/gh-action-pypi-publish, environment: pypi) on release: published and validated workflow_dispatch tag…"
+    ],
+    "publishedAt": "2026-11-03T18:58:43Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd-data/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.23.1.55",
+    "name": "rnd 1.1.23.1.55",
+    "body": [
+      "The first tool release since 1.1.23.1.31 (24 October). It carries 24 library versions, 1.1.23.1.32 to 1.1.23.1.55. Full detail per version is in CHANGELOG.md.",
+      "Issues 30 to 37 (25 October to 3 November). Issue 30 was the first daily issue.",
+      "Issue 34 corrected (1.1.23.1.47): three of the eight Super prompts ask more than a 2.5-second clip can show, so int4 is now the provisional choice, to be re-checked. No numbers changed.",
+      "Mirrors: each published issue now goes to the Hugging Face dataset mcp-tool-shop/rnd-newsletter, to npm as @rnd-news/newsletter, to PyPI as mcptoolshop-rnd-newsletter, and to a GitHub release per issue (1.1.23.1.35,…",
+      "/newsletter/subscribe/ is now \"Follow the newsletter\": RSS plus the mirrors (1.1.23.1.50)."
+    ],
+    "publishedAt": "2026-11-03T18:31:18Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.55",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "newsletter-issue-37",
+    "name": "3 November: taking the judge test to a rented GPU, and the daily watch",
+    "body": [
+      "The launcher that carries our judge bake-off to a rented Colab GPU ran the whole path on a CPU machine, and its first GPU run stopped twice at the start, cheaply: once on a connection timeout, then, in 14 seconds, by…",
+      "The whole path, on a CPU machine. Four calls on two practice items, all four replies parsed, 806 seconds, 0.018 Colab units. The model loads lazily: about 1 GB at the load step, about 7 GB during the first call.",
+      "A drifted machine, stopped by name. The first GPU machine shipped an older uv that can't install the pinned Python, and the launcher refused in 14 seconds before building anything.",
+      "The daily watch. Ollama 0.40.14 stops overriding a model's own sampler defaults, and Gemini 2.5 Pro and Flash route to newer models from 1 December.",
+      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-37/"
+    ],
+    "publishedAt": "2026-11-03T14:18:42Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-37",
+    "prerelease": false
+  },
+  {
     "repo": "rnd",
     "toolName": "Rnd",
     "tag": "newsletter-issue-36",
@@ -101,22 +149,6 @@
     "prerelease": false
   },
   {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "newsletter-issue-33",
-    "name": "28 October: the T4 sweep is done, a ready-made critic fails its test, and Cognate learns to choose between plans",
-    "body": [
-      "Yesterday the T4 part of the C2 sweep finished. Replayed over the earlier windows, interlock 1.0.11's new check would have refused every load that had been killed and none that had completed; on its live windows,…",
-      "The T4 sweep is done. Three repetitions on Colab's T4 card closed on 27 October. By the end of the T4 part the sweep had spent 19.572 of the 800 units set aside for it; the L4 and A100 cards started running overnight.",
-      "A check that held on a live run. interlock 1.0.11 refuses a cell whose memory would overflow the machine, before loading it. On its first live windows, for phi3.5 it refused the same five cells in each of four…",
-      "A ready-made critic, failed. An off-the-shelf language-inference model read real supporting quotes as support 21% and 7% of the time, against a pre-set bar of 85%. It won't be used.",
-      "Cognate chooses between plans. civility-kernel joins Cognate: it drops plans that break a hard rule, scores the rest, and executes the best or asks a person. Its decisions can now be hashed and recorded."
-    ],
-    "publishedAt": "2026-10-28T09:13:00Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-33",
-    "prerelease": false
-  },
-  {
     "repo": "interlock",
     "toolName": "Interlock",
     "tag": "v1.0.11",
@@ -130,22 +162,6 @@
     ],
     "publishedAt": "2026-10-27T17:12:33Z",
     "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.11",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "newsletter-issue-32",
-    "name": "27 October: a spotlight on AI Jam Sessions, interlock and XRPL Camp",
-    "body": [
-      "A spotlight issue on three tools the studio ships in the open: AI Jam Sessions, which teaches an AI to play, sing and listen; interlock, which went from 1.0.8 to 1.0.10 while it measured its first rented card; and…",
-      "AI Jam Sessions. An MCP server that teaches an AI to play piano and guitar, sing and listen: 109 annotated songs, 56 tools, and three hymns sung whole by a synthetic voice.",
-      "interlock 1.0.8 to 1.0.10. Three releases made from what the first rented-card runs showed: a time limit on every cell, a restart when one hangs, and noise recorded instead of thrown away.",
-      "XRPL Camp 1.5. Learn the XRP Ledger in about ten minutes on the test network, and keep a proof of what you did that anyone can check.",
-      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-32/"
-    ],
-    "publishedAt": "2026-10-27T16:19:43Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-32",
     "prerelease": false
   },
   {
@@ -693,21 +709,6 @@
     ],
     "publishedAt": "2026-10-15T03:29:39Z",
     "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.15.2",
-    "prerelease": false
-  },
-  {
-    "repo": "mcp-arcade-cabinets",
-    "toolName": "MCP Arcade Cabinets",
-    "tag": "v0.13.3",
-    "name": "v0.13.3",
-    "body": [
-      "A dependency patch. Nothing a player sees changes.",
-      "The MCP SDK moves to 1.32.1. @modelcontextprotocol/sdk 1.30.0 had a high advisory fixed in 1.31.0 (GHSA-6qxp-vccf-f47h); cabinet-server, which the launchers bundle, declares it, so the floor in…",
-      "Two transitive packages in the root lockfile are raised. proxy-addr 2.0.8 (a critical IP-spoofing advisory, GHSA-jqcg-44mw-7w3h; it arrives through express under the MCP SDK that cabinet-server bundles) and…",
-      "The docs site's lockfile is updated. sharp 0.35.5, source-map-js 1.2.2, http-cache-semantics 4.3.0 and smol-toml 1.9.1 (three high, one moderate; site/ is not in any published package). Ten moderate advisories in one…"
-    ],
-    "publishedAt": "2026-10-15T03:29:28Z",
-    "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets/releases/tag/v0.13.3",
     "prerelease": false
   }
 ]
