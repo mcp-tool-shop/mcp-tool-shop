@@ -1354,6 +1354,22 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
+  "understanding-dataset-lab": {
+    "tags": [
+      "cognitive-empathy",
+      "dataset",
+      "llm-evaluation",
+      "mcp-tool-shop",
+      "open-research",
+      "prototype"
+    ],
+    "category": "ml",
+    "stability": "beta",
+    "kind": "library",
+    "install": "pip install understanding-dataset-lab",
+    "tagline": "Prototype: a dataset lab for cognitive empathy.",
+    "needsHumanReview": true
+  },
   "vocal-synth-engine": {
     "tags": [
       "additive-synthesis",

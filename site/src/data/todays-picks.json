@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-03",
+  "date": "2026-11-04",
   "picks": [
     {
       "slug": "websketch-ir",
@@ -9,22 +9,8 @@
       ]
     },
     {
-      "slug": "accessibility-suite",
-      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
-      "signals": [
-        "popular"
-      ]
-    },
-    {
-      "slug": "comfy-headless",
-      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
-      "signals": [
-        "featured"
-      ]
-    },
-    {
-      "slug": "audiobooker",
-      "reason": "Audio book generation and management system",
+      "slug": "synthesis",
+      "reason": "Composable tool framework for building complex AI workflows",
       "signals": [
         "popular"
       ]
@@ -37,8 +23,22 @@
       ]
     },
     {
-      "slug": "xrpl-camp",
-      "reason": "Learn the XRP Ledger in one sitting - six guided lessons on Testnet, ending in a record anyone can verify against the ledger",
+      "slug": "comfy-headless",
+      "reason": "Run ComfyUI workflows without the UI — headless execution for automation",
+      "signals": [
+        "featured"
+      ]
+    },
+    {
+      "slug": "accessibility-suite",
+      "reason": "Unified monorepo for accessibility testing, evidence generation, and WCAG compliance tooling",
+      "signals": [
+        "popular"
+      ]
+    },
+    {
+      "slug": "mcp-stress-test",
+      "reason": "Load and stress testing utilities for MCP servers and tool ecosystems",
       "signals": [
         "popular"
       ]

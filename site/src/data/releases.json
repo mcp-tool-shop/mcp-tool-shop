@@ -1,5 +1,37 @@
 [
   {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "newsletter-issue-38",
+    "name": "4 November: the dataset labs this week, aspire-si's memory test passes, and two releases",
+    "body": [
+      "The judge bake-off reached a datacentre GPU: all five judges timed on an A100, from 0.10 s to 5.93 s a call, and the counted run planned at about 35 units, though no judge has been scored. aspire-si's memory smoke…",
+      "Every judge timed on an A100. 20 calls each, every reply parsed: flow-judge-v0.1 5.93 s a call, the other four 0.10 to 0.28 s. The counted run is planned at about 35 units in six windows. No judge has been scored.",
+      "aspire-si's memory test passes. The registered shape peaked at 22,484 MiB against the 31,200 MiB line, after a fix for a KV cache kept in 32-bit floats.",
+      "Two releases. rnd 1.1.23.1.55, and rnd-data 0.1.0, a read-only reader for the store of raw data behind our research.",
+      "A heartbeat should prove the work happened. Our GPU watchdog went blind for almost two days and still looked healthy."
+    ],
+    "publishedAt": "2026-11-04T17:05:53Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-38",
+    "prerelease": false
+  },
+  {
+    "repo": "understanding-dataset-lab",
+    "toolName": "Understanding Dataset Lab",
+    "tag": "v0.1.0",
+    "name": "v0.1.0 (prototype)",
+    "body": [
+      "Prototype. udlab is a research prototype. Its interfaces, formats and results can change between releases, and nothing here is a finished dataset.",
+      "udlab generates multi-party scenes whose answer keys come from code: who knows, believes, wants and needs what. A local writer model puts each planned scene into prose, and code checks every rendering against the…",
+      "Not yet shown: no sealed confirmatory run of Stage 5, no model trained on udlab data, and nothing yet about whether any model understands the people in a scene.",
+      "Landing page and handbook: https://mcp-tool-shop-org.github.io/understanding-dataset-lab/",
+      "This is a GitHub release only; nothing is published to PyPI. Run it from a clone with uv run udlab-gen (see Getting started in the handbook)."
+    ],
+    "publishedAt": "2026-11-04T02:08:32Z",
+    "url": "https://github.com/mcp-tool-shop-org/understanding-dataset-lab/releases/tag/v0.1.0",
+    "prerelease": true
+  },
+  {
     "repo": "rnd-data",
     "toolName": "Rnd Data",
     "tag": "v0.1.0",
@@ -120,22 +152,6 @@
     ],
     "publishedAt": "2026-10-29T19:55:17Z",
     "url": "https://github.com/mcp-tool-shop-org/aspire-si-gates/releases/tag/v1.7.6",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "newsletter-issue-34",
-    "name": "29 October: repaired test sets certify 44 of 50, long tool lists cost a model its \"no\", and Cosmos 3 on one rented card",
-    "body": [
-      "Rewritten so that every pair is a clear contradiction, and keyed blind before any reader saw them, the reasoning-dataset-lab sets certified 44 of 50, against 26 before; the thinking setting we suspected turned out…",
-      "44 of 50 sets certified. Every pair rewritten to be a clear contradiction and keyed blind first, the sets certified 44 of 50, against 26 before. The cleaner sets, not the thinking setting, cut the length stops.",
-      "Long tool lists held; the \"no\" slipped. With 5 to 100 tools, Granite 4.2 8B and Qwen3.8-27B kept picking the right tool. Granite declined 19 of 30 no-tool requests at 40 tools and 18 on a padded 10-tool prompt;…",
-      "A world model on one rented card. Cosmos 3 Nano made an 8-second clip on one RTX PRO 6000 card in a 628-second window, about 1.55 compute units, with generation within 2% of our estimate.",
-      "Super on one card, for now in int4. Five shrunk versions of Cosmos 3 Super ran on one G4. Intel's int4 export wasn't separable from FP8 on fidelity, and ran faster in less memory, so it's our working choice for now."
-    ],
-    "publishedAt": "2026-10-29T15:15:23Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-34",
     "prerelease": false
   },
   {
@@ -697,18 +713,6 @@
     ],
     "publishedAt": "2026-10-15T04:09:00Z",
     "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.5.5",
-    "prerelease": false
-  },
-  {
-    "repo": "research-os",
-    "toolName": "Research OS",
-    "tag": "v0.15.2",
-    "name": "v0.15.2",
-    "body": [
-      "Dependency updates; no code changed. Lockfile only, within the declared ranges: @modelcontextprotocol/sdk 1.30.0 to 1.32.1 (a high advisory, fixed in 1.31.0), fast-uri 3.1.8, ip-address 10.7.4, proxy-addr 2.0.8 and…"
-    ],
-    "publishedAt": "2026-10-15T03:29:39Z",
-    "url": "https://github.com/mcp-tool-shop-org/research-os/releases/tag/v0.15.2",
     "prerelease": false
   }
 ]
