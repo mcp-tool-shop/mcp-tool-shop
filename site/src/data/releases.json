@@ -2,6 +2,22 @@
   {
     "repo": "rnd",
     "toolName": "Rnd",
+    "tag": "newsletter-issue-39",
+    "name": "5 November: the dataset labs, and udlab goes public as a prototype",
+    "body": [
+      "Five of our public repositories make datasets, from puzzles and scenes to images and code. The newest, understanding-dataset-lab (udlab), went public this week as a v0.1.0 prototype: multi-party scenes whose answer…",
+      "Five dataset labs. Puzzles, scenes, images and repositories. In the two that write test items, code makes the answer key and a model only words it.",
+      "udlab is public, as a prototype. Multi-party scenes with code-made answer keys, written by a local model and checked by code. v0.1.0 is a GitHub pre-release; nothing is on PyPI.",
+      "Two stages failed first. Stage 3 passed 111 of 160 renderings against 127 for the baseline, and Stage 4 89 against 120. Stage 5 passed all 7 of its development gates: 126 of 160 first drafts against a floor of 112.",
+      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-39/"
+    ],
+    "publishedAt": "2026-11-05T17:21:55Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-39",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
     "tag": "newsletter-issue-38",
     "name": "4 November: the dataset labs this week, aspire-si's memory test passes, and two releases",
     "body": [
@@ -93,22 +109,6 @@
     ],
     "publishedAt": "2026-11-02T05:10:45Z",
     "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-36",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "newsletter-issue-35",
-    "name": "30 October: a leak check that cried wolf, a perfect score on long tool lists, and Cosmos 3 on one card",
-    "body": [
-      "Our check for shortcuts in the judge bake-off's test sets was failing sets that had none; a calibrated rule now false-fails at most 0.5% of them, says plainly how small a leak it can see, and passes the repaired…",
-      "A leak check that cried wolf. The old 5-point rule failed 80% to 98.5% of test sets with no shortcut at all. The calibrated rule fails at most 0.5%, still catches all twelve planted leaks, and at 38 triads screens…",
-      "Gemma 4 31B: 170 of 170, 30 of 30. No mistakes on tool lists from 5 to 100, in all 12 conditions. Granite 4.2 8B is still the only model whose \"no\" slipped.",
-      "Cosmos 3, four versions on one card. 144 clips on one rented B200, 36 per version, for a comparison by people that is still being designed. An operations note, not a quality result.",
-      "A small model on one TPU chip. int8 weights moved the loss by 0.0005, but changed the generated text on three of four prompts."
-    ],
-    "publishedAt": "2026-10-30T16:14:11Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-35",
     "prerelease": false
   },
   {

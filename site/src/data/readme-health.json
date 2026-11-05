@@ -1,13 +1,13 @@
 {
   "meta": {
-    "generatedAt": "2026-11-04T20:16:51.228Z",
-    "runId": "9a2e913a-ac36-43ee-a7d2-9890812633de",
+    "generatedAt": "2026-11-05T20:28:57.507Z",
+    "runId": "8d99dee7-bf1f-4a50-aa97-915be8421a52",
     "version": "2.0",
     "checkedCount": 9,
     "strategy": {
       "recentDays": 7,
       "sampleSize": 10,
-      "seed": "2026-11-04"
+      "seed": "2026-11-05"
     }
   },
   "results": [
@@ -26,26 +26,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-11-04T20:16:51.228Z",
-      "lastCheckedAt": "2026-11-04T20:16:51.228Z"
-    },
-    {
-      "repo": "codecomfy-vscode",
-      "score": 90,
-      "status": "great",
-      "capReason": null,
-      "missing": [],
-      "evidence": {
-        "hasInstall": true,
-        "hasUsage": true,
-        "hasDescription": true,
-        "hasDocsLink": false,
-        "hasLicense": true,
-        "hasScreenshot": true
-      },
-      "checkStatus": "ok",
-      "checkedAt": "2026-11-04T20:16:51.228Z",
-      "lastCheckedAt": "2026-11-04T20:16:51.228Z"
+      "checkedAt": "2026-11-05T20:28:57.507Z",
+      "lastCheckedAt": "2026-11-05T20:28:57.507Z"
     },
     {
       "repo": "mcp-stress-test",
@@ -62,8 +44,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-11-04T20:16:51.228Z",
-      "lastCheckedAt": "2026-11-04T20:16:51.228Z"
+      "checkedAt": "2026-11-05T20:28:57.507Z",
+      "lastCheckedAt": "2026-11-05T20:28:57.507Z"
     },
     {
       "repo": "xrpl-camp",
@@ -80,8 +62,26 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-11-04T20:16:51.228Z",
-      "lastCheckedAt": "2026-11-04T20:16:51.228Z"
+      "checkedAt": "2026-11-05T20:28:57.507Z",
+      "lastCheckedAt": "2026-11-05T20:28:57.507Z"
+    },
+    {
+      "repo": "codecomfy-vscode",
+      "score": 90,
+      "status": "great",
+      "capReason": null,
+      "missing": [],
+      "evidence": {
+        "hasInstall": true,
+        "hasUsage": true,
+        "hasDescription": true,
+        "hasDocsLink": false,
+        "hasLicense": true,
+        "hasScreenshot": true
+      },
+      "checkStatus": "ok",
+      "checkedAt": "2026-11-05T20:28:57.507Z",
+      "lastCheckedAt": "2026-11-05T20:28:57.507Z"
     },
     {
       "repo": "comfy-headless",
@@ -98,8 +98,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-11-04T20:16:51.228Z",
-      "lastCheckedAt": "2026-11-04T20:16:51.228Z"
+      "checkedAt": "2026-11-05T20:28:57.507Z",
+      "lastCheckedAt": "2026-11-05T20:28:57.507Z"
     },
     {
       "repo": "backpropagate",
@@ -116,8 +116,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-11-04T20:16:51.228Z",
-      "lastCheckedAt": "2026-11-04T20:16:51.228Z"
+      "checkedAt": "2026-11-05T20:28:57.507Z",
+      "lastCheckedAt": "2026-11-05T20:28:57.507Z"
     },
     {
       "repo": "tool-compass",
@@ -134,8 +134,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-11-04T20:16:51.228Z",
-      "lastCheckedAt": "2026-11-04T20:16:51.228Z"
+      "checkedAt": "2026-11-05T20:28:57.507Z",
+      "lastCheckedAt": "2026-11-05T20:28:57.507Z"
     },
     {
       "repo": "accessibility-suite",
@@ -152,8 +152,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-11-04T20:16:51.228Z",
-      "lastCheckedAt": "2026-11-04T20:16:51.228Z"
+      "checkedAt": "2026-11-05T20:28:57.507Z",
+      "lastCheckedAt": "2026-11-05T20:28:57.507Z"
     },
     {
       "repo": "synthesis",
@@ -170,8 +170,8 @@
         "hasScreenshot": true
       },
       "checkStatus": "ok",
-      "checkedAt": "2026-11-04T20:16:51.228Z",
-      "lastCheckedAt": "2026-11-04T20:16:51.228Z"
+      "checkedAt": "2026-11-05T20:28:57.507Z",
+      "lastCheckedAt": "2026-11-05T20:28:57.507Z"
     }
   ]
 }
