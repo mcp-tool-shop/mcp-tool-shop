@@ -1,5 +1,5 @@
 {
-  "repoCount": 101,
+  "repoCount": 111,
   "registeredCount": 9,
   "totalStars": 58,
   "languages": [
@@ -9,14 +9,15 @@
     "Rust",
     "HTML",
     "C#",
-    "GDScript"
+    "GDScript",
+    "PowerShell"
   ],
   "recentReleases": 50,
-  "updatedAt": "2026-11-04T20:16:46.421Z",
+  "updatedAt": "2026-11-06T19:51:21.446Z",
   "registryHealth": {
     "registryToolCount": 9,
     "registeredInProjects": 9,
-    "orgOnlyRepos": 92,
+    "orgOnlyRepos": 102,
     "registryArchived": 0,
     "registryMissing": 0,
     "ignoredRepos": 6,

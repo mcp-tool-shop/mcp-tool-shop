@@ -1,5 +1,107 @@
 [
   {
+    "repo": "world-forge",
+    "toolName": "World Forge",
+    "tag": "v4.9.1",
+    "name": "v4.9.1",
+    "body": [
+      "Dependency security updates, a Godot stage fixture that is a join graph, handbook pages for Salt Road and the authoring levers, and the Atlas map. No schema change; SCHEMA_VERSION follows the package version as it…",
+      "Security: devalue 5.9.2 -> 5.9.4 in the site's lockfile (GHSA-j22f-vq7h-c4qm, GHSA-mcm9-63f2-9j32). undici in the same lockfile moves 8.10.0 -> 8.11.2.",
+      "Security: brace-expansion moves to its fixed releases in the root lockfile (5.0.9 -> 5.0.12 and 2.1.4 -> 2.1.7).",
+      "Generated fixtures are checked out as LF. .gitattributes marks docs/c0-alignment/* and dogfood/worlds/multi-target-proof.worldforge.json as eol=lf, so a test run on Windows with core.autocrlf=true no longer rewrites…",
+      "Scan-clean fixture. The editor test fixture for the file input uses a <you> placeholder instead of an account-specific home path."
+    ],
+    "publishedAt": "2026-11-06T03:06:24Z",
+    "url": "https://github.com/mcp-tool-shop-org/world-forge/releases/tag/v4.9.1",
+    "prerelease": false
+  },
+  {
+    "repo": "polyglot-mcp",
+    "toolName": "Polyglot MCP",
+    "tag": "v1.11.0",
+    "name": "v1.11.0",
+    "body": [
+      "Prose that comes back from the model still in English is now caught, retried and reported, and the dependency tree resolves patched versions (#56, #57, #58).",
+      "Untranslated-prose check (--on-untranslated=fail|report) (isProseLine, survivingProse, UntranslatedError, enforceUntranslatedPolicy, parseUntranslatedPolicy, untranslatedBlockText in src/survival.ts; unusableReason…",
+      "Retry — an unusable model answer (empty, an echo of the English, or code-span placeholders that did not come back) is retried once on its own; a segment that already took the one-call-per-item fallback counts that…",
+      "Piecewise retry is safer — one placeholder pattern is used to renumber and to restore, so a decorated placeholder (⟦ 0 ⟧) can no longer swap two code spans; a line or sentence is never cut inside a link, whose label…",
+      "MCP tools — translate_markdown, translate_all and translate_readme take onUntranslated and append the untranslated list to their output; translateAll and translateReadme return untranslated per language."
+    ],
+    "publishedAt": "2026-11-06T02:54:58Z",
+    "url": "https://github.com/mcp-tool-shop-org/polyglot-mcp/releases/tag/v1.11.0",
+    "prerelease": false
+  },
+  {
+    "repo": "offrig",
+    "toolName": "Offrig",
+    "tag": "v1.3.0",
+    "name": "v1.3.0",
+    "body": [
+      "Windows x64 only. Verify the zip against SHA256SUMS before use.",
+      "offrig verify calibrate --jobs <N> (1 to 8, default 1). Keeps up to N claims in flight at once against one local Ollama server while keeping all stateful bookkeeping on a single coordinator thread:",
+      "One coordinator thread dispatches claims to N worker threads that run only the model calls (verify_policy, including any structured-schema retry). store.save_verdict, verdicts.jsonl, thinking.jsonl, attempts.json,…",
+      "Completed claims are buffered and committed strictly in file order. When a breaker trips, the coordinator stops dispatching, lets in-flight claims finish, commits any that form a contiguous prefix in file order, and…",
+      "Each in-flight claim captures its own thinking rows (ClaimThinking) and writes them when that claim is committed, so thinking rows never interleave across claims."
+    ],
+    "publishedAt": "2026-11-06T01:40:11Z",
+    "url": "https://github.com/mcp-tool-shop-org/offrig/releases/tag/v1.3.0",
+    "prerelease": false
+  },
+  {
+    "repo": "style-dataset-lab",
+    "toolName": "Style Dataset Lab",
+    "tag": "v3.5.1",
+    "name": "v3.5.1",
+    "body": [
+      "Portlight ship data cleared and quarantine removed — the studio's Portlight ship data (mcp-tool-shop/portlight-ships-anatomy) and plsvessel LoRA (mcp-tool-shop/portlight-ships-anatomy-lora) are cleared under the MIT…"
+    ],
+    "publishedAt": "2026-11-05T22:58:01Z",
+    "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v3.5.1",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-jam-sessions",
+    "toolName": "AI Jam Sessions",
+    "tag": "v2.9.0",
+    "name": "v2.9.0 — cockpit Review mode",
+    "body": [],
+    "publishedAt": "2026-11-05T22:35:08Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions/releases/tag/v2.9.0",
+    "prerelease": false
+  },
+  {
+    "repo": "reasoning-dataset-lab",
+    "toolName": "Reasoning Dataset Lab",
+    "tag": "v0.5.0",
+    "name": "reasoning-dataset-lab 0.5.0",
+    "body": [
+      "The judge bake-off: build a sealed test part, run five local judges on it, score them without anyone seeing the keys first, and run the judges on Colab. Tests: 1,162 passing, 2 skipped.",
+      "rdlab bakeoff-part builds the writer-only Kind-D (T10) judge bake-off part from certified value sets, into an output directory outside the repo, with a sealed key store. --resume continues from a per-triad sealed…",
+      "rdlab bakeoff-probe runs the out-of-fold shortcut probe and the role and closure class-share gates on a part, so a part whose answers can be guessed from surface features fails before any judge sees it.",
+      "rdlab bakeoff-judge runs one judge over the part's items without opening the sealed store, then closes its outputs into outputs-closed.json.",
+      "rdlab bakeoff-judge-score verifies the closed outputs, joins them with the sealed keys, and writes sealed per-row records plus public aggregates. It refuses rows without timings (BAKEOFF_SCORE_MISSING_ROW_SECONDS)…"
+    ],
+    "publishedAt": "2026-11-05T22:24:04Z",
+    "url": "https://github.com/mcp-tool-shop-org/reasoning-dataset-lab/releases/tag/v0.5.0",
+    "prerelease": false
+  },
+  {
+    "repo": "style-dataset-lab",
+    "toolName": "Style Dataset Lab",
+    "tag": "v3.5.0",
+    "name": "v3.5.0",
+    "body": [
+      "Provenance you can prove, canon a model can draft but not decide, and the first Colab lanes. Tests 791 → 926.",
+      "sdlab asset ingest <dir> — the asset lane. Admits a 3D asset's re-rendered turnaround as provenance-carrying training data, against an asset-source.json contract (schema 1.3.0). Every declaration (channels, palette…",
+      "sdlab verify --project <name> — walks the release provenance chain offline for each record: owner and CC-BY-4.0 licence on the record, the bound canon entry (by canon_sha and entry hash), the licence of every model…",
+      "sdlab canon draft — a local model drafts canon entries and prompts through a loopback-only, OpenAI-compatible endpoint. Output is written with status: \"draft\", judgment: null, and drafted_by_model / author_model on…",
+      "Canon review gate and memory store. The freeze gate refuses any model-drafted entry unless a person approved it, with a reason and the sha256 of the exact draft approved. A persistent memory store keeps every draft…"
+    ],
+    "publishedAt": "2026-11-05T22:24:02Z",
+    "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v3.5.0",
+    "prerelease": false
+  },
+  {
     "repo": "rnd",
     "toolName": "Rnd",
     "tag": "newsletter-issue-39",
@@ -615,104 +717,6 @@
     ],
     "publishedAt": "2026-10-18T04:18:33Z",
     "url": "https://github.com/mcp-tool-shop-org/portlight-bounty/releases/tag/v0.3.0",
-    "prerelease": false
-  },
-  {
-    "repo": "portlight-bounty",
-    "toolName": "Portlight Bounty",
-    "tag": "v0.2.0",
-    "name": "v0.2.0",
-    "body": [
-      "Version 0.2.0 of the Rust port and the Godot chart.",
-      "The simulation is the rules. The chart is what you play. Rust 1.98.1, Godot 4.7.2.",
-      "Play: https://mcp-tool-shop-org.github.io/portlight-bounty/"
-    ],
-    "publishedAt": "2026-10-18T01:13:18Z",
-    "url": "https://github.com/mcp-tool-shop-org/portlight-bounty/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "dataset-desk",
-    "toolName": "Dataset Desk",
-    "tag": "v0.1.2",
-    "name": "dataset-desk v0.1.2",
-    "body": [
-      "report --count-tokens runs the gate's 64-token test with the cached SigLIP2 tokenizer, offline. Before it, the command line never passed a token counter, so a record that passed every other test stayed unchecked.",
-      "Error code DEP_TOKENIZER_MISSING (exit 1) when --count-tokens can't find the tokenizer.",
-      "report no longer stops when --out and the project are on different Windows drives: links fall back to file:// URIs where a relative path can't cross drives.",
-      "The tokenizer load no longer logs the bos/eos config warning, like the model load in 0.1.1.",
-      "152 offline tests; line coverage 96%, CI floor 90."
-    ],
-    "publishedAt": "2026-10-15T23:33:15Z",
-    "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.1.2",
-    "prerelease": false
-  },
-  {
-    "repo": "claude-guardian",
-    "toolName": "Claude Guardian",
-    "tag": "v1.2.2",
-    "name": "claude-guardian v1.2.2",
-    "body": [
-      "Stopping the watchdog and hang recovery now end the supervised command's whole process tree on Windows (taskkill /T /F). The watchdog starts the command under cmd.exe (shell: true) and kill() ended only that shell,…",
-      "tests/watchdog-kill-tree.test.ts: stop() and hang recovery end a grandchild that shares the command's stdio (Windows), hang recovery restarts the command, and killTree sends the signal it is given and leaves an…",
-      "tests/kill-tree.test.ts: every branch of killTree with the platform and taskkill faked, so the Windows branch is tested on any machine."
-    ],
-    "publishedAt": "2026-10-15T20:37:04Z",
-    "url": "https://github.com/mcp-tool-shop-org/claude-guardian/releases/tag/v1.2.2",
-    "prerelease": false
-  },
-  {
-    "repo": "ollama-intern-mcp",
-    "toolName": "Ollama Intern MCP",
-    "tag": "v2.10.2",
-    "name": "v2.10.2",
-    "body": [
-      "Command timeouts are enforced on Windows. The ollama_draft compile check (15 s) and ollama_batch_proof_check (your timeout_ms, 60 s by default) both run their command through cmd.exe on Windows. On timeout they…",
-      "Found by a CI timeout: the Windows compile-check regression test ran past its 30 s limit on a cold runner, though the check's own limit is 15 s."
-    ],
-    "publishedAt": "2026-10-15T19:47:56Z",
-    "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp/releases/tag/v2.10.2",
-    "prerelease": false
-  },
-  {
-    "repo": "offrig",
-    "toolName": "Offrig",
-    "tag": "v1.2.0",
-    "name": "v1.2.0",
-    "body": [
-      "The project index embeds with EmbeddingGemma 2. The default model is now embeddinggemma-2:f32: Google DeepMind's google/embeddinggemma-2 at revision 914f7f8, an open model under Apache-2.0 with no gate, text only,…",
-      "Documents are sent with title: none | text: and queries with task: search result | query: . The code-retrieval prefix scored no better on code queries (−0.008), so one query prefix serves every kind.",
-      "tools/embed-serve, the CPU embed server. Ollama on Windows can't run EmbeddingGemma 2, so this small loopback server answers the part of Ollama's API that offrig's embed client uses, on the same default embed_url…",
-      "It serves one name and answers 404 for any other, so no store can silently mix models.",
-      "It refuses to start when torch can see CUDA, and /api/ps reports size_vram: 0."
-    ],
-    "publishedAt": "2026-10-15T17:17:14Z",
-    "url": "https://github.com/mcp-tool-shop-org/offrig/releases/tag/v1.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "offrig",
-    "toolName": "Offrig",
-    "tag": "v1.1.3",
-    "name": "v1.1.3",
-    "body": [
-      "The embed server cannot take the GPU without offrig refusing. On Ollama 0.40 a server started with only CUDA_VISIBLE_DEVICES=-1 still reaches an NVIDIA card through Vulkan, so the documented start line could load the…"
-    ],
-    "publishedAt": "2026-10-15T04:13:00Z",
-    "url": "https://github.com/mcp-tool-shop-org/offrig/releases/tag/v1.1.3",
-    "prerelease": false
-  },
-  {
-    "repo": "tool-compass",
-    "toolName": "Tool Compass",
-    "tag": "v2.5.5",
-    "name": "Tool Compass v2.5.5",
-    "body": [
-      "The Docker image no longer crashes with \"Illegal instruction\" on a CPU older than the one that built it. hnswlib has no wheel for the image's Python, so the build compiles it, and its setup.py adds -march=native…",
-      "The CI Docker smoke waits up to 3 minutes instead of 90 seconds, fails at once if the container exits, and on a timeout sends SIGABRT so Python writes its stack to the log. No effect on the published package."
-    ],
-    "publishedAt": "2026-10-15T04:09:00Z",
-    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.5.5",
     "prerelease": false
   }
 ]

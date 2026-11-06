@@ -267,7 +267,7 @@
     "featured": false,
     "stars": 7,
     "language": "TypeScript",
-    "updatedAt": "2026-10-11T19:44:51Z",
+    "updatedAt": "2026-11-06T03:52:39Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -293,7 +293,7 @@
     "featured": false,
     "stars": 5,
     "language": "TypeScript",
-    "updatedAt": "2026-11-01T20:56:51Z",
+    "updatedAt": "2026-11-05T22:35:08Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1056,7 +1056,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-11-05T20:22:52Z",
+    "updatedAt": "2026-11-06T15:46:46Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1186,7 +1186,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-11-04T01:29:06Z",
+    "updatedAt": "2026-11-05T21:23:19Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1203,6 +1203,19 @@
       "npm": "@mcptoolshop/brand"
     },
     "catalogued": true
+  },
+  {
+    "name": "Chips",
+    "repo": "chips",
+    "description": "Chip registry — SHA-tracked background-task (spawn_task) discipline for the studio",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-11-05T21:52:26Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Claude Guardian",
@@ -1261,7 +1274,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-11-05T19:33:06Z",
+    "updatedAt": "2026-11-06T18:56:45Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1706,7 +1719,7 @@
     "featured": false,
     "stars": 0,
     "language": "C#",
-    "updatedAt": "2026-10-30T06:35:38Z",
+    "updatedAt": "2026-11-06T06:35:38Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1984,7 +1997,7 @@
     "featured": false,
     "stars": 0,
     "language": "Rust",
-    "updatedAt": "2026-10-23T03:14:46Z",
+    "updatedAt": "2026-11-06T01:28:02Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2041,7 +2054,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-11-01T18:56:31Z",
+    "updatedAt": "2026-11-06T02:54:57Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2109,7 +2122,7 @@
     "featured": false,
     "stars": 0,
     "language": "Rust",
-    "updatedAt": "2026-10-25T22:08:45Z",
+    "updatedAt": "2026-11-05T22:27:21Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2136,7 +2149,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-09-08T01:09:48Z",
+    "updatedAt": "2026-11-05T21:57:19Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2147,6 +2160,19 @@
     ],
     "catalogLane": "in-development",
     "catalogued": true
+  },
+  {
+    "name": "Portrait Forge",
+    "repo": "portrait-forge",
+    "description": "Consistent character portraits from text descriptions: one pinned ComfyUI workflow, local or Comfy Cloud, a house-style LoRA, a question-based acceptance gate, and a per-entity registry",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "TypeScript",
+    "updatedAt": "2026-11-05T21:51:58Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Prism Verify",
@@ -2235,7 +2261,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-11-05T18:59:30Z",
+    "updatedAt": "2026-11-06T17:39:05Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2551,7 +2577,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-10-30T16:01:25Z",
+    "updatedAt": "2026-11-06T14:14:11Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2674,6 +2700,30 @@
     "needsHumanReview": true
   },
   {
+    "name": "Schumann Surface",
+    "repo": "schumann-surface",
+    "description": "Schumann resonance as a 3D time-frequency surface with event lanes and honest lagged cross-correlation, from the Sierra Nevada ELF station's open raw archive",
+    "tags": [
+      "dataset",
+      "elf",
+      "geophysics",
+      "huggingface",
+      "ionosphere",
+      "python",
+      "schumann-resonance",
+      "space-weather",
+      "threejs",
+      "visualization"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "HTML",
+    "updatedAt": "2026-11-04T07:33:07Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Sense Si",
     "repo": "sense-si",
     "description": "Python instruments for seeing and hearing. Jev answers questions over their records and does not pass or fail.",
@@ -2723,6 +2773,24 @@
       "npm": "@mcptoolshop/sensor-humor"
     },
     "catalogued": true
+  },
+  {
+    "name": "Session Record",
+    "repo": "session-record",
+    "description": "Store a session as an addressable record a later turn can refer to",
+    "tags": [
+      "mcp",
+      "python",
+      "session",
+      "sqlite"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-10-14T23:48:04Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "Si Jam Sessions",
@@ -2863,6 +2931,45 @@
     "catalogued": true
   },
   {
+    "name": "Sprite Foundry 2p5d",
+    "repo": "sprite-foundry-2p5d",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-06-23T21:13:12Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
+    "name": "Sprite Motion",
+    "repo": "sprite-motion",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "HTML",
+    "updatedAt": "2026-06-26T04:54:19Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
+    "name": "Sprite Motion MCP",
+    "repo": "sprite-motion-mcp",
+    "description": "MCP server that productizes the sprite-motion rigged-character pipeline: decimate → UniRig → propose-roles → pose → rigidify → attach-weapon → export → render → cross-family vision jury, with batch_roster. Drives the whole loop headlessly.",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "Python",
+    "updatedAt": "2026-11-01T11:55:14Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Star Freight",
     "repo": "star-freight",
     "description": "Star Freight — Space Merchant RPG",
@@ -2952,6 +3059,19 @@
     "catalogued": true
   },
   {
+    "name": "Studio Harness",
+    "repo": "studio-harness",
+    "description": "Integration harness for the studio's tools: shared run and queue harnesses, cross-repo tests pinned to exact commits, plans and gap notes",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "JavaScript",
+    "updatedAt": "2026-10-24T19:23:30Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Style Dataset Lab",
     "repo": "style-dataset-lab",
     "description": "Visual canon and dataset production pipeline — snapshots, splits, training packages, eval scorecards, implementation packs, and closed-loop re-ingest for any image production domain",
@@ -2966,7 +3086,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-11-05T20:25:15Z",
+    "updatedAt": "2026-11-06T19:20:18Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -3080,6 +3200,19 @@
     "needsHumanReview": true
   },
   {
+    "name": "Visual Design Bible",
+    "repo": "visual-design-bible",
+    "description": "Visual Design Bible system — reusable template + per-game bibles for AI-assisted game art pipelines",
+    "tags": [],
+    "featured": false,
+    "stars": 0,
+    "language": "",
+    "updatedAt": "2026-11-05T21:52:03Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
+  },
+  {
     "name": "Vocal Synth Engine",
     "repo": "vocal-synth-engine",
     "description": "Deterministic vocal instrument engine — additive synthesis with formant control, real-time WebSocket streaming, MCP server, and cockpit UI",
@@ -3110,6 +3243,26 @@
       "npm": "@mcptoolshop/vocal-synth-engine"
     },
     "catalogued": true
+  },
+  {
+    "name": "Watchdog",
+    "repo": "watchdog",
+    "description": "Windows VRAM/RAM/temp watchdog for NVIDIA GPUs. Kills guarded interpreters on a sustained breach.",
+    "tags": [
+      "gpu",
+      "nvidia",
+      "powershell",
+      "vram",
+      "watchdog",
+      "windows"
+    ],
+    "featured": false,
+    "stars": 0,
+    "language": "PowerShell",
+    "updatedAt": "2026-11-04T17:26:46Z",
+    "registered": false,
+    "unlisted": true,
+    "deprecated": false
   },
   {
     "name": "WebSketch IR",

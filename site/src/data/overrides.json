@@ -231,6 +231,13 @@
     "install": "npx @mcptoolshop/bytefit",
     "lane": "shipped"
   },
+  "chips": {
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "meta",
+    "tagline": "Chip registry — SHA-tracked background-task (spawn_task) discipline for the studio.",
+    "needsHumanReview": true
+  },
   "claude-guardian": {
     "tags": [
       "claude",
@@ -762,6 +769,13 @@
   "portlight-ships": {
     "lane": "active_lab"
   },
+  "portrait-forge": {
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "meta",
+    "tagline": "Consistent character portraits from text descriptions: one pinned ComfyUI workflow,...",
+    "needsHumanReview": true
+  },
   "prism-verify": {
     "tags": [
       "adjudication",
@@ -1103,6 +1117,21 @@
     "tagline": "Windows review of two machine-learning runs.",
     "needsHumanReview": true
   },
+  "schumann-surface": {
+    "tags": [
+      "dataset",
+      "elf",
+      "geophysics",
+      "huggingface",
+      "ionosphere",
+      "python"
+    ],
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Schumann resonance as a 3D time-frequency surface with event lanes and honest lagged...",
+    "needsHumanReview": true
+  },
   "sense-si": {
     "category": "devtools",
     "stability": "experimental",
@@ -1234,6 +1263,17 @@
   "sprite-foundry-packs": {
     "lane": "internal",
     "surfaceEligible": false
+  },
+  "sprite-motion-mcp": {
+    "tags": [
+      "mcp"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "mcp-server",
+    "install": "pip install sprite-motion-mcp",
+    "tagline": "MCP server that productizes the sprite-motion rigged-character pipeline: decimate →...",
+    "needsHumanReview": true
   },
   "star-freight": {
     "install": "npx @mcptoolshop/star-freight",
@@ -1385,6 +1425,21 @@
     "install": "npm install @mcptoolshop/vocal-synth-engine",
     "tagline": "Deterministic vocal instrument engine — additive synthesis with formant control…",
     "lane": "shipped"
+  },
+  "watchdog": {
+    "tags": [
+      "gpu",
+      "nvidia",
+      "powershell",
+      "vram",
+      "watchdog",
+      "windows"
+    ],
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Windows VRAM/RAM/temp watchdog for NVIDIA GPUs.",
+    "needsHumanReview": true
   },
   "websketch-ir": {
     "tags": [
