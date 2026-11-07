@@ -66,13 +66,14 @@ const SPEC_URL = 'https://github.com/mcp-tool-shop-org/.github/blob/main/docs/EC
 <Base title="MCP Tool Shop" currentPath="/">
   <section class="hero">
     <p class="eyebrow">Open source · MIT licensed · Local-first</p>
-    <h1>Tooling for local-first AI development.</h1>
+    <h1>Research and tooling for local-first AI.</h1>
     <p class="tagline">
-      MCP servers, command-line tools, training and dataset pipelines, and game-production
-      tooling from MCP Tool Shop. Built to run on your own hardware.
+      Measured research, datasets whose answers are proven by code, and the MCP servers,
+      command-line tools and training pipelines that research needs. Built to run on your own hardware.
     </p>
     <div class="cta-group">
-      <a href="/tools/" class="btn btn-primary">Browse the catalog</a>
+      <a href="https://mcp-tool-shop-org.github.io/rnd/" class="btn btn-primary" rel="noopener">Read The Bench</a>
+      <a href="/tools/" class="btn btn-secondary">Browse the catalog</a>
       <a href="https://github.com/mcp-tool-shop-org" class="btn btn-secondary" rel="noopener">View on GitHub</a>
     </div>
     <div class="proof-points">
@@ -91,6 +92,33 @@ const SPEC_URL = 'https://github.com/mcp-tool-shop-org/.github/blob/main/docs/EC
       <div class="proof-point">
         <span class="number">MIT</span>
         <span class="label">every repository</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section principles research">
+    <div class="section-header">
+      <div>
+        <h2 class="section-heading">Research in the open</h2>
+        <p class="section-subheading">The research comes first; the tools below are what it needs. Numbers about hardware come from runs on our own workstation, with each run's record committed beside the result.</p>
+      </div>
+    </div>
+    <div class="principle-grid">
+      <div class="principle">
+        <h3><a href="https://mcp-tool-shop-org.github.io/rnd/" rel="noopener">The Bench</a></h3>
+        <p>The research newsletter: one issue each weekday on what was measured that day, with charts. Also published to <a href="https://www.npmjs.com/package/@rnd-news/newsletter" rel="noopener">npm</a>, <a href="https://pypi.org/project/mcptoolshop-rnd-newsletter/" rel="noopener">PyPI</a> and <a href="https://huggingface.co/datasets/mcp-tool-shop/rnd-newsletter" rel="noopener">Hugging Face</a>.</p>
+      </div>
+      <div class="principle">
+        <h3><a href="https://mcp-tool-shop-org.github.io/readouts/" rel="noopener">readouts</a></h3>
+        <p>Verified, source-backed knowledge bases. A topic moves here from the research bench once its claims are checked.</p>
+      </div>
+      <div class="principle">
+        <h3>Dataset labs</h3>
+        <p><a href="/tools/reasoning-dataset-lab/">reasoning-dataset-lab</a> and <a href="/tools/understanding-dataset-lab/">understanding-dataset-lab</a>: code makes every answer key, and a model only writes the words.</p>
+      </div>
+      <div class="principle">
+        <h3><a href="https://huggingface.co/mcp-tool-shop" rel="noopener">Hugging Face</a></h3>
+        <p>Public datasets, fine-tuned models and demo Spaces from the research.</p>
       </div>
     </div>
   </section>
