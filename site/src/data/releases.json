@@ -1,5 +1,21 @@
 [
   {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "newsletter-issue-40",
+    "name": "6 November: the memory guard that counted the cache",
+    "body": [
+      "Our first Colab run on Google's newest GPU card got through every check and a 57.7 GB download, then our own memory guard stopped it before the first training step. The guard was counting cached model files as memory…",
+      "A guard that counted the cache. Our G4 run stopped on a memory projection of 183,924 MiB against a 181,130 MiB machine. The job itself was using 52,493 MiB; the rest was cached model files.",
+      "Locks bounded in time. A library release on PyPI broke a Colab lock check on every pull request. Each lock now records the moment it was resolved against.",
+      "aspire-si at 120 updates. Three training chunks on the local RTX 5090 passed their checks. 54 of 3,840 answers (1.41%) ran into the length limit, against a stop line of 20%.",
+      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-40/"
+    ],
+    "publishedAt": "2026-11-06T21:38:50Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-40",
+    "prerelease": false
+  },
+  {
     "repo": "world-forge",
     "toolName": "World Forge",
     "tag": "v4.9.1",
@@ -195,22 +211,6 @@
     ],
     "publishedAt": "2026-11-03T14:18:42Z",
     "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-37",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "newsletter-issue-36",
-    "name": "2 November: a coverage figure left to chance, three CI races fixed, and the week's watch",
-    "body": [
-      "Our dataset lab's tests now run in parallel, and a coverage figure that moved from run to run is pinned down. role-set's tests stop failing now and then, Escape the Valley fixes two bugs, and XRPL Lab names one…",
-      "A coverage figure left to chance. Running reasoning-dataset-lab's tests in parallel exposed a 0.04-point wobble; one test drew fresh random keys each run. Fixed-input tests now pin it, and every CI leg runs well…",
-      "Three CI races, fixed at the cause. role-set's two new tests failed 20 of 20 runs before the fix and pass 20 of 20 after.",
-      "The weekly watch. 13 items from the week, grouped: PyTorch 2.15.0, a known CUDA 13.4 cuBLAS bug on Blackwell, with a fix awaited before we move more work to 13.4, NeMo Relay 0.11.0 and more.",
-      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-36/"
-    ],
-    "publishedAt": "2026-11-02T05:10:45Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-36",
     "prerelease": false
   },
   {

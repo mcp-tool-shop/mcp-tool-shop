@@ -1145,6 +1145,20 @@
     "lane": "active_lab",
     "surfaceEligible": true
   },
+  "session-record": {
+    "tags": [
+      "mcp",
+      "python",
+      "session",
+      "sqlite"
+    ],
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install session-record",
+    "tagline": "Store a session as an addressable record a later turn can refer to.",
+    "needsHumanReview": true
+  },
   "shipcheck": {
     "featured": true,
     "tags": [
@@ -1315,6 +1329,14 @@
     "kind": "library",
     "tagline": "Visual story-structure platform.",
     "lane": "shipped"
+  },
+  "studio-harness": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "npm install studio-harness",
+    "tagline": "Integration harness for the studio's tools: shared run and queue harnesses, cross-repo...",
+    "needsHumanReview": true
   },
   "style-dataset-lab": {
     "tags": [

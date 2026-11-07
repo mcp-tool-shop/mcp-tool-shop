@@ -833,7 +833,7 @@
     "featured": false,
     "stars": 1,
     "language": "TypeScript",
-    "updatedAt": "2026-10-11T19:40:47Z",
+    "updatedAt": "2026-11-07T16:24:47Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -1215,7 +1215,12 @@
     "updatedAt": "2026-11-05T21:52:26Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "meta",
+    "tagline": "Chip registry — SHA-tracked background-task (spawn_task) discipline for the studio.",
+    "needsHumanReview": true
   },
   {
     "name": "Claude Guardian",
@@ -1274,7 +1279,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-11-06T18:56:45Z",
+    "updatedAt": "2026-11-07T17:19:52Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2172,7 +2177,12 @@
     "updatedAt": "2026-11-05T21:51:58Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "infrastructure",
+    "stability": "experimental",
+    "kind": "meta",
+    "tagline": "Consistent character portraits from text descriptions: one pinned ComfyUI workflow,...",
+    "needsHumanReview": true
   },
   {
     "name": "Prism Verify",
@@ -2433,7 +2443,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-11-01T15:09:20Z",
+    "updatedAt": "2026-11-07T16:06:42Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2528,7 +2538,7 @@
     "featured": false,
     "stars": 0,
     "language": "Python",
-    "updatedAt": "2026-11-05T17:22:46Z",
+    "updatedAt": "2026-11-06T21:39:20Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -2709,11 +2719,7 @@
       "geophysics",
       "huggingface",
       "ionosphere",
-      "python",
-      "schumann-resonance",
-      "space-weather",
-      "threejs",
-      "visualization"
+      "python"
     ],
     "featured": false,
     "stars": 0,
@@ -2721,7 +2727,12 @@
     "updatedAt": "2026-11-04T07:33:07Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Schumann resonance as a 3D time-frequency surface with event lanes and honest lagged...",
+    "needsHumanReview": true
   },
   {
     "name": "Sense Si",
@@ -2960,14 +2971,22 @@
     "name": "Sprite Motion MCP",
     "repo": "sprite-motion-mcp",
     "description": "MCP server that productizes the sprite-motion rigged-character pipeline: decimate → UniRig → propose-roles → pose → rigidify → attach-weapon → export → render → cross-family vision jury, with batch_roster. Drives the whole loop headlessly.",
-    "tags": [],
+    "tags": [
+      "mcp"
+    ],
     "featured": false,
     "stars": 0,
     "language": "Python",
     "updatedAt": "2026-11-01T11:55:14Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "mcp-core",
+    "stability": "experimental",
+    "kind": "mcp-server",
+    "install": "pip install sprite-motion-mcp",
+    "tagline": "MCP server that productizes the sprite-motion rigged-character pipeline: decimate →...",
+    "needsHumanReview": true
   },
   {
     "name": "Star Freight",
@@ -3086,7 +3105,7 @@
     "featured": false,
     "stars": 0,
     "language": "JavaScript",
-    "updatedAt": "2026-11-06T19:20:18Z",
+    "updatedAt": "2026-11-07T17:28:45Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -3227,7 +3246,7 @@
     "featured": false,
     "stars": 0,
     "language": "TypeScript",
-    "updatedAt": "2026-11-01T00:34:25Z",
+    "updatedAt": "2026-11-07T00:32:54Z",
     "registered": false,
     "unlisted": true,
     "deprecated": false,
@@ -3262,7 +3281,12 @@
     "updatedAt": "2026-11-04T17:26:46Z",
     "registered": false,
     "unlisted": true,
-    "deprecated": false
+    "deprecated": false,
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "tagline": "Windows VRAM/RAM/temp watchdog for NVIDIA GPUs.",
+    "needsHumanReview": true
   },
   {
     "name": "WebSketch IR",
