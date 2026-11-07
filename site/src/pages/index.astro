@@ -53,6 +53,9 @@ const areas = (collections as any[])
     };
   })
   .filter((c: any) => c.items.length > 0);
+const NUMBER_WORDS = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve'];
+const areaCount = ((ecosystem as any).areas || []).length || areas.length;
+const areaWord = NUMBER_WORDS[areaCount] ?? String(areaCount);
 
 const paths = ((ecosystem as any).paths || []).map((p: any) => ({
   id: p.id,
@@ -198,7 +201,7 @@ const SPEC_URL = 'https://github.com/mcp-tool-shop-org/.github/blob/main/docs/EC
     <div class="section-header">
       <div>
         <h2 class="section-heading">What we build</h2>
-        <p class="section-subheading">Seven areas. The names below are starting points; every public repository is classified.</p>
+        <p class="section-subheading">{areaWord} areas. The names below are starting points; every public repository is classified.</p>
       </div>
       <a href={SPEC_URL} class="see-all" rel="noopener">Ecosystem spec</a>
     </div>
