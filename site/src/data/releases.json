@@ -1,5 +1,182 @@
 [
   {
+    "repo": "style-dataset-lab",
+    "toolName": "Style Dataset Lab",
+    "tag": "v3.6.0",
+    "name": "v3.6.0",
+    "body": [
+      "sdlab checkpoint-eval — paired evaluation of early style-LoRA checkpoints. It scores seed-matched sample trajectories (steps 0, 250, 500, ...) for two runs on CPU or Intel OpenVINO, never on an NVIDIA GPU, and…",
+      "Colab lane 3 GPU rung (launch_lane3_stub.sh --train --rung-job 20|500) — the lane-3 kit now runs ai-toolkit training on a GPU card, with every request value required and refused by name before any colab call.…",
+      "Colab windows state their GPU machine shape. --shape standard|high-mem is required (SHAPE_REQUIRED) and the opened session is checked against it (SHAPE_MISMATCH). Previously --high-mem was sent with every card, and…",
+      "Colab windows run on the live rate, with a cleanup reserve. A GPU window refuses to proceed when the post-open rate cannot be read (RATE_UNREAD) or exceeds --max-rate (RATE_ABOVE_MAX); both lanes share one rate gate.…",
+      "Colab cleanup is bounded. Every salvage, download and stop step has a named timeout and logs by name; a total salvage deadline skips remaining salvage and goes straight to colab stop; and an independent wall watcher…"
+    ],
+    "publishedAt": "2026-11-08T14:03:09Z",
+    "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v3.6.0",
+    "prerelease": false
+  },
+  {
+    "repo": "repo-knowledge",
+    "toolName": "Repo Knowledge",
+    "tag": "v2.1.2",
+    "name": "v2.1.2",
+    "body": [
+      "Patch release: two behaviour fixes, a working build under TypeScript 6, and a dependency security refresh. No breaking changes.",
+      "rk audit import no longer drops a whole audit batch over one unknown finding domain. A finding whose domain is not one of the 19 allowed values (for example documentation, which the dogfood swarm emitted for docs…",
+      "The related-repos result is honest when there is nothing to show. rk show now always prints the Relationships section and says No relationships recorded when a repo has no edges, instead of leaving the heading out.…",
+      "The build runs again under TypeScript 6. The declaration (DTS) step of the tsup build was failing on a deprecated option that tsup injects; it is now handled for the declaration pass only, so npm run typecheck still…",
+      "Dependency refresh clears every advisory npm audit reported, including the production chain through the MCP SDK (proxy-addr, hono, body-parser, path-to-regexp, qs, zod, fast-uri, ip-address, nanoid,…"
+    ],
+    "publishedAt": "2026-11-08T13:10:40Z",
+    "url": "https://github.com/mcp-tool-shop-org/repo-knowledge/releases/tag/v2.1.2",
+    "prerelease": false
+  },
+  {
+    "repo": "glyphstudio",
+    "toolName": "Glyphstudio",
+    "tag": "v1.0.2",
+    "name": "v1.0.2",
+    "body": [],
+    "publishedAt": "2026-11-08T02:52:57Z",
+    "url": "https://github.com/mcp-tool-shop-org/glyphstudio/releases/tag/v1.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "audiobooker",
+    "toolName": "Audiobooker",
+    "tag": "v3.0.1",
+    "name": "v3.0.1",
+    "body": [
+      "Maintenance release. Nothing in the audiobooker program itself changes: the same commands, the same audio, the same cache. What changed is the machinery around it.",
+      "The documentation site's build tools are updated to versions that fix known advisories (a Vite file-exposure issue, Zod memory exhaustion on oversized input, several undici issues, a smol-toml and a source-map-js…",
+      "The release workflow now uses the patched PyPI publishing action (GHSA-5xjx-3w67-w9x9).",
+      "The documentation site is now built on pull requests, so a broken site change is caught before it merges.",
+      "Added a repository map (Atlas) that is checked in CI, and coverage reports are uploaded to Codecov."
+    ],
+    "publishedAt": "2026-11-08T02:48:40Z",
+    "url": "https://github.com/mcp-tool-shop-org/audiobooker/releases/tag/v3.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "aspire-si",
+    "toolName": "Aspire Si",
+    "tag": "v1.5.0",
+    "name": "v1.5.0",
+    "body": [
+      "This release changes the example tooling and the tests. The installed aspire package has no code changes.",
+      "Verifier-plan smoke test S1 (examples/verifier-distill/s1_nli_critic.py): an NLI critic run on the Intel NPU and iGPU, with its pre-registration and receipts. It failed its pass line on both devices (see the run note…",
+      "Verifier-plan smoke test S2 (examples/verifier-distill/s2_grpo_smoke.py): a GRPO memory-and-speed smoke on one GPU, with its pre-registration, an exclusive-GPU guard that works on Windows, memory flags, per-phase…",
+      "Prompt draws are recorded (s2_draw.py, --draw), and --rollout-only counts correct items per prompt.",
+      "Logging: save-all output (written crash-safe), logging and post-pass modes, --stop-after-new, and S2 sign diagnostics with a pre-pass baseline and seed."
+    ],
+    "publishedAt": "2026-11-08T02:45:04Z",
+    "url": "https://github.com/mcp-tool-shop-org/aspire-si/releases/tag/v1.5.0",
+    "prerelease": false
+  },
+  {
+    "repo": "escape-the-valley",
+    "toolName": "Escape The Valley",
+    "tag": "v1.3.3",
+    "name": "Escape the Valley v1.3.3",
+    "body": [
+      "Reloading a save at a fork no longer changes your run (#41). Loading a save made at a fork in the trail used to drop you straight into the route choice, which skipped the camp stop you were in and could change what…",
+      "Every death is now reported, whatever caused it (#42). A party member who died while resting, hunting, repairing the wagon, hard-rationing, or from an event outcome (a bandit or animal wound, for example) could slip…"
+    ],
+    "publishedAt": "2026-11-07T22:22:02Z",
+    "url": "https://github.com/mcp-tool-shop-org/escape-the-valley/releases/tag/v1.3.3",
+    "prerelease": false
+  },
+  {
+    "repo": "ai-playtest",
+    "toolName": "AI Playtest",
+    "tag": "v1.0.0",
+    "name": "v1.0.0",
+    "body": [
+      "First 1.0 release. The package stays \"private\": true and is not on npm; this is a GitHub release.",
+      "rpc can launch game.command. When the command is set, run starts that process, reads PLAYTEST_BRIDGE_PORT=<n> from its output, and connects there. The announced port wins over driver.port. --serial resets between…",
+      "Updated devalue to 5.9.3 or later, closing two published security advisories (GHSA-j22f-vq7h-c4qm, GHSA-mcm9-63f2-9j32).",
+      "Repository map (Atlas 1.24.0) is kept in atlas/ and checked in CI.",
+      "Test coverage and test results are reported to Codecov."
+    ],
+    "publishedAt": "2026-11-07T22:15:26Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-playtest/releases/tag/v1.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "forkctl",
+    "toolName": "Forkctl",
+    "tag": "v2.1.1",
+    "name": "v2.1.1",
+    "body": [
+      "Security: updated the dependencies that shipped with known advisories. devalue 5.9.3+ (GHSA-j22f-vq7h-c4qm, GHSA-mcm9-63f2-9j32), brace-expansion, and, in the packages that gate the build, hono, @hono/node-server,…",
+      "Changed: zod moved from 3 to 4.6.7 to clear GHSA-mrhx-c7xc-m3w5 (memory exhaustion on oversized collections); there is no fix in the 3 line. The MCP tool input schemas are now generated with zod's own converter, so…",
+      "The MCP tool list again advertises additionalProperties: false on every tool input, as it did before the zod 4 move: zod 4's JSON Schema output dropped it, which would have told clients that extra keys are allowed. A…",
+      "Build: CI now uploads coverage and test results to Codecov, runs the Atlas map check, and runs on every pull request.",
+      "Release: added release.yml, which publishes to npm with trusted publishing when a GitHub Release is published."
+    ],
+    "publishedAt": "2026-11-07T22:12:53Z",
+    "url": "https://github.com/mcp-tool-shop-org/forkctl/releases/tag/v2.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "reasoning-dataset-lab",
+    "toolName": "Reasoning Dataset Lab",
+    "tag": "v0.6.0",
+    "name": "v0.6.0",
+    "body": [
+      "The bake-off launcher is ready for its paid windows: it binds each window to its part, checks every boot input before it spends, records the boot gatekeeper, reads the window's own rate and keeps re-reading it, and…",
+      "The launcher keeps reading the rate while the run cell runs. The cost-cap monitor in scripts/colab/launch_judges.sh re-reads colab usage every RDLAB_RATE_REREAD_SECONDS (1 to 60, default 30; anything else refuses…",
+      "Our rate is the account rate minus a neighbour baseline. The baseline starts as the pre-open account rate.",
+      "A change in the assignment count is never judged. When the count changes, the launcher waits for two consecutive reads at the new count that agree within 0.01. It then sets the baseline to the account rate minus the…",
+      "Only a stable read at the settled count can raise our rate. A rise reprices the remaining runtime at max(--max-rate, the highest stable rate seen). The runtime can shorten, never lengthen. A stable rate above…"
+    ],
+    "publishedAt": "2026-11-07T18:52:44Z",
+    "url": "https://github.com/mcp-tool-shop-org/reasoning-dataset-lab/releases/tag/v0.6.0",
+    "prerelease": false
+  },
+  {
+    "repo": "housekeeping",
+    "toolName": "Housekeeping",
+    "tag": "v1.5.0",
+    "name": "v1.5.0",
+    "body": [
+      "A branch pass (collector 1.6.0): every branch of every non-archived repository, the pull requests it was the head of, and the repository's \"automatically delete head branches\" setting, in the branch and repo_branches…",
+      "hk branches [repo]: branches by state.",
+      "hk watch [repo ...] and the watch config key: open pull requests, open alerts and branches for a short list of repositories.",
+      "CI_PAGES_NOT_ENABLED no longer fires on a private repository whose deploy job is gated to public repositories (if: !github.event.repository.private, or a job it needs is). That job is skipped, so Pages being off…",
+      "Scoped npm package names are encoded properly when the collector looks them up on the registry (encodeURIComponent, not a single slash swap)."
+    ],
+    "publishedAt": "2026-11-07T18:42:40Z",
+    "url": "https://github.com/mcp-tool-shop-org/housekeeping/releases/tag/v1.5.0",
+    "prerelease": false
+  },
+  {
+    "repo": "repomesh",
+    "toolName": "Repomesh",
+    "tag": "v2.5.1",
+    "name": "v2.5.1",
+    "body": [
+      "Hardening release. No new features; the fixes below tighten how release verification reads verdicts, policy and anchor events.",
+      "Per-signer latest verdict selection: registry/scripts/build-trust.mjs, packages/repomesh-cli/src/verify/verify-release.mjs, and tools/verify-release.mjs share selectLatestVerdictPerSigner in…",
+      "Ledger-position ordering for per-signer verdicts: selectLatestVerdictPerSigner orders duplicate verdicts per (check, signer) by greater ledger index (position in events.jsonl) rather than the signer's self-asserted…",
+      "Policy shape validation: packages/repomesh-cli (for both --local and fetched verifier.policy.json in remote mode) and tools/verify-release.mjs validate verifier.policy.json with validateVerifierPolicyShape in…",
+      "Unbundled check types closed: resolveCheckPolicy in packages/repomesh-cli/src/remote-defaults.mjs and the independence counters in packages/repomesh-cli/src/verify/verify-release.mjs and tools/verify-release.mjs…"
+    ],
+    "publishedAt": "2026-11-07T18:21:11Z",
+    "url": "https://github.com/mcp-tool-shop-org/repomesh/releases/tag/v2.5.1",
+    "prerelease": false
+  },
+  {
+    "repo": "registry-sync",
+    "toolName": "Registry Sync",
+    "tag": "v1.2.0",
+    "name": "v1.2.0",
+    "body": [],
+    "publishedAt": "2026-11-07T18:17:52Z",
+    "url": "https://github.com/mcp-tool-shop-org/registry-sync/releases/tag/v1.2.0",
+    "prerelease": false
+  },
+  {
     "repo": "rnd",
     "toolName": "Rnd",
     "tag": "newsletter-issue-40",
@@ -532,191 +709,6 @@
     ],
     "publishedAt": "2026-10-22T04:36:26Z",
     "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.7.7",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-lab",
-    "toolName": "XRPL Lab",
-    "tag": "v2.7.6",
-    "name": "XRPL Lab v2.7.6",
-    "body": [
-      "verify-artifact --live checks the ledger (#34). proof verify and cert-verify tell you to use verify-artifact instead, but it had no --live, so following that advice silently dropped the on-ledger check. It now passes…",
-      "Hints no longer send learners to deprecated commands. The main --help, the \"wrong kind of file\" messages and the certificate's --live note named proof verify or cert-verify; they now name verify-artifact."
-    ],
-    "publishedAt": "2026-10-22T04:26:35Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.7.6",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-lab",
-    "toolName": "XRPL Lab",
-    "tag": "v2.7.5",
-    "name": "XRPL Lab v2.7.5",
-    "body": [
-      "A passing run --force gives a clean live verification (#32). The proof pack keeps every run's records, so after a failed run and a passing rerun, proof verify --live still failed on the first run's failures. A…",
-      "One module's never-submitted records no longer hide another's. Live verification collapsed every failed placeholder in a pack into one claim; each module's are now checked separately."
-    ],
-    "publishedAt": "2026-10-22T02:03:23Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.7.5",
-    "prerelease": false
-  },
-  {
-    "repo": "polyglot-mcp",
-    "toolName": "Polyglot MCP",
-    "tag": "v1.10.1",
-    "name": "polyglot-mcp 1.10.1",
-    "body": [
-      "Survival check catches broken Markdown links, leaked ⟦n⟧ placeholders, and anchor-count mismatches, and link-target masks relative and non-HTTP link targets (#50, #51).",
-      "Segment and whole-file Markdown link structure survival check (kind: \"link\") (extractRefDefinitions, extractLinks, checkLinks in src/survival.ts, checkSurvival in src/translateMarkdown.ts) — during the 1.10.0 README…",
-      "Protected non-HTTP link targets (link-target) (LINK_TARGET_PATTERN, DEFAULT_PATTERNS, linkTargetsEnabled, urlsEnabled in src/protectedTerms.ts; expectedSpans, checkLinks, checkSegment in src/survival.ts;…",
-      "Placeholder delimiter leakage check (kind: \"placeholder\") (PLACEHOLDER_LEAK_PATTERN, checkPlaceholders in src/survival.ts) — any ⟦ or ⟧ delimiter remaining outside fenced and inline code in a finished translation…",
-      "Anchor-count mismatch fails when a source-valid anchor was involved (kind: \"anchor\") (checkAnchors in src/survival.ts) — when source and translation in-page anchor counts differ and checkAnchors falls back to plain…"
-    ],
-    "publishedAt": "2026-10-21T05:28:11Z",
-    "url": "https://github.com/mcp-tool-shop-org/polyglot-mcp/releases/tag/v1.10.1",
-    "prerelease": false
-  },
-  {
-    "repo": "polyglot-mcp",
-    "toolName": "Polyglot MCP",
-    "tag": "v1.10.0",
-    "name": "polyglot-mcp 1.10.0",
-    "body": [
-      "In-page anchor links that survive translation (#46).",
-      "Protected in-page anchor targets (anchor) — in 1.9.0, 22 of 28 in-page #slug links across the 7 translated READMEs (README.<lang>.md at 9fbe43a) did not resolve to any heading in the file they lived in. Two failure…",
-      "Post-assembly anchor rewrite to translated heading slugs (buildHeadingSlugMap, rewriteAnchors in src/translateMarkdown.ts, stripHeadingMarkup, slugifyHeadings in src/survival.ts) — after all segments are translated…",
-      "Whole-document anchor survival check (checkAnchors in src/survival.ts) — anchor spans are exempt from the segment-level exact-text survival check (since they are meant to be rewritten when the target heading changes…",
-      "Cleaned up bin.polyglot-mcp path in package.json (\"./dist/index.js\" → \"dist/index.js\")."
-    ],
-    "publishedAt": "2026-10-21T02:33:32Z",
-    "url": "https://github.com/mcp-tool-shop-org/polyglot-mcp/releases/tag/v1.10.0",
-    "prerelease": false
-  },
-  {
-    "repo": "polyglot-mcp",
-    "toolName": "Polyglot MCP",
-    "tag": "v1.9.0",
-    "name": "polyglot-mcp 1.9.0",
-    "body": [
-      "Protected terms, a survival check, and hand fixes that stick (#44).",
-      "Protected terms in prose — TranslateGemma respelled bare identifiers in another script, and nothing covered them because they are not in backticks. xrpl-lab's Hindi README wrote its XLS-nn spec IDs and DepositAuth /…",
-      "\"N of M\" counts restored as N/M — in Chinese, \"218 of 224\" came back as 218 首中的 224 首 (\"224 of 218\") and \"285 of 414\" as the ordinal 414个中的第285个. Both were fixed by hand to 218/224 and 285/414 (ai-jam-sessions…",
-      ".polyglot-terms.json beside the README: terms (exact, case-sensitive, whole-word), patterns (regexes), disable (default patterns by name) and nOfM (false switches counts off). Read by the scripts, by…",
-      "Survival check (src/survival.ts, checkSurvival in src/translateMarkdown.ts) — after translation, every protected span in the English must be present, character for character, in the translation of its segment, with…"
-    ],
-    "publishedAt": "2026-10-20T22:13:42Z",
-    "url": "https://github.com/mcp-tool-shop-org/polyglot-mcp/releases/tag/v1.9.0",
-    "prerelease": false
-  },
-  {
-    "repo": "dataset-desk",
-    "toolName": "Dataset Desk",
-    "tag": "v0.2.2",
-    "name": "dataset-desk 0.2.2",
-    "body": [
-      "0.2.1 was tagged on GitHub but never published to PyPI. 0.2.2 ships 0.2.1's changes, listed below, with one security update to the release pipeline.",
-      "desk.scan: about 2× faster per image on one thread, with identical results (scan.jsonl rows and SCAN_V = 2 are unchanged). The first uncached scan runs in parallel under --threads (a ProcessPoolExecutor when threads…",
-      "description_gate.audit_records: replaced the full-postings Jaccard candidate loop with rare-first prefix filtering (L - ceil(tau * L) + 1), producing identical near_pairs and near_groups.",
-      "desk.mid_rank and desk._rank_descriptions: with _RANK_TIE_EPS = 1e-6, tied image vectors now stay tied whatever the BLAS block size.",
-      "desk.lineage: keeps only the top k pairs per file name, in bounded memory."
-    ],
-    "publishedAt": "2026-10-20T19:31:01Z",
-    "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.2.2",
-    "prerelease": false
-  },
-  {
-    "repo": "dataset-desk",
-    "toolName": "Dataset Desk",
-    "tag": "v0.2.1",
-    "name": "dataset-desk 0.2.1",
-    "body": [
-      "desk.scan: about 2× faster per image on one thread, with identical results (scan.jsonl rows and SCAN_V = 2 are unchanged). The first uncached scan runs in parallel under --threads (a ProcessPoolExecutor when threads…",
-      "description_gate.audit_records: replaced the full-postings Jaccard candidate loop with rare-first prefix filtering (L - ceil(tau * L) + 1), producing identical near_pairs and near_groups.",
-      "desk.mid_rank and desk._rank_descriptions: with _RANK_TIE_EPS = 1e-6, tied image vectors now stay tied whatever the BLAS block size.",
-      "desk.lineage: keeps only the top k pairs per file name, in bounded memory.",
-      "Its cosines come from a blocked float32 matrix product."
-    ],
-    "publishedAt": "2026-10-20T19:19:05Z",
-    "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.2.1",
-    "prerelease": false
-  },
-  {
-    "repo": "dataset-desk",
-    "toolName": "Dataset Desk",
-    "tag": "v0.2.0",
-    "name": "dataset-desk 0.2.0",
-    "body": [
-      "Text and code input: text-index, text-dupes, text-search and lineage read a --source folder or an rnd-data checkout.",
-      "rnd-data's private companion and blob stores are refused.",
-      "Only relative paths are printed.",
-      "An embedder registry with six models, each pinned to a full commit, with its licence and VRAM figure:",
-      "EmbeddingGemma 2 and SigLIP2;"
-    ],
-    "publishedAt": "2026-10-20T06:40:18Z",
-    "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "dataset-desk",
-    "toolName": "Dataset Desk",
-    "tag": "v0.1.3",
-    "name": "dataset-desk v0.1.3",
-    "body": [
-      "dataset-desk[models] now installs sentence-transformers[image]. Without it, a fresh install couldn't load EmbeddingGemma 2's processor (found by the studio's calibration run on 2026-10-20).",
-      "Install from PyPI: pip install dataset-desk, or pip install \"dataset-desk[models]\".",
-      "release.yml: publishing a GitHub release builds the wheel and sdist, checks them with twine check, and publishes to PyPI by trusted publishing from the pypi environment, with SLSA provenance. It never fires on a push.",
-      "No NumPy upper bound. The desk doesn't use numba. An environment that adds numba-cuda beside it needs numpy>=2.4,<2.5 until numba-cuda supports NumPy 2.5 (studio smoke rung on the RTX 5090, 2026-10-20)."
-    ],
-    "publishedAt": "2026-10-20T02:25:57Z",
-    "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.1.3",
-    "prerelease": false
-  },
-  {
-    "repo": "portlight-bounty",
-    "toolName": "Portlight Bounty",
-    "tag": "v0.3.2",
-    "name": "v0.3.2",
-    "body": [
-      "Source-only developer release closing the 11-seat v0.3.1 audit across simulation data safety, economy & contract balance, duel resolution, insurance & debt rules, Godot UI feedback, CLI diagnostics, canon sync, and…",
-      "Duel pay-off option (Session::pay_off_duel, script verb pay_off_duel, and Godot encounter Pay off button) and round-by-round duel exchange recaps (logic::duel_exchange_lines) in the Godot chart log.",
-      "Per-unit curved order pricing quotes (economy::quote_buy, economy::quote_sell, Session::quote_buy, Session::quote_sell) used by the Godot market affordability stepper (clamped_trade_qty).",
-      "Pending-duel freeze: A pending duel now freezes Session::advance in both sea and harbour without ticking reputation, contracts, or upkeep, holds arrival short of port when a duel triggers on the final voyage leg day,…",
-      "Duel winnability & standing: Time-out duels are now won by the player when leading by 3 or more HP ((player_hp - opponent_hp) >= 3), and Session::finish_duel applies standing_delta to standing.underworld."
-    ],
-    "publishedAt": "2026-10-18T18:04:57Z",
-    "url": "https://github.com/mcp-tool-shop-org/portlight-bounty/releases/tag/v0.3.2",
-    "prerelease": false
-  },
-  {
-    "repo": "portlight-bounty",
-    "toolName": "Portlight Bounty",
-    "tag": "v0.3.1",
-    "name": "v0.3.1",
-    "body": [
-      "Source-only developer release (1cdadb2) adding documentation, handbook, translation, and repository atlas updates on top of the re-cut v0.3.0 (f1003751).",
-      "Synchronized canon status tables across docs/canon/ for DF-34 through DF-48 and updated the handbook, landing site, and multi-language READMEs for first-time headless Godot asset import (godot --headless --path godot…",
-      "Regenerated the atlas/ codebase index and statistics against f1003751.",
-      "Hardened ci.yml by pinning runner images to ubuntu-24.04 and setting explicit top-level permissions: contents: read (note: pages.yml runner pinning and job-scoped write permissions landed after v0.3.1, and CodeQL…",
-      "Clarified LICENSE with the canonical MIT License header at line 1 ahead of the deck-prop provenance note."
-    ],
-    "publishedAt": "2026-10-18T08:05:11Z",
-    "url": "https://github.com/mcp-tool-shop-org/portlight-bounty/releases/tag/v0.3.1",
-    "prerelease": false
-  },
-  {
-    "repo": "portlight-bounty",
-    "toolName": "Portlight Bounty",
-    "tag": "v0.3.0",
-    "name": "v0.3.0",
-    "body": [
-      "Armoury merchant shop on the Crew desk (SECTION_GEAR): displays carried melee, ranged, and armour gear alongside the docked port merchant's name, title, personality, markup, description, greeting, and regional stock…",
-      "Style master and skill trainer port presence on the Crew desk (SECTION_TRAINING): renders resident master and trainer descriptions and dialog, gates fighting-style learning on training_port_ids or masters_at_port,…",
-      "Gear maintenance and blacksmith quality upgrades (Session::upgrade_weapon, Session::field_repair_weapon, Crew desk Maintain and Upgrade buttons, and script runner smith and field_repair verbs) (DF-39).",
-      "Companion role effects wired across voyage speed, route danger, customs inspection evasion, market buy/sell pricing, injury healing rate (including at-sea surgeon treatment), and personal combat damage/interception,…",
-      "Full companion morale trigger coverage (combat_won, combat_lost, crew_killed, profitable_trade, losing_trade, contraband_trade, spared_enemy, took_all, fled_combat, injury_sustained, long_voyage, port_arrival,…"
-    ],
-    "publishedAt": "2026-10-18T04:18:33Z",
-    "url": "https://github.com/mcp-tool-shop-org/portlight-bounty/releases/tag/v0.3.0",
     "prerelease": false
   }
 ]
