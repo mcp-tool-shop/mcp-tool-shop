@@ -1,5 +1,41 @@
 [
   {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "newsletter-issue-41",
+    "name": "9 November: the guard that cried wolf",
+    "body": [
+      "aspire-si's training run stopped two of its three seeds on a guard that, measured afterwards, fires on a healthy run 81% of the time. The fix is a new, pre-registered series. Also: why our own inference server gave…",
+      "A guard that cried wolf. aspire-si's S2 run stopped seeds 42 and 44 on its U2 guard. Measured on all three seeds, that guard would stop a healthy run 81% of the time. Running both seeds on with the guard set to…",
+      "Same server, same question, two answers. Our inference server gave different log-probabilities on 45 of 50 prompts when asked twice. The cause was its prompt cache. With the cache off, 401 of 401 repeat readings…",
+      "A judge result re-checked. Our reference judge's 145 of 149 stands exactly with the cache off. A second, larger judge moves by up to 5 pairs, and its row now says so.",
+      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-41/"
+    ],
+    "publishedAt": "2026-11-09T13:24:28Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-41",
+    "prerelease": false
+  },
+  {
+    "repo": "loadout-os",
+    "toolName": "Loadout OS",
+    "tag": "v1.1.1",
+    "name": "loadout-os v1.1.1",
+    "body": [],
+    "publishedAt": "2026-11-08T19:59:27Z",
+    "url": "https://github.com/mcp-tool-shop-org/loadout-os/releases/tag/v1.1.1",
+    "prerelease": false
+  },
+  {
+    "repo": "loadout-os",
+    "toolName": "Loadout OS",
+    "tag": "v1.1.0",
+    "name": "loadout-os v1.1.0",
+    "body": [],
+    "publishedAt": "2026-11-08T19:00:10Z",
+    "url": "https://github.com/mcp-tool-shop-org/loadout-os/releases/tag/v1.1.0",
+    "prerelease": false
+  },
+  {
     "repo": "style-dataset-lab",
     "toolName": "Style Dataset Lab",
     "tag": "v3.6.0",
@@ -375,22 +411,6 @@
     "prerelease": false
   },
   {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "newsletter-issue-37",
-    "name": "3 November: taking the judge test to a rented GPU, and the daily watch",
-    "body": [
-      "The launcher that carries our judge bake-off to a rented Colab GPU ran the whole path on a CPU machine, and its first GPU run stopped twice at the start, cheaply: once on a connection timeout, then, in 14 seconds, by…",
-      "The whole path, on a CPU machine. Four calls on two practice items, all four replies parsed, 806 seconds, 0.018 Colab units. The model loads lazily: about 1 GB at the load step, about 7 GB during the first call.",
-      "A drifted machine, stopped by name. The first GPU machine shipped an older uv that can't install the pinned Python, and the launcher refused in 14 seconds before building anything.",
-      "The daily watch. Ollama 0.40.14 stops overriding a model's own sampler defaults, and Gemini 2.5 Pro and Flash route to newer models from 1 December.",
-      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-37/"
-    ],
-    "publishedAt": "2026-11-03T14:18:42Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-37",
-    "prerelease": false
-  },
-  {
     "repo": "reasoning-dataset-lab",
     "toolName": "Reasoning Dataset Lab",
     "tag": "v0.4.0",
@@ -684,31 +704,6 @@
     "body": [],
     "publishedAt": "2026-10-22T08:11:05Z",
     "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.4.2",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-lab",
-    "toolName": "XRPL Lab",
-    "tag": "v2.7.8",
-    "name": "XRPL Lab v2.7.8",
-    "body": [
-      "feedback.py's generate_feedback() (#42). Nothing called it but its own tests: the deprecated feedback command and support-bundle both print the support bundle. Its tests go with it, and the doctor checks they shared…"
-    ],
-    "publishedAt": "2026-10-22T08:09:47Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.7.8",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-lab",
-    "toolName": "XRPL Lab",
-    "tag": "v2.7.7",
-    "name": "XRPL Lab v2.7.7",
-    "body": [
-      "doctor no longer reports a failure that a later run fixed (#39). After a run --force recovery, its \"Last error\" check, and the support bundle and feedback block that carry it, still named the failed first run. A…",
-      "A step that never reached the network gets a useful hint. For such a failure, doctor suggested xrpl-lab verify --tx failed, using the placeholder as a hash. It now says the step failed before reaching the network and…"
-    ],
-    "publishedAt": "2026-10-22T04:36:26Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.7.7",
     "prerelease": false
   }
 ]
