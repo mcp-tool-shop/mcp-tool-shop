@@ -2,6 +2,22 @@
   {
     "repo": "rnd",
     "toolName": "Rnd",
+    "tag": "newsletter-issue-42",
+    "name": "10 November: deciding how to judge before the result",
+    "body": [
+      "A warning check in aspire-si's new training series went over its line once, and we wrote down how a stop would be reviewed before the next reading came in. Also: whether to add vLLM beside Ollama, where a research…",
+      "Deciding how to judge before the result. One of the five warning checks in aspire-si's S2 v1.1 run went over its line at one reading. Two in a row would stop the run for review, and the study record didn't say how…",
+      "A second engine, checked first. vLLM could run our bulk jobs many requests at a time. A Deep Research report on it got two things wrong that we checked at source. The first trial got half-way: the speed sweep ran,…",
+      "Eight at a time isn't eight times faster. Batching the next study's evaluation pass by eight would make it about 2.15 times faster. Up to 35% of the time can go to a dozen answers that may never stop.",
+      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-42/"
+    ],
+    "publishedAt": "2026-11-10T16:47:32Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-42",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
     "tag": "newsletter-issue-41",
     "name": "9 November: the guard that cried wolf",
     "body": [
@@ -392,22 +408,6 @@
     ],
     "publishedAt": "2026-11-03T18:58:43Z",
     "url": "https://github.com/mcp-tool-shop-org/rnd-data/releases/tag/v0.1.0",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "v1.1.23.1.55",
-    "name": "rnd 1.1.23.1.55",
-    "body": [
-      "The first tool release since 1.1.23.1.31 (24 October). It carries 24 library versions, 1.1.23.1.32 to 1.1.23.1.55. Full detail per version is in CHANGELOG.md.",
-      "Issues 30 to 37 (25 October to 3 November). Issue 30 was the first daily issue.",
-      "Issue 34 corrected (1.1.23.1.47): three of the eight Super prompts ask more than a 2.5-second clip can show, so int4 is now the provisional choice, to be re-checked. No numbers changed.",
-      "Mirrors: each published issue now goes to the Hugging Face dataset mcp-tool-shop/rnd-newsletter, to npm as @rnd-news/newsletter, to PyPI as mcptoolshop-rnd-newsletter, and to a GitHub release per issue (1.1.23.1.35,…",
-      "/newsletter/subscribe/ is now \"Follow the newsletter\": RSS plus the mirrors (1.1.23.1.50)."
-    ],
-    "publishedAt": "2026-11-03T18:31:18Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.55",
     "prerelease": false
   },
   {
