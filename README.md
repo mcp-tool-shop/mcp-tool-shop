@@ -4,10 +4,10 @@
 
 **Local AI research and tooling, built in the open.**
 
-Local models, device routing, datasets, training and verification.<br>
-The work lives at [mcp-tool-shop-org](https://github.com/mcp-tool-shop-org), and most of it is measured on one Windows workstation with an RTX 5090.
+Research comes first: measured runs, checked sources, and datasets whose answers are proven by code.<br>
+The tools are what that research needs. The work lives at [mcp-tool-shop-org](https://github.com/mcp-tool-shop-org), and most of it is measured on one Windows workstation with an RTX 5090.
 
-[mcptoolshop.com](https://mcptoolshop.com/) · [The Bench, the research newsletter](https://mcp-tool-shop-org.github.io/rnd/) · [readouts, verified knowledge](https://mcp-tool-shop-org.github.io/readouts/) · [Every tool](https://mcptoolshop.com/tools/)
+[mcptoolshop.com](https://mcptoolshop.com/) · [The Bench, the research newsletter](https://mcp-tool-shop-org.github.io/rnd/) · [readouts, verified knowledge](https://mcp-tool-shop-org.github.io/readouts/) · [Hugging Face](https://huggingface.co/mcp-tool-shop) · [Every tool](https://mcptoolshop.com/tools/)
 
 </div>
 
@@ -17,23 +17,36 @@ The work lives at [mcp-tool-shop-org](https://github.com/mcp-tool-shop-org), and
 
 ### Research
 
-- **[rnd](https://github.com/mcp-tool-shop-org/rnd)**: the research bench. Sourced entries, experiments run on the rig with their receipts, and a weekly watch of NVIDIA, CUDA and the local-inference projects. Its newsletter is [The Bench](https://mcp-tool-shop-org.github.io/rnd/).
+- **[rnd](https://github.com/mcp-tool-shop-org/rnd)**: the research bench. Sourced entries, experiments run on the rig with their receipts, and a watch of NVIDIA, CUDA and the local-inference projects.
+- **[The Bench](https://mcp-tool-shop-org.github.io/rnd/)**: rnd's newsletter, one issue each weekday covering what the studio measured that day, with charts. Each issue is also published as a package ([npm](https://www.npmjs.com/package/@rnd-news/newsletter), [PyPI](https://pypi.org/project/mcptoolshop-rnd-newsletter/)) and as a [Hugging Face dataset](https://huggingface.co/datasets/mcp-tool-shop/rnd-newsletter).
 - **[readouts](https://github.com/mcp-tool-shop-org/readouts)**: verified, source-backed SQLite knowledge bases. A topic moves here from rnd once its claims are checked. [What's new](https://mcp-tool-shop-org.github.io/readouts/#whats-new).
+
+### Datasets
+
+Datasets where code makes the answer key and a model only writes the words.
+
+- **[reasoning-dataset-lab](https://github.com/mcp-tool-shop-org/reasoning-dataset-lab)**: puzzles, quizzes and verification items. Code proves each answer before any model words the item.
+- **[understanding-dataset-lab](https://github.com/mcp-tool-shop-org/understanding-dataset-lab)**: multi-party scenes for cognitive empathy, with answer keys computed from what each person could see. A prototype.
+- **[style-dataset-lab](https://github.com/mcp-tool-shop-org/style-dataset-lab)**: visual canon and image datasets: snapshots, splits, training packages and eval scorecards.
+- **[dataset-desk](https://github.com/mcp-tool-shop-org/dataset-desk)**: review visual datasets for duplicates and outliers, search them by words or picture, and gate image descriptions without a model.
+- **[repo-dataset](https://github.com/mcp-tool-shop-org/repo-dataset)**: turn code and visual repositories into training datasets checked for contamination.
+
+Public datasets and models are on [Hugging Face](https://huggingface.co/mcp-tool-shop).
+
+### Training
+
+- **[aspire-si](https://github.com/mcp-tool-shop-org/aspire-si)**: train a model to take on a teacher's judgment through adversarial dialogue, with a learned critic. Its reinforcement-learning study is running now, chunk by chunk, on the local card.
+- **[backpropagate](https://github.com/mcp-tool-shop-org/backpropagate)**: headless fine-tuning with VRAM-aware defaults and GGUF export for Ollama.
 
 ### Local inference and routing
 
-- **[interlock](https://github.com/mcp-tool-shop-org/interlock)**: a local AI device router for the RTX 5090 and the Intel NPU and iGPU. It measures before it routes. A prototype.
+- **[interlock](https://github.com/mcp-tool-shop-org/interlock)**: a local AI device router for the RTX 5090 and the Intel NPU and iGPU. It measures before it routes.
 - **[offrig](https://github.com/mcp-tool-shop-org/offrig)**: run big models and GPU jobs on rented RunPod GPUs, with the price planned before anything starts.
 - **[ollama-intern-mcp](https://github.com/mcp-tool-shop-org/ollama-intern-mcp)**: a local intern for Claude Code. It hands bulk analysis to a model running in Ollama.
 
-### Training and datasets
-
-- **[backpropagate](https://github.com/mcp-tool-shop-org/backpropagate)**: headless fine-tuning with VRAM-aware defaults and GGUF export for Ollama.
-- **[aspire-si](https://github.com/mcp-tool-shop-org/aspire-si)**: train a model to take on a teacher's judgment through adversarial dialogue, with a learned critic.
-
 ### Agents and verification
 
-- **[testing-os](https://github.com/dogfood-lab/testing-os)**, home of **Atlas**: a map of each repository (its parts, the workflows that start work, and what a change reaches) that CI checks on every push.
+- **[testing-os](https://github.com/dogfood-lab/testing-os)**, home of **Atlas**: a map of each repository (its parts, the workflows that start work, and what a change reaches). Every repository with workflows keeps one, and CI checks it on every push.
 - **[role-os](https://github.com/mcp-tool-shop-org/role-os)**: staffs coding-agent work through role contracts, missions and a critic jury.
 - **[loadout-os](https://github.com/mcp-tool-shop-org/loadout-os)**: routes the right context to the model when it's needed, instead of loading it all at once.
 - **[shipcheck](https://github.com/mcp-tool-shop-org/shipcheck)**: the release quality gate every repository passes before it ships.
@@ -48,9 +61,10 @@ The full list, sorted by area, is at [mcptoolshop.com/tools](https://mcptoolshop
 ## How the work is done
 
 - **Measured, with receipts.** A number about the rig comes from a run on the rig, and the run's record is committed beside it.
+- **Rules written before the run.** A study states its stopping rules and decision rules before it starts, and a run that trips one is recorded as an outcome, not quietly restarted.
 - **Claims are tiered.** Every source is labelled by tier, and a claim stays unverified until something checks it.
-- **Local first.** Models run on the workstation. A rented GPU is used only when a job needs more, and its price is planned first.
-- **Small steps in the open.** Changes land by pull request with their tests, and each repository keeps a map that CI checks.
+- **Local first.** Models run on the workstation. A rented GPU is used only when a job needs more, and its price is planned and capped first.
+- **Small steps in the open.** Changes land by pull request with their tests, releases ship from CI with provenance, and each repository keeps a map that CI checks.
 
 ---
 
