@@ -2,6 +2,22 @@
   {
     "repo": "rnd",
     "toolName": "Rnd",
+    "tag": "newsletter-issue-43",
+    "name": "11 November: you block the shot, the model shoots it",
+    "body": [
+      "A long look at armature, our tool for making AI video follow a 3D scene we authored: the idea, fourteen experiments (thirteen run, one withdrawn) and their wrong turns, and what the field looks like now. Also:…",
+      "You block the shot. The model shoots it. armature stages a character in Blender and makes a video model follow it. Thirteen experiments in, the model reads geometry rather than tone, identity holds through a hosted…",
+      "Blender 5.3 arrived, and armature didn't notice. 3,166 of armature's Blender tests pass on 5.3 (18 skipped), and the ones that start real Blender pass on both graphics backends.",
+      "Finished, then stopped. A style-training run on a rented 96 GB card reached all 500 steps and saved both checkpoints. Then its own stall guard fired on a phase it wasn't meant to watch.",
+      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-43/"
+    ],
+    "publishedAt": "2026-11-11T17:01:08Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-43",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
     "tag": "newsletter-issue-42",
     "name": "10 November: deciding how to judge before the result",
     "body": [
@@ -360,22 +376,6 @@
     ],
     "publishedAt": "2026-11-05T17:21:55Z",
     "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-39",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "newsletter-issue-38",
-    "name": "4 November: the dataset labs this week, aspire-si's memory test passes, and two releases",
-    "body": [
-      "The judge bake-off reached a datacentre GPU: all five judges timed on an A100, from 0.10 s to 5.93 s a call, and the counted run planned at about 35 units, though no judge has been scored. aspire-si's memory smoke…",
-      "Every judge timed on an A100. 20 calls each, every reply parsed: flow-judge-v0.1 5.93 s a call, the other four 0.10 to 0.28 s. The counted run is planned at about 35 units in six windows. No judge has been scored.",
-      "aspire-si's memory test passes. The registered shape peaked at 22,484 MiB against the 31,200 MiB line, after a fix for a KV cache kept in 32-bit floats.",
-      "Two releases. rnd 1.1.23.1.55, and rnd-data 0.1.0, a read-only reader for the store of raw data behind our research.",
-      "A heartbeat should prove the work happened. Our GPU watchdog went blind for almost two days and still looked healthy."
-    ],
-    "publishedAt": "2026-11-04T17:05:53Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-38",
     "prerelease": false
   },
   {
