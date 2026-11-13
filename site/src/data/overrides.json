@@ -311,6 +311,14 @@
     "tagline": "AI governance attestation layer — structural truth for autonomous systems.",
     "needsHumanReview": true
   },
+  "colab-runner": {
+    "category": "devtools",
+    "stability": "experimental",
+    "kind": "library",
+    "install": "pip install colab-runner",
+    "tagline": "Shared runner for scripted Google Colab GPU windows: detached runs, card checks,...",
+    "needsHumanReview": true
+  },
   "comfy-headless": {
     "featured": true,
     "tags": [

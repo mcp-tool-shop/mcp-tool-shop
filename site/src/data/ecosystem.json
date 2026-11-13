@@ -1,17 +1,17 @@
 {
   "schema": 1,
   "org": "mcp-tool-shop-org",
-  "generated": "2026-10-01",
+  "generated": "2026-11-07",
   "provenance": {
     "repos": "live gh repo list of mcp-tool-shop-org",
     "releases": "GitHub GraphQL latestRelease and releases.totalCount",
     "packages": "registry.npmjs.org and pypi.org probed per repository, and again from each repository manifest. Ownership is confirmed against the @mcptoolshop npm scope and maintainer account, and against the PyPI publishing identity of this organization. A package name that exists on a registry but belongs to someone else carries no install command."
   },
   "counts": {
-    "public_total": 91,
-    "public_unarchived": 88,
-    "public_archived": 3,
-    "catalogued": 86,
+    "public_total": 118,
+    "public_unarchived": 114,
+    "public_archived": 4,
+    "catalogued": 112,
     "forks_excluded": 1,
     "org_config_excluded": 1
   },
@@ -27,6 +27,10 @@
   ],
   "archived": [
     {
+      "name": "ai-eyes-mcp",
+      "lane": "archive"
+    },
+    {
       "name": "ai-loadout",
       "lane": "archive"
     },
@@ -41,40 +45,46 @@
   ],
   "areas": [
     {
+      "id": "research",
+      "title": "Research",
+      "description": "The research bench, its data and receipts, and the instruments and studies that measure models, media and the world.",
+      "count": 5
+    },
+    {
       "id": "mcp-servers",
       "title": "MCP servers",
       "description": "Servers and gateways that speak the Model Context Protocol, plus the tooling that tests them.",
-      "count": 10
+      "count": 9
     },
     {
       "id": "training-and-datasets",
       "title": "Training and datasets",
-      "description": "The local-model lifecycle: fine-tuning, datasets, training-step proof, and hardware capacity planning.",
-      "count": 9
+      "description": "The local-model lifecycle: datasets, fine-tuning, training-step proof, device routing, rented GPUs and the apps that run local models.",
+      "count": 21
     },
     {
       "id": "image-and-media-pipelines",
       "title": "Image and media pipelines",
       "description": "Programmatic generation and verification of images, 3D, video and audio.",
-      "count": 15
+      "count": 19
     },
     {
       "id": "agent-infrastructure",
       "title": "Agent infrastructure",
       "description": "What a coding agent runs on: orchestration, context routing, knowledge substrates, verification, health.",
-      "count": 15
+      "count": 17
     },
     {
       "id": "developer-tooling",
       "title": "Developer tooling",
       "description": "Release gates, registries, site scaffolding and the machinery of shipping.",
-      "count": 13
+      "count": 14
     },
     {
       "id": "games-and-game-tooling",
       "title": "Games and game tooling",
       "description": "Shipped games and the authoring tools that produce them.",
-      "count": 18
+      "count": 21
     },
     {
       "id": "ledger-and-verification",
@@ -161,24 +171,6 @@
       "install": null
     },
     {
-      "name": "ai-eyes-mcp",
-      "area": "mcp-servers",
-      "also": [
-        "image-and-media-pipelines"
-      ],
-      "lane": "shipped",
-      "visibility": "public",
-      "language": "Python",
-      "license": "MIT",
-      "summary": "Grounded visual evaluator MCP server — honest image judgment via SigLIP2 on a pinned model revision. Measures one image-text pair, names the weights that produced the score, and abstains rather than guessing.",
-      "url": "https://github.com/mcp-tool-shop-org/ai-eyes-mcp",
-      "docs": "https://mcp-tool-shop-org.github.io/ai-eyes-mcp/",
-      "releases": 1,
-      "latest_release": "v1.2.0 (2026-08-20)",
-      "package": null,
-      "install": null
-    },
-    {
       "name": "ai-jam-sessions",
       "area": "image-and-media-pipelines",
       "also": [
@@ -188,11 +180,11 @@
       "visibility": "public",
       "language": "TypeScript",
       "license": "MIT",
-      "summary": "Teach your AI to play piano and guitar, sing, and now LISTEN. 53 MCP tools, 120 songs, 6 engines, a browser cockpit, and an audio inspector that measures a recording: onsets, pitch in cents, transcription, and grading a performance by ear. Ships two public tool-use datasets over symbolic and acoustic music.",
+      "summary": "Teach your AI to play piano and guitar, sing, and listen. Two public-domain hymns sung on the beat by a synthetic voice, measured and passed by ear. 56 MCP tools, 109 annotated songs, 6 engines, a browser cockpit, an audio inspector, and two public tool-use datasets.",
       "url": "https://github.com/mcp-tool-shop-org/ai-jam-sessions",
       "docs": "https://mcp-tool-shop-org.github.io/ai-jam-sessions/",
-      "releases": 20,
-      "latest_release": "v2.7.0 (2026-09-29)",
+      "releases": 22,
+      "latest_release": "v2.9.0 (2026-11-05)",
       "package": {
         "npm": "@mcptoolshop/ai-jam-sessions"
       },
@@ -226,8 +218,8 @@
       "summary": "Simulation-native toolkit for building, analyzing, and balancing deterministic RPG worlds",
       "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine",
       "docs": "https://mcp-tool-shop-org.github.io/ai-rpg-engine/",
-      "releases": 27,
-      "latest_release": "v3.12.0 (2026-09-21)",
+      "releases": 28,
+      "latest_release": "v3.12.1 (2026-10-15)",
       "package": null,
       "install": null,
       "classification_note": "Ratified 2026-09-17. It is the simulation, not a title. Contributors looking for RPG tooling look under Games, so it stays here."
@@ -265,6 +257,43 @@
       "install": "pip install armature-studio"
     },
     {
+      "name": "aspire-si",
+      "area": "training-and-datasets",
+      "also": [
+        "research"
+      ],
+      "lane": "shipped",
+      "visibility": "public",
+      "language": "Python",
+      "license": "MIT",
+      "summary": "Train language models to internalize a teacher's judgment through adversarial dialogue, with a learned critic and ScalarScope training-dynamics export",
+      "url": "https://github.com/mcp-tool-shop-org/aspire-si",
+      "docs": "https://mcp-tool-shop-org.github.io/aspire-si/",
+      "releases": 4,
+      "latest_release": "v1.4.0 (2026-10-24)",
+      "package": {
+        "pypi": "aspire-si"
+      },
+      "install": "pip install aspire-si"
+    },
+    {
+      "name": "aspire-si-gates",
+      "area": "training-and-datasets",
+      "lane": "shipped",
+      "visibility": "public",
+      "language": "Python",
+      "license": "MIT",
+      "summary": "The Stage 1 data gates for role-training sets: one standard-library Python package that decides whether a row, a batch or a frozen set is fit to train on.",
+      "url": "https://github.com/mcp-tool-shop-org/aspire-si-gates",
+      "docs": "https://mcp-tool-shop-org.github.io/aspire-si-gates/",
+      "releases": 1,
+      "latest_release": "v1.7.6 (2026-10-29)",
+      "package": {
+        "pypi": "aspire-si-gates"
+      },
+      "install": "pip install aspire-si-gates"
+    },
+    {
       "name": "asset-forge",
       "area": "image-and-media-pipelines",
       "also": [
@@ -291,8 +320,8 @@
       "summary": "Proves an event, transaction, or state transition happened and binds that proof to a chain. Ships the financial domain: vault, treasury, and registrum.",
       "url": "https://github.com/mcp-tool-shop-org/attestia",
       "docs": "https://mcp-tool-shop-org.github.io/attestia/",
-      "releases": 7,
-      "latest_release": "v2.0.5 (2026-10-01)",
+      "releases": 10,
+      "latest_release": "v2.1.3 (2026-10-25)",
       "package": {
         "npm": "@mcptoolshop/attestia"
       },
@@ -350,8 +379,8 @@
       "summary": "Headless LLM fine-tuning in 3 lines — smart defaults, VRAM-aware batch sizing, multi-run SLAO, GGUF export for Ollama.",
       "url": "https://github.com/mcp-tool-shop-org/backpropagate",
       "docs": "https://mcp-tool-shop-org.github.io/backpropagate/",
-      "releases": 23,
-      "latest_release": "v1.8.1 (2026-10-01)",
+      "releases": 27,
+      "latest_release": "v1.8.5 (2026-10-15)",
       "package": {
         "npm": "@mcptoolshop/backpropagate",
         "pypi": "backpropagate"
@@ -364,6 +393,23 @@
       "consumers": [
         "backprop-trace"
       ]
+    },
+    {
+      "name": "blindpanel",
+      "area": "research",
+      "also": [
+        "image-and-media-pipelines"
+      ],
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "Python",
+      "license": "MIT",
+      "summary": "Blind, counterbalanced human-rating viewer for generated media: best/worst of three, forced choice, hidden repeats, sealed key.",
+      "url": "https://github.com/mcp-tool-shop-org/blindpanel",
+      "releases": 0,
+      "latest_release": null,
+      "package": null,
+      "install": null
     },
     {
       "name": "brand",
@@ -400,6 +446,20 @@
       "install": "npx @mcptoolshop/bytefit"
     },
     {
+      "name": "chips",
+      "area": "agent-infrastructure",
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "Python",
+      "license": "MIT",
+      "summary": "Chip registry — SHA-tracked background-task (spawn_task) discipline for the studio",
+      "url": "https://github.com/mcp-tool-shop-org/chips",
+      "releases": 0,
+      "latest_release": null,
+      "package": null,
+      "install": null
+    },
+    {
       "name": "claude-guardian",
       "area": "agent-infrastructure",
       "lane": "shipped",
@@ -409,8 +469,8 @@
       "summary": "Flight computer for Claude Code — log rotation, watchdog, crash bundles, and MCP self-awareness",
       "url": "https://github.com/mcp-tool-shop-org/claude-guardian",
       "docs": "https://mcp-tool-shop-org.github.io/claude-guardian/",
-      "releases": 2,
-      "latest_release": "v1.2.1 (2026-09-08)",
+      "releases": 3,
+      "latest_release": "v1.2.2 (2026-10-15)",
       "package": {
         "npm": "@mcptoolshop/claude-guardian"
       },
@@ -477,15 +537,15 @@
       "also": [
         "agent-infrastructure"
       ],
-      "lane": "in-development",
+      "lane": "shipped",
       "visibility": "public",
       "language": "TypeScript",
       "license": "MIT",
-      "summary": "AI governance attestation on Attestia's proof primitives — model lineage, policy, agent identity, and prompt integrity — with RepoMesh release checks.",
+      "summary": "AI governance attestation on Attestia's proof primitives — plan selection, model lineage, policy, agent identity, and prompt integrity — with RepoMesh release checks.",
       "url": "https://github.com/mcp-tool-shop-org/cognate",
       "docs": "https://mcp-tool-shop-org.github.io/cognate/",
-      "releases": 6,
-      "latest_release": "v0.1.5 (2026-10-01)",
+      "releases": 11,
+      "latest_release": "v1.1.0 (2026-10-28)",
       "package": {
         "npm": "@mcptoolshop/cognate"
       },
@@ -501,8 +561,8 @@
       "summary": "Drive ComfyUI from Python. Builds and runs ComfyUI API-format graphs - image, video, 3D, audio, inference and provenance profiles, verified node types, no node canvas.",
       "url": "https://github.com/mcp-tool-shop-org/comfy-headless",
       "docs": "https://mcp-tool-shop-org.github.io/comfy-headless/",
-      "releases": 5,
-      "latest_release": "v3.1.0 (2026-08-21)",
+      "releases": 6,
+      "latest_release": "v3.1.1 (2026-10-15)",
       "package": {
         "pypi": "comfy-headless"
       },
@@ -543,13 +603,33 @@
       "visibility": "public",
       "language": "Rust",
       "license": "MIT",
-      "summary": "AI-native shell environment with semantic command review",
+      "summary": "An accessible Windows shell: every result in plain words, ask for commands in plain words, and nothing runs until you approve it.",
       "url": "https://github.com/mcp-tool-shop-org/commandui",
-      "docs": "https://mcp-tool-shop-org.github.io/commandui",
-      "releases": 1,
-      "latest_release": "v1.0.0 (2026-03-14)",
+      "docs": "https://mcp-tool-shop-org.github.io/commandui/",
+      "releases": 2,
+      "latest_release": "v1.0.2 (2026-10-05)",
       "package": null,
       "install": null
+    },
+    {
+      "name": "dataset-desk",
+      "area": "training-and-datasets",
+      "also": [
+        "image-and-media-pipelines"
+      ],
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "Python",
+      "license": "MIT",
+      "summary": "Make and review visual datasets: duplicates, outliers, search by words or picture, and a model-free gate for image descriptions.",
+      "url": "https://github.com/mcp-tool-shop-org/dataset-desk",
+      "docs": "https://mcp-tool-shop-org.github.io/dataset-desk/",
+      "releases": 7,
+      "latest_release": "v0.2.2 (2026-10-20)",
+      "package": {
+        "pypi": "dataset-desk"
+      },
+      "install": "pip install dataset-desk"
     },
     {
       "name": "db-cluster",
@@ -564,8 +644,8 @@
       "summary": "AI-native federated database cluster — specialized truth stores behaving as one governed substrate.",
       "url": "https://github.com/mcp-tool-shop-org/db-cluster",
       "docs": "https://mcp-tool-shop-org.github.io/db-cluster/",
-      "releases": 3,
-      "latest_release": "v2.0.1 (2026-05-30)",
+      "releases": 4,
+      "latest_release": "v3.0.0 (2026-10-02)",
       "package": {
         "npm": "@mcptoolshop/db-cluster"
       },
@@ -581,8 +661,8 @@
       "summary": "Recipe-driven provisioner for local AI engines — the executor over the tensor-engine recipe layer",
       "url": "https://github.com/mcp-tool-shop-org/engine-room",
       "docs": "https://mcp-tool-shop-org.github.io/engine-room/",
-      "releases": 1,
-      "latest_release": "v1.0.0 (2026-06-09)",
+      "releases": 2,
+      "latest_release": "v1.0.1 (2026-10-15)",
       "package": {
         "npm": "@mcptoolshop/engine-room"
       },
@@ -598,8 +678,8 @@
       "summary": "An Oregon-Trail survival game where an Ollama GM narrates, a deterministic engine decides outcomes, and the XRPL testnet is your receipt book.",
       "url": "https://github.com/mcp-tool-shop-org/escape-the-valley",
       "docs": "https://mcp-tool-shop-org.github.io/escape-the-valley/",
-      "releases": 6,
-      "latest_release": "v1.3.0 (2026-08-26)",
+      "releases": 8,
+      "latest_release": "v1.3.2 (2026-10-23)",
       "package": {
         "npm": "@mcptoolshop/escape-the-valley",
         "pypi": "escape-the-valley"
@@ -713,12 +793,47 @@
       "summary": "Operational-health warehouse for a GitHub organization: CI, pull requests, releases, Actions cost and repo hygiene, collected into SQLite and audited against written rules.",
       "url": "https://github.com/mcp-tool-shop-org/housekeeping",
       "docs": "https://mcp-tool-shop-org.github.io/housekeeping/",
-      "releases": 4,
-      "latest_release": "v1.4.0 (2026-10-01)",
+      "releases": 5,
+      "latest_release": "v1.5.0 (2026-11-07)",
       "package": {
         "npm": "@mcptoolshop/housekeeping"
       },
       "install": "npx @mcptoolshop/housekeeping"
+    },
+    {
+      "name": "incontrol",
+      "area": "training-and-datasets",
+      "lane": "shipped",
+      "visibility": "public",
+      "language": "C#",
+      "license": "MIT",
+      "summary": "Ollama chat for Windows. On this PC by default, or a GPU you rented, over SSH.",
+      "url": "https://github.com/mcp-tool-shop-org/incontrol",
+      "docs": "https://mcp-tool-shop-org.github.io/incontrol/",
+      "releases": 3,
+      "latest_release": "v2.0.1 (2026-10-03)",
+      "package": null,
+      "install": null
+    },
+    {
+      "name": "interlock",
+      "area": "training-and-datasets",
+      "also": [
+        "research"
+      ],
+      "lane": "shipped",
+      "visibility": "public",
+      "language": "Python",
+      "license": "MIT",
+      "summary": "Local AI device router (RTX 5090 + Intel NPU/iGPU) that measures before it routes: each job goes to a model, engine and device named by a measured receipt.",
+      "url": "https://github.com/mcp-tool-shop-org/interlock",
+      "docs": "https://mcp-tool-shop-org.github.io/interlock/",
+      "releases": 14,
+      "latest_release": "v1.0.11 (2026-10-27)",
+      "package": {
+        "pypi": "mcptoolshop-interlock"
+      },
+      "install": "pip install mcptoolshop-interlock"
     },
     {
       "name": "knowledge-core",
@@ -760,8 +875,8 @@
       "summary": "Knowledge OS for AI coding agents — one CLI that routes the right context (memories + rules) to the model on demand, instead of dumping it all in the window. Kernel + adapters + runtime hook.",
       "url": "https://github.com/mcp-tool-shop-org/loadout-os",
       "docs": "https://mcp-tool-shop-org.github.io/loadout-os/",
-      "releases": 4,
-      "latest_release": "v1.0.3 (2026-09-07)",
+      "releases": 5,
+      "latest_release": "v1.0.4 (2026-10-07)",
       "package": {
         "npm": "@mcptoolshop/loadout-os"
       },
@@ -773,6 +888,21 @@
       "consumers": [
         "role-os"
       ]
+    },
+    {
+      "name": "lokey-typer",
+      "area": "games-and-game-tooling",
+      "lane": "shipped",
+      "visibility": "public",
+      "language": "TypeScript",
+      "license": "MIT",
+      "summary": "Calm ambient typing practice. Music first, with mechanical and other keyboard sounds.",
+      "url": "https://github.com/mcp-tool-shop-org/lokey-typer",
+      "docs": "https://mcp-tool-shop-org.github.io/lokey-typer/",
+      "releases": 1,
+      "latest_release": "v2.0.0 (2026-10-05)",
+      "package": null,
+      "install": null
     },
     {
       "name": "mcp-arcade",
@@ -808,8 +938,8 @@
       "summary": "The arcade: games made from what MCP servers said on the wire. Ghost on the Menu (a replay shooter) and Vibe Typer (a typing game where you are the coding agent), both playable on a phone, from npx, or as MCP servers. Cabinets read mcp-arcade tapes and never touch the score.",
       "url": "https://github.com/mcp-tool-shop-org/mcp-arcade-cabinets",
       "docs": "https://mcp-tool-shop-org.github.io/mcp-arcade-cabinets/",
-      "releases": 17,
-      "latest_release": "v0.13.2 (2026-09-30)",
+      "releases": 18,
+      "latest_release": "v0.13.3 (2026-10-15)",
       "package": null,
       "install": null,
       "classification_note": "Dual-use, ratified 2026-09-17. Playable cabinets that speak MCP because they replay tapes, not because they are a test harness. Games, also MCP servers."
@@ -824,8 +954,8 @@
       "summary": "Stress testing framework for MCP security tools - simulating attacks, temporal degradation, and edge cases",
       "url": "https://github.com/mcp-tool-shop-org/mcp-stress-test",
       "docs": "https://mcp-tool-shop-org.github.io/mcp-stress-test/",
-      "releases": 2,
-      "latest_release": "v1.0.2 (2026-09-23)",
+      "releases": 3,
+      "latest_release": "v1.0.3 (2026-10-15)",
       "package": {
         "pypi": "mcp-stress-test"
       },
@@ -852,15 +982,15 @@
       "also": [
         "image-and-media-pipelines"
       ],
-      "lane": "in-development",
+      "lane": "shipped",
       "visibility": "public",
       "language": "Python",
       "license": "MIT",
       "summary": "Text-to-speech MCP server — 48 voices, 9 languages, 5 presets, emotion spans, SSML-lite, multi-speaker dialogue, SFX tags, and built-in guardrails.",
       "url": "https://github.com/mcp-tool-shop-org/mcp-voice-soundboard",
       "docs": "https://mcp-tool-shop-org.github.io/mcp-voice-soundboard/",
-      "releases": 3,
-      "latest_release": "v0.1.2 (2026-02-17)",
+      "releases": 5,
+      "latest_release": "v2.5.5 (2026-10-15)",
       "package": {
         "pypi": "voice-soundboard"
       },
@@ -915,12 +1045,30 @@
       "summary": "Generic GitHub-release binary launcher with cache + SHA256 verification",
       "url": "https://github.com/mcp-tool-shop-org/npm-launcher",
       "docs": "https://mcp-tool-shop-org.github.io/npm-launcher/",
-      "releases": 1,
-      "latest_release": "v1.1.1 (2026-09-08)",
+      "releases": 2,
+      "latest_release": "v1.2.0 (2026-10-22)",
       "package": {
         "npm": "@mcptoolshop/npm-launcher"
       },
       "install": "npx @mcptoolshop/npm-launcher"
+    },
+    {
+      "name": "offrig",
+      "area": "training-and-datasets",
+      "also": [
+        "mcp-servers"
+      ],
+      "lane": "shipped",
+      "visibility": "public",
+      "language": "Rust",
+      "license": "MIT",
+      "summary": "Run big models and GPU jobs on rented RunPod GPUs, never your own. A Windows app, CLI and MCP side-car: priced plans, a recipe ready only when it can answer, and an exact host CUDA pin.",
+      "url": "https://github.com/mcp-tool-shop-org/offrig",
+      "docs": "https://mcp-tool-shop-org.github.io/offrig/",
+      "releases": 7,
+      "latest_release": "v1.3.0 (2026-11-06)",
+      "package": null,
+      "install": null
     },
     {
       "name": "ollama-intern-mcp",
@@ -932,8 +1080,8 @@
       "summary": "The local intern for Claude Code — 44 job-shaped tools, evidence-first briefs, durable artifacts. Local-first MCP server over Ollama with zero egress by default; no GPU big enough? Ollama Cloud runs the same 44 tools on 600B-class models, with automatic local fallback. Validated Hermes Agent integration on hermes3:8b.",
       "url": "https://github.com/mcp-tool-shop-org/ollama-intern-mcp",
       "docs": "https://mcp-tool-shop-org.github.io/ollama-intern-mcp/",
-      "releases": 22,
-      "latest_release": "v2.10.0 (2026-09-12)",
+      "releases": 24,
+      "latest_release": "v2.10.2 (2026-10-15)",
       "package": {
         "npm": "ollama-intern-mcp"
       },
@@ -972,8 +1120,8 @@
       "summary": "Local GPU translation MCP server — TranslateGemma via Ollama, 55 languages, zero cloud dependency",
       "url": "https://github.com/mcp-tool-shop-org/polyglot-mcp",
       "docs": "https://mcp-tool-shop-org.github.io/polyglot-mcp/",
-      "releases": 3,
-      "latest_release": "v1.8.0 (2026-09-25)",
+      "releases": 7,
+      "latest_release": "v1.11.0 (2026-11-06)",
       "package": {
         "npm": "@mcptoolshop/polyglot-mcp"
       },
@@ -1002,6 +1150,21 @@
       "install": "npx @mcptoolshop/portlight"
     },
     {
+      "name": "portlight-bounty",
+      "area": "games-and-game-tooling",
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "Rust",
+      "license": "NOASSERTION",
+      "summary": "A trade game. The Rust simulation is the rules. The Godot chart is what you play.",
+      "url": "https://github.com/mcp-tool-shop-org/portlight-bounty",
+      "docs": "https://mcp-tool-shop-org.github.io/portlight-bounty/",
+      "releases": 5,
+      "latest_release": "v0.3.2 (2026-10-18)",
+      "package": null,
+      "install": null
+    },
+    {
       "name": "portlight-ships",
       "area": "training-and-datasets",
       "also": [
@@ -1013,6 +1176,23 @@
       "license": "MIT",
       "summary": "Canon-driven pipeline that teaches a diffusion model ship anatomy — 14 sourced hulls rendered from textured 3D so rotation is true, distilled into a Qwen-Image LoRA. The base model has damage but not anatomy; only anatomy is taught.",
       "url": "https://github.com/mcp-tool-shop-org/portlight-ships",
+      "releases": 0,
+      "latest_release": null,
+      "package": null,
+      "install": null
+    },
+    {
+      "name": "portrait-forge",
+      "area": "image-and-media-pipelines",
+      "also": [
+        "games-and-game-tooling"
+      ],
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "TypeScript",
+      "license": "MIT",
+      "summary": "Consistent character portraits from text descriptions: one pinned ComfyUI workflow, local or Comfy Cloud, a house-style LoRA, a question-based acceptance gate, and a per-entity registry",
+      "url": "https://github.com/mcp-tool-shop-org/portrait-forge",
       "releases": 0,
       "latest_release": null,
       "package": null,
@@ -1031,8 +1211,8 @@
       "summary": "Runtime LLM verifier — family-different, reasoning-stripped, multi-lens adjudication with signed Ed25519 receipts (CLI · MCP · HTTP).",
       "url": "https://github.com/mcp-tool-shop-org/prism-verify",
       "docs": "https://mcp-tool-shop-org.github.io/prism-verify/",
-      "releases": 12,
-      "latest_release": "v1.6.0 (2026-06-14)",
+      "releases": 14,
+      "latest_release": "v1.7.1 (2026-10-15)",
       "package": {
         "npm": "@mcptoolshop/prism-verify",
         "pypi": "prism-verify"
@@ -1077,6 +1257,26 @@
       "install": null
     },
     {
+      "name": "reasoning-dataset-lab",
+      "area": "training-and-datasets",
+      "also": [
+        "research"
+      ],
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "Python",
+      "license": "MIT",
+      "summary": "A map-first lab for datasets of puzzles, quizzes and verification items, where code proves the answer key before any model words the item.",
+      "url": "https://github.com/mcp-tool-shop-org/reasoning-dataset-lab",
+      "docs": "https://mcp-tool-shop-org.github.io/reasoning-dataset-lab/",
+      "releases": 3,
+      "latest_release": "v0.6.0 (2026-11-07)",
+      "package": {
+        "pypi": "reasoning-dataset-lab"
+      },
+      "install": "pip install reasoning-dataset-lab"
+    },
+    {
       "name": "record-index",
       "area": "agent-infrastructure",
       "lane": "in-development",
@@ -1098,13 +1298,13 @@
       "area": "developer-tooling",
       "lane": "shipped",
       "visibility": "public",
-      "language": "Astro",
+      "language": "HTML",
       "license": "MIT",
-      "summary": "Multi-registry download stats — engine, dashboard, and desktop app for npm, PyPI, NuGet, VS Code Marketplace, and Docker Hub",
+      "summary": "registry-stats is the engine, CLI, and dashboard. Registry Pulse is the Windows app. Six registries: npm, PyPI, NuGet, VS Code Marketplace, Docker Hub, and GitHub Releases.",
       "url": "https://github.com/mcp-tool-shop-org/registry-stats",
       "docs": "https://mcp-tool-shop-org.github.io/registry-stats/",
-      "releases": 4,
-      "latest_release": "v3.4.0 (2026-06-24)",
+      "releases": 5,
+      "latest_release": "v3.5.0 (2026-10-14)",
       "package": {
         "npm": "@mcptoolshop/registry-stats"
       },
@@ -1120,8 +1320,8 @@
       "summary": "Desired-state sync engine for multi-registry package publishing",
       "url": "https://github.com/mcp-tool-shop-org/registry-sync",
       "docs": "https://mcp-tool-shop-org.github.io/registry-sync/",
-      "releases": 1,
-      "latest_release": "v1.1.1 (2026-03-26)",
+      "releases": 2,
+      "latest_release": "v1.2.0 (2026-11-07)",
       "package": {
         "npm": "@mcptoolshop/registry-sync"
       },
@@ -1181,8 +1381,8 @@
       "summary": "Release ledger and XRPL-anchored trust clock for a repo network: signed events, node manifests, and verification. Separate from Attestia's event store.",
       "url": "https://github.com/mcp-tool-shop-org/repomesh",
       "docs": "https://mcp-tool-shop-org.github.io/repomesh/",
-      "releases": 6,
-      "latest_release": "v2.3.2 (2026-10-01)",
+      "releases": 9,
+      "latest_release": "v2.5.1 (2026-11-07)",
       "package": {
         "npm": "@mcptoolshop/repomesh"
       },
@@ -1198,8 +1398,8 @@
       "summary": "Local-first research control plane for gated source packs, claim truth, contradiction handling, and long-running AI synthesis",
       "url": "https://github.com/mcp-tool-shop-org/research-os",
       "docs": "https://www.npmjs.com/package/@mcptoolshop/research-os",
-      "releases": 20,
-      "latest_release": "v0.14.0 (2026-06-30)",
+      "releases": 23,
+      "latest_release": "v0.15.2 (2026-10-15)",
       "package": {
         "npm": "@mcptoolshop/research-os"
       },
@@ -1245,17 +1445,54 @@
       "install": "npx @mcptoolshop/rig-bridge"
     },
     {
+      "name": "rnd",
+      "area": "research",
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "Python",
+      "license": "MIT",
+      "summary": "The studio's research bench: tiered-source Markdown entries, rig experiments, a searchable SQLite index, an instrument registry and rated catalogues. Verified topics graduate to readouts.",
+      "url": "https://github.com/mcp-tool-shop-org/rnd",
+      "docs": "https://mcp-tool-shop-org.github.io/rnd/",
+      "releases": 26,
+      "latest_release": "v1.1.23.1.55 (2026-11-03)",
+      "package": {
+        "pypi": "mcptoolshop-rnd"
+      },
+      "install": "pip install mcptoolshop-rnd"
+    },
+    {
+      "name": "rnd-data",
+      "area": "research",
+      "also": [
+        "training-and-datasets"
+      ],
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "Python",
+      "license": "CC-BY-4.0",
+      "summary": "The raw data behind the studio's open research: every run's receipts and outputs, each public file pinned by SHA-256 in its manifest. Data CC BY 4.0, scripts MIT. Indexed by rnd.",
+      "url": "https://github.com/mcp-tool-shop-org/rnd-data",
+      "docs": "https://mcp-tool-shop-org.github.io/rnd-data/",
+      "releases": 1,
+      "latest_release": "v0.1.0 (2026-11-03)",
+      "package": {
+        "pypi": "rnd-data"
+      },
+      "install": "pip install rnd-data"
+    },
+    {
       "name": "role-os",
       "area": "agent-infrastructure",
       "lane": "shipped",
       "visibility": "public",
       "language": "JavaScript",
       "license": "MIT",
-      "summary": "Role OS — a repo-native operating layer that staffs coding-agent work through 61 role contracts, packs, missions, and structured evidence. Claude Code adapter ships; the contracts are markdown any harness can consume.",
+      "summary": "Role OS — a repo-native operating layer that staffs coding-agent work through 61 role contracts, packs, missions, recipe cards, and a critic jury. Claude Code adapter ships; the contracts are markdown any harness can consume.",
       "url": "https://github.com/mcp-tool-shop-org/role-os",
       "docs": "https://mcp-tool-shop-org.github.io/role-os/",
-      "releases": 11,
-      "latest_release": "v2.11.0 (2026-09-15)",
+      "releases": 13,
+      "latest_release": "v2.12.1 (2026-10-14)",
       "package": {
         "npm": "role-os"
       },
@@ -1268,6 +1505,23 @@
         "knowledge-core",
         "loadout-os"
       ]
+    },
+    {
+      "name": "role-set",
+      "area": "training-and-datasets",
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "Python",
+      "license": "MIT",
+      "summary": "Prototype. Plans role-shaping items, writes the parts a writer should write, records the gates each item passed, and builds kind B puzzles in code that are proven before a model words them. Nothing it writes is training data until a person checks it.",
+      "url": "https://github.com/mcp-tool-shop-org/role-set",
+      "docs": "https://mcp-tool-shop-org.github.io/role-set/",
+      "releases": 3,
+      "latest_release": "v0.3.0 (2026-10-29)",
+      "package": {
+        "pypi": "role-set"
+      },
+      "install": "pip install role-set"
     },
     {
       "name": "roll",
@@ -1294,6 +1548,21 @@
       ]
     },
     {
+      "name": "runforge",
+      "area": "training-and-datasets",
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "Rust",
+      "license": "MIT",
+      "summary": "Windows instrument for fine-tuning runs: every sample drawn, a report that leads with its answer, and a local-model workbench that builds formula tools and tests what each knob does, with e-value evidence across folders.",
+      "url": "https://github.com/mcp-tool-shop-org/runforge",
+      "docs": "https://mcp-tool-shop-org.github.io/runforge/",
+      "releases": 0,
+      "latest_release": null,
+      "package": null,
+      "install": null
+    },
+    {
       "name": "runforge-vscode",
       "area": "training-and-datasets",
       "also": [
@@ -1306,8 +1575,8 @@
       "summary": "Push-button ML training with presets, indexed runs, and artifact inspection — all without leaving your editor.",
       "url": "https://github.com/mcp-tool-shop-org/runforge-vscode",
       "docs": "https://mcp-tool-shop-org.github.io/runforge-vscode/",
-      "releases": 2,
-      "latest_release": "v1.2.1 (2026-09-08)",
+      "releases": 3,
+      "latest_release": "v1.2.2 (2026-10-01)",
       "package": null,
       "install": null
     },
@@ -1329,6 +1598,53 @@
       "install": "npx @mcptoolshop/saints-mile"
     },
     {
+      "name": "scalarscope",
+      "area": "training-and-datasets",
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "C#",
+      "license": "MIT",
+      "summary": "Windows review of two machine-learning runs. This repo builds the Rust review. The Store listing is still the previous package.",
+      "url": "https://github.com/mcp-tool-shop-org/scalarscope",
+      "docs": "https://mcp-tool-shop-org.github.io/scalarscope/",
+      "releases": 2,
+      "latest_release": "v3.1.1.0 (2026-10-07)",
+      "package": null,
+      "install": null
+    },
+    {
+      "name": "schumann-surface",
+      "area": "research",
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "HTML",
+      "license": "MIT",
+      "summary": "Schumann resonance as a 3D time-frequency surface with event lanes and honest lagged cross-correlation, from the Sierra Nevada ELF station's open raw archive",
+      "url": "https://github.com/mcp-tool-shop-org/schumann-surface",
+      "docs": "https://mcp-tool-shop-org.github.io/schumann-surface/",
+      "releases": 0,
+      "latest_release": null,
+      "package": null,
+      "install": null
+    },
+    {
+      "name": "sense-si",
+      "area": "research",
+      "also": [
+        "image-and-media-pipelines"
+      ],
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "Python",
+      "license": "MIT",
+      "summary": "Python instruments for seeing and hearing. Jev answers questions over their records and does not pass or fail.",
+      "url": "https://github.com/mcp-tool-shop-org/sense-si",
+      "releases": 0,
+      "latest_release": null,
+      "package": null,
+      "install": null
+    },
+    {
       "name": "sensor-humor",
       "area": "mcp-servers",
       "lane": "shipped",
@@ -1338,12 +1654,26 @@
       "summary": "MCP comedy sidekick — gives LLMs a sense of humor via Ollama-powered comedic personality",
       "url": "https://github.com/mcp-tool-shop-org/sensor-humor",
       "docs": "https://mcp-tool-shop-org.github.io/sensor-humor/",
-      "releases": 6,
-      "latest_release": "v1.3.1 (2026-09-07)",
+      "releases": 7,
+      "latest_release": "v1.3.2 (2026-10-14)",
       "package": {
         "npm": "@mcptoolshop/sensor-humor"
       },
       "install": "npx @mcptoolshop/sensor-humor"
+    },
+    {
+      "name": "session-record",
+      "area": "agent-infrastructure",
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "Python",
+      "license": "MIT",
+      "summary": "Store a session as an addressable record a later turn can refer to",
+      "url": "https://github.com/mcp-tool-shop-org/session-record",
+      "releases": 0,
+      "latest_release": null,
+      "package": null,
+      "install": null
     },
     {
       "name": "shipcheck",
@@ -1355,8 +1685,8 @@
       "summary": "Product standards for MCP Tool Shop — Ship Gate checklist, error contract, templates, and adoption guides",
       "url": "https://github.com/mcp-tool-shop-org/shipcheck",
       "docs": "https://mcp-tool-shop-org.github.io/shipcheck/",
-      "releases": 7,
-      "latest_release": "v1.0.8 (2026-09-08)",
+      "releases": 8,
+      "latest_release": "v1.0.9 (2026-10-14)",
       "package": {
         "npm": "@mcptoolshop/shipcheck"
       },
@@ -1442,8 +1772,8 @@
       "summary": "A board game about trust, trade, and keeping your word. Offline tabletop with optional XRPL proof-of-play anchoring.",
       "url": "https://github.com/mcp-tool-shop-org/sovereignty",
       "docs": "https://mcp-tool-shop-org.github.io/sovereignty/",
-      "releases": 23,
-      "latest_release": "v2.3.5 (2026-09-30)",
+      "releases": 24,
+      "latest_release": "v2.3.6 (2026-10-14)",
       "package": {
         "npm": "@mcptoolshop/sovereignty",
         "pypi": "sovereignty-game"
@@ -1479,6 +1809,23 @@
       ]
     },
     {
+      "name": "sprite-foundry-2p5d",
+      "area": "image-and-media-pipelines",
+      "also": [
+        "games-and-game-tooling"
+      ],
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "Python",
+      "license": "MIT",
+      "summary": "The no-mesh 2.5D sprite pipeline: one front concept becomes an 8-direction, layered, engine-relightable 2.5D character, with no 3D mesh in the loop.",
+      "url": "https://github.com/mcp-tool-shop-org/sprite-foundry-2p5d",
+      "releases": 0,
+      "latest_release": null,
+      "package": null,
+      "install": null
+    },
+    {
       "name": "sprite-foundry-packs",
       "area": "image-and-media-pipelines",
       "also": [
@@ -1496,6 +1843,40 @@
       "package": null,
       "install": null,
       "note": "Releases are asset-pack tags (pirate-raiders-3d-2-v1.0.0), not semver product releases."
+    },
+    {
+      "name": "sprite-motion",
+      "area": "image-and-media-pipelines",
+      "also": [
+        "games-and-game-tooling"
+      ],
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "HTML",
+      "license": "MIT",
+      "summary": "Visual editor for placing skeletons, weapons and props on game-character sprites in the rig's exact coordinate space, with a Blender bridge that applies the placement.",
+      "url": "https://github.com/mcp-tool-shop-org/sprite-motion",
+      "releases": 0,
+      "latest_release": null,
+      "package": null,
+      "install": null
+    },
+    {
+      "name": "sprite-motion-mcp",
+      "area": "image-and-media-pipelines",
+      "also": [
+        "mcp-servers"
+      ],
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "Python",
+      "license": "MIT",
+      "summary": "MCP server that productizes the sprite-motion rigged-character pipeline: decimate → UniRig → propose-roles → pose → rigidify → attach-weapon → export → render → cross-family vision jury, with batch_roster. Drives the whole loop headlessly.",
+      "url": "https://github.com/mcp-tool-shop-org/sprite-motion-mcp",
+      "releases": 0,
+      "latest_release": null,
+      "package": null,
+      "install": null
     },
     {
       "name": "star-freight",
@@ -1561,6 +1942,20 @@
       "install": null
     },
     {
+      "name": "studio-harness",
+      "area": "developer-tooling",
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "JavaScript",
+      "license": "MIT",
+      "summary": "Integration harness for the studio's tools: shared run and queue harnesses, cross-repo tests pinned to exact commits, plans and gap notes",
+      "url": "https://github.com/mcp-tool-shop-org/studio-harness",
+      "releases": 0,
+      "latest_release": null,
+      "package": null,
+      "install": null
+    },
+    {
       "name": "style-dataset-lab",
       "area": "training-and-datasets",
       "also": [
@@ -1573,8 +1968,8 @@
       "summary": "Visual canon and dataset production pipeline — snapshots, splits, training packages, eval scorecards, implementation packs, and closed-loop re-ingest for any image production domain",
       "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab",
       "docs": "https://mcp-tool-shop-org.github.io/style-dataset-lab/",
-      "releases": 15,
-      "latest_release": "v3.4.0 (2026-08-04)",
+      "releases": 17,
+      "latest_release": "v3.5.1 (2026-11-05)",
       "package": {
         "npm": "@mcptoolshop/style-dataset-lab"
       },
@@ -1590,8 +1985,8 @@
       "summary": "Deterministic evaluations for empathy, trust, and care in AI systems",
       "url": "https://github.com/mcp-tool-shop-org/synthesis",
       "docs": "https://mcp-tool-shop-org.github.io/synthesis/",
-      "releases": 8,
-      "latest_release": "v1.3.2 (2026-09-16)",
+      "releases": 10,
+      "latest_release": "v1.3.4 (2026-10-15)",
       "package": {
         "npm": "@mcptoolshop/synthesis"
       },
@@ -1604,15 +1999,15 @@
     {
       "name": "taste-engine",
       "area": "agent-infrastructure",
-      "lane": "in-development",
+      "lane": "shipped",
       "visibility": "public",
       "language": "TypeScript",
       "license": "MIT",
       "summary": "Canon-and-judgment system for creative and product work",
       "url": "https://github.com/mcp-tool-shop-org/taste-engine",
       "docs": "https://mcp-tool-shop-org.github.io/taste-engine/",
-      "releases": 0,
-      "latest_release": null,
+      "releases": 2,
+      "latest_release": "v1.0.3 (2026-10-15)",
       "package": {
         "npm": "@mcptoolshop/taste-engine"
       },
@@ -1628,8 +2023,8 @@
       "summary": "Semantic MCP tool-discovery gateway — find tools by intent, not memory.",
       "url": "https://github.com/mcp-tool-shop-org/tool-compass",
       "docs": "https://mcp-tool-shop-org.github.io/tool-compass/",
-      "releases": 15,
-      "latest_release": "v2.5.2 (2026-09-09)",
+      "releases": 18,
+      "latest_release": "v2.5.5 (2026-10-15)",
       "package": {
         "npm": "@mcptoolshop/tool-compass",
         "pypi": "tool-compass"
@@ -1645,6 +2040,41 @@
       ]
     },
     {
+      "name": "understanding-dataset-lab",
+      "area": "training-and-datasets",
+      "also": [
+        "research"
+      ],
+      "lane": "in-development",
+      "visibility": "public",
+      "language": "Python",
+      "license": "MIT",
+      "summary": "Prototype: a dataset lab for cognitive empathy. Multi-party scenes with code-made answer keys, written by a local model and checked by code.",
+      "url": "https://github.com/mcp-tool-shop-org/understanding-dataset-lab",
+      "docs": "https://mcp-tool-shop-org.github.io/understanding-dataset-lab/",
+      "releases": 1,
+      "latest_release": null,
+      "package": null,
+      "install": null
+    },
+    {
+      "name": "visual-design-bible",
+      "area": "games-and-game-tooling",
+      "also": [
+        "image-and-media-pipelines"
+      ],
+      "lane": "in-development",
+      "visibility": "public",
+      "language": null,
+      "license": "MIT",
+      "summary": "Visual Design Bible system — reusable template + per-game bibles for AI-assisted game art pipelines",
+      "url": "https://github.com/mcp-tool-shop-org/visual-design-bible",
+      "releases": 0,
+      "latest_release": null,
+      "package": null,
+      "install": null
+    },
+    {
       "name": "vocal-synth-engine",
       "area": "image-and-media-pipelines",
       "lane": "shipped",
@@ -1654,12 +2084,30 @@
       "summary": "Deterministic vocal instrument engine — additive synthesis with formant control, real-time WebSocket streaming, MCP server, and cockpit UI",
       "url": "https://github.com/mcp-tool-shop-org/vocal-synth-engine",
       "docs": "https://mcp-tool-shop-org.github.io/vocal-synth-engine/",
-      "releases": 1,
-      "latest_release": "v1.1.0 (2026-05-16)",
+      "releases": 2,
+      "latest_release": "v1.1.1 (2026-10-14)",
       "package": {
         "npm": "@mcptoolshop/vocal-synth-engine"
       },
       "install": "npx @mcptoolshop/vocal-synth-engine"
+    },
+    {
+      "name": "watchdog",
+      "area": "training-and-datasets",
+      "also": [
+        "developer-tooling"
+      ],
+      "lane": "shipped",
+      "visibility": "public",
+      "language": "PowerShell",
+      "license": "MIT",
+      "summary": "Windows VRAM/RAM/temp watchdog for NVIDIA GPUs. Kills guarded interpreters on a sustained breach.",
+      "url": "https://github.com/mcp-tool-shop-org/watchdog",
+      "docs": "https://mcp-tool-shop-org.github.io/watchdog/",
+      "releases": 1,
+      "latest_release": "v1.0.0 (2026-08-20)",
+      "package": null,
+      "install": null
     },
     {
       "name": "websketch-ir",
@@ -1671,8 +2119,8 @@
       "summary": "Grammar-based intermediate representation that compiles messy DOM into a small, fixed vocabulary of semantic UI primitives — built for LLMs. Zero runtime deps.",
       "url": "https://github.com/mcp-tool-shop-org/websketch-ir",
       "docs": "https://mcp-tool-shop-org.github.io/websketch-ir/",
-      "releases": 1,
-      "latest_release": "v2.3.0 (2026-06-21)",
+      "releases": 2,
+      "latest_release": "v2.3.1 (2026-10-15)",
       "package": {
         "npm": "@mcptoolshop/websketch-ir"
       },
@@ -1688,8 +2136,8 @@
       "summary": "2D / 2.5D world authoring studio with peer export lanes for AI RPG Engine, Unreal Engine 5, and Godot 4.",
       "url": "https://github.com/mcp-tool-shop-org/world-forge",
       "docs": "https://mcp-tool-shop-org.github.io/world-forge/",
-      "releases": 8,
-      "latest_release": "v4.9.0 (2026-09-21)",
+      "releases": 9,
+      "latest_release": "v4.9.1 (2026-11-06)",
       "package": null,
       "install": null,
       "starter": true,
@@ -1710,8 +2158,8 @@
       "summary": "Learn the XRP Ledger in one sitting — real transactions, portable proof, 10 minutes.",
       "url": "https://github.com/mcp-tool-shop-org/xrpl-camp",
       "docs": "https://mcp-tool-shop-org.github.io/xrpl-camp/",
-      "releases": 10,
-      "latest_release": "v1.4.1 (2026-09-09)",
+      "releases": 14,
+      "latest_release": "v1.5.2 (2026-10-23)",
       "package": {
         "npm": "@mcptoolshop/xrpl-camp",
         "pypi": "xrpl-camp"
@@ -1743,8 +2191,8 @@
       "summary": "XRPL training workbook — learn by doing, prove by artifact",
       "url": "https://github.com/mcp-tool-shop-org/xrpl-lab",
       "docs": "https://mcp-tool-shop-org.github.io/xrpl-lab/",
-      "releases": 15,
-      "latest_release": "v2.5.0 (2026-08-25)",
+      "releases": 29,
+      "latest_release": "v2.7.9 (2026-10-22)",
       "package": {
         "npm": "@mcptoolshop/xrpl-lab",
         "pypi": "xrpl-lab"

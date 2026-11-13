@@ -1,50 +1,24 @@
 [
   {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "newsletter-issue-43",
-    "name": "11 November: you block the shot, the model shoots it",
+    "repo": "backpropagate",
+    "toolName": "Backpropagate",
+    "tag": "v1.9.0",
+    "name": "Backpropagate v1.9.0",
     "body": [
-      "A long look at armature, our tool for making AI video follow a 3D scene we authored: the idea, fourteen experiments (thirteen run, one withdrawn) and their wrong turns, and what the field looks like now. Also:…",
-      "You block the shot. The model shoots it. armature stages a character in Blender and makes a video model follow it. Thirteen experiments in, the model reads geometry rather than tone, identity holds through a hosted…",
-      "Blender 5.3 arrived, and armature didn't notice. 3,166 of armature's Blender tests pass on 5.3 (18 skipped), and the ones that start real Blender pass on both graphics backends.",
-      "Finished, then stopped. A style-training run on a rented 96 GB card reached all 500 steps and saved both checkpoints. Then its own stall guard fired on a phase it wasn't meant to watch.",
-      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-43/"
+      "Breaking: Python 3.10 is no longer supported (end of life 2026-10-01). Minimum is 3.11. Pillow 13.0.0 (five critical CVEs fixed) and certifi updated. CI test matrix is now 3.11 and 3.13 (3.11 is the floor and the…"
     ],
-    "publishedAt": "2026-11-11T17:01:08Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-43",
+    "publishedAt": "2026-11-12T22:29:27Z",
+    "url": "https://github.com/mcp-tool-shop-org/backpropagate/releases/tag/v1.9.0",
     "prerelease": false
   },
   {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "newsletter-issue-42",
-    "name": "10 November: deciding how to judge before the result",
-    "body": [
-      "A warning check in aspire-si's new training series went over its line once, and we wrote down how a stop would be reviewed before the next reading came in. Also: whether to add vLLM beside Ollama, where a research…",
-      "Deciding how to judge before the result. One of the five warning checks in aspire-si's S2 v1.1 run went over its line at one reading. Two in a row would stop the run for review, and the study record didn't say how…",
-      "A second engine, checked first. vLLM could run our bulk jobs many requests at a time. A Deep Research report on it got two things wrong that we checked at source. The first trial got half-way: the speed sweep ran,…",
-      "Eight at a time isn't eight times faster. Batching the next study's evaluation pass by eight would make it about 2.15 times faster. Up to 35% of the time can go to a dozen answers that may never stop.",
-      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-42/"
-    ],
-    "publishedAt": "2026-11-10T16:47:32Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-42",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "newsletter-issue-41",
-    "name": "9 November: the guard that cried wolf",
-    "body": [
-      "aspire-si's training run stopped two of its three seeds on a guard that, measured afterwards, fires on a healthy run 81% of the time. The fix is a new, pre-registered series. Also: why our own inference server gave…",
-      "A guard that cried wolf. aspire-si's S2 run stopped seeds 42 and 44 on its U2 guard. Measured on all three seeds, that guard would stop a healthy run 81% of the time. Running both seeds on with the guard set to…",
-      "Same server, same question, two answers. Our inference server gave different log-probabilities on 45 of 50 prompts when asked twice. The cause was its prompt cache. With the cache off, 401 of 401 repeat readings…",
-      "A judge result re-checked. Our reference judge's 145 of 149 stands exactly with the cache off. A second, larger judge moves by up to 5 pairs, and its row now says so.",
-      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-41/"
-    ],
-    "publishedAt": "2026-11-09T13:24:28Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-41",
+    "repo": "dataset-desk",
+    "toolName": "Dataset Desk",
+    "tag": "v0.3.0",
+    "name": "dataset-desk 0.3.0",
+    "body": [],
+    "publishedAt": "2026-11-12T12:13:05Z",
+    "url": "https://github.com/mcp-tool-shop-org/dataset-desk/releases/tag/v0.3.0",
     "prerelease": false
   },
   {
@@ -245,22 +219,6 @@
     "prerelease": false
   },
   {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "newsletter-issue-40",
-    "name": "6 November: the memory guard that counted the cache",
-    "body": [
-      "Our first Colab run on Google's newest GPU card got through every check and a 57.7 GB download, then our own memory guard stopped it before the first training step. The guard was counting cached model files as memory…",
-      "A guard that counted the cache. Our G4 run stopped on a memory projection of 183,924 MiB against a 181,130 MiB machine. The job itself was using 52,493 MiB; the rest was cached model files.",
-      "Locks bounded in time. A library release on PyPI broke a Colab lock check on every pull request. Each lock now records the moment it was resolved against.",
-      "aspire-si at 120 updates. Three training chunks on the local RTX 5090 passed their checks. 54 of 3,840 answers (1.41%) ran into the length limit, against a stop line of 20%.",
-      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-40/"
-    ],
-    "publishedAt": "2026-11-06T21:38:50Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-40",
-    "prerelease": false
-  },
-  {
     "repo": "world-forge",
     "toolName": "World Forge",
     "tag": "v4.9.1",
@@ -363,22 +321,6 @@
     "prerelease": false
   },
   {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "newsletter-issue-39",
-    "name": "5 November: the dataset labs, and udlab goes public as a prototype",
-    "body": [
-      "Five of our public repositories make datasets, from puzzles and scenes to images and code. The newest, understanding-dataset-lab (udlab), went public this week as a v0.1.0 prototype: multi-party scenes whose answer…",
-      "Five dataset labs. Puzzles, scenes, images and repositories. In the two that write test items, code makes the answer key and a model only words it.",
-      "udlab is public, as a prototype. Multi-party scenes with code-made answer keys, written by a local model and checked by code. v0.1.0 is a GitHub pre-release; nothing is on PyPI.",
-      "Two stages failed first. Stage 3 passed 111 of 160 renderings against 127 for the baseline, and Stage 4 89 against 120. Stage 5 passed all 7 of its development gates: 126 of 160 first drafts against a floor of 112.",
-      "Read it: https://mcp-tool-shop-org.github.io/rnd/newsletter/issue-39/"
-    ],
-    "publishedAt": "2026-11-05T17:21:55Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/newsletter-issue-39",
-    "prerelease": false
-  },
-  {
     "repo": "understanding-dataset-lab",
     "toolName": "Understanding Dataset Lab",
     "tag": "v0.1.0",
@@ -408,6 +350,22 @@
     ],
     "publishedAt": "2026-11-03T18:58:43Z",
     "url": "https://github.com/mcp-tool-shop-org/rnd-data/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.23.1.55",
+    "name": "rnd 1.1.23.1.55",
+    "body": [
+      "The first tool release since 1.1.23.1.31 (24 October). It carries 24 library versions, 1.1.23.1.32 to 1.1.23.1.55. Full detail per version is in CHANGELOG.md.",
+      "Issues 30 to 37 (25 October to 3 November). Issue 30 was the first daily issue.",
+      "Issue 34 corrected (1.1.23.1.47): three of the eight Super prompts ask more than a 2.5-second clip can show, so int4 is now the provisional choice, to be re-checked. No numbers changed.",
+      "Mirrors: each published issue now goes to the Hugging Face dataset mcp-tool-shop/rnd-newsletter, to npm as @rnd-news/newsletter, to PyPI as mcptoolshop-rnd-newsletter, and to a GitHub release per issue (1.1.23.1.35,…",
+      "/newsletter/subscribe/ is now \"Follow the newsletter\": RSS plus the mirrors (1.1.23.1.50)."
+    ],
+    "publishedAt": "2026-11-03T18:31:18Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.55",
     "prerelease": false
   },
   {
@@ -590,6 +548,20 @@
     "prerelease": false
   },
   {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.23.1.31",
+    "name": "rnd 1.1.23.1.31",
+    "body": [
+      "newsletter: issue 28 (#220); the RSS feed, its CI check and the zod pin (#221-#223); the issue 28 correction with seven Antigravity-designed charts, plus issue 27's chart margin (#224)",
+      "colab-drift: compare.py in the repo, reading each reply as role-set does, with evidence_drift for DECIDING on verdict calls; the G4 counts hold (65 drifted, 28 decision, 3 verdict, 10 evidence) (#225)",
+      "stage1-regeneration: run records 18a-18e with stubs, 19s, 19a, probes p6 and p7; phase 5 cap 500, shared across experiments (#225)"
+    ],
+    "publishedAt": "2026-10-24T02:34:36Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.31",
+    "prerelease": false
+  },
+  {
     "repo": "aspire-si",
     "toolName": "Aspire Si",
     "tag": "v1.4.0",
@@ -599,6 +571,34 @@
     ],
     "publishedAt": "2026-10-24T01:51:47Z",
     "url": "https://github.com/mcp-tool-shop-org/aspire-si/releases/tag/v1.4.0",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.23.1.30",
+    "name": "rnd 1.1.23.1.30",
+    "body": [
+      "Correction to the Colab drift results and newsletter issue 27. The RTX PRO 6000 drifted on 65 of 178 critic calls, but only 3 of those changed a verdict, not all 65: verdicts held on 49 of 52. The comparison script's…"
+    ],
+    "publishedAt": "2026-10-23T17:50:23Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.30",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.23.1.29",
+    "name": "rnd 1.1.23.1.29",
+    "body": [
+      "Run records for the 2026-10-22/23 Colab windows (drift v3, the offrig Colab baseline).",
+      "Colab drift results: three A100 VMs are byte-identical on every shared call, and the A100 80 GB matches the 40 GB (178/178); the RTX PRO 6000 on its own sm_120 build drifts on 65 of 178 calls, each with a verdict change.",
+      "Offrig Colab A100 baseline: A100 matches A100 exactly; against the RTX 5090 the text differs, with verdicts 29/30.",
+      "Handbook: stub coverage.",
+      "Newsletter issue 27, \"Same request, same seed, same bytes?\""
+    ],
+    "publishedAt": "2026-10-23T17:33:58Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.29",
     "prerelease": false
   },
   {
@@ -631,6 +631,18 @@
     ],
     "publishedAt": "2026-10-23T07:34:13Z",
     "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.5.2",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.23.1.28",
+    "name": "rnd 1.1.23.1.28",
+    "body": [
+      "rnd 1.1.23.1.28. Changes: see CHANGELOG.md, section [1.1.23.1.28]: the localbuilders proxy passes a client's seed through to llama-server; newsletter issue 26."
+    ],
+    "publishedAt": "2026-10-23T05:31:01Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.28",
     "prerelease": false
   },
   {
@@ -682,28 +694,6 @@
     ],
     "publishedAt": "2026-10-22T16:09:14Z",
     "url": "https://github.com/mcp-tool-shop-org/npm-launcher/releases/tag/v1.2.0",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-lab",
-    "toolName": "XRPL Lab",
-    "tag": "v2.7.9",
-    "name": "XRPL Lab v2.7.9",
-    "body": [
-      "The state-version warning prints once (#45). With state saved by an older version, a command printed \"Warning: state from vX, current is vY. Some fields may differ.\" once for every time it loaded state: three times…"
-    ],
-    "publishedAt": "2026-10-22T08:57:35Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.7.9",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-camp",
-    "toolName": "XRPL Camp",
-    "tag": "v1.4.2",
-    "name": "v1.4.2",
-    "body": [],
-    "publishedAt": "2026-10-22T08:11:05Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.4.2",
     "prerelease": false
   }
 ]
