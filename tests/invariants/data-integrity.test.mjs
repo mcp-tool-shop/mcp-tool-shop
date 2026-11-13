@@ -154,7 +154,11 @@ describe("ecosystem.json", () => {
     assert.ok(ecosystem, "ecosystem.json must exist");
     assert.ok(Array.isArray(ecosystem.repos) && ecosystem.repos.length > 0);
     assert.equal(ecosystem.repos.length, ecosystem.counts.catalogued);
-    assert.equal(ecosystem.areas.length, 7);
+    // The area list is editorial (catalog.yaml in the org .github repo) and grows over time, so check its
+    // shape, not a fixed count: non-empty, and every area id unique.
+    assert.ok(ecosystem.areas.length > 0);
+    const areaIds = ecosystem.areas.map((a) => a.id);
+    assert.equal(new Set(areaIds).size, areaIds.length, `duplicate area ids: ${areaIds.join(", ")}`);
     assert.equal(ecosystem.paths.length, 5);
   });
 
