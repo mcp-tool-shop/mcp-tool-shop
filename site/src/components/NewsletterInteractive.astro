@@ -6,7 +6,7 @@
  * specific finding from the issue. Markup is generated client-side from the
  * params, so the JSON stays the single source of truth for content.
  *
- * kinds: working-set | forgetting-curve | needle | poison | quiz | bets | ship-it | dream-walk
+ * kinds: working-set | forgetting-curve | needle | poison | quiz | bets | ship-it | dream-walk | jury | tie
  */
 interface Props {
   kind: string;
@@ -542,8 +542,79 @@ const { kind, title, caption = '', ...params } = Astro.props;
     setInterval(() => { clock += .25; observe(); paint(); }, 250);
   }
 
+  /* ------------------------------------------------------------------ */
+  /* 9. Jury — Kish effective sample size under correlated judge errors  */
+  /*    n_eff = k / (1 + (k-1) * phi); Kohli 2026: phi = 0.391, k=9 -> 2.18 */
+  /* ------------------------------------------------------------------ */
+  function jury(root: HTMLElement, p: any) {
+    const phi0: number = p.phi ?? 0.391;
+    let k: number = p.k ?? 9; let phi = phi0;
+    const neff = (kk: number, ph: number) => kk / (1 + (kk - 1) * ph);
+    const kIn = h('input', { type: 'range', min: 1, max: 20, step: 1, value: k, 'aria-label': 'number of judges' }) as HTMLInputElement;
+    const pIn = h('input', { type: 'range', min: 0, max: 80, step: 1, value: Math.round(phi * 100), 'aria-label': 'how often their mistakes line up' }) as HTMLInputElement;
+    const kLab = h('label', {}); const pLab = h('label', {});
+    const judges = h('div', { class: 'nw-shelf' });
+    const votes = h('div', { class: 'nw-shelf' });
+    const stat = h('div', { class: 'nw-row' });
+    kIn.addEventListener('input', () => { k = +kIn.value; paint(); });
+    pIn.addEventListener('input', () => { phi = +pIn.value / 100; paint(); });
+    const resetBtn = h('button', { class: 'nw-btn', onclick: () => { phi = phi0; pIn.value = String(Math.round(phi0 * 100)); paint(); } }, 'Use the measured overlap');
+    root.append(
+      h('div', { class: 'nw-row' }, h('div', { class: 'nw-ctl' }, kLab, kIn), h('div', { class: 'nw-ctl' }, pLab, pIn)),
+      h('p', { class: 'nw-stat', style: 'margin:.25rem 0' }, 'Judges on the panel'), judges,
+      h('p', { class: 'nw-stat', style: 'margin:.25rem 0' }, 'What they are worth as independent votes'), votes,
+      stat, h('div', { class: 'nw-row' }, resetBtn),
+    );
+    function paint() {
+      const n = neff(k, phi); const cap = phi > 0 ? 1 / phi : Infinity;
+      kLab.textContent = `judges: ${k}`;
+      pLab.textContent = `how often their mistakes line up: ${phi.toFixed(2)}${Math.abs(phi - phi0) < 0.005 ? ' (measured)' : ''}`;
+      judges.replaceChildren(...Array.from({ length: k }, () => h('div', { class: 'nw-game mid', title: 'one judge' })));
+      const whole = Math.floor(n + 1e-9); const frac = n - whole;
+      votes.replaceChildren(...Array.from({ length: whole }, () => h('div', { class: 'nw-game hit' })),
+        ...(frac > 0.05 ? [h('div', { class: 'nw-game hit', style: `opacity:${(0.25 + 0.75 * frac).toFixed(2)}` })] : []));
+      stat.replaceChildren(
+        h('span', { class: 'nw-stat' }, 'effective votes ', h('b', {}, n.toFixed(2))),
+        h('span', { class: 'nw-stat' }, 'lost to shared blind spots ', h('b', {}, pct(1 - n / k))),
+        h('span', { class: 'nw-stat' }, 'ceiling with infinite judges ', h('b', {}, isFinite(cap) ? cap.toFixed(2) : 'none')),
+      );
+    }
+    paint();
+  }
+
+  /* ------------------------------------------------------------------ */
+  /* 10. The tie that wasn't — GSM8K vs GSM8K-Platinum (Vendrow et al.)   */
+  /* ------------------------------------------------------------------ */
+  function tie(root: HTMLElement, p: any) {
+    const models: { name: string; raw: number; clean: number }[] = p.models ?? [];
+    const set: { raw: number; clean: number; broken: number } = p.set ?? { raw: 1319, clean: 1209, broken: 120 };
+    let cleaned = false;
+    const bars = h('div', { class: 'nw-notes' });
+    const stat = h('div', { class: 'nw-row' });
+    const btn = h('button', { class: 'nw-btn primary', onclick: () => { cleaned = !cleaned; paint(); } }, '');
+    root.append(bars, stat, h('div', { class: 'nw-row' }, btn));
+    const max = Math.max(...models.map((m) => Math.max(m.raw, m.clean)), 1);
+    function paint() {
+      bars.replaceChildren(...models.map((m) => {
+        const v = cleaned ? m.clean : m.raw;
+        return h('div', { class: 'nw-note' },
+          h('span', {}, m.name),
+          h('span', { class: 'nw-bet-ctl', style: 'grid-template-columns:1fr;margin:0' }, h('span', { class: 'track' }, h('i', { class: 'house', style: `width:${(v / max) * 100}%` }))),
+          h('span', { class: 'score' }, `${v} errors`));
+      }));
+      const lo = Math.max(1, Math.min(...models.map((m) => m.clean))); const hi = Math.max(...models.map((m) => m.clean));
+      stat.replaceChildren(...[
+        h('span', { class: 'nw-stat' }, 'test questions ', h('b', {}, String(cleaned ? set.clean : set.raw))),
+        cleaned ? h('span', { class: 'nw-stat' }, 'broken questions removed or corrected ', h('b', {}, String(set.broken))) : h('span', { class: 'nw-badge warn' }, 'A TIE?'),
+        cleaned ? h('span', { class: 'nw-badge bad' }, `${(hi / lo).toFixed(1)}x APART`) : null,
+      ].filter((x): x is HTMLElement => x !== null));
+      btn.textContent = cleaned ? 'Put the broken questions back' : 'Fix the answer key';
+    }
+    paint();
+  }
+
   const registry: Record<string, (root: HTMLElement, p: any) => void> = {
-    'working-set': workingSet, 'forgetting-curve': forgettingCurve, needle, poison, quiz, bets, 'ship-it': shipIt, 'dream-walk': dreamWalk,
+    'working-set': workingSet, 'forgetting-curve': forgettingCurve, needle, poison, quiz, bets, 'ship-it': shipIt, 'dream-walk': dreamWalk, jury, tie,
   };
   for (const fig of document.querySelectorAll<HTMLElement>('.nw[data-widget]')) {
     const kind = fig.dataset.widget!; const body = fig.querySelector<HTMLElement>('.nw-body')!;

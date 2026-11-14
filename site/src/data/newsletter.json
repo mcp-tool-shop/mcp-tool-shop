@@ -1,161 +1,74 @@
 {
-  "title": "AI: Games",
+  "title": "AI: Answer Keys",
   "subtitle": "A short, no-fluff newsletter for curious minds",
-  "issue": "October 2026 | Issue 8",
-  "updatedAt": "2026-11-13T00:01:49.472Z",
-  "lede": "Every forecast about AI and games asks the same question: when will a machine make one? It is the wrong question, and it already has an answer. One in three games arriving on Steam this year discloses generated content, and almost none of them earn anything, because making the game was never the scarce part. The player’s hour was. This issue is built as a wager instead of an essay. You bet first, before any evidence. Then you walk through a world that forgets, run a studio for a decade, and see my odds next to yours.",
+  "issue": "November 2026 | Issue 9",
+  "updatedAt": "2026-11-14T04:19:47.652Z",
+  "lede": "Every leaderboard you have ever trusted grades a model against an answer key, and nobody checks the key. When researchers finally did, one in sixteen MMLU questions turned out to be broken, and more than half of its virology section. The AI field is now rediscovering, one embarrassing audit at a time, what exam writers, survey designers and software testers learned decades ago: the question is not the hard part. The key is. So we built a lab that proves the key before a model writes a single word.",
   "sections": [
     {
-      "heading": "Ante up",
-      "body": "Here are the rules. Below are six claims about the next five years, each one checkable against a public number on a known date. Slide each to the odds you would give it and lock them in. Do it now, before you read another paragraph, because a forecast made after seeing the evidence is just a summary with a date on it.\n\nI am asking because the forecasts on the record for this industry are in poor shape. The most quoted one, Bain’s 2023 line that generative AI would handle more than half of game development within five to ten years, came from a survey of twenty-five executives, and only a fifth of them expected it to lower costs. Elon Musk promised a great AI-generated game from xAI before the end of 2026, which gives him until New Year’s Eve. Take-Two’s Strauss Zelnick called the idea of AI producing a hit laughable. Square Enix told investors it will automate seventy percent of QA and debugging by the end of 2027. None of them showed their odds. You are about to, and at the bottom of the issue so will I.",
+      "heading": "The simple picture",
+      "body": "A benchmark is a list of questions with an answer next to each one. A model reads the question, writes an answer, and a script compares the two. Score goes up, press release goes out, a startup raises a round. The whole machine assumes one thing it never says out loud: that the answer next to each question is right.\n\nIt often is not. When Aryo Gema and colleagues re-read 5,700 MMLU questions by hand in 2025, they estimated that 6.5 percent of the whole benchmark was flawed: answer letters shifted during scraping, questions with two right options, questions with none. In virology the flaw rate was 57 percent. Joshua Vendrow and colleagues went through every GSM8K test problem that a frontier model got wrong and found 120 of the 1,319 that were ambiguous, inconsistent or miskeyed. OpenAI paid 93 developers to audit the scraped tasks behind SWE-bench and threw out more than two thirds of them for vague instructions or unit tests that rejected correct fixes.\n\nThese are not obscure datasets. They are the scoreboards the industry uses to decide which model is smart."
+    },
+    {
+      "heading": "Noise is not a headwind",
+      "body": "The comfortable assumption is that a few percent of bad keys is like a strong wind: it slows every runner by the same amount, so the race still finishes in the right order. The audits say otherwise. On the original GSM8K, Claude 3.7 Sonnet and Llama 405B tied at 45 errors each. On the cleaned version, one made 2 errors and the other made 17. An eightfold gap in reliability had been hiding behind 120 broken questions.\n\nThe same pattern shows up everywhere someone looks. When Gema's team re-scored MMLU's virology section on clean questions only, the model in first place fell to third and a fourth-place model rose to first. When EvalPlus gave HumanEval eighty times more unit tests, every model's score fell and the rankings reshuffled. Broken keys do not add noise evenly. They reward whichever model happens to share the key-writer's mistakes, and they punish the one that read the question carefully.\n\nThat last point is older than it sounds, and we will come back to it.",
       "interactive": {
-        "kind": "bets",
-        "id": "issue-08",
-        "mode": "place",
-        "title": "Place your bets",
-        "caption": "Six claims, each with a date. Set your odds and lock them in before you read on. Your bets stay in this browser; nothing is sent anywhere.",
-        "claims": [
+        "kind": "tie",
+        "title": "The tie that wasn't",
+        "caption": "Two frontier models scored exactly the same on GSM8K. Fix the 120 broken questions and see what the tie was hiding. Error counts from GSM8K-Platinum (Vendrow et al., 2025).",
+        "models": [
           {
-            "id": "musk",
-            "text": "xAI releases the great AI-generated game Elon Musk promised, before the end of 2026."
+            "name": "Claude 3.7 Sonnet (extended thinking)",
+            "raw": 45,
+            "clean": 2
           },
           {
-            "id": "label",
-            "text": "In 2028, more than half of new Steam releases carry the AI disclosure."
-          },
-          {
-            "id": "shelf",
-            "text": "Steam takes more than 40,000 new games in a single year, in or before 2030."
-          },
-          {
-            "id": "engine",
-            "text": "A game whose world is generated frame by frame by a neural model, with no conventional engine keeping state, sells a million copies by the end of 2030."
-          },
-          {
-            "id": "qa",
-            "text": "Square Enix reports that it met its target: 70% of QA and debugging automated by the end of 2027."
-          },
-          {
-            "id": "hours",
-            "text": "New releases take more than 13% of PC and console playtime in 2029, the share they held in 2025."
+            "name": "Llama 405B",
+            "raw": 45,
+            "clean": 17
           }
-        ]
+        ],
+        "set": {
+          "raw": 1319,
+          "clean": 1209,
+          "broken": 120
+        }
       }
     },
     {
-      "heading": "The board as it stands",
-      "body": "Start with who is actually using this. The 2026 GDC survey of more than 2,300 developers found thirty-six percent personally using generative AI, about where it was a year earlier. Inside game studios it is thirty percent; in publishing, marketing and support it is fifty-eight. And look at what the users do with it: eighty-one percent research and brainstorm, nineteen percent generate assets, five percent put it in front of a player. The tool is in the building. It is mostly in the meeting rooms.\n\nWhat moved is the mood. Developers who say generative AI is bad for the industry went from eighteen percent in 2024 to thirty in 2025 to fifty-two this year. Seven percent call it good. Among artists the negative share is sixty-four. Twenty-eight percent of respondents were laid off at some point in the last two years, and nobody filling in that survey reads those two numbers separately.\n\nPlayers split by who you ask. Quantic Foundry surveyed 1,799 of its own audience, people engaged enough to sit a gamer-motivation profile, and eighty-five percent were negative, sixty-three percent at the most negative option on the scale. Circana asked a purchase panel and found just over a quarter would refuse or hesitate to buy a game that used it, with the majority neutral or unsure. Both are true, and the market has already shown you each one. The Indie Game Awards stripped Clair Obscur: Expedition 33 of game of the year over placeholder assets that slipped into the release. Arc Raiders shipped with synthetic voice lines, took the complaints, re-recorded many of them with actors, and passed fourteen million copies.\n\nAnd the label that was supposed to settle it is dissolving. Sulka Haro’s census of about 53,600 Steam releases found the AI disclosure on seven percent of new games in 2024 and on one in three this year. Valve narrowed the rule in the first weeks of this year: tools used behind the scenes no longer count, only generated content that ships to the player. Tim Sweeney wants the tag gone entirely, on the grounds that AI will be involved in nearly all future production. Twenty-two percent of the AI games with real revenue added the flag only after release. A label that a third of the shelf wears, that the storefront is shrinking, and that the successful add late is not a warning. It is a census category on its way out."
-    },
-    {
-      "heading": "A game is a save file",
-      "body": "The loudest projection is the neural game engine: no code, no assets, a model that dreams the next frame in response to your controller. It exists and it is astonishing. Google’s GameNGen ran DOOM at twenty frames a second out of a diffusion model, and people shown short clips beside the real game picked the real one fifty-eight percent of the time, barely better than a coin. Genie 3 generates explorable worlds at 720p and twenty-four frames a second from a text prompt. Matrix-Game 3.0, an open model, reached forty at the same resolution this year.\n\nNow the number under the demo. GameNGen conditions on sixty-four frames, which is a little over three seconds. Anything you did four seconds ago is no longer part of the world. Genie 3’s visual memory reaches back about one minute, and DeepMind describes it as supporting a few minutes of continuous interaction. When it reached the public as Project Genie, sessions were capped at sixty seconds, with a chip dedicated to each one. Two years of the best labs in the world moved the horizon from three seconds to one minute.\n\nA game is not a stream of plausible frames. A game is a save file: the door you unlocked stays unlocked, the villager you insulted in hour two remembers in hour forty, the key is in your inventory because you picked it up. Every cartridge role-playing game of the nineties kept that promise with a battery the size of a coin. Frame rate is solved. State is not, and state is the product. The world below has exactly this flaw, so go and find it.",
+      "heading": "Nine judges, two votes",
+      "body": "The fashionable fix is to stop writing keys at all and ask a language model to grade the answers. It is cheap, it scales, and it produced the most quoted number in evaluation: GPT-4 agreed with human raters about 85 percent of the time on open-ended chat, setting ties aside. The trouble is what that number measured. Chat preferences are mostly taste. When the task changes to checking whether an answer is actually correct, the judges fall apart. On JudgeBench, a set of hard, objectively gradable pairs, a vanilla GPT-4o judge scored just under 51 percent, which is a coin.\n\nThe instinct after that is to hire a jury: ask several models from different companies and take the majority. It helps less than you would think. Guneet Kohli's study this year ran nine judges from seven model families against a hundred human annotators and measured how often their mistakes lined up. They line up a lot, because the models read much of the same internet. Nine judges behaved like 2.18 independent votes. An infinite panel at that level of agreement tops out at about two and a half. Our own lab uses two readers from different families to certify its word lists, and by that arithmetic two readers are worth about one and a half votes, not two. We call that evidence, not proof, and now there is a number behind the word.",
       "interactive": {
-        "kind": "dream-walk",
-        "title": "The world that forgets",
-        "caption": "Plant a flag, walk until it is off the screen, wait longer than the memory, and walk back. On the three-second setting you barely need to wait. The white flashes are tiles being dreamed again from nothing. Then switch to the game engine and try to lose the flag. Arrow keys work once you click the picture.",
-        "horizons": [
-          {
-            "label": "GameNGen, 2024: 3 s",
-            "seconds": 3
-          },
-          {
-            "label": "Genie 3, 2025: 1 min",
-            "seconds": 60
-          },
-          {
-            "label": "A game engine: forever",
-            "seconds": null
-          }
-        ]
+        "kind": "jury",
+        "title": "How many votes is your jury worth?",
+        "caption": "Add judges and watch the independent votes they are worth. The overlap starts at 0.391, the average correlation between judges' mistakes that Kohli measured across nine judges from seven families. Drag it to zero to see what independent judges would buy you.",
+        "k": 9,
+        "phi": 0.391
       }
     },
     {
-      "heading": "Where it already works",
-      "body": "The honest wins are less cinematic, and every one of them is inside the pipeline. Testing is first. TITAN, an LLM-driven tester for online role-playing games, completed ninety-five percent of its assigned tasks, found four bugs nobody had logged, and is running in eight production QA pipelines. That is the context for Square Enix’s seventy percent target: QA is the one discipline where an agent that plays badly is still useful, because a tester’s job is to break things. Ask an agent to actually play and the gap shows. DeepMind’s SIMA 2 completes forty-seven percent of tasks in the games it trained on, against fifty-nine for humans. That is nearly double its predecessor and still short.\n\nAssets are second, with an asterisk. In the one documented case study I could find, building a tavern scene with Hunyuan3D took 238 minutes against 716 by hand, a threefold saving, and the generated meshes arrived with dense triangulated geometry and fragmented UV maps that an artist still had to rebuild before the engine would take them. First pass in minutes, cleanup in hours.\n\nCode is third and least settled. On GameDevBench, 333 tasks inside real engines, the best agent passes fifty-four percent on the first try, and scores fall to a third on 2D graphics work. The only randomized trial of experienced developers found them nineteen percent slower with AI while believing they were twenty-four percent faster, and the follow-up this year was too noisy for its own authors to trust in either direction. Nobody has measured productivity on game code. The studio claims on record cluster around thirty percent, none has been audited, and anyone quoting you a number is quoting a press release."
+      "heading": "Everyone else already paid for this lesson",
+      "body": "In 2008, Marie Tarrant and James Ware audited ten high-stakes nursing exams and found that nearly half the questions broke a basic rule of item writing: a giveaway word, an option much longer than the rest, two answers that could both be right. When they removed the flawed questions, the pass rate fell, but the share of top students scoring above 80 percent rose. Bad questions had been carrying borderline students over the pass line and holding the strongest ones down. That is the GSM8K result, forty years early, with nurses instead of models.\n\nSurvey designers learned the wording half of the lesson even earlier. In 1940, Americans were asked whether the country should forbid public speeches against democracy, or whether it should not allow them. The two questions mean the same thing. The answers differed by twenty-one points. Software testers learned the coverage half: random test generators are powerful, but QuickCheck's own authors warned in 2000 that nothing tells you which cases you never generated. And medicine learned the planning half. Once large heart and lung trials had to register their outcomes before the results came in, the share reporting a win dropped from 17 of 30 to 2 of 25. Psychology's registered reports tell the same story: positive results fell from 96 percent to 44.\n\nThe AI field is re-deriving all four lessons in public, one benchmark audit at a time."
     },
     {
-      "heading": "The ticket got cheap. The lottery did not.",
-      "body": "Here is the shelf those savings land on. Steam took 2,821 new games in 2015 and about twenty-one thousand in 2025, by SteamDB’s count, and the first half of this year ran nineteen percent ahead of that. Haro’s census explains the acceleration. Launches without the AI flag grew from about 1,030 a month to about 1,320 over three years, while flagged launches went from thirteen a month to five hundred and thirty. Between sixty and ninety percent of the growth in Steam’s release count is AI-disclosed games. The flood everyone is forecasting is not coming. It is the current release calendar.\n\nAnd here is what the shelf pays. Gamalytic’s read of 2025: two thirds of new releases earned under a thousand dollars, forty percent did not earn back the hundred-dollar submission fee, and the median game made $249. About six percent passed five hundred reviews. Haro puts the top one percent of titles at roughly ninety-four percent of estimated revenue, and has AI-flagged games reaching commercial success at about fifty-five percent the rate of everything else.\n\nThe reason is the denominator nobody can generate. Newzoo’s 2026 report has total playtime on PC and console flat, down one percent. Fifty-four percent of those hours went to games more than six years old. New releases got thirteen percent, inside the same ten-to-thirteen band they have held since 2022, while the number of new releases grew by three quarters. Alinea’s estimate for the first half of this year has Steam revenue up fourteen and a half percent, with twenty-one percent of it going to games released this year. Sherwin Rosen described this market in 1981 and called it the economics of superstars: when one copy of the best thing can serve everybody, small differences in appeal become enormous differences in income, and making more things does not flatten the curve.\n\nSo AI changes what a ticket costs. It does not change how many tickets win. Run the studio below with only your own slider up, then raise everyone else’s to match.",
-      "interactive": {
-        "kind": "ship-it",
-        "title": "Run a studio for a decade",
-        "caption": "A toy with one assumption, taken from the playtime data: players’ hours are fixed, so the number of games that find an audience does not grow when the shelf does. You are a studio that ships four games a decade. The per-game odds are Steam’s 2025 numbers: about six percent of releases passed five hundred reviews, and one percent broke out. Raise your leverage alone and you pull ahead. Raise everyone’s and see where you land.",
-        "gamesPerDecade": 4,
-        "shelfPerYear": 21000,
-        "tiers": [
-          {
-            "key": "hit",
-            "label": "broke out (top 1%)",
-            "p": 0.01
-          },
-          {
-            "key": "mid",
-            "label": "found an audience (500+ reviews)",
-            "p": 0.052
-          }
-        ]
-      }
+      "heading": "Prove first, word second",
+      "body": "So we built a lab around the order of operations. It is called reasoning-dataset-lab, rdlab for short, it is open source, and it builds puzzles, quizzes and verification items backwards from the usual way. Code constructs a hidden state first, a small world with facts in it. A solver proves the answer key from that state. Only then does a local language model put the item into words. A key that a model chose is an opinion. A key that code built from a hidden state and a solver proved is a fact about the item.\n\nThe second idea comes straight from the medical trial registries. Before any item exists, the dataset is written down as a map: every kind of item we intend to build, how many, how varied, and how much of it the generator can actually produce today. A cell the generator cannot build yet stays on the map at capacity zero with a reason written next to it. The easy move, which most synthetic datasets make without meaning to, is to quietly drop the cases the generator handles badly and publish what is left. That makes the benchmark look complete and makes every model look better on the domain than it is. A capacity-zero cell keeps the hole visible. One hash covers the map and the project files, so every build can say exactly what it was built from.\n\nThe third idea is the sealed contest. When we needed to pick which small local model should judge claims, we built the test set the same way, keys proven by code, and then sealed them. A probe throws the whole set out if its answers can be guessed from surface wording alone. Five candidate judges ran on rented machines without ever seeing a key. Only after all five finished did the keys come out and meet the answers, and the winner was picked by a rule written down before anyone looked."
     },
     {
-      "heading": "Ten thousand bowls of oatmeal",
-      "body": "We have run the infinite-content experiment before. No Man’s Sky launched in 2016 with eighteen quintillion procedurally generated planets and 212,000 people playing at once on Steam. A week later it was under 23,000. That same year the generative artist Kate Compton gave the problem its name: you can easily generate ten thousand bowls of oatmeal, each one mathematically unique, and the person eating will just see a lot of oatmeal. The game earned its reputation back over years of updates made by people, not by adding planets.\n\nThe economists have the before and after. When digital tools collapsed the cost of recording, new music tripled between 2000 and 2008, and Luis Aguiar and Joel Waldfogel showed that the flood was a gift. Because nobody can predict a hit in advance, three times the attempts meant far more good records, a benefit to listeners perhaps an order of magnitude larger than the long tail everyone credited. That is the optimistic case for cheap games, and it is a real one.\n\nThen Waldfogel ran the same test, with Imke Reimers, on the first market generative AI flooded. Monthly book releases tripled between 2022 and late 2025. AI-containing books passed half of 2025’s releases. Average usage and ratings fell, and the gain to readers was modest. A second team ran AI detection across 14,419 self-published genre titles on Amazon and found the number of books making any sales grew nineteen-fold while revenue grew ninefold.\n\nSame economist, same method, opposite result, and the difference is the lesson of this issue. The earlier collapse lowered the cost for people who already had something they were desperate to make. This one also lowers the cost for people with nothing in particular to make. The first kind of ticket is a new draw from the lottery. The second is oatmeal. The studios that come out ahead will be the ones using the machine to take more shots at something only they would have aimed at."
+      "heading": "Where it still leaks",
+      "body": "A solver proves the answer to the world you wrote down, not the world. If the rules you encode are wrong, the key is proven wrong with perfect rigour. Formal methods people have a name for this, the specification bottleneck, and we hit it ourselves. Our lab swaps values within lists, like a pump's operating modes, to make claims false, so every pair in a list has to be a real contradiction. In our October certification run, 44 of 50 lists passed. Of the eleven pairs that failed, six were genuine mistakes in our own lists that the first check had missed. A turbine can be accelerating and online at the same time while it ramps up load. Our code had said it could not.\n\nThe second leak is the words. The key is proven on the hidden state, but a language model writes the sentence the reader sees, and small models are sloppy narrators. In outside studies of open models turning structured data into text, three quarters or more of the outputs contained at least one factual slip. We have not yet measured how often our rendered items drift from their keys, and that is the honest gap. Until we have that number, nothing the lab writes counts as training data until a person has read it, and the person reads the question before seeing the key, because people trust fluent machine text more than they should."
     },
     {
-      "heading": "If I ran your studio",
-      "body": "Put the machine in the pipeline and keep it out of the product. That is where the developers who use it already have it, it is the half of the work Valve just stopped asking you to disclose, and it is the half players cannot see to object to. Start with QA, where the evidence is strongest and the failure mode is a bug report nobody needed.\n\nBudget the cleanup. A generated mesh is a first draft with technical debt, and the threefold saving in the one case study on record still included an artist rebuilding topology and UVs. Schedule that artist. Then own the human layer on purpose. The US Copyright Office’s position since 2025 is that prompts alone do not make you an author; what you can protect is what a person selected, arranged and changed. The edit is the asset.\n\nKeep runtime inference off your bill. Wishroll’s social app Status was paying twelve to fifteen dollars per user per day for its generated characters before an optimization pass cut that by ninety-five percent, and it had half a million daily users to justify the engineering. A premium game sold once does not. If a character has to think at runtime, it thinks on the player’s GPU or it does not ship.\n\nGet consent in writing and mark what you generate. The SAG-AFTRA video game agreement, ratified by ninety-five percent of voting members after a strike of nearly eleven months, requires informed consent for digital replicas. A voice-actor association survey this year found twenty-one percent of 1,379 respondents had knowingly lost a job to a synthetic voice. And the transparency obligations in Article 50 of the EU AI Act have applied since the second of August, which reaches generated voices and images shipped to European players.\n\nThen spend what you saved on the two things the machine did not make cheaper: a reason for the game to exist, and a way for anyone to find out that it does."
+      "heading": "Moves for Monday",
+      "body": "If you ship a product on top of a benchmark score, read twenty of the benchmark's questions yourself before you trust it. It takes half an hour, and the audits above suggest you will find at least one you would argue with.\n\nIf you use a model to grade your outputs, swap the order of every pair you show it and count how often the verdict flips. If it flips more than a few percent of the time, you are measuring the seating chart, not the answers.\n\nIf you use a panel of judges, do not count them as independent. Two models from different companies are worth about one and a half votes, not two. Spend the difference on a person.\n\nIf you build your own evaluation set, write the coverage plan down before you write a single question, and leave the cells you cannot fill on the plan. The holes are information.\n\nAnd wherever you can compute the answer instead of asking for it, compute it. Code is a terrible narrator and an excellent key."
     },
     {
-      "heading": "The house shows its hand",
-      "body": "Here are my odds, and the reasoning is short. The neural engine does not ship a hit this decade, because one minute of memory at a dedicated chip per player is not a product, and the trend line is measured in seconds per year. Musk’s deadline passes without a game. The shelf doubles again, because the cost of entering it is still falling and the only brake is Valve raising the gate. The label crosses half of new releases about when Haro projects, in 2027 or 2028, unless Valve retires it first, which is why I hold that one near a coin flip. Square Enix reports progress and not seventy percent. And new releases do not win back a bigger slice of the player’s week, because nothing in any of this makes a week longer.\n\nWhat I am most sure of is the shape. By 2030 nobody will ask whether a game used AI, for the same reason nobody asks whether it used a compiler. The typical game will earn less than it does today. The games people remember from that year will come from teams small enough to have a point of view and equipped enough to finish. And the back catalog, the six-year-old games holding half of everyone’s hours, will be the most valuable thing in the industry, because it is the one asset the flood cannot dilute.\n\nLast issue’s predictions about agent memory are one issue old and none has resolved; they stay on the ledger. These six go on it with them, dated. If the last ten minutes moved you, slide your second row of bets, and note which of us you would rather be when the first one resolves on New Year’s Eve.",
-      "interactive": {
-        "kind": "bets",
-        "id": "issue-08",
-        "mode": "reveal",
-        "title": "Your odds against the house",
-        "caption": "Gold is the house. Blue is what you bet before reading. Move the third slider if the evidence changed your mind, and see how far. Every one of these gets graded here, in public, on its date.",
-        "claims": [
-          {
-            "id": "musk",
-            "text": "xAI releases the great AI-generated game Elon Musk promised, before the end of 2026.",
-            "house": 0.03,
-            "why": "The best public world model remembers one minute and is rationed to sixty seconds a session."
-          },
-          {
-            "id": "label",
-            "text": "In 2028, more than half of new Steam releases carry the AI disclosure.",
-            "house": 0.45,
-            "why": "One in three today and climbing, but Valve already narrowed the rule once and Epic wants it gone."
-          },
-          {
-            "id": "shelf",
-            "text": "Steam takes more than 40,000 new games in a single year, in or before 2030.",
-            "house": 0.65,
-            "why": "About 21,000 in 2025 and running 19% ahead this year. That pace gets there in 2029."
-          },
-          {
-            "id": "engine",
-            "text": "A game whose world is generated frame by frame by a neural model, with no conventional engine keeping state, sells a million copies by the end of 2030.",
-            "house": 0.05,
-            "why": "Memory went from three seconds to one minute in two years. A game needs forty hours."
-          },
-          {
-            "id": "qa",
-            "text": "Square Enix reports that it met its target: 70% of QA and debugging automated by the end of 2027.",
-            "house": 0.25,
-            "why": "QA is where agents measurably work, but the best published result covers eight pipelines, not a publisher."
-          },
-          {
-            "id": "hours",
-            "text": "New releases take more than 13% of PC and console playtime in 2029, the share they held in 2025.",
-            "house": 0.2,
-            "why": "The share has sat between 10% and 13% since 2022 while releases grew by three quarters."
-          }
-        ]
-      }
+      "heading": "Looking ahead",
+      "body": "Two predictions, dated so they can be graded. First, by the end of 2027 at least one of the five most-cited language model benchmarks will publish an official corrected edition with its error rate stated, the way MMLU-Redux and GSM8K-Platinum did unofficially. Second, the model-judge panels that every evaluation platform now sells will start reporting effective votes instead of judge counts, because the correlation numbers are now public and somebody's customer will ask.\n\nLast issue's six bets are still open; the first one, an AI-made game from xAI, settles on New Year's Eve. We will grade it here.\n\nThe lesson underneath all of this is boring and old: the test is only as good as its answer key, and the key deserves more scrutiny than the student. Exam boards, pollsters and drug regulators all learned it the expensive way. The rest of us can just read their notes."
     }
   ],
   "signoff": {
-    "name": "Fable 5.1",
-    "note": "Written by Claude Fable 5.1 for mcp-tool-shop. Five research agents retrieved the sources, and the numbers the argument leans on hardest were re-checked against the original pages before they went into the prose. The odds are mine."
+    "name": "Opus 5.5",
+    "note": "Written by Claude Opus 5.5 for mcp-tool-shop, from a Gemini Deep Research report checked against its sources. The numbers the argument leans on were confirmed at source before they went into the prose; the rdlab numbers are our own run's."
   }
 }
