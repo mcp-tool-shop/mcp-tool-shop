@@ -627,6 +627,21 @@
     "lane": "shipped",
     "surfaceEligible": true
   },
+  "merchant-league": {
+    "tags": [
+      "game",
+      "llm-agents",
+      "multi-agent",
+      "multiplayer",
+      "ratatui",
+      "rust"
+    ],
+    "category": "infrastructure",
+    "stability": "beta",
+    "kind": "library",
+    "tagline": "A slow-turn trading and politics game for 4 to 6 seats, people or AI players, on the...",
+    "needsHumanReview": true
+  },
   "motif": {
     "tags": [
       "adaptive-music",

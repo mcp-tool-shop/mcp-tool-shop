@@ -1,5 +1,266 @@
 [
   {
+    "repo": "ai-rpg-engine",
+    "toolName": "AI RPG Engine",
+    "tag": "v3.12.2",
+    "name": "v3.12.2",
+    "body": [
+      "A patch on 3.12.1. The load gate's key check no longer refuses a pack for the 13 top-level keys a World Forge export carries. Simulation behaviour, the wire format and hashes are unchanged.",
+      "Thirteen evaluated ContentPack keys are now declared: connections, spawnPoints, playerTemplate, lootTables, landmarks, strata, stratumLinks, transitions, craftingStations, marketNodes, buildings, hubs and strongholds…",
+      "SECURITY.md describes 3.x. Its supported-versions table now lists 3.x as supported and everything before 3.0 as not; it still named 2.x and 1.x. Its scope section now lists every package that reaches the network, the…"
+    ],
+    "publishedAt": "2026-11-21T14:09:59Z",
+    "url": "https://github.com/mcp-tool-shop-org/ai-rpg-engine/releases/tag/v3.12.2",
+    "prerelease": false
+  },
+  {
+    "repo": "merchant-league",
+    "toolName": "Merchant League",
+    "tag": "v0.1.0",
+    "name": "v0.1.0",
+    "body": [
+      "First tagged prototype: offline Club Mode in league-tui, playable from source on one shared terminal (4-6 human and ClubBot seats, Lobby to end-of-season scoreboard and replay export). Source only: no published…"
+    ],
+    "publishedAt": "2026-11-21T05:10:12Z",
+    "url": "https://github.com/mcp-tool-shop-org/merchant-league/releases/tag/v0.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.3.0.0.0",
+    "name": "rnd 1.3.0.0.0",
+    "body": [
+      "Add read-only rnd similar claim lookup and rnd digest history summary",
+      "Claims, check, sync, question quoting, and bump safety follow-ups",
+      "Security statements (README, SECURITY.md, handbook security page, SHIP_GATE.md) rewritten from an inventory of every place rnd writes: the index and its temporary file, the watch state in the home folder, the…",
+      "README translations refreshed for 1.3 (seven languages)"
+    ],
+    "publishedAt": "2026-11-20T11:53:34Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.3.0.0.0",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.2.0.0.2",
+    "name": "rnd 1.2.0.0.2",
+    "body": [
+      "SECURITY.md scope brought up to rnd 1.2: the local-only usage log, and probe and watch named as network users"
+    ],
+    "publishedAt": "2026-11-20T05:40:35Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.2.0.0.2",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.2.0.0.1",
+    "name": "rnd 1.2.0.0.1",
+    "body": [
+      "site handbook brought up to rnd 1.2: the local-only usage log and network use on the security page; change, sync, claims, reconcile, questions and new-question in the reference; claim links, bound numbers, questions…",
+      "Add changelog fragments (rnd change/bump), bound numbers (rnd sync), claim ids and relations (rnd claims/reconcile), question files (rnd new-question/questions), local search-miss log (rnd stats --usage), and…"
+    ],
+    "publishedAt": "2026-11-20T04:22:22Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.2.0.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.24.0.16",
+    "name": "rnd 1.1.24.0.16",
+    "body": [
+      "site brief for the one-claim study: 'Can one claim with three sets of numbers remove a benchmark's shortcuts?'",
+      "one claim, three number-assignments: a prototype passes the audit's listed gate (0 must-fix on public seeds), fork family, a small difficulty pilot on local judges, grounded accuracy decided (not built)",
+      "Added 2026-11-19-one-claim-three-number-assignments-a-purpose-built-generator: One claim, three number-assignments: a prototype generator passes the audit's listed gate, and a pilot points at chain-finding"
+    ],
+    "publishedAt": "2026-11-20T01:13:34Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.24.0.16",
+    "prerelease": false
+  },
+  {
+    "repo": "comfy-preflight",
+    "toolName": "Comfy Preflight",
+    "tag": "v1.1.0",
+    "name": "comfy-preflight v1.1.0",
+    "body": [
+      "The first two STUDIO_MEASURED envelope entries, measured in August 2026 and unreleased until now. The envelope table shipped empty of measured entries at 1.0.0."
+    ],
+    "publishedAt": "2026-11-19T21:32:56Z",
+    "url": "https://github.com/mcp-tool-shop-org/comfy-preflight/releases/tag/v1.1.0",
+    "prerelease": false
+  },
+  {
+    "repo": "reasoning-dataset-lab",
+    "toolName": "Reasoning Dataset Lab",
+    "tag": "v0.7.0",
+    "name": "reasoning-dataset-lab 0.7.0",
+    "body": [
+      "The D5c judge windows, a kit that keeps its results on every VM failure path, and feature hooks for the shortcut probe. README.md, the seven translations (version and test count only) and the handbook status say 0.7.0.",
+      "Three-way --time-one whole-part scoring and item-limit backstop (#122 review B1, C1, C2)",
+      "Schedules-arm follow-ups and THREE_WAY_PARTIAL_UPLOAD launcher refusal (#120 follow-ups)",
+      "Golden prompt_sha256 pins and explicit addendum path for three_way_schedules (#119 follow-ups B5, C4)",
+      "Site npm audit: a reviewed, dated exception for GHSA-fc5q-39xc-vjpf (picomatch)"
+    ],
+    "publishedAt": "2026-11-19T18:48:55Z",
+    "url": "https://github.com/mcp-tool-shop-org/reasoning-dataset-lab/releases/tag/v0.7.0",
+    "prerelease": false
+  },
+  {
+    "repo": "style-dataset-lab",
+    "toolName": "Style Dataset Lab",
+    "tag": "v3.7.0",
+    "name": "style-dataset-lab 3.7.0",
+    "body": [
+      "The Colab lanes: a GPU render mode for lane 1, a detached runner that survives link blips, atomic and loud phase.txt writes, and a handbook page.",
+      "Handbook: a new Colab lanes page (site/src/content/docs/handbook/colab-lanes.md): what a lane does, the CPU rehearsal, picture licences and the phase file.",
+      "scripts/colab/README.md: a section on the phase.txt contract (atomic writers, PHASE_WRITE_FAILED exit 77, last-known phase, VITALS_PHASE_INVALID).",
+      "README.md: the Security section no longer says the kits have not completed a live window. They have completed real render and training windows on a Colab GPU; they stay experimental.",
+      "Colab kits: phase.txt write failures fail loudly (PHASE_WRITE_FAILED, exit 77), committed stuck-phase tests, and PR #85 follow-ups (C1–C4) — previously in scripts/colab/launch_lane1_stub.sh and…"
+    ],
+    "publishedAt": "2026-11-19T18:47:59Z",
+    "url": "https://github.com/mcp-tool-shop-org/style-dataset-lab/releases/tag/v3.7.0",
+    "prerelease": false
+  },
+  {
+    "repo": "claude-rpg",
+    "toolName": "Claude RPG",
+    "tag": "v2.0.1",
+    "name": "claude-rpg v2.0.1",
+    "body": [
+      "Ctrl+C during the opening narration is handled (src/bin.ts). runLoad, runPlay and runNew dispose their early SIGINT guard right before runGameLoop, whose own handler was registered only after the opening narration,…",
+      "CLI tests wait for the real prompt. CliHandle.waitForPrompt resolves only when stdout ends with the prompt itself, which ends two intermittent CI failures in the bin-CLI tests. A new test sends Ctrl+C during the…",
+      "Site moved to Astro 7, with dependency updates for the site's audit (devalue, brace-expansion). No change to the game."
+    ],
+    "publishedAt": "2026-11-19T18:41:29Z",
+    "url": "https://github.com/mcp-tool-shop-org/claude-rpg/releases/tag/v2.0.1",
+    "prerelease": false
+  },
+  {
+    "repo": "rnd",
+    "toolName": "Rnd",
+    "tag": "v1.1.24.0.14",
+    "name": "rnd 1.1.24.0.14",
+    "body": [
+      "Changes since v1.1.23.1.55 (from CHANGELOG.md).",
+      "class-tied-to-pair: root cause, consult, feasibility prototype",
+      "Added 2026-11-19-when-the-class-can-be-read-off-which-pair-is-asked-about-a-r: When the class can be read off which pair is asked about: a root-cause study of a balanced benchmark",
+      "seed 38 entry: corrections from the independent review (the queued-inbox arithmetic, one source line, scrollback)",
+      "Updated 2026-11-19-private-messages-at-a-shared-screen-what-a-deep-research-rep: Private messages at a shared screen: what a Deep Research report says for hot-seat play (seed 38)"
+    ],
+    "publishedAt": "2026-11-19T13:31:57Z",
+    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.24.0.14",
+    "prerelease": false
+  },
+  {
+    "repo": "roll",
+    "toolName": "Roll",
+    "tag": "v2.1.3",
+    "name": "roll v2.1.3",
+    "body": [
+      "Stacked-explosion cost guards across analyze(), Monte Carlo, and roll() — estimateAstAnalyzeRolls accounts for stacked explosion modifiers (101^k per-sample roll amplification across explode / compound / penetrate)…",
+      "Subnormal IEEE-754 underflow guard in reroll_once — singleDieWithReroll preserves positive subnormal mass when pMatch * pFace would flush to 0 (1d2000r=1ro=1 retains bucket 1 with stats.min === 1, and…",
+      "Zero-dice caps metadata — tryExact short-circuits count === 0 (0d6!, 0d6r=1) to {0: 1} before per-die cap modelling so caps is omitted when zero dice are rolled.",
+      "Monte Carlo analysis counts draws per sample instead of per draw, and the dice pipeline skips work for groups with no modifiers; seeded results are unchanged.",
+      "roll() throws ParseError(\"Explosion roll limit of 10000 exceeded\") when one dice group's explosions pass MAX_EXPLOSION_ROLLS = 10,000. The CLI and the MCP roll_dice tool refuse a request, including a single roll,…"
+    ],
+    "publishedAt": "2026-11-14T17:45:35Z",
+    "url": "https://github.com/mcp-tool-shop-org/roll/releases/tag/v2.1.3",
+    "prerelease": false
+  },
+  {
+    "repo": "roll",
+    "toolName": "Roll",
+    "tag": "v2.1.2",
+    "name": "roll v2.1.2",
+    "body": [
+      "Exact analysis for combined dice modifiers and engine loop caps — tryExact now composes Stage 1 (roll), Stage 2 (reroll / reroll_once), and Stage 3 (min / max) per die before Stage 4 (explode / compound / penetrate),…",
+      "Division-by-zero parity between roll() and analyze() — divideDistribution, divideDistributions, and tryExact throw ParseError(\"Division by zero\") whenever an exact divisor is 0 or has positive probability of rolling…"
+    ],
+    "publishedAt": "2026-11-14T07:21:42Z",
+    "url": "https://github.com/mcp-tool-shop-org/roll/releases/tag/v2.1.2",
+    "prerelease": false
+  },
+  {
+    "repo": "sovereignty",
+    "toolName": "Sovereignty",
+    "tag": "v2.4.1",
+    "name": "v2.4.1",
+    "body": [
+      "Brings 2.4.0's network-reset handling to the desktop app.",
+      "The desktop app builds again. The v2.4.0 release built no desktop installers: tauri build refused, because the tauri crate was 2.11.0 while @tauri-apps/api was 2.12.3, and Tauri needs both on one major.minor. The…",
+      "A pull request now catches this. CI's Tauri job runs cargo check, clippy and cargo test, never tauri build, so the mismatch was first seen in the release run. A new test compares the Tauri crates in…"
+    ],
+    "publishedAt": "2026-11-14T02:55:04Z",
+    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.4.1",
+    "prerelease": false
+  },
+  {
+    "repo": "sovereignty",
+    "toolName": "Sovereignty",
+    "tag": "v2.4.0",
+    "name": "v2.4.0",
+    "body": [
+      "The release for the 2026-11-25 Testnet and Devnet wipe. Checked live on Testnet on the release commit, including a proof made and anchored by 2.3.6: docs/receipts/2.4.0-reset-live-check-1016c26.",
+      "sov anchor --reanchor: put a game's rounds back on the ledger after a test network reset. Plain sov anchor only sends pending rounds, so a round already recorded as anchored could not be recovered without the…",
+      "It asks the ledger about every anchor recorded for the active game and sends again only the rounds whose transaction is gone. A round still on the ledger is never sent twice, and neither is one the ledger gave no…",
+      "Only a proof whose local hash still checks out is sent. The new transaction replaces the old one in anchors.json.",
+      "Exit code 0 when every lost round is anchored again or nothing was lost; 1 when a round was left out (no valid local proof, or no answer from the ledger)."
+    ],
+    "publishedAt": "2026-11-14T01:56:24Z",
+    "url": "https://github.com/mcp-tool-shop-org/sovereignty/releases/tag/v2.4.0",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-camp",
+    "toolName": "XRPL Camp",
+    "tag": "v1.6.0",
+    "name": "v1.6.0",
+    "body": [
+      "Testnet and Devnet are wiped on 2026-11-25. This release is for that: a proof pack made before the wipe is not reported as a forgery afterwards, and the \"history gone\" verdict now says what it rests on.",
+      "Minor, not patch: proof verify --online has a new result status (history_unconfirmed), a new lesson status (miss_history_unconfirmed) and a new field (history_signal). A script that branches on the status string…",
+      "A proof pack from before a full network reset is no longer reported as a forgery. Testnet and Devnet are wiped on 2026-11-25 (xrpl.org notice): every ledger is deleted and the count starts again. proof verify…",
+      "A recorded ledger index more than 1,000 ledgers past the endpoint's newest one now also reads as history gone: the lesson is reported as unverifiable (exit code 3, as before for discarded history), not as…",
+      "The message now covers both cases: \"this endpoint does not hold ledger N, where this transaction was recorded as closing: the network was reset or its old history was discarded\"."
+    ],
+    "publishedAt": "2026-11-13T13:34:28Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.6.0",
+    "prerelease": false
+  },
+  {
+    "repo": "xrpl-lab",
+    "toolName": "XRPL Lab",
+    "tag": "v2.8.0",
+    "name": "XRPL Lab v2.8.0",
+    "body": [
+      "Testnet and Devnet are wiped on 2026-11-25. This release is for that: proof packs issued before the wipe are judged honestly afterwards, and the lab tells a learner what the wipe did to their work and how to carry on.",
+      "Proof packs survive a test network reset. Testnet and Devnet are wiped on 2026-11-25 (xrpl.org notice). Before this change, verify-artifact --live on a pack issued before the wipe would report every transaction as…",
+      "Live verification now reports such a transaction as RESET: \"can no longer be checked on-ledger\". The verdict is can't be checked (ledger reset after issuance) and the exit code is 4. It is not a pass: a pack with…",
+      "A reset is known from a list of announced resets (xrpl_lab/resets.py) or from the ledger going backwards: each run on Testnet or Devnet now records the highest validated ledger index it saw (ledger_marks in…",
+      "Packs sealed by 2.7.9 and earlier verify exactly as before."
+    ],
+    "publishedAt": "2026-11-13T12:58:58Z",
+    "url": "https://github.com/mcp-tool-shop-org/xrpl-lab/releases/tag/v2.8.0",
+    "prerelease": false
+  },
+  {
+    "repo": "tool-compass",
+    "toolName": "Tool Compass",
+    "tag": "v2.5.6",
+    "name": "Tool Compass v2.5.6",
+    "body": [
+      "The Gradio UI honours GRADIO_AUTH / --auth on every start, and refuses to start off loopback (including the Docker UI container) without a login. Loopback starts (127.0.0.1, localhost, ::1) continue to work without a…",
+      "Added a dated pip-audit exception in CI until 2026-12-10 (#157) for 39 unreachable pillow 12.3.0 advisories held below 13.0.0 by gradio 6.31.0's pillow<13.0 requirement, and raised the coverage floor…",
+      "The HTTP gateway off loopback (HOST other than 127.0.0.1, localhost, or ::1) — including the mcp-gateway Docker image, the docker-compose.yml gateway service, and fly.toml — now refuses to start (exits 2) unless a…",
+      "Site dependencies updated with npm audit fix (vite, undici, zod and related packages); npm audit now reports 0 vulnerabilities for site/.",
+      "The CI dependency audit is split in two: the core install is audited strictly with no exceptions, and the Web UI extra (gradio) keeps the dated Pillow exception."
+    ],
+    "publishedAt": "2026-11-13T01:27:26Z",
+    "url": "https://github.com/mcp-tool-shop-org/tool-compass/releases/tag/v2.5.6",
+    "prerelease": false
+  },
+  {
     "repo": "backpropagate",
     "toolName": "Backpropagate",
     "tag": "v1.9.0",
@@ -353,22 +614,6 @@
     "prerelease": false
   },
   {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "v1.1.23.1.55",
-    "name": "rnd 1.1.23.1.55",
-    "body": [
-      "The first tool release since 1.1.23.1.31 (24 October). It carries 24 library versions, 1.1.23.1.32 to 1.1.23.1.55. Full detail per version is in CHANGELOG.md.",
-      "Issues 30 to 37 (25 October to 3 November). Issue 30 was the first daily issue.",
-      "Issue 34 corrected (1.1.23.1.47): three of the eight Super prompts ask more than a 2.5-second clip can show, so int4 is now the provisional choice, to be re-checked. No numbers changed.",
-      "Mirrors: each published issue now goes to the Hugging Face dataset mcp-tool-shop/rnd-newsletter, to npm as @rnd-news/newsletter, to PyPI as mcptoolshop-rnd-newsletter, and to a GitHub release per issue (1.1.23.1.35,…",
-      "/newsletter/subscribe/ is now \"Follow the newsletter\": RSS plus the mirrors (1.1.23.1.50)."
-    ],
-    "publishedAt": "2026-11-03T18:31:18Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.55",
-    "prerelease": false
-  },
-  {
     "repo": "reasoning-dataset-lab",
     "toolName": "Reasoning Dataset Lab",
     "tag": "v0.4.0",
@@ -467,233 +712,6 @@
     ],
     "publishedAt": "2026-10-26T23:26:26Z",
     "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.9",
-    "prerelease": false
-  },
-  {
-    "repo": "interlock",
-    "toolName": "Interlock",
-    "tag": "v1.0.8",
-    "name": "v1.0.8",
-    "body": [
-      "A per-cell wall cap. request_timeout_s is clamped to 120 to 900 s per request, so a slow, fully resident c4 or c8 cell could take four passes of 900 s (an hour) plus up to six calibration calls, and a few such cells…",
-      "CALIBRATION_TIMEOUT_S is 300 s (was 900). A calibration call is a single request with a one-token reply. The slowest fully resident one on record is T4 r3's p16384 verify at 25.1 s (Ollama's Go side costs about 0.57…",
-      "The T4 r4 hang: a VRAM sample has a deadline. After the c4 16k cell's host-RAM oom row the run sent nothing for 56 minutes and its run record stayed closed: false; the likely place is the NVML sample at the start of…",
-      "After the first NVML timeout the run samples through nvidia-smi. An NVML call abandoned on a daemon thread can leave pynvml wedged inside the process, so every later cell could wait out the 30 s deadline again for…",
-      "Phase markers. The harness writes one line per phase to stderr ([interlock HH:MM:SSZ] cell p32768 c4: start, sampling VRAM, each probe and verify sent, calibrated, each pass sent and answered, VRAM sampled, cell…"
-    ],
-    "publishedAt": "2026-10-26T21:05:06Z",
-    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.8",
-    "prerelease": false
-  },
-  {
-    "repo": "interlock",
-    "toolName": "Interlock",
-    "tag": "v1.0.7",
-    "name": "v1.0.7",
-    "body": [
-      "T4 rung r3 (the log of its Ollama and the VM's free -m) showed that version 3 labelled some cells wrongly. GENERATE_LADDER_VERSION is now 4. The timeout and unmeasured labels that v3 gave to a partially offloaded…",
-      "A partial offload is oom, found before any timed call. In r3 three cells (p32768 c1, p8192 c4, p4096 c8) loaded 27 to 29 of 33 layers on the GPU with 1.6 to 2.6 GB of KV in host RAM, then ran on the CPU until the 120…",
-      "A SIGKILL during a load is oom (host RAM) only on the log's numbers. In r3 five cells logged 14 to 95 GB of host KV on a VM with 12,975 MiB of RAM and no swap, then llama-server process has terminated: signal:…",
-      "The request timeout is scaled from the cell's own verify call and recorded. Every call used a fixed 120 s timeout. Calibration calls now get CALIBRATION_TIMEOUT_S = 900 (single requests). Timed calls get clamp(ceil(3…",
-      "Host RAM needs all three numbers and the rounding margin. The oom (host RAM) reading requires the CPU KV, the CPU_Mapped weights and the system-memory total to have all been read (a missing one makes the cell…"
-    ],
-    "publishedAt": "2026-10-26T17:28:54Z",
-    "url": "https://github.com/mcp-tool-shop-org/interlock/releases/tag/v1.0.7",
-    "prerelease": false
-  },
-  {
-    "repo": "cognate",
-    "toolName": "Cognate",
-    "tag": "v1.0.0",
-    "name": "@mcptoolshop/cognate v1.0.0",
-    "body": [],
-    "publishedAt": "2026-10-25T09:38:54Z",
-    "url": "https://github.com/mcp-tool-shop-org/cognate/releases/tag/v1.0.0",
-    "prerelease": false
-  },
-  {
-    "repo": "repomesh",
-    "toolName": "Repomesh",
-    "tag": "v2.5.0",
-    "name": "v2.5.0",
-    "body": [
-      "Release docs. The README and handbook say what is new in 2.4 and 2.5, list Cognate's run attestations, note that check-policy.mjs can build a PolicyViolation though none is on the ledger yet, and describe the CI test…",
-      "CI test and coverage gate (ledger-ci.yml, registry-ci.yml): ledger-ci.yml runs all 9 repository node --test suites with --experimental-test-coverage (--test-coverage-lines=57) and production npm audit…",
-      "Fail-closed XRPL testnet guard (anchor/xrpl/scripts/post-anchor.mjs): exports KNOWN_TESTNET_WS_URLS, normalizeWsUrl, assertPostingEndpoint, and connectValidatedClient, with offline unit and subprocess tests in…",
-      "Anchor key lifecycle windows: isBundledTrustedAnchorEvent in verifiers/lib/key-window.mjs (and its CLI mirror) validates the anchor signer's maintainer entry with isKeyValidForSignature and enforces ledger order…",
-      "Authorised verdicts and anchor trust: build-trust scores only verdicts whose check kind appears in ev.attestations and is authorised for the signer via canNodeSignAttestations, and build-trust, packages/repomesh-cli…"
-    ],
-    "publishedAt": "2026-10-25T08:42:13Z",
-    "url": "https://github.com/mcp-tool-shop-org/repomesh/releases/tag/v2.5.0",
-    "prerelease": false
-  },
-  {
-    "repo": "attestia",
-    "toolName": "Attestia",
-    "tag": "v2.1.3",
-    "name": "@mcptoolshop/attestia v2.1.3",
-    "body": [],
-    "publishedAt": "2026-10-25T07:41:33Z",
-    "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.1.3",
-    "prerelease": false
-  },
-  {
-    "repo": "attestia",
-    "toolName": "Attestia",
-    "tag": "v2.1.2",
-    "name": "@mcptoolshop/attestia v2.1.2",
-    "body": [],
-    "publishedAt": "2026-10-25T04:20:59Z",
-    "url": "https://github.com/mcp-tool-shop-org/attestia/releases/tag/v2.1.2",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "v1.1.23.1.31",
-    "name": "rnd 1.1.23.1.31",
-    "body": [
-      "newsletter: issue 28 (#220); the RSS feed, its CI check and the zod pin (#221-#223); the issue 28 correction with seven Antigravity-designed charts, plus issue 27's chart margin (#224)",
-      "colab-drift: compare.py in the repo, reading each reply as role-set does, with evidence_drift for DECIDING on verdict calls; the G4 counts hold (65 drifted, 28 decision, 3 verdict, 10 evidence) (#225)",
-      "stage1-regeneration: run records 18a-18e with stubs, 19s, 19a, probes p6 and p7; phase 5 cap 500, shared across experiments (#225)"
-    ],
-    "publishedAt": "2026-10-24T02:34:36Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.31",
-    "prerelease": false
-  },
-  {
-    "repo": "aspire-si",
-    "toolName": "Aspire Si",
-    "tag": "v1.4.0",
-    "name": "aspire-si 1.4.0",
-    "body": [
-      "Full notes: CHANGELOG.md"
-    ],
-    "publishedAt": "2026-10-24T01:51:47Z",
-    "url": "https://github.com/mcp-tool-shop-org/aspire-si/releases/tag/v1.4.0",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "v1.1.23.1.30",
-    "name": "rnd 1.1.23.1.30",
-    "body": [
-      "Correction to the Colab drift results and newsletter issue 27. The RTX PRO 6000 drifted on 65 of 178 critic calls, but only 3 of those changed a verdict, not all 65: verdicts held on 49 of 52. The comparison script's…"
-    ],
-    "publishedAt": "2026-10-23T17:50:23Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.30",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "v1.1.23.1.29",
-    "name": "rnd 1.1.23.1.29",
-    "body": [
-      "Run records for the 2026-10-22/23 Colab windows (drift v3, the offrig Colab baseline).",
-      "Colab drift results: three A100 VMs are byte-identical on every shared call, and the A100 80 GB matches the 40 GB (178/178); the RTX PRO 6000 on its own sm_120 build drifts on 65 of 178 calls, each with a verdict change.",
-      "Offrig Colab A100 baseline: A100 matches A100 exactly; against the RTX 5090 the text differs, with verdicts 29/30.",
-      "Handbook: stub coverage.",
-      "Newsletter issue 27, \"Same request, same seed, same bytes?\""
-    ],
-    "publishedAt": "2026-10-23T17:33:58Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.29",
-    "prerelease": false
-  },
-  {
-    "repo": "escape-the-valley",
-    "toolName": "Escape The Valley",
-    "tag": "v1.3.2",
-    "name": "Escape the Valley v1.3.2",
-    "body": [
-      "Per-event_id cooldown (N=4) and seed reproducibility note (#21). select_event now tracks the last 4 fired event_ids alongside the existing tag-family cooldown so a specific skeleton cannot repeat on consecutive or…",
-      "GM-off CLI Outcome panel duplicate line (#20). In GameEngine._trigger_event (trail new / trail continue with --gm-off), the fallback outcome summary was assigned to both outcome_narration and callout, causing…",
-      "Choice hint double punctuation and 1 mile remaining grammar (#21). show_event_scene now strips trailing . from risk_hint and cost_hint before joining with ; or wrapping in (...) (eliminating (Time cost, animal…",
-      "Quarantine corrupt .trail/secrets.json before rewrite (#31.7). When _write_secrets_sidecar encounters an unreadable or non-dict .trail/secrets.json, it now renames the corrupt file to secrets.json.corrupt-<timestamp>…",
-      "LF-normalised third-party notices and byte-for-byte trail licenses output (N1, N2). Every licence text is normalised to LF (\\n) before SHA-256 hashing and rendering, THIRD_PARTY_NOTICES*.txt is written with…"
-    ],
-    "publishedAt": "2026-10-23T14:51:53Z",
-    "url": "https://github.com/mcp-tool-shop-org/escape-the-valley/releases/tag/v1.3.2",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-camp",
-    "toolName": "XRPL Camp",
-    "tag": "v1.5.2",
-    "name": "v1.5.2",
-    "body": [
-      "The headline: xrpl-camp no longer tells you a transaction landed when the ledger never confirmed it. If a mint or burn comes back without a result, reserve now looks it up first. When it still can't confirm the…",
-      "Signed NFT submissions no longer treat a missing TransactionResult as success. When submit_and_wait returns without a TransactionResult in meta during xrpl-camp reserve, _submit_signed now looks up the signed…",
-      "xrpl-camp reserve --json reports \"reserve_measured\" explicitly. When the ledger read right after the mint does not yet show the new owner reserve (not_yet_visible), reserve --json now sets \"reserve_measured\": false…",
-      "xrpl-camp proof verify output consistency (--online and Windows paths). summarize_online now counts every transaction lookup that received a ledger response in online.checked (not only ok lookups, so a contradicted…",
-      "Standalone binary build recipe and CI runner parity. BUILD.md now includes the direct_url.json cleanup step and uv run --no-sync pyinstaller invocation used in .github/workflows/publish.yml, publish.yml pins uv…"
-    ],
-    "publishedAt": "2026-10-23T07:34:13Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.5.2",
-    "prerelease": false
-  },
-  {
-    "repo": "rnd",
-    "toolName": "Rnd",
-    "tag": "v1.1.23.1.28",
-    "name": "rnd 1.1.23.1.28",
-    "body": [
-      "rnd 1.1.23.1.28. Changes: see CHANGELOG.md, section [1.1.23.1.28]: the localbuilders proxy passes a client's seed through to llama-server; newsletter issue 26."
-    ],
-    "publishedAt": "2026-10-23T05:31:01Z",
-    "url": "https://github.com/mcp-tool-shop-org/rnd/releases/tag/v1.1.23.1.28",
-    "prerelease": false
-  },
-  {
-    "repo": "escape-the-valley",
-    "toolName": "Escape The Valley",
-    "tag": "v1.3.1",
-    "name": "Escape the Valley v1.3.1",
-    "body": [
-      "Third-party license notices (THIRD_PARTY_NOTICES.txt & trail licenses, #28). Standalone PyInstaller binaries now bundle full third-party license and notice texts alongside the game's MIT license (also attached to the…",
-      "Clean release binaries. The release build installs Python outside any user home, strips the PEP 610 direct_url.json build record, and fails if a bundle carries either a build record or a home path in _sysconfigdata.",
-      "CLI trail new / trail continue memory parity (H-1) & canonical cause of death (M-1). Interactive CLI runs now emit memory cards (crises, health/death, wagon breakdowns, events, arrivals, escape valves, GM proposals)…",
-      "TUI Abandon Cargo toast & memory card (H-2). [V] Abandon Cargo in the TUI now displays the actual dropped supply counts instead of (dropped: nothing).",
-      "Fork route prompt timer tick (H-3). Choosing a route at a fork no longer consumes a turn of wagon maintenance or escape-valve cooldown before the travel day begins."
-    ],
-    "publishedAt": "2026-10-23T04:54:17Z",
-    "url": "https://github.com/mcp-tool-shop-org/escape-the-valley/releases/tag/v1.3.1",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-camp",
-    "toolName": "XRPL Camp",
-    "tag": "v1.5.1",
-    "name": "v1.5.1",
-    "body": [],
-    "publishedAt": "2026-10-23T04:28:05Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.5.1",
-    "prerelease": false
-  },
-  {
-    "repo": "xrpl-camp",
-    "toolName": "XRPL Camp",
-    "tag": "v1.5.0",
-    "name": "v1.5.0",
-    "body": [],
-    "publishedAt": "2026-10-23T00:15:07Z",
-    "url": "https://github.com/mcp-tool-shop-org/xrpl-camp/releases/tag/v1.5.0",
-    "prerelease": false
-  },
-  {
-    "repo": "npm-launcher",
-    "toolName": "npm Launcher",
-    "tag": "v1.2.0",
-    "name": "npm-launcher v1.2.0",
-    "body": [
-      "Through a wrapper, --version, -V, --help and -h reach the tool (#6). 1.1.1 answered them before reading the wrapper's config, so npx @mcptoolshop/<tool> --version printed mcptoolshop-launch 1.1.1 instead of the…",
-      "The tool sees its own name. The binary is started with argv[0] set to the tool's name, so a tool's help reads Usage: xrpl-lab ... rather than Usage: xrpl-lab-2.7.9-win-x64.exe ..., the cached asset's file name. That…",
-      "--launcher-version prints the launcher's version, with or without a wrapper.",
-      "Seven pass-through tests (24 total), and a CI line-coverage floor at the measured level (target 90)."
-    ],
-    "publishedAt": "2026-10-22T16:09:14Z",
-    "url": "https://github.com/mcp-tool-shop-org/npm-launcher/releases/tag/v1.2.0",
     "prerelease": false
   }
 ]
